@@ -270,6 +270,10 @@ function lvim.load_plugin_syntax()
         NvimTreeSignWarning = {fg = lvim.color_9},
         NvimTreeSignInformation = {fg = lvim.color_6},
         NvimTreeSignHint = {fg = lvim.color_9},
+        NvimTreeLspDiagnosticsError = {fg = lvim.color_10},
+        NvimTreeLspDiagnosticsWarning = {fg = lvim.color_9},
+        NvimTreeLspDiagnosticsInformation = {fg = lvim.color_6},
+        NvimTreeLspDiagnosticsHint = {fg = lvim.color_9},
 
         TelescopeBorder = {fg = lvim.color_11},
         TelescopePromptBorder = {fg = lvim.color_3},
