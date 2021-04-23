@@ -276,7 +276,11 @@ function lvim.load_plugin_syntax()
             style = 'bold'
         },
         TelescopeSelectionCaret = {fg = lvim.color_3},
-        TelescopeMultiSelection = {fg = lvim.color_11}
+        TelescopeMultiSelection = {fg = lvim.color_11},
+
+        Floaterm = {fg = lvim.color_9},
+        FloatermBorder = {fg = lvim.color_11}
+
     }
     return plugin_syntax
 end
