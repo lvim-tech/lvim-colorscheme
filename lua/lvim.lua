@@ -266,6 +266,10 @@ function lvim.load_plugin_syntax()
         NvimTreeSpecialFile = {fg = lvim.fg, bg = lvim.none, stryle = 'NONE'},
         NvimTreeFolderIcon = {fg = lvim.color_4},
         NvimTreeIndentMarker = {fg = lvim.color_4},
+        NvimTreeSignError = {fg = lvim.color_10},
+        NvimTreeSignWarning = {fg = lvim.color_9},
+        NvimTreeSignInformation = {fg = lvim.color_6},
+        NvimTreeSignHint = {fg = lvim.color_9},
 
         TelescopeBorder = {fg = lvim.color_11},
         TelescopePromptBorder = {fg = lvim.color_3},
