@@ -95,9 +95,9 @@ function lvim.load_syntax()
         DiffDelete = {fg = lvim.black, bg = lvim.color_0},
         DiffText = {fg = lvim.black, bg = lvim.fg},
         Directory = {fg = lvim.color_8, bg = lvim.none},
-        ErrorMsg = {fg = lvim.color_0, bg = lvim.none, style = 'bold'},
-        WarningMsg = {fg = lvim.color_3, bg = lvim.none, style = 'bold'},
-        ModeMsg = {fg = lvim.fg, bg = lvim.none, style = 'bold'},
+        ErrorMsg = {fg = lvim.color_10, bg = lvim.none, style = 'bold'},
+        WarningMsg = {fg = lvim.color_9, bg = lvim.none, style = 'bold'},
+        ModeMsg = {fg = lvim.color_6, bg = lvim.none, style = 'bold'},
         MatchParen = {fg = lvim.color_0, bg = lvim.none},
         NonText = {fg = lvim.bg1},
         Whitespace = {fg = lvim.base4},
@@ -138,7 +138,7 @@ function lvim.load_syntax()
         Typedef = {fg = lvim.color_0},
         Exception = {fg = lvim.color_0},
         Statement = {fg = lvim.color_0},
-        Error = {fg = lvim.color_0},
+        Error = {fg = lvim.color_10},
         StorageClass = {fg = lvim.color_2},
         Tag = {fg = lvim.color_2},
         Label = {fg = lvim.color_2},
@@ -239,26 +239,26 @@ function lvim.load_plugin_syntax()
 
         dbui_tables = {fg = lvim.color_8},
 
-        LspDiagnosticsSignError = {fg = lvim.color_0},
-        LspDiagnosticsSignWarning = {fg = lvim.color_3},
-        LspDiagnosticsSignInformation = {fg = lvim.color_8},
-        LspDiagnosticsSignHint = {fg = lvim.color_7},
+        LspDiagnosticsSignError = {fg = lvim.color_10},
+        LspDiagnosticsSignWarning = {fg = lvim.color_9},
+        LspDiagnosticsSignInformation = {fg = lvim.color_6},
+        LspDiagnosticsSignHint = {fg = lvim.color_9},
 
-        LspDiagnosticsVirtualTextError = {fg = lvim.color_0},
-        LspDiagnosticsVirtualTextWarning = {fg = lvim.color_3},
-        LspDiagnosticsVirtualTextInformation = {fg = lvim.color_8},
-        LspDiagnosticsVirtualTextHint = {fg = lvim.color_7},
+        LspDiagnosticsVirtualTextError = {fg = lvim.color_10},
+        LspDiagnosticsVirtualTextWarning = {fg = lvim.color_9},
+        LspDiagnosticsVirtualTextInformation = {fg = lvim.color_6},
+        LspDiagnosticsVirtualTextHint = {fg = lvim.color_9},
 
-        LspDiagnosticsUnderlineError = {style = "undercurl", sp = lvim.color_0},
+        LspDiagnosticsUnderlineError = {style = "undercurl", sp = lvim.color_10},
         LspDiagnosticsUnderlineWarning = {
             style = "undercurl",
-            sp = lvim.color_3
+            sp = lvim.color_9
         },
         LspDiagnosticsUnderlineInformation = {
             style = "undercurl",
-            sp = lvim.color_8
+            sp = lvim.color_6
         },
-        LspDiagnosticsUnderlineHint = {style = "undercurl", sp = lvim.color_7},
+        LspDiagnosticsUnderlineHint = {style = "undercurl", sp = lvim.color_9},
 
         NvimTreeFolderName = {fg = lvim.color_4},
         NvimTreeEmptyFolderName = {fg = lvim.color_4},
