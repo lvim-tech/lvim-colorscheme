@@ -98,6 +98,7 @@ function lvim.load_syntax()
         ErrorMsg = {fg = lvim.color_10, bg = lvim.none, style = 'bold'},
         WarningMsg = {fg = lvim.color_9, bg = lvim.none, style = 'bold'},
         ModeMsg = {fg = lvim.color_6, bg = lvim.none, style = 'bold'},
+        FocusedSymbol = {bg = lvim.color_0, fg = lvim.color_8},
         MatchParen = {fg = lvim.color_0, bg = lvim.none},
         NonText = {fg = lvim.bg1},
         Whitespace = {fg = lvim.base4},
@@ -288,7 +289,6 @@ function lvim.load_plugin_syntax()
 
         Floaterm = {fg = lvim.color_9},
         FloatermBorder = {fg = lvim.color_11}
-
     }
     return plugin_syntax
 end
