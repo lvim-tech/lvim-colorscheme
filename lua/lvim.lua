@@ -22,11 +22,11 @@ local lvim = {
     color_6 = '#83a598',
     color_7 = '#63B7C0',
     color_8 = '#F2CC8E',
-    color_9 = '#F2CA7E',
+    color_9 = '#F2AE72',
     color_10 = '#F2594B',
     color_11 = '#006BC6',
-    color_12 = '#F2AE72',
-    color_13 = '#296984',
+    color_12 = '#F2A057',
+    color_13 = '#1F8C8C',
     black = '#181818',
     none = 'NONE'
 }
@@ -127,7 +127,7 @@ function lvim.load_syntax()
         Define = {fg = lvim.color_9},
         Conditional = {fg = lvim.color_10},
         Repeat = {fg = lvim.color_10},
-        Keyword = {fg = lvim.color_5},
+        Keyword = {fg = lvim.color_8},
         Typedef = {fg = lvim.color_0},
         Exception = {fg = lvim.color_0},
         Statement = {fg = lvim.color_0},
