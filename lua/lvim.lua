@@ -4,13 +4,13 @@
 -- Source: https://github.com/lvim-org/lvim-colorscheme
 local lvim = {
     base0 = '#242424',
-    base1 = '#32302f',
-    base2 = '#3c3836',
+    base1 = '#303030',
+    base2 = '#343434',
 
     bg = '#282828',
-    bg1 = '#d5c4a1',
+    bg1 = '#F2CA7E',
     bg_highlight = '#242424',
-    bg_visual = '#bdae93',
+    bg_visual = '#F2CA7E',
 
     fg = '#00839F',
     color_0 = '#008080',
@@ -18,9 +18,9 @@ local lvim = {
     color_2 = '#E0AF69',
     color_3 = '#39A291',
     color_4 = '#2E96B5',
-    color_5 = '#F29E6D',
+    color_5 = '#F2CA7E',
     color_6 = '#83a598',
-    color_7 = '#FF5452',
+    color_7 = '#F05F4E',
     color_8 = '#E7BC74',
     color_9 = '#F2994B',
     color_10 = '#F2594B',
@@ -102,7 +102,7 @@ function lvim.load_syntax()
         PmenuThumb = {fg = lvim.color_9, bg = lvim.color_4},
         WildMenu = {fg = lvim.fg, bg = lvim.color_5},
         Question = {fg = lvim.color_3},
-        NormalFloat = {fg = lvim.base2, bg = lvim.bg_highlight},
+        NormalFloat = {fg = lvim.bg_visual, bg = lvim.none},
         Tabline = {fg = lvim.base2, bg = lvim.base1},
         TabLineFill = {style = lvim.none},
         TabLineSel = {fg = lvim.fg, bg = lvim.none},
@@ -279,7 +279,37 @@ function lvim.load_plugin_syntax()
         TelescopeMultiSelection = {fg = lvim.color_11},
 
         Floaterm = {fg = lvim.color_9},
-        FloatermBorder = {fg = lvim.color_11}
+        FloatermBorder = {fg = lvim.color_11},
+
+        BufferCurrent = {fg = lvim.color_8},
+        BufferCurrentIndex = {fg = lvim.color_8},
+        BufferCurrentMod = {fg = lvim.fg},
+        BufferCurrentSign = {fg = lvim.fg},
+        BufferCurrentTarget = {fg = lvim.color_8},
+
+        BufferVisible = {fg = lvim.color_3},
+        BufferVisibleIndex = {fg = lvim.color_3},
+        BufferVisibleMod = {fg = lvim.fg},
+        BufferVisibleSign = {fg = lvim.fg},
+        BufferVisibleTarget = {fg = lvim.color_3},
+
+        BufferInactive = {fg = lvim.color_3},
+        BufferInactiveIndex = {fg = lvim.color_3},
+        BufferInactiveMod = {fg = lvim.fg},
+        BufferInactiveSign = {fg = lvim.fg},
+        BufferInactiveTarget = {fg = lvim.color_3},
+
+        BufferTabpages = {fg = lvim.none},
+        BufferTabpageFill = {fg = lvim.none}
+
+        -- BufferCurrentIcon = {fg = lvim.color_3},
+        -- BufferCurrent = {fg = lvim.color_3},
+        -- BufferVisibleIcon = {fg = lvim.color_3},
+        -- BufferVisible = {fg = lvim.color_3},
+        -- BufferInactiveIcon = {fg = lvim.color_3},
+        -- BufferInactive = {fg = lvim.color_3}
+
+        -- BufferInactive = {fg = lvim.color_4}
     }
     return plugin_syntax
 end
