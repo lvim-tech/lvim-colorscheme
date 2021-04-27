@@ -283,19 +283,19 @@ function lvim.load_plugin_syntax()
 
         BufferCurrent = {fg = lvim.color_8},
         BufferCurrentIndex = {fg = lvim.color_8},
-        BufferCurrentMod = {fg = lvim.fg},
+        BufferCurrentMod = {fg = lvim.color_8},
         BufferCurrentSign = {fg = lvim.fg},
         BufferCurrentTarget = {fg = lvim.color_8},
 
         BufferVisible = {fg = lvim.color_3},
         BufferVisibleIndex = {fg = lvim.color_3},
-        BufferVisibleMod = {fg = lvim.fg},
+        BufferVisibleMod = {fg = lvim.color_3},
         BufferVisibleSign = {fg = lvim.fg},
         BufferVisibleTarget = {fg = lvim.color_3},
 
         BufferInactive = {fg = lvim.color_3},
         BufferInactiveIndex = {fg = lvim.color_3},
-        BufferInactiveMod = {fg = lvim.fg},
+        BufferInactiveMod = {fg = lvim.color_3},
         BufferInactiveSign = {fg = lvim.fg},
         BufferInactiveTarget = {fg = lvim.color_3},
 
