@@ -32,21 +32,21 @@ local lvim = {
 }
 
 function lvim.terminal_color()
-    vim.g.terminal_color_0 = lvim.bg
-    vim.g.terminal_color_1 = lvim.color_0
-    vim.g.terminal_color_2 = lvim.color_5
-    vim.g.terminal_color_3 = lvim.color_3
+    vim.g.terminal_color_0 = lvim.base2
+    vim.g.terminal_color_1 = lvim.color_10
+    vim.g.terminal_color_2 = lvim.color_3
+    vim.g.terminal_color_3 = lvim.color_13
     vim.g.terminal_color_4 = lvim.color_8
-    vim.g.terminal_color_5 = lvim.color_9
-    vim.g.terminal_color_6 = lvim.color_7
-    vim.g.terminal_color_7 = lvim.bg1
-    vim.g.terminal_color_8 = lvim.color_13
-    vim.g.terminal_color_9 = lvim.color_0
-    vim.g.terminal_color_10 = lvim.color_5
-    vim.g.terminal_color_11 = lvim.color_3
+    vim.g.terminal_color_5 = lvim.color_6
+    vim.g.terminal_color_6 = lvim.color_9
+    vim.g.terminal_color_7 = lvim.fg
+    vim.g.terminal_color_8 = lvim.color_3
+    vim.g.terminal_color_9 = lvim.color_10
+    vim.g.terminal_color_10 = lvim.color_3
+    vim.g.terminal_color_11 = lvim.color_13
     vim.g.terminal_color_12 = lvim.color_8
-    vim.g.terminal_color_13 = lvim.color_9
-    vim.g.terminal_color_14 = lvim.color_7
+    vim.g.terminal_color_13 = lvim.color_6
+    vim.g.terminal_color_14 = lvim.color_9
     vim.g.terminal_color_15 = lvim.fg
 end
 
