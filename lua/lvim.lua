@@ -106,7 +106,7 @@ function lvim.load_syntax()
         Tabline = {fg = lvim.base2, bg = lvim.base1},
         TabLineFill = {style = lvim.none},
         TabLineSel = {fg = lvim.fg, bg = lvim.none},
-        StatusLine = {fg = lvim.base2, bg = lvim.base1, style = lvim.none},
+        StatusLine = {fg = lvim.color_13, bg = lvim.base1, style = lvim.none},
         StatusLineNC = {fg = lvim.color_12, bg = lvim.base1, style = lvim.none},
         SpellBad = {fg = lvim.color_0, bg = lvim.none, style = 'undercurl'},
         SpellCap = {fg = lvim.color_8, bg = lvim.none, style = 'undercurl'},
