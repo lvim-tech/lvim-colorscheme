@@ -3,11 +3,11 @@
 -- License: BSD 3-Clause License
 -- Source: https://github.com/lvim-org/lvim-colorscheme
 local lvim = {
-    base0 = '#2A2F3A',
-    base1 = '#2B333C',
-    base2 = '#2A2F3A',
+    base0 = '#2E3440',
+    base1 = '#252A34',
+    base2 = '#2E3440',
 
-    bg = '#303643',
+    bg = '#2E3440',
     bg1 = '#D9DA9E',
     bg_highlight = '#2A2F3A',
     bg_visual = '#D9DA9E',
@@ -27,7 +27,7 @@ local lvim = {
     color_11 = '#BED29A',
     color_12 = '#7ABF85',
     color_13 = '#1F8C8C',
-    black = '#2B333C',
+    black = '#252A34',
     none = 'NONE'
 }
 
@@ -102,7 +102,7 @@ function lvim.load_syntax()
         PmenuThumb = {fg = lvim.color_9, bg = lvim.color_4},
         WildMenu = {fg = lvim.fg, bg = lvim.color_5},
         Question = {fg = lvim.color_3},
-        NormalFloat = {fg = lvim.bg_visual, bg = lvim.none},
+        NormalFloat = {fg = lvim.bg_visual, bg = lvim.base2},
         Tabline = {fg = lvim.fg, bg = lvim.none},
         TabLineFill = {style = lvim.none},
         TabLineSel = {fg = lvim.bg1, bg = lvim.none},
@@ -202,6 +202,14 @@ function lvim.load_plugin_syntax()
         gitcommitOnBranch = {fg = lvim.color_12},
         gitcommitArrow = {fg = lvim.color_12},
         gitcommitFile = {fg = lvim.color_6},
+
+        NeogitBranch = {fg = lvim.color_3},
+        NeogitRemote = {fg = lvim.color_3},
+        NeogitHunkHeader = {fg = lvim.color_0, bg = lvim.base2},
+        NeogitHunkHeaderHighlight = {fg = lvim.color_0, bg = lvim.base2},
+        NeogitDiffContextHighlight = {fg = lvim.color_9, bg = lvim.base2},
+        NeogitDiffDeleteHighlight = {fg = lvim.color_10},
+        NeogitDiffAddHighlight = {fg = lvim.color_12},
 
         VistaBracket = {fg = lvim.color_12},
         VistaChildrenNr = {fg = lvim.color_8},
