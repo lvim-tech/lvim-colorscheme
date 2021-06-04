@@ -49,7 +49,8 @@ local lvim = {
     color_warning = '#F2994B',
     color_info = '#628b97',
 
-    black = '#252A34',
+    -- black = '#252A34',
+    black = '#1E222A',
 
     -- #449dab #0db9d7 #1abc9c #8fbcbb #5e81ac #ffb86c #ebdbb2 
     -- #458588 #83a598 #bf616a #81b88b #6395ec #56b6c2 #98c379  
@@ -146,8 +147,8 @@ function lvim.load_syntax()
         SpellCap = {fg = lvim.color_8, bg = lvim.none, style = 'undercurl'},
         SpellLocal = {fg = lvim.color_7, bg = lvim.none, style = 'undercurl'},
         SpellRare = {fg = lvim.color_9, bg = lvim.none, style = 'undercurl'},
-        Visual = {fg = lvim.color_8, bg = lvim.color_13},
-        VisualNOS = {fg = lvim.color_8, bg = lvim.color_13},
+        Visual = {fg = lvim.none, bg = lvim.black},
+        VisualNOS = {fg = lvim.none, bg = lvim.black},
         QuickFixLine = {fg = lvim.color_9},
         Debug = {fg = lvim.color_2},
         debugBreakpoint = {fg = lvim.bg, bg = lvim.color_0},
@@ -361,8 +362,8 @@ function lvim.load_plugin_syntax()
 
         ClapDir = {fg = lvim.color_4, bg = lvim.bg},
         ClapFile = {fg = lvim.color_4, bg = lvim.bg},
-        ClapCurrentSelection = {fg = lvim.fg, bg = lvim.color_4},
-        ClapCurrentSelectionSign = {fg = lvim.fg, bg = lvim.color_4},
+        ClapCurrentSelection = {fg = lvim.color_8, bg = lvim.bg},
+        ClapCurrentSelectionSign = {fg = lvim.color_8, bg = lvim.bg},
         ClapInput = {fg = lvim.fg, bg = lvim.bg},
         ClapSpinner = {fg = lvim.fg, bg = lvim.bg},
         ClapSearchText = {fg = lvim.color_4, bg = lvim.bg},
