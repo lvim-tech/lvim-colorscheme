@@ -353,16 +353,22 @@ function lvim.load_plugin_syntax()
         BufferInactiveTarget = {fg = lvim.color_3},
 
         BufferTabpages = {fg = lvim.none},
-        BufferTabpageFill = {fg = lvim.none}
+        BufferTabpageFill = {fg = lvim.none},
 
-        -- BufferCurrentIcon = {fg = lvim.color_3},
-        -- BufferCurrent = {fg = lvim.color_3},
-        -- BufferVisibleIcon = {fg = lvim.color_3},
-        -- BufferVisible = {fg = lvim.color_3},
-        -- BufferInactiveIcon = {fg = lvim.color_3},
-        -- BufferInactive = {fg = lvim.color_3}
+        BufferCurrentIcon = {fg = lvim.color_3},
+        BufferVisibleIcon = {fg = lvim.color_3},
+        BufferInactiveIcon = {fg = lvim.color_3},
 
-        -- BufferInactive = {fg = lvim.color_4}
+        ClapDir = {fg = lvim.color_4, bg = lvim.bg},
+        ClapFile = {fg = lvim.color_4, bg = lvim.bg},
+        ClapCurrentSelection = {fg = lvim.fg, bg = lvim.color_4},
+        ClapCurrentSelectionSign = {fg = lvim.fg, bg = lvim.color_4},
+        ClapInput = {fg = lvim.fg, bg = lvim.bg},
+        ClapSpinner = {fg = lvim.fg, bg = lvim.bg},
+        ClapSearchText = {fg = lvim.color_4, bg = lvim.bg},
+        ClapPreview = {fg = lvim.fg, bg = lvim.bg},
+        ClapSelected = {fg = lvim.fg, bg = lvim.bg},
+        ClapSelectedSign = {fg = lvim.fg, bg = lvim.bg}
     }
     return plugin_syntax
 end
