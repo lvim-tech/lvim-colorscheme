@@ -51,6 +51,7 @@ local lvim = {
 
     -- black = '#252A34',
     black = '#1E222A',
+    hl = '#4C566A',
 
     -- #449dab #0db9d7 #1abc9c #8fbcbb #5e81ac #ffb86c #ebdbb2 
     -- #458588 #83a598 #bf616a #81b88b #6395ec #56b6c2 #98c379  
@@ -114,7 +115,7 @@ function lvim.load_syntax()
         CursorIM = {fg = lvim.none, bg = lvim.none, style = 'reverse'},
         CursorColumn = {fg = lvim.none, bg = lvim.bg_highlight},
         CursorLine = {fg = lvim.none, bg = lvim.bg_highlight},
-        LineNr = {fg = lvim.color_6},
+        LineNr = {fg = lvim.hl},
         qfLineNr = {fg = lvim.color_10},
         CursorLineNr = {fg = lvim.color_10},
         DiffAdd = {fg = lvim.black, bg = lvim.color_6},
@@ -305,25 +306,22 @@ function lvim.load_plugin_syntax()
             sp = lvim.color_info
         },
 
-        NvimTreeFolderName = {fg = lvim.color_13},
-        NvimTreeEmptyFolderName = {fg = lvim.color_13},
-        NvimTreeRootFolder = {fg = lvim.color_0},
+        NvimTreeFolderName = {fg = lvim.color_4},
+        NvimTreeOpenedFolderName = {fg = lvim.color_11},
+        NvimTreeEmptyFolderName = {fg = lvim.color_4},
+        NvimTreeRootFolder = {fg = lvim.color_4},
         NvimTreeSpecialFile = {fg = lvim.fg, bg = lvim.none, stryle = 'NONE'},
-        NvimTreeFolderIcon = {fg = lvim.color_13},
-        NvimTreeIndentMarker = {fg = lvim.color_13},
-        NvimTreeSignError = {fg = lvim.color_10},
+        NvimTreeFolderIcon = {fg = lvim.color_4},
+        NvimTreeIndentMarker = {fg = lvim.hl},
+        NvimTreeSignError = {fg = lvim.color_error},
         NvimTreeSignWarning = {fg = lvim.color_warning},
-        NvimTreeSignInformation = {fg = lvim.color_6},
-        NvimTreeSignHint = {fg = lvim.color_9},
+        NvimTreeSignInformation = {fg = lvim.color_info},
+        NvimTreeSignHint = {fg = lvim.color_info},
         NvimTreeLspDiagnosticsError = {fg = lvim.color_error},
         NvimTreeLspDiagnosticsWarning = {fg = lvim.color_warning},
-        NvimTreeLspDiagnosticsInformation = {fg = lvim.color_6},
-        NvimTreeLspDiagnosticsHint = {fg = lvim.color_9},
-        NvimTreeWindowPicker = {
-            -- gui = "bold",
-            fg = lvim.color_0,
-            bg = lvim.color_13
-        },
+        NvimTreeLspDiagnosticsInformation = {fg = lvim.color_info},
+        NvimTreeLspDiagnosticsHint = {fg = lvim.color_info},
+        NvimTreeWindowPicker = {gui = 'bold', fg = lvim.bg, bg = lvim.color_11},
 
         TelescopeBorder = {fg = lvim.color_11},
         TelescopePromptBorder = {fg = lvim.color_3},
@@ -359,6 +357,11 @@ function lvim.load_plugin_syntax()
         BufferCurrentIcon = {fg = lvim.color_3},
         BufferVisibleIcon = {fg = lvim.color_3},
         BufferInactiveIcon = {fg = lvim.color_3},
+
+        IndentBlanklineChar = {fg = lvim.hl, bg = lvim.bg},
+        IndentBlanklineSpaceChar = {fg = lvim.color_1, bg = lvim.bg},
+        IndentBlanklineSpaceCharBlankline = {fg = lvim.color_1, bg = lvim.bg},
+        IndentBlanklineContextChar = {fg = lvim.color_1, bg = lvim.bg},
 
         ClapDir = {fg = lvim.color_4, bg = lvim.bg},
         ClapFile = {fg = lvim.color_4, bg = lvim.bg},
