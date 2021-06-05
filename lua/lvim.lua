@@ -47,7 +47,7 @@ local lvim = {
 
     color_error = '#F05F4E',
     color_warning = '#F2994B',
-    color_info = '#628b97',
+    color_info = '#56adb7',
 
     -- black = '#252A34',
     black = '#1E222A',
@@ -114,9 +114,9 @@ function lvim.load_syntax()
         CursorIM = {fg = lvim.none, bg = lvim.none, style = 'reverse'},
         CursorColumn = {fg = lvim.none, bg = lvim.bg_highlight},
         CursorLine = {fg = lvim.none, bg = lvim.bg_highlight},
-        LineNr = {fg = lvim.color_4},
-        qfLineNr = {fg = lvim.color_8},
-        CursorLineNr = {fg = lvim.color_8},
+        LineNr = {fg = lvim.color_6},
+        qfLineNr = {fg = lvim.color_10},
+        CursorLineNr = {fg = lvim.color_10},
         DiffAdd = {fg = lvim.black, bg = lvim.color_6},
         DiffChange = {fg = lvim.black, bg = lvim.color_3},
         DiffDelete = {fg = lvim.black, bg = lvim.color_0},
