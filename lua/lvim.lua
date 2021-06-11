@@ -5,11 +5,11 @@
 local lvim = {
     base0 = '#2E3440',
     base1 = '#252A34',
-    base2 = '#2E3440',
+    base2 = '#2B303B',
 
     bg = '#2E3440',
     bg1 = '#D9DA9E',
-    bg_highlight = '#2A2F3A',
+    bg_highlight = '#252A34',
     bg_visual = '#D9DA9E',
 
     fg = '#D9DA9E',
@@ -147,8 +147,8 @@ function lvim.load_syntax()
         Tabline = {fg = lvim.color_10, bg = lvim.none},
         TabLineFill = {style = lvim.none},
         TabLineSel = {fg = lvim.bg1, bg = lvim.none},
-        StatusLine = {fg = lvim.color_13, bg = lvim.base1, style = lvim.none},
-        StatusLineNC = {fg = lvim.color_12, bg = lvim.base1, style = lvim.none},
+        StatusLine = {fg = lvim.color_13, bg = lvim.base2, style = lvim.none},
+        StatusLineNC = {fg = lvim.color_12, bg = lvim.base2, style = lvim.none},
         SpellBad = {fg = lvim.color_0, bg = lvim.none, style = 'undercurl'},
         SpellCap = {fg = lvim.color_8, bg = lvim.none, style = 'undercurl'},
         SpellLocal = {fg = lvim.color_7, bg = lvim.none, style = 'undercurl'},
@@ -310,7 +310,7 @@ function lvim.load_plugin_syntax()
             style = "undercurl",
             sp = lvim.color_info
         },
-
+        NvimTreeNormal = {bg = lvim.base2},
         NvimTreeFolderName = {fg = lvim.color_4},
         NvimTreeOpenedFolderName = {fg = lvim.color_11},
         NvimTreeEmptyFolderName = {fg = lvim.color_4},
@@ -364,9 +364,6 @@ function lvim.load_plugin_syntax()
         BufferInactiveIcon = {fg = lvim.color_3},
 
         IndentBlanklineChar = {fg = lvim.hl, bg = lvim.bg},
-        IndentBlanklineSpaceChar = {fg = lvim.color_1, bg = lvim.bg},
-        IndentBlanklineSpaceCharBlankline = {fg = lvim.color_1, bg = lvim.bg},
-        IndentBlanklineContextChar = {fg = lvim.color_1, bg = lvim.bg},
 
         ClapDir = {fg = lvim.color_4, bg = lvim.bg},
         ClapFile = {fg = lvim.color_4, bg = lvim.bg},
