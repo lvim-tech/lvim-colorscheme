@@ -364,6 +364,8 @@ function lvim.load_plugin_syntax()
         BufferInactiveIcon = {fg = lvim.color_3},
 
         IndentBlanklineChar = {fg = lvim.hl, bg = lvim.bg},
+        IndentBlanklineSpaceCharBlankline = {fg = lvim.color_1, bg = lvim.bg},
+        IndentBlanklineContextChar = {fg = lvim.color_1, bg = lvim.bg},
 
         ClapDir = {fg = lvim.color_4, bg = lvim.bg},
         ClapFile = {fg = lvim.color_4, bg = lvim.bg},
