@@ -247,11 +247,13 @@ function lvim.load_plugin_syntax()
 
         NeogitBranch = {fg = lvim.color_6},
         NeogitRemote = {fg = lvim.color_6},
-        NeogitHunkHeader = {fg = lvim.color_0, bg = lvim.base2},
-        NeogitHunkHeaderHighlight = {fg = lvim.color_0, bg = lvim.base2},
-        NeogitDiffContextHighlight = {fg = lvim.color_add, bg = lvim.base2},
+        NeogitHunkHeader = {fg = lvim.color_0, bg = lvim.black},
+        NeogitHunkHeaderHighlight = {fg = lvim.color_0, bg = lvim.black},
+        NeogitDiffContextHighlight = {fg = lvim.color_add, bg = lvim.black},
         NeogitDiffDeleteHighlight = {fg = lvim.color_delete, bg = lvim.black},
         NeogitDiffAddHighlight = {fg = lvim.color_add, bg = lvim.black},
+        NeogitDiffAdd = {fg = lvim.color_add, bg = lvim.black},
+        NeogitDiffDelete = {fg = lvim.color_delete, bg = lvim.black},
 
         VistaBracket = {fg = lvim.color_12},
         VistaChildrenNr = {fg = lvim.color_8},
