@@ -250,8 +250,8 @@ function lvim.load_plugin_syntax()
         NeogitHunkHeader = {fg = lvim.color_0, bg = lvim.base2},
         NeogitHunkHeaderHighlight = {fg = lvim.color_0, bg = lvim.base2},
         NeogitDiffContextHighlight = {fg = lvim.color_add, bg = lvim.base2},
-        NeogitDiffDeleteHighlight = {fg = lvim.color_delete},
-        NeogitDiffAddHighlight = {fg = lvim.color_add},
+        NeogitDiffDeleteHighlight = {fg = lvim.color_delete, bg = lvim.black},
+        NeogitDiffAddHighlight = {fg = lvim.color_add, bg = lvim.black},
 
         VistaBracket = {fg = lvim.color_12},
         VistaChildrenNr = {fg = lvim.color_8},
