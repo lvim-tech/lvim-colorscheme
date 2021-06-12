@@ -27,6 +27,7 @@ local lvim = {
     color_11 = '#D9DA9E',
     color_12 = '#8fbcbb',
     color_13 = '#F05F4E',
+    color_14 = '#0087d7',
 
     term_0 = '#2E3440',
     term_1 = '#F05F4E',
@@ -377,7 +378,19 @@ function lvim.load_plugin_syntax()
         ClapSearchText = {fg = lvim.color_4, bg = lvim.bg},
         ClapPreview = {fg = lvim.fg, bg = lvim.bg},
         ClapSelected = {fg = lvim.fg, bg = lvim.bg},
-        ClapSelectedSign = {fg = lvim.fg, bg = lvim.bg}
+        ClapSelectedSign = {fg = lvim.fg, bg = lvim.bg},
+
+        VimwikiHeader1 = {fg = lvim.color_1},
+        VimwikiHeader2 = {fg = lvim.color_4},
+        VimwikiHeader3 = {fg = lvim.color_5},
+        VimwikiHeader4 = {fg = lvim.color_2},
+        VimwikiHeader5 = {fg = lvim.color_3},
+        VimwikiHeader6 = {fg = lvim.color_9},
+        VimwikiLink = {fg = lvim.color_14},
+        VimwikiHeaderChar = {fg = lvim.color_6},
+        VimwikiHR = {fg = lvim.color_12},
+        VimwikiList = {fg = lvim.color_13},
+        VimwikiTag = {fg = lvim.color_1}
     }
     return plugin_syntax
 end
