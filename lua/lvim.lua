@@ -356,7 +356,8 @@ function lvim.load_plugin_syntax()
             sp = lvim.color_info
         },
 
-        LvimHelperNormal = {fg = lvim.color_4, bg = lvim.base2},
+        LvimHelperNormal = {fg = lvim.color_6, bg = lvim.base2},
+        LvimHelperTitle = {fg = lvim.bg, bg = lvim.color_3},
 
         NvimTreeNormal = {bg = lvim.base2},
         NvimTreeFolderName = {fg = lvim.color_4},
