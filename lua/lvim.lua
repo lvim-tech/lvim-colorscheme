@@ -382,7 +382,7 @@ function lvim.load_plugin_syntax()
         NvimTreeLspDiagnosticsWarning = {fg = lvim.color_warning},
         NvimTreeLspDiagnosticsInformation = {fg = lvim.color_info},
         NvimTreeLspDiagnosticsHint = {fg = lvim.color_info},
-        NvimTreeWindowPicker = {gui = 'bold', fg = lvim.bg, bg = lvim.color_11},
+        NvimTreeWindowPicker = {gui = 'bold', fg = lvim.bg, bg = lvim.color_9},
 
         TelescopeBorder = {fg = lvim.color_11},
         TelescopePromptBorder = {fg = lvim.color_3},
