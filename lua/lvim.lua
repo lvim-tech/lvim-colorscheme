@@ -50,7 +50,7 @@ local lvim = {
     color_warning = '#F2994B',
     color_info = '#56adb7',
 
-    color_add = '#56adb7',
+    color_add = '#98c379',
     color_delete = '#F05F4E',
     color_change = '#EBCB8B',
     color_change_delete = '#F2994B',
