@@ -357,7 +357,7 @@ function lvim.load_plugin_syntax()
         },
 
         LvimHelperNormal = {fg = lvim.color_6, bg = lvim.base2},
-        LvimHelperTitle = {fg = lvim.color_3, bg = lvim.none},
+        LvimHelperTitle = {fg = lvim.color_9, bg = lvim.none},
 
         SnapNormal = {fg = lvim.color_6, bg = lvim.none},
         SnapBorder = {fg = lvim.color_1, bg = lvim.none},
