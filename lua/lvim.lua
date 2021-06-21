@@ -359,12 +359,19 @@ function lvim.load_plugin_syntax()
         LvimHelperNormal = {fg = lvim.color_6, bg = lvim.base2},
         LvimHelperTitle = {fg = lvim.color_3, bg = lvim.none},
 
+        SnapNormal = {fg = lvim.color_6, bg = lvim.none},
+        SnapBorder = {fg = lvim.color_1, bg = lvim.none},
+        SnapSelect = {fg = lvim.bg, bg = lvim.color_9},
+        SnapMultiSelect = {fg = lvim.bg, bg = lvim.color_9},
+        SnapPrompt = {fg = lvim.color_9, bg = lvim.none},
+        SnapPosition = {fg = lvim.color_9, bg = lvim.none},
+
         NvimTreeNormal = {bg = lvim.base2},
         NvimTreeFolderName = {fg = lvim.color_4},
         NvimTreeOpenedFolderName = {fg = lvim.color_11},
         NvimTreeEmptyFolderName = {fg = lvim.color_4},
         NvimTreeRootFolder = {fg = lvim.color_4},
-        NvimTreeSpecialFile = {fg = lvim.fg, bg = lvim.none, stryle = 'NONE'},
+        NvimTreeSpecialFile = {fg = lvim.fg, bg = lvim.none, style = 'NONE'},
         NvimTreeFolderIcon = {fg = lvim.color_4},
         NvimTreeIndentMarker = {fg = lvim.hl},
         NvimTreeSignError = {fg = lvim.color_error},
@@ -385,7 +392,7 @@ function lvim.load_plugin_syntax()
         TelescopeMultiSelection = {fg = lvim.color_11},
 
         Floaterm = {fg = lvim.color_9},
-        FloatermBorder = {fg = lvim.color_11},
+        FloatermBorder = {fg = lvim.color_1},
 
         BufferCurrent = {fg = lvim.color_8},
         BufferCurrentIndex = {fg = lvim.color_8},
