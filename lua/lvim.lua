@@ -3,74 +3,55 @@
 -- License: BSD 3-Clause License
 -- Source: https://github.com/lvim-org/lvim-colorscheme
 local lvim = {
-    base0 = '#2E3440',
-    base1 = '#252A34',
-    base2 = '#2B303B',
-
-    bg = '#2E3440',
-    bg1 = '#EBCB8B',
-    bg_highlight = '#252A34',
-    bg_visual = '#EBCB8B',
-
-    fg = '#EBCB8B',
-    color_0 = '#56adb7',
-    color_1 = '#00839F',
-    color_2 = '#98c379',
-    color_3 = '#f78c6c',
-    color_4 = '#1C9898',
-    color_5 = '#25B8A5',
-    color_6 = '#628b97',
-    color_7 = '#ff5c57',
-    color_8 = '#F2994B',
-    color_9 = '#F2AF5C',
-    color_10 = '#E6C068',
-    color_11 = '#EBCB8B',
-    color_12 = '#8fbcbb',
-    color_13 = '#F05F4E',
-    color_14 = '#0087d7',
-
-    term_0 = '#2E3440',
-    term_1 = '#F05F4E',
-    term_2 = '#25B8A5',
-    term_3 = '#1F8C8C',
-    term_4 = '#EBCB8B',
-    term_5 = '#83a598',
-    term_6 = '#F2994B',
-    term_7 = '#00839F',
-    term_8 = '#2aa198',
-    term_9 = '#F05F4E',
-    term_10 = '#25B8A5',
-    term_11 = '#1F8C8C',
-    term_12 = '#EBCB8B',
-    term_13 = '#83a598',
-    term_14 = '#F2994B',
-    term_15 = '#00839F',
-
-    color_error = '#F05F4E',
-    color_warning = '#F2994B',
-    color_info = '#56adb7',
-
-    color_add = '#98c379',
-    color_delete = '#F05F4E',
-    color_change = '#EBCB8B',
-    color_change_delete = '#F2994B',
-
-    -- black = '#252A34',
-    black = '#1E222A',
-    hl = '#4C566A',
-
-    -- #449dab #0db9d7 #1abc9c #8fbcbb #5e81ac #ffb86c #ebdbb2 
-    -- #458588 #83a598 #bf616a #81b88b #6395ec #56b6c2 #98c379  
-    -- #f78c6c #ff5370 #ff5c57 #ff8380 #57c7ff #449dab #F07178 
-    -- #36A3D9 #4CBF99 #007AFF #008787 #df5f5f #5f8787 #5f87af
-    -- #25B8A5 #0088CC #C95F5F #EAC06E #458a8a #56adb7 #2aa198
-    -- #2aa198 #CD5C5C #569F7A #0086B3 #1C9898 #2aa889 #33859E
-    -- #599cab #b5bd68 #f0c674 #cc517a #3f83a6 #327698 #00af87
-    -- #D75F5F #FFAF5F #66d9ae #EC5f67 #62b3b2 #ec5f67 #f99157
-    -- #56b6c2 #0997b3 #0087d7 #0087af #00afaf #008EC4 #ff8485
-    -- #00a0a0 #d75e5e #5da19f #2aa198 #2aa1ae #20af81 #009ba2
-    -- #008EC4 #56b6c2
-    none = 'NONE'
+    base0 = "#2E3440",
+    base1 = "#252A34",
+    base2 = "#2B303B",
+    bg = "#2E3440",
+    bg1 = "#EBCB8B",
+    bg_highlight = "#252A34",
+    bg_visual = "#EBCB8B",
+    fg = "#EBCB8B",
+    color_0 = "#56adb7",
+    color_1 = "#00839F",
+    color_2 = "#98c379",
+    color_3 = "#f78c6c",
+    color_4 = "#1C9898",
+    color_5 = "#25B8A5",
+    color_6 = "#628b97",
+    color_7 = "#ff5c57",
+    color_8 = "#F2994B",
+    color_9 = "#F2AF5C",
+    color_10 = "#E6C068",
+    color_11 = "#EBCB8B",
+    color_12 = "#8fbcbb",
+    color_13 = "#F05F4E",
+    color_14 = "#0087d7",
+    term_0 = "#2E3440",
+    term_1 = "#F05F4E",
+    term_2 = "#25B8A5",
+    term_3 = "#1F8C8C",
+    term_4 = "#EBCB8B",
+    term_5 = "#83a598",
+    term_6 = "#F2994B",
+    term_7 = "#00839F",
+    term_8 = "#2aa198",
+    term_9 = "#F05F4E",
+    term_10 = "#25B8A5",
+    term_11 = "#1F8C8C",
+    term_12 = "#EBCB8B",
+    term_13 = "#83a598",
+    term_14 = "#F2994B",
+    term_15 = "#00839F",
+    color_error = "#F05F4E",
+    color_warning = "#F2994B",
+    color_info = "#56adb7",
+    color_add = "#98c379",
+    color_delete = "#F05F4E",
+    color_change = "#EBCB8B",
+    color_change_delete = "#F2994B",
+    black = "#1E222A",
+    hl = "#4C566A",
+    none = "NONE"
 }
 
 function lvim.terminal_color()
@@ -93,12 +74,11 @@ function lvim.terminal_color()
 end
 
 function lvim.highlight(group, color)
-    local style = color.style and 'gui=' .. color.style or 'gui=NONE'
-    local fg = color.fg and 'guifg=' .. color.fg or 'guifg=NONE'
-    local bg = color.bg and 'guibg=' .. color.bg or 'guibg=NONE'
-    local sp = color.sp and 'guisp=' .. color.sp or ''
-    vim.api.nvim_command('highlight ' .. group .. ' ' .. style .. ' ' .. fg ..
-                             ' ' .. bg .. ' ' .. sp)
+    local style = color.style and "gui=" .. color.style or "gui=NONE"
+    local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
+    local bg = color.bg and "guibg=" .. color.bg or "guibg=NONE"
+    local sp = color.sp and "guisp=" .. color.sp or ""
+    vim.api.nvim_command("highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp)
 end
 
 function lvim.load_syntax()
@@ -114,11 +94,11 @@ function lvim.load_syntax()
         Search = {fg = lvim.base0, bg = lvim.color_13},
         ColorColumn = {fg = lvim.none, bg = lvim.bg_highlight},
         Conceal = {fg = lvim.color_12, bg = lvim.none},
-        Cursor = {fg = lvim.none, bg = lvim.none, style = 'reverse'},
-        vCursor = {fg = lvim.none, bg = lvim.none, style = 'reverse'},
-        iCursor = {fg = lvim.none, bg = lvim.none, style = 'reverse'},
-        lCursor = {fg = lvim.none, bg = lvim.none, style = 'reverse'},
-        CursorIM = {fg = lvim.none, bg = lvim.none, style = 'reverse'},
+        Cursor = {fg = lvim.none, bg = lvim.none, style = "reverse"},
+        vCursor = {fg = lvim.none, bg = lvim.none, style = "reverse"},
+        iCursor = {fg = lvim.none, bg = lvim.none, style = "reverse"},
+        lCursor = {fg = lvim.none, bg = lvim.none, style = "reverse"},
+        CursorIM = {fg = lvim.none, bg = lvim.none, style = "reverse"},
         CursorColumn = {fg = lvim.none, bg = lvim.bg_highlight},
         CursorLine = {fg = lvim.none, bg = lvim.bg_highlight},
         LineNr = {fg = lvim.hl},
@@ -150,16 +130,15 @@ function lvim.load_syntax()
         TabLineSel = {fg = lvim.bg1, bg = lvim.none},
         StatusLine = {fg = lvim.color_13, bg = lvim.base2, style = lvim.none},
         StatusLineNC = {fg = lvim.color_12, bg = lvim.base2, style = lvim.none},
-        SpellBad = {fg = lvim.color_0, bg = lvim.none, style = 'undercurl'},
-        SpellCap = {fg = lvim.color_8, bg = lvim.none, style = 'undercurl'},
-        SpellLocal = {fg = lvim.color_7, bg = lvim.none, style = 'undercurl'},
-        SpellRare = {fg = lvim.color_9, bg = lvim.none, style = 'undercurl'},
+        SpellBad = {fg = lvim.color_0, bg = lvim.none, style = "undercurl"},
+        SpellCap = {fg = lvim.color_8, bg = lvim.none, style = "undercurl"},
+        SpellLocal = {fg = lvim.color_7, bg = lvim.none, style = "undercurl"},
+        SpellRare = {fg = lvim.color_9, bg = lvim.none, style = "undercurl"},
         Visual = {fg = lvim.color_12, bg = lvim.black},
         VisualNOS = {fg = lvim.color_12, bg = lvim.black},
         QuickFixLine = {fg = lvim.color_9},
         Debug = {fg = lvim.color_2},
         debugBreakpoint = {fg = lvim.bg, bg = lvim.color_0},
-
         Boolean = {fg = lvim.color_2},
         Number = {fg = lvim.color_13},
         Float = {fg = lvim.color_13},
@@ -189,28 +168,22 @@ function lvim.load_syntax()
         Constant = {fg = lvim.color_7},
         Macro = {fg = lvim.color_7},
         Identifier = {fg = lvim.color_8},
-
         Comment = {fg = lvim.color_6},
         SpecialComment = {fg = lvim.color_6},
         Todo = {fg = lvim.color_6},
         Delimiter = {fg = lvim.color_5},
         Ignore = {fg = lvim.color_12},
-        Underlined = {fg = lvim.none, style = 'underline'},
-
+        Underlined = {fg = lvim.none, style = "underline"},
         DashboardShortCut = {fg = lvim.color_10},
         DashboardHeader = {fg = lvim.color_0},
         DashboardCenter = {fg = lvim.color_7},
-        DashboardFooter = {fg = lvim.color_5},
-
-        Repeat = {fg = lvim.color_9}
-
+        DashboardFooter = {fg = lvim.color_5}
     }
     return syntax
 end
 
 function lvim.load_plugin_syntax()
     local plugin_syntax = {
-
         TSAnnotation = {fg = lvim.color_0},
         TSAttribute = {fg = lvim.color_1},
         TSBoolean = {fg = lvim.color_2},
@@ -244,7 +217,6 @@ function lvim.load_plugin_syntax()
         TSInclude = {fg = lvim.color_0},
         TSPunctBracket = {fg = lvim.color_12},
         TSPunctDelimiter = {fg = lvim.color_2},
-        TSParameter = {fg = lvim.color_3},
         TSType = {fg = lvim.color_11},
         TSFunction = {fg = lvim.color_9},
         TSTagDelimiter = {fg = lvim.color_6},
@@ -258,7 +230,6 @@ function lvim.load_plugin_syntax()
         TSVariableBuiltin = {fg = lvim.color_10},
         TSTag = {fg = lvim.color_0},
         TSLabel = {fg = lvim.color_1},
-
         vimCommentTitle = {fg = lvim.color_12},
         vimLet = {fg = lvim.color_2},
         vimVar = {fg = lvim.color_7},
@@ -268,7 +239,6 @@ function lvim.load_plugin_syntax()
         vimNotFunc = {fg = lvim.color_9},
         vimUserFunc = {fg = lvim.color_3},
         vimFuncName = {fg = lvim.color_3},
-
         diffAdded = {fg = lvim.color_add},
         diffRemoved = {fg = lvim.color_delete},
         diffChanged = {fg = lvim.color_change},
@@ -277,7 +247,6 @@ function lvim.load_plugin_syntax()
         diffFile = {fg = lvim.color_7},
         diffLine = {fg = lvim.color_12},
         diffIndexLine = {fg = lvim.color_9},
-
         gitcommitSummary = {fg = lvim.color_0},
         gitcommitUntracked = {fg = lvim.color_12},
         gitcommitDiscarded = {fg = lvim.color_12},
@@ -286,7 +255,6 @@ function lvim.load_plugin_syntax()
         gitcommitOnBranch = {fg = lvim.color_12},
         gitcommitArrow = {fg = lvim.color_12},
         gitcommitFile = {fg = lvim.color_6},
-
         NeogitBranch = {fg = lvim.color_6},
         NeogitRemote = {fg = lvim.color_6},
         NeogitHunkHeader = {fg = lvim.color_0, bg = lvim.black},
@@ -296,7 +264,6 @@ function lvim.load_plugin_syntax()
         NeogitDiffAddHighlight = {fg = lvim.color_add, bg = lvim.black},
         NeogitDiffAdd = {fg = lvim.color_add, bg = lvim.black},
         NeogitDiffDelete = {fg = lvim.color_delete, bg = lvim.black},
-
         VistaBracket = {fg = lvim.color_12},
         VistaChildrenNr = {fg = lvim.color_8},
         VistaKind = {fg = lvim.color_9},
@@ -307,12 +274,10 @@ function lvim.load_plugin_syntax()
         VistaColon = {fg = lvim.color_9},
         VistaIcon = {fg = lvim.color_3},
         VistaLineNr = {fg = lvim.fg},
-
         GitGutterAdd = {fg = lvim.color_add},
         GitGutterChange = {fg = lvim.color_change},
         GitGutterDelete = {fg = lvim.color_delete},
         GitGutterChangeDelete = {fg = lvim.color_change_delete},
-
         GitSignsAdd = {fg = lvim.color_add},
         GitSignsChange = {fg = lvim.color_change},
         GitSignsDelete = {fg = lvim.color_delete},
@@ -322,23 +287,18 @@ function lvim.load_plugin_syntax()
         GitSignsAddLn = {fg = lvim.color_add},
         GitSignsChangeLn = {fg = lvim.color_change},
         GitSignsDeleteLn = {fg = lvim.color_delete},
-
         SignifySignAdd = {fg = lvim.color_add},
         SignifySignChange = {fg = lvim.color_change},
         SignifySignDelete = {fg = lvim.color_delete},
-
         dbui_tables = {fg = lvim.color_8},
-
         LspDiagnosticsSignError = {fg = lvim.color_error},
         LspDiagnosticsSignWarning = {fg = lvim.color_warning},
         LspDiagnosticsSignInformation = {fg = lvim.color_info},
         LspDiagnosticsSignHint = {fg = lvim.color_info},
-
         LspDiagnosticsVirtualTextError = {fg = lvim.color_error},
         LspDiagnosticsVirtualTextWarning = {fg = lvim.color_warning},
         LspDiagnosticsVirtualTextInformation = {fg = lvim.color_info},
         LspDiagnosticsVirtualTextHint = {fg = lvim.color_info},
-
         LspDiagnosticsUnderlineError = {
             style = "undercurl",
             sp = lvim.color_error
@@ -355,23 +315,20 @@ function lvim.load_plugin_syntax()
             style = "undercurl",
             sp = lvim.color_info
         },
-
         LvimHelperNormal = {fg = lvim.color_6, bg = lvim.base2},
         LvimHelperTitle = {fg = lvim.color_9, bg = lvim.none},
-
         SnapNormal = {fg = lvim.color_6, bg = lvim.none},
         SnapBorder = {fg = lvim.color_1, bg = lvim.none},
         SnapSelect = {fg = lvim.bg, bg = lvim.color_9},
         SnapMultiSelect = {fg = lvim.bg, bg = lvim.color_9},
         SnapPrompt = {fg = lvim.color_9, bg = lvim.none},
         SnapPosition = {fg = lvim.color_9, bg = lvim.none},
-
         NvimTreeNormal = {bg = lvim.base2},
         NvimTreeFolderName = {fg = lvim.color_4},
         NvimTreeOpenedFolderName = {fg = lvim.color_11},
         NvimTreeEmptyFolderName = {fg = lvim.color_4},
         NvimTreeRootFolder = {fg = lvim.color_4},
-        NvimTreeSpecialFile = {fg = lvim.fg, bg = lvim.none, style = 'NONE'},
+        NvimTreeSpecialFile = {fg = lvim.fg, bg = lvim.none, style = "NONE"},
         NvimTreeFolderIcon = {fg = lvim.color_4},
         NvimTreeIndentMarker = {fg = lvim.hl},
         NvimTreeSignError = {fg = lvim.color_error},
@@ -382,48 +339,38 @@ function lvim.load_plugin_syntax()
         NvimTreeLspDiagnosticsWarning = {fg = lvim.color_warning},
         NvimTreeLspDiagnosticsInformation = {fg = lvim.color_info},
         NvimTreeLspDiagnosticsHint = {fg = lvim.color_info},
-        NvimTreeWindowPicker = {gui = 'bold', fg = lvim.bg, bg = lvim.color_9},
-
+        NvimTreeWindowPicker = {gui = "bold", fg = lvim.bg, bg = lvim.color_9},
         TelescopeBorder = {fg = lvim.color_11},
         TelescopePromptBorder = {fg = lvim.color_3},
         TelescopeMatching = {fg = lvim.color_11},
         TelescopeSelection = {fg = lvim.color_3, bg = lvim.bg_highlight},
         TelescopeSelectionCaret = {fg = lvim.color_3},
         TelescopeMultiSelection = {fg = lvim.color_11},
-
         Floaterm = {fg = lvim.color_9},
         FloatermBorder = {fg = lvim.color_1},
-
         BufferCurrent = {fg = lvim.color_8},
         BufferCurrentIndex = {fg = lvim.color_8},
         BufferCurrentMod = {fg = lvim.color_8},
         BufferCurrentSign = {fg = lvim.fg},
         BufferCurrentTarget = {fg = lvim.color_8},
-
         BufferVisible = {fg = lvim.color_3},
         BufferVisibleIndex = {fg = lvim.color_3},
         BufferVisibleMod = {fg = lvim.color_3},
         BufferVisibleSign = {fg = lvim.fg},
         BufferVisibleTarget = {fg = lvim.color_3},
-
         BufferInactive = {fg = lvim.color_3},
         BufferInactiveIndex = {fg = lvim.color_3},
         BufferInactiveMod = {fg = lvim.color_3},
         BufferInactiveSign = {fg = lvim.fg},
         BufferInactiveTarget = {fg = lvim.color_3},
-
         BufferTabpages = {fg = lvim.none},
         BufferTabpageFill = {fg = lvim.none},
-
         BufferCurrentIcon = {fg = lvim.color_3},
         BufferVisibleIcon = {fg = lvim.color_3},
         BufferInactiveIcon = {fg = lvim.color_3},
-
         IndentBlanklineChar = {fg = lvim.hl, bg = lvim.none},
         IndentBlanklineSpaceCharBlankline = {fg = lvim.color_1, bg = lvim.none},
         IndentBlanklineContextChar = {fg = lvim.color_1, bg = lvim.none},
-        IndentBlanklineContextChar = {fg = lvim.color_1, bg = lvim.none},
-
         ClapDir = {fg = lvim.color_4, bg = lvim.bg},
         ClapFile = {fg = lvim.color_4, bg = lvim.bg},
         ClapCurrentSelection = {fg = lvim.color_8, bg = lvim.bg},
@@ -434,7 +381,6 @@ function lvim.load_plugin_syntax()
         ClapPreview = {fg = lvim.fg, bg = lvim.bg},
         ClapSelected = {fg = lvim.fg, bg = lvim.bg},
         ClapSelectedSign = {fg = lvim.fg, bg = lvim.bg},
-
         VimwikiHeader1 = {fg = lvim.color_1},
         VimwikiHeader2 = {fg = lvim.color_4},
         VimwikiHeader3 = {fg = lvim.color_5},
@@ -452,21 +398,32 @@ end
 
 local async_load_plugin
 
-async_load_plugin = vim.loop.new_async(vim.schedule_wrap(function()
-    lvim.terminal_color()
-    local syntax = lvim.load_plugin_syntax()
-    for group, colors in pairs(syntax) do lvim.highlight(group, colors) end
-    async_load_plugin:close()
-end))
+async_load_plugin =
+    vim.loop.new_async(
+    vim.schedule_wrap(
+        function()
+            lvim.terminal_color()
+            local syntax = lvim.load_plugin_syntax()
+            for group, colors in pairs(syntax) do
+                lvim.highlight(group, colors)
+            end
+            async_load_plugin:close()
+        end
+    )
+)
 
 function lvim.colorscheme()
-    vim.api.nvim_command('hi clear')
-    if vim.fn.exists('syntax_on') then vim.api.nvim_command('syntax reset') end
-    vim.o.background = 'dark'
+    vim.api.nvim_command("hi clear")
+    if vim.fn.exists("syntax_on") then
+        vim.api.nvim_command("syntax reset")
+    end
+    vim.o.background = "dark"
     vim.o.termguicolors = true
-    vim.g.colors_name = 'lvim'
+    vim.g.colors_name = "lvim"
     local syntax = lvim.load_syntax()
-    for group, colors in pairs(syntax) do lvim.highlight(group, colors) end
+    for group, colors in pairs(syntax) do
+        lvim.highlight(group, colors)
+    end
     async_load_plugin:send()
 end
 
