@@ -52,11 +52,11 @@
 
 ![11.GitSigns.png](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/11.GitSigns.png)
 
-> Figutive
+> Fugitive
 
-![12.Figutive.png](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/12.Figutive.png)
+![12.Fugitive.png](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/12.Fugitive.png)
 
-![13.Figutive.png](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/13.Figutive.png)
+![13.Fugitive.png](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/13.Fugitive.png)
 
 > GitBlame
 
