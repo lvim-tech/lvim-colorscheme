@@ -50,6 +50,7 @@ local lvim = {
     color_change = "#EBCB8B",
     color_change_delete = "#F2994B",
     black = "#1E222A",
+    black_background = "#292E39",
     hl = "#4C566A",
     none = "NONE"
 }
@@ -323,7 +324,7 @@ function lvim.load_plugin_syntax()
         SnapMultiSelect = {fg = lvim.bg, bg = lvim.color_9},
         SnapPrompt = {fg = lvim.color_9, bg = lvim.none},
         SnapPosition = {fg = lvim.color_9, bg = lvim.none},
-        NvimTreeNormal = {bg = lvim.base2},
+        NvimTreeNormal = {bg = lvim.black_background},
         NvimTreeFolderName = {fg = lvim.color_4},
         NvimTreeOpenedFolderName = {fg = lvim.color_11},
         NvimTreeEmptyFolderName = {fg = lvim.color_4},
@@ -340,6 +341,7 @@ function lvim.load_plugin_syntax()
         NvimTreeLspDiagnosticsInformation = {fg = lvim.color_info},
         NvimTreeLspDiagnosticsHint = {fg = lvim.color_info},
         NvimTreeWindowPicker = {gui = "bold", fg = lvim.bg, bg = lvim.color_9},
+        TroubleNormal = {bg = lvim.black_background},
         TelescopeBorder = {fg = lvim.color_11},
         TelescopePromptBorder = {fg = lvim.color_3},
         TelescopeMatching = {fg = lvim.color_11},
