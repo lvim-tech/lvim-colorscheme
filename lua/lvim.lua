@@ -79,7 +79,8 @@ function lvim.highlight(group, color)
     local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
     local bg = color.bg and "guibg=" .. color.bg or "guibg=NONE"
     local sp = color.sp and "guisp=" .. color.sp or ""
-    vim.api.nvim_command("highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp)
+    vim.api.nvim_command("highlight " .. group .. " " .. style .. " " .. fg ..
+                             " " .. bg .. " " .. sp)
 end
 
 function lvim.load_syntax()
@@ -191,12 +192,12 @@ function lvim.load_plugin_syntax()
         TSCharacter = {fg = lvim.color_3},
         TSConditional = {fg = lvim.color_4},
         TSConstant = {fg = lvim.color_5},
-        TSEmphasis = {fg = lvim.color_6},
+        TSEmphasis = {fg = lvim.color_3},
         TSError = {fg = lvim.color_7},
-        TSException = {fg = lvim.color_8},
+        TSException = {fg = lvim.color_1},
         TSField = {fg = lvim.color_9},
         TSFloat = {fg = lvim.color_10},
-        TSFuncBuiltin = {fg = lvim.color_12},
+        TSFuncBuiltin = {fg = lvim.color_3},
         TSFuncMacro = {fg = lvim.color_12},
         TSKeywordFunction = {fg = lvim.color_3},
         TSLiteral = {fg = lvim.color_10},
@@ -208,28 +209,28 @@ function lvim.load_plugin_syntax()
         TSString = {fg = lvim.color_5},
         TSStringEscape = {fg = lvim.color_6},
         TSStringRegex = {fg = lvim.color_7},
-        TSStrong = {fg = lvim.color_8},
+        TSStrong = {fg = lvim.color_1},
         TSStructure = {fg = lvim.color_9},
         TSText = {fg = lvim.color_10},
         TSTitle = {fg = lvim.color_11},
-        TSTypeBuiltin = {fg = lvim.color_12},
+        TSTypeBuiltin = {fg = lvim.color_3},
         TSUnderline = {fg = lvim.color_13},
         TSURI = {fg = lvim.color_10},
         TSInclude = {fg = lvim.color_0},
-        TSPunctBracket = {fg = lvim.color_12},
+        TSPunctBracket = {fg = lvim.color_2},
         TSPunctDelimiter = {fg = lvim.color_2},
-        TSType = {fg = lvim.color_11},
+        TSType = {fg = lvim.color_3},
         TSFunction = {fg = lvim.color_9},
         TSTagDelimiter = {fg = lvim.color_6},
         TSProperty = {fg = lvim.color_3},
         TSMethod = {fg = lvim.color_1},
         TSParameter = {fg = lvim.color_9},
         TSConstructor = {fg = lvim.color_3},
-        TSVariable = {fg = lvim.color_2},
-        TSOperator = {fg = lvim.color_12},
+        TSVariable = {fg = lvim.color_9},
+        TSOperator = {fg = lvim.color_3},
         TSKeyword = {fg = lvim.color_0},
         TSVariableBuiltin = {fg = lvim.color_10},
-        TSTag = {fg = lvim.color_0},
+        TSTag = {fg = lvim.color_3},
         TSLabel = {fg = lvim.color_1},
         vimCommentTitle = {fg = lvim.color_12},
         vimLet = {fg = lvim.color_2},
@@ -400,32 +401,21 @@ end
 
 local async_load_plugin
 
-async_load_plugin =
-    vim.loop.new_async(
-    vim.schedule_wrap(
-        function()
-            lvim.terminal_color()
-            local syntax = lvim.load_plugin_syntax()
-            for group, colors in pairs(syntax) do
-                lvim.highlight(group, colors)
-            end
-            async_load_plugin:close()
-        end
-    )
-)
+async_load_plugin = vim.loop.new_async(vim.schedule_wrap(function()
+    lvim.terminal_color()
+    local syntax = lvim.load_plugin_syntax()
+    for group, colors in pairs(syntax) do lvim.highlight(group, colors) end
+    async_load_plugin:close()
+end))
 
 function lvim.colorscheme()
     vim.api.nvim_command("hi clear")
-    if vim.fn.exists("syntax_on") then
-        vim.api.nvim_command("syntax reset")
-    end
+    if vim.fn.exists("syntax_on") then vim.api.nvim_command("syntax reset") end
     vim.o.background = "dark"
     vim.o.termguicolors = true
     vim.g.colors_name = "lvim"
     local syntax = lvim.load_syntax()
-    for group, colors in pairs(syntax) do
-        lvim.highlight(group, colors)
-    end
+    for group, colors in pairs(syntax) do lvim.highlight(group, colors) end
     async_load_plugin:send()
 end
 
