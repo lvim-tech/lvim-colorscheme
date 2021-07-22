@@ -219,7 +219,7 @@ function lvim.load_plugin_syntax()
         TSInclude = {fg = lvim.color_0},
         TSPunctBracket = {fg = lvim.color_2},
         TSPunctDelimiter = {fg = lvim.color_2},
-        TSType = {fg = lvim.color_3},
+        TSType = {fg = lvim.color_11},
         TSFunction = {fg = lvim.color_9},
         TSTagDelimiter = {fg = lvim.color_6},
         TSProperty = {fg = lvim.color_3},
