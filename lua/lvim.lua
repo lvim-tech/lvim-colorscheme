@@ -126,7 +126,7 @@ function lvim.load_syntax()
         PmenuThumb = {fg = lvim.color_9, bg = lvim.color_4},
         WildMenu = {fg = lvim.color_10, bg = lvim.color_5},
         Question = {fg = lvim.color_3},
-        NormalFloat = {fg = lvim.bg_visual, bg = lvim.base2},
+        NormalFloat = {fg = lvim.bg_visual, bg = lvim.hl},
         Tabline = {fg = lvim.color_10, bg = lvim.none},
         TabLineFill = {style = lvim.none},
         TabLineSel = {fg = lvim.bg1, bg = lvim.none},
