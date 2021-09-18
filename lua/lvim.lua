@@ -50,6 +50,7 @@ local lvim = {
     color_change = "#EBCB8B",
     color_change_delete = "#F2994B",
     black = "#1E222A",
+    contrast = "#262626",
     black_background = "#292E39",
     hl = "#4C566A",
     none = "NONE"
@@ -126,7 +127,7 @@ function lvim.load_syntax()
         PmenuThumb = {fg = lvim.color_9, bg = lvim.color_4},
         WildMenu = {fg = lvim.color_10, bg = lvim.color_5},
         Question = {fg = lvim.color_3},
-        NormalFloat = {fg = lvim.bg_visual, bg = lvim.hl},
+        NormalFloat = {fg = lvim.bg_visual, bg = lvim.contrast},
         Tabline = {fg = lvim.color_10, bg = lvim.none},
         TabLineFill = {style = lvim.none},
         TabLineSel = {fg = lvim.bg1, bg = lvim.none},
