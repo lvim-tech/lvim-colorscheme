@@ -93,8 +93,8 @@ function lvim.load_syntax()
         VertSplit = {fg = lvim.black, bg = lvim.bg},
         Folded = {fg = lvim.color_12, bg = lvim.bg_highlight},
         EndOfBuffer = {fg = lvim.bg, bg = lvim.none},
-        IncSearch = {fg = lvim.base0, bg = lvim.color_13, style = lvim.none},
-        Search = {fg = lvim.base0, bg = lvim.color_13},
+        IncSearch = {fg = lvim.fg, bg = lvim.color_1, style = lvim.none},
+        Search = {fg = lvim.fg, bg = lvim.color_1},
         ColorColumn = {fg = lvim.none, bg = lvim.bg_highlight},
         Conceal = {fg = lvim.color_12, bg = lvim.none},
         Cursor = {fg = lvim.none, bg = lvim.none, style = "reverse"},
@@ -316,6 +316,31 @@ function lvim.load_plugin_syntax()
             sp = lvim.color_info
         },
         LspDiagnosticsUnderlineHint = {
+            style = "undercurl",
+            sp = lvim.color_info
+        },
+        DiagnosticSignError = {fg = lvim.color_error},
+        DiagnosticSignWarning = {fg = lvim.color_warning},
+        DiagnosticSignInformation = {fg = lvim.color_info},
+        DiagnosticSignHint = {fg = lvim.color_info},
+        DiagnosticVirtualTextError = {fg = lvim.color_error},
+        DiagnosticVirtualTextWarning = {fg = lvim.color_warning},
+        DiagnosticVirtualTextInformation = {fg = lvim.color_info},
+        DiagnosticVirtualTextHint = {fg = lvim.color_info},
+        SignatureAtiveParameter = {fg = lvim.color_info},
+        DiagnosticUnderlineError = {
+            style = "undercurl",
+            sp = lvim.color_error
+        },
+        DiagnosticUnderlineWarning = {
+            style = "undercurl",
+            sp = lvim.color_warning
+        },
+        DiagnosticUnderlineInformation = {
+            style = "undercurl",
+            sp = lvim.color_info
+        },
+        DiagnosticUnderlineHint = {
             style = "undercurl",
             sp = lvim.color_info
         },
