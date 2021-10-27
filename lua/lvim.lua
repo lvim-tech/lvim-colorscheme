@@ -344,6 +344,7 @@ function lvim.load_plugin_syntax()
             style = "undercurl",
             sp = lvim.color_info
         },
+        LvimFocus = {bg = lvim.black_background},
         LvimHelperNormal = {fg = lvim.color_6, bg = lvim.base2},
         LvimHelperTitle = {fg = lvim.color_9, bg = lvim.none},
         SnapNormal = {fg = lvim.color_6, bg = lvim.none},
