@@ -80,15 +80,14 @@ function lvim.highlight(group, color)
     local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
     local bg = color.bg and "guibg=" .. color.bg or "guibg=NONE"
     local sp = color.sp and "guisp=" .. color.sp or ""
-    vim.api.nvim_command("highlight " .. group .. " " .. style .. " " .. fg ..
-                             " " .. bg .. " " .. sp)
+    vim.api.nvim_command("highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp)
 end
 
 function lvim.load_syntax()
     local syntax = {
         Normal = {fg = lvim.fg, bg = lvim.bg},
         Terminal = {fg = lvim.fg, bg = lvim.bg},
-        SignColumn = {fg = lvim.fg, bg = lvim.bg},
+        SignColumn = {fg = lvim.fg, bg = lvim.black_background},
         FoldColumn = {fg = lvim.color_10, bg = lvim.black},
         VertSplit = {fg = lvim.black, bg = lvim.bg},
         Folded = {fg = lvim.color_12, bg = lvim.bg_highlight},
@@ -104,9 +103,9 @@ function lvim.load_syntax()
         CursorIM = {fg = lvim.none, bg = lvim.none, style = "reverse"},
         CursorColumn = {fg = lvim.none, bg = lvim.bg_highlight},
         CursorLine = {fg = lvim.none, bg = lvim.bg_highlight},
-        LineNr = {fg = lvim.hl},
-        qfLineNr = {fg = lvim.color_10},
-        CursorLineNr = {fg = lvim.color_10},
+        LineNr = {fg = lvim.hl, bg = lvim.black_background},
+        qfLineNr = {fg = lvim.color_10, bg = lvim.black_background},
+        CursorLineNr = {fg = lvim.color_10, bg = lvim.black_background},
         DiffAdd = {fg = lvim.black, bg = lvim.color_6},
         DiffChange = {fg = lvim.black, bg = lvim.color_3},
         DiffDelete = {fg = lvim.black, bg = lvim.color_0},
@@ -281,28 +280,28 @@ function lvim.load_plugin_syntax()
         GitGutterChange = {fg = lvim.color_change},
         GitGutterDelete = {fg = lvim.color_delete},
         GitGutterChangeDelete = {fg = lvim.color_change_delete},
-        GitSignsAdd = {fg = lvim.color_add},
-        GitSignsChange = {fg = lvim.color_change},
-        GitSignsDelete = {fg = lvim.color_delete},
-        GitSignsAddNr = {fg = lvim.color_add},
-        GitSignsChangeNr = {fg = lvim.color_change},
-        GitSignsDeleteNr = {fg = lvim.color_delete},
-        GitSignsAddLn = {fg = lvim.color_add},
-        GitSignsChangeLn = {fg = lvim.color_change},
-        GitSignsDeleteLn = {fg = lvim.color_delete},
+        GitSignsAdd = {fg = lvim.color_add, bg = lvim.black_background},
+        GitSignsChange = {fg = lvim.color_change, bg = lvim.black_background},
+        GitSignsDelete = {fg = lvim.color_delete, bg = lvim.black_background},
+        GitSignsAddNr = {fg = lvim.color_add, bg = lvim.black_background},
+        GitSignsChangeNr = {fg = lvim.color_change, bg = lvim.black_background},
+        GitSignsDeleteNr = {fg = lvim.color_delete, bg = lvim.black_background},
+        GitSignsAddLn = {fg = lvim.color_add, bg = lvim.black_background},
+        GitSignsChangeLn = {fg = lvim.color_change, bg = lvim.black_background},
+        GitSignsDeleteLn = {fg = lvim.color_delete, bg = lvim.black_background},
         SignifySignAdd = {fg = lvim.color_add},
         SignifySignChange = {fg = lvim.color_change},
         SignifySignDelete = {fg = lvim.color_delete},
         dbui_tables = {fg = lvim.color_8},
-        LspDiagnosticsSignError = {fg = lvim.color_error},
-        LspDiagnosticsSignWarning = {fg = lvim.color_warning},
-        LspDiagnosticsSignInformation = {fg = lvim.color_info},
-        LspDiagnosticsSignHint = {fg = lvim.color_info},
-        LspDiagnosticsVirtualTextError = {fg = lvim.color_error},
-        LspDiagnosticsVirtualTextWarning = {fg = lvim.color_warning},
-        LspDiagnosticsVirtualTextInformation = {fg = lvim.color_info},
-        LspDiagnosticsVirtualTextHint = {fg = lvim.color_info},
-        LspSignatureActiveParameter = {fg = lvim.color_info},
+        LspDiagnosticsSignError = {fg = lvim.color_error, bg = lvim.black_background},
+        LspDiagnosticsSignWarning = {fg = lvim.color_warning, bg = lvim.black_background},
+        LspDiagnosticsSignInformation = {fg = lvim.color_info, bg = lvim.black_background},
+        LspDiagnosticsSignHint = {fg = lvim.color_info, bg = lvim.black_background},
+        LspDiagnosticsVirtualTextError = {fg = lvim.color_error, bg = lvim.black_background},
+        LspDiagnosticsVirtualTextWarning = {fg = lvim.color_warning, bg = lvim.black_background},
+        LspDiagnosticsVirtualTextInformation = {fg = lvim.color_info, bg = lvim.black_background},
+        LspDiagnosticsVirtualTextHint = {fg = lvim.color_info, bg = lvim.black_background},
+        LspSignatureActiveParameter = {fg = lvim.color_info, bg = lvim.black_background},
         LspDiagnosticsUnderlineError = {
             style = "undercurl",
             sp = lvim.color_error
@@ -319,15 +318,15 @@ function lvim.load_plugin_syntax()
             style = "undercurl",
             sp = lvim.color_info
         },
-        DiagnosticSignError = {fg = lvim.color_error},
-        DiagnosticSignWarning = {fg = lvim.color_warning},
-        DiagnosticSignInformation = {fg = lvim.color_info},
-        DiagnosticSignHint = {fg = lvim.color_info},
-        DiagnosticVirtualTextError = {fg = lvim.color_error},
-        DiagnosticVirtualTextWarning = {fg = lvim.color_warning},
-        DiagnosticVirtualTextInformation = {fg = lvim.color_info},
-        DiagnosticVirtualTextHint = {fg = lvim.color_info},
-        SignatureAtiveParameter = {fg = lvim.color_info},
+        DiagnosticSignError = {fg = lvim.color_error, bg = lvim.black_background},
+        DiagnosticSignWarning = {fg = lvim.color_warning, bg = lvim.black_background},
+        DiagnosticSignInformation = {fg = lvim.color_info, bg = lvim.black_background},
+        DiagnosticSignHint = {fg = lvim.color_info, bg = lvim.black_background},
+        DiagnosticVirtualTextError = {fg = lvim.color_error, bg = lvim.black_background},
+        DiagnosticVirtualTextWarning = {fg = lvim.color_warning, bg = lvim.black_background},
+        DiagnosticVirtualTextInformation = {fg = lvim.color_info, bg = lvim.black_background},
+        DiagnosticVirtualTextHint = {fg = lvim.color_info, bg = lvim.black_background},
+        SignatureAtiveParameter = {fg = lvim.color_info, bg = lvim.black_background},
         DiagnosticUnderlineError = {
             style = "undercurl",
             sp = lvim.color_error
@@ -429,21 +428,32 @@ end
 
 local async_load_plugin
 
-async_load_plugin = vim.loop.new_async(vim.schedule_wrap(function()
-    lvim.terminal_color()
-    local syntax = lvim.load_plugin_syntax()
-    for group, colors in pairs(syntax) do lvim.highlight(group, colors) end
-    async_load_plugin:close()
-end))
+async_load_plugin =
+    vim.loop.new_async(
+    vim.schedule_wrap(
+        function()
+            lvim.terminal_color()
+            local syntax = lvim.load_plugin_syntax()
+            for group, colors in pairs(syntax) do
+                lvim.highlight(group, colors)
+            end
+            async_load_plugin:close()
+        end
+    )
+)
 
 function lvim.colorscheme()
     vim.api.nvim_command("hi clear")
-    if vim.fn.exists("syntax_on") then vim.api.nvim_command("syntax reset") end
+    if vim.fn.exists("syntax_on") then
+        vim.api.nvim_command("syntax reset")
+    end
     vim.o.background = "dark"
     vim.o.termguicolors = true
     vim.g.colors_name = "lvim"
     local syntax = lvim.load_syntax()
-    for group, colors in pairs(syntax) do lvim.highlight(group, colors) end
+    for group, colors in pairs(syntax) do
+        lvim.highlight(group, colors)
+    end
     async_load_plugin:send()
 end
 
