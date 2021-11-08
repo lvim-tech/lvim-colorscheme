@@ -322,23 +322,23 @@ function lvim.load_plugin_syntax()
             sp = lvim.color_info
         },
         DiagnosticSignError = {fg = lvim.color_error, bg = lvim.black_background},
-        DiagnosticSignWarning = {fg = lvim.color_warning, bg = lvim.black_background},
-        DiagnosticSignInformation = {fg = lvim.color_info, bg = lvim.black_background},
+        DiagnosticSignWarn = {fg = lvim.color_warning, bg = lvim.black_background},
+        DiagnosticSignInfo = {fg = lvim.color_info, bg = lvim.black_background},
         DiagnosticSignHint = {fg = lvim.color_info, bg = lvim.black_background},
         DiagnosticVirtualTextError = {fg = lvim.color_error, bg = lvim.black_background},
-        DiagnosticVirtualTextWarning = {fg = lvim.color_warning, bg = lvim.black_background},
-        DiagnosticVirtualTextInformation = {fg = lvim.color_info, bg = lvim.black_background},
+        DiagnosticVirtualTextWarn = {fg = lvim.color_warning, bg = lvim.black_background},
+        DiagnosticVirtualTextInfo = {fg = lvim.color_info, bg = lvim.black_background},
         DiagnosticVirtualTextHint = {fg = lvim.color_info, bg = lvim.black_background},
         SignatureAtiveParameter = {fg = lvim.color_info, bg = lvim.black_background},
         DiagnosticUnderlineError = {
             style = "undercurl",
             sp = lvim.color_error
         },
-        DiagnosticUnderlineWarning = {
+        DiagnosticUnderlineWarn = {
             style = "undercurl",
             sp = lvim.color_warning
         },
-        DiagnosticUnderlineInformation = {
+        DiagnosticUnderlineInfo = {
             style = "undercurl",
             sp = lvim.color_info
         },
@@ -346,6 +346,14 @@ function lvim.load_plugin_syntax()
             style = "undercurl",
             sp = lvim.color_info
         },
+        DiagnosticFloatingError = {fg = lvim.color_error},
+        DiagnosticFloatingWarn = {fg = lvim.color_warning},
+        DiagnosticFloatingInfo = {fg = lvim.color_info},
+        DiagnosticFloatingHint = {fg = lvim.color_info},
+        LspDiagnosticsFloatingError = {fg = lvim.color_error},
+        LspDiagnosticsFloatingWarn = {fg = lvim.color_warning},
+        LspDiagnosticsFloatingInfo = {fg = lvim.color_info},
+        LspDiagnosticsFloatingHint = {fg = lvim.color_info},
         LvimFocus = {bg = lvim.black_background},
         LvimHelperNormal = {fg = lvim.color_6, bg = lvim.base2},
         LvimHelperTitle = {fg = lvim.color_9, bg = lvim.none},
