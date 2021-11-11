@@ -177,8 +177,8 @@ function lvim.load_syntax()
         Delimiter = {fg = lvim.color_5},
         Ignore = {fg = lvim.color_12},
         Underlined = {style = "underline"},
-		Bold = {style = "bold"},
-		Italic = {style = "italic"},
+        Bold = {style = "bold"},
+        Italic = {style = "italic"},
         DashboardShortCut = {fg = lvim.color_10},
         DashboardHeader = {fg = lvim.color_0},
         DashboardCenter = {fg = lvim.color_7},
@@ -432,7 +432,11 @@ function lvim.load_plugin_syntax()
         VimwikiHeaderChar = {fg = lvim.color_6},
         VimwikiHR = {fg = lvim.color_12},
         VimwikiList = {fg = lvim.color_13},
-        VimwikiTag = {fg = lvim.color_1}
+        VimwikiTag = {fg = lvim.color_1},
+        SniprunVirtualTextOk = {bg = lvim.color_1},
+        SniprunFloatingWinOk = {fg = lvim.color_1},
+        SniprunVirtualTextErr = {bg = lvim.error, fg = lvim.fg},
+        SniprunFloatingWinErr = {fg = lvim.error}
     }
     return plugin_syntax
 end
