@@ -436,7 +436,11 @@ function lvim.load_plugin_syntax()
         SniprunVirtualTextOk = {bg = lvim.color_1},
         SniprunFloatingWinOk = {fg = lvim.color_1},
         SniprunVirtualTextErr = {bg = lvim.error, fg = lvim.fg},
-        SniprunFloatingWinErr = {fg = lvim.error}
+        SniprunFloatingWinErr = {fg = lvim.error},
+        HopNextKey = {fg = lvim.color_7, style = "bold"},
+        HopNextKey1 = {fg = lvim.color_8, style = "bold"},
+        HopNextKey2 = {fg = lvim.color_10, style = "bold"},
+        HopUnmatched = {fg = lvim.color_6, sp = lvim.color_6}
     }
     return plugin_syntax
 end
