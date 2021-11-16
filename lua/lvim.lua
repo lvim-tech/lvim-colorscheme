@@ -458,7 +458,7 @@ async_load_plugin =
 )
 
 function lvim.colorscheme()
-    -- vim.api.nvim_command("hi clear")
+    vim.api.nvim_command("hi clear")
     if vim.fn.exists("syntax_on") then
         vim.api.nvim_command("syntax reset")
     end
