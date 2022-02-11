@@ -330,6 +330,7 @@ function lvim.load_plugin_syntax()
         SnapPrompt = {fg = lvim.color_9, bg = lvim.none},
         SnapPosition = {fg = lvim.color_9, bg = lvim.none},
         NvimTreeNormal = {bg = lvim.bg_01},
+        NvimTreeCursorLine = {bg = lvim.bg_03},
         NvimTreeFolderName = {fg = lvim.color_5},
         NvimTreeOpenedFolderName = {fg = lvim.color_5},
         NvimTreeEmptyFolderName = {fg = lvim.color_5},
