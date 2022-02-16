@@ -183,7 +183,6 @@ end
 
 function lvim.load_plugin_syntax()
     local plugin_syntax = {
-        OverwriteNormal = {bg = lvim.bg_01},
         TSAnnotation = {fg = lvim.color_0},
         TSAttribute = {fg = lvim.color_1},
         TSBoolean = {fg = lvim.color_2},
@@ -348,7 +347,7 @@ function lvim.load_plugin_syntax()
         NvimTreeLspDiagnosticsHint = {fg = lvim.color_info},
         NvimTreeWindowPicker = {gui = "bold", fg = lvim.bg_03, bg = lvim.color_9},
         TroubleNormal = {bg = lvim.bg_01},
-        TroublePreview = {bg = lvim.bg_01},
+        TroublePreview = {bg = lvim.none},
         TelescopeBorder = {bg = lvim.bg_01, fg = lvim.bg_01},
         TelescopePromptBorder = {bg = lvim.hl_02, fg = lvim.hl_02},
         TelescopePromptNormal = {bg = lvim.hl_02, fg = lvim.fg},
