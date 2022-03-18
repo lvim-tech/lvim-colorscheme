@@ -83,7 +83,7 @@ function lvim.load_syntax()
         Terminal = {fg = lvim.fg, bg = lvim.bg_03},
         SignColumn = {fg = lvim.fg, bg = lvim.none},
         FoldColumn = {fg = lvim.color_10, bg = lvim.none},
-        VertSplit = {fg = lvim.bg_02, bg = lvim.bg_03},
+        VertSplit = {fg = lvim.hl_01, bg = lvim.bg_03},
         Folded = {fg = lvim.fg, bg = lvim.hl_02},
         EndOfBuffer = {fg = lvim.bg_02, bg = lvim.none},
         IncSearch = {fg = lvim.bg_03, bg = lvim.color_1},
