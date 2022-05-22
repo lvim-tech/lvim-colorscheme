@@ -180,6 +180,7 @@ function lvim.load_syntax()
         DashboardFooter = { fg = lvim.color_5 },
         UIPrompt = { fg = lvim.bg_03, bg = lvim.color_5 },
         UIPromptSelect = { fg = lvim.bg_03, bg = lvim.color_5, style = "bold" },
+        WinBar = { fg = lvim.color_5, style = "bold" },
     }
     return syntax
 end
