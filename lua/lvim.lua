@@ -181,6 +181,8 @@ function lvim.load_syntax()
         UIPrompt = { fg = lvim.bg_03, bg = lvim.color_5 },
         UIPromptSelect = { fg = lvim.bg_03, bg = lvim.color_5, style = "bold" },
         WinBar = { fg = lvim.color_5, style = "bold" },
+        LightBulb = { fg = lvim.color_10, bg = lvim.none },
+        LightBulbVirtualText = { fg = lvim.color_10, bg = lvim.none },
     }
     return syntax
 end
