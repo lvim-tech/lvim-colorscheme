@@ -353,6 +353,7 @@ function lvim.load_plugin_syntax()
         NvimTreeLspDiagnosticsInformation = { fg = lvim.color_info },
         NvimTreeLspDiagnosticsHint = { fg = lvim.color_info },
         NvimTreeWindowPicker = { gui = "bold", fg = lvim.bg_03, bg = lvim.color_9 },
+        TroubleNormal = { bg = lvim.bg_01 },
         TroubleError = { bg = lvim.color_error },
         TroubleWarning = { bg = lvim.color_warning },
         TroubleInformation = { bg = lvim.color_info },
