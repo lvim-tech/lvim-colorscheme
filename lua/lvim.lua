@@ -49,6 +49,7 @@ local lvim = {
     color_change_delete = "#F2994B",
     hl_01 = "#46555A",
     hl_02 = "#3A464A",
+    hl_03 = "#2d3639",
     none = "NONE",
 }
 
@@ -184,6 +185,13 @@ function lvim.load_syntax()
         WinBar = { bg = lvim.bg_01, fg = lvim.color_10 },
         LightBulb = { fg = lvim.color_10, bg = lvim.none },
         LightBulbVirtualText = { fg = lvim.color_10, bg = lvim.none },
+        CodeBlock = { bg = lvim.hl_03 },
+        OrgTSHeadlineLevel1 = { fg = lvim.term_7, style = "bold" },
+        OrgTSHeadlineLevel2 = { fg = lvim.term_4, style = "bold" },
+        OrgTSHeadlineLevel3 = { fg = lvim.color_5, style = "bold" },
+        OrgTSHeadlineLevel4 = { fg = lvim.color_8, style = "bold" },
+        OrgTSHeadlineLevel5 = { fg = lvim.color_10, style = "bold" },
+        OrgTSHeadlineLevel6 = { fg = lvim.color_13, style = "bold" },
     }
     return syntax
 end
@@ -431,6 +439,7 @@ function lvim.load_plugin_syntax()
         VimwikiHR = { fg = lvim.color_12 },
         VimwikiList = { fg = lvim.color_13 },
         VimwikiTag = { fg = lvim.color_5 },
+        calendar = { bg = lvim.bg_01 },
         SniprunVirtualTextOk = { bg = lvim.color1, fg = lvim.color_success },
         SniprunFloatingWinOk = { bg = lvim.color1, fg = lvim.color_success },
         SniprunVirtualTextErr = { bg = lvim.color1, fg = lvim.color_error },
