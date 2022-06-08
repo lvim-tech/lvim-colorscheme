@@ -192,6 +192,19 @@ function lvim.load_syntax()
         OrgTSHeadlineLevel4 = { fg = lvim.color_8, style = "bold" },
         OrgTSHeadlineLevel5 = { fg = lvim.color_10, style = "bold" },
         OrgTSHeadlineLevel6 = { fg = lvim.color_13, style = "bold" },
+        OrgTSHeadlineLevel7 = { fg = lvim.term_3, style = "bold" },
+        OrgTSHeadlineLevel8 = { fg = lvim.color_3, style = "bold" },
+        OrgHeadlineLevel1 = { fg = lvim.term_7, style = "bold" },
+        OrgHeadlineLevel2 = { fg = lvim.term_4, style = "bold" },
+        OrgHeadlineLevel3 = { fg = lvim.color_5, style = "bold" },
+        OrgHeadlineLevel4 = { fg = lvim.color_8, style = "bold" },
+        OrgHeadlineLevel5 = { fg = lvim.color_10, style = "bold" },
+        OrgHeadlineLevel6 = { fg = lvim.color_13, style = "bold" },
+        OrgHeadlineLevel7 = { fg = lvim.term_3, style = "bold" },
+        OrgHeadlineLevel8 = { fg = lvim.color_3, style = "bold" },
+        OrgDone = { fg = lvim.color_5, style = "bold" },
+        OrgHalf = { fg = lvim.color_8, style = "bold" },
+        OrgUnDone = { fg = lvim.color_13, style = "bold" },
     }
     return syntax
 end
