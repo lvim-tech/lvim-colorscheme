@@ -1,0 +1,34 @@
+# Lvim Alacritty Colors
+colors:
+  # Default colors
+  primary:
+    background: '0x2A3339'
+    foreground: '0xF2994B'
+
+  # Normal colors
+  normal:
+    black:   '0xE6C068'
+    red:     '0xf16a5b'
+    green:   '0xA7C080'
+    yellow:  '0x00839F'
+    blue:    '0x70a9a8'
+    magenta: '0xF05F4E'
+    cyan:    '0xE6C068'
+    white:   '0x90c1a3'
+
+  # Bright colors
+  bright:
+    black:   '0xE6C068'
+    red:     '0xf16a5b'
+    green:   '0xA7C080'
+    yellow:  '0x00839F'
+    blue:    '0x70a9a8'
+    magenta: '0xF05F4E'
+    cyan:    '0xE6C068'
+    white:   '0xF2994B'
+
+  indexed_colors:
+    - { index: 16, color: '0xf08628' }
+    - { index: 17, color: '0xf16a5b' }
+    
+  
