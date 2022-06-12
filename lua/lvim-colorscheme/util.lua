@@ -144,7 +144,7 @@ function util.syntax(syntax)
 end
 
 function util.terminal(colors)
-    vim.g.terminal_color_0 = colors.color_23
+    vim.g.terminal_color_0 = colors.color_03
     vim.g.terminal_color_8 = colors.color_23
     vim.g.terminal_color_7 = colors.color_16
     vim.g.terminal_color_15 = colors.color_21

@@ -21,7 +21,7 @@ colors:
 
   # Normal colors
   normal:
-    black:   '${color_23}'
+    black:   '${color_03}'
     red:     '${color_25}'
     green:   '${color_18}'
     yellow:  '${color_07}'

@@ -10,7 +10,7 @@ function M.generate(colors)
 *background: ${color_03}
 *foreground: ${color_21}
 
-*color0: ${color_23}
+*color0: ${color_03}
 *color1: ${color_25}
 *color2: ${color_18}
 *color3: ${color_07}

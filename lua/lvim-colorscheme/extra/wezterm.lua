@@ -14,7 +14,7 @@ cursor_fg = "${color_03}"
 selection_bg = "${bg_visual}"
 selection_fg = "${color_21}"
 
-ansi = ["${color_23}", "${color_25}", "${color_18}", "${color_07}", "${color_13}", "${color_24}", "${color_23}", "${color_16}"]
+ansi = ["${color_03}", "${color_25}", "${color_18}", "${color_07}", "${color_13}", "${color_24}", "${color_23}", "${color_16}"]
 brights = ["${color_03}", "${color_25}", "${color_18}", "${color_07}", "${color_13}", "${color_24}", "${color_23}", "${color_21}"]
   ]]     ,
         colors

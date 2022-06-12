@@ -22,7 +22,7 @@ inactive_tab_foreground ${color_05}
 #tab_bar_background ${color_01}
 
 # normal
-color0 ${color_23}
+color0 ${color_03}
 color1 ${color_25}
 color2 ${color_18}
 color3 ${color_07}
