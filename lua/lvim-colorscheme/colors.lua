@@ -56,7 +56,7 @@ function M.setup(config)
     colors.bg_float = config.darkFloat and colors.color_01 or util.darken(colors.color_01, 0.7, "#161a1d")
     colors.bg_visual = colors.color_05
     colors.bg_search = colors.color_05
-    colors.fg_sidebar = colors.color_16
+    colors.fg_sidebar = colors.color_22
     colors.success = colors.color_18
     colors.error = colors.color_24
     colors.warning = colors.color_22
