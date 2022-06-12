@@ -326,7 +326,7 @@ function M.setup(config)
         CmpItemKindTypeParameter = { fg = c.color_08, bg = c.none },
         CmpItemKindEnumMember = { fg = c.color_08, bg = c.none },
         CmpItemKindOperator = { fg = c.color_08, bg = c.none },
-        CmpItemKindSnippet = { fg = c.color_06, bg = c.none },
+        CmpItemKindSnippet = { fg = c.color_19, bg = c.none },
         LspInstallerHeader = { bg = c.color_18, fg = c.color_03, style = "bold" },
         LspInstallerHeaderHelp = { bg = c.color_18, fg = c.color_03, style = "bold" },
         LspInstallerHeading = { fg = c.color_18, style = "bold" },
