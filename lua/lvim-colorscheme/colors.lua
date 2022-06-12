@@ -60,7 +60,7 @@ function M.setup(config)
     colors.success = colors.color_18
     colors.error = colors.color_24
     colors.warning = colors.color_22
-    colors.info = colors.color_11
+    colors.info = colors.color_07
     colors.hint = colors.color_23
     util.color_overrides(colors, config)
     return colors
