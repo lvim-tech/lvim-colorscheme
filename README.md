@@ -7,4 +7,9 @@
 ## Neovim configuration - [LVIM](https://github.com/lvim-tech/lvim)
 
 ## Screenshot
-![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_01.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_02.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_03.png)
