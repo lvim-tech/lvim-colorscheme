@@ -62,7 +62,7 @@ function M.setup(config)
         SpellRare = { sp = c.hint, style = "undercurl" },
         StatusLine = { fg = c.fg_sidebar, bg = c.bg_statusline },
         StatusLineNC = { fg = c.color_04, bg = c.bg_statusline },
-        TabLine = { bg = c.bg_statusline, fg = c.color_04 },
+        TabLine = { bg = c.bg_statusline, fg = c.color_19, style = "bold" },
         TabLineFill = { bg = c.color_02 },
         TabLineSel = { fg = c.color_02, bg = c.color_13 },
         Title = { fg = c.color_13, style = "bold" },
