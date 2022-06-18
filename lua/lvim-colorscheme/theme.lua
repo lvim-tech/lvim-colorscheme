@@ -377,6 +377,7 @@ function M.setup(config)
         OrgTSCheckbox = { fg = c.color_24, style = "bold" },
         OrgTSCheckboxHalfChecked = { fg = c.color_23, style = "bold" },
         OrgTSCheckboxChecked = { fg = c.color_19, style = "bold" },
+        OrgTSBlock = { fg = c.color_24 },
         LvimFocusNormal = { bg = c.color_01 },
         LvimHelperNormal = { bg = c.color_01 },
         LvimHelperTitle = { fg = c.color_18, style = "bold" },
