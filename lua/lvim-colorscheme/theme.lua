@@ -42,8 +42,8 @@ function M.setup(config)
         MsgArea = { fg = c.color_16 },
         MoreMsg = { fg = c.color_13 },
         NonText = { fg = c.color_05 },
-        Normal = { fg = c.color_21, bg = c.color_03 },
-        NormalNC = { fg = c.color_21, bg = c.color_01 },
+        Normal = { fg = c.color_21, bg = c.color_01 },
+        NormalNC = { fg = c.color_21, bg = c.color_03 },
         NormalSB = { fg = c.fg_sidebar, bg = c.bg_sidebar },
         NormalFloat = { fg = c.color_21, bg = c.bg_float },
         FloatBorder = { fg = c.border_highlight, bg = c.bg_float },
@@ -382,6 +382,7 @@ function M.setup(config)
         NuiBorder = { bg = c.bg_statusline, fg = c.bg_statusline },
         NuiBody = { bg = c.bg_statusline, fg = c.color_19, style = "bold" },
         LvimFocusNormal = { bg = c.color_01 },
+        LvimFocusNormalNC = { bg = c.color_03 },
         LvimHelperNormal = { bg = c.color_01 },
         LvimHelperTitle = { fg = c.color_18, style = "bold" },
     }
