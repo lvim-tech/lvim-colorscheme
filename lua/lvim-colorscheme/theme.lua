@@ -379,6 +379,7 @@ function M.setup(config)
         OrgTSCheckboxChecked = { fg = c.color_19, style = "bold" },
         OrgTSBlock = { fg = c.color_15 },
         OrgTSBlockCode = { bg = c.bg_statusline },
+        CtrlSpaceNormal = { bg = c.color_01 },
         NuiBorder = { bg = c.bg_statusline, fg = c.bg_statusline },
         NuiBody = { bg = c.bg_statusline, fg = c.color_19, style = "bold" },
         LvimFocusNormal = { bg = c.color_01 },
