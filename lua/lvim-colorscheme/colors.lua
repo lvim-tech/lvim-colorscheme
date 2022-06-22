@@ -50,7 +50,7 @@ function M.setup(config)
     colors.black = util.darken(colors.color_03, 0.8, "#161a1d")
     colors.border_highlight = colors.color_01
     colors.border = colors.black
-    colors.bg_popup = util.darken(colors.color_01, 0.5, "#161a1d")
+    colors.bg_popup = util.darken(colors.color_01, 0.7, "#161a1d")
     colors.bg_statusline = util.darken(colors.color_01, 0.7, "#161a1d")
     colors.bg_sidebar = config.darkSidebar and colors.color_01 or colors.color_03
     colors.bg_float = config.darkFloat and colors.color_01 or util.darken(colors.color_01, 0.7, "#161a1d")
