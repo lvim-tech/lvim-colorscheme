@@ -149,6 +149,8 @@ function M.setup(config)
         TSVariable = { style = config.variableStyle },
         TSVariableBuiltin = { fg = c.color_25 },
         TSTextReference = { fg = c.color_09 },
+        TreesitterContext = { bg = c.bg_statusline },
+        TreesitterContextLineNumber = { bg = c.bg_statusline, fg = c.color_24, style = "bold" },
         TroubleNormal = { bg = c.color_01 },
         TroubleError = { bg = c.error },
         TroubleWarning = { bg = c.warning },
