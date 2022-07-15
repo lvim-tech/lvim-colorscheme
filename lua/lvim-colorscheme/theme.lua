@@ -53,7 +53,7 @@ function M.setup(config)
         PmenuThumb = { bg = c.color_21 },
         Winbar = { bg = c.bg_statusline, fg = c.color_22 },
         Question = { fg = c.color_13 },
-        QuickFixLine = { bg = c.none, style = "bold" },
+        QuickFixLine = { bg = c.color_03, style = "bold" },
         Search = { bg = c.bg_search, fg = c.color_21 },
         IncSearch = { bg = c.bg_search, fg = c.color_21, style = "bold" },
         Replace = { bg = c.bg_search, fg = c.color_21 },
