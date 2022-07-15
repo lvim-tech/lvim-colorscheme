@@ -53,7 +53,7 @@ function M.setup(config)
         PmenuThumb = { bg = c.color_21 },
         Winbar = { bg = c.bg_statusline, fg = c.color_22 },
         Question = { fg = c.color_13 },
-        QuickFixLine = { bg = c.bg_visual, style = "bold" },
+        QuickFixLine = { bg = c.none, style = "bold" },
         Search = { bg = c.bg_search, fg = c.color_21 },
         IncSearch = { bg = c.bg_search, fg = c.color_21, style = "bold" },
         Replace = { bg = c.bg_search, fg = c.color_21 },
@@ -454,6 +454,7 @@ function M.setup(config)
         NavicIconsTypeParameter = { bg = c.bg_statusline, fg = c.color_23 },
         NavicText = { bg = c.bg_statusline, fg = c.color_22 },
         NavicSeparator = { bg = c.bg_statusline, fg = c.color_22 },
+        BqfPreviewRange = { bg = c.none, fg = c.color_19 },
     }
     theme.defer = {}
     return theme
