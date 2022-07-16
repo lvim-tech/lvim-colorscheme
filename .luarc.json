@@ -1,9 +1,11 @@
 {
     "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
     "Lua.diagnostics.disable": [
-        "lowercase-global",
-        "undefined-field",
-        "missing-parameter",
-        "need-check-nil"
+        "deprecated",
+        "param-type-mismatch",
+        "cast-local-type"
+    ],
+    "Lua.diagnostics.globals": [
+        "vim"
     ]
 }
