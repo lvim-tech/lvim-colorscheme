@@ -45,7 +45,7 @@ function M.setup(config)
         Normal = { fg = c.color_21, bg = c.color_01 },
         NormalNC = { fg = c.color_21, bg = c.color_03 },
         NormalSB = { fg = c.fg_sidebar, bg = c.bg_sidebar },
-        NormalFloat = { fg = c.color_21, bg = c.bg_popup },
+        NormalFloat = { fg = c.color_21, bg = c.bg_float },
         FloatBorder = { fg = c.bg_float, bg = c.bg_float },
         Pmenu = { bg = c.bg_popup, fg = c.color_21, style = "bold" },
         PmenuSel = { bg = c.color_04, style = "bold" },
