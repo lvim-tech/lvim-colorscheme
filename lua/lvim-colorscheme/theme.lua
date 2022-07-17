@@ -167,7 +167,7 @@ function M.setup(config)
         TSFuncBuiltin = { fg = c.color_18 },
         TSKeywordFunction = { fg = c.color_24, style = config.keywordStyle },
         TSStringRegex = { fg = c.color_14 },
-        TSVariable = { style = config.variableStyle },
+        TSVariable = { fg = c.color_17, style = config.variableStyle },
         TSVariableBuiltin = { fg = c.color_25 },
         TSProperty = { fg = c.color_21 },
         TSNote = { bg = c.info, fg = c.color_03 },
