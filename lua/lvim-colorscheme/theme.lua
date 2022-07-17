@@ -447,6 +447,7 @@ function M.setup(config)
         NavicText = { bg = c.bg_statusline, fg = c.color_22 },
         NavicSeparator = { bg = c.bg_statusline, fg = c.color_22 },
         BqfPreviewRange = { bg = c.none, fg = c.color_19 },
+        BqfPreviewBorder = { bg = c.color_01, fg = c.color_07 },
     }
     theme.defer = {}
     return theme
