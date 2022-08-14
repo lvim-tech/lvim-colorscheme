@@ -412,7 +412,7 @@ function M.setup(config)
         OrgTSBlock = { fg = c.color_15 },
         OrgTSBlockCode = { bg = c.bg_statusline },
         CtrlSpaceNormal = { bg = c.bg_sidebar },
-        NuiBorder = { bg = c.bg_statusline, fg = c.bg_statusline },
+        NuiBorder = { bg = c.bg_statusline, fg = c.color_19 },
         NuiBody = { bg = c.bg_statusline, fg = c.color_19, style = "bold" },
         LvimFocusNormal = { bg = c.color_01 },
         LvimFocusNormalNC = { bg = c.color_03 },
@@ -448,6 +448,15 @@ function M.setup(config)
         NavicSeparator = { bg = c.bg_statusline, fg = c.color_22 },
         BqfPreviewRange = { bg = c.none, fg = c.color_19 },
         BqfPreviewBorder = { bg = c.color_01, fg = c.color_07 },
+        DifbufFile = { fg = c.color_07 },
+        DirbufDirectory = { fg = c.color_07 },
+        DirbufLink = { fg = c.color_07 },
+        DirbufFifo = { fg = c.color_07 },
+        DirbufSocket = { fg = c.color_07 },
+        DirbufChar = { fg = c.color_07 },
+        DirbufBlock = { fg = c.color_07 },
+        DirbufHash = { fg = c.color_07 },
+        LspInlayHint = { fg = c.color_07 },
     }
     theme.defer = {}
     return theme
