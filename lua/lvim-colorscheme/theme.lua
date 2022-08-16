@@ -412,7 +412,7 @@ function M.setup(config)
         OrgTSBlock = { fg = c.color_15 },
         OrgTSBlockCode = { bg = c.bg_statusline },
         CtrlSpaceNormal = { bg = c.bg_sidebar },
-        NuiBorder = { bg = c.bg_statusline, fg = c.color_19 },
+        NuiBorder = { bg = c.bg_statusline, fg = c.color_24 },
         NuiBody = { bg = c.bg_statusline, fg = c.color_19, style = "bold" },
         LvimFocusNormal = { bg = c.color_01 },
         LvimFocusNormalNC = { bg = c.color_03 },
