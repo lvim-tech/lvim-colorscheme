@@ -13,3 +13,25 @@
 ![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_02.png)
 
 ![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_03.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_04.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_05.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_06.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_07.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_08.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_09.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_10.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_11.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_12.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_13.png)
+
+![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_14.png)
