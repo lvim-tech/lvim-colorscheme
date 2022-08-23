@@ -129,7 +129,7 @@ function M.setup(config)
 		local severity_map = {
 			Error = "Error",
 			Warn = "Warning",
-			Info = "Information",
+			Info = "Info",
 			Hint = "Hint",
 		}
 		local types = { "Default", "VirtualText", "Underline" }
@@ -249,6 +249,12 @@ function M.setup(config)
 		NvimTreeEmptyFolderName = { fg = c.color_21, style = "bold" },
 		NvimTreeFolderIcon = { fg = c.color_07 },
 		NvimTreeWindowPicker = { bg = c.color_22, fg = c.color_03, style = "bold" },
+		NeoTreeNormal = { bg = c.bg_sidebar, fg = c.color_23 },
+		NeoTreeNormalNC = { bg = c.bg_sidebar, fg = c.color_23 },
+		NeoTreeExpander = { fg = c.color_13 },
+		NeoTreeModified = { fg = c.color_18 },
+		NeoTreeMessage = { fg = c.color_15 },
+		NeoTreeFileName = { fg = c.color_15 },
 		FernBranchText = { fg = c.color_13 },
 		GlyphPalette1 = { fg = c.color_25 },
 		GlyphPalette2 = { fg = c.color_18 },
