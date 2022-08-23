@@ -31,7 +31,7 @@ function M.setup(config)
 		color_23 = "#E6C068",
 		color_24 = "#F05F4E",
 		color_25 = "#f16a5b",
-		git = { add = "#A7C080", change = "#F2AF5C", delete = "#F05F4E", conflict = "#E6C068" },
+		git = { add = "#A7C080", change = "#F2AF5C", delete = "#F05F4E", conflict = "#F2994B", ignore = "#2AA198" },
 		gitSigns = { add = "#A7C080", change = "#F2AF5C", delete = "#F05F4E" },
 	}
 	colors.diff = {
@@ -45,7 +45,6 @@ function M.setup(config)
 		change = colors.gitSigns.change,
 		delete = colors.gitSigns.delete,
 	}
-	colors.git.ignore = colors.color_05
 	colors.black = util.darken(colors.color_03, 0.5, "#161a1d")
 	colors.border_highlight = colors.color_01
 	colors.border = colors.black
