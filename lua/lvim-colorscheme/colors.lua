@@ -58,7 +58,7 @@ function M.setup(config)
 	colors.fg_sidebar = colors.color_22
 	colors.success = colors.color_18
 	colors.error = colors.color_24
-	colors.warning = colors.color_20
+	colors.warning = colors.color_21
 	colors.info = colors.color_07
 	colors.hint = colors.color_09
 	util.color_overrides(colors, config)
