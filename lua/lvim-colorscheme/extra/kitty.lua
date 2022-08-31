@@ -44,7 +44,7 @@ color15 ${color_21}
 # extended colors
 color16 ${color_20}
 color17 ${color_25}
-  ]]     ,
+  ]],
         colors
     )
     return kitty

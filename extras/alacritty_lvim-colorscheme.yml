@@ -8,27 +8,27 @@ colors:
   # Normal colors
   normal:
     black:   '0x2A3339'
-    red:     '0xf16a5b'
+    red:     '0xF16A5B'
     green:   '0xA7C080'
     yellow:  '0x00839F'
-    blue:    '0x70a9a8'
+    blue:    '0x70A9A8'
     magenta: '0xF05F4E'
     cyan:    '0xE6C068'
-    white:   '0x90c1a3'
+    white:   '0x90C1A3'
 
   # Bright colors
   bright:
     black:   '0xE6C068'
-    red:     '0xf16a5b'
+    red:     '0xF16A5B'
     green:   '0xA7C080'
     yellow:  '0x00839F'
-    blue:    '0x70a9a8'
+    blue:    '0x70A9A8'
     magenta: '0xF05F4E'
     cyan:    '0xE6C068'
     white:   '0xF2994B'
 
   indexed_colors:
-    - { index: 16, color: '0xf08628' }
-    - { index: 17, color: '0xf16a5b' }
+    - { index: 16, color: '0xF08628' }
+    - { index: 17, color: '0xF16A5B' }
     
   

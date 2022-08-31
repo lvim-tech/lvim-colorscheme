@@ -3,10 +3,10 @@ local util = require("lvim-colorscheme.util")
 local M = {}
 
 function M.generate(colors)
-    local alacrittyColors = {}
+    local alacritty_colors = {}
     for k, v in pairs(colors) do
         if type(v) == "string" then
-            alacrittyColors[k] = v:gsub("^#", "0x")
+            alacritty_colors[k] = v:gsub("^#", "0x")
         end
     end
 
@@ -45,8 +45,8 @@ colors:
     - { index: 16, color: '${color_20}' }
     - { index: 17, color: '${color_25}' }
     
-  ]]     ,
-        alacrittyColors
+  ]],
+        alacritty_colors
     )
 
     return alacritty

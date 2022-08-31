@@ -27,7 +27,7 @@ function M.generate(colors)
 *color13: ${color_24}
 *color14: ${color_23}
 *color15: ${color_21}
-]]       ,
+]],
         colors
     )
     return xr

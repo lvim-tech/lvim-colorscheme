@@ -10,13 +10,11 @@ local function write(str, fileName)
 end
 
 local extras = {
-    kitty = "conf",
-    fish = "fish",
     alacritty = "yml",
-    wezterm = "toml",
+    kitty = "conf",
     tmux = "tmux",
+    wezterm = "lua",
     xresources = "Xresources",
-    xfceterm = "theme",
 }
 
 for extra, ext in pairs(extras) do

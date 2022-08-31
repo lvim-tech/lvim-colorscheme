@@ -36,7 +36,7 @@ setw -g window-status-separator ""
 setw -g window-status-style "${none},fg=${fg_sidebar},bg=${bg_statusline}"
 setw -g window-status-format "#[fg=${bg_statusline},bg=${bg_statusline},nobold,nounderscore,noitalics]#[default] #I  #W #F #[fg=${bg_statusline},bg=${bg_statusline},nobold,nounderscore,noitalics]"
 setw -g window-status-current-format "#[fg=${bg_statusline},bg=${color_04},nobold,nounderscore,noitalics]#[fg=${color_13},bg=${color_04},bold] #I  #W #F #[fg=${color_04},bg=${bg_statusline},nobold,nounderscore,noitalics]"
-  ]]     ,
+  ]],
         colors
     )
     return tmux
