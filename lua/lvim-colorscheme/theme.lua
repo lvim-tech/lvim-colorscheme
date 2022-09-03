@@ -428,6 +428,7 @@ function M.setup(config)
         NuiBody = { bg = c.bg_statusline, fg = c.color_19 },
         LvimFocusNormal = { bg = c.color_01 },
         LvimFocusNormalNC = { bg = c.color_03 },
+        LvimFocusFloat = { bg = c.bg_float },
         LvimHelperNormal = { bg = c.color_01 },
         LvimHelperTitle = { fg = c.color_18, style = "bold" },
         NavicIconsFile = { bg = c.bg_statusline, fg = c.color_07 },
