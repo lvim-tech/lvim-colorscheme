@@ -46,7 +46,7 @@ function M.setup(config)
         delete = colors.gitSigns.delete,
     }
     colors.black = util.darken(colors.color_03, 0.5, "#161a1d")
-    colors.border_highlight = colors.color_01
+    colors.border_highlight = colors.color_06
     colors.border = colors.black
     colors.bg_popup = util.darken(colors.color_01, 0.7, "#161a1d")
     colors.bg_statusline = util.darken(colors.color_01, 0.7, "#161a1d")
