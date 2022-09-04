@@ -490,6 +490,10 @@ function M.setup(config)
         MasonHeading = { style = "bold" },
         FidgetTitle = { bg = c.bg_statusline, fg = c.color_25 },
         FidgetTask = { bg = c.bg_statusline, fg = c.color_15 },
+        HlSearchNear = { fg = c.color_16 },
+        HlSearchLens = { fg = c.color_19 },
+        HlSearchLensNear = { fg = c.color_25 },
+        HlSearchFloat = { fg = c.color_25 },
     }
     theme.defer = {}
     return theme
