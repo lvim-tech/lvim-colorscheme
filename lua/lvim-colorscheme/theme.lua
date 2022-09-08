@@ -48,7 +48,7 @@ function M.setup(config)
         NormalFloat = { fg = c.color_21, bg = c.bg_float },
         FloatBorder = { fg = c.bg_float, bg = c.bg_float },
         Pmenu = { bg = c.bg_popup, fg = c.color_21 },
-        PmenuSel = { bg = c.color_03 },
+        PmenuSel = { bg = c.color_03, fg = c.color_21 },
         PmenuSbar = { bg = c.color_03 },
         PmenuThumb = { bg = c.color_21 },
         Winbar = { bg = c.bg_statusline, fg = c.color_22 },
