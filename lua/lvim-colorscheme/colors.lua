@@ -33,12 +33,13 @@ function M.setup(config)
         color_25 = "#F16A5B",
         git = { add = "#A7C080", change = "#F2AF5C", delete = "#F05F4E", conflict = "#F2994B", ignore = "#2AA198" },
         gitSigns = { add = "#A7C080", change = "#F2AF5C", delete = "#F05F4E" },
+        diff = { add = "#323926", change = "#48341B", delete = "#481C17", text = "#242B30" },
     }
     colors.diff = {
-        add = colors.color_18,
-        change = colors.color_24,
-        delete = colors.color_24,
-        text = colors.color_05,
+        add = colors.diff.add,
+        change = colors.diff.change,
+        delete = colors.diff.delete,
+        text = colors.diff.text,
     }
     colors.gitSigns = {
         add = colors.gitSigns.add,
