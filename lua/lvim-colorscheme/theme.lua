@@ -84,7 +84,7 @@ function M.setup(config)
         MatchParem = { fg = c.color_16 },
         Delimiter = { fg = c.color_08 },
         Type = { fg = c.color_17 },
-        Function = { fg = c.color_21, style = config.functionStyle },
+        Function = { fg = c.color_24, style = config.functionStyle },
         Macro = { fg = c.color_14 },
         Keyword = { fg = c.color_19, style = config.keywordStyle },
         Operator = { fg = c.color_17 },
