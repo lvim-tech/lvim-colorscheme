@@ -1,21 +1,13 @@
-local util = require("lvim-colorscheme.util")
-
-local colors = require("lvim-colorscheme.colors")
+local config = require("lvim-colorscheme.config")
 
 local M = {}
 
-function M.setup()
-    local config = require("lvim-colorscheme.config")
-    local options = config.options
-    local theme = {
-        config = options,
-        colors = colors.setup(),
-    }
-    local c = theme.colors
-    theme.highlights = {
+M.setup = function(colors)
+    local c = colors
+    local highlights = {
         Boolean = { fg = c.color_16 },
         Character = { fg = c.color_24 },
-        Comment = { fg = c.color_15, style = options.styles.comments },
+        Comment = { fg = c.color_15, style = config.styles.comments },
         Conditional = { fg = c.color_11 }, -- fix
         Constant = { fg = c.color_07 },
         Constructor = { fg = c.color_16 },
@@ -27,11 +19,11 @@ function M.setup()
         Field = { fg = c.color_20 },
         Float = { fg = c.color_18 },
         FuncBuiltin = { fg = c.color_18 },
-        Function = { fg = c.color_24, style = options.styles.functions },
-        Identifier = { fg = c.color_24, style = options.styles.variables },
+        Function = { fg = c.color_24, style = config.styles.functions },
+        Identifier = { fg = c.color_24, style = config.styles.variables },
         Include = { fg = c.color_09 },
-        Keyword = { fg = c.color_19, style = options.styles.keywords },
-        KeywordFunction = { fg = c.color_24, style = options.styles.keywords },
+        Keyword = { fg = c.color_19, style = config.styles.keywords },
+        KeywordFunction = { fg = c.color_24, style = config.styles.keywords },
         Label = { fg = c.color_13 },
         Macro = { fg = c.color_14 },
         Note = { bg = c.info, fg = c.color_03 },
@@ -55,7 +47,7 @@ function M.setup()
         Todo = { bg = c.color_19, fg = c.color_03 },
         Type = { fg = c.color_19 },
         Typedef = { fg = c.color_24 },
-        Variable = { fg = c.color_17, style = options.styles.variables },
+        Variable = { fg = c.color_17, style = config.styles.variables },
         VariableBuiltin = { fg = c.color_25 },
         --
         Error = { bg = c.error, fg = c.color_03 },
@@ -354,8 +346,8 @@ function M.setup()
         NeoTreeFloatTitle = { fg = c.color_07, style = "bold" },
         NeoTreeMessage = { fg = c.color_15 },
         NeoTreeModified = { fg = c.color_18 },
-        NeoTreeNormal = { bg = c.bg_sidebar, fg = c.color_23 },
-        NeoTreeNormalNC = { bg = c.bg_sidebar, fg = c.color_23 },
+        NeoTreeNormal = { bg = c.bg_statusline, fg = c.color_23 },
+        NeoTreeNormalNC = { bg = c.bg_statusline, fg = c.color_23 },
         NeoTreeRootName = { fg = c.color_07, style = "bold" },
         NeoTreeStatusLine = { fg = c.color_08 },
         NeogitBranch = { fg = c.color_24 },
@@ -497,7 +489,7 @@ function M.setup()
         mkdCodeStart = { fg = c.color_09, style = "bold" },
         qfFileName = { fg = c.color_13 },
         qfLineNr = { fg = c.color_06 },
-
+        --
         TSAnnotation = { link = "PreProc", default = true },
         TSAttribute = { link = "PreProc", default = true }, --
         ["@attribute"] = { link = "PreProc", default = true },
@@ -619,18 +611,13 @@ function M.setup()
         local types = { "Default", "VirtualText", "Underline" }
         for _, type in ipairs(types) do
             for snew, sold in pairs(severity_map) do
-                theme.highlights["LspDiagnostics" .. type .. sold] = {
+                highlights["LspDiagnostics" .. type .. sold] = {
                     link = "Diagnostic" .. (type == "Default" and "" or type) .. snew,
                 }
             end
         end
     end
-    options.on_highlights(theme.highlights, theme.colors)
-    if config.is_light() then
-        util.invert_colors(theme.colors)
-        util.invert_highlights(theme.highlights)
-    end
-    return theme
+    return highlights
 end
 
 return M

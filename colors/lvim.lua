@@ -1,2 +1,1 @@
-require("lvim-colorscheme")._load()
-
+require("lvim-colorscheme.load").init("dark")
