@@ -35,3 +35,9 @@
 ![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_13.png)
 
 ![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_14.png)
+
+## Init
+
+```
+require("lvim-colorscheme").setup()
+```
