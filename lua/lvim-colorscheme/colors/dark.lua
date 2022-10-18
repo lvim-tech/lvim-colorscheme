@@ -31,9 +31,8 @@ local colors = {
     gitSigns = { add = "#A7C080", change = "#F2AF5C", delete = "#F05F4E" },
     diff = { add = "#323926", change = "#48341B", delete = "#481C17", text = "#242B30" },
 }
-colors.black = utils.darken(colors.color_03, 0.5, "#161a1d")
 colors.border_highlight = colors.color_06
-colors.border = colors.black
+colors.border = utils.darken(colors.color_03, 0.5, "#161a1d")
 colors.bg_popup = utils.darken(colors.color_01, 0.7, "#161a1d")
 colors.bg_statusline = utils.darken(colors.color_01, 0.7, "#161a1d")
 colors.bg_sidebar = utils.darken(colors.color_01, 0.7, "#161a1d")

@@ -73,10 +73,10 @@ M.terminal = function(colors)
 end
 
 M.onColorScheme = function()
-    vim.cmd([[autocmd! LvimColorscheme]])
-    vim.cmd([[augroup! LvimColorscheme]])
-    -- if vim.g.colors_name ~= "lvim" then
-    -- end
+    if vim.g.colors_name ~= "lvim" then
+        vim.cmd([[autocmd! LvimColorscheme]])
+        vim.cmd([[augroup! LvimColorscheme]])
+    end
 end
 
 function M.autocmds()
