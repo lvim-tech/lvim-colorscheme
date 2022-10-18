@@ -208,7 +208,6 @@ M.setup = function(colors)
         DiagnosticError = { fg = c.error },
         DiagnosticHint = { fg = c.hint },
         DiagnosticInfo = { fg = c.info },
-        DiagnosticInformation = { link = "DiagnosticInfo", default = true }, -- TODO: Delete
         DiagnosticUnderlineError = { style = "undercurl", sp = c.error },
         DiagnosticUnderlineHint = { style = "undercurl", sp = c.hint },
         DiagnosticUnderlineInfo = { style = "undercurl", sp = c.info },
@@ -218,7 +217,6 @@ M.setup = function(colors)
         DiagnosticVirtualTextInfo = { bg = c.bg_statusline, fg = c.info },
         DiagnosticVirtualTextWarn = { bg = c.bg_statusline, fg = c.warning },
         DiagnosticWarn = { fg = c.warning },
-        DiagnosticWarning = { link = "DiagnosticWarn", default = true }, -- TODO: Delete
         DifbufFile = { fg = c.color_07 },
         DirbufBlock = { fg = c.color_07 },
         DirbufChar = { fg = c.color_07 },
@@ -489,6 +487,8 @@ M.setup = function(colors)
         mkdCodeStart = { fg = c.color_09, style = "bold" },
         qfFileName = { fg = c.color_13 },
         qfLineNr = { fg = c.color_06 },
+        TreesitterContext = { bg = c.bg_statusline },
+        TreesitterContextLineNumber = { bg = c.bg_statusline, fg = c.color_24, style = "bold" },
         --
         TSAnnotation = { link = "PreProc", default = true },
         TSAttribute = { link = "PreProc", default = true }, --
@@ -598,8 +598,6 @@ M.setup = function(colors)
         ["@text.warning"] = { link = "Warning", default = true },
         TSStructure = { link = "Structure", default = true }, --
         ["@structure"] = { link = "Structure", default = true },
-        TreesitterContext = { bg = c.bg_statusline },
-        TreesitterContextLineNumber = { bg = c.bg_statusline, fg = c.color_24, style = "bold" },
     }
     if not vim.diagnostic then
         local severity_map = {
