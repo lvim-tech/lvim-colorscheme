@@ -6,6 +6,7 @@ return {
         functions = { italic = true, bold = true },
         variables = {},
     },
+    sidebars = {},
     colors = {
         dark = {},
         light = {},

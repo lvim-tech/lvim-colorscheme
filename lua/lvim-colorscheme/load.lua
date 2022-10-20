@@ -83,6 +83,9 @@ function M.autocmds()
     vim.cmd([[augroup LvimColorscheme]])
     vim.cmd([[autocmd!]])
     vim.cmd([[autocmd ColorScheme * lua require("lvim-colorscheme.load").onColorScheme()]])
+    for _, sidebar in ipairs(config.sidebars) do
+        vim.cmd([[  autocmd FileType ]] .. sidebar .. [[ setlocal winhighlight=Normal:SideBar,NormalNC:SideBarNC]])
+    end
     vim.cmd([[augroup end]])
 end
 
