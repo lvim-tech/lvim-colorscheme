@@ -492,25 +492,15 @@ M.setup = function(colors)
         --
         TSAnnotation = { link = "PreProc", default = true },
         TSAttribute = { link = "PreProc", default = true }, --
-        ["@attribute"] = { link = "PreProc", default = true },
         TSBoolean = { link = "Boolean", default = true }, --
-        ["@boolean"] = { link = "Boolean", default = true },
-        TScharacter = { link = "Character", default = true }, --
-        ["@character"] = { link = "Character", default = true },
         TSCharacterSpecial = { link = "SpecialChar", default = true }, --
-        ["@character.special"] = { link = "SpecialChar", default = true },
         TSComment = { link = "Comment", default = true }, --
-        ["@comment"] = { link = "Comment", default = true },
         TSConditional = { link = "Conditional", default = true }, --
-        ["@conditional"] = { link = "Conditional", default = true },
         TSConstBuiltin = { link = "Special", default = true },
         TSConstMacro = { link = "Define", default = true },
         TSConstant = { link = "Constant", default = true }, --
-        ["@constant"] = { link = "Constant", default = true },
         TSConstructor = { link = "Constructor", default = true }, --
-        ["@constructor"] = { link = "Constructor", default = true },
         TSDanger = { link = "Danger", default = true }, --
-        ["@text.danger"] = { link = "Danger", default = true },
         TSDebug = { link = "Debug", default = true },
         TSDefine = { link = "Define", default = true },
         TSEmphasis = { italic = true, default = true },
@@ -519,22 +509,17 @@ M.setup = function(colors)
         TSError = { link = "ErrorMsg" },
         TSException = { link = "Exception", default = true },
         TSField = { link = "Field", default = true }, --
-        ["@field"] = { link = "Field", default = true },
         TSFloat = { link = "Float", default = true },
-        ["@float"] = { link = "Float", default = true },
         TSFuncBuiltin = { link = "FuncBuiltin", default = true },
         TSFuncMacro = { link = "Macro", default = true },
         TSFunction = { link = "Function", default = true },
         TSFunctionCall = { link = "TSFunction", default = true },
         TSInclude = { link = "Include", default = true },
         TSKeyword = { link = "Keyword", default = true }, --
-        ["@keyword"] = { link = "Keyword", default = true },
         TSKeywordFunction = { link = "KeywordFunction", default = true }, --
-        ["@keyword.function"] = { link = "KeywordFunction", default = true },
         TSKeywordOperator = { link = "Operator", default = true },
         TSKeywordReturn = { link = "TSKeyword", default = true },
         TSLabel = { link = "Label", default = true },
-        ["@label"] = { link = "Label", default = true },
         TSLiteral = { link = "String", default = true },
         TSMath = { link = "Special", default = true },
         TSMethod = { link = "Function", default = true },
@@ -544,60 +529,79 @@ M.setup = function(colors)
         TSNote = { link = "Note", default = true },
         TSNumber = { link = "Number", default = true },
         TSOperator = { link = "Operator", default = true }, --
-        ["@operator"] = { link = "Operator", default = true },
         TSParameter = { link = "Parameter", default = true },
-        ["@parameter"] = { link = "Parameter", default = true },
         TSParameterReference = { link = "TSParameter", default = true },
         TSPreProc = { link = "PreProc", default = true },
         TSProperty = { link = "Property", default = true }, --
-        ["@property"] = { link = "Property", default = true },
         TSPunctBracket = { link = "Delimiter", default = true }, --
-        ["@punctuation.bracket"] = { link = "Delimiter", default = true },
         TSPunctDelimiter = { link = "Delimiter", default = true }, --
-        ["@punctuation.delimiter"] = { link = "Delimiter", default = true },
         TSPunctSpecial = { link = "Special", default = true }, --
-        ["@punctuation.special"] = { link = "Special", default = true },
         TSRepeat = { link = "Repeat", default = true },
         TSStorageClass = { link = "StorageClass", default = true },
         TSStrike = { strikethrough = true },
         TSString = { link = "String", default = true }, --
-        ["@string"] = { link = "String", default = true },
         TSStringEscape = { link = "StringEscape", default = true }, --
-        ["@string.escape"] = { link = "StringEscape", default = true },
         TSStringRegex = { link = "StringRegex", default = true }, --
-        ["@string.regex"] = { link = "StringRegex", default = true },
         TSStringSpecial = { link = "SpecialChar", default = true },
         TSStrong = { bold = true, default = true },
+        TSStructure = { link = "Structure", default = true }, --
         TSSymbol = { link = "Identifier", default = true },
         TSTag = { link = "Tag", default = true }, --
-        ["@tag"] = { link = "Tag", default = true },
         TSTagAttribute = { link = "TSProperty", default = true }, --
-        ["@tag.attribute"] = { link = "TSProperty", default = true },
         TSTagDelimiter = { link = "Delimiter", default = true }, --
-        ["@tag.delimiter"] = { link = "Delimiter", default = true },
         TSText = { link = "TSNone", default = true },
         TSTextReference = { link = "TextReference", default = true }, --
-        ["@text.reference"] = { link = "TextReference", default = true },
         TSTitle = { link = "Title", default = true }, --
-        ["@title"] = { link = "Title", default = true },
         TSTodo = { link = "Todo", default = true },
         TSType = { link = "Type", default = true }, --
-        ["@type"] = { link = "Type", default = true },
         TSTypeBuiltin = { link = "Type", default = true }, --
-        ["@type.builtin"] = { link = "Type", default = true },
         TSTypeDefinition = { link = "Typedef", default = true }, --
-        ["@type.definition"] = { link = "Typedef", default = true },
         TSTypeQualifier = { link = "Type", default = true },
         TSURI = { link = "Underlined", default = true },
         TSUnderline = { underline = true },
         TSVariable = { link = "Variable", default = true }, --
-        ["@variable"] = { link = "Variable", default = true },
         TSVariableBuiltin = { link = "VariableBuiltin", default = true }, --
-        ["@variable.builtin"] = { link = "VariableBuiltin", default = true },
         TSWarning = { link = "Warning", default = true },
-        ["@text.warning"] = { link = "Warning", default = true },
-        TSStructure = { link = "Structure", default = true }, --
+        TScharacter = { link = "Character", default = true }, --
+        ["@attribute"] = { link = "PreProc", default = true },
+        ["@boolean"] = { link = "Boolean", default = true },
+        ["@character"] = { link = "Character", default = true },
+        ["@character.special"] = { link = "SpecialChar", default = true },
+        ["@comment"] = { link = "Comment", default = true },
+        ["@conditional"] = { link = "Conditional", default = true },
+        ["@constant"] = { link = "Constant", default = true },
+        ["@constructor"] = { link = "Constructor", default = true },
+        ["@field"] = { link = "Field", default = true },
+        ["@float"] = { link = "Float", default = true },
+        ["@include"] = { link = "Include", default = true },
+        ["@keyword"] = { link = "Keyword", default = true },
+        ["@keyword.function"] = { link = "KeywordFunction", default = true },
+        ["@label"] = { link = "Label", default = true },
+        ["@method"] = { link = "Function", default = true },
+        ["@namespace"] = { link = "Include", default = true },
+        ["@number"] = { link = "Number", default = true },
+        ["@operator"] = { link = "Operator", default = true },
+        ["@parameter"] = { link = "Parameter", default = true },
+        ["@property"] = { link = "Property", default = true },
+        ["@punctuation.bracket"] = { link = "Delimiter", default = true },
+        ["@punctuation.delimiter"] = { link = "Delimiter", default = true },
+        ["@punctuation.special"] = { link = "Special", default = true },
+        ["@string"] = { link = "String", default = true },
+        ["@string.escape"] = { link = "StringEscape", default = true },
+        ["@string.regex"] = { link = "StringRegex", default = true },
         ["@structure"] = { link = "Structure", default = true },
+        ["@tag"] = { link = "Tag", default = true },
+        ["@tag.attribute"] = { link = "TSProperty", default = true },
+        ["@tag.delimiter"] = { link = "Delimiter", default = true },
+        ["@text.danger"] = { link = "Danger", default = true },
+        ["@text.reference"] = { link = "TextReference", default = true },
+        ["@text.warning"] = { link = "Warning", default = true },
+        ["@title"] = { link = "Title", default = true },
+        ["@type"] = { link = "Type", default = true },
+        ["@type.builtin"] = { link = "Type", default = true },
+        ["@type.definition"] = { link = "Typedef", default = true },
+        ["@variable"] = { link = "Variable", default = true },
+        ["@variable.builtin"] = { link = "VariableBuiltin", default = true },
     }
     if not vim.diagnostic then
         local severity_map = {
