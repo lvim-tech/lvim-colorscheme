@@ -348,6 +348,8 @@ M.setup = function(colors)
         NeoTreeNormalNC = { bg = c.bg_statusline, fg = c.color_23 },
         NeoTreeRootName = { fg = c.color_07, style = "bold" },
         NeoTreeStatusLine = { fg = c.color_08 },
+        NeoTreeTabInactive = { bg = c.color_01, fg = c.color_15, style = "bold" },
+        NeoTreeTabActive = { bg = c.bg_statusline, fg = c.color_19, style = "bold" },
         NeogitBranch = { fg = c.color_24 },
         NeogitDiffAddHighlight = { bg = c.diff.add, fg = c.git.add },
         NeogitDiffContextHighlight = { bg = c.bg_statusline, fg = c.color_16 },
