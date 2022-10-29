@@ -79,7 +79,7 @@ M.setup = function(colors)
         NormalNC = { bg = c.color_03, fg = c.color_15 },
         NormalSB = { bg = c.bg_sidebar, fg = c.fg_sidebar },
         Pmenu = { bg = c.bg_statusline, fg = c.color_21 },
-        PmenuSbar = { bg = c.color_03 },
+        PmenuSbar = { bg = c.bg_sidebar },
         PmenuSel = { bg = c.color_03, fg = c.color_21 },
         PmenuThumb = { bg = c.color_21 },
         SignColumn = { bg = c.none },
