@@ -109,6 +109,12 @@ M.setup = function(colors)
         healthError = { fg = c.error },
         healthSuccess = { fg = c.success },
         healthWarning = { fg = c.warning },
+        IncSearch = { bg = c.bg_search, fg = c.green_01, style = "bold" },
+        Question = { fg = c.blue_01 },
+        SpecialKey = { fg = c.fg_01 },
+        Statement = { fg = c.orange_02 },
+        Whitespace = { fg = c.fg_01 },
+        WildMenu = { bg = c.bg_visual },
         --
         DiffAdd = { bg = c.diff.add },
         DiffChange = { bg = c.diff.change },
@@ -122,14 +128,7 @@ M.setup = function(colors)
         diffNewFile = { fg = c.blue_01 },
         diffOldFile = { fg = c.teal_01 },
         diffRemoved = { fg = c.red_01 },
-
         --
-        IncSearch = { bg = c.bg_search, fg = c.green_01, style = "bold" },
-        -- Question = { fg = c.color_13 },
-        -- SpecialKey = { fg = c.color_05 },
-        -- Statement = { fg = c.color_22 },
-        -- Whitespace = { fg = c.color_04 },
-        -- WildMenu = { bg = c.bg_visual },
         --
         -- Underlined = { style = "underline" },
         -- Bold = { style = "bold" },
