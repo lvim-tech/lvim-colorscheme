@@ -26,16 +26,16 @@ M.setup = function(colors)
         KeywordFunction = { fg = c.cyan_02, style = config.styles.keywords },
         Label = { fg = c.blue_03 },
         Macro = { fg = c.teal_01 },
-        Note = { fg = c.color_03 },
+        Note = { fg = c.fg_03 },
         Number = { fg = c.green_03 },
-        Operator = { fg = c.color_23, style = "bold" },
+        Operator = { fg = c.orange_01, style = "bold" },
         Parameter = { fg = c.fg_06 },
         PreProc = { fg = c.teal_03 },
         Property = { fg = c.orange_03 },
         Repeat = { fg = c.red_01 }, -- fix
         Special = { fg = c.green_01 },
         SpecialChar = { fg = c.teal_02 }, -- fix
-        SpecialComment = { fg = c.color_18 }, -- fix
+        SpecialComment = { fg = c.fg_03, style = config.styles.comments }, -- fix
         StorageClass = { fg = c.red_01 }, -- fix
         String = { fg = c.fg_04 },
         StringEscape = { fg = c.orange_02 },
@@ -74,7 +74,7 @@ M.setup = function(colors)
         StatusLineNC = { bg = c.bg_statusline, fg = c.bg_statusline },
         Winbar = { bg = c.bg_statusline, fg = c.fg_02 },
         CursorLine = { bg = c.bg_03 },
-        LineNr = { fg = c.color_06 },
+        LineNr = { fg = c.bg_06 },
         CursorLineNr = { fg = c.green_02, style = "bold" },
         ColorColumn = { bg = c.bg_04 },
         Conceal = { fg = c.fg_02 },
@@ -95,7 +95,7 @@ M.setup = function(colors)
         Folded = { bg = c.none, fg = c.fg_02 },
         MatchParen = { fg = c.orange_03, style = "bold" },
         NonText = { fg = c.bg_06 },
-        Substitute = { bg = c.color_25, fg = c.color_04 },
+        Substitute = { bg = c.red_01, fg = c.bg_01 },
         FocusedSymbol = { bg = c.none, style = "bold" },
         Replace = { bg = c.bg_search, fg = c.red_01 },
         Search = { bg = c.bg_search, fg = c.green_01 },
@@ -103,7 +103,7 @@ M.setup = function(colors)
         SpellCap = { fg = c.warning, style = "underline" },
         SpellLocal = { fg = c.info, style = "underline" },
         SpellRare = { fg = c.hint, style = "underline" },
-        QuickFixLine = { bg = c.color_03, style = "bold" },
+        QuickFixLine = { bg = c.bg_03, style = "bold" },
         qfFileName = { fg = c.orange_02 },
         qfLineNr = { fg = c.green_01 },
         healthError = { fg = c.error },
@@ -171,7 +171,7 @@ M.setup = function(colors)
         CmpItemAbbrMatch = { bg = c.none, fg = c.orange_02 },
         CmpItemMenu = { bg = c.none, fg = c.fg_01 },
         CmpItemAbbrMatchFuzzy = { bg = c.none, fg = c.orange_02 },
-        CmpItemKindSnippet = { bg = c.none, fg = c.color_19 },
+        CmpItemKindSnippet = { bg = c.none, fg = c.green_01 },
         CmpItemKindClass = { link = "Function", default = true },
         CmpItemKindConstant = { link = "Constant", default = true },
         CmpItemKindConstructor = { link = "Constructor", default = true },
@@ -195,9 +195,9 @@ M.setup = function(colors)
         CmpItemKindVariable = { link = "Variable", default = true },
         --
         --
-        NavicIconsArray = { bg = c.bg_statusline, fg = c.color_24 },
-        NavicSeparator = { bg = c.bg_statusline, fg = c.color_22 },
-        NavicText = { bg = c.bg_statusline, fg = c.color_22 },
+        NavicSeparator = { link = "Delimiter", default = true },
+        NavicIconsArray = { link = "Constructor", default = true },
+        NavicText = { link = "Character", default = true },
         NavicIconsClass = { link = "Function", default = true },
         NavicIconsBoolean = { link = "Boolean", default = true },
         NavicIconsConstant = { link = "Constant", default = true },
@@ -248,8 +248,8 @@ M.setup = function(colors)
         DapUIWatchesError = { fg = c.red_02 },
         DapUIWatchesValue = { fg = c.green_01 },
         --
-        DefinitionCount = { fg = c.color_22 },
-        DefinitionIcon = { fg = c.color_13 },
+        DefinitionCount = { fg = c.orange_02 },
+        DefinitionIcon = { fg = c.cyan_02 },
         --
         DiagnosticError = { fg = c.error },
         DiagnosticWarn = { fg = c.warning },
@@ -339,6 +339,7 @@ M.setup = function(colors)
         -- LspSignatureActiveParameter = { fg = c.color_20 },
         LvimHelperNormal = { bg = c.bg_sidebar },
         LvimHelperTitle = { fg = c.green_02, style = "bold" },
+        --
         MasonError = { fg = c.red_02 },
         MasonHeader = { bg = c.bg_03, fg = c.orange_02, style = "bold" },
         MasonHeaderSecondary = { bg = c.bg_03, fg = c.orange_02, style = "bold" },
@@ -353,13 +354,12 @@ M.setup = function(colors)
         MasonMuted = { fg = c.orange_02 },
         MasonMutedBlock = { bg = c.bg_03, fg = c.orange_02 },
         MasonMutedBlockBold = { bg = c.bg_03, fg = c.orange_02, style = "bold" },
-
         --
         NeoTreeDimText = { fg = c.fg_03 },
         NeoTreeDirectoryIcon = { fg = c.green_02 },
         NeoTreeDirectoryName = { fg = c.green_02 },
         NeoTreeDotfile = { fg = c.cyan_02 },
-        NeoTreeExpander = { fg = c.color_13 },
+        NeoTreeExpander = { fg = c.blue_01_13 },
         NeoTreeFileName = { fg = c.green_02 },
         NeoTreeFloatBorder = { bg = c.bg_float, fg = c.bg_float },
         NeoTreeFloatTitle = { fg = c.orange_02, style = "bold" },
