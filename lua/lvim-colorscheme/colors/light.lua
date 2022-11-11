@@ -70,7 +70,6 @@ colors.bg_sidebar = utils.darken(colors.bg_01, 0.7, "#a5a5a5")
 colors.bg_statusline = utils.darken(colors.bg_01, 0.7, "#a5a5a5")
 colors.bg_popup = utils.darken(colors.bg_01, 0.7, "#a5a5a5")
 colors.bg_float = utils.darken(colors.bg_01, 0.7, "#a5a5a5")
-colors.border = utils.darken(colors.bg_03, 0.5, "#a5a5a5")
 colors.bg_visual = utils.darken(colors.bg_05, 0.3, "#a5a5a5")
 colors.bg_search = utils.darken(colors.bg_05, 0.3, "#a5a5a5")
 colors.fg_sidebar = colors.orange_02

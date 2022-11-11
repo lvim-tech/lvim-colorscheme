@@ -224,12 +224,12 @@ M.setup = function(colors)
         NavicIconsTypeParameter = { link = "Type", default = true },
         NavicIconsVariable = { link = "Variable", default = true },
         --
-        ToDoError = { bg = c.red_02, fg = c.bg_01, style = "bold" },
-        ToDoWarning = { bg = c.orange_02, fg = c.bg_01, style = "bold" },
-        ToDoInfo = { bg = c.blue_02, fg = c.bg_01, style = "bold" },
-        ToDoHint = { bg = c.teal_02, fg = c.bg_01, style = "bold" },
-        ToDoTest = { bg = c.red_02, fg = c.bg_01, style = "bold" },
-        ToDoDefault = { bg = c.fg_05, fg = c.bg_01, style = "bold" },
+        ToDoError = { fg = c.red_02 },
+        ToDoWarning = { fg = c.orange_02 },
+        ToDoInfo = { fg = c.blue_02 },
+        ToDoHint = { fg = c.teal_02 },
+        ToDoTest = { fg = c.red_02 },
+        ToDoDefault = { fg = c.blue_02 },
         --
         CtrlSpaceNormal = { bg = c.bg_sidebar },
         --

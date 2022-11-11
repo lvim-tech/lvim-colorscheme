@@ -32,7 +32,6 @@ local colors = {
     orange_01 = "#ffae50",
     orange_02 = "#ff9a3c",
     orange_03 = "#F08628",
-
     -- color_01 = "#242B30",
     -- color_02 = "#272F35",
     -- color_03 = "#2A3339",
@@ -71,7 +70,6 @@ colors.bg_sidebar = utils.darken(colors.bg_01, 0.7, "#161a1d")
 colors.bg_statusline = utils.darken(colors.bg_01, 0.7, "#161a1d")
 colors.bg_popup = utils.darken(colors.bg_01, 0.7, "#161a1d")
 colors.bg_float = utils.darken(colors.bg_01, 0.7, "#161a1d")
-colors.border = utils.darken(colors.bg_03, 0.5, "#161a1d")
 colors.bg_visual = colors.bg_05
 colors.bg_search = colors.bg_05
 colors.fg_sidebar = colors.orange_02
