@@ -9,6 +9,7 @@ return {
     sidebars = {},
     colors = {
         dark = {},
+        darksoft = {},
         light = {},
     },
 }

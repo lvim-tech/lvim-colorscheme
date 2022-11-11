@@ -56,6 +56,7 @@ require("lvim-colorscheme").setup()
     sidebars = {},
     colors = {
         dark = {},
+        darksoft = {},
         light = {},
     },
 }
