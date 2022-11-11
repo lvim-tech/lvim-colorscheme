@@ -41,3 +41,22 @@
 ```
 require("lvim-colorscheme").setup()
 ```
+
+## Default config
+
+```
+{
+    style = "dark", -- dark, darksoft, light
+    styles = {
+        comments = { italic = true, bold = true },
+        keywords = { italic = true, bold = true },
+        functions = { italic = true, bold = true },
+        variables = {},
+    },
+    sidebars = {},
+    colors = {
+        dark = {},
+        light = {},
+    },
+}
+```
