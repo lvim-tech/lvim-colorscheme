@@ -224,6 +224,13 @@ M.setup = function(colors)
         NavicIconsTypeParameter = { link = "Type", default = true },
         NavicIconsVariable = { link = "Variable", default = true },
         --
+        ToDoError = { bg = c.red_02, fg = c.bg_01, style = "bold" },
+        ToDoWarning = { bg = c.orange_02, fg = c.bg_01, style = "bold" },
+        ToDoInfo = { bg = c.blue_02, fg = c.bg_01, style = "bold" },
+        ToDoHint = { bg = c.teal_02, fg = c.bg_01, style = "bold" },
+        ToDoTest = { bg = c.red_02, fg = c.bg_01, style = "bold" },
+        ToDoDefault = { bg = c.fg_05, fg = c.bg_01, style = "bold" },
+        --
         CtrlSpaceNormal = { bg = c.bg_sidebar },
         --
         DapUIBreakpointsCurrentLine = { fg = c.green_01, style = "bold" },
