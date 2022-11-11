@@ -83,6 +83,7 @@ M.setup = function(colors)
         lCursor = { bg = c.orange_02, fg = c.none },
         CursorColumn = { bg = c.bg_04 },
         EndOfBuffer = { fg = c.bg_03 },
+        Underlined = { fg = c.cyan_01, style = "underline" },
         Visual = { bg = c.bg_visual },
         VisualNOS = { bg = c.bg_visual },
         TabLine = { bg = c.bg_statusline, fg = c.green_02, style = "bold" },
@@ -130,7 +131,6 @@ M.setup = function(colors)
         diffRemoved = { fg = c.red_01 },
         --
         --
-        -- Underlined = { style = "underline" },
         -- Bold = { style = "bold" },
         -- Italic = { style = "italic" },
         --
