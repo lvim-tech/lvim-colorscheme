@@ -53,8 +53,8 @@ M.setup = function(colors)
         --
         ErrorMsg = { fg = c.error },
         WarningMsg = { fg = c.warning },
-        -- Error = { fg = c.none },
-        -- Warning = { bg = c.warning, fg = c.color_03 },
+        Error = { fg = c.none },
+        Warning = { bg = c.none },
         -- ModeMsg = { bg = c.none, fg = c.color_16, style = "bold" },
         -- MoreMsg = { fg = c.color_13 },
         -- MsgArea = { fg = c.color_16 },
