@@ -83,7 +83,7 @@ M.setup = function(colors)
         lCursor = { bg = c.orange_02, fg = c.none },
         CursorColumn = { bg = c.bg_04 },
         EndOfBuffer = { fg = c.bg_03 },
-        Underlined = { fg = c.cyan_01, style = "underline" },
+        Underlined = { sp = c.blue_01, style = "undercurl" },
         Visual = { bg = c.bg_visual },
         VisualNOS = { bg = c.bg_visual },
         TabLine = { bg = c.bg_statusline, fg = c.green_02, style = "bold" },
@@ -100,10 +100,10 @@ M.setup = function(colors)
         FocusedSymbol = { bg = c.none, style = "bold" },
         Replace = { bg = c.bg_search, fg = c.red_01 },
         Search = { bg = c.bg_search, fg = c.green_01 },
-        SpellBad = { fg = c.error, style = "underline" },
-        SpellCap = { fg = c.warning, style = "underline" },
-        SpellLocal = { fg = c.info, style = "underline" },
-        SpellRare = { fg = c.hint, style = "underline" },
+        SpellBad = { sp = c.error, style = "undercurl" },
+        SpellCap = { sp = c.warning, style = "undercurl" },
+        SpellLocal = { sp = c.info, style = "undercurl" },
+        SpellRare = { sp = c.hint, style = "undercurl" },
         QuickFixLine = { bg = c.bg_03, style = "bold" },
         qfFileName = { fg = c.orange_02 },
         qfLineNr = { fg = c.green_01 },
@@ -618,7 +618,7 @@ M.setup = function(colors)
         TSTypeDefinition = { link = "Typedef", default = true }, --
         TSTypeQualifier = { link = "Type", default = true },
         TSURI = { link = "Underlined", default = true },
-        TSUnderline = { underline = true },
+        TSUnderline = { link = "Underlined", default = true },
         TSVariable = { link = "Variable", default = true }, --
         TSVariableBuiltin = { link = "VariableBuiltin", default = true }, --
         TSWarning = { link = "Warning", default = true },
