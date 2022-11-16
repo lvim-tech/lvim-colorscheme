@@ -51,8 +51,8 @@ M.setup = function(colors)
         VariableBuiltin = { fg = c.blue_03 },
         Directory = { fg = c.orange_01 },
         --
-        ErrorMsg = { fg = c.error },
-        WarningMsg = { fg = c.warning },
+        ErrorMsg = { fg = c.none },
+        WarningMsg = { fg = c.none },
         Error = { fg = c.none },
         Warning = { bg = c.none },
         -- ModeMsg = { bg = c.none, fg = c.color_16, style = "bold" },
