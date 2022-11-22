@@ -31,7 +31,7 @@ M.setup = function(colors)
         Operator = { fg = c.orange_01, style = "bold" },
         Parameter = { fg = c.fg_06 },
         PreProc = { fg = c.teal_03 },
-        Property = { fg = c.orange_03 },
+        Property = { fg = c.blue_03 },
         Repeat = { fg = c.red_01 }, -- fix
         Special = { fg = c.green_01 },
         SpecialChar = { fg = c.teal_02 }, -- fix
