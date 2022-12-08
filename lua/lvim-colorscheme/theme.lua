@@ -16,8 +16,8 @@ M.setup = function(colors)
         Define = { fg = c.blue_01 }, -- fix
         Delimiter = { fg = c.orange_01 },
         Exception = { fg = c.green_03 },
-        Field = { fg = c.red_02 },
-        Float = { fg = c.cyan_02 },
+        Field = { fg = c.cyan_03 },
+        Float = { fg = c.green_03 },
         FuncBuiltin = { fg = c.green_01 },
         Function = { fg = c.orange_03, style = config.styles.functions },
         Identifier = { fg = c.green_02, style = config.styles.variables },
