@@ -32,9 +32,9 @@ colors:
         focused_match:
             foreground: "${bg_03}"
             background: "${orange_02}"
-        bar:
-            background: "${bg_01}"
-            foreground: "${fg_05}"
+    footer_bar:
+        background: "${bg_01}"
+        foreground: "${fg_05}"
     hints:
         start:
             foreground: "${bg_01}"
