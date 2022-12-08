@@ -41,13 +41,13 @@ colors.error = colors.red_02
 colors.warning = colors.orange_02
 colors.info = colors.blue_02
 colors.hint = colors.teal_02
-colors.bg_sidebar = utils.darken(colors.bg_01, 0.7, "#a5a5a5")
-colors.bg_statusline = utils.darken(colors.bg_01, 0.7, "#a5a5a5")
-colors.bg_popup = utils.darken(colors.bg_01, 0.7, "#a5a5a5")
-colors.bg_float = utils.darken(colors.bg_01, 0.7, "#a5a5a5")
-colors.bg_visual = utils.darken(colors.bg_05, 0.3, "#a5a5a5")
-colors.bg_search = utils.darken(colors.bg_05, 0.3, "#a5a5a5")
-colors.bg_cursor_line = utils.darken(colors.bg_04, 0.7, "#a5a5a5")
+colors.bg_sidebar = utils.darken(colors.bg_01, 0.6, "#bababa")
+colors.bg_statusline = utils.darken(colors.bg_01, 0.6, "#bababa")
+colors.bg_popup = utils.darken(colors.bg_01, 0.6, "#bababa")
+colors.bg_float = utils.darken(colors.bg_01, 0.6, "#bababa")
+colors.bg_visual = utils.darken(colors.bg_05, 0.4, "#bababa")
+colors.bg_search = utils.darken(colors.bg_05, 0.4, "#bababa")
+colors.bg_cursor_line = utils.darken(colors.bg_01, 0.5, "#bababa")
 colors.fg_sidebar = colors.orange_02
 
 return colors
