@@ -1,12 +1,12 @@
 return {
-    background = "#1f262b",
+    background = "#22292e",
 	foreground = "#F08628",
 	cursor_bg = "#F08628",
-	cursor_fg = "#1f262b",
+	cursor_fg = "#22292e",
 	cursor_border = "#F08628",
-	compose_cursor = "#1f262b",
+	compose_cursor = "#22292e",
 	ansi = {
-		"#1f262b",
+		"#22292e",
 		"#dd5647",
 		"#93ac6c",
 		"#ff9a3c",

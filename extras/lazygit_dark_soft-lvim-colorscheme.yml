@@ -1,0 +1,31 @@
+# Lvim Lazygit Colors
+
+
+gui:
+  theme:
+    activeBorderColor:
+      - "#93ac6c"
+      - bold
+    inactiveBorderColor:
+      - "#ff9a3c"
+    optionsTextColor:
+      - "#ff9a3c"
+    selectedLineBgColor:
+      - "#364249"
+    selectedRangeBgColor:
+      - "#93ac6c"
+    cherryPickedCommitBgColor:
+      - teal
+    cherryPickedCommitFgColor:
+      - blue
+    unstagedChangesColor:
+      - red
+    defaultFgColor:
+      - default
+  showFileTree: true
+  showListFooter: true
+  showRandomTip: true
+  showBottomLine: true
+  showCommandLog: true
+  showIcons: true
+  

@@ -15,6 +15,7 @@ local extras = {
     tmux = "tmux",
     wezterm = "lua",
     xresources = "Xresources",
+    lazygit = "yml",
 }
 
 local themes = {
