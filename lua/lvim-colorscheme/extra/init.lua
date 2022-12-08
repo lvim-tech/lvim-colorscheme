@@ -17,10 +17,18 @@ local extras = {
     xresources = "Xresources",
 }
 
+local themes = {
+    "dark",
+    "dark_soft",
+    "light",
+}
+
 for extra, ext in pairs(extras) do
     local plugin = require("lvim-colorscheme.extra." .. extra)
     config = config or require("lvim-colorscheme.config")
-    local colors = require("lvim-colorscheme.colors").setup(config)
-    local fname = extra .. "_lvim-colorscheme" .. "." .. ext
-    write(plugin.generate(colors), fname)
+    for _, theme in pairs(themes) do
+        local colors = require("lvim-colorscheme.colors." .. theme)
+        local fname = extra .. "_" .. theme .. "-lvim-colorscheme" .. "." .. ext
+        write(plugin.generate(colors), fname)
+    end
 end

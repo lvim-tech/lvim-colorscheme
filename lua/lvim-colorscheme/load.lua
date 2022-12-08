@@ -54,22 +54,22 @@ M.highlight = function(group, hl)
 end
 
 M.terminal = function(colors)
-    vim.g.terminal_color_0 = colors.color_03
-    vim.g.terminal_color_8 = colors.color_23
-    vim.g.terminal_color_7 = colors.color_16
-    vim.g.terminal_color_15 = colors.color_21
-    vim.g.terminal_color_1 = colors.color_25
-    vim.g.terminal_color_9 = colors.color_25
-    vim.g.terminal_color_2 = colors.color_18
-    vim.g.terminal_color_10 = colors.color_18
-    vim.g.terminal_color_3 = colors.color_07
-    vim.g.terminal_color_11 = colors.color_08
-    vim.g.terminal_color_4 = colors.color_13
-    vim.g.terminal_color_12 = colors.color_13
-    vim.g.terminal_color_5 = colors.color_24
-    vim.g.terminal_color_13 = colors.color_24
-    vim.g.terminal_color_6 = colors.color_23
-    vim.g.terminal_color_14 = colors.color_23
+    vim.g.terminal_color_0 = colors.bg_01 -- black
+    vim.g.terminal_color_1 = colors.red_02 -- red
+    vim.g.terminal_color_2 = colors.green_02 -- green
+    vim.g.terminal_color_3 = colors.orange_02 -- yellow
+    vim.g.terminal_color_4 = colors.blue_01 -- blue
+    vim.g.terminal_color_5 = colors.teal_02 -- magenta
+    vim.g.terminal_color_6 = colors.cyan_01 -- cyan
+    vim.g.terminal_color_7 = colors.fg_05 -- white
+    vim.g.terminal_color_8 = colors.orange_03 -- black
+    vim.g.terminal_color_9 = colors.red_03 -- red
+    vim.g.terminal_color_10 = colors.green_03 -- green
+    vim.g.terminal_color_11 = colors.orange_03 -- yellow
+    vim.g.terminal_color_12 = colors.blue_02 -- blue
+    vim.g.terminal_color_13 = colors.teal_03 -- magenta
+    vim.g.terminal_color_14 = colors.cyan_02 -- cyan
+    vim.g.terminal_color_15 = colors.fg_06 -- white
 end
 
 M.onColorScheme = function()

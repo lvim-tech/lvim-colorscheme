@@ -73,7 +73,7 @@ M.setup = function(colors)
         StatusLine = { bg = c.bg_statusline, fg = c.fg_01 },
         StatusLineNC = { bg = c.bg_statusline, fg = c.bg_statusline },
         Winbar = { bg = c.bg_statusline, fg = c.fg_02 },
-        CursorLine = { bg = c.bg_03 },
+        CursorLine = { bg = c.bg_cursor_line },
         LineNr = { fg = c.bg_06 },
         CursorLineNr = { fg = c.green_02, style = "bold" },
         ColorColumn = { bg = c.bg_04 },

@@ -1,36 +1,36 @@
-local util = require("lvim-colorscheme.util")
+local utils = require("lvim-colorscheme.utils")
 
 local M = {}
 
 function M.generate(colors)
-    local wezterm = util.template(
+    local wezterm = utils.template(
         [[
 return {
-	foreground = "${color_21}",
-	background = "${color_03}",
-	cursor_bg = "${color_21}",
-	cursor_fg = "${color_03}",
-	cursor_border = "${color_21}",
-	compose_cursor = "${color_21}",
+    background = "${bg_01}",
+	foreground = "${orange_03}",
+	cursor_bg = "${orange_03}",
+	cursor_fg = "${bg_01}",
+	cursor_border = "${orange_03}",
+	compose_cursor = "${bg_01}",
 	ansi = {
-		"${color_03}",
-		"${color_25}",
-		"${color_18}",
-		"${color_07}",
-		"${color_13}",
-		"${color_24}",
-		"${color_23}",
-		"${color_16}",
+		"${bg_01}",
+		"${red_02}",
+		"${green_02}",
+		"${orange_02}",
+        "${blue_01}",
+		"${teal_02}",
+		"${cyan_01}",
+		"${fg_05}",
 	},
 	brights = {
-		"${color_23}",
-		"${color_25}",
-		"${color_18}",
-		"${color_08}",
-		"${color_13}",
-		"${color_24}",
-		"${color_23}",
-		"${color_21}",
+		"${orange_03}",
+		"${red_03}",
+		"${green_03}",
+		"${orange_03}",
+        "${blue_02}",
+		"${teal_03}",
+		"${cyan_02}",
+		"${fg_06}",
 	},
 }
   ]],
