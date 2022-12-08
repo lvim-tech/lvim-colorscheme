@@ -19,7 +19,7 @@ M.setup = function(colors)
         Field = { fg = c.orange_03 },
         Float = { fg = c.cyan_02 },
         FuncBuiltin = { fg = c.green_01 },
-        Function = { fg = c.red_02, style = config.styles.functions },
+        Function = { fg = c.orange_03, style = config.styles.functions },
         Identifier = { fg = c.green_02, style = config.styles.variables },
         Include = { fg = c.blue_03 },
         Keyword = { fg = c.green_01, style = config.styles.keywords },
@@ -31,7 +31,7 @@ M.setup = function(colors)
         Operator = { fg = c.orange_01, style = "bold" },
         Parameter = { fg = c.fg_06 },
         PreProc = { fg = c.teal_03 },
-        Property = { fg = c.blue_03 },
+        Property = { fg = c.cyan_03 },
         Repeat = { fg = c.red_01 }, -- fix
         Special = { fg = c.green_01 },
         SpecialChar = { fg = c.teal_02 }, -- fix
@@ -46,7 +46,7 @@ M.setup = function(colors)
         Title = { fg = c.green_01, style = "bold" },
         Todo = { fg = c.orange_01 },
         Type = { fg = c.orange_01 },
-        Typedef = { fg = c.red_03 },
+        Typedef = { fg = c.orange_03 },
         Variable = { fg = c.fg_06, style = config.styles.variables },
         VariableBuiltin = { fg = c.blue_03 },
         Directory = { fg = c.orange_01 },
