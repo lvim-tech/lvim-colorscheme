@@ -17,6 +17,7 @@ local extras = {
     xresources = "Xresources",
     lazygit = "yml",
     fzf = "txt",
+    bat = "tmTheme",
 }
 
 local themes = {
