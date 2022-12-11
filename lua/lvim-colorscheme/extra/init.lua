@@ -16,6 +16,7 @@ local extras = {
     wezterm = "lua",
     xresources = "Xresources",
     lazygit = "yml",
+    fzf = "txt",
 }
 
 local themes = {
