@@ -1,22 +1,22 @@
 ! Lvim Xresources Colors
 
-*background: ${color_03}
-*foreground: ${color_21}
+*background: #FFFFFF
+*foreground: #5e8f71
 
-*color0: ${color_03}
-*color1: ${color_25}
-*color2: ${color_18}
-*color3: ${color_07}
-*color4: ${color_13}
-*color5: ${color_24}
-*color6: ${color_23}
-*color7: ${color_16}
+*color0: #FFFFFF
+*color1: #b52e1f
+*color2: #6b8444
+*color3: #dc7214
+*color4: #148fc3
+*color5: #169d84
+*color6: #00acc1
+*color7: #5e8f71
 
-*color8: ${color_23}
-*color9: ${color_25}
-*color10: ${color_18}
-*color11: ${color_07}
-*color12: ${color_13}
-*color13: ${color_24}
-*color14: ${color_23}
-*color15: ${color_21}
+*color8: #c85e00
+*color9: #a11a0b
+*color10: #577030
+*color11: #c85e00
+*color12: #007baf
+*color13: #028970
+*color14: #0098ad
+*color15: #4a8460
