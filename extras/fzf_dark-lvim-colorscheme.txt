@@ -7,7 +7,7 @@ export FZF_DEFAULT_OPTS="
 --border=none
 --separator=""
 --info inline
---color=fg:#90C1A3,bg:#181d21,hl:#169d84,fg+:#ff9a3c,bg+:#181d21,hl+:#169d84 
+--color=fg:#6f9184,bg:#181d21,hl:#ff9a3c,fg+:#90C1A3,bg+:#181d21,hl+:#ff9a3c 
 --color=pointer:#dd5647,info:#ff9a3c,spinner:#ff9a3c,header:#ff9a3c,prompt:#93ac6c,marker:#dd5647
 "
   
