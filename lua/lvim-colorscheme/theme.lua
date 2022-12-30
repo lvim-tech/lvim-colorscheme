@@ -10,7 +10,7 @@ M.setup = function(colors)
         Comment = { fg = c.fg_03, style = config.styles.comments },
         Conditional = { fg = c.orange_01 }, -- fix
         Constant = { fg = c.green_02 },
-        Constructor = { fg = c.teal_01 },
+        Constructor = { fg = c.orange_01 },
         Danger = { fg = c.bg_03 },
         Debug = { fg = c.green_02 }, -- fix
         Define = { fg = c.blue_01 }, -- fix
