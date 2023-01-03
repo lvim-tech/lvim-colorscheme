@@ -21,7 +21,7 @@ M.setup = function(colors)
         FuncBuiltin = { fg = c.green_01 },
         Function = { fg = c.red_02, style = config.styles.functions },
         Identifier = { fg = c.green_02, style = config.styles.variables },
-        Include = { fg = c.blue_03 },
+        Include = { fg = c.teal_01 },
         Keyword = { fg = c.green_01, style = config.styles.keywords },
         KeywordFunction = { fg = c.cyan_02, style = config.styles.keywords },
         Label = { fg = c.red_03 },
