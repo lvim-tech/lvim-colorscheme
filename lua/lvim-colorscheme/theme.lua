@@ -533,6 +533,13 @@ M.setup = function(colors)
         Sneak = { bg = c.red_02, fg = c.bg_02 },
         SneakScope = { bg = c.bg_visual },
         --
+        PubspecAssistDependencyOutdated = { fg = c.red_02 },
+        PubspecAssistDependencyUpToDate = { fg = c.green_02 },
+        PubspecAssistDependencyUnknown = { fg = c.orange_02 },
+        --
+        PackageInfoOutdatedVersion = { fg = c.red_02 },
+        PackageInfoUptodateVersion = { fg = c.green_02 },
+        --
         SniprunFloatingWinErr = { fg = c.error, style = "bold" },
         SniprunFloatingWinOk = { fg = c.success, style = "bold" },
         SniprunVirtualTextErr = { fg = c.error, style = "bold" },
