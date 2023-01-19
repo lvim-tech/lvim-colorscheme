@@ -32,8 +32,8 @@ local colors = {
     orange_01 = "#ffae50",
     orange_02 = "#ff9a3c",
     orange_03 = "#F08628",
-    git = { add = "#A7C080", change = "#F2AF5C", delete = "#F05F4E", conflict = "#F2994B", ignore = "#008499" },
-    gitSigns = { add = "#A7C080", change = "#F2AF5C", delete = "#F05F4E" },
+    git = { add = "#93ac6c", change = "#ff9a3c", delete = "#dd5647", conflict = "#ff9a3c", ignore = "#0098ad" },
+    gitSigns = { add = "#93ac6c", change = "#ff9a3c", delete = "#dd5647" },
     diff = { add = "#323926", change = "#48341B", delete = "#481C17", text = "#242B30" },
 }
 colors.success = colors.green_02
