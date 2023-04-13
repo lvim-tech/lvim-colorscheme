@@ -380,7 +380,7 @@ M.setup = function(colors)
         MasonMutedBlock = { bg = c.bg_03, fg = c.orange_02 },
         MasonMutedBlockBold = { bg = c.bg_03, fg = c.orange_02, style = "bold" },
         --
-        GlancePreviewbormal = { bg = c.bg_statusline },
+        GlancePreviewNormal = { bg = c.bg_statusline },
         GlancePreviewMatch = { bg = c.bg_04 },
         GlancePreviewCursorLine = { bg = c.bg_03 },
         GlancePreviewSignColumn = { bg = c.bg_sidebar },
