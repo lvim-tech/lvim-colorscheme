@@ -232,6 +232,7 @@ M.setup = function(colors)
         ToDoDefault = { fg = c.blue_02 },
         --
         CtrlSpaceNormal = { bg = c.bg_sidebar },
+        CtrlSpaceSelected = { bg = c.bg_sidebar, fg = c.green_01 },
         --
         DapUIBreakpointsCurrentLine = { fg = c.green_01, style = "bold" },
         DapUIBreakpointsDisabledLine = { fg = c.bg_01 },
@@ -447,6 +448,9 @@ M.setup = function(colors)
         NoiceFormatProgressDone = { bg = c.green_01, fg = c.bg_01 },
         NoiceFormatConfirm = { bg = c.bg_statusline, fg = c.green_01 },
         NoiceFormatConfirmDefault = { bg = c.bg_statusline, fg = c.green_01 },
+        ComposerNormal = { bg = c.bg_01, fg = c.orange_02 },
+        ComposerBorder = { bg = c.bg_01, fg = c.bg_01 },
+        MacroEditorNormal = { bg = c.bg_01, fg = c.orange_02 },
         --
         NotifyDEBUGBody = { bg = c.bg_statusline, fg = c.fg_01 },
         NotifyDEBUGBorder = { bg = c.bg_statusline, fg = c.hint },
