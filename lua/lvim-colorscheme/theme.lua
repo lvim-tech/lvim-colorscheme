@@ -451,6 +451,10 @@ M.setup = function(colors)
         ComposerNormal = { bg = c.bg_01, fg = c.orange_02 },
         ComposerBorder = { bg = c.bg_01, fg = c.bg_01 },
         MacroEditorNormal = { bg = c.bg_01, fg = c.orange_02 },
+        DelaySymbol = { bg = c.none, fg = c.blue_01 },
+        PlayingSymbol = { bg = c.none, fg = c.green_01 },
+        RecordingSymbol = { bg = c.none, fg = c.green_03 },
+
         --
         NotifyDEBUGBody = { bg = c.bg_statusline, fg = c.fg_01 },
         NotifyDEBUGBorder = { bg = c.bg_statusline, fg = c.hint },
