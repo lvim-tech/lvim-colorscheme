@@ -17,7 +17,7 @@ function M.generate(colors)
                 <key>settings</key>
                 <dict>
                     <key>foreground</key>
-                    <string>${fg_05}</string>
+                    <string>${fg_03}</string>
                     <key>background</key>
                     <string>${bg_01}</string>
                     <key>caret</key>
