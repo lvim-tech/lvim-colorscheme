@@ -421,6 +421,9 @@ M.setup = function(colors)
         NeoTreeTabActive = { bg = c.green_02, fg = c.bg_statusline, style = "bold" },
         NeoTreeDiagTotalCount = { fg = c.blue_01, style = "bold" },
         NeoTreeDiagMessage = { fg = c.fg_05 },
+        OilDir = { fg = c.green_02, style = "bold" },
+        OilFile = { fg = c.orange_03, style = "bold" },
+        OilLink = { fg = c.red_02, style = "bold" },
         --
         -- NeogitBranch = { fg = c.color_24 },
         -- NeogitDiffAddHighlight = { bg = c.diff.add, fg = c.git.add },
