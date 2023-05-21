@@ -104,7 +104,7 @@ M.setup = function(colors)
         SpellLocal = { sp = c.info, style = "undercurl" },
         SpellRare = { sp = c.hint, style = "undercurl" },
         QuickFixLine = { bg = c.bg_03, style = "bold" },
-        qfPath = { fg = c.teal_01 },
+        qfPath = { fg = c.green_02 },
         qfPosition = { fg = c.red_02 },
         healthError = { fg = c.error },
         healthSuccess = { fg = c.success },
