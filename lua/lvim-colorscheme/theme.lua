@@ -59,6 +59,7 @@ M.setup = function(colors)
         -- MoreMsg = { fg = c.color_13 },
         -- MsgArea = { fg = c.color_16 },
         --
+        Normal = { bg = c.bg_01, fg = c.fg_02 },
         NormalNC = { bg = c.bg_03, fg = c.fg_02 },
         NormalSB = { bg = c.bg_sidebar, fg = c.fg_02 },
         NormalFloat = { bg = c.bg_float, fg = c.fg_02 },
