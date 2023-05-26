@@ -75,7 +75,7 @@ M.setup = function(colors)
         Winbar = { bg = c.bg_statusline, fg = c.fg_02 },
         CursorLine = { bg = c.bg_cursor_line },
         LineNr = { fg = c.bg_06, style = "bold" },
-        CursorLineNr = { fg = c.green_02, style = "bold" },
+        CursorLineNr = { fg = c.teal_03, style = "bold" },
         ColorColumn = { bg = c.bg_04 },
         Conceal = { fg = c.fg_02 },
         Cursor = { bg = c.orange_02, fg = c.none },
@@ -223,6 +223,13 @@ M.setup = function(colors)
         NavicIconsStruct = { link = "Structure", default = true },
         NavicIconsTypeParameter = { link = "Type", default = true },
         NavicIconsVariable = { link = "Variable", default = true },
+        --
+        HydraRed = { fg = c.red_02 },
+        HydraBlue = { fg = c.blue_02 },
+        HydraAmaranth = { fg = c.orange_02 },
+        HydraTeal = { fg = c.teal_01 },
+        HydraPink = { fg = c.cyan_01 },
+        HydraHint = { bg = c.bg_float, fg = c.green_03 },
         --
         ToDoError = { fg = c.red_02 },
         ToDoWarning = { fg = c.orange_02 },
