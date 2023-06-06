@@ -139,6 +139,9 @@ M.setup = function(colors)
         AlphaFooter = { fg = c.orange_01 },
         AlphaQuote = { fg = c.fg_05 },
         BqfPreviewBorder = { bg = c.bg_01, fg = c.green_01 },
+        BqfPreviewTitle = { bg = c.bg_01, fg = c.red_02, style = "bold" },
+        BqfPreviewSbar = { bg = c.bg_01, fg = c.green_03 },
+        BqfPreviewThumb = { bg = c.green_03, fg = c.green_03 },
         BqfPreviewRange = { bg = c.none, fg = c.red_02 },
         -- BufferCurrent = { bg = c.color_04, fg = c.color_21 },
         -- BufferCurrentIndex = { bg = c.color_04, fg = c.info },
@@ -587,7 +590,7 @@ M.setup = function(colors)
         PubspecAssistDependencyUnknown = { fg = c.orange_02 },
         --
         PackageInfoOutdatedVersion = { fg = c.red_02 },
-        PackageInfoUptodateVersion = { fg = c.green_02 },
+        PackageInfoUpToDateVersion = { fg = c.green_02 },
         --
         SniprunFloatingWinErr = { fg = c.error, style = "bold" },
         SniprunFloatingWinOk = { fg = c.success, style = "bold" },
