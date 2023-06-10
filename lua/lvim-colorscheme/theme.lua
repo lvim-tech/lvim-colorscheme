@@ -543,7 +543,7 @@ M.setup = function(colors)
         -- NvimTreeSymlink = { fg = c.color_22 },
         -- NvimTreeWindowPicker = { bg = c.color_22, fg = c.color_03, style = "bold" },
         --
-        OctoBubble = { bg = c.green_01, fg = c.fg_01 },
+        OctoBubble = { bg = c.green_01, fg = c.bg_03, style = "bold" },
         OctoStateClosed = { fg = c.green_03 },
         OctoStateOpen = { fg = c.green_01 },
         OctoViewer = { fg = c.orange_01 },
