@@ -344,7 +344,7 @@ M.setup = function(colors)
         LspCodeLens = { fg = c.fg_01 },
         LspFloatWinBorder = { fg = c.bg_float },
         LspFloatWinNormal = { bg = c.bg_float },
-        LspInlayHint = { fg = c.fg_01 },
+        LspInlayHint = { fg = c.fg_07 },
         -- LspInstallerError = { fg = c.error },
         -- LspInstallerGreen = { fg = c.success },
         -- LspInstallerHeader = { bg = c.bg_03, fg = c.orange_02, style = "bold" },
