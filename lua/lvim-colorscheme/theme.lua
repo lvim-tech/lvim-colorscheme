@@ -331,6 +331,11 @@ M.setup = function(colors)
         HopNextKey1 = { fg = c.blue_03, style = "bold" },
         HopNextKey2 = { fg = c.teal_03, style = "bold" },
         HopUnmatched = { fg = c.green_03 },
+
+        -- FlashMatch = { bg = c.red_03, fg = c.white, style = "bold" },
+        FlashCurrent = { bg = c.cyan_03, fg = c.white, style = "bold" },
+        -- FlashBackdrop = { bg = c.teal_03, fg = c.bg_02,style = "bold" },
+        FlashLabel = { bg = c.cyan_03, fg = c.white, style = "bold" },
         -- LightspeedGreyWash = { fg = c.color_05 },
         -- LightspeedLabel = { fg = c.color_17, style = "bold,underline" },
         -- LightspeedLabelDistant = { fg = c.color_08, style = "bold,underline" },
