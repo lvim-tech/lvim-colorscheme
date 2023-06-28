@@ -616,6 +616,9 @@ M.setup = function(colors)
         TelescopeSelection = { bg = c.bg_03, fg = c.green_01 },
         TelescopeSelectionCaret = { bg = c.bg_05, fg = c.green_01 },
         --
+        FzfLuaNormal = { bg = c.bg_float },
+        FzfLuaBorder = { bg = c.bg_float, fg = c.orange_03 },
+        --
         -- TroubleCount = { fg = c.color_23 },
         -- TroubleError = { bg = c.error },
         -- TroubleInformation = { bg = c.info },
