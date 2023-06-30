@@ -242,7 +242,9 @@ M.setup = function(colors)
         ToDoDefault = { fg = c.blue_02 },
         --
         CtrlSpaceNormal = { bg = c.bg_sidebar },
-        CtrlSpaceSelected = { bg = c.bg_sidebar, fg = c.green_01 },
+        CtrlSpaceSelected = { bg = c.bg_sidebar, fg = c.green_02 },
+        CtrlSpaceSearch = { fg = c.cyan_02 },
+        CtrlSpaceStatus = { fg = c.green_03 },
         --
         DapUIBreakpointsCurrentLine = { fg = c.green_01, style = "bold" },
         DapUIBreakpointsDisabledLine = { fg = c.bg_01 },
