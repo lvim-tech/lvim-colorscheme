@@ -2,6 +2,7 @@ local utils = require("lvim-colorscheme.utils")
 
 local colors = {
     NONE = "NONE",
+    white = "#FFFFFF",
     bg_01 = "#FFFFFF",
     bg_02 = "#f5f5f5",
     bg_03 = "#ebebeb",
@@ -14,6 +15,7 @@ local colors = {
     fg_04 = "#488180",
     fg_05 = "#5e8f71",
     fg_06 = "#4a8460",
+    fg_07 = "#448589",
     blue_01 = "#28a3d7",
     blue_02 = "#148fc3",
     blue_03 = "#007baf",
