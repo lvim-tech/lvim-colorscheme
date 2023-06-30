@@ -7,7 +7,7 @@ M.setup = function(colors)
     local highlights = {
         Boolean = { fg = c.blue_01 },
         Character = { fg = c.fg_01 },
-        Comment = { fg = c.fg_03, style = config.styles.comments },
+        Comment = { fg = c.fg_07, style = config.styles.comments },
         Conditional = { fg = c.orange_01 }, -- fix
         Constant = { fg = c.green_02 },
         Constructor = { fg = c.orange_01 },
@@ -314,6 +314,7 @@ M.setup = function(colors)
         GitSignsTopDelete = { fg = c.gitSigns.top_delete, style = "bold" },
         GitSignsChangeDelete = { fg = c.gitSigns.change_delete, style = "bold" },
         GitSignsUntracked = { fg = c.gitSigns.untracked, style = "bold" },
+        GitSignsCurrentLineBlame = { fg = c.fg_07, style = "bold" },
         IndentBlanklineChar = { fg = c.bg_04 },
         IndentBlanklineContextChar = { fg = c.green_02 },
         -- GlyphPalette1 = { fg = c.color_25 },
