@@ -137,7 +137,7 @@ M.setup = function(colors)
         AlphaHeader = { fg = c.red_02 },
         AlphaButton = { fg = c.orange_03 },
         AlphaFooter = { fg = c.orange_01 },
-        AlphaQuote = { fg = c.fg_04 },
+        AlphaQuote = { fg = c.fg_07 },
         BqfPreviewBorder = { bg = c.bg_01, fg = c.green_01 },
         BqfPreviewTitle = { bg = c.bg_01, fg = c.red_02, style = "bold" },
         BqfPreviewSbar = { bg = c.bg_01, fg = c.green_03 },
