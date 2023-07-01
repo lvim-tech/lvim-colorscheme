@@ -9,12 +9,12 @@ M.init = function(style)
     local _style
     local ok1, colors1 = pcall(require, "lvim-colorscheme.colors." .. style)
     if not ok1 then
-        local ok2, colors2 = pcall(require, "lvim-colorscheme.colors" .. config.style)
+        local ok2, colors2 = pcall(require, "lvim-colorscheme.colors" .. config.default)
         if not ok2 then
             _style = "dark"
             colors = require("lvim-colorscheme.colors.dark")
         else
-            _style = config.style
+            _style = config.default
             colors = colors2
         end
     else

@@ -29,7 +29,7 @@ M.setup = function(colors)
         Note = { fg = c.fg_03 },
         Number = { fg = c.green_03 },
         Operator = { fg = c.orange_01, style = "bold" },
-        Parameter = { fg = c.fg_06 },
+        Parameter = { fg = c.fg_05 },
         PreProc = { fg = c.teal_03 },
         Property = { fg = c.cyan_03 },
         Repeat = { fg = c.red_01 }, -- fix
@@ -37,7 +37,7 @@ M.setup = function(colors)
         SpecialChar = { fg = c.teal_02 }, -- fix
         SpecialComment = { fg = c.fg_03, style = config.styles.comments }, -- fix
         StorageClass = { fg = c.red_01 }, -- fix
-        String = { fg = c.fg_04 },
+        String = { fg = c.fg_06 },
         StringEscape = { fg = c.orange_02 },
         StringRegex = { fg = c.blue_03 },
         Structure = { fg = c.orange_03 },
@@ -47,7 +47,7 @@ M.setup = function(colors)
         Todo = { fg = c.orange_01 },
         Type = { fg = c.orange_03 },
         Typedef = { fg = c.orange_03 },
-        Variable = { fg = c.fg_06, style = config.styles.variables },
+        Variable = { fg = c.fg_05, style = config.styles.variables },
         VariableBuiltin = { fg = c.blue_03 },
         Directory = { fg = c.orange_01 },
         --
@@ -72,7 +72,7 @@ M.setup = function(colors)
         PmenuThumb = { bg = c.orange_03 },
         StatusLine = { bg = c.bg_statusline, fg = c.fg_01 },
         StatusLineNC = { bg = c.bg_statusline, fg = c.bg_statusline },
-        Winbar = { bg = c.bg_statusline, fg = c.fg_02 },
+        Winbar = { bg = c.bg, fg = c.fg_02 },
         CursorLine = { bg = c.bg_cursor_line },
         LineNr = { fg = c.bg_06, style = "bold" },
         CursorLineNr = { fg = c.teal_03, style = "bold" },
@@ -137,7 +137,7 @@ M.setup = function(colors)
         AlphaHeader = { fg = c.red_02 },
         AlphaButton = { fg = c.orange_03 },
         AlphaFooter = { fg = c.orange_01 },
-        AlphaQuote = { fg = c.fg_05 },
+        AlphaQuote = { fg = c.fg_04 },
         BqfPreviewBorder = { bg = c.bg_01, fg = c.green_01 },
         BqfPreviewTitle = { bg = c.bg_01, fg = c.red_02, style = "bold" },
         BqfPreviewSbar = { bg = c.bg_01, fg = c.green_03 },
@@ -437,7 +437,7 @@ M.setup = function(colors)
         NeoTreeTabInactive = { bg = c.bg_statusline, fg = c.green_02, style = "bold" },
         NeoTreeTabActive = { bg = c.green_02, fg = c.bg_statusline, style = "bold" },
         NeoTreeDiagTotalCount = { fg = c.blue_01, style = "bold" },
-        NeoTreeDiagMessage = { fg = c.fg_05 },
+        NeoTreeDiagMessage = { fg = c.fg_04 },
         OilDir = { fg = c.green_02, style = "bold" },
         OilFile = { fg = c.orange_03, style = "bold" },
         OilLink = { fg = c.red_02, style = "bold" },
@@ -555,7 +555,7 @@ M.setup = function(colors)
         OctoStateOpen = { fg = c.green_01 },
         OctoViewer = { fg = c.orange_01 },
         --
-        OrgTSBlock = { fg = c.fg_05 },
+        OrgTSBlock = { fg = c.fg_04 },
         OrgTSBlockCode = { bg = c.bg_statusline },
         OrgTSCheckbox = { fg = c.red_02, style = "bold" },
         OrgTSCheckboxChecked = { fg = c.green_02, style = "bold" },
@@ -637,9 +637,9 @@ M.setup = function(colors)
         WhichKeyBorder = { bg = c.bg_float, fg = c.bg_float },
         WhichKeyDesc = { fg = c.red_01 },
         WhichKeyFloat = { bg = c.bg_float },
-        WhichKeyGroup = { fg = c.fg_06 },
-        WhichKeySeparator = { fg = c.fg_05 },
-        WhichKeyValue = { fg = c.fg_06 },
+        WhichKeyGroup = { fg = c.fg_05 },
+        WhichKeySeparator = { fg = c.fg_04 },
+        WhichKeyValue = { fg = c.fg_05 },
         --
         -- debugBreakpoint = { bg = colors.bg_statusline, fg = c.info },
         -- debugPC = { bg = c.bg_sidebar },

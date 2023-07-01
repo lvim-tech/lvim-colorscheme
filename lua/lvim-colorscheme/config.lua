@@ -1,5 +1,5 @@
 return {
-    style = "dark",
+    default = "lvim-dark",
     styles = {
         comments = { italic = true, bold = true },
         keywords = { italic = true, bold = true },

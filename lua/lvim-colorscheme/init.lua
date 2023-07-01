@@ -9,7 +9,7 @@ M.setup = function(user_config)
         utils.merge(config, user_config)
     end
     -- vim.schedule(function()
-    load.init(config.style)
+    load.init(config.default)
     -- end)
 end
 

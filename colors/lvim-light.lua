@@ -1,1 +1,1 @@
-require("lvim-colorscheme.load").init("light")
+require("lvim-colorscheme.load").init("lvim-light")
