@@ -47,8 +47,8 @@ M.setup = function(colors)
         Todo = { fg = c.orange_01 },
         Type = { fg = c.orange_03 },
         Typedef = { fg = c.orange_03 },
-        Variable = { fg = c.fg_05, style = config.styles.variables },
-        VariableBuiltin = { fg = c.blue_03 },
+        Variable = { fg = c.teal_02, style = config.styles.variables },
+        VariableBuiltin = { fg = c.teal_02, style = config.styles.variables },
         Directory = { fg = c.orange_01 },
         --
         ErrorMsg = { fg = c.none },
