@@ -21,9 +21,19 @@ local extras = {
 }
 
 local themes = {
-    "dark",
-    "dark_soft",
-    "light",
+    -- "dark",
+    -- "dark_soft",
+    -- "light",
+    "lvim-catppuccin-dark-soft",
+    "lvim-catppuccin-dark",
+    "lvim-dark-soft",
+    "lvim-dark",
+    "lvim-everforest-dark-soft",
+    "lvim-everforest-dark",
+    "lvim-gruvbox-dark-soft",
+    "lvim-gruvbox-dark",
+    "lvim-light",
+    "lvim-solarized-dark",
 }
 
 for extra, ext in pairs(extras) do

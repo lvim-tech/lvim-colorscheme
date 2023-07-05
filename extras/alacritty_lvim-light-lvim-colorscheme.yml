@@ -1,0 +1,58 @@
+# Lvim Alacritty Colors
+colors:
+    # Default colors
+    primary:
+        background: "0xFFFFFF"
+        foreground: "0xC85E00"
+        bright_foreground: "0xC85E00"
+    cursor:
+        cursor: "0xC85E00"
+        text: "0xFFFFFF"
+    vi_mode_cursor:
+        cursor: "0x5E8F71"
+        text: "0xFFFFFF"
+    search:
+        matches:
+            foreground: "0xEBEBEB"
+            background: "0x6B8444"
+        focused_match:
+            foreground: "0xEBEBEB"
+            background: "0xDC7214"
+    footer_bar:
+        background: "0xFFFFFF"
+        foreground: "0x5E8F71"
+    hints:
+        start:
+            foreground: "0xFFFFFF"
+            background: "0x7F9858"
+        end:
+            foreground: "0x7F9858"
+            background: "0xFFFFFF"
+    line_indicator:
+        foreground: None
+        background: None
+    selection:
+        text: "0x5E8F71"
+        background: "0xD7D7D7"
+    # Normal colors
+    normal:
+        black:   "0xFFFFFF"
+        red:     "0xB52E1F"
+        green:   "0x6B8444"
+        yellow:  "0xDC7214"
+        blue:    "0x148FC3"
+        magenta: "0x169D84"
+        cyan:    "0x00ACC1"
+        white:   "0x5E8F71"
+
+    # Bright colors
+    bright:
+        black:   "0xC85E00"
+        red:     "0xA11A0B"
+        green:   "0x577030"
+        yellow:  "0xC85E00"
+        blue:    "0x007BAF"
+        magenta: "0x028970"
+        cyan:    "0x0098AD"
+        white:   "0x4A8460"
+  
