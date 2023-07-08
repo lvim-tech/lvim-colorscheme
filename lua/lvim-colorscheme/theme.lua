@@ -283,6 +283,8 @@ M.setup = function(colors)
         DefinitionCount = { fg = c.orange_02 },
         DefinitionIcon = { fg = c.cyan_02 },
         --
+        LBVirtualText = { bg = c.NONE, fg = c.red_03 },
+        --
         DiagnosticError = { fg = c.error },
         DiagnosticWarn = { fg = c.warning },
         DiagnosticInfo = { fg = c.info },
