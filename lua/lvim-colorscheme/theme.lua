@@ -50,19 +50,19 @@ M.setup = function(colors)
         Variable = { fg = c.teal_02, style = config.styles.variables },
         VariableBuiltin = { fg = c.teal_02, style = config.styles.variables },
         Directory = { fg = c.orange_01 },
-        --
-        ErrorMsg = { fg = c.none },
-        WarningMsg = { fg = c.none },
-        Error = { fg = c.none },
-        Warning = { bg = c.none },
-        -- ModeMsg = { bg = c.none, fg = c.color_16, style = "bold" },
-        -- MoreMsg = { fg = c.color_13 },
-        -- MsgArea = { fg = c.color_16 },
-        --
-        Normal = { bg = c.bg_01, fg = c.fg_02 },
-        NormalNC = { bg = c.bg_03, fg = c.fg_02 },
-        NormalSB = { bg = c.bg_sidebar, fg = c.fg_02 },
-        NormalFloat = { bg = c.bg_float, fg = c.fg_02 },
+        -- --
+        ErrorMsg = { fg = c.red_03 },
+        WarningMsg = { fg = c.orange_03 },
+        Error = { fg = c.red_03 },
+        Warning = { bg = c.orange_03 },
+        -- -- ModeMsg = { bg = c.none, fg = c.color_16, style = "bold" },
+        -- -- MoreMsg = { fg = c.color_13 },
+        -- -- MsgArea = { fg = c.color_16 },
+        -- --
+        -- Normal = { bg = c.bg_01, fg = c.fg_02 },
+        -- NormalNC = { bg = c.bg_03, fg = c.fg_02 },
+        -- NormalSB = { bg = c.bg_sidebar, fg = c.fg_02 },
+        -- NormalFloat = { bg = c.bg_float, fg = c.fg_02 },
         FloatBorder = { bg = c.bg_float, fg = c.bg_float },
         SideBar = { bg = c.bg_sidebar, fg = c.orange_03 },
         SideBarNC = { bg = c.bg_sidebar, fg = c.orange_03 },
@@ -444,21 +444,21 @@ M.setup = function(colors)
         OilFile = { fg = c.orange_03, style = "bold" },
         OilLink = { fg = c.red_02, style = "bold" },
         --
-        -- NeogitBranch = { fg = c.color_24 },
-        -- NeogitDiffAddHighlight = { bg = c.diff.add, fg = c.git.add },
-        -- NeogitDiffContextHighlight = { bg = c.bg_statusline, fg = c.color_16 },
-        -- NeogitDiffDeleteHighlight = { bg = c.diff.delete, fg = c.git.delete },
-        -- NeogitHunkHeader = { bg = c.color_02, fg = c.color_21 },
-        -- NeogitHunkHeaderHighlight = { bg = c.color_04, fg = c.color_13 },
-        -- NeogitRemote = { fg = c.color_24 },
-        -- NeogitNotificationInfo = { fg = c.info },
-        -- NeogitNotificationWarning = { fg = c.warning },
-        -- NeogitNotificationError = { fg = c.error },
-        -- NeogitCommitViewDescription = { fg = c.color_07 },
-        -- NeogitFilePath = { fg = c.error },
-        -- NeogitCommitViewHeader = { fg = c.error },
-        -- NeogitCommitMessage = { fg = c.color_07 },
-        -- NeogitCommitView = { fg = c.color_24 },
+        NeogitBranch = { fg = c.blue_02 }, -- color_24
+        NeogitDiffAddHighlight = { bg = c.bg_02 },
+        NeogitDiffContextHighlight = { bg = c.bg_02 }, -- color_16
+        NeogitDiffDeleteHighlight = { bg = c.bg_02 },
+        NeogitHunkHeader = { bg = c.bg_02, fg = c.cyan_02 }, -- color_21
+        NeogitHunkHeaderHighlight = { bg = c.bg_02, fg = c.green_02 }, -- color_04 color_13
+        NeogitRemote = { fg = c.fg_07 }, -- color_24
+        NeogitNotificationInfo = { fg = c.info },
+        NeogitNotificationWarning = { fg = c.warning },
+        NeogitNotificationError = { fg = c.error },
+        NeogitCommitViewDescription = { fg = c.teal_02 }, -- color_07
+        NeogitFilePath = { fg = c.red_02 },
+        NeogitCommitViewHeader = { fg = c.error },
+        NeogitCommitMessage = { fg = c.color_07 }, -- color_07
+        NeogitCommitView = { fg = c.fg_07 }, -- color_24
         --
         NoiceBody = { link = "NuiBody", default = true },
         NoiceBorder = { link = "NuiBorder", default = true },
