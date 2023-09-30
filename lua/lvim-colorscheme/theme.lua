@@ -203,7 +203,7 @@ M.setup = function(colors)
         RgFlowInputFlags = { fg = colors.teal_02 },
         RgFlowInputPattern = { fg = colors.green_02 },
         RgFlowInputPath = { fg = colors.teal_02 },
-        RgFlowQfPattern = { bg = colors.red_02 },
+        RgFlowQfPattern = { bg = colors.bg_search },
         --
         NavicSeparator = { link = "Delimiter", default = true },
         NavicIconsArray = { link = "Constructor", default = true },
