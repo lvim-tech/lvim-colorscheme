@@ -94,6 +94,7 @@ M.setup = function(colors)
         SignColumnSB = { bg = c.bg_sidebar },
         FoldColumn = { bg = c.none, fg = c.fg_07 },
         Folded = { bg = c.none, fg = c.fg_07 },
+        FoldedText = { bg = c.none, fg = c.red_02, italic = true, style = "bold" },
         MatchParen = { fg = c.orange_03, style = "bold" },
         Substitute = { bg = c.red_01, fg = c.bg_01 },
         FocusedSymbol = { bg = c.none, style = "bold" },
