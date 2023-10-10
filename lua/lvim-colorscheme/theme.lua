@@ -14,7 +14,7 @@ M.setup = function(colors)
         Danger = { fg = c.bg_03 },
         Debug = { fg = c.green_02 }, -- fix
         Define = { fg = c.blue_01 }, -- fix
-        Delimiter = { fg = c.orange_01 },
+        Delimiter = { fg = c.red_02 },
         Exception = { fg = c.green_03 },
         Field = { fg = c.cyan_03 },
         Float = { fg = c.green_03 },
@@ -112,10 +112,10 @@ M.setup = function(colors)
         healthWarning = { fg = c.warning },
         IncSearch = { bg = c.bg_search, fg = c.green_01, style = "bold" },
         Question = { fg = c.blue_01 },
-        NonText = { fg = c.bg_04 },
-        SpecialKey = { fg = c.bg_04 },
+        NonText = { fg = c.bg_06 },
+        SpecialKey = { fg = c.bg_06 },
         Statement = { fg = c.orange_02 },
-        Whitespace = { fg = c.bg_05 },
+        Whitespace = { fg = c.bg_06 },
         WildMenu = { bg = c.bg_visual },
         --
         DiffAdd = { bg = c.diff.add },
@@ -327,6 +327,7 @@ M.setup = function(colors)
         GitSignsCurrentLineBlame = { fg = c.fg_07, style = "bold" },
         IndentBlanklineChar = { fg = c.bg_04 },
         IndentBlanklineContextChar = { fg = c.red_02 },
+        IndentBlanklineCurrentChar = { fg = c.green_02 },
         RainbowDelimiterRed = { fg = colors.red_02 },
         RainbowDelimiterYellow = { fg = colors.teal_02 },
         RainbowDelimiterBlue = { fg = colors.blue_02 },
