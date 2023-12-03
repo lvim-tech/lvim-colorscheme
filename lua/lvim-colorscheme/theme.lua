@@ -843,7 +843,15 @@ M.setup = function(colors)
         ["@neorg.todo.icon.uncertain"] = { fg = c.green_02 },
         ["@neorg.todo.item.undone"] = { fg = c.green_02 },
         ["@neorg.todo.icon.urgent"] = { fg = c.green_02 },
-        todo_item_undone = { fg = c.blue_03 },
+
+        ["@text.title.1.marker.markdown"] = { fg = c.red_02, bold = true },
+        ["@text.title.2.marker.markdown"] = { fg = c.red_02, bold = true },
+        ["@text.title.3.marker.markdown"] = { fg = c.red_02, bold = true },
+        ["@text.title.4.marker.markdown"] = { fg = c.red_02, bold = true },
+        ["@text.title.5.marker.markdown"] = { fg = c.red_02, bold = true },
+        ["@text.title.6.marker.markdown"] = { fg = c.red_02, bold = true },
+        ["@punctuation.special.markdown"] = { fg = c.teal_02, bold = true },
+        ["@spell.markdown"] = { fg = c.fg_07, bold = true },
     }
     if not vim.diagnostic then
         local severity_map = {

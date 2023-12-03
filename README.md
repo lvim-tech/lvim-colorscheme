@@ -38,13 +38,13 @@
 
 ## Init
 
-```
+```lua
 require("lvim-colorscheme").setup()
 ```
 
 ## Default config
 
-```
+```lua
 {
     style = "dark", -- dark, darksoft, light
     styles = {
