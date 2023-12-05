@@ -214,6 +214,9 @@ M.setup = function(colors)
         MiniClueSeparator = { fg = c.red_02 },
         MiniClueTitle = { fg = c.red_02, bold = true },
         --
+        netrwPlain = { fg = c.fg_07 },
+        netrwDir = { fg = c.green_02 },
+        --
         NavicSeparator = { link = "Delimiter", default = true },
         NavicIconsArray = { link = "Constructor", default = true },
         NavicText = { link = "Character", default = true },
