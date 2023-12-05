@@ -53,10 +53,10 @@ M.setup = function(colors)
         -- --
         ErrorMsg = { fg = c.red_03 },
         WarningMsg = { fg = c.orange_03 },
+        MoreMsg = { fg = c.color_13 },
         Error = { fg = c.red_03 },
         Warning = { bg = c.orange_03 },
         -- -- ModeMsg = { bg = c.none, fg = c.color_16, style = "bold" },
-        -- -- MoreMsg = { fg = c.color_13 },
         -- -- MsgArea = { fg = c.color_16 },
         -- --
         Normal = { bg = c.bg_01, fg = c.fg_02 },
@@ -205,6 +205,14 @@ M.setup = function(colors)
         RgFlowInputPattern = { fg = colors.green_02 },
         RgFlowInputPath = { fg = colors.teal_02 },
         RgFlowQfPattern = { bg = colors.bg_search },
+        --
+        MiniClueBorder = { bg = colors.none },
+        MiniClueDescGroup = { fg = colors.fg_07, bold = true },
+        MiniClueDescSingle = { fg = colors.green_02 },
+        MiniClueNextKey = { fg = colors.red_02 },
+        MiniClueNextKeyWithPostkeys = { bg = colors.bg_statusline },
+        MiniClueSeparator = { fg = colors.red_02 },
+        MiniClueTitle = { fg = colors.red_02, bold = true },
         --
         NavicSeparator = { link = "Delimiter", default = true },
         NavicIconsArray = { link = "Constructor", default = true },
@@ -852,6 +860,8 @@ M.setup = function(colors)
         ["@text.title.6.marker.markdown"] = { fg = c.red_02, bold = true },
         ["@punctuation.special.markdown"] = { fg = c.teal_02, bold = true },
         ["@spell.markdown"] = { fg = c.fg_07, bold = true },
+
+        WinSeparator = { link = "VertSplit", default = true },
     }
     if not vim.diagnostic then
         local severity_map = {
