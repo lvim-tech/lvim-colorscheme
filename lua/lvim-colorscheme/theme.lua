@@ -855,6 +855,8 @@ M.setup = function(colors)
         ["@neorg.todo.item.undone"] = { fg = c.green_02 },
         ["@neorg.todo.icon.urgent"] = { fg = c.green_02 },
 
+        ["@text.warning.comment"] = { fg = c.red_02, bold = true },
+
         ["@text.title.1.marker.markdown"] = { fg = c.red_02, bold = true },
         ["@text.title.2.marker.markdown"] = { fg = c.red_02, bold = true },
         ["@text.title.3.marker.markdown"] = { fg = c.red_02, bold = true },
