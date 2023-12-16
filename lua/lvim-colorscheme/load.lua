@@ -23,9 +23,9 @@ M.init = function(style)
     end
     colors = vim.tbl_deep_extend("force", {}, colors, config.colors[_style] or {})
     theme = setup_theme.setup(colors)
-    if vim.g.colors_name then
-        vim.cmd("hi clear")
-    end
+    -- if vim.g.colors_name then
+    --     vim.cmd("hi clear")
+    -- end
     vim.o.termguicolors = true
     vim.g.colors_name = "lvim"
     M.syntax(theme)
