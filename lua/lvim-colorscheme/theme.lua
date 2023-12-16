@@ -206,7 +206,7 @@ M.setup = function(colors)
         RgFlowInputPath = { fg = c.teal_02 },
         RgFlowQfPattern = { bg = c.bg_search },
         --
-        MiniClueBorder = { bg = c.none },
+        MiniClueBorder = { bg = c.bg_statusline, fg = c.bg_statusline },
         MiniClueDescGroup = { fg = c.fg_07, bold = true },
         MiniClueDescSingle = { fg = c.green_02 },
         MiniClueNextKey = { bg = c.none, fg = c.green_02, bold = true },
