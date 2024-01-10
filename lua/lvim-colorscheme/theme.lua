@@ -688,7 +688,7 @@ M.setup = function(colors)
         -- mkdCodeEnd = { fg = c.color_09, style = "bold" },
         -- mkdCodeStart = { fg = c.color_09, style = "bold" },
         TreesitterContext = { bg = c.bg_statusline },
-        TreesitterContextLineNumber = { bg = c.bg_statusline, fg = c.cyan_02, style = "bold" },
+        TreesitterContextLineNumber = { bg = c.bg_statusline, fg = c.teal_03, style = "bold" },
         --
         TSAnnotation = { link = "PreProc", default = true },
         TSAttribute = { link = "PreProc", default = true }, --
