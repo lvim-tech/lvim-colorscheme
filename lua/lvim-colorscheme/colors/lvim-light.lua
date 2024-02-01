@@ -1,5 +1,5 @@
 local utils = require("lvim-colorscheme.utils")
-
+vim.opt.background = "light"
 local colors = {
     NONE = "NONE",
     white = "#FFFFFF",
