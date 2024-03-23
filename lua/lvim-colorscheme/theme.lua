@@ -555,7 +555,7 @@ M.setup = function(colors)
         GitSignsCurrentLineBlame = { fg = c.fg_07, style = "bold" },
         IndentBlanklineChar = { fg = c.bg_search },
         IndentBlanklineContextChar = { fg = c.red_02 },
-        IndentBlanklineCurrentChar = { fg = c.green_02 },
+        IndentBlanklineCurrentChar = { fg = c.red_02 },
         RainbowDelimiterRed = { fg = c.red_02 },
         RainbowDelimiterYellow = { fg = c.teal_02 },
         RainbowDelimiterBlue = { fg = c.blue_02 },
