@@ -553,7 +553,7 @@ M.setup = function(colors)
         GitSignsChangeDelete = { fg = c.gitSigns.change_delete, style = "bold" },
         GitSignsUntracked = { fg = c.gitSigns.untracked, style = "bold" },
         GitSignsCurrentLineBlame = { fg = c.fg_07, style = "bold" },
-        IndentBlanklineChar = { fg = c.bg_04 },
+        IndentBlanklineChar = { fg = c.bg_search },
         IndentBlanklineContextChar = { fg = c.red_02 },
         IndentBlanklineCurrentChar = { fg = c.green_02 },
         RainbowDelimiterRed = { fg = c.red_02 },
