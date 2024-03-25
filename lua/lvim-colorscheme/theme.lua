@@ -179,7 +179,7 @@ M.setup = function(colors)
         FloatShadow = {},
         FloatShadowThrough = {},
         Folded = { bg = c.none, fg = c.fg_07 },
-        LineNr = { fg = c.bg_06, style = "bold" },
+        LineNr = { fg = c.bg_04, style = "bold" },
         MatchParen = {},
         ModeMsg = { bg = c.none, fg = c.color_16, style = "bold" },
         MoreMsg = { fg = c.color_13 },
