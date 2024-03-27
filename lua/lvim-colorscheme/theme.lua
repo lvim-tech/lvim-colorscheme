@@ -88,7 +88,6 @@ M.setup = function(colors)
         DiagnosticVirtualTextInfo = { fg = c.info },
         DiagnosticVirtualTextHint = { fg = c.hint },
         DiagnosticVirtualTextOk = {},
-        MarkdownLine = { bg = c.bg_statusline },
         MarkdownH1 = { fg = c.blue_02 },
         MarkdownH2 = { fg = c.cyan_02 },
         MarkdownH3 = { fg = c.teal_02 },
@@ -96,6 +95,16 @@ M.setup = function(colors)
         MarkdownH5 = { fg = c.orange_02 },
         MarkdownH6 = { fg = c.red_02 },
         MarkdownBullet = { fg = c.green_01 },
+        MarkdownLine = { bg = c.bg_statusline },
+        MarkdownUndone = { fg = c.green_01 },
+        MarkdownPending = { fg = c.green_01 },
+        MarkdownDone = { fg = c.green_01 },
+        MarkdownOnHold = { fg = c.green_01 },
+        MarkdownCancelled = { fg = c.green_01 },
+        MarkdownImportant = { fg = c.green_01 },
+        MarkdownRecurring = { fg = c.green_01 },
+        MarkdownAmbiguos = { fg = c.green_01 },
+        MarkdownOnGoing = { fg = c.green_01 },
         -- DiagnosticSignError = { fg = c.error },
         -- DiagnosticSignWarn = { fg = c.warning },
         -- DiagnosticSignInfo = { fg = c.info },
@@ -381,7 +390,7 @@ M.setup = function(colors)
         -- Not actually invalid, but we show the user that they are doing something
         NvimDoubleQuotedUnknownEscape = {},
 
-        Link = { style = "undercurl" },
+        Link = { fg = c.cyan_02, style = "undercurl" },
         --
         AlphaHeader = { fg = c.red_02 },
         AlphaButton = { fg = c.orange_03 },
