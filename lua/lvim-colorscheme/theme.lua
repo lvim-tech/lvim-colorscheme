@@ -390,7 +390,7 @@ M.setup = function(colors)
         -- Not actually invalid, but we show the user that they are doing something
         NvimDoubleQuotedUnknownEscape = {},
 
-        Link = { fg = c.cyan_02, style = "undercurl" },
+        Link = { fg = c.cyan_02 },
         --
         AlphaHeader = { fg = c.red_02 },
         AlphaButton = { fg = c.orange_03 },
