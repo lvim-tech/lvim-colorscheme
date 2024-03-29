@@ -71,7 +71,7 @@ M.setup = function(colors)
         DiagnosticError = { fg = c.error },
         DiagnosticWarn = { fg = c.warning },
         DiagnosticInfo = { fg = c.info },
-        DiagnosticHint = { fg = c.error },
+        DiagnosticHint = { fg = c.hint },
         DiagnosticDeprecated = { fg = c.warning },
         DiagnosticUnderlineError = {},
         DiagnosticUnderlineWarn = {},
