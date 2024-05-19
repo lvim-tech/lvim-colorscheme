@@ -97,16 +97,14 @@ function M.autocmds()
             end)
         end,
     })
-    if vim.tbl_contains(config.sidebars, "terminal") then
-        vim.api.nvim_create_autocmd("TermOpen", {
-            group = group,
-            callback = function()
-                vim.schedule(function()
-                    vim.cmd([[ setlocal winhighlight=Normal:SideBar,NormalNC:SideBarNC ]])
-                end)
-            end,
-        })
-    end
+    vim.api.nvim_create_autocmd("TermOpen", {
+        group = group,
+        callback = function()
+            vim.schedule(function()
+                vim.cmd([[ setlocal winhighlight=Normal:SideBar,NormalNC:SideBarNC ]])
+            end)
+        end,
+    })
 end
 
 return M
