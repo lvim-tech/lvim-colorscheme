@@ -565,6 +565,8 @@ M.setup = function(colors)
         IndentBlanklineChar = { fg = c.bg_search },
         IndentBlanklineContextChar = { fg = c.red_02 },
         IndentBlanklineCurrentChar = { fg = c.red_02 },
+        IndentLine = { fg = c.bg_search },
+        IndentLineCurrent = { fg = c.red_02 },
         RainbowDelimiterRed = { fg = c.red_02 },
         RainbowDelimiterYellow = { fg = c.teal_02 },
         RainbowDelimiterBlue = { fg = c.blue_02 },
