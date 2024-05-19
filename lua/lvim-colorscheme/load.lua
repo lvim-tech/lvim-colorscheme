@@ -80,13 +80,33 @@ M.onColorScheme = function()
 end
 
 function M.autocmds()
-    vim.cmd([[augroup LvimColorscheme]])
-    vim.cmd([[autocmd!]])
-    vim.cmd([[autocmd ColorScheme * lua require("lvim-colorscheme.load").onColorScheme()]])
-    for _, sidebar in ipairs(config.sidebars) do
-        vim.cmd([[  autocmd FileType ]] .. sidebar .. [[ setlocal winhighlight=Normal:SideBar,NormalNC:SideBarNC]])
+    local group = vim.api.nvim_create_augroup("LvimColorscheme", { clear = true })
+
+    vim.api.nvim_create_autocmd("ColorSchemePre", {
+        group = group,
+        callback = function()
+            vim.api.nvim_del_augroup_by_id(group)
+        end,
+    })
+    vim.api.nvim_create_autocmd("FileType", {
+        group = group,
+        pattern = table.concat(config.sidebars, ","),
+        callback = function()
+            vim.defer_fn(function()
+                vim.cmd([[ setlocal winhighlight=Normal:SideBar,NormalNC:SideBarNC ]])
+            end, 1)
+        end,
+    })
+    if vim.tbl_contains(config.sidebars, "terminal") then
+        vim.api.nvim_create_autocmd("TermOpen", {
+            group = group,
+            callback = function()
+                vim.defer_fn(function()
+                    vim.cmd([[ setlocal winhighlight=Normal:SideBar,NormalNC:SideBarNC ]])
+                end, 1)
+            end,
+        })
     end
-    vim.cmd([[augroup end]])
 end
 
 return M

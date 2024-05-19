@@ -32,6 +32,8 @@ M.setup = function(colors)
         PmenuKind = {},
         PmenuKindSel = {},
         PmenuSbar = { bg = c.bg_sidebar },
+        SideBar = { bg = c.bg_sidebar },
+        SideBarNC = { bg = c.bg_sidebar },
         Substitute = { bg = c.red_01, fg = c.bg_01 },
         TabLine = { bg = c.bg_statusline, fg = c.green_02, style = "bold" },
         TabLineFill = { bg = c.bg_statusline },
