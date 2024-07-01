@@ -817,6 +817,8 @@ M.setup = function(colors)
         TreesitterContext = { bg = c.bg_statusline },
         TreesitterContextLineNumber = { bg = c.bg_statusline, fg = c.teal_03, style = "bold" },
         --
+        RipSubBackdrop = { bg = c.bg_statusline },
+        --
         TSAnnotation = { link = "PreProc" },
         TSAttribute = { link = "PreProc" }, --
         TSBoolean = { link = "Boolean" }, --
