@@ -741,6 +741,8 @@ M.setup = function(colors)
         NuiBody = { bg = c.bg_statusline, fg = c.green_01 },
         NuiBorder = { bg = c.bg_statusline, fg = c.red_02, style = "bold" },
         --
+        BookmarkSign = { fg = c.red_02 },
+        --
         OctoBubble = { bg = c.green_01, fg = c.bg_03, style = "bold" },
         OctoStateClosed = { fg = c.green_03 },
         OctoStateOpen = { fg = c.green_01 },
