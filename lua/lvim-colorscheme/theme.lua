@@ -835,6 +835,22 @@ M.setup = function(colors)
         TreesitterContext = { bg = c.bg_statusline },
         TreesitterContextLineNumber = { bg = c.bg_statusline, fg = c.teal_03, style = "bold" },
         --
+        TinyInlineDiagnosticVirtualTextError = { bg = c.bg_statusline, fg = c.error },
+        TinyInlineDiagnosticVirtualTextWarn = { bg = c.bg_statusline, fg = c.warning },
+        TinyInlineDiagnosticVirtualTextInfo = { bg = c.bg_statusline, fg = c.info },
+        TinyInlineDiagnosticVirtualTextHint = { bg = c.bg_statusline, fg = c.hint },
+        TinyInlineDiagnosticVirtualTextArrow = { bg = c.bg_cursor_line, fg = c.fg_07 },
+
+        TinyInlineInvDiagnosticVirtualTextError = { fg = c.error, bg = c.bg_cursor_line },
+        TinyInlineInvDiagnosticVirtualTextWarn = { fg = c.warning, bg = c.bg_cursor_line },
+        TinyInlineInvDiagnosticVirtualTextInfo = { fg = c.info, bg = c.bg_cursor_line },
+        TinyInlineInvDiagnosticVirtualTextHint = { fg = c.hint, bg = c.bg_cursor_line },
+
+        TinyInlineInvDiagnosticVirtualTextErrorNoBg = { fg = c.error, bg = "None" },
+        TinyInlineInvDiagnosticVirtualTextWarnNoBg = { fg = c.warning, bg = "None" },
+        TinyInlineInvDiagnosticVirtualTextInfoNoBg = { fg = c.info, bg = "None" },
+        TinyInlineInvDiagnosticVirtualTextHintNoBg = { fg = c.hint, bg = "None" },
+        --
         RipSubBackdrop = { bg = c.bg_statusline },
         --
         TSAnnotation = { link = "PreProc" },
