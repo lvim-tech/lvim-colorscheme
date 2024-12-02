@@ -853,6 +853,8 @@ M.setup = function(colors)
         --
         RipSubBackdrop = { bg = c.bg_statusline },
         --
+        QuickFixLineNr = { fg = c.red_02 },
+        --
         TSAnnotation = { link = "PreProc" },
         TSAttribute = { link = "PreProc" },            --
         TSBoolean = { link = "Boolean" },              --
