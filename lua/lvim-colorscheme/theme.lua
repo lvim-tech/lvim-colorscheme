@@ -90,6 +90,7 @@ M.setup = function(colors)
         DiagnosticVirtualTextInfo = { fg = c.info },
         DiagnosticVirtualTextHint = { fg = c.hint },
         DiagnosticVirtualTextOk = {},
+        -- Markdown
         MarkdownH6 = { bg = c.bg_statusline, fg = c.red_02 },
         MarkdownH5 = { bg = c.bg_statusline, fg = c.orange_02 },
         MarkdownH4 = { bg = c.bg_statusline, fg = c.green_02 },
@@ -102,6 +103,8 @@ M.setup = function(colors)
         MarkviewCheckboxProgress = { fg = c.teal_02 },
         MarkviewCheckboxUnchecked = { fg = c.red_02 },
         MarkviewCheckboxStriked = { fg = c.cyan_02 },
+        MarkviewCode = { bg = c.bg_statusline },
+        MarkviewCodeInfo = { bg = c.bg_statusline, fg = c.red_02 },
         -- Help view
         HelpViewBorder = { fg = c.red_01 },
         HelpViewNormal = { fg = c.fg_07 },
