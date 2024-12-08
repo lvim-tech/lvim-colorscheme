@@ -105,9 +105,14 @@ M.setup = function(colors)
         MarkviewCheckboxStriked = { fg = c.cyan_02 },
         MarkviewCode = { bg = c.bg_statusline },
         MarkviewCodeInfo = { bg = c.bg_statusline, fg = c.red_02 },
+        MarkviewListItemMinus = { fg = c.blue_02 },
+        MarkviewListItemPlus = { fg = c.green_02 },
+        MarkviewListItemStar = { fg = c.red_02 },
         -- Help view
         HelpViewBorder = { fg = c.red_01 },
         HelpViewNormal = { fg = c.fg_07 },
+        -- Visual Whitespace
+        VisualWhiteSpace = { bg = c.bg_cursor_line, fg = c.fg_07 },
 
         -- Treesitter standard groups
         ["@variable.builtin"] = { link = "VariableBuiltin" },
