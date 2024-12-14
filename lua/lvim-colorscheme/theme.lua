@@ -447,9 +447,56 @@ M.setup = function(colors)
         CmpItemKindValue = { fg = c.white, bg = c.cyan_02 },
         CmpItemKindEnumMember = { fg = c.white, bg = c.cyan_02 },
 
-        CmpItemKindInterface = { fg = c.white, bg = c.gree_02 },
-        CmpItemKindColor = { fg = c.white, bg = c.gree_02 },
-        CmpItemKindTypeParameter = { fg = c.white, bg = c.gree_02 },
+        CmpItemKindInterface = { fg = c.white, bg = c.green_02 },
+        CmpItemKindColor = { fg = c.white, bg = c.green_02 },
+        CmpItemKindTypeParameter = { fg = c.white, bg = c.green_02 },
+
+        BlinkCmpGhostText = { fg = c.fg_07 },
+        BlinkCmpDocSeparator = { fg = c.orange_02 },
+        BlinkCmpLabel = { fg = c.fg_07 },
+        BlinkCmpMenuSelection = { bg = c.bg_03 },
+        BlinkCmpLabelMatch = { fg = c.orange_02 },
+        BlinkCmpDoc = { bg = c.bg_float, fg = c.fg_07 },
+
+        BlinkCmpKindAbbr = { bg = c.none, fg = c.fg_01 },
+        BlinkCmpKindAbbrDeprecated = { fg = c.fg_07, bg = "NONE", strikethrough = true },
+        BlinkCmpKindAbbrMatch = { fg = c.orange_02, bg = "NONE", bold = true },
+        BlinkCmpKindAbbrMatchFuzzy = { fg = c.orange_02, bg = "NONE", bold = true },
+        BlinkCmpKindMenu = { fg = c.fg_07, bg = "NONE", italic = true },
+
+        BlinkCmpKindField = { fg = c.red_02 },
+        BlinkCmpKindProperty = { fg = c.red_02 },
+        BlinkCmpKindEvent = { fg = c.red_02 },
+
+        BlinkCmpKindText = { fg = c.green_02 },
+        BlinkCmpKindEnum = { fg = c.green_02 },
+        BlinkCmpKindKeyword = { fg = c.green_02 },
+
+        BlinkCmpKindConstant = { fg = c.orange_02 },
+        BlinkCmpKindConstructor = { fg = c.orange_02 },
+        BlinkCmpKindReference = { fg = c.orange_02 },
+
+        BlinkCmpKindFunction = { fg = c.teal_02 },
+        BlinkCmpKindStruct = { fg = c.teal_02 },
+        BlinkCmpKindClass = { fg = c.teal_02 },
+        BlinkCmpKindModule = { fg = c.teal_02 },
+        BlinkCmpKindOperator = { fg = c.teal_02 },
+
+        BlinkCmpKindVariable = { fg = c.fg_07 },
+        BlinkCmpKindFile = { fg = c.fg_07 },
+
+        BlinkCmpKindUnit = { fg = c.blue_02 },
+        BlinkCmpKindSnippet = { fg = c.blue_02 },
+        BlinkCmpKindFolder = { fg = c.blue_02 },
+
+        BlinkCmpKindMethod = { fg = c.cyan_02 },
+        BlinkCmpKindValue = { fg = c.cyan_02 },
+        BlinkCmpKindEnumMember = { fg = c.cyan_02 },
+
+        BlinkCmpKindInterface = { fg = c.green_02 },
+        BlinkCmpKindColor = { fg = c.green_02 },
+        BlinkCmpKindTypeParameter = { fg = c.green_02 },
+
         --
         RgFlowHead = { bg = c.bg_statusline, fg = c.red_02, style = "bold" },
         RgFlowInputBg = { bg = c.bg_statusline },
