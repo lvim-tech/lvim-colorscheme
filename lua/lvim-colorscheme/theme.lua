@@ -496,7 +496,9 @@ M.setup = function(colors)
         BlinkCmpKindInterface = { fg = c.green_02 },
         BlinkCmpKindColor = { fg = c.green_02 },
         BlinkCmpKindTypeParameter = { fg = c.green_02 },
-
+        --
+        MiniCursorword = { bg = c.bg_visual },
+        MiniCursorwordCurrent = { bg = c.bg_visual },
         --
         RgFlowHead = { bg = c.bg_statusline, fg = c.red_02, style = "bold" },
         RgFlowInputBg = { bg = c.bg_statusline },
