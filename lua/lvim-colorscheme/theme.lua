@@ -854,14 +854,14 @@ M.setup = function(colors)
         TelescopeSelection = { bg = c.bg_03, fg = c.green_01 },
         TelescopeSelectionCaret = { bg = c.bg_05, fg = c.green_01 },
         --
-        FzfLuaNormal = { bg = c.bg_float, fg = c.green_02 },
-        FzfLuaTitle = { bg = c.bg_float, fg = c.red_02, style = "bold" },
-        FzfLuaBorder = { bg = c.bg_float, fg = c.orange_03 },
-        FzfLuaPreviewBorder = { bg = c.bg_float, fg = c.orange_03 },
-        FzfLuaPrompt = { bg = c.bg_float, fg = c.red_02 },
-        FzfLuaLine = { bg = c.bg_float, fg = c.fg_07 },
-        FzfLuaLinePlus = { bg = c.bg_float, fg = c.green_02 },
-        FzfLuaItemKindVariable = { fg = c.red_02 },
+        FzfLuaNormal = { bg = c.bg_sidebar, fg = c.green_02 },
+        FzfLuaTitle = { bg = c.bg_sidebar, fg = c.red_02, style = "bold" },
+        FzfLuaBorder = { bg = c.bg_sidebar, fg = c.orange_03 },
+        FzfLuaPreviewBorder = { bg = c.bg_sidebar, fg = c.orange_03 },
+        FzfLuaPrompt = { bg = c.bg_sidebar, fg = c.red_02 },
+        FzfLuaLine = { bg = c.bg_sidebar, fg = c.fg_07 },
+        FzfLuaLinePlus = { bg = c.bg_sidebar, fg = c.green_02 },
+        FzfLuaItemKindVariable = { fg = c.blue_02 },
         FzfLuaSearch = { fg = c.red_02 },
         --
         TroubleCount = { fg = c.color_23 },
@@ -874,6 +874,9 @@ M.setup = function(colors)
         TroubleTextInformation = { fg = c.info },
         TroubleTextWarning = { fg = c.warning },
         TroubleWarning = { bg = c.warning },
+        --
+        SnacksActiveBorder = { fg = c.green_02 },
+        SnacksInActiveBorder = { fg = c.red_02 },
         --
         WhichKey = { fg = c.orange_01 },
         WhichKeyBorder = { bg = c.bg_float, fg = c.bg_float },
