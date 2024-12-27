@@ -877,6 +877,7 @@ M.setup = function(colors)
         --
         SnacksActiveBorder = { fg = c.green_02 },
         SnacksInActiveBorder = { fg = c.red_02 },
+        SnacksDim = {fg = c.fg_05},
         --
         WhichKey = { fg = c.orange_01 },
         WhichKeyBorder = { bg = c.bg_float, fg = c.bg_float },
