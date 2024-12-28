@@ -472,7 +472,7 @@ M.setup = function(colors)
         CmpItemKindColor = { fg = c.white, bg = c.green_02 },
         CmpItemKindTypeParameter = { fg = c.white, bg = c.green_02 },
 
-        BlinkCmpGhostText = { fg = c.fg_07 },
+        BlinkCmpGhostText = { fg = c.fg_05 },
         BlinkCmpDocSeparator = { fg = c.orange_02 },
         BlinkCmpLabel = { fg = c.fg_07 },
         BlinkCmpMenuSelection = { bg = c.bg_03 },
