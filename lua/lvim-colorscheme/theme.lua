@@ -211,9 +211,9 @@ M.setup = function(colors)
         Structure = { fg = c.orange_03 },
         Typedef = { fg = c.orange_03 },
         Tag = { fg = c.green_01 },
-        SpecialChar = { fg = c.teal_02 },                                  -- fix
+        SpecialChar = { fg = c.teal_02 }, -- fix
         SpecialComment = { fg = c.fg_03, style = config.styles.comments }, -- fix
-        Debug = { fg = c.green_02 },                                       -- fix
+        Debug = { fg = c.green_02 }, -- fix
         Ignore = {},
         LspInlayHint = { fg = c.fg_07, style = "bold", italic = true },
         SnippetTabstop = {},
@@ -726,13 +726,13 @@ M.setup = function(colors)
         OilFile = { fg = c.orange_03, style = "bold" },
         OilLink = { fg = c.red_02, style = "bold" },
         --
-        NeogitBranch = { fg = c.blue_02 },                             -- color_24
+        NeogitBranch = { fg = c.blue_02 }, -- color_24
         NeogitDiffAddHighlight = { bg = c.bg_02 },
-        NeogitDiffContextHighlight = { bg = c.bg_02 },                 -- color_16
+        NeogitDiffContextHighlight = { bg = c.bg_02 }, -- color_16
         NeogitDiffDeleteHighlight = { bg = c.bg_02 },
-        NeogitHunkHeader = { bg = c.bg_02, fg = c.cyan_02 },           -- color_21
+        NeogitHunkHeader = { bg = c.bg_02, fg = c.cyan_02 }, -- color_21
         NeogitHunkHeaderHighlight = { bg = c.bg_02, fg = c.green_02 }, -- color_04 color_13
-        NeogitRemote = { fg = c.fg_07 },                               -- color_24
+        NeogitRemote = { fg = c.fg_07 }, -- color_24
         NeogitNotificationInfo = { fg = c.info },
         NeogitNotificationWarning = { fg = c.warning },
         NeogitNotificationError = { fg = c.error },
@@ -740,7 +740,7 @@ M.setup = function(colors)
         NeogitFilePath = { fg = c.red_02 },
         NeogitCommitViewHeader = { fg = c.error },
         NeogitCommitMessage = { fg = c.color_07 }, -- color_07
-        NeogitCommitView = { fg = c.fg_07 },       -- color_24
+        NeogitCommitView = { fg = c.fg_07 }, -- color_24
         --
         NoiceBody = { link = "NuiBody" },
         NoiceBorder = { link = "NuiBorder" },
@@ -863,6 +863,7 @@ M.setup = function(colors)
         FzfLuaLinePlus = { bg = c.bg_sidebar, fg = c.green_02 },
         FzfLuaItemKindVariable = { fg = c.blue_02 },
         FzfLuaSearch = { fg = c.red_02 },
+        FzfLuaBackdrop = { bg = c.bg_sidebar },
         --
         TroubleCount = { fg = c.color_23 },
         TroubleError = { bg = c.error },
@@ -877,7 +878,7 @@ M.setup = function(colors)
         --
         SnacksActiveBorder = { fg = c.green_02 },
         SnacksInActiveBorder = { fg = c.red_02 },
-        SnacksDim = {fg = c.fg_05},
+        SnacksDim = { fg = c.fg_05 },
         --
         WhichKey = { fg = c.orange_01 },
         WhichKeyBorder = { bg = c.bg_float, fg = c.bg_float },
@@ -911,16 +912,16 @@ M.setup = function(colors)
         QuickFixLineNr = { fg = c.red_02 },
         --
         TSAnnotation = { link = "PreProc" },
-        TSAttribute = { link = "PreProc" },            --
-        TSBoolean = { link = "Boolean" },              --
+        TSAttribute = { link = "PreProc" }, --
+        TSBoolean = { link = "Boolean" }, --
         TSCharacterSpecial = { link = "SpecialChar" }, --
-        TSComment = { link = "Comment" },              --
-        TSConditional = { link = "Conditional" },      --
+        TSComment = { link = "Comment" }, --
+        TSConditional = { link = "Conditional" }, --
         TSConstBuiltin = { link = "Special" },
         TSConstMacro = { link = "Define" },
-        TSConstant = { link = "Constant" },       --
+        TSConstant = { link = "Constant" }, --
         TSConstructor = { link = "Constructor" }, --
-        TSDanger = { link = "Danger" },           --
+        TSDanger = { link = "Danger" }, --
         TSDebug = { link = "Debug" },
         TSDefine = { link = "Define" },
         TSEmphasis = { italic = true, default = true },
@@ -935,7 +936,7 @@ M.setup = function(colors)
         TSFunction = { link = "Function" },
         TSFunctionCall = { link = "TSFunction" },
         TSInclude = { link = "Include" },
-        TSKeyword = { link = "Keyword" },                 --
+        TSKeyword = { link = "Keyword" }, --
         TSKeywordFunction = { link = "KeywordFunction" }, --
         TSKeywordOperator = { link = "Operator" },
         TSKeywordReturn = { link = "TSKeyword" },
@@ -952,34 +953,34 @@ M.setup = function(colors)
         TSParameter = { link = "Parameter" },
         TSParameterReference = { link = "TSParameter" },
         TSPreProc = { link = "PreProc" },
-        TSProperty = { link = "Property" },        --
-        TSPunctBracket = { link = "Delimiter" },   --
+        TSProperty = { link = "Property" }, --
+        TSPunctBracket = { link = "Delimiter" }, --
         TSPunctDelimiter = { link = "Delimiter" }, --
-        TSPunctSpecial = { link = "Special" },     --
+        TSPunctSpecial = { link = "Special" }, --
         TSRepeat = { link = "Repeat" },
         TSStorageClass = { link = "StorageClass" },
         TSStrike = { strikethrough = true },
-        TSString = { link = "String" },             --
+        TSString = { link = "String" }, --
         TSStringEscape = { link = "StringEscape" }, --
-        TSStringRegex = { link = "StringRegex" },   --
+        TSStringRegex = { link = "StringRegex" }, --
         TSStringSpecial = { link = "SpecialChar" },
         TSStrong = { bold = true, default = true },
-        TSStructure = { link = "Structure" },         --
+        TSStructure = { link = "Structure" }, --
         TSSymbol = { link = "Identifier" },
-        TSTag = { link = "Tag" },                     --
-        TSTagAttribute = { link = "TSProperty" },     --
-        TSTagDelimiter = { link = "Delimiter" },      --
+        TSTag = { link = "Tag" }, --
+        TSTagAttribute = { link = "TSProperty" }, --
+        TSTagDelimiter = { link = "Delimiter" }, --
         TSText = { link = "TSNone" },
         TSTextReference = { link = "TextReference" }, --
-        TSTitle = { link = "Title" },                 --
+        TSTitle = { link = "Title" }, --
         TSTodo = { link = "Todo" },
-        TSType = { link = "Type" },                   --
-        TSTypeBuiltin = { link = "Type" },            --
-        TSTypeDefinition = { link = "Typedef" },      --
+        TSType = { link = "Type" }, --
+        TSTypeBuiltin = { link = "Type" }, --
+        TSTypeDefinition = { link = "Typedef" }, --
         TSTypeQualifier = { link = "Type" },
         TSURI = { link = "Underlined" },
         TSUnderline = { link = "Underlined" },
-        TSVariable = { link = "Variable" },               --
+        TSVariable = { link = "Variable" }, --
         TSVariableBuiltin = { link = "VariableBuiltin" }, --
     }
     if not vim.diagnostic then
