@@ -865,6 +865,16 @@ M.setup = function(colors)
         FzfLuaSearch = { fg = c.red_02 },
         FzfLuaBackdrop = { bg = c.bg_sidebar },
         --
+        MiniIconsBlue = { fg = c.blue_02 },
+        MiniIconsGreen = { fg = c.green_02 },
+        MiniIconsRed = { fg = c.red_02 },
+        MiniIconsOrange = { fg = c.orange_02 },
+        MiniIconsYellow = { fg = c.orange_02 },
+        MiniIconsCyan = { fg = c.cyan_02 },
+        MiniIconsGrey = { fg = c.fg_05 },
+        MiniIconsAzure = { fg = c.fg_04 },
+        MiniIconsPurple = { fg = c.fg_07 },
+        --
         TroubleCount = { fg = c.color_23 },
         TroubleError = { bg = c.error },
         TroubleInformation = { bg = c.info },
