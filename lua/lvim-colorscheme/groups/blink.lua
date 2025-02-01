@@ -1,5 +1,3 @@
-local util = require("lvim-colorscheme.util")
-
 local M = {}
 
 M.url = "https://github.com/Saghen/blink.cmp"
