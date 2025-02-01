@@ -8,3 +8,10 @@
 ---@class lvim-colorscheme.Cache
 ---@field groups lvim-colorscheme.Highlights
 ---@field inputs table
+
+---@class Palette
+---@field [string] string
+
+---@class ColorScheme
+---@field colors Palette
+---@field highlights lvim-colorscheme.Highlights
