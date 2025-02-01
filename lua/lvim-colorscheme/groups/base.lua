@@ -358,6 +358,22 @@ function M.get(c, opts)
         DiagnosticUnnecessary = {
             fg = c.comment,
         }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+        DiagnosticVirtualLinesError = {
+            bg = util.blend_bg(c.error, 0.1),
+            fg = c.error,
+        }, -- Used for "Error" diagnostic virtual lines
+        DiagnosticVirtualLinesWarn = {
+            bg = util.blend_bg(c.warning, 0.1),
+            fg = c.warning,
+        }, -- Used for "Warning" diagnostic virtual lines
+        DiagnosticVirtualLinesInfo = {
+            bg = util.blend_bg(c.info, 0.1),
+            fg = c.info,
+        }, -- Used for "Information" diagnostic virtual lines
+        DiagnosticVirtualLinesHint = {
+            bg = util.blend_bg(c.hint, 0.1),
+            fg = c.hint,
+        }, -- Used for "Hint" diagnostic virtual lines
         DiagnosticVirtualTextError = {
             bg = util.blend_bg(c.error, 0.1),
             fg = c.error,
