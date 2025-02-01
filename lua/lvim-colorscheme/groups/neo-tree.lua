@@ -10,6 +10,9 @@ function M.get(c, opts)
         or Util.blend(c.bg_sidebar, 0.8, opts.style == "day" and c.fg or "#000000")
   -- stylua: ignore
   return {
+    NeoTreeNormal               = { fg = c.fg_sidebar, bg = c.bg_sidebar },
+    NeoTreeNormalNC             = { fg = c.fg_sidebar, bg = c.bg_sidebar },
+    NeoTreeRootName             = { fg = c.blue_dark, bold = true },
     NeoTreeDimText              = { fg = c.comment },
     NeoTreeDiagMessage          = { fg = c.comment },
     NeoTreeMessage              = { fg = c.comment },
@@ -18,8 +21,6 @@ function M.get(c, opts)
     NeoTreeGitModified          = { fg = c.orange },
     NeoTreeGitStaged            = { fg = c.teal_dark },
     NeoTreeGitUntracked         = { fg = c.magenta },
-    NeoTreeNormal               = { fg = c.fg_sidebar, bg = c.bg_sidebar },
-    NeoTreeNormalNC             = { fg = c.fg_sidebar, bg = c.bg_sidebar },
     NeoTreeTabActive            = { fg = c.green_dark, bg = c.bg_sidebar, bold = true },
     NeoTreeTabInactive          = { fg = c.comment, bg = dark },
     NeoTreeTabSeparatorActive   = { fg = c.green_dark, bg = c.bg_soft_dark },
