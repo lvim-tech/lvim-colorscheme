@@ -343,6 +343,10 @@ function M.get(c, opts)
         },
 
         -- diagnostics
+        DiagnosticSourceInfo = {
+            fg = c.fg_soft_dark,
+            style = opts.styles.comments,
+        }, -- Diagnostic source information
         DiagnosticError = {
             fg = c.error,
         }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
