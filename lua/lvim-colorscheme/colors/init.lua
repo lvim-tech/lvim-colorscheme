@@ -30,11 +30,11 @@ function M.setup(opts)
     colors.none = "NONE"
 
     colors.diff = {
-        add = util.blend_bg(colors.green_dark, 0.15),
-        delete = util.blend_bg(colors.red_dark, 0.15),
-        change = util.blend_bg(colors.yellow_dark, 0.15),
-        changeDelete = util.blend_bg(colors.orange_dark, 0.15),
-        untracked = util.blend_bg(colors.teal_dark, 0.15),
+        add = util.blend_bg(colors.green_dark, 0.10),
+        delete = util.blend_bg(colors.red_dark, 0.10),
+        change = util.blend_bg(colors.yellow_dark, 0.10),
+        changeDelete = util.blend_bg(colors.orange_dark, 0.10),
+        untracked = util.blend_bg(colors.teal_dark, 0.10),
         text = colors.fg,
     }
 
