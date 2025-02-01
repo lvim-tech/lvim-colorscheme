@@ -23,9 +23,6 @@ local ret = {
   BlinkCmpMenuBorder          = { bg = c.bg_float,   fg = c.border_highlight },
   BlinkCmpSignatureHelp       = { bg = c.bg_float,   fg = c.fg },
   BlinkCmpSignatureHelpBorder = { bg = c.bg_float,   fg = c.border_highlight },
-    GitAppBar = {bg = util.blend_bg(c.bg_dark, 0.9)},
-    GitFooter = {bg = util.blend_bg(c.bg_dark, 0.9)},
-    GitHeader = {bg = util.blend_bg(c.bg_dark, 0.9)},
 }
 
     require("lvim-colorscheme.groups.kinds").kinds(ret, "BlinkCmpKind%s")
