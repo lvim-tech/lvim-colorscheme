@@ -1,1 +1,1 @@
-require("lvim-colorscheme.load").init("lvim-light")
+require("lvim-colorscheme").load({ style = "light" })

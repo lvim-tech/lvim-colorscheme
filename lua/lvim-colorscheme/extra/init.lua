@@ -1,47 +1,49 @@
-package.path = "./lua/?/init.lua;./lua/?.lua"
+local util = require("lvim-colorscheme.util")
 
-local config = require("lvim-colorscheme.config")
+local M = {}
 
-local function write(str, fileName)
-    print("[write] extra/" .. fileName)
-    local file = io.open("extras/" .. fileName, "w")
-    file:write(str)
-    file:close()
-end
-
-local extras = {
-    alacritty = "yml",
-    kitty = "conf",
-    tmux = "tmux",
-    wezterm = "lua",
-    xresources = "Xresources",
-    lazygit = "yml",
-    fzf = "txt",
-    bat = "tmTheme",
+-- map of plugin name to plugin extension
+--- @type table<string, {ext:string, url:string, label:string, subdir?: string, sep?:string}>
+-- stylua: ignore
+M.extras = {
+  kitty            = { ext = "conf", url = "https://sw.kovidgoyal.net/kitty/conf.html", label = "Kitty" },
 }
 
-local themes = {
-    -- "dark",
-    -- "dark_soft",
-    -- "light",
-    "lvim-catppuccin-dark-soft",
-    "lvim-catppuccin-dark",
-    "lvim-dark-soft",
-    "lvim-dark",
-    "lvim-everforest-dark-soft",
-    "lvim-everforest-dark",
-    "lvim-gruvbox-dark-soft",
-    "lvim-gruvbox-dark",
-    "lvim-light",
-    "lvim-solarized-dark",
-}
+function M.setup()
+    local lvim_colorscheme = require("lvim-colorscheme")
+    vim.o.background = "dark"
 
-for extra, ext in pairs(extras) do
-    local plugin = require("lvim-colorscheme.extra." .. extra)
-    config = config or require("lvim-colorscheme.config")
-    for _, theme in pairs(themes) do
-        local colors = require("lvim-colorscheme.colors." .. theme)
-        local fname = extra .. "_" .. theme .. "-lvim-colorscheme" .. "." .. ext
-        write(plugin.generate(colors), fname)
+    -- map of style to style name
+    local styles = {
+        darker = " Darker",
+        dark = "",
+        light = " Light",
+    }
+
+    ---@type string[]
+    local names = vim.tbl_keys(M.extras)
+    table.sort(names)
+
+    for _, extra in ipairs(names) do
+        local info = M.extras[extra]
+        local plugin = require("lvim-colorscheme.extra." .. extra)
+        for style, style_name in pairs(styles) do
+            local colors, groups, opts = lvim_colorscheme.load({ style = style, plugins = { all = true } })
+            local fname = extra
+                .. (info.subdir and "/" .. info.subdir .. "/" or "")
+                .. "/lvim"
+                .. (info.sep or "_")
+                .. style
+                .. "."
+                .. info.ext
+            fname = string.gsub(fname, "%.$", "") -- remove trailing dot when no extension
+            colors["_style_name"] = "Lvim Colorsheme" .. style_name
+            colors["_name"] = "lvim_" .. style
+            colors["_style"] = style
+            print("[write] " .. fname)
+            util.write("extras/" .. fname, plugin.generate(colors, groups, opts))
+        end
     end
 end
+
+return M

@@ -1,55 +1,60 @@
-local utils = require("lvim-colorscheme.utils")
+local util = require("lvim-colorscheme.util")
 
 local M = {}
 
+--- @param colors ColorScheme
 function M.generate(colors)
-    local kitty = utils.template(
+    local kitty = util.template(
         [[
-# Lvim Kitty Colors
+# vim:ft=kitty
+
+## name: ${_style_name}
+## license: MIT
 
 
-background ${bg_01}
-foreground ${orange_03}
-selection_background ${bg_03}
-selection_foreground ${orange_03}
-
-#URL
-url_color ${blue_01}
-
-# Cursor
-cursor ${orange_03}
-cursor_text_color ${bg_01}
+background ${bg_soft_dark}
+foreground ${fg}
+selection_background ${bg_visual}
+selection_foreground ${fg}
+url_color ${blue}
+cursor ${green}
+cursor_text_color ${bg_dark}
 
 # Tabs
-active_tab_background ${green_02}
-active_tab_foreground ${bg_01}
-inactive_tab_background ${bg_01}
-inactive_tab_foreground ${green_02}
+active_tab_background ${blue}
+active_tab_foreground ${bg_dark}
+inactive_tab_background ${bg_highlight}
+inactive_tab_foreground ${bg}
+#tab_bar_background ${terminal.black}
 
-# Marks
-mark1_foreground ${bg_03}
-mark1_background ${red_02}
+# Windows
+active_border_color ${blue}
+inactive_border_color ${bg_highlight}
 
 # normal
-color0 ${bg_01}
-color1 ${red_02}
-color2 ${green_02}
-color3 ${orange_02}
-color4 ${blue_02}
-color5 ${teal_02}
-color6 ${cyan_01}
-color7 ${fg_05}
+color0 ${terminal.black}
+color1 ${terminal.red}
+color2 ${terminal.green}
+color3 ${terminal.yellow}
+color4 ${terminal.blue}
+color5 ${terminal.magenta}
+color6 ${terminal.cyan}
+color7 ${terminal.white}
 
 # bright
-color8 ${orange_03}
-color9 ${red_03}
-color10 ${green_03}
-color11 ${orange_03}
-color12 ${blue_03}
-color13 ${teal_03}
-color14 ${cyan_02}
-color15 ${fg_06}
-  ]],
+color8  ${terminal.black_bright}
+color9  ${terminal.red_bright}
+color10 ${terminal.green_bright}
+color11 ${terminal.yellow_bright}
+color12 ${terminal.blue_bright}
+color13 ${terminal.magenta_bright}
+color14 ${terminal.cyan_bright}
+color15 ${terminal.white_bright}
+
+# extended colors
+color16 ${orange}
+color17 ${red}
+]],
         colors
     )
     return kitty

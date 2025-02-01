@@ -1,8 +1,0 @@
-{
-    "neodev": {
-        "library": {
-            "enabled": true,
-            "plugins": ["lvim-colorscheme"]
-        }
-    }
-}
