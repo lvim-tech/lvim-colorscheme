@@ -6,12 +6,6 @@ local M = {}
 function M.generate(colors)
     local kitty = util.template(
         [[
-# vim:ft=kitty
-
-## name: ${_style_name}
-## license: MIT
-
-
 background ${bg_soft_dark}
 foreground ${fg}
 selection_background ${bg_visual}

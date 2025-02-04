@@ -1,3 +1,41 @@
+---@class Git
+---@field add string
+---@field change string
+---@field delete string
+
+---@class Palette
+---@field bg_light string
+---@field bg_soft_light string
+---@field bg string
+---@field bg_soft_dark string
+---@field bg_dark string
+---@field bg_highlight string
+---@field fg_light string
+---@field fg_soft_light string
+---@field fg string
+---@field fg_soft_dark string
+---@field fg_dark string
+---@field comment string
+---@field blue string
+---@field blue_dark string
+---@field green string
+---@field green_dark string
+---@field cyan string
+---@field cyan_dark string
+---@field magenta string
+---@field magenta_dark string
+---@field orange string
+---@field orange_dark string
+---@field yellow string
+---@field yellow_dark string
+---@field purple string
+---@field purple_dark string
+---@field red string
+---@field red_dark string
+---@field teal string
+---@field teal_dark string
+---@field terminal_bg string
+---@field git Git
 ---@type Palette
 return {
     bg_light = "#364149",
