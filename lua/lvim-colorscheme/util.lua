@@ -6,7 +6,8 @@ M.day_brightness = 0.3
 
 local uv = vim.uv or vim.loop
 
----@param c  string
+---@param c string
+---@return number[]
 local function rgb(c)
     c = string.lower(c)
     return { tonumber(c:sub(2, 3), 16), tonumber(c:sub(4, 5), 16), tonumber(c:sub(6, 7), 16) }
@@ -15,6 +16,8 @@ end
 local me = debug.getinfo(1, "S").source:sub(2)
 me = vim.fn.fnamemodify(me, ":h:h")
 
+---@param modname string
+---@return any
 function M.mod(modname)
     if package.loaded[modname] then
         return package.loaded[modname]
@@ -25,8 +28,9 @@ function M.mod(modname)
 end
 
 ---@param foreground string foreground color
----@param background string background color
 ---@param alpha number|string number between 0 and 1. 0 results in bg, 1 results in fg
+---@param background string background color
+---@return string
 function M.blend(foreground, alpha, background)
     alpha = type(alpha) == "string" and (tonumber(alpha, 16) / 0xff) or alpha
     local bg = rgb(background)
@@ -40,17 +44,26 @@ function M.blend(foreground, alpha, background)
     return string.format("#%02x%02x%02x", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
+---@param hex string
+---@param amount number
+---@param bg? string
+---@return string
 function M.blend_bg(hex, amount, bg)
     return M.blend(hex, amount, bg or M.bg)
 end
 M.darken = M.blend_bg
 
+---@param hex string
+---@param amount number
+---@param fg? string
+---@return string
 function M.blend_fg(hex, amount, fg)
     return M.blend(hex, amount, fg or M.fg)
 end
 M.lighten = M.blend_fg
 
 ---@param color string|Palette
+---@return string|Palette
 function M.invert(color)
     if type(color) == "table" then
         for key, value in pairs(color) do
@@ -70,50 +83,38 @@ function M.invert(color)
     return color
 end
 
----@param color string  -- The hex color string to be adjusted
----@param lightness_amount number? -- The amount to increase lightness by (optional, default: 0.1)
----@param saturation_amount number? -- The amount to increase saturation by (optional, default: 0.15)
+---@param color string
+---@param lightness_amount? number
+---@param saturation_amount? number
+---@return string
 function M.brighten(color, lightness_amount, saturation_amount)
     lightness_amount = lightness_amount or 0.05
     saturation_amount = saturation_amount or 0.2
     local hsluv = require("lvim-colorscheme.hsluv")
 
-    -- Convert the hex color to HSLuv
     local hsl = hsluv.hex_to_hsluv(color)
-
-    -- Increase lightness slightly
     hsl[3] = math.min(hsl[3] + (lightness_amount * 100), 100)
-
-    -- Increase saturation a bit more to make the color more vivid
     hsl[2] = math.min(hsl[2] + (saturation_amount * 100), 100)
-
-    -- Convert the HSLuv back to hex and return
     return hsluv.hsluv_to_hex(hsl)
 end
 
----@param color string  -- The hex color string to be adjusted
----@param lightness_amount number? -- The amount to increase lightness by (optional, default: 0.1)
----@param saturation_amount number? -- The amount to increase saturation by (optional, default: 0.15)
+---@param color string
+---@param lightness_amount? number
+---@param saturation_amount? number
+---@return string
 function M.darken(color, lightness_amount, saturation_amount)
     lightness_amount = lightness_amount or 0.05
     saturation_amount = saturation_amount or 0.2
     local hsluv = require("lvim-colorscheme.hsluv")
 
-    -- Convert the hex color to HSLuv
     local hsl = hsluv.hex_to_hsluv(color)
-
-    -- Decrease lightness slightly
     hsl[3] = math.max(hsl[3] - (lightness_amount * 100), 0)
-
-    -- Decrease saturation a bit more to make the color less vivid
     hsl[2] = math.max(hsl[2] - (saturation_amount * 100), 0)
-
-    -- Convert the HSLuv back to hex and return
     return hsluv.hsluv_to_hex(hsl)
 end
 
 ---@param groups lvim-colorscheme.Highlights
----@return table<string, vim.api.keyset.highlight>
+---@return lvim-colorscheme.Highlights
 function M.resolve(groups)
     for _, hl in pairs(groups) do
         if type(hl.style) == "table" then
@@ -126,12 +127,9 @@ function M.resolve(groups)
     return groups
 end
 
--- Simple string interpolation.
---
--- Example template: "${name} is ${value}"
---
----@param str string template string
----@param table table key value pairs to replace in the string
+---@param str string
+---@param table table
+---@return string
 function M.template(str, table)
     return (
         str:gsub("($%b{})", function(w)
@@ -141,9 +139,9 @@ function M.template(str, table)
 end
 
 ---@param file string
+---@return string
 function M.read(file)
     local fd = assert(io.open(file, "r"))
-    ---@type string
     local data = fd:read("*a")
     fd:close()
     return data
@@ -160,13 +158,15 @@ end
 
 M.cache = {}
 
+---@param key string
+---@return string
 function M.cache.file(key)
     return vim.fn.stdpath("cache") .. "/lvim-" .. key .. ".json"
 end
 
 ---@param key string
+---@return lvim-colorscheme.Cache|nil
 function M.cache.read(key)
-    ---@type boolean, lvim-colorscheme.Cache
     local ok, ret = pcall(function()
         return vim.json.decode(
             M.read(M.cache.file(key)),

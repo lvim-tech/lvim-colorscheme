@@ -4,9 +4,9 @@ local M = {}
 
 local function generate_uuid()
     math.randomseed(os.time())
-    return string.gsub('xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx', '[xy]', function (c)
-        local v = (c == 'x') and math.random(0, 0xf) or math.random(8, 0xb)
-        return string.format('%x', v)
+    return string.gsub("xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx", "[xy]", function(c)
+        local v = (c == "x") and math.random(0, 0xf) or math.random(8, 0xb)
+        return string.format("%x", v)
     end)
 end
 
@@ -18,9 +18,15 @@ end
 local function get_hl_style(group)
     local hl = vim.api.nvim_get_hl(0, { name = group })
     local styles = {}
-    if hl.bold then table.insert(styles, "bold") end
-    if hl.italic then table.insert(styles, "italic") end
-    if hl.underline then table.insert(styles, "underline") end
+    if hl.bold then
+        table.insert(styles, "bold")
+    end
+    if hl.italic then
+        table.insert(styles, "italic")
+    end
+    if hl.underline then
+        table.insert(styles, "underline")
+    end
     return #styles > 0 and table.concat(styles, " ") or nil
 end
 
@@ -52,18 +58,22 @@ function M.generate(colors)
     if type(scope_mappings) ~= "table" or not scope_mappings.STANDARD_SCOPES then
         error("Invalid scope_mappings: expected a table with STANDARD_SCOPES")
     end
+    local background = "dark"
+    if colors._style == "light" then
+        background = "light"
+    end
+    local theme_name = "Lvim" .. (colors._style:gsub("^%l", string.upper))
     local theme = {
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">',
         '<plist version="1.0">',
-        '    <dict>',
-        string.format('        <key>name</key>\n        <string>%s</string>', colors.name or "Custom Theme"),
-        string.format('        <key>author</key>\n        <string>%s</string>', vim.env.USER or "bojanbb"),
-        '        <key>semanticClass</key>',
-        string.format('        <string>theme.%s.custom</string>', colors.background or "dark"),
-        '        <key>colorSpaceName</key>\n        <string>sRGB</string>',
-        string.format('        <key>uuid</key>\n        <string>%s</string>', generate_uuid()),
-        '        <key>settings</key>\n        <array>'
+        "    <dict>",
+        string.format("        <key>name</key>\n        <string>%s</string>", theme_name),
+        "        <key>semanticClass</key>",
+        string.format("        <string>theme.%s.custom</string>", background),
+        "        <key>colorSpaceName</key>\n        <string>sRGB</string>",
+        string.format("        <key>uuid</key>\n        <string>%s</string>", generate_uuid()),
+        "        <key>settings</key>\n        <array>",
     }
     local editor_settings = {
         background = colors.bg,
@@ -112,23 +122,25 @@ function M.generate(colors)
         bracketsOptions = "underline",
         bracketContentsForeground = colors.fg_light,
         bracketContentsOptions = "underline",
-        tagsOptions = "stippled_underline"
+        tagsOptions = "stippled_underline",
     }
     table.insert(theme, create_scope_element(nil, "editor", editor_settings))
     for _, mapping in ipairs(scope_mappings.STANDARD_SCOPES) do
         local settings = { foreground = get_hl_color(mapping.hl_group) }
         local hl_style = get_hl_style(mapping.hl_group)
-        if hl_style then settings.fontStyle = hl_style end
+        if hl_style then
+            settings.fontStyle = hl_style
+        end
         if settings.foreground then
             table.insert(theme, create_scope_element(mapping.name, mapping.scope, settings))
         end
     end
 
-    table.insert(theme, '        </array>')
-    table.insert(theme, '    </dict>')
-    table.insert(theme, '</plist>')
+    table.insert(theme, "        </array>")
+    table.insert(theme, "    </dict>")
+    table.insert(theme, "</plist>")
 
-    return table.concat(theme, '\n')
+    return table.concat(theme, "\n")
 end
 
 return M

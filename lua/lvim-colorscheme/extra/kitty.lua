@@ -19,7 +19,7 @@ active_tab_background ${blue}
 active_tab_foreground ${bg_dark}
 inactive_tab_background ${bg_highlight}
 inactive_tab_foreground ${bg}
-#tab_bar_background ${terminal.black}
+tab_bar_background ${terminal.black}
 
 # Windows
 active_border_color ${blue}

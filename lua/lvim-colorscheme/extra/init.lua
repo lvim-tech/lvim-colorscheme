@@ -18,13 +18,17 @@ function M.setup()
     -- map of style to style name
     local styles = {
         darker = " Darker",
-        dark = "",
+        dark = "Dark",
         light = " Light",
     }
 
     ---@type string[]
     local names = vim.tbl_keys(M.extras)
     table.sort(names)
+
+    local function capitalize_first_letter(str)
+        return (str:gsub("^%l", string.upper))
+    end
 
     for _, extra in ipairs(names) do
         local info = M.extras[extra]
@@ -33,15 +37,14 @@ function M.setup()
             local colors, groups, opts = lvim_colorscheme.load({ style = style, plugins = { all = true } })
             local fname = extra
                 .. (info.subdir and "/" .. info.subdir .. "/" or "")
-                .. "/lvim"
-                .. (info.sep or "_")
-                .. style
+                .. "/Lvim"
+                .. capitalize_first_letter(style)
                 .. "."
                 .. info.ext
             fname = string.gsub(fname, "%.$", "") -- remove trailing dot when no extension
-            colors["_style_name"] = "Lvim Colorsheme" .. style_name
-            colors["_name"] = "lvim_" .. style
-            colors["_style"] = style
+            colors._style_name = "Lvim Colorsheme" .. style_name
+            colors._name = "lvim_" .. style
+            colors._style = style
             print("[write] " .. fname)
             util.write("extras/" .. fname, plugin.generate(colors, groups, opts))
         end
