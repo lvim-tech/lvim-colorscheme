@@ -9,6 +9,8 @@ M.extras = {
   bat            = { ext = "tmTheme", url = "https://github.com/sharkdp/bat", label = "Bat" },
   delta            = { ext = "gitconfig", url = "https://github.com/dandavison/delta", label = "Delta" },
   kitty            = { ext = "conf", url = "https://sw.kovidgoyal.net/kitty/conf.html", label = "Kitty" },
+  lazygit          = { ext = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },
+  xresources       = { ext = "Xresources", url = "https://wiki.archlinux.org/title/X_resources", label = "Xresources" },
 }
 
 function M.setup()
