@@ -63,7 +63,7 @@ function M.get(c, opts)
     ["@markup.list.unchecked"]      = { fg = c.green_dark }, -- For brackets and parens.
     ["@markup.math"]                = "Special",
     ["@markup.raw"]                 = "String",
-    ["@markup.raw.markdown_inline"] = { bg = c.terminal_bg, fg = c.green_dark },
+    ["@markup.raw.markdown_inline"] = { fg = c.yellow_dark },
     ["@markup.strikethrough"]       = { strikethrough = true },
     ["@markup.strong"]              = { bold = true },
     ["@markup.underline"]           = { underline = true },
