@@ -1,4 +1,4 @@
-local Util = require("lvim-colorscheme.util")
+local util = require("lvim-colorscheme.util")
 
 local M = {}
 
@@ -7,7 +7,7 @@ M.url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
 ---@type lvim-colorscheme.HighlightsFn
 function M.get(c, opts)
     local dark = opts.styles.sidebars == "transparent" and c.none
-        or Util.blend(c.bg_sidebar, 0.8, opts.style == "day" and c.fg or "#000000")
+        or util.blend(c.bg_sidebar, 0.8, opts.style == "day" and c.fg or "#000000")
   -- stylua: ignore
   return {
     NeoTreeNormal               = { fg = c.fg_sidebar, bg = c.bg_sidebar },
