@@ -14,6 +14,7 @@ M.plugins = {
   ["dashboard-nvim"]                = "dashboard",
   ["diffview.nvim"]                 = "diffview",
   ["flash.nvim"]                    = "flash",
+  ["flutter-tools.nvim"]            = "flutter-tools",
   ["fzf-lua"]                       = "fzf",
   ["vim-gitgutter"]                 = "gitgutter",
   ["gitsigns.nvim"]                 = "gitsigns",
