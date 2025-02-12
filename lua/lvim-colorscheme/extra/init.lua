@@ -6,12 +6,13 @@ local M = {}
 --- @type table<string, {ext:string, url:string, label:string, subdir?: string, sep?:string}>
 -- stylua: ignore
 M.extras = {
-  bat            = { ext = "tmTheme", url = "https://github.com/sharkdp/bat", label = "Bat" },
-  delta            = { ext = "gitconfig", url = "https://github.com/dandavison/delta", label = "Delta" },
-  kitty            = { ext = "conf", url = "https://sw.kovidgoyal.net/kitty/conf.html", label = "Kitty" },
-  lazygit          = { ext = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },
-  neomutt          = { ext = "conf", url = "https://github.com/neomutt/neomutt", label = "Neomutt" },
-  xresources       = { ext = "Xresources", url = "https://wiki.archlinux.org/title/X_resources", label = "Xresources" },
+  bat             = { ext = "tmTheme", url = "https://github.com/sharkdp/bat", label = "Bat" },
+  delta           = { ext = "gitconfig", url = "https://github.com/dandavison/delta", label = "Delta" },
+  kitty           = { ext = "conf", url = "https://sw.kovidgoyal.net/kitty/conf.html", label = "Kitty" },
+  lazygit         = { ext = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },
+  neomutt         = { ext = "conf", url = "https://github.com/neomutt/neomutt", label = "Neomutt" },
+  vivid           = { ext = "yml", url = "https://github.com/sharkdp/vivid", label = "Vivid" },
+  xresources      = { ext = "Xresources", url = "https://wiki.archlinux.org/title/X_resources", label = "Xresources" },
 }
 
 function M.setup()
