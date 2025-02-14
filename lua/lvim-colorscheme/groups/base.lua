@@ -424,19 +424,24 @@ function M.get(c, opts)
 
         -- diff (not needed anymore?)
         diffAdded = {
+            bg = c.diff.add,
             fg = c.git.add,
         },
         diffRemoved = {
+            bg = c.diff.delete,
             fg = c.git.delete,
         },
         diffChanged = {
+            bg = c.diff.change,
             fg = c.git.change,
         },
         diffOldFile = {
-            fg = c.yellow,
+            fg = c.red,
+            bg = c.diff.delete,
         },
         diffNewFile = {
-            fg = c.orange,
+            fg = c.green,
+            bg = c.diff.add,
         },
         diffFile = {
             fg = c.green_dark,
