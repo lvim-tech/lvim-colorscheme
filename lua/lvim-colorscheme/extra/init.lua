@@ -25,6 +25,7 @@ function M.setup()
         darker = " Darker",
         dark = "Dark",
         light = " Light",
+        kanagawa = " kanagawa",
     }
 
     ---@type string[]
