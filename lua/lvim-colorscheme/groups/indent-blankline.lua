@@ -9,10 +9,10 @@ function M.get(c)
   -- stylua: ignore
   return {
     IndentBlanklineChar         = { fg = c.fg_dark,                           nocombine = true },
-    IndentBlanklineContextChar  = { fg = Util.blend_bg(c.fg_soft_dark, 0.6),  nocombine = true },
-    IndentBlanklineCurrentChar  = { fg = Util.blend_bg(c.fg_soft_dark, 0.6),  nocombine = true},
+    IndentBlanklineContextChar  = { fg = c.yellow,  nocombine = true },
+    IndentBlanklineCurrentChar  = { fg = c.yellow,  nocombine = true},
     IndentLine                  = { fg = c.fg_dark,                           nocombine = true},
-    IndentLineCurrent           = { fg = Util.blend_bg(c.fg_soft_dark, 0.6),  nocombine = true },
+    IndentLineCurrent           = { fg = c.yellow,  nocombine = true },
   }
 end
 
