@@ -6,8 +6,7 @@ local M = {}
 function M.generate(colors)
     colors.bg_line = util.blend_bg(colors.bg_highlight, 0.1)
     local lazygit = util.template(
-        [[
-gui:
+        [[gui:
   nerdFontsVersion: "3"
   theme:
     activeBorderColor:
@@ -33,8 +32,7 @@ gui:
     unstagedChangesColor:
       - "${red}"
     defaultFgColor:
-      - "${fg}"
-]],
+      - "${fg}"]],
         colors
     )
     return lazygit

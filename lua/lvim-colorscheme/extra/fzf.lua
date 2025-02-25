@@ -61,16 +61,14 @@ function M.generate()
     return M.template:format(table.concat(ret, "\n"))
 end
 
-M.template = [[
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+M.template = [[export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --highlight-line \
   --info=inline-right \
   --ansi \
   --layout=reverse \
   --border=none \
 %s
-"
-]]
+"]]
 
 print(M.generate())
 

@@ -5,8 +5,7 @@ local M = {}
 --- @param colors ColorScheme
 function M.generate(colors)
     local kitty = util.template(
-        [[
-background ${bg_soft_dark}
+        [[background ${bg_soft_dark}
 foreground ${fg}
 selection_background ${bg_visual}
 selection_foreground ${fg}
@@ -47,8 +46,7 @@ color15 ${terminal.white_bright}
 
 # extended colors
 color16 ${orange}
-color17 ${red}
-]],
+color17 ${red}]],
         colors
     )
     return kitty

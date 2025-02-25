@@ -8,6 +8,7 @@ local M = {}
 M.extras = {
   bat             = { ext = "tmTheme", url = "https://github.com/sharkdp/bat", label = "Bat" },
   delta           = { ext = "gitconfig", url = "https://github.com/dandavison/delta", label = "Delta" },
+  eza             = { ext = "yml", url = "https://github.com/eza-community/eza", label = "Eza" },
   fzf             = { ext = "sh", url = "https://github.com/junegunn/fzf", label = "Fzf" },
   kitty           = { ext = "conf", url = "https://sw.kovidgoyal.net/kitty/conf.html", label = "Kitty" },
   lazygit         = { ext = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },
