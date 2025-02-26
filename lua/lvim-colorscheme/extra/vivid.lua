@@ -16,7 +16,8 @@ function M.generate(colors)
         clean_colors[k] = remove_hash(v)
     end
     local vivid = util.template(
-        [[colors:
+        [[
+colors:
   black: "${yellow_dark}"
   green: "${green}"
   purple: "${purple}"
@@ -118,9 +119,8 @@ archives:
 executable:
   foreground: green
 unimportant:
-  foreground: yellow]],
-        clean_colors
-    )
+  foreground: yellow
+]], clean_colors)
     return vivid
 end
 

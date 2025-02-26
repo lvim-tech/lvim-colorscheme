@@ -5,7 +5,8 @@ local M = {}
 --- @param colors ColorScheme
 function M.generate(colors)
     colors.bg_line = util.blend_bg(colors.bg_highlight, 0.2)
-    local neomutt = util.template([[# Lvim]] .. (colors._style:gsub("^%l", string.upper)) .. [[ colors for Neomutt
+    local neomutt = util.template(
+[[# Lvim]] .. (colors._style:gsub("^%l", string.upper)) .. [[ colors for Neomutt
 
 # Basic Colors
 color normal          ${fg}             default         # normal text

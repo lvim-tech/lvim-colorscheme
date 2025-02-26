@@ -5,7 +5,8 @@ local M = {}
 --- @param colors ColorScheme
 function M.generate(colors)
     local xr = util.template(
-        [[*background: ${bg_soft_dark}
+        [[
+*background: ${bg_soft_dark}
 *foreground: ${fg}
 
 # normal
@@ -26,9 +27,8 @@ function M.generate(colors)
 *color12: ${terminal.blue_bright}
 *color13: ${terminal.magenta_bright}
 *color14: ${terminal.cyan_bright}
-*color15: ${terminal.white_bright}]],
-        colors
-    )
+*color15: ${terminal.white_bright}
+]], colors)
     return xr
 end
 

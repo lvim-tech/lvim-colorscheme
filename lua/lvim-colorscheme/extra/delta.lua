@@ -29,7 +29,8 @@ function M.generate(colors)
         delete = util.brighten(colors.diff.delete, 0.01, 0.5),
     }
     local bat_theme = "Lvim" .. (colors._style:gsub("^%l", string.upper))
-    local delta = util.template([[[delta]
+    local delta = util.template([[
+[delta]
     syntax-theme = ]] .. bat_theme .. [[
 
     side-by-side = false
