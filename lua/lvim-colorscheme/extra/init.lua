@@ -12,9 +12,11 @@ M.extras = {
   kitty           = { ext = "conf", url = "https://sw.kovidgoyal.net/kitty/conf.html", label = "Kitty" },
   lazygit         = { ext = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },
   neomutt         = { ext = "conf", url = "https://github.com/neomutt/neomutt", label = "Neomutt" },
+  starship        = { ext = "toml", url = "https://starship.rs", label = "Starship" },
   tmux            = { ext = "tmux", url = "https://github.com/tmux/tmux/wiki", label = "Tmux" },
   vivid           = { ext = "yml", url = "https://github.com/sharkdp/vivid", label = "Vivid" },
   xresources      = { ext = "Xresources", url = "https://wiki.archlinux.org/title/X_resources", label = "Xresources" },
+  yazi            = { ext = "toml", url = "https://github.com/sxyazi/yazi", label = "Yazi" },
 }
 
 function M.setup()

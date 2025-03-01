@@ -1,0 +1,175 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+add_newline = true
+
+format = "$all$username$time$character"
+
+[memory_usage]
+format = "[󰍛 ${ram}]($style) "
+disabled = false
+threshold = -1
+symbol = "󰍛 "
+style = "bold dimmed #2a9b86"
+
+[time]
+format = "[$time]($style) "
+time_format = "%T"
+style = "bold #018ca3"
+disabled = false
+
+[username]
+format = "[](#876826) [$user]($style) "
+disabled = false
+show_always = true
+style_user = "#556738 bold"
+style_root = "#c53f30 bold"
+
+[character]
+success_symbol = "[ ](bold #556738)"
+error_symbol = "[ ](bold #c53f30)"
+vimcmd_replace_one_symbol = "[ ](bold ${orange_dark_dark})"
+vimcmd_replace_symbol = "[ ](bold #b66400)"
+vimcmd_symbol = "[ ](bold dimmed #556738)"
+vimcmd_visual_symbol = "[ ](bold dimmed #556738)"
+
+[directory]
+truncation_length = 3
+truncate_to_repo = false
+truncation_symbol = " …/"
+home_symbol = " "
+style = "bold #1f91d1"
+read_only_style = "bold #c53f30"
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+symbol = " "
+style = "bold #876826"
+
+[git_commit]
+format = '[ $hash$tag]($style) '
+commit_hash_length = 7
+style = "bold #d15a3f"
+
+[git_status]
+format = '([](#876826) [$all_status$ahead_behind]($style)[](#876826) )'
+ahead = " "
+behind = " "
+diverged = " "
+untracked = " "
+stashed = " "
+modified = " "
+staged = " "
+conflicted = " "
+
+[hostname]
+ssh_only = true
+style = "bold dimmed #556738"
+
+[jobs]
+symbol = "✦ "
+style = "bold #0d8abf"
+
+[line_break]
+disabled = false
+
+[cmd_duration]
+format = '[$duration]($style)'
+min_time = 500
+show_milliseconds = true
+style = "bold #c53f30"
+
+[package]
+format = '[ $version](bold #b66400) '
+
+[lua]
+format = '[󰢱 $version]($style) '
+style = "bold #000080"
+
+[python]
+format = '[ $version]($style) '
+style = "bold #3572A5"
+
+[ruby]
+format = '[ $version]($style) '
+style = "bold #701516"
+
+[nodejs]
+format = '[ $version]($style) '
+style = "bold #43853D"
+
+[golang]
+format = '[ $version]($style) '
+style = "bold #00ADD8"
+
+[java]
+format = '[ $version]($style) '
+style = "bold #B07219"
+
+[rust]
+format = '[ $version]($style) '
+style = "bold #DEA584"
+
+[php]
+format = '[ $version]($style) '
+style = "bold #4F5D95"
+
+[elixir]
+format = '[ $version]($style) '
+style = "bold #6E4A7E"
+
+[swift]
+format = '[ $version]($style) '
+style = "bold #F05138"
+
+[kotlin]
+format = '[ $version]($style) '
+style = "bold #A97BFF"
+
+[gradle]
+format = '[ $version]($style) '
+style = "bold #02303A"
+
+[crystal]
+format = '[ $version]($style) '
+style = "bold #000000"
+
+[nim]
+format = '[ $version]($style) '
+style = "bold #FFC200"
+
+[dart]
+format = '[ $version]($style) '
+style = "bold #00B4AB"
+
+[erlang]
+format = '[ $version]$style) '
+style = "bold #B83998"
+
+[haskell]
+format = '[ $version]($style) '
+style = "bold #5e5086"
+
+[c]
+format = '[ $version]($style) '
+style = "bold #555555"
+
+[shell]
+format = '[ $version]($style) '
+style = "bold #89e051"
+
+[ocaml]
+format = '[ $version]($style) '
+style = "bold #3be133"
+
+[scala]
+format = '[ $version]($style) '
+style = "bold #c22d40"
+
+[perl]
+format = '[ $version]($style) '
+style = "bold #0298c3"
+
+[haxe]
+format = '[ $version]($style) '
+style = "bold #df7900"
+    
