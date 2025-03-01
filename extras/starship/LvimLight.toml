@@ -9,7 +9,7 @@ format = "[󰍛 ${ram}]($style) "
 disabled = false
 threshold = -1
 symbol = "󰍛 "
-style = "bold dimmed #2a9b86"
+style = "bold #2a9b86"
 
 [time]
 format = "[$time]($style) "

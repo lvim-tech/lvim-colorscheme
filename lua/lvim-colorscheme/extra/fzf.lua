@@ -62,12 +62,12 @@ function M.generate()
 end
 
 M.template = [[export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --highlight-line \
-  --info=inline-right \
   --ansi \
+  --info=inline-right \
   --layout=reverse \
   --border=none \
 %s
+  --highlight-line
 "]]
 
 print(M.generate())

@@ -1,7 +1,6 @@
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --highlight-line \
-  --info=inline-right \
   --ansi \
+  --info=inline-right \
   --layout=reverse \
   --border=none \
   --color=bg+:#23242a \
@@ -20,4 +19,5 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color=scrollbar:#5a6949 \
   --color=separator:#c99460 \
   --color=spinner:#c16d67 \
+  --highlight-line
 "

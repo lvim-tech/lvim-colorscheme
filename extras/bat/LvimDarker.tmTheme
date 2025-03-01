@@ -9,7 +9,7 @@
         <key>colorSpaceName</key>
         <string>sRGB</string>
         <key>uuid</key>
-        <string>0ffe92cd-1a15-48ad-8d7e-50be782dd1ea</string>
+        <string>9f530ad3-4a64-48f2-8a12-dd0f735dca6f</string>
         <key>settings</key>
         <array>
         <dict>
@@ -17,18 +17,44 @@
             <string>editor</string>
             <key>settings</key>
             <dict>
-                <key>gitModified</key>
-                <string>#ea953f</string>
-                <key>foreground</key>
-                <string>#5e8888</string>
-                <key>backgroundLight</key>
-                <string>#323c43</string>
-                <key>backgroundSoftLight</key>
-                <string>#272f34</string>
-                <key>findHighlightForeground</key>
-                <string>#141819</string>
+                <key>orange</key>
+                <string>#FF9C2A</string>
+                <key>orangeDark</key>
+                <string>#ff9010</string>
+                <key>yellow</key>
+                <string>#edc060</string>
+                <key>yellowDark</key>
+                <string>#eab749</string>
                 <key>backgroundSoftDark</key>
                 <string>#181c1f</string>
+                <key>purple</key>
+                <string>#177ab3</string>
+                <key>purpleDark</key>
+                <string>#146b9c</string>
+                <key>red</key>
+                <string>#e65e4f</string>
+                <key>redDark</key>
+                <string>#e34a39</string>
+                <key>background</key>
+                <string>#1c2225</string>
+                <key>tealDark</key>
+                <string>#1c7060</string>
+                <key>comment</key>
+                <string>#4d6263</string>
+                <key>terminalBackground</key>
+                <string>#1c7060</string>
+                <key>gitAdded</key>
+                <string>#8AA55F</string>
+                <key>gitModified</key>
+                <string>#ea953f</string>
+                <key>gitDeleted</key>
+                <string>#d55137</string>
+                <key>findHighlight</key>
+                <string>#edc060</string>
+                <key>findHighlightForeground</key>
+                <string>#141819</string>
+                <key>bracketsForeground</key>
+                <string>#55a6ab</string>
                 <key>bracketsOptions</key>
                 <string>underline</string>
                 <key>backgroundDark</key>
@@ -55,62 +81,36 @@
                 <string>#2b343a</string>
                 <key>invisibles</key>
                 <string>#141819</string>
+                <key>tagsOptions</key>
+                <string>stippled_underline</string>
                 <key>guide</key>
                 <string>#323c43</string>
+                <key>foreground</key>
+                <string>#5e8888</string>
                 <key>blue</key>
                 <string>#0A85B9</string>
                 <key>blueDark</key>
                 <string>#0974a1</string>
+                <key>bracketContentsForeground</key>
+                <string>#55a6ab</string>
                 <key>green</key>
                 <string>#8AA55F</string>
                 <key>greenDark</key>
                 <string>#7d9654</string>
+                <key>teal</key>
+                <string>#218471</string>
                 <key>cyan</key>
                 <string>#018FA6</string>
                 <key>cyanDark</key>
                 <string>#01798d</string>
+                <key>backgroundSoftLight</key>
+                <string>#272f34</string>
                 <key>magenta</key>
                 <string>#c75940</string>
                 <key>magentaDark</key>
                 <string>#b84e36</string>
-                <key>orange</key>
-                <string>#FF9C2A</string>
-                <key>orangeDark</key>
-                <string>#ff9010</string>
-                <key>tagsOptions</key>
-                <string>stippled_underline</string>
-                <key>yellow</key>
-                <string>#edc060</string>
-                <key>yellowDark</key>
-                <string>#eab749</string>
-                <key>bracketContentsForeground</key>
-                <string>#55a6ab</string>
-                <key>purple</key>
-                <string>#177ab3</string>
-                <key>purpleDark</key>
-                <string>#146b9c</string>
-                <key>bracketsForeground</key>
-                <string>#55a6ab</string>
-                <key>red</key>
-                <string>#e65e4f</string>
-                <key>redDark</key>
-                <string>#e34a39</string>
-                <key>findHighlight</key>
-                <string>#edc060</string>
-                <key>teal</key>
-                <string>#218471</string>
-                <key>tealDark</key>
-                <string>#1c7060</string>
-                <key>gitDeleted</key>
-                <string>#d55137</string>
-                <key>comment</key>
-                <string>#4d6263</string>
-                <key>terminalBackground</key>
-                <string>#1c7060</string>
-                <key>background</key>
-                <string>#1c2225</string>
-                <key>gitAdded</key>
-                <string>#8AA55F</string>
+                <key>backgroundLight</key>
+                <string>#323c43</string>
             </dict>
         </dict>
         <dict>
