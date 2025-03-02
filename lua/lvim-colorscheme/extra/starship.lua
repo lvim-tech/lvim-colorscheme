@@ -3,9 +3,60 @@ local util = require("lvim-colorscheme.util")
 local M = {}
 
 --- @param colors ColorScheme
-function M.generate(colors)
-  colors.bg_search = util.blend_bg(colors.info, 0.1)
-  local yazi = util.template([[
+function M.generate(colors, _, opts)
+    print(vim.inspect(opts))
+    if opts.style == "light" then
+        colors.lua = "#366B8A"
+        colors.python = "#805E02"
+        colors.ruby = "#701516"
+        colors.nodejs = "#447028"
+        colors.golang = "#36677C"
+        colors.java = "#992E33"
+        colors.rust = "#6F5242"
+        colors.php = "#6B4D83"
+        colors.elixir = "#6B4D83"
+        colors.swift = "#975122"
+        colors.kotlin = "#5F3EBF"
+        colors.gradle = "#005F87"
+        colors.crystal = "#434343"
+        colors.nim = "#514700"
+        colors.dart = "#03589C"
+        colors.erlang = "#8A2B72"
+        colors.haskell = "#6B4D83"
+        colors.c = "#3B69AA"
+        colors.shell = "#447028"
+        colors.ocaml = "#975122"
+        colors.scala = "#992E33"
+        colors.perl = "#36677C"
+        colors.haxe = "#9C5715"
+    else
+        colors.lua = "#51A0CF"
+        colors.python = "#FFBC03"
+        colors.ruby = "#701516"
+        colors.nodejs = "#89E051"
+        colors.golang = "#519ABA"
+        colors.java = "#CC3E44"
+        colors.rust = "#DEA584"
+        colors.php = "#A074C4"
+        colors.elixir = "#A074C4"
+        colors.swift = "#E37933"
+        colors.kotlin = "#7F52FF"
+        colors.gradle = "#005F87"
+        colors.crystal = "#C8C8C8"
+        colors.nim = "#F3D400"
+        colors.dart = "#03589C"
+        colors.erlang = "#B83998"
+        colors.haskell = "#A074C4"
+        colors.c = "#599EFF"
+        colors.shell = "#89E051"
+        colors.ocaml = "#E37933"
+        colors.scala = "#CC3E44"
+        colors.perl = "#519ABA"
+        colors.haxe = "#EA8220"
+    end
+
+    local starship = util.template(
+        [[
 "$schema" = "https://starship.rs/config-schema.json"
 
 add_newline = true
@@ -91,98 +142,99 @@ format = '[ $version](bold ${orange_dark}) '
 
 [lua]
 format = '[󰢱 $version]($style) '
-style = "bold #000080"
+style = "bold ${lua}"
 
 [python]
 format = '[ $version]($style) '
-style = "bold #3572A5"
+style = "bold ${python}"
 
 [ruby]
 format = '[ $version]($style) '
-style = "bold #701516"
+style = "bold ${ruby}"
 
 [nodejs]
 format = '[ $version]($style) '
-style = "bold #43853D"
+style = "bold ${nodejs}"
 
 [golang]
 format = '[ $version]($style) '
-style = "bold #00ADD8"
+style = "bold ${golang}"
 
 [java]
 format = '[ $version]($style) '
-style = "bold #B07219"
+style = "bold ${java}"
 
 [rust]
 format = '[ $version]($style) '
-style = "bold #DEA584"
+style = "bold ${rust}"
 
 [php]
 format = '[ $version]($style) '
-style = "bold #4F5D95"
+style = "bold ${php}"
 
 [elixir]
 format = '[ $version]($style) '
-style = "bold #6E4A7E"
+style = "bold ${elixir}"
 
 [swift]
 format = '[ $version]($style) '
-style = "bold #F05138"
+style = "bold ${swift}"
 
 [kotlin]
 format = '[ $version]($style) '
-style = "bold #A97BFF"
+style = "bold ${kotlin}"
 
 [gradle]
 format = '[ $version]($style) '
-style = "bold #02303A"
+style = "bold ${gradle}"
 
 [crystal]
 format = '[ $version]($style) '
-style = "bold #000000"
+style = "bold ${crystal}"
 
 [nim]
 format = '[ $version]($style) '
-style = "bold #FFC200"
+style = "bold ${nim}"
 
 [dart]
 format = '[ $version]($style) '
-style = "bold #00B4AB"
+style = "bold ${dart}"
 
 [erlang]
 format = '[ $version]$style) '
-style = "bold #B83998"
+style = "bold ${erlang}"
 
 [haskell]
 format = '[ $version]($style) '
-style = "bold #5e5086"
+style = "bold ${haskell}"
 
 [c]
 format = '[ $version]($style) '
-style = "bold #555555"
+style = "bold ${c}"
 
 [shell]
 format = '[ $version]($style) '
-style = "bold #89e051"
+style = "bold ${shell}"
 
 [ocaml]
 format = '[ $version]($style) '
-style = "bold #3be133"
+style = "bold ${ocaml}"
 
 [scala]
 format = '[ $version]($style) '
-style = "bold #c22d40"
+style = "bold ${scala}"
 
 [perl]
 format = '[ $version]($style) '
-style = "bold #0298c3"
+style = "bold ${perl}"
 
 [haxe]
 format = '[ $version]($style) '
-style = "bold #df7900"
-    ]], colors)
-  return yazi
+style = "bold ${haxe}"
+    ]],
+        colors
+    )
+    return starship
 end
 
 return M
-

@@ -83,11 +83,11 @@ format = '[ $version](bold #ff9010) '
 
 [lua]
 format = '[󰢱 $version]($style) '
-style = "bold #000080"
+style = "bold #51A0CF"
 
 [python]
 format = '[ $version]($style) '
-style = "bold #3572A5"
+style = "bold #FFBC03"
 
 [ruby]
 format = '[ $version]($style) '
@@ -95,15 +95,15 @@ style = "bold #701516"
 
 [nodejs]
 format = '[ $version]($style) '
-style = "bold #43853D"
+style = "bold #89E051"
 
 [golang]
 format = '[ $version]($style) '
-style = "bold #00ADD8"
+style = "bold #519ABA"
 
 [java]
 format = '[ $version]($style) '
-style = "bold #B07219"
+style = "bold #CC3E44"
 
 [rust]
 format = '[ $version]($style) '
@@ -111,35 +111,35 @@ style = "bold #DEA584"
 
 [php]
 format = '[ $version]($style) '
-style = "bold #4F5D95"
+style = "bold #A074C4"
 
 [elixir]
 format = '[ $version]($style) '
-style = "bold #6E4A7E"
+style = "bold #A074C4"
 
 [swift]
 format = '[ $version]($style) '
-style = "bold #F05138"
+style = "bold #E37933"
 
 [kotlin]
 format = '[ $version]($style) '
-style = "bold #A97BFF"
+style = "bold #7F52FF"
 
 [gradle]
 format = '[ $version]($style) '
-style = "bold #02303A"
+style = "bold #005F87"
 
 [crystal]
 format = '[ $version]($style) '
-style = "bold #000000"
+style = "bold #C8C8C8"
 
 [nim]
 format = '[ $version]($style) '
-style = "bold #FFC200"
+style = "bold #F3D400"
 
 [dart]
 format = '[ $version]($style) '
-style = "bold #00B4AB"
+style = "bold #03589C"
 
 [erlang]
 format = '[ $version]$style) '
@@ -147,29 +147,29 @@ style = "bold #B83998"
 
 [haskell]
 format = '[ $version]($style) '
-style = "bold #5e5086"
+style = "bold #A074C4"
 
 [c]
 format = '[ $version]($style) '
-style = "bold #555555"
+style = "bold #599EFF"
 
 [shell]
 format = '[ $version]($style) '
-style = "bold #89e051"
+style = "bold #89E051"
 
 [ocaml]
 format = '[ $version]($style) '
-style = "bold #3be133"
+style = "bold #E37933"
 
 [scala]
 format = '[ $version]($style) '
-style = "bold #c22d40"
+style = "bold #CC3E44"
 
 [perl]
 format = '[ $version]($style) '
-style = "bold #0298c3"
+style = "bold #519ABA"
 
 [haxe]
 format = '[ $version]($style) '
-style = "bold #df7900"
+style = "bold #EA8220"
     

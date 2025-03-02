@@ -7,23 +7,23 @@ preview_hovered = { bg = "#262f34" }
 
 # Find
 find_keyword  = { fg = "#dadada", bg = "#a96400", bold = true }
-find_position = { fg = "${blue2}", bg = "#cfdbe0", bold = true }
+find_position = { fg = "#0d8abf", bg = "#cfdbe0", bold = true }
 
 # Marker
-marker_copied   = { fg = "${green1}", bg = "${green1}" }
+marker_copied   = { fg = "#876826", bg = "#876826" }
 marker_cut      = { fg = "#ac4135", bg = "#ac4135" }
 marker_marked   = { fg = "#bc533c", bg = "#bc533c" }
 marker_selected = { fg = "#0879a9", bg = "#0879a9" }
 
 # Tab
 tab_active   = { fg = "#5e8888", bg = "#262f34" }
-tab_inactive = { fg = "${fg_gutter}", bg = "#E4E4E4" }
+tab_inactive = { fg = "#3c7478", bg = "#E4E4E4" }
 tab_width    = 1
 
 # Count
-count_copied   = { fg = "#5e8888", bg = "${green2}" }
-count_cut      = { fg = "#5e8888", bg = "${red1}" }
-count_selected = { fg = "#5e8888", bg = "${blue0}" }
+count_copied   = { fg = "#5e8888", bg = "#556738" }
+count_cut      = { fg = "#5e8888", bg = "#c53f30" }
+count_selected = { fg = "#5e8888", bg = "#2a9b86" }
 
 # Border
 border_symbol = "│"
@@ -31,18 +31,18 @@ border_style  = { fg = "#72805a" }
 
 [mode]
 normal_main = { fg = "#b6b6b6", bg = "#0879a9", bold = true }
-normal_alt  = { fg = "#0879a9", bg = "${fg_gutter}" }
+normal_alt  = { fg = "#0879a9", bg = "#3c7478" }
 
 select_main = { fg = "#b6b6b6", bg = "#bc533c", bold = true }
-select_alt  = { fg = "#bc533c", bg = "${fg_gutter}" }
+select_alt  = { fg = "#bc533c", bg = "#3c7478" }
 
 unset_main  = { fg = "#b6b6b6", bg = "#1981bd", bold = true }
-unset_alt   = { fg = "#1981bd", bg = "${fg_gutter}" }
+unset_alt   = { fg = "#1981bd", bg = "#3c7478" }
 
 [status]
 separator_open    = ""
 separator_close   = ""
-# separator_style = { fg = "${fg_gutter}", bg = "${fg_gutter}" }
+# separator_style = { fg = "#3c7478", bg = "#3c7478" }
 
 # Progress
 progress_label  = { fg = "#93b6b6", bold = true }
@@ -54,7 +54,7 @@ perm_type  = { fg = "#0879a9" }
 perm_read  = { fg = "#7e652f" }
 perm_write = { fg = "#ac4135" }
 perm_exec  = { fg = "#748c50" }
-perm_sep   = { fg = "${terminal_black}" }
+perm_sep   = { fg = "#789698" }
 
 [pick]
 border   = { fg = "#72805a" }
@@ -63,14 +63,14 @@ inactive = { fg = "#5e8888" }
 
 # Input
 [input]
-border   = { fg = "${blue2}" }
-title    = { fg = "${blue2}" }
+border   = { fg = "#0d8abf" }
+title    = { fg = "#0d8abf" }
 value    = { fg = "#1981bd" }
 selected = { bg = "#e7e7e7" }
 
 # Completion
 [completion]
-border   = { fg = "${blue2}" }
+border   = { fg = "#0d8abf" }
 active   = { fg = "#5e8888", bg = "#e7e7e7" }
 inactive = { fg = "#5e8888" }
 
@@ -96,7 +96,7 @@ separator_style = { fg = "#789698" }
 
 # Confirm
 [confirm]
-border  = { fg = "${blue2}" }
+border  = { fg = "#0d8abf" }
 title   = { fg = "#72805a" }
 content = {}
 list    = {}

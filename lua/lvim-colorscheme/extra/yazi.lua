@@ -15,23 +15,23 @@ preview_hovered = { bg = "${bg_highlight}" }
 
 # Find
 find_keyword  = { fg = "${bg_dark}", bg = "${orange}", bold = true }
-find_position = { fg = "${blue2}", bg = "${bg_search}", bold = true }
+find_position = { fg = "${blue_dark}", bg = "${bg_search}", bold = true }
 
 # Marker
-marker_copied   = { fg = "${green1}", bg = "${green1}" }
+marker_copied   = { fg = "${yellow_dark}", bg = "${yellow_dark}" }
 marker_cut      = { fg = "${red}", bg = "${red}" }
 marker_marked   = { fg = "${magenta}", bg = "${magenta}" }
 marker_selected = { fg = "${blue}", bg = "${blue}" }
 
 # Tab
 tab_active   = { fg = "${fg}", bg = "${bg_highlight}" }
-tab_inactive = { fg = "${fg_gutter}", bg = "${bg}" }
+tab_inactive = { fg = "${fg_soft_dark}", bg = "${bg}" }
 tab_width    = 1
 
 # Count
-count_copied   = { fg = "${fg}", bg = "${green2}" }
-count_cut      = { fg = "${fg}", bg = "${red1}" }
-count_selected = { fg = "${fg}", bg = "${blue0}" }
+count_copied   = { fg = "${fg}", bg = "${green_dark}" }
+count_cut      = { fg = "${fg}", bg = "${red_dark}" }
+count_selected = { fg = "${fg}", bg = "${teal_dark}" }
 
 # Border
 border_symbol = "│"
@@ -39,18 +39,18 @@ border_style  = { fg = "${border_highlight}" }
 
 [mode]
 normal_main = { fg = "${black}", bg = "${blue}", bold = true }
-normal_alt  = { fg = "${blue}", bg = "${fg_gutter}" }
+normal_alt  = { fg = "${blue}", bg = "${fg_soft_dark}" }
 
 select_main = { fg = "${black}", bg = "${magenta}", bold = true }
-select_alt  = { fg = "${magenta}", bg = "${fg_gutter}" }
+select_alt  = { fg = "${magenta}", bg = "${fg_soft_dark}" }
 
 unset_main  = { fg = "${black}", bg = "${purple}", bold = true }
-unset_alt   = { fg = "${purple}", bg = "${fg_gutter}" }
+unset_alt   = { fg = "${purple}", bg = "${fg_soft_dark}" }
 
 [status]
 separator_open    = ""
 separator_close   = ""
-# separator_style = { fg = "${fg_gutter}", bg = "${fg_gutter}" }
+# separator_style = { fg = "${fg_soft_dark}", bg = "${fg_soft_dark}" }
 
 # Progress
 progress_label  = { fg = "${fg_dark}", bold = true }
@@ -62,7 +62,7 @@ perm_type  = { fg = "${blue}" }
 perm_read  = { fg = "${yellow}" }
 perm_write = { fg = "${red}" }
 perm_exec  = { fg = "${green}" }
-perm_sep   = { fg = "${terminal_black}" }
+perm_sep   = { fg = "${comment}" }
 
 [pick]
 border   = { fg = "${border_highlight}" }
@@ -71,14 +71,14 @@ inactive = { fg = "${fg}" }
 
 # Input
 [input]
-border   = { fg = "${blue2}" }
-title    = { fg = "${blue2}" }
+border   = { fg = "${blue_dark}" }
+title    = { fg = "${blue_dark}" }
 value    = { fg = "${purple}" }
 selected = { bg = "${bg_visual}" }
 
 # Completion
 [completion]
-border   = { fg = "${blue2}" }
+border   = { fg = "${blue_dark}" }
 active   = { fg = "${fg}", bg = "${bg_visual}" }
 inactive = { fg = "${fg}" }
 
@@ -104,7 +104,7 @@ separator_style = { fg = "${comment}" }
 
 # Confirm
 [confirm]
-border  = { fg = "${blue2}" }
+border  = { fg = "${blue_dark}" }
 title   = { fg = "${border_highlight}" }
 content = {}
 list    = {}
