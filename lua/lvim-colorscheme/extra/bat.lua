@@ -119,6 +119,7 @@ function M.generate(colors)
         findHighlight = colors.yellow,
         findHighlightForeground = colors.bg_dark,
         bracketsForeground = colors.fg_light,
+        gutterForeground = colors.fg_dark,
         bracketsOptions = "underline",
         bracketContentsForeground = colors.fg_light,
         bracketContentsOptions = "underline",
