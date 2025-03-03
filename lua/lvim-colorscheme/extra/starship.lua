@@ -4,7 +4,6 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors, _, opts)
-    print(vim.inspect(opts))
     if opts.style == "light" then
         colors.lua = "#366B8A"
         colors.python = "#805E02"

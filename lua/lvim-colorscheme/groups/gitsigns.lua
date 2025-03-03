@@ -10,7 +10,7 @@ function M.get(c)
     GitSignsChange        = { fg = c.git.change },
     GitSignsDelete        = { fg = c.git.delete },
     GitSignsTopDelete     = { fg = c.git.delete },
-    GitSignsChangeDelete  = { fg = c.git.changeDelete },
+    GitSignsChangeDelete  = { fg = c.git.change_delete },
     GitSignsUntracked     = { fg = c.git.untracked },
   }
 end
