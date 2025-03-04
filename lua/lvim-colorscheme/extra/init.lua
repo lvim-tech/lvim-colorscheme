@@ -12,6 +12,7 @@ M.extras = {
   kitty           = { ext = "conf", url = "https://sw.kovidgoyal.net/kitty/conf.html", label = "Kitty" },
   lazygit         = { ext = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },
   neomutt         = { ext = "conf", url = "https://github.com/neomutt/neomutt", label = "Neomutt" },
+  qtile           = { ext = "py", url = "https://github.com/qtile/qtile", label = "Qtile" },
   starship        = { ext = "toml", url = "https://starship.rs", label = "Starship" },
   tmux            = { ext = "conf", url = "https://github.com/tmux/tmux/wiki", label = "Tmux" },
   vivid           = { ext = "yml", url = "https://github.com/sharkdp/vivid", label = "Vivid" },
