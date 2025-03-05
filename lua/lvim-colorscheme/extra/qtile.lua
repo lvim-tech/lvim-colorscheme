@@ -8,7 +8,6 @@ function M.generate(colors, _, opts)
         return (str:gsub("^%l", string.upper))
     end
 
-    vim.notify(vim.inspect(opts.style))
     local nameTheme = "Lvim" .. capitalizeFirstLetter(opts.style)
     local qtile = util.template(
         [[
