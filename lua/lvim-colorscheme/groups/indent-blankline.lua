@@ -1,5 +1,3 @@
-local Util = require("lvim-colorscheme.util")
-
 local M = {}
 
 M.url = "https://github.com/lukas-reineke/indent-blankline.nvim"
