@@ -9,6 +9,7 @@ M.plugins = {
   ["blink.cmp"]                     = "blink",
   ["nvim-bqf"]                      = "bqf",
   ["nvim-cmp"]                      = "cmp",
+  ["copilot.lua"]                   = "copilot",
   ["vim-ctrlspace"]                 = "ctrlspace",
   ["nvim-dap"]                      = "dap",
   ["dashboard-nvim"]                = "dashboard",
