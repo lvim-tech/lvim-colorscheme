@@ -151,10 +151,10 @@ function M.get(c, opts)
             fg = c.red_dark,
         }, -- Popup menu: Matched text in selected item.
         PmenuSbar = {
-            bg = c.bg_popup,
+            bg = c.bg_float,
         }, -- Popup menu: scrollbar.
         PmenuThumb = {
-            bg = c.fg_dark,
+            bg = c.green_dark,
         }, -- Popup menu: Thumb of the scrollbar.
         Question = {
             fg = c.green_dark,
