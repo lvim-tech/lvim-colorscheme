@@ -10,6 +10,7 @@ M.extras = {
   delta           = { ext = "gitconfig", url = "https://github.com/dandavison/delta", label = "Delta" },
   fzf             = { ext = "sh", url = "https://github.com/junegunn/fzf", label = "Fzf" },
   kitty           = { ext = "conf", url = "https://sw.kovidgoyal.net/kitty/conf.html", label = "Kitty" },
+  lazydocker      = { ext = "yml", url = "https://github.com/jesseduffield/lazydocker", label = "Lazydocker" },
   lazygit         = { ext = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },
   neomutt         = { ext = "conf", url = "https://github.com/neomutt/neomutt", label = "Neomutt" },
   qtile           = { ext = "py", url = "https://github.com/qtile/qtile", label = "Qtile" },
