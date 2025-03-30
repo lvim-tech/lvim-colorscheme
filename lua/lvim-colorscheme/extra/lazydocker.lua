@@ -10,7 +10,7 @@ function M.generate(colors)
 gui:
   scrollHeight: 2
   language: "auto"
-  border: "rounded" # one of 'rounded' | 'single' | 'double' | 'hidden'
+  border: "hidden"
   theme:
     activeBorderColor:
       - green
