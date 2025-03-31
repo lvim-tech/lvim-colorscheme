@@ -13,34 +13,25 @@ gui:
   border: "hidden"
   theme:
     activeBorderColor:
-      - green
-      - bold
+      - "${orange}"
+      - "bold"
     inactiveBorderColor:
-      - white
+      - "${border_highlight}"
     selectedLineBgColor:
       - "${bg_line}"
     optionsTextColor:
-      - blue
+      - "${blue}"
   returnImmediately: false
   wrapMainPanel: true
-  # Side panel width as a ratio of the screen's width
   sidePanelWidth: 0.333
-  # Determines whether we show the bottom line (the one containing keybinding
-  # info and the status of the app).
   showBottomLine: true
-  # When true, increases vertical space used by focused side panel,
-  # creating an accordion effect
   expandFocusedSidePanel: false
-  # Determines which screen mode will be used on startup
-  screenMode: "normal" # one of 'normal' | 'half' | 'fullscreen'
-  # Determines the style of the container status and container health display in the
-  # containers panel. "long": full words (default), "short": one or two characters,
-  # "icon": unicode emoji.
+  screenMode: "normal"
   containerStatusHealthStyle: "long"
 logs:
   timestamps: false
-  since: '60m' # set to '' to show all logs
-  tail: '' # set to 200 to show last 200 lines of logs
+  since: '60m'
+  tail: ''
 commandTemplates:
   dockerCompose: docker compose # Determines the Docker Compose command to run, referred to as .DockerCompose in commandTemplates
   restartService: '{{ .DockerCompose }} restart {{ .Service.Name }}'
