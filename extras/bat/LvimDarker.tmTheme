@@ -9,7 +9,7 @@
         <key>colorSpaceName</key>
         <string>sRGB</string>
         <key>uuid</key>
-        <string>dbcf63c7-1f45-4026-9f1f-a6b21572bbaf</string>
+        <string>9e8a6180-9ebc-43c1-9d29-0eb8f098055f</string>
         <key>settings</key>
         <array>
         <dict>
@@ -17,30 +17,6 @@
             <string>editor</string>
             <key>settings</key>
             <dict>
-                <key>backgroundSoftLight</key>
-                <string>#272f34</string>
-                <key>backgroundSoftDark</key>
-                <string>#181c1f</string>
-                <key>backgroundDark</key>
-                <string>#141819</string>
-                <key>backgroundHighlight</key>
-                <string>#2b343a</string>
-                <key>findHighlightForeground</key>
-                <string>#141819</string>
-                <key>foregroundLight</key>
-                <string>#55a6ab</string>
-                <key>gutterForeground</key>
-                <string>#374646</string>
-                <key>foregroundSoftLight</key>
-                <string>#4c969a</string>
-                <key>bracketContentsForeground</key>
-                <string>#55a6ab</string>
-                <key>foregroundSoftDark</key>
-                <string>#3c7478</string>
-                <key>tagsOptions</key>
-                <string>stippled_underline</string>
-                <key>foregroundDark</key>
-                <string>#374646</string>
                 <key>caret</key>
                 <string>#55a6ab</string>
                 <key>lineHighlight</key>
@@ -85,34 +61,58 @@
                 <string>#e65e4f</string>
                 <key>redDark</key>
                 <string>#e34a39</string>
-                <key>bracketContentsOptions</key>
-                <string>underline</string>
                 <key>teal</key>
                 <string>#218471</string>
+                <key>tealDark</key>
+                <string>#1c7060</string>
                 <key>background</key>
                 <string>#1c2225</string>
-                <key>bracketsOptions</key>
-                <string>underline</string>
                 <key>comment</key>
                 <string>#4d6263</string>
                 <key>terminalBackground</key>
                 <string>#1c7060</string>
-                <key>bracketsForeground</key>
-                <string>#55a6ab</string>
                 <key>gitAdded</key>
                 <string>#5f7240</string>
-                <key>findHighlight</key>
-                <string>#edc060</string>
-                <key>gitDeleted</key>
-                <string>#96271a</string>
+                <key>bracketsOptions</key>
+                <string>underline</string>
                 <key>gitModified</key>
                 <string>#a29512</string>
                 <key>foreground</key>
                 <string>#5e8888</string>
                 <key>backgroundLight</key>
                 <string>#323c43</string>
-                <key>tealDark</key>
-                <string>#1c7060</string>
+                <key>bracketContentsOptions</key>
+                <string>underline</string>
+                <key>backgroundSoftLight</key>
+                <string>#272f34</string>
+                <key>findHighlightForeground</key>
+                <string>#141819</string>
+                <key>backgroundSoftDark</key>
+                <string>#181c1f</string>
+                <key>gutterForeground</key>
+                <string>#374646</string>
+                <key>backgroundDark</key>
+                <string>#141819</string>
+                <key>bracketContentsForeground</key>
+                <string>#55a6ab</string>
+                <key>backgroundHighlight</key>
+                <string>#2b343a</string>
+                <key>tagsOptions</key>
+                <string>stippled_underline</string>
+                <key>foregroundLight</key>
+                <string>#55a6ab</string>
+                <key>bracketsForeground</key>
+                <string>#55a6ab</string>
+                <key>foregroundSoftLight</key>
+                <string>#4c969a</string>
+                <key>findHighlight</key>
+                <string>#edc060</string>
+                <key>foregroundSoftDark</key>
+                <string>#3c7478</string>
+                <key>gitDeleted</key>
+                <string>#96271a</string>
+                <key>foregroundDark</key>
+                <string>#374646</string>
             </dict>
         </dict>
         <dict>
@@ -122,10 +122,10 @@
             <string>comment</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#4d6263</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -135,10 +135,10 @@
             <string>comment.line</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#4d6263</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -148,10 +148,10 @@
             <string>comment.line.double-slash</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#4d6263</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -161,10 +161,10 @@
             <string>comment.line.double-dash</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#4d6263</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -174,10 +174,10 @@
             <string>comment.line.number-sign</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#4d6263</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -187,10 +187,10 @@
             <string>comment.line.percentage</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#4d6263</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -200,10 +200,10 @@
             <string>comment.block</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#4d6263</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -488,10 +488,10 @@
             <string>variable.function</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -534,10 +534,10 @@
             <string>keyword</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#018fa6</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -646,10 +646,10 @@
             <string>keyword.other</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#018fa6</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -659,10 +659,10 @@
             <string>entity.name.function</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -672,10 +672,10 @@
             <string>entity.name.function.constructor</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -685,10 +685,10 @@
             <string>entity.name.function.destructor</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -698,10 +698,10 @@
             <string>entity.name.function.method</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -722,10 +722,10 @@
             <string>support.function</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -735,10 +735,10 @@
             <string>support.function.builtin</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1012,10 +1012,10 @@
             <string>markup.heading</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
                 <key>foreground</key>
                 <string>#7d9654</string>
+                <key>fontStyle</key>
+                <string>bold</string>
             </dict>
         </dict>
         <dict>
@@ -1036,10 +1036,10 @@
             <string>markup.bold</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
                 <key>foreground</key>
                 <string>#5e8888</string>
+                <key>fontStyle</key>
+                <string>bold</string>
             </dict>
         </dict>
         <dict>
@@ -1049,10 +1049,10 @@
             <string>markup.italic</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#5e8888</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1062,10 +1062,10 @@
             <string>markup.quote</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#4d6263</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1119,10 +1119,10 @@
             <string>markup.heading.setext</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
                 <key>foreground</key>
                 <string>#7d9654</string>
+                <key>fontStyle</key>
+                <string>bold</string>
             </dict>
         </dict>
         <dict>
@@ -1132,10 +1132,10 @@
             <string>punctuation.definition.comment</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#4d6263</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1167,10 +1167,10 @@
             <string>punctuation.definition.keyword</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#018fa6</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1202,10 +1202,10 @@
             <string>meta.method</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1226,10 +1226,10 @@
             <string>meta.function</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1371,10 +1371,10 @@
             <string>support.function</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1692,10 +1692,10 @@
             <string>support.function.builtin.shell</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1749,10 +1749,10 @@
             <string>keyword.other.rust</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#018fa6</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1762,10 +1762,10 @@
             <string>keyword.control.rust</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#018fa6</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1775,10 +1775,10 @@
             <string>keyword.other.unsafe.rust</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#018fa6</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1854,10 +1854,10 @@
             <string>entity.name.function.rust</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1900,10 +1900,10 @@
             <string>variable.language.self.rust</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#018fa6</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1968,10 +1968,10 @@
             <string>entity.name.function.python</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -1992,10 +1992,10 @@
             <string>variable.language.special.self.python</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#018fa6</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -2093,10 +2093,10 @@
             <string>storage.type.function.arrow.js</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -2271,10 +2271,10 @@
             <string>entity.name.function.go</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -2614,10 +2614,10 @@
             <string>entity.name.function.haskell</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -2660,10 +2660,10 @@
             <string>entity.name.function.shell</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -2772,10 +2772,10 @@
             <string>markup.heading.markdown</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
                 <key>foreground</key>
                 <string>#7d9654</string>
+                <key>fontStyle</key>
+                <string>bold</string>
             </dict>
         </dict>
         <dict>
@@ -2807,10 +2807,10 @@
             <string>markup.bold.markdown</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>bold</string>
                 <key>foreground</key>
                 <string>#5e8888</string>
+                <key>fontStyle</key>
+                <string>bold</string>
             </dict>
         </dict>
         <dict>
@@ -2820,10 +2820,10 @@
             <string>markup.italic.markdown</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#5e8888</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -2921,10 +2921,10 @@
             <string>keyword.other.sql</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#018fa6</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -2934,10 +2934,10 @@
             <string>support.function.sql</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#0974a1</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
@@ -2980,10 +2980,10 @@
             <string>keyword.other.special-method.dockerfile</string>
             <key>settings</key>
             <dict>
-                <key>fontStyle</key>
-                <string>italic</string>
                 <key>foreground</key>
                 <string>#018fa6</string>
+                <key>fontStyle</key>
+                <string>italic</string>
             </dict>
         </dict>
         <dict>
