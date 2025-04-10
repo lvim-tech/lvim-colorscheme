@@ -9,7 +9,7 @@
         <key>colorSpaceName</key>
         <string>sRGB</string>
         <key>uuid</key>
-        <string>9e8a6180-9ebc-43c1-9d29-0eb8f098055f</string>
+        <string>0a3ab25f-3fcd-46d7-a6c3-cb33845ee4d6</string>
         <key>settings</key>
         <array>
         <dict>
@@ -17,24 +17,16 @@
             <string>editor</string>
             <key>settings</key>
             <dict>
-                <key>caret</key>
-                <string>#5d5d79</string>
-                <key>lineHighlight</key>
-                <string>#1a1a22</string>
-                <key>selection</key>
-                <string>#1a1a22</string>
-                <key>selectionBorder</key>
-                <string>#1a1a22</string>
-                <key>invisibles</key>
-                <string>#17181c</string>
-                <key>guide</key>
-                <string>#292a32</string>
-                <key>blue</key>
-                <string>#4d699b</string>
+                <key>bracketsOptions</key>
+                <string>underline</string>
+                <key>background</key>
+                <string>#202127</string>
                 <key>blueDark</key>
                 <string>#4a6494</string>
-                <key>green</key>
-                <string>#6e8156</string>
+                <key>tagsOptions</key>
+                <string>stippled_underline</string>
+                <key>foreground</key>
+                <string>#54546D</string>
                 <key>greenDark</key>
                 <string>#697b52</string>
                 <key>cyan</key>
@@ -65,54 +57,62 @@
                 <string>#4e8ca2</string>
                 <key>tealDark</key>
                 <string>#4b869b</string>
-                <key>background</key>
-                <string>#202127</string>
                 <key>comment</key>
                 <string>#51515b</string>
-                <key>terminalBackground</key>
-                <string>#1c7060</string>
-                <key>gitAdded</key>
-                <string>#5f7240</string>
-                <key>bracketsOptions</key>
-                <string>underline</string>
-                <key>gitModified</key>
-                <string>#a29512</string>
-                <key>foreground</key>
-                <string>#54546D</string>
                 <key>backgroundLight</key>
                 <string>#292a32</string>
-                <key>bracketContentsOptions</key>
-                <string>underline</string>
                 <key>backgroundSoftLight</key>
                 <string>#25262d</string>
-                <key>findHighlightForeground</key>
-                <string>#17181c</string>
+                <key>bracketContentsOptions</key>
+                <string>underline</string>
                 <key>backgroundSoftDark</key>
                 <string>#1b1c21</string>
-                <key>gutterForeground</key>
-                <string>#4b4b61</string>
-                <key>backgroundDark</key>
-                <string>#17181c</string>
                 <key>bracketContentsForeground</key>
                 <string>#5d5d79</string>
+                <key>backgroundDark</key>
+                <string>#17181c</string>
+                <key>gutterForeground</key>
+                <string>#4b4b61</string>
                 <key>backgroundHighlight</key>
                 <string>#1a1a22</string>
-                <key>tagsOptions</key>
-                <string>stippled_underline</string>
+                <key>blue</key>
+                <string>#4d699b</string>
                 <key>foregroundLight</key>
                 <string>#5d5d79</string>
-                <key>bracketsForeground</key>
-                <string>#5d5d79</string>
+                <key>findHighlightForeground</key>
+                <string>#17181c</string>
                 <key>foregroundSoftLight</key>
                 <string>#54546d</string>
                 <key>findHighlight</key>
                 <string>#e0c286</string>
                 <key>foregroundSoftDark</key>
                 <string>#505067</string>
-                <key>gitDeleted</key>
-                <string>#96271a</string>
+                <key>terminalBackground</key>
+                <string>#1c7060</string>
                 <key>foregroundDark</key>
                 <string>#4b4b61</string>
+                <key>gitAdded</key>
+                <string>#5f7240</string>
+                <key>caret</key>
+                <string>#5d5d79</string>
+                <key>gitDeleted</key>
+                <string>#96271a</string>
+                <key>lineHighlight</key>
+                <string>#1a1a22</string>
+                <key>gitModified</key>
+                <string>#a29512</string>
+                <key>selection</key>
+                <string>#1a1a22</string>
+                <key>green</key>
+                <string>#6e8156</string>
+                <key>selectionBorder</key>
+                <string>#1a1a22</string>
+                <key>invisibles</key>
+                <string>#17181c</string>
+                <key>bracketsForeground</key>
+                <string>#5d5d79</string>
+                <key>guide</key>
+                <string>#292a32</string>
             </dict>
         </dict>
         <dict>

@@ -29,9 +29,10 @@ function M.setup()
     -- map of style to style name
     local styles = {
         darker = " Darker",
-        dark = "Dark",
+        dark = " Dark",
         light = " Light",
-        kanagawa = " kanagawa",
+        kanagawa = " Kanagawa",
+        gruvbox = " Gruvbox",
     }
 
     ---@type string[]
