@@ -33,6 +33,7 @@ function M.setup()
         light = " Light",
         kanagawa = " Kanagawa",
         gruvbox = " Gruvbox",
+        everforest = " Everforest",
     }
 
     ---@type string[]
