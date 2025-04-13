@@ -4,7 +4,6 @@ return {
     bg = "#202127",
     bg_soft_dark = "#1b1c21",
     bg_dark = "#17181c",
-
     bg_highlight = "#1a1a22",
 
     fg_light = "#5d5d79",

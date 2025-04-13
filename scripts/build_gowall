@@ -1,0 +1,5 @@
+#!/bin/env bash
+
+# :lua require("lvim-colorscheme.extra").setup()
+
+nvim --headless -u NONE -c "set rtp+=~/.local/share/nvim/lazy/lvim-colorscheme" -c "lua require('lvim-colorscheme.extra').generate_gowall()" +qa
