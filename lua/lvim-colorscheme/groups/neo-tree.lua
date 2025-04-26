@@ -10,8 +10,8 @@ function M.get(c, opts)
         or util.blend(c.bg_sidebar, 0.8, opts.style == "day" and c.fg or "#000000")
   -- stylua: ignore
   return {
-    NeoTreeNormal               = { fg = c.fg_sidebar, bg = c.bg_sidebar },
-    NeoTreeNormalNC             = { fg = c.fg_sidebar, bg = c.bg_sidebar },
+    NeoTreeNormal               = { bg = c.bg_sidebar },
+    NeoTreeNormalNC             = { bg = c.bg_sidebar },
     NeoTreeRootName             = { fg = c.blue_dark, bold = true },
     NeoTreeDimText              = { fg = c.comment },
     NeoTreeDiagMessage          = { fg = c.comment },

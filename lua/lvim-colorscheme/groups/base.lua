@@ -334,8 +334,8 @@ function M.get(c, opts)
             fg = c.comment,
         },
         LspInlayHint = {
-            bg = util.blend_bg(c.purple_dark, 0.1),
-            fg = c.bg_soft_light,
+            fg = c.fg_soft_light,
+            style = opts.styles.comments,
         },
         LspInfoBorder = {
             bg = c.bg_float,

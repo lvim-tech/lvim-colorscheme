@@ -37,6 +37,7 @@
 ![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_14.png)
 
 ## Init
+- [X] sdfs
 
 ```lua
 require("lvim-colorscheme").setup()
@@ -44,20 +45,4 @@ require("lvim-colorscheme").setup()
 
 ## Default config
 
-```lua
-{
-    style = "dark", -- dark, darksoft, light
-    styles = {
-        comments = { italic = true, bold = true },
-        keywords = { italic = true, bold = true },
-        functions = { italic = true, bold = true },
-        variables = {},
-    },
-    sidebars = {},
-    colors = {
-        dark = {},
-        darksoft = {},
-        light = {},
-    },
-}
-```
+# sdfs

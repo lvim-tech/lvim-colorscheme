@@ -6,13 +6,13 @@ return {
     bg_dark = "#1a1f21", -- equivalent to bg_dim
     bg_highlight = "#455156", -- equivalent to bg2
 
-    fg_light = "#6e776c", -- equivalent to grey2
-    fg_soft_light = "#697167", -- equivalent to grey1
-    fg = "#646c62", -- equivalent to fg
-    fg_soft_dark = "#5f675d", -- equivalent to grey0
-    fg_dark = "#5a6158", -- equivalent to bg5
+    fg_light = "#646c62", -- equivalent to grey2
+    fg_soft_light = "#5f675d", -- equivalent to grey1
+    fg = "#5a6158", -- equivalent to fg
+    fg_soft_dark = "#555c53", -- equivalent to grey0
+    fg_dark = "#50574e", -- equivalent to bg5
 
-    comment = "#7a8478", -- equivalent to grey0
+    comment = "#565c53", -- equivalent to grey0
 
     blue = "#42728b",
     blue_dark = "#3a6479",

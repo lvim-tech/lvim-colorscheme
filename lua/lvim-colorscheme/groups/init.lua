@@ -45,6 +45,7 @@ M.plugins = {
   ["snacks.nvim"]                   = "snacks",
   ["nvim-treesitter-context"]       = "treesitter-context",
   ["trouble.nvim"]                  = "trouble",
+  ["ui.nvim"]                       = "ui",
   ["vgit.nvim"]                     = "vgit",
   ["which-key.nvim"]                = "which-key",
 }
