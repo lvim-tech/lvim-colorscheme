@@ -1,4 +1,4 @@
-local Util = require("lvim-colorscheme.util")
+local util = require("lvim-colorscheme.util")
 
 local M = {}
 
@@ -86,18 +86,18 @@ function M.get(c, opts)
     ["@tag"]                        = "Label",
     ["@tag.attribute"]              = "@property",
     ["@tag.delimiter"]              = "Delimiter",
-    ["@tag.delimiter.tsx"]          = { fg = Util.blend_bg(c.green_dark, 0.7) },
+    ["@tag.delimiter.tsx"]          = { fg = util.blend_bg(c.green_dark, 0.7) },
     ["@tag.tsx"]                    = { fg = c.red },
     ["@tag.javascript"]             = { fg = c.red },
     ["@type"]                       = "Type",
-    ["@type.builtin"]               = { fg = Util.blend_bg(c.red_dark, 0.8) },
+    ["@type.builtin"]               = { fg = util.blend_bg(c.red_dark, 0.8) },
     ["@type.definition"]            = "Typedef",
     ["@type.qualifier"]             = "@keyword",
     ["@variable"]                   = { fg = c.yellow, style = opts.styles.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"]           = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
     ["@variable.member"]            = { fg = c.teal_dark }, -- For fields.
     ["@variable.parameter"]         = { fg = c.yellow }, -- For parameters of a function.
-    ["@variable.parameter.builtin"] = { fg = Util.blend_fg(c.yellow, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
+    ["@variable.parameter.builtin"] = { fg = util.blend_fg(c.yellow, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
   }
 
     for i, color in ipairs(c.rainbow) do
