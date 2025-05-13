@@ -1,3 +1,5 @@
+local util = require("lvim-colorscheme.util")
+
 local M = {}
 
 M.url = "https://github.com/folke/which-key.nvim"
@@ -7,11 +9,12 @@ function M.get(c)
   -- stylua: ignore
   return {
     WhichKey          = { fg = c.cyan },
-    -- WhichKeyGroup     = { fg = c.green_dark },
+    WhichKeyGroup     = { fg = c.green },
     WhichKeyDesc      = { fg = c.magenta },
     WhichKeySeparator = { fg = c.comment },
-    WhichKeyNormal     = { bg = c.bg_sidebar },
-    WhichKeyValue     = { fg = c.bg_light },
+    WhichKeyNormal    = { bg = c.bg_sidebar },
+    WhichKeyTitle     = { bg = util.blend(c.red, 0.1, c.bg), fg = c.red },
+    WhichKeyValue     = { fg = c.comment },
   }
 end
 
