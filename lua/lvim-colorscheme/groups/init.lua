@@ -34,6 +34,7 @@ M.plugins = {
   ["nvim-navic"]                    = "navic",
   ["neo-tree.nvim"]                 = "neo-tree",
   ["neogit"]                        = "neogit",
+  ["neotest"]                        = "neotest",
   ["noice.nvim"]                    = "noice",
   ["nvim-notify"]                   = "notify",
   ["nui.nvim"]                      = "nui",
