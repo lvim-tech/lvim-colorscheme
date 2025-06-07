@@ -30,7 +30,7 @@ function M.setup(opts)
     colors.none = "NONE"
 
     colors.diff = {
-        add = util.blend_bg(colors.git.add, 0.15),
+        add = util.blend_bg(colors.git.add, 0.5),
         change = util.blend_bg(colors.git.change, 0.15),
         delete = util.blend_bg(colors.git.delete, 0.15),
         changeDelete = util.blend_bg(colors.git.change_delete, 0.15),

@@ -39,6 +39,6 @@ return {
         change = "#a29512",
         delete = "#96271a",
         change_delete = "#b36000",
-        untracked = "#1a6759",
+        untracked = "#0974a1",
     },
 }
