@@ -19,6 +19,8 @@ function M.get(c)
     LvimSpaceInput = { bg = bg_blend, fg = c.blue },
     LvimSpaceSign = { bg = c.bg_float, fg = main_color },
     LvimSpaceCursor = { bg = c.bg_float, fg = c.bg_float },
+    LvimSpaceFuzzyPrimary = { fg = c.red_dark, bold = true },
+    LvimSpaceFuzzySecondary = { fg = c.red, bold = true },
   }
 end
 
