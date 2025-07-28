@@ -13,7 +13,7 @@ function M.get(c)
   return {
     LvimSpaceNormal = { bg = c.bg_float},
     LvimSpaceCursorLine = { bg = c.bg_float, fg = main_color, bold = true },
-    LvimSpaceTitle = { bg = bg_blend, fg = main_color },
+    LvimSpaceTitle = { bg = bg_blend, fg = main_color, bold = true },
     LvimSpaceInfo = { bg = c.bg_float, fg = main_color, bold = true },
     LvimSpacePrompt = { bg = c.bg_float, fg = main_color, bold = true },
     LvimSpaceInput = { bg = bg_blend, fg = c.blue },
