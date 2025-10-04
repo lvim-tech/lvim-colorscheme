@@ -129,7 +129,7 @@ function M.get(c, opts)
         }, -- Normal text in floating windows.
         FloatBorder = {
             bg = c.bg_float,
-            fg = c.border_highlight,
+            fg = c.bg_float,
         },
         FloatTitle = {
             bg = c.bg_float,
