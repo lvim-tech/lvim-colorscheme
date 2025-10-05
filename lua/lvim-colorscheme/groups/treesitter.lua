@@ -93,7 +93,7 @@ function M.get(c, opts)
     ["@type.builtin"]               = { fg = util.blend_bg(c.red_dark, 0.8) },
     ["@type.definition"]            = "Typedef",
     ["@type.qualifier"]             = "@keyword",
-    ["@variable"]                   = { fg = c.yellow, style = opts.styles.variables }, -- Any variable name that does not have another highlight.
+    ["@variable"]                   = { fg = c.blue, style = opts.styles.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"]           = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
     ["@variable.member"]            = { fg = c.teal_dark }, -- For fields.
     ["@variable.parameter"]         = { fg = c.yellow }, -- For parameters of a function.

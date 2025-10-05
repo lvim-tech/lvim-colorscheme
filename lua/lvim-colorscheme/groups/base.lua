@@ -248,7 +248,7 @@ function M.get(c, opts)
             fg = c.error,
         }, -- (preferred) any erroneous construct
         Function = {
-            fg = c.blue_dark,
+            fg = c.red_dark,
             style = opts.styles.functions,
         }, -- function name (also: methods for classes)
         Identifier = {
@@ -283,7 +283,7 @@ function M.get(c, opts)
             fg = c.bg,
         }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
         Type = {
-            fg = c.red_dark,
+            fg = c.yellow,
         }, -- (preferred) int, long, char, etc.
         Underlined = {
             underline = true,
