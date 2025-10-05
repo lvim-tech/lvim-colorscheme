@@ -14,6 +14,7 @@ function M.get(c)
   -- stylua: ignore
   return {
     LvimControlCenterPanel = { bg = c.bg_float },
+    LvimControlCenterSeparator = { fg = bg_blend},
 		LvimControlCenterTabActive = { fg = c.blue, bg = bg_blend, bold = true },
 		LvimControlCenterTabInactive = { fg = main_color, bg = c.bg_float },
 		LvimControlCenterTabIconActive = { fg = c.red_dark },
