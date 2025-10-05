@@ -248,7 +248,7 @@ function M.get(c, opts)
             fg = c.error,
         }, -- (preferred) any erroneous construct
         Function = {
-            fg = c.red_dark,
+            fg = c.blue_dark,
             style = opts.styles.functions,
         }, -- function name (also: methods for classes)
         Identifier = {
