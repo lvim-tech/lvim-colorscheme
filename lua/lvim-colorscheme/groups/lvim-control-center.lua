@@ -19,6 +19,7 @@ function M.get(c)
 		LvimControlCenterTabInactive = { fg = main_color, bg = c.bg_float },
 		LvimControlCenterTabIconActive = { fg = c.red_dark },
 		LvimControlCenterTabIconInactive = { fg = c.red },
+		LvimControlCenterStatusLine = { fg = c.blue },
 		LvimControlCenterBorder = { fg = main_color, bg = c.bg_float },
 		LvimControlCenterFloat = { fg = main_color, bg = c.bg_float },
 		LvimControlCenterTitle = { fg = c.blue, bg = bg_blend, bold = true },
