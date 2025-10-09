@@ -331,7 +331,8 @@ function M.get(c, opts)
             bold = true,
         },
         LspCodeLens = {
-            fg = c.yellow_dark,
+            bg = util.blend(c.teal, 0.2, c.bg),
+            fg = c.teal,
             style = opts.styles.comments,
         },
         LspCodeLensSeparator = {
