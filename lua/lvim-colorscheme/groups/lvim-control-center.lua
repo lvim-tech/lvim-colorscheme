@@ -2,7 +2,7 @@ local util = require("lvim-colorscheme.util")
 
 local M = {}
 
-M.url = "https://github.com/lvim-tech/lvim-space"
+M.url = "https://github.com/lvim-tech/lvim-control-center"
 
 ---@type lvim-colorscheme.HighlightsFn
 function M.get(c)
