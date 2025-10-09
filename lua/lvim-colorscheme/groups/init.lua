@@ -49,6 +49,7 @@ M.plugins = {
   ["render-markdown.nvim"]          = "render-markdown",
   ["rgflow.nvim"]                   = "rgflow",
   ["snacks.nvim"]                   = "snacks",
+  ["time-machine.nvim"]             = "time-machine",
   ["nvim-treesitter-context"]       = "treesitter-context",
   ["trouble.nvim"]                  = "trouble",
   ["ui.nvim"]                       = "ui",
@@ -76,6 +77,7 @@ end
 function M.setup(colors, opts)
     local groups = {
         base = true,
+        lang = true,
         kinds = true,
         semantic_tokens = true,
         treesitter = true,
