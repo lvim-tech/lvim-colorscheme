@@ -29,7 +29,6 @@ M.plugins = {
   ["nvim-lightbulb"]                = "lightbulb",
   ["lvim-control-center"]           = "lvim-control-center",
   ["lvim-space"]                    = "lvim-space",
-  ["lvim-ui-config"]                = "lvim-ui-config",
   ["markview.nvim"]                 = "markview",
   ["mason.nvim"]                    = "mason",
   ["mini.cursorword"]               = "mini_cursorword",
