@@ -30,11 +30,11 @@ function M.setup(opts)
     colors.none = "NONE"
 
     colors.diff = {
-        add = util.blend_bg(colors.git.add, 0.5),
-        change = util.blend_bg(colors.git.change, 0.15),
-        delete = util.blend_bg(colors.git.delete, 0.15),
-        changeDelete = util.blend_bg(colors.git.change_delete, 0.15),
-        untracked = util.blend_bg(colors.git.untracked, 0.15),
+        add = util.blend_bg(colors.git.add, 0.08),
+        change = util.blend_bg(colors.git.change, 0.08),
+        delete = util.blend_bg(colors.git.delete, 0.08),
+        changeDelete = util.blend_bg(colors.git.change_delete, 0.08),
+        untracked = util.blend_bg(colors.git.untracked, 0.08),
         text = colors.fg,
     }
 
