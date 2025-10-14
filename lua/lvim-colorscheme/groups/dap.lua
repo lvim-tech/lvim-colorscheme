@@ -6,10 +6,10 @@ M.url = "https://github.com/mfussenegger/nvim-dap"
 
 ---@type lvim-colorscheme.HighlightsFn
 function M.get(c)
-  -- stylua: ignore
-  return {
-    DapStoppedLine = { bg = util.blend_bg(c.warning, 0.1) }, -- Used for "Warning" diagnostic virtual text
-  }
+    -- stylua: ignore
+    return {
+        DapStoppedLine = { bg = util.blend_bg(c.warning, 0.1) }, -- Used for "Warning" diagnostic virtual text
+    }
 end
 
 return M

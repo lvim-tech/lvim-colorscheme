@@ -1,57 +1,53 @@
-local util = require("lvim-colorscheme.util")
-
 local M = {}
 
 M.url = "https://github.com/OXY2DEV/ui.nvim"
 
 ---@type lvim-colorscheme.HighlightsFn
-function M.get(c)
-    local cmd_bg = util.blend_bg(c.bg_highlight, 0.85, c.bg)
-    local cmd_icon_bg = util.blend_bg(c.bg_highlight, 0.95, c.bg)
-  -- stylua: ignore
-  return {
-    -- Command Line
-    UICmdlineDefault         = { bg = c.red, fg = c.fg },
-    UICmdlineDefaultIcon     = { bg = cmd_icon_bg, fg = c.blue },
-    UICmdlineLua             = { bg = cmd_bg, fg = c.fg },
-    UICmdlineLuaIcon         = { bg = cmd_icon_bg, fg = c.purple },
-    UICmdlineEval            = { bg = cmd_bg, fg = c.fg },
-    UICmdlineEvalIcon        = { bg = cmd_icon_bg, fg = c.orange },
-    UICmdlineSearchUp        = { bg = cmd_bg, fg = c.fg },
-    UICmdlineSearchUpIcon    = { bg = cmd_icon_bg, fg = c.green },
-    UICmdlineSearchDown      = { bg = cmd_bg, fg = c.fg },
-    UICmdlineSearchDownIcon  = { bg = cmd_icon_bg, fg = c.cyan },
-    UICmdlineSubstitute      = { bg = cmd_bg, fg = c.fg },
-    UICmdlineSubstituteIcon  = { bg = cmd_icon_bg, fg = c.yellow },
+function M.get(colors)
+    local blend = colors.blend
 
-    -- UI Messages
-    UIMessageDefault         = { bg = util.blend_bg(c.blue, 0.15, c.bg), fg = c.blue },
-    UIMessageOk              = { bg = util.blend_bg(c.green, 0.15, c.bg), fg = c.green },
-    UIMessageInfo            = { bg = util.blend_bg(c.blue, 0.15, c.bg), fg = c.blue },
-    UIMessageInfoSign        = { bg = util.blend_bg(c.blue, 0.15, c.bg), fg = c.blue },
-    UIMessageHint            = { bg = util.blend_bg(c.cyan, 0.15, c.bg), fg = c.cyan },
-    UIMessageWarn            = { bg = util.blend_bg(c.yellow, 0.15, c.bg), fg = c.yellow },
-    UIMessageWarnSign        = { bg = util.blend_bg(c.yellow, 0.15, c.bg), fg = c.yellow },
-    UIMessageError           = { bg = util.blend_bg(c.red, 0.15, c.bg), fg = c.red },
-    UIMessageErrorSign       = { bg = util.blend_bg(c.red, 0.15, c.bg), fg = c.red },
-    -- Palette (специална палитра/сигнали)
-    UIMessagePalette         = { fg = c.purple, bg = util.blend_bg(c.purple, 0.15, c.bg) },
-    UIMessagePaletteSign     = { fg = c.purple, bg = util.blend_bg(c.purple, 0.15, c.bg) }, -- ако се използва
+    return {
+        -- Command Line
+        UICmdlineDefault = { bg = blend.blueHigh, fg = colors.blue },
+        UICmdlineDefaultIcon = { bg = blend.blueLow, fg = colors.blue },
+        UICmdlineLua = { bg = blend.purpleHigh, fg = colors.purple },
+        UICmdlineLuaIcon = { bg = blend.purpleLow, fg = colors.purple },
+        UICmdlineEval = { bg = blend.redHigh, fg = colors.red },
+        UICmdlineEvalIcon = { bg = blend.redLow, fg = colors.red },
+        UICmdlineSearchUp = { bg = blend.blueHigh, fg = colors.blue },
+        UICmdlineSearchUpIcon = { bg = blend.blueLow, fg = colors.blue },
+        UICmdlineSearchDown = { bg = blend.blueHigh, fg = colors.blue },
+        UICmdlineSearchDownIcon = { bg = blend.blueLow, fg = colors.blue },
+        UICmdlineSubstitute = { bg = blend.cyanHigh, fg = colors.cyan },
+        UICmdlineSubstituteIcon = { bg = blend.cyanLow, fg = colors.cyan },
 
-    -- История (History UI)
-    UIHistoryKeymap          = { fg = c.blue, bold = true },
-    UIHistoryDesc            = { fg = c.fg_dark },
+        -- UI Messages
+        UIMessageDefault = { bg = blend.blueHigh, fg = colors.blue },
+        UIMessageOk = { bg = blend.greenHigh, fg = colors.green },
+        UIMessageOkIcon = { bg = blend.greenLow, fg = colors.green },
+        UIMessageInfo = { bg = blend.blueHigh, fg = colors.blue },
+        UIMessageInfoSign = { bg = blend.blueLow, fg = colors.blue },
+        UIMessageHint = { bg = blend.cyanHigh, fg = colors.cyan },
+        UIMessageHintSign = { bg = blend.cyanHigh, fg = colors.cyan },
+        UIMessageWarn = { bg = blend.orangeHigh, fg = colors.orange },
+        UIMessageWarnSign = { bg = blend.orangeHigh, fg = colors.orange },
+        UIMessageError = { bg = blend.redHigh, fg = colors.red },
+        UIMessageErrorIcon = { bg = blend.redLow, fg = colors.red },
+        UIMessageErrorSign = { bg = blend.redHigh, fg = colors.red },
+        UIMessagePalette = { bg = blend.purpleHigh, fg = colors.purple },
+        UIMessagePaletteSign = { bg = blend.purpleHigh, fg = colors.purple },
 
-    -- Popup менюта (Menu UI)
-    UIMenuSelect             = { bg = c.bg_highlight, fg = c.fg_light, bold = true },
-    UIMenuKeymap             = { fg = c.orange, bg = c.bg, bold = true },
+        -- History UI
+        UIHistoryKeymap = { bg = blend.blueLow, fg = colors.blue, bold = true },
+        UIHistoryDesc = { bg = blend.blueHigh, fg = colors.blue },
 
-    -- LSP/List/Sidepanel Groups
-    UILSBuffer               = { bg = c.bg_soft_dark, fg = c.blue, bold = true },
-    UILSBufname              = { bg = c.bg_soft_dark, fg = c.teal, bold = true },
-    UILSIndicator            = { bg = c.bg_highlight, fg = c.yellow, bold = true },
-    UILSLnum                 = { bg = c.bg_dark, fg = c.orange_dark, bold = true },
-  }
+        -- Diagnostics
+        DiagnosticInfo = { fg = colors.blue },
+        DiagnosticOk = { fg = colors.green },
+        DiagnosticWarn = { fg = colors.orange },
+        DiagnosticError = { fg = colors.red },
+        DiagnosticHint = { fg = colors.cyan },
+    }
 end
 
 return M

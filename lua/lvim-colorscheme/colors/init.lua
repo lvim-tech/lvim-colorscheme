@@ -67,6 +67,7 @@ function M.setup(opts)
     colors.warning = colors.orange_dark
     colors.info = colors.blue_dark
     colors.hint = colors.teal_dark
+    colors.debug = colors.blue_dark
 
     colors.rainbow = {
         colors.green_dark,
@@ -79,26 +80,51 @@ function M.setup(opts)
         colors.red,
     }
 
-  -- stylua: ignore
-  --- @class TerminalColors
-  colors.terminal = {
-    black          = colors.black,
-    black_bright   = colors.terminal_bg,
-    red            = colors.red,
-    red_bright     = util.brighten(colors.red),
-    green          = colors.green,
-    green_bright   = util.brighten(colors.green),
-    yellow         = colors.yellow,
-    yellow_bright  = util.brighten(colors.yellow),
-    blue           = colors.green_dark,
-    blue_bright    = util.brighten(colors.green_dark),
-    magenta        = colors.magenta,
-    magenta_bright = util.brighten(colors.magenta),
-    cyan           = colors.cyan,
-    cyan_bright    = util.brighten(colors.cyan),
-    white          = colors.fg_soft_dark,
-    white_bright   = colors.fg,
-  }
+    colors.blend = {
+        blueHigh = util.blend(colors.blue, 0.1, colors.bg),
+        blueLow = util.blend(colors.blue, 0.3, colors.bg),
+        greenHigh = util.blend(colors.green, 0.1, colors.bg),
+        greenLow = util.blend(colors.green, 0.3, colors.bg),
+        orangeHigh = util.blend(colors.orange, 0.1, colors.bg),
+        orangeLow = util.blend(colors.orange, 0.3, colors.bg),
+        redHigh = util.blend(colors.red, 0.1, colors.bg),
+        redLow = util.blend(colors.red, 0.3, colors.bg),
+        cyanHigh = util.blend(colors.cyan, 0.1, colors.bg),
+        cyanLow = util.blend(colors.cyan, 0.3, colors.bg),
+        purpleHigh = util.blend(colors.purple, 0.1, colors.bg),
+        purpleLow = util.blend(colors.purple, 0.3, colors.bg),
+        erroHigh = util.blend(colors.error, 0.1, colors.bg),
+        errorLow = util.blend(colors.error, 0.3, colors.bg),
+        warningHigh = util.blend(colors.warning, 0.1, colors.bg),
+        warningLow = util.blend(colors.warning, 0.3, colors.bg),
+        infoHigh = util.blend(colors.info, 0.1, colors.bg),
+        infoLow = util.blend(colors.info, 0.3, colors.bg),
+        hintHigh = util.blend(colors.hint, 0.1, colors.bg),
+        hintLow = util.blend(colors.hint, 0.3, colors.bg),
+        debugHigh = util.blend(colors.debug, 0.1, colors.bg),
+        debugLow = util.blend(colors.debug, 0.3, colors.bg),
+    }
+
+    -- stylua: ignore
+    --- @class TerminalColors
+    colors.terminal = {
+        black          = colors.black,
+        black_bright   = colors.terminal_bg,
+        red            = colors.red,
+        red_bright     = util.brighten(colors.red),
+        green          = colors.green,
+        green_bright   = util.brighten(colors.green),
+        yellow         = colors.yellow,
+        yellow_bright  = util.brighten(colors.yellow),
+        blue           = colors.green_dark,
+        blue_bright    = util.brighten(colors.green_dark),
+        magenta        = colors.magenta,
+        magenta_bright = util.brighten(colors.magenta),
+        cyan           = colors.cyan,
+        cyan_bright    = util.brighten(colors.cyan),
+        white          = colors.fg_soft_dark,
+        white_bright   = colors.fg,
+    }
 
     opts.on_colors(colors)
 
