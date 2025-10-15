@@ -4,10 +4,11 @@ M.url = "https://github.com/DNLHC/glance.nvim"
 
 ---@type lvim-colorscheme.HighlightsFn
 function M.get(c)
+    local blend = c.blend
     -- stylua: ignore
     return {
         GlancePreviewNormal       = { bg = c.bg_statusline },
-        GlancePreviewMatch        = { bg = c.bg_highlight },
+        GlancePreviewMatch        = { bg = blend.blueHigh, fg = c.blue },
         GlancePreviewCursorLine   = { bg = c.bg_soft_dark },
         GlancePreviewSignColumn   = { bg = c.bg_sidebar },
         GlancePreviewEndOfBuffer  = { bg = c.bg_statusline },
@@ -20,7 +21,7 @@ function M.get(c)
         GlanceListFilename        = { fg = c.green, bold = true },
         GlanceListFilepath        = { fg = c.cyan },
         GlanceListCount           = { fg = c.red, bold = true },
-        GlanceListMatch           = { fg = c.orange },
+        GlanceListMatch           = { bg = blend.blueHigh, fg = c.blue },
         GlanceListCursorLine      = { bg = c.bg },
         GlanceListEndOfBuffer     = { fg = c.green },
         GlanceListBorderBottom    = { bg = c.bg_statusline },

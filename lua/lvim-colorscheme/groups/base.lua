@@ -4,6 +4,7 @@ local M = {}
 
 ---@type lvim-colorscheme.HighlightsFn
 function M.get(c, opts)
+    local blend = c.blend
     return {
         Comment = {
             fg = c.comment,
@@ -95,7 +96,8 @@ function M.get(c, opts)
             fg = c.fg_dark,
         },
         MatchParen = {
-            fg = c.orange,
+            bg = blend.blueHigh,
+            fg = c.blue,
             bold = true,
         }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
         ModeMsg = {
@@ -140,15 +142,17 @@ function M.get(c, opts)
             fg = c.fg,
         }, -- Popup menu: normal item.
         PmenuMatch = {
-            bg = c.bg_popup,
-            fg = c.red_dark,
+            bg = blend.blueHigh,
+            fg = c.blue,
+            bold = true,
         }, -- Popup menu: Matched text in normal item.
         PmenuSel = {
-            bg = util.blend_bg(c.fg_dark, 0.4),
+            bg = blend.blueHigh,
         }, -- Popup menu: selected item.
         PmenuMatchSel = {
-            bg = util.blend_bg(c.fg_dark, 0.4),
-            fg = c.red_dark,
+            bg = blend.blueHigh,
+            fg = c.blue,
+            bold = true,
         }, -- Popup menu: Matched text in selected item.
         PmenuSbar = {
             bg = c.bg_float,
