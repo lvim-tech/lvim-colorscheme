@@ -32,6 +32,7 @@ M.plugins = {
   ["markview.nvim"]                 = "markview",
   ["mason.nvim"]                    = "mason",
   ["mini.cursorword"]               = "mini_cursorword",
+  ["mini.diff"]                     = "mini_diff",
   ["mini.files"]                    = "mini_files",
   ["nvim-navic"]                    = "navic",
   ["neo-tree.nvim"]                 = "neo-tree",
