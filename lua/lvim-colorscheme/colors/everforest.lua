@@ -35,10 +35,10 @@ return {
 
     terminal_bg = "#7a8478", -- equivalent to grey0
     git = {
-        add = "#a7c080", -- equivalent to green
-        change = "#dbbc7f", -- equivalent to yellow
-        delete = "#e67e80", -- equivalent to red
-        change_delete = "#e69875", -- equivalent to orange
-        untracked = "#7fbbb3", -- equivalent to blue
+        add = "#5f7240",
+        change = "#bf954a",
+        delete = "#ce5f57",
+        change_delete = "#cc7942",
+        untracked = "#759c73",
     },
 }
