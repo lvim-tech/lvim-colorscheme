@@ -10,7 +10,7 @@ function M.get(c)
         MiniDiffSignAdd= { fg = c.git.add },
         MiniDiffSignChange = { fg = c.git.change },
         MiniDiffSignDelete= { fg = c.git.delete },
-        MiniDiffSignChangeDelete = { fg = c.cyan },
+        MiniDiffSignChangeDelete = { fg = c.git.change_delete },
         MiniDiffOverChangeBuf = { bg = blend.blueLow },
         MiniDiffOverContext = { bg = blend.blueHigh },
         MiniDiffOverContextBuf = { bg = c.black }
