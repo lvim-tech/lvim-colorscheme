@@ -8,8 +8,9 @@ function M.get(c)
     -- stylua: ignore
     return {
         MiniDiffSignAdd= { fg = c.git.add },
-        MiniDiffSignChange= { fg = c.git.change },
+        MiniDiffSignChange = { fg = c.git.change },
         MiniDiffSignDelete= { fg = c.git.delete },
+        MiniDiffSignChangeDelete = { fg = c.cyan },
         MiniDiffOverChangeBuf = { bg = blend.blueLow },
         MiniDiffOverContext = { bg = blend.blueHigh },
         MiniDiffOverContextBuf = { bg = c.black }
