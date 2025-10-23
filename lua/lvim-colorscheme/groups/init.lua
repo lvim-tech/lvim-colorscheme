@@ -42,6 +42,7 @@ M.plugins = {
   ["nvim-notify"]                   = "notify",
   ["nui.nvim"]                      = "nui",
   ["outline.nvim"]                  = "outline",
+  ["overseer.nvim"]                 = "overseer",
   ["package-info.nvim"]             = "package-info",
   ["pubspec-assist.nvim"]           = "pubspec-assist",
   ["quicker.nvim"]                  = "quicker",
