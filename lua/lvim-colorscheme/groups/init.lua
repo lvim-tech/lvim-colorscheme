@@ -39,6 +39,7 @@ M.plugins = {
   ["neogit"]                        = "neogit",
   ["neotest"]                       = "neotest",
   ["noice.nvim"]                    = "noice",
+  ["nomad"]                         = "nomad",
   ["nvim-notify"]                   = "notify",
   ["nui.nvim"]                      = "nui",
   ["outline.nvim"]                  = "outline",
