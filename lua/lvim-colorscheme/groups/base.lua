@@ -93,7 +93,7 @@ function M.get(c, opts)
             fg = c.fg_dark,
         },
         SCVLine = {
-          fg = util.blend_bg(c.fg_dark, 0.2),
+            fg = util.blend_bg(c.fg_dark, 0.2),
         },
         LinrgfloweNrBelow = {
             fg = c.fg_dark,
@@ -172,9 +172,13 @@ function M.get(c, opts)
         }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
         Search = {
             bg = c.bg_search,
+            fg = c.orange,
+            bold = true,
         }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
         IncSearch = {
             bg = c.bg_highlight,
+            fg = c.orange,
+            bold = true,
         }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
         CurSearch = "IncSearch",
         SpecialKey = {
