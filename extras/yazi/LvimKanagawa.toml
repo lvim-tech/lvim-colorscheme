@@ -2,8 +2,8 @@
 cwd = { fg = "#4b4b61", italic = true }
 
 # Hovered
-hovered         = { bg = "#1a1a22" }
-preview_hovered = { bg = "#1a1a22" }
+hovered         = { bg = "#25262d" }
+preview_hovered = { bg = "#25262d" }
 
 # Find
 find_keyword  = { fg = "#17181c", bg = "#c99460", bold = true }
@@ -16,7 +16,7 @@ marker_marked   = { fg = "#c4746e", bg = "#c4746e" }
 marker_selected = { fg = "#4d699b", bg = "#4d699b" }
 
 # Tab
-tab_active   = { fg = "#54546D", bg = "#1a1a22" }
+tab_active   = { fg = "#54546D", bg = "#25262d" }
 tab_inactive = { fg = "#505067", bg = "#202127" }
 tab_width    = 1
 
@@ -58,7 +58,7 @@ perm_sep   = { fg = "#51515b" }
 
 [pick]
 border   = { fg = "#5a6949" }
-active   = { fg = "#54546D",  bg = "#23242a" }
+active   = { fg = "#54546D",  bg = "#25262d" }
 inactive = { fg = "#54546D" }
 
 # Input
@@ -66,12 +66,12 @@ inactive = { fg = "#54546D" }
 border   = { fg = "#4a6494" }
 title    = { fg = "#4a6494" }
 value    = { fg = "#766b90" }
-selected = { bg = "#23242a" }
+selected = { bg = "#25262d" }
 
 # Completion
 [completion]
 border   = { fg = "#4a6494" }
-active   = { fg = "#54546D", bg = "#23242a" }
+active   = { fg = "#54546D", bg = "#25262d" }
 inactive = { fg = "#54546D" }
 
 icon_file    = ""
@@ -82,7 +82,7 @@ icon_command = ""
 [tasks]
 border  = { fg = "#5a6949" }
 title   = { fg = "#5a6949" }
-hovered = { fg = "#54546D", bg="#23242a" }
+hovered = { fg = "#54546D", bg="#25262d" }
 
 # Which
 [which]
@@ -100,7 +100,7 @@ border  = { fg = "#4a6494" }
 title   = { fg = "#5a6949" }
 content = {}
 list    = {}
-btn_yes = { bg = "#23242a" }
+btn_yes = { bg = "#25262d" }
 btn_no  = {}
 btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 
@@ -123,7 +123,7 @@ icon_info = ""
 [help]
 on      = { fg = "#6e8156" }
 run     = { fg = "#c4746e" }
-hovered = { bg = "#1a1a22" }
+hovered = { bg = "#25262d" }
 footer  = { fg = "#54546D", bg = "#202127" }
 
 [filetype]

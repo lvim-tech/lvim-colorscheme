@@ -3,7 +3,7 @@ palette = {
     "background-alt": "#e9e9e9",
     "background-attention": "#dadada",
     "border": "#dfdfdf",
-    "current-line": "#262f34",
+    "current-line": "#e9e9e9",
     "selection": "#eeeeee",
     "foreground": "#5e8888",
     "foreground-alt": "#55a6ab",

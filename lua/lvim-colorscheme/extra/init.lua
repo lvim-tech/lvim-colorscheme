@@ -27,6 +27,7 @@ M.extras = {
   starship        = { ext = "toml", url = "https://starship.rs", label = "Starship" },
   tmux            = { ext = "conf", url = "https://github.com/tmux/tmux/wiki", label = "Tmux" },
   vivid           = { ext = "yml", url = "https://github.com/sharkdp/vivid", label = "Vivid" },
+  waybar          = { ext = "css", url = "https://github.com/Alexays/Waybar", label = "Waybar" },
   xresources      = { ext = "Xresources", url = "https://wiki.archlinux.org/title/X_resources", label = "Xresources" },
   yazi            = { ext = "toml", url = "https://github.com/sxyazi/yazi", label = "Yazi" },
 }

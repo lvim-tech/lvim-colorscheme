@@ -10,7 +10,7 @@ gui:
     inactiveBorderColor:
       - "#72805a"
     selectedLineBgColor:
-      - "#d1d2d2"
+      - "#e5e5e5"
     optionsTextColor:
       - "#0879a9"
   returnImmediately: false

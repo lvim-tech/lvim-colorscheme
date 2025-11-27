@@ -1,0 +1,167 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "FiraCode Nerd Font", monospace;
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #1a1f21;
+    color: #5a6158;
+    padding: 0;
+    margin: 0;
+}
+
+#workspaces,
+#clock,
+#tray,
+#pulseaudio,
+#network,
+#battery,
+#cpu,
+#memory,
+#disk,
+#disk-data,
+#custom-kb,
+#hyprland-language,
+#mpd,
+#backlight,
+#temperature {
+    padding: 0 8px;
+    margin: 0 4px;
+    background-color: #1a1f21;
+    border: none;
+}
+
+#clock:hover,
+#tray:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#disk-data:hover,
+#custom-kb:hover,
+#hyprland-language:hover,
+#mpd:hover,
+#backlight:hover,
+#temperature:hover {
+    background-color: #23292d;
+}
+
+#workspaces {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+#workspaces button {
+    border-radius: 0;
+    padding: 0 10px;
+    margin: 0;
+    background: transparent;
+    color: #cb4f4f;
+    border: none;
+}
+
+#workspaces button:hover {
+    background: #23292d;
+}
+
+#workspaces button.active {
+    border-radius: 0;
+    background: #23292d;
+    color: #75783a;
+    border: none;
+}
+
+#window {
+    padding: 0 10px;
+}
+
+#disk {
+    color: #527a57;
+}
+
+#disk-data {
+    color: #357b6d;
+}
+
+#language {
+    color: #357b6d;
+    padding: 0 8px;
+    margin: 0 4px;
+    background-color: #1a1f21;
+    border: none;
+}
+
+#language:hover {
+    background-color: #23292d;
+}
+
+#pulseaudio {
+    color: #cc7942;
+}
+
+#pulseaudio.muted {
+    color: #cb4f4f;
+}
+
+#network {
+    color: #42728b;
+}
+
+#network.disconnected {
+    color: #cb4f4f;
+}
+
+#battery {
+    color: #af9e6b;
+}
+
+#battery.charging {
+    color: #75783a;
+}
+
+#battery.warning,
+#battery.critical {
+    color: #cb4f4f;
+}
+
+#cpu {
+    color: #cb4f4f;
+}
+
+#memory {
+    color: #cb4f4f;
+}
+
+#clock {
+    color: #42728b;
+}
+
+#mpd {
+    color: #527a57;
+}
+
+#mpd.disconnected {
+    color: #cb4f4f;
+}
+
+#mpd.stopped {
+    color: #555c53;
+}
+
+#mpd.paused {
+    color: #486b4c;
+}
+
+#custom-mpd-prev {
+    color: #527a57;
+}
+
+#custom-mpd-next {
+    color: #527a57;
+}

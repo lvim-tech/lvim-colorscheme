@@ -48,7 +48,7 @@ style = "bold #a6935a"
 [git_commit]
 format = '[ $hash$tag]($style) '
 commit_hash_length = 7
-style = "bold #ac5454"
+style = "bold #b3664c"
 
 [git_status]
 format = '([](#a6935a) [$all_status$ahead_behind]($style)[](#a6935a) )'
