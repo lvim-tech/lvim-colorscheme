@@ -179,6 +179,30 @@ window#waybar {
 #custom-mpd-next {
     color: ${cyan};
 }
+
+#custom-mail {
+    color: ${cyan};
+    padding: 0 8px;
+    margin: 0 4px;
+    background-color: ${bg_dark};
+    border: none;
+}
+
+#custom-mail:hover {
+    background-color: ${bg};
+}
+
+#custom-mail.has-mail {
+    color: ${orange};
+}
+
+#custom-mail.no-mail {
+    color: ${green};
+}
+
+#custom-mail.error {
+    color: ${red};
+}
 ]],
         vim.tbl_extend("force", colors, { style = nameTheme })
     )

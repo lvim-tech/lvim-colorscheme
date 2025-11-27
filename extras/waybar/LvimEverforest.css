@@ -165,3 +165,27 @@ window#waybar {
 #custom-mpd-next {
     color: #527a57;
 }
+
+#custom-mail {
+    color: #527a57;
+    padding: 0 8px;
+    margin: 0 4px;
+    background-color: #1a1f21;
+    border: none;
+}
+
+#custom-mail:hover {
+    background-color: #23292d;
+}
+
+#custom-mail.has-mail {
+    color: #cc7942;
+}
+
+#custom-mail.no-mail {
+    color: #75783a;
+}
+
+#custom-mail.error {
+    color: #cb4f4f;
+}
