@@ -62,7 +62,7 @@ window#waybar {
     padding: 0 10px;
     margin: 0;
     background: transparent;
-    color: #b65252;
+    color: #5d5d79;
     border: none;
 }
 
@@ -73,11 +73,12 @@ window#waybar {
 #workspaces button.active {
     border-radius: 0;
     background: #202127;
-    color: #6e8156;
+    color: #e0c286;
     border: none;
 }
 
 #window {
+    color: #e0c286;
     padding: 0 10px;
 }
 

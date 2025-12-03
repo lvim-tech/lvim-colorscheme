@@ -76,7 +76,7 @@ window#waybar {
     padding: 0 10px;
     margin: 0;
     background: transparent;
-    color: ${red};
+    color: ${fg_light};
     border: none;
 }
 
@@ -87,11 +87,12 @@ window#waybar {
 #workspaces button.active {
     border-radius: 0;
     background: ${bg};
-    color: ${green};
+    color: ${yellow};
     border: none;
 }
 
 #window {
+    color: ${yellow};
     padding: 0 10px;
 }
 
