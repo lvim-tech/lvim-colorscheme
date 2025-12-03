@@ -30,7 +30,7 @@ color0 ${terminal.black}
 color1 ${terminal.red}
 color2 ${terminal.green}
 color3 ${terminal.yellow}
-color4 ${terminal.blue}
+color4 ${terminal.black}
 color5 ${terminal.magenta}
 color6 ${terminal.cyan}
 color7 ${terminal.white}
@@ -47,7 +47,9 @@ color15 ${terminal.white_bright}
 
 # extended colors
 color16 ${orange}
-color17 ${red}]], colors)
+color17 ${red}]],
+        colors
+    )
     return kitty
 end
 
