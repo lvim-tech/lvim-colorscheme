@@ -1,18 +1,18 @@
 return {
-    bg_light = "#2c3339", -- equivalent to bg4
-    bg_soft_light = "#272e33", -- equivalent to bg3
-    bg = "#23292d", -- equivalent to bg1
-    bg_soft_dark = "#1f2427", -- equivalent to bg0
-    bg_dark = "#1a1f21", -- equivalent to bg_dim
-    bg_highlight = "#455156", -- equivalent to bg2
+    bg_light = "#2c3339",
+    bg_soft_light = "#272e33",
+    bg = "#23292d",
+    bg_soft_dark = "#1f2427",
+    bg_dark = "#1a1f21",
+    bg_highlight = "#455156",
 
-    fg_light = "#646c62", -- equivalent to grey2
-    fg_soft_light = "#5f675d", -- equivalent to grey1
-    fg = "#5a6158", -- equivalent to fg
-    fg_soft_dark = "#555c53", -- equivalent to grey0
-    fg_dark = "#50574e", -- equivalent to bg5
+    fg_light = "#646c62",
+    fg_soft_light = "#5f675d",
+    fg = "#5a6158",
+    fg_soft_dark = "#555c53",
+    fg_dark = "#50574e",
 
-    comment = "#565c53", -- equivalent to grey0
+    comment = "#565c53",
 
     blue = "#42728b",
     blue_dark = "#3a6479",
@@ -33,7 +33,7 @@ return {
     teal = "#357b6d",
     teal_dark = "#2d695d",
 
-    terminal_bg = "#7a8478", -- equivalent to grey0
+    terminal_bg = "#7a8478",
     git = {
         add = "#5f7240",
         change = "#bf954a",
