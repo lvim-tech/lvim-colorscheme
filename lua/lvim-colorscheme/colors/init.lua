@@ -56,9 +56,10 @@ function M.setup(opts)
         or opts.styles.floats == "dark" and colors.bg_sidebar
         or colors.bg_dark
 
-    colors.bg_visual = util.blend_bg(colors.bg_light, 0.5)
-    colors.bg_search = util.blend_bg(colors.bg_light, 0.5)
-    colors.bg_highlight = util.blend_bg(colors.bg_light, 0.5)
+    local bg_blend = util.blend_bg(colors.bg_light, 0.5)
+    colors.bg_visual = bg_blend
+    colors.bg_search = bg_blend
+    colors.bg_highlight = bg_blend
     colors.fg_sidebar = colors.fg_soft_dark
     colors.fg_float = colors.fg
 
@@ -80,30 +81,12 @@ function M.setup(opts)
         colors.red,
     }
 
-    colors.blend = {
-        blueHigh = util.blend(colors.blue, 0.1, colors.bg),
-        blueLow = util.blend(colors.blue, 0.3, colors.bg),
-        greenHigh = util.blend(colors.green, 0.1, colors.bg),
-        greenLow = util.blend(colors.green, 0.3, colors.bg),
-        orangeHigh = util.blend(colors.orange, 0.1, colors.bg),
-        orangeLow = util.blend(colors.orange, 0.3, colors.bg),
-        redHigh = util.blend(colors.red, 0.1, colors.bg),
-        redLow = util.blend(colors.red, 0.3, colors.bg),
-        cyanHigh = util.blend(colors.cyan, 0.1, colors.bg),
-        cyanLow = util.blend(colors.cyan, 0.3, colors.bg),
-        purpleHigh = util.blend(colors.purple, 0.1, colors.bg),
-        purpleLow = util.blend(colors.purple, 0.3, colors.bg),
-        erroHigh = util.blend(colors.error, 0.1, colors.bg),
-        errorLow = util.blend(colors.error, 0.3, colors.bg),
-        warningHigh = util.blend(colors.warning, 0.1, colors.bg),
-        warningLow = util.blend(colors.warning, 0.3, colors.bg),
-        infoHigh = util.blend(colors.info, 0.1, colors.bg),
-        infoLow = util.blend(colors.info, 0.3, colors.bg),
-        hintHigh = util.blend(colors.hint, 0.1, colors.bg),
-        hintLow = util.blend(colors.hint, 0.3, colors.bg),
-        debugHigh = util.blend(colors.debug, 0.1, colors.bg),
-        debugLow = util.blend(colors.debug, 0.3, colors.bg),
-    }
+    colors.blend = {}
+    for _, name in ipairs({ "blue", "green", "orange", "red", "cyan", "purple",
+                            "error", "warning", "info", "hint", "debug" }) do
+        colors.blend[name .. "High"] = util.blend(colors[name], 0.1, colors.bg)
+        colors.blend[name .. "Low"]  = util.blend(colors[name], 0.3, colors.bg)
+    end
 
     -- stylua: ignore
     --- @class TerminalColors

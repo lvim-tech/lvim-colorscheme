@@ -15,7 +15,7 @@ function M.get(c, opts)
         NotifyDEBUGTitle  = { fg = c.comment },
 
         NotifyERRORBody   = { fg = c.fg, bg = opts.transparent and c.none or c.bg },
-        NotifyERRORBorder = { fg = blend.erroHigh, bg = opts.transparent and c.none or c.bg },
+        NotifyERRORBorder = { fg = blend.errorHigh, bg = opts.transparent and c.none or c.bg },
         NotifyERRORIcon   = { fg = c.error },
         NotifyERRORTitle  = { fg = c.error },
 

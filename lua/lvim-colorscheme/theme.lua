@@ -29,32 +29,20 @@ end
 
 ---@param colors ColorScheme
 function M.terminal(colors)
-    -- dark
-    vim.g.terminal_color_0 = colors.terminal.black
-    vim.g.terminal_color_8 = colors.terminal.black_bright
-
-    -- light
-    vim.g.terminal_color_7 = colors.terminal.white
-    vim.g.terminal_color_15 = colors.terminal.white_bright
-
-    -- colors
-    vim.g.terminal_color_1 = colors.terminal.red
-    vim.g.terminal_color_9 = colors.terminal.red_bright
-
-    vim.g.terminal_color_2 = colors.terminal.green
-    vim.g.terminal_color_10 = colors.terminal.green_bright
-
-    vim.g.terminal_color_3 = colors.terminal.yellow
-    vim.g.terminal_color_11 = colors.terminal.yellow_bright
-
-    vim.g.terminal_color_4 = colors.terminal.blue
-    vim.g.terminal_color_12 = colors.terminal.blue_bright
-
-    vim.g.terminal_color_5 = colors.terminal.magenta
-    vim.g.terminal_color_13 = colors.terminal.magenta_bright
-
-    vim.g.terminal_color_6 = colors.terminal.cyan
-    vim.g.terminal_color_14 = colors.terminal.cyan_bright
+    -- stylua: ignore
+    local map = {
+        { 0, "black" }, { 8,  "black_bright"   },
+        { 7, "white" }, { 15, "white_bright"   },
+        { 1, "red"   }, { 9,  "red_bright"     },
+        { 2, "green" }, { 10, "green_bright"   },
+        { 3, "yellow"}, { 11, "yellow_bright"  },
+        { 4, "blue"  }, { 12, "blue_bright"    },
+        { 5, "magenta"},{ 13, "magenta_bright" },
+        { 6, "cyan"  }, { 14, "cyan_bright"    },
+    }
+    for _, pair in ipairs(map) do
+        vim.g["terminal_color_" .. pair[1]] = colors.terminal[pair[2]]
+    end
 end
 
 return M

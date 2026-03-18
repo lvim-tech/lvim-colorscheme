@@ -23,7 +23,7 @@ M.extras = {
   lazygit         = { ext = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },
   neomutt         = { ext = "conf", url = "https://github.com/neomutt/neomutt", label = "Neomutt" },
   qtile           = { ext = "py", url = "https://github.com/qtile/qtile", label = "Qtile" },
-  qutebrowser     = { ext = "py", url = "https://github.com/qutebrowser/qutebrowser", label = "Qtile" },
+  qutebrowser     = { ext = "py", url = "https://github.com/qutebrowser/qutebrowser", label = "Qutebrowser" },
   starship        = { ext = "toml", url = "https://starship.rs", label = "Starship" },
   tmux            = { ext = "conf", url = "https://github.com/tmux/tmux/wiki", label = "Tmux" },
   vivid           = { ext = "yml", url = "https://github.com/sharkdp/vivid", label = "Vivid" },
@@ -58,7 +58,7 @@ function M.generate_themes()
                 .. "."
                 .. info.ext
             fname = string.gsub(fname, "%.$", "") -- remove trailing dot when no extension
-            colors._style_name = "Lvim Colorsheme" .. style_name
+            colors._style_name = "Lvim Colorscheme " .. style_name
             colors._name = "lvim_" .. style
             colors._style = style
             print("[write] " .. fname)

@@ -51,8 +51,6 @@ end
 function M.blend_bg(hex, amount, bg)
     return M.blend(hex, amount, bg or M.bg)
 end
-M.darken = M.blend_bg
-
 ---@param hex string
 ---@param amount number
 ---@param fg? string

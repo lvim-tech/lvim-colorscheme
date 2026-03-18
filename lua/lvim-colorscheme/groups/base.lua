@@ -95,7 +95,7 @@ function M.get(c, opts)
         SCVLine = {
             fg = util.blend_bg(c.fg_dark, 0.2),
         },
-        LinrgfloweNrBelow = {
+        LineNrBelow = {
             fg = c.fg_dark,
         },
         MatchParen = {
