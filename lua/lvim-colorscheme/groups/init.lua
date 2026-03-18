@@ -26,6 +26,7 @@ M.plugins = {
   ["nvim-hlslens"]                  = "hlslens",
   ["indent-blankline.nvim"]         = "indent-blankline",
   ["lazy.nvim"]                     = "lazy",
+  ["lvim-utils"]                    = "lvim-utils",
   ["nvim-lightbulb"]                = "lightbulb",
   ["lvim-control-center"]           = "lvim-control-center",
   ["lvim-space"]                    = "lvim-space",

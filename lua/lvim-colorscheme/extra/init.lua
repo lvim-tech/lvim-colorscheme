@@ -3,12 +3,22 @@ local util = require("lvim-colorscheme.util")
 local M = {}
 
 local styles = {
-    darker = "Darker",
-    dark = "Dark",
-    light = "Light",
-    kanagawa = "Kanagawa",
-    gruvbox = "Gruvbox",
-    everforest = "Everforest",
+    lvim_soft   = "LvimSoft",
+    lvim_dark   = "LvimDark",
+    lvim_darker = "LvimDarker",
+    lvim_light  = "LvimLight",
+    kanagawa         = "Kanagawa",
+    kanagawa_lighter = "KanagawaLighter",
+    kanagawa_darker  = "KanagawaDarker",
+    kanagawa_light   = "KanagawaLight",
+    gruvbox         = "Gruvbox",
+    gruvbox_lighter = "GruvboxLighter",
+    gruvbox_darker  = "GruvboxDarker",
+    gruvbox_light   = "GruvboxLight",
+    everforest_soft   = "EverforestSoft",
+    everforest_dark   = "EverforestDark",
+    everforest_darker = "EverforestDarker",
+    everforest_light  = "EverforestLight",
 }
 
 -- map of plugin name to plugin extension

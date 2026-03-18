@@ -1,7 +1,7 @@
 ---@param opts lvim-colorscheme.Config
 return function(opts)
-    local style = opts.light_style or "dark"
-    style = style == "light" and "dark" or style
+    local style = opts.light_style or "lvim_dark"
+    style = style == "lvim_light" and "lvim_dark" or style
 
     local util = require("lvim-colorscheme.util")
 

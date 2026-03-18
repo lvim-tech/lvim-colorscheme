@@ -24,6 +24,18 @@ function M.setup(opts)
         M.terminal(colors)
     end
 
+    -- Publish to state and notify listeners
+    local state = require("lvim-colorscheme.state")
+    state.colors = colors
+    state.opts   = opts
+    for _, fn in ipairs(state.listeners) do
+        pcall(fn, colors, opts)
+    end
+    vim.api.nvim_exec_autocmds("User", {
+        pattern  = "LvimColorscheme",
+        modeline = false,
+    })
+
     return colors, groups, opts
 end
 

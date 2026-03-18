@@ -4,7 +4,7 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors, _, opts)
-    if opts.style == "light" then
+    if opts.style == "lvim_light" then
         colors.lua = "#366B8A"
         colors.python = "#805E02"
         colors.ruby = "#701516"

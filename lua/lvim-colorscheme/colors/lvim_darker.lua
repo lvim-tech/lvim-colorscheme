@@ -1,4 +1,4 @@
-local ret = vim.deepcopy(require("lvim-colorscheme.colors.dark"))
+local ret = vim.deepcopy(require("lvim-colorscheme.colors.lvim_dark"))
 
 ---@type Palette
 return vim.tbl_deep_extend("force", ret, {

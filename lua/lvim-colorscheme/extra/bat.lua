@@ -59,7 +59,7 @@ function M.generate(colors)
         error("Invalid scope_mappings: expected a table with STANDARD_SCOPES")
     end
     local background = "dark"
-    if colors._style == "light" then
+    if colors._style == "lvim_light" then
         background = "light"
     end
     local theme_name = "Lvim" .. (colors._style:gsub("^%l", string.upper))
