@@ -1,0 +1,22 @@
+*background: #dfdfdf
+*foreground: #5e8888
+
+# normal
+*color0: #b6b6b6
+*color1: #c85b5b
+*color2: #677951
+*color3: #776745
+*color4: #6d7f55
+*color5: #92534e
+*color6: #5d807a
+*color7: #3c7478
+
+# bright
+*color8:  #2a9b86
+*color9:  #e26060
+*color10: #6d8946
+*color11: #8a7339
+*color12: #738f49
+*color13: #b65248
+*color14: #549187
+*color15: #5e8888

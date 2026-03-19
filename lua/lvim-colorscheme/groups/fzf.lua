@@ -26,10 +26,10 @@ function M.get(c)
         FzfLuaLivePrompt        = { fg = c.green },
         FzfLuaLiveSym           = { fg = c.green },
         FzfLuaFzfPrompt         = { fg = c.green },
-        FzfLuaPreviewBorder     = { bg = c.bg_float, fg = c.orange_03 },
-        FzfLuaPrompt            = { bg = c.bg_float, fg = c.red_02 },
-        FzfLuaLinePlus          = { bg = c.bg_float, fg = c.green_02 },
-        FzfLuaItemKindVariable  = { fg = c.blue_02 },
+        FzfLuaPreviewBorder     = { bg = c.bg_float, fg = c.orange_dark },
+        FzfLuaPrompt            = { bg = c.bg_float, fg = c.red_dark },
+        FzfLuaLinePlus          = { bg = c.bg_float, fg = c.green_dark },
+        FzfLuaItemKindVariable  = { fg = c.blue_dark },
     }
 end
 

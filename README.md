@@ -17,41 +17,41 @@ A Neovim colorscheme written in Lua with multiple theme families, each available
 
 Each family has four variants: **soft** (lighter dark), **dark** (base), **darker** (harder dark), **light**.
 
-### Lvim family
+### Lvim
 
-| Variant | Style name | Command |
-|---------|-----------|---------|
+| Variant | Style name    | Colorscheme command        |
+|---------|---------------|----------------------------|
 | Soft    | `lvim_soft`   | `:colorscheme lvim-soft`   |
 | Dark    | `lvim_dark`   | `:colorscheme lvim-dark`   |
 | Darker  | `lvim_darker` | `:colorscheme lvim-darker` |
 | Light   | `lvim_light`  | `:colorscheme lvim-light`  |
 
-### Kanagawa family
+### Kanagawa
 
-| Variant | Style name | Command |
-|---------|-----------|---------|
-| Soft    | `kanagawa_lighter` | `:colorscheme lvim-kanagawa-lighter` |
-| Dark    | `kanagawa`         | `:colorscheme lvim-kanagawa`         |
-| Darker  | `kanagawa_darker`  | `:colorscheme lvim-kanagawa-darker`  |
-| Light   | `kanagawa_light`   | `:colorscheme lvim-kanagawa-light`   |
+| Variant | Style name       | Colorscheme command                |
+|---------|------------------|------------------------------------|
+| Soft    | `kanagawa_soft`  | `:colorscheme lvim-kanagawa-soft`  |
+| Dark    | `kanagawa_dark`  | `:colorscheme lvim-kanagawa-dark`  |
+| Darker  | `kanagawa_darker`| `:colorscheme lvim-kanagawa-darker`|
+| Light   | `kanagawa_light` | `:colorscheme lvim-kanagawa-light` |
 
-### Gruvbox family
+### Gruvbox
 
-| Variant | Style name | Command |
-|---------|-----------|---------|
-| Soft    | `gruvbox_lighter` | `:colorscheme lvim-gruvbox-lighter` |
-| Dark    | `gruvbox`         | `:colorscheme lvim-gruvbox`         |
-| Darker  | `gruvbox_darker`  | `:colorscheme lvim-gruvbox-darker`  |
-| Light   | `gruvbox_light`   | `:colorscheme lvim-gruvbox-light`   |
+| Variant | Style name      | Colorscheme command               |
+|---------|-----------------|-----------------------------------|
+| Soft    | `gruvbox_soft`  | `:colorscheme lvim-gruvbox-soft`  |
+| Dark    | `gruvbox_dark`  | `:colorscheme lvim-gruvbox-dark`  |
+| Darker  | `gruvbox_darker`| `:colorscheme lvim-gruvbox-darker`|
+| Light   | `gruvbox_light` | `:colorscheme lvim-gruvbox-light` |
 
-### Everforest family
+### Everforest
 
-| Variant | Style name | Command |
-|---------|-----------|---------|
-| Soft    | `everforest_soft`   | `:colorscheme lvim-everforest-soft`   |
-| Dark    | `everforest_dark`   | `:colorscheme lvim-everforest-dark`   |
-| Darker  | `everforest_darker` | `:colorscheme lvim-everforest-darker` |
-| Light   | `everforest_light`  | `:colorscheme lvim-everforest-light`  |
+| Variant | Style name          | Colorscheme command                    |
+|---------|---------------------|----------------------------------------|
+| Soft    | `everforest_soft`   | `:colorscheme lvim-everforest-soft`    |
+| Dark    | `everforest_dark`   | `:colorscheme lvim-everforest-dark`    |
+| Darker  | `everforest_darker` | `:colorscheme lvim-everforest-darker`  |
+| Light   | `everforest_light`  | `:colorscheme lvim-everforest-light`   |
 
 ---
 
@@ -77,13 +77,13 @@ Each family has four variants: **soft** (lighter dark), **dark** (base), **darke
 
 ```lua
 require("lvim-colorscheme").setup({
-    -- Active style. See theme table above for all available style names.
+    -- Active style — see style names in the theme tables above
     style = "lvim_dark",
 
     -- Style used when vim.o.background = "light"
     light_style = "lvim_light",
 
-    -- Disable background (for transparent terminals)
+    -- Disable background color (for transparent terminals)
     transparent = false,
 
     -- Set terminal colors (vim.g.terminal_color_*)
@@ -91,10 +91,10 @@ require("lvim-colorscheme").setup({
 
     -- Syntax group styles
     styles = {
-        comments   = { italic = true },
-        keywords   = { italic = true },
-        functions  = { italic = true },
-        variables  = {},
+        comments  = { italic = true },
+        keywords  = { italic = true },
+        functions = { italic = true },
+        variables = {},
         -- sidebars = "dark",  -- "dark" | "transparent" | "normal"
         -- floats   = "dark",
     },
@@ -108,11 +108,11 @@ require("lvim-colorscheme").setup({
     -- Bold section headers in lualine
     lualine_bold = false,
 
-    -- Override colors before highlights are generated
+    -- Override palette colors before highlights are generated
     ---@param colors ColorScheme
     on_colors = function(colors) end,
 
-    -- Override highlight groups after generation
+    -- Override highlight groups after they are generated
     ---@param highlights table
     ---@param colors ColorScheme
     on_highlights = function(highlights, colors) end,
@@ -136,31 +136,40 @@ require("lvim-colorscheme").setup({
 
 Requires [lvim-utils](https://github.com/lvim-tech/lvim-utils).
 
-```
+```vim
 :LvimColorscheme
 ```
 
-Opens a floating panel organised by family. Navigate with `h`/`l` (tabs), `j`/`k` (items), `<CR>` to apply, `<Esc>` to cancel. The currently active theme is marked with `➤`.
+Opens a floating panel organised by family. The currently active theme is marked with `➤`.
+
+| Key | Action |
+|-----|--------|
+| `h` / `l` | Switch family tab |
+| `j` / `k` | Move between variants |
+| `<CR>` | Apply theme |
+| `<Esc>` / `q` | Close without changes |
 
 ---
 
 ## Public API
 
-### Current colors
+### Live color access
 
 ```lua
 local lcs = require("lvim-colorscheme")
 
--- Always reflects the active theme (nil if lvim-colorscheme is not loaded)
-local colors = lcs.colors  -- ColorScheme
-local opts   = lcs.opts    -- Config
+local colors = lcs.colors  -- ColorScheme | nil
+local opts   = lcs.opts    -- Config | nil
 ```
+
+`lcs.colors` always reflects the currently active theme — no caching on the caller side needed.
 
 ### Callback on load
 
+Fired after every colorscheme load, before the `User LvimColorscheme` autocmd.
+
 ```lua
 require("lvim-colorscheme").on_colors(function(colors, opts)
-    -- Called after every colorscheme load, before the User autocmd.
     local bg   = colors.bg
     local blue = colors.blue
 end)
@@ -168,12 +177,13 @@ end)
 
 ### User autocmd
 
+Use this when you want to react to theme changes without a hard dependency on the module.
+
 ```lua
 vim.api.nvim_create_autocmd("User", {
     pattern  = "LvimColorscheme",
     callback = function()
         local colors = require("lvim-colorscheme").colors
-        -- colors are fully applied at this point
     end,
 })
 ```
@@ -198,31 +208,29 @@ require("lvim-colorscheme").setup({
 
 ## Extras
 
-Generated configuration files for external tools are located in `extras/`.
+Generated configuration files for external tools, located in `extras/`.
+Each tool has one file per style (16 styles total).
 
 | Tool | Format |
 |------|--------|
-| Kitty | `.conf` |
-| Tmux | `.conf` |
-| Alacritty / Wezterm | (via Xresources) |
-| Starship | `.toml` |
-| Lazygit | `.yml` |
-| Lazydocker | `.yml` |
-| Delta | `.gitconfig` |
 | Bat | `.tmTheme` |
+| Delta | `.gitconfig` |
 | Fzf | `.sh` |
-| Yazi | `.toml` |
-| Vivid | `.yml` |
-| Waybar | `.css` |
+| Kitty | `.conf` |
+| Lazydocker | `.yml` |
+| Lazygit | `.yml` |
 | Neomutt | `.conf` |
 | Qtile | `.py` |
 | Qutebrowser | `.py` |
+| Starship | `.toml` |
+| Tmux | `.conf` |
+| Vivid | `.yml` |
+| Waybar | `.css` |
 | Xresources | `.Xresources` |
+| Yazi | `.toml` |
 
-Each tool has one file per style (16 total).
+To regenerate all extras after modifying a palette:
 
-To regenerate after modifying a palette:
-
-```lua
-require("lvim-colorscheme.extra").generate_themes()
+```vim
+:lua require("lvim-colorscheme.extra").generate_themes()
 ```

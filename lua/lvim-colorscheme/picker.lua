@@ -16,20 +16,20 @@ local families = {
         label = "Kanagawa",
         icon  = "󱏿",
         items = {
-            { label = "Kanagawa Lighter", icon = "󰖨", style = "kanagawa_lighter" },
-            { label = "Kanagawa",         icon = "●",  style = "kanagawa"         },
-            { label = "Kanagawa Darker",  icon = "󰖓",  style = "kanagawa_darker"  },
-            { label = "Kanagawa Light",   icon = "󰛪",  style = "kanagawa_light"   },
+            { label = "Kanagawa Soft",   icon = "󰖨", style = "kanagawa_soft"   },
+            { label = "Kanagawa Dark",   icon = "●",  style = "kanagawa_dark"   },
+            { label = "Kanagawa Darker", icon = "󰖓",  style = "kanagawa_darker" },
+            { label = "Kanagawa Light",  icon = "󰛪",  style = "kanagawa_light"  },
         },
     },
     {
         label = "Gruvbox",
         icon  = "󰏘",
         items = {
-            { label = "Gruvbox Lighter", icon = "󰖨", style = "gruvbox_lighter" },
-            { label = "Gruvbox",         icon = "●",  style = "gruvbox"         },
-            { label = "Gruvbox Darker",  icon = "󰖓",  style = "gruvbox_darker"  },
-            { label = "Gruvbox Light",   icon = "󰛪",  style = "gruvbox_light"   },
+            { label = "Gruvbox Soft",   icon = "󰖨", style = "gruvbox_soft"   },
+            { label = "Gruvbox Dark",   icon = "●",  style = "gruvbox_dark"   },
+            { label = "Gruvbox Darker", icon = "󰖓",  style = "gruvbox_darker" },
+            { label = "Gruvbox Light",  icon = "󰛪",  style = "gruvbox_light"  },
         },
     },
     {

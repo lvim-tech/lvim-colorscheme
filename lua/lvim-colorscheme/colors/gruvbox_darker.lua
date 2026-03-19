@@ -1,4 +1,4 @@
-local ret = vim.deepcopy(require("lvim-colorscheme.colors.gruvbox"))
+local ret = vim.deepcopy(require("lvim-colorscheme.colors.gruvbox_dark"))
 
 ---@type Palette
 return vim.tbl_deep_extend("force", ret, {

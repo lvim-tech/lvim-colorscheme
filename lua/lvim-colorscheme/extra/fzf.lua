@@ -43,13 +43,12 @@ function M.generate()
         if vim.fn.hlexists(v[2]) == 1 then
             hl_group = v[2]
         end
-        print(hl_group)
         assert(hl_group, "hl_group not found for " .. v[2])
         local hl = vim.api.nvim_get_hl(0, { name = hl_group, link = false })
         assert(hl, "hl not found for " .. hl_group)
         local color = hl[v[1]]
         assert(color, "color not found for " .. c .. ":" .. hl_group)
-        color = string.format("#%06x", color) or nil
+        color = string.format("#%06x", color)
         local line = string.format("--color=%s:%s", c, color)
         if v[3] then
             line = line .. ":" .. v[3]
@@ -69,7 +68,5 @@ M.template = [[export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 %s
   --highlight-line
 "]]
-
-print(M.generate())
 
 return M

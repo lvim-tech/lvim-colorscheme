@@ -184,7 +184,13 @@ function M.cache.write(key, data)
 end
 
 function M.cache.clear()
-    for _, style in ipairs({ "storm", "day", "night", "moon" }) do
+    local styles = {
+        "lvim_soft", "lvim_dark", "lvim_darker", "lvim_light",
+        "kanagawa_soft", "kanagawa_dark", "kanagawa_darker", "kanagawa_light",
+        "gruvbox_soft", "gruvbox_dark", "gruvbox_darker", "gruvbox_light",
+        "everforest_soft", "everforest_dark", "everforest_darker", "everforest_light",
+    }
+    for _, style in ipairs(styles) do
         uv.fs_unlink(M.cache.file(style))
     end
 end
