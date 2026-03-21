@@ -20,7 +20,7 @@ Each family has four variants: **soft** (lighter dark), **dark** (base), **darke
 ### Lvim
 
 | Variant | Style name    | Colorscheme command        |
-|---------|---------------|----------------------------|
+| ------- | ------------- | -------------------------- |
 | Soft    | `lvim_soft`   | `:colorscheme lvim-soft`   |
 | Dark    | `lvim_dark`   | `:colorscheme lvim-dark`   |
 | Darker  | `lvim_darker` | `:colorscheme lvim-darker` |
@@ -28,30 +28,30 @@ Each family has four variants: **soft** (lighter dark), **dark** (base), **darke
 
 ### Kanagawa
 
-| Variant | Style name       | Colorscheme command                |
-|---------|------------------|------------------------------------|
-| Soft    | `kanagawa_soft`  | `:colorscheme lvim-kanagawa-soft`  |
-| Dark    | `kanagawa_dark`  | `:colorscheme lvim-kanagawa-dark`  |
-| Darker  | `kanagawa_darker`| `:colorscheme lvim-kanagawa-darker`|
-| Light   | `kanagawa_light` | `:colorscheme lvim-kanagawa-light` |
+| Variant | Style name        | Colorscheme command                 |
+| ------- | ----------------- | ----------------------------------- |
+| Soft    | `kanagawa_soft`   | `:colorscheme lvim-kanagawa-soft`   |
+| Dark    | `kanagawa_dark`   | `:colorscheme lvim-kanagawa-dark`   |
+| Darker  | `kanagawa_darker` | `:colorscheme lvim-kanagawa-darker` |
+| Light   | `kanagawa_light`  | `:colorscheme lvim-kanagawa-light`  |
 
 ### Gruvbox
 
-| Variant | Style name      | Colorscheme command               |
-|---------|-----------------|-----------------------------------|
-| Soft    | `gruvbox_soft`  | `:colorscheme lvim-gruvbox-soft`  |
-| Dark    | `gruvbox_dark`  | `:colorscheme lvim-gruvbox-dark`  |
-| Darker  | `gruvbox_darker`| `:colorscheme lvim-gruvbox-darker`|
-| Light   | `gruvbox_light` | `:colorscheme lvim-gruvbox-light` |
+| Variant | Style name       | Colorscheme command                |
+| ------- | ---------------- | ---------------------------------- |
+| Soft    | `gruvbox_soft`   | `:colorscheme lvim-gruvbox-soft`   |
+| Dark    | `gruvbox_dark`   | `:colorscheme lvim-gruvbox-dark`   |
+| Darker  | `gruvbox_darker` | `:colorscheme lvim-gruvbox-darker` |
+| Light   | `gruvbox_light`  | `:colorscheme lvim-gruvbox-light`  |
 
 ### Everforest
 
-| Variant | Style name          | Colorscheme command                    |
-|---------|---------------------|----------------------------------------|
-| Soft    | `everforest_soft`   | `:colorscheme lvim-everforest-soft`    |
-| Dark    | `everforest_dark`   | `:colorscheme lvim-everforest-dark`    |
-| Darker  | `everforest_darker` | `:colorscheme lvim-everforest-darker`  |
-| Light   | `everforest_light`  | `:colorscheme lvim-everforest-light`   |
+| Variant | Style name          | Colorscheme command                   |
+| ------- | ------------------- | ------------------------------------- |
+| Soft    | `everforest_soft`   | `:colorscheme lvim-everforest-soft`   |
+| Dark    | `everforest_dark`   | `:colorscheme lvim-everforest-dark`   |
+| Darker  | `everforest_darker` | `:colorscheme lvim-everforest-darker` |
+| Light   | `everforest_light`  | `:colorscheme lvim-everforest-light`  |
 
 ---
 
@@ -62,10 +62,35 @@ Each family has four variants: **soft** (lighter dark), **dark** (base), **darke
 ```lua
 {
     "lvim-tech/lvim-colorscheme",
+    dependencies = { "lvim-tech/lvim-utils" },
     config = function()
-        require("lvim-colorscheme").setup({
-            style = "lvim_dark",
-        })
+        require("lvim-colorscheme").setup({ ... })
+        vim.cmd("colorscheme lvim-dark")
+    end,
+}
+```
+
+### Native (vim.pack / packadd)
+
+```lua
+-- In your init.lua, after the plugin is on the runtimepath:
+vim.pack.add({
+    { src = "https://github.com/lvim-tech/lvim-utils" },
+    { src = "https://github.com/lvim-tech/lvim-colorscheme" },
+})
+
+require("lvim-colorscheme").setup({ ... })
+vim.cmd("colorscheme lvim-dark")
+```
+
+### packer.nvim
+
+```lua
+use {
+    "lvim-tech/lvim-colorscheme",
+    requires = { "lvim-tech/lvim-utils" },
+    config = function()
+        require("lvim-colorscheme").setup({ ... })
         vim.cmd("colorscheme lvim-dark")
     end,
 }
@@ -142,11 +167,11 @@ Requires [lvim-utils](https://github.com/lvim-tech/lvim-utils).
 
 Opens a floating panel organised by family. The currently active theme is marked with `➤`.
 
-| Key | Action |
-|-----|--------|
-| `h` / `l` | Switch family tab |
-| `j` / `k` | Move between variants |
-| `<CR>` | Apply theme |
+| Key           | Action                |
+| ------------- | --------------------- |
+| `h` / `l`     | Switch family tab     |
+| `j` / `k`     | Move between variants |
+| `<CR>`        | Apply theme           |
 | `<Esc>` / `q` | Close without changes |
 
 ---
@@ -211,23 +236,23 @@ require("lvim-colorscheme").setup({
 Generated configuration files for external tools, located in `extras/`.
 Each tool has one file per style (16 styles total).
 
-| Tool | Format |
-|------|--------|
-| Bat | `.tmTheme` |
-| Delta | `.gitconfig` |
-| Fzf | `.sh` |
-| Kitty | `.conf` |
-| Lazydocker | `.yml` |
-| Lazygit | `.yml` |
-| Neomutt | `.conf` |
-| Qtile | `.py` |
-| Qutebrowser | `.py` |
-| Starship | `.toml` |
-| Tmux | `.conf` |
-| Vivid | `.yml` |
-| Waybar | `.css` |
-| Xresources | `.Xresources` |
-| Yazi | `.toml` |
+| Tool        | Format        |
+| ----------- | ------------- |
+| Bat         | `.tmTheme`    |
+| Delta       | `.gitconfig`  |
+| Fzf         | `.sh`         |
+| Kitty       | `.conf`       |
+| Lazydocker  | `.yml`        |
+| Lazygit     | `.yml`        |
+| Neomutt     | `.conf`       |
+| Qtile       | `.py`         |
+| Qutebrowser | `.py`         |
+| Starship    | `.toml`       |
+| Tmux        | `.conf`       |
+| Vivid       | `.yml`        |
+| Waybar      | `.css`        |
+| Xresources  | `.Xresources` |
+| Yazi        | `.toml`       |
 
 To regenerate all extras after modifying a palette:
 
