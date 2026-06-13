@@ -199,11 +199,11 @@ require("lvim-colorscheme").setup({
     -- Brightness for light variants (0.0 = dull, 1.0 = vibrant)
     day_brightness = 0.3,
 
-    -- Dim inactive windows
-    dim_active = true,
+    -- Mute the foreground of non-focused windows (background stays uniform; transparent-safe)
+    dim_inactive = false,
 
-    -- Bold section headers in lualine
-    lualine_bold = false,
+    -- Give the focused window a slightly darker background (independent of dim_inactive)
+    dark_active = false,
 
     -- Override palette colors before highlights are generated
     ---@param colors ColorScheme

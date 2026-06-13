@@ -117,7 +117,9 @@ function M.get(c, opts)
             fg = c.comment,
         }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
         Normal = {
-            bg = opts.transparent and c.none or opts.dim_active and c.bg_soft_dark or c.bg,
+            -- `dark_active` gives the FOCUSED window a slightly darker bg (bg_soft_dark).
+            -- Independent of `dim_inactive`, which mutes the non-focused windows' fg (dim.lua).
+            bg = opts.transparent and c.none or opts.dark_active and c.bg_soft_dark or c.bg,
             fg = c.fg,
         }, -- normal text
         NormalNC = {

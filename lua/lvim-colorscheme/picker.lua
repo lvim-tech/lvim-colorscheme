@@ -131,6 +131,21 @@ local families = {
     },
 }
 
+--- Flat list of every colorscheme name (the value passed to `:colorscheme`), in
+--- family/variant order. Useful for a settings dropdown that never goes stale.
+---@return string[]
+function M.list()
+    local out = {}
+    for _, fam in ipairs(families) do
+        for _, def in ipairs(fam.items) do
+            -- colorscheme name = "lvim-" + style (dashes), with the redundant "lvim_" prefix
+            -- of the base family stripped (lvim_soft → lvim-soft, catppuccin_soft → lvim-catppuccin-soft).
+            out[#out + 1] = "lvim-" .. (def.style:gsub("^lvim_", ""):gsub("_", "-"))
+        end
+    end
+    return out
+end
+
 --- The style name of the currently active lvim theme (or nil).
 ---@return string|nil
 local function active_style()

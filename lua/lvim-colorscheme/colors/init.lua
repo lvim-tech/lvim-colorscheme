@@ -45,14 +45,16 @@ function M.setup(opts)
 
     -- Popups and statusline always get a dark background
     colors.bg_popup = colors.bg_soft_dark
-    colors.bg_statusline = colors.bg_soft_dark
+    -- `transparent` makes the statusline and floats drop their background too, so a
+    -- translucent terminal shows through the panels as well as the editor body. (Sidebars
+    -- are left as configured: some groups blend against bg_sidebar, which must stay a hex.)
+    colors.bg_statusline = opts.transparent and colors.none or colors.bg_soft_dark
 
-    -- Sidebar and Floats are configurable
-    colors.bg_sidebar = opts.styles.sidebars == "transparent" and colors.none
+    colors.bg_sidebar = (opts.transparent or opts.styles.sidebars == "transparent") and colors.none
         or opts.styles.sidebars == "dark" and colors.bg_sidebar
         or colors.bg_dark
 
-    colors.bg_float = opts.styles.floats == "transparent" and colors.none
+    colors.bg_float = (opts.transparent or opts.styles.floats == "transparent") and colors.none
         or opts.styles.floats == "dark" and colors.bg_sidebar
         or colors.bg_dark
 

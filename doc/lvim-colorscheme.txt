@@ -68,8 +68,8 @@ The command name is `lvim-<family>-<variant>`; the matching `style` value is
           variables = {},
       },
       day_brightness = 0.3,       -- vibrancy of the Light variants (0..1)
-      dim_active = true,          -- dim inactive windows
-      lualine_bold = false,       -- bold section headers in the lualine theme
+      dim_inactive = false,       -- mute the foreground of non-focused windows
+      dark_active = false,        -- slightly darker bg for the focused window (independent)
       cache = true,               -- cache generated highlights on disk
       on_colors = function(colors) end,         -- |lvim-colorscheme-overrides|
       on_highlights = function(hl, colors) end, -- |lvim-colorscheme-overrides|

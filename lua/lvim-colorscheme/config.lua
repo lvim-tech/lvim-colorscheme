@@ -1,6 +1,6 @@
 local M = {}
 
-M.version = "1.1.2"
+M.version = "1.1.5"
 
 ---@class lvim-colorscheme.Config
 ---@field on_colors? fun(colors: ColorScheme)
@@ -30,19 +30,22 @@ M.defaults = {
         -- floats = "dark", -- style for floating windows
     },
     day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-    dim_active = true, -- dims active windows
-    lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+    -- These two are INDEPENDENT (use either, both, or neither):
+    -- `dim_inactive` mutes the FOREGROUND of non-focused windows (the background stays
+    -- uniform, so it works under `transparent`); applied via a window-local namespace.
+    dim_inactive = false,
+    -- `dark_active` gives the FOCUSED window a slightly darker background (bg_soft_dark).
+    -- Note: under a translucent terminal a darker bg shows more through, so it reads lighter-
+    -- through rather than darker — pair with an opaque terminal for a true "darker active".
+    dark_active = false,
 
-    --- You can override specific color groups to use other groups or a hex color
-    --- function will be called with a ColorScheme table
-    ---@param colors ColorScheme
-    on_colors = function(colors) end,
+    --- You can override specific color groups to use other groups or a hex color.
+    --- Called with a ColorScheme table (signature on the `lvim-colorscheme.Config` class).
+    on_colors = function() end,
 
-    --- You can override specific highlights to use other groups or a hex color
-    --- function will be called with a Highlights and ColorScheme table
-    ---@param highlights lvim-colorscheme.Highlights
-    ---@param colors ColorScheme
-    on_highlights = function(highlights, colors) end,
+    --- You can override specific highlights to use other groups or a hex color.
+    --- Called with a Highlights and ColorScheme table (signature on the Config class).
+    on_highlights = function() end,
 
     cache = true, -- When set to true, the theme will be cached for better performance
 
@@ -62,7 +65,14 @@ M.options = nil
 
 ---@param options? lvim-colorscheme.Config
 function M.setup(options)
-    M.options = vim.tbl_deep_extend("force", {}, M.defaults, options or {})
+    options = vim.tbl_deep_extend("force", {}, options or {})
+    -- Back-compat: the original `dim_active` darkened the FOCUSED window — that is exactly
+    -- what `dark_active` now does, so map the old key onto it when the new one isn't supplied.
+    if options.dim_active ~= nil and options.dark_active == nil then
+        options.dark_active = options.dim_active
+    end
+    options.dim_active = nil
+    M.options = vim.tbl_deep_extend("force", {}, M.defaults, options)
 end
 
 ---@param opts? lvim-colorscheme.Config

@@ -31,6 +31,21 @@ function M.setup(opts)
         M.terminal(colors)
     end
 
+    -- `dim_inactive`: mute the foreground of non-focused windows via a window-local highlight
+    -- namespace (rebuilt here from the freshly-applied groups); off tears it down. Independent
+    -- of `dark_active` (a darker bg for the focused window, handled in base.lua). Skipped
+    -- during preview (no live windows to manage).
+    if not preview then
+        local ok_dim, dim = pcall(require, "lvim-colorscheme.dim")
+        if ok_dim then
+            if opts.dim_inactive then
+                dim.enable(colors.bg)
+            else
+                dim.disable()
+            end
+        end
+    end
+
     -- Publish to state and notify listeners
     local state = require("lvim-colorscheme.state")
     state.colors = colors
@@ -38,9 +53,13 @@ function M.setup(opts)
     for _, fn in ipairs(state.listeners) do
         pcall(fn, colors, opts)
     end
+    -- `data` lets listeners persist only COMMITTED changes: the picker's live preview sets
+    -- preview = true, so a config can save the theme to its store on a real change while
+    -- ignoring the preview keystrokes. `style` is the applied style (e.g. "everforest_dark").
     vim.api.nvim_exec_autocmds("User", {
         pattern = "LvimColorscheme",
         modeline = false,
+        data = { style = opts.style, preview = preview },
     })
 
     return colors, groups, opts
