@@ -1,0 +1,155 @@
+[manager]
+cwd = { fg = "#6b6b71", italic = true }
+
+# Hovered
+hovered         = { bg = "#e9e9e9" }
+preview_hovered = { bg = "#e9e9e9" }
+
+# Find
+find_keyword  = { fg = "#dadada", bg = "#9e703f", bold = true }
+find_position = { fg = "#307f90", bg = "#d2dadc", bold = true }
+
+# Marker
+marker_copied   = { fg = "#636924", bg = "#636924" }
+marker_cut      = { fg = "#ba4040", bg = "#ba4040" }
+marker_marked   = { fg = "#9f3d77", bg = "#9f3d77" }
+marker_selected = { fg = "#3a7885", bg = "#3a7885" }
+
+# Tab
+tab_active   = { fg = "#5e8888", bg = "#e9e9e9" }
+tab_inactive = { fg = "#3c7478", bg = "#E4E4E4" }
+tab_width    = 1
+
+# Count
+count_copied   = { fg = "#5e8888", bg = "#25803c" }
+count_cut      = { fg = "#5e8888", bg = "#d63f3f" }
+count_selected = { fg = "#5e8888", bg = "#307f90" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#4b945e" }
+
+[mode]
+normal_main = { fg = "#b6b6b6", bg = "#3a7885", bold = true }
+normal_alt  = { fg = "#3a7885", bg = "#3c7478" }
+
+select_main = { fg = "#b6b6b6", bg = "#9f3d77", bold = true }
+select_alt  = { fg = "#9f3d77", bg = "#3c7478" }
+
+unset_main  = { fg = "#b6b6b6", bg = "#75519f", bold = true }
+unset_alt   = { fg = "#75519f", bg = "#3c7478" }
+
+[status]
+separator_open    = ""
+separator_close   = ""
+# separator_style = { fg = "#3c7478", bg = "#3c7478" }
+
+# Progress
+progress_label  = { fg = "#6b6b71", bold = true }
+progress_normal = { fg = "#E4E4E4" }
+progress_error  = { fg = "#ba4040" }
+
+# Permissions
+perm_type  = { fg = "#3a7885" }
+perm_read  = { fg = "#60652c" }
+perm_write = { fg = "#ba4040" }
+perm_exec  = { fg = "#2f7a42" }
+perm_sep   = { fg = "#6c728b" }
+
+[pick]
+border   = { fg = "#4b945e" }
+active   = { fg = "#5e8888",  bg = "#e9e9e9" }
+inactive = { fg = "#5e8888" }
+
+# Input
+[input]
+border   = { fg = "#307f90" }
+title    = { fg = "#307f90" }
+value    = { fg = "#75519f" }
+selected = { bg = "#e9e9e9" }
+
+# Completion
+[completion]
+border   = { fg = "#307f90" }
+active   = { fg = "#5e8888", bg = "#e9e9e9" }
+inactive = { fg = "#5e8888" }
+
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
+
+# Tasks
+[tasks]
+border  = { fg = "#4b945e" }
+title   = { fg = "#4b945e" }
+hovered = { fg = "#5e8888", bg="#e9e9e9" }
+
+# Which
+[which]
+cols            = 3
+mask            = { bg = "#dadada" }
+cand            = { fg = "#2d7065" }
+rest            = { fg = "#3a7885" }
+desc            = { fg = "#9f3d77" }
+separator       = " ➜ "
+separator_style = { fg = "#6c728b" }
+
+# Confirm
+[confirm]
+border  = { fg = "#307f90" }
+title   = { fg = "#4b945e" }
+content = {}
+list    = {}
+btn_yes = { bg = "#e9e9e9" }
+btn_no  = {}
+btn_labels = [ "  [Y]es  ", "  (N)o  " ]
+
+# Spot
+[spot]
+border  = { fg = "#4b945e" }
+title   = { fg = "#4b945e" }
+
+# Notify
+[notify]
+title_info  = { fg = "#307f90" }
+title_warn  = { fg = "#ae7435" }
+title_error = { fg = "#d63f3f" }
+
+icon_error = ""
+icon_warn = ""
+icon_info = ""
+
+# Help
+[help]
+on      = { fg = "#2f7a42" }
+run     = { fg = "#9f3d77" }
+hovered = { bg = "#e9e9e9" }
+footer  = { fg = "#5e8888", bg = "#E4E4E4" }
+
+[filetype]
+
+rules = [
+	# Images
+	{ mime = "image/*", fg = "#60652c" },
+
+	# Media
+	{ mime = "{audio,video}/*", fg = "#9f3d77" },
+
+	# Archives
+	{ mime = "application/*zip", fg = "#ba4040" },
+	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#ba4040" },
+
+	# Documents
+	{ mime = "application/{pdf,doc,rtf,vnd.*}", fg = "#2d7065" },
+
+	# Empty files
+	# { mime = "inode/x-empty", fg = "#ba4040" },
+
+	# Special files
+	{ name = "*", is = "orphan", bg = "#ba4040" },
+	{ name = "*", is = "exec"  , fg = "#2f7a42" },
+
+	# Fallback
+	{ name = "*/", fg = "#3a7885" }
+]
+    

@@ -115,11 +115,15 @@ end
 ---@return lvim-colorscheme.Highlights
 function M.resolve(groups)
     for _, hl in pairs(groups) do
-        if type(hl.style) == "table" then
-            for k, v in pairs(hl.style) do
-                hl[k] = v
+        -- a value may be a link string; only definition tables carry a `style`
+        if type(hl) == "table" then
+            local style = hl.style
+            if type(style) == "table" then
+                for k, v in pairs(style) do
+                    hl[k] = v
+                end
+                hl.style = nil
             end
-            hl.style = nil
         end
     end
     return groups
@@ -185,10 +189,22 @@ end
 
 function M.cache.clear()
     local styles = {
-        "lvim_soft", "lvim_dark", "lvim_darker", "lvim_light",
-        "kanagawa_soft", "kanagawa_dark", "kanagawa_darker", "kanagawa_light",
-        "gruvbox_soft", "gruvbox_dark", "gruvbox_darker", "gruvbox_light",
-        "everforest_soft", "everforest_dark", "everforest_darker", "everforest_light",
+        "lvim_soft",
+        "lvim_dark",
+        "lvim_darker",
+        "lvim_light",
+        "kanagawa_soft",
+        "kanagawa_dark",
+        "kanagawa_darker",
+        "kanagawa_light",
+        "gruvbox_soft",
+        "gruvbox_dark",
+        "gruvbox_darker",
+        "gruvbox_light",
+        "everforest_soft",
+        "everforest_dark",
+        "everforest_darker",
+        "everforest_light",
     }
     for _, style in ipairs(styles) do
         uv.fs_unlink(M.cache.file(style))

@@ -38,7 +38,7 @@
     plus-emph-style = syntax "#15282d"
     plus-empty-line-marker-style = syntax "#212425"
     line-numbers-plus-style = "#5f7240"
-    line-numbers-zero-style = "#54546D"
+    line-numbers-zero-style = "#54546d"
     whitespace-error-style = "#766b90"
     merge-conflict-ours-diff-header-style = "#e0c286" bold
     merge-conflict-theirs-diff-header-style = "#debe7e" bold overline

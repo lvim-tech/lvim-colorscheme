@@ -5,7 +5,7 @@ palette = {
     "border": "#17181d",
     "current-line": "#212229",
     "selection": "#25262e",
-    "foreground": "#54546D",
+    "foreground": "#54546d",
     "foreground-alt": "#5d5d79",
     "foreground-attention": "#54546d",
     "comment": "#51515b",

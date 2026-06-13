@@ -1,15 +1,23 @@
 local M = {}
 
-M.version = "4.11.0" -- x-release-please-version
+M.version = "1.1.2"
 
 ---@class lvim-colorscheme.Config
----@field on_colors fun(colors: ColorScheme)
----@field on_highlights fun(highlights: lvim-colorscheme.Highlights, colors: ColorScheme)
+---@field on_colors? fun(colors: ColorScheme)
+---@field on_highlights? fun(highlights: lvim-colorscheme.Highlights, colors: ColorScheme)
+---@field _preview? boolean  Internal: lightweight live-preview load (skips hi clear + User autocmd)
 M.defaults = {
     style = "lvim_dark",
     light_style = "lvim_light", -- The theme is used when the background is set to light
+    auto_background = false, -- Reload `style`/`light_style` automatically when `vim.o.background` changes
     transparent = false, -- Enable this to disable setting the background color
     terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+    picker = {
+        -- During live preview: true (default) recolours the picker itself to each previewed
+        -- theme too (full live preview); false keeps the picker's own colours stable while
+        -- only the editor behind it previews.
+        live_chrome = true,
+    },
     styles = {
         -- Style to be applied to different syntax groups
         -- Value is any valid attr-list value for `:help nvim_set_hl`

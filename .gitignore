@@ -1,15 +1,21 @@
-*.log
-/.repro
-/.tests
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Tags
+tags
+/doc/tags
+
+# Lua
+luac.out
+*.luac
+
+# Build / test / logs
 /build
 /debug
-/doc/tags
-foo.*
+/.repro
+/.tests
 node_modules
-tt.*
-
-.git/cs_files
-.git/cs_workspaces
-cs_files
-cs_workspaces
-
+*.log

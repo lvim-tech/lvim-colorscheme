@@ -7,8 +7,15 @@ function M.setup(opts)
     local colors = require("lvim-colorscheme.colors").setup(opts)
     local groups = require("lvim-colorscheme.groups").setup(colors, opts)
 
+    -- Preview (`opts._preview`, set by the picker's live preview) skips only `hi clear`:
+    -- it is unnecessary between lvim variants (the group set is identical, so nvim_set_hl
+    -- overwrites cleanly) and clearing flickers the picker's stacked-float borders. The
+    -- User autocmd IS still fired so self-theming plugins (lvim-utils etc.) re-sync their
+    -- palette and recolour live — that is the whole point of preview.
+    local preview = opts._preview == true
+
     -- only needed to clear when not the default colorscheme
-    if vim.g.colors_name then
+    if vim.g.colors_name and not preview then
         vim.cmd("hi clear")
     end
 
@@ -27,12 +34,12 @@ function M.setup(opts)
     -- Publish to state and notify listeners
     local state = require("lvim-colorscheme.state")
     state.colors = colors
-    state.opts   = opts
+    state.opts = opts
     for _, fn in ipairs(state.listeners) do
         pcall(fn, colors, opts)
     end
     vim.api.nvim_exec_autocmds("User", {
-        pattern  = "LvimColorscheme",
+        pattern = "LvimColorscheme",
         modeline = false,
     })
 

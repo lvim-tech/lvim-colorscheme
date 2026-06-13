@@ -82,10 +82,21 @@ function M.setup(opts)
     }
 
     colors.blend = {}
-    for _, name in ipairs({ "blue", "green", "orange", "red", "cyan", "purple",
-                            "error", "warning", "info", "hint", "debug" }) do
+    for _, name in ipairs({
+        "blue",
+        "green",
+        "orange",
+        "red",
+        "cyan",
+        "purple",
+        "error",
+        "warning",
+        "info",
+        "hint",
+        "debug",
+    }) do
         colors.blend[name .. "High"] = util.blend(colors[name], 0.1, colors.bg)
-        colors.blend[name .. "Low"]  = util.blend(colors[name], 0.3, colors.bg)
+        colors.blend[name .. "Low"] = util.blend(colors[name], 0.3, colors.bg)
     end
 
     -- stylua: ignore

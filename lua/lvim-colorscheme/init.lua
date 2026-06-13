@@ -22,7 +22,28 @@ function M.load(opts)
     return require("lvim-colorscheme.theme").setup(opts)
 end
 
-M.setup = config.setup
+--- Configure the colorscheme and register the optional autocmds (auto background swap).
+---@param opts? lvim-colorscheme.Config
+function M.setup(opts)
+    config.setup(opts)
+    local grp = vim.api.nvim_create_augroup("lvim_colorscheme", { clear = true })
+    -- Auto background: when `vim.o.background` flips, reload with the style for that
+    -- background (style for dark, light_style for light). Only the lvim styles are touched.
+    vim.api.nvim_create_autocmd("OptionSet", {
+        group = grp,
+        pattern = "background",
+        callback = function()
+            local o = config.options or config.defaults
+            if not o.auto_background or not vim.g.colors_name or not vim.g.colors_name:match("^lvim%-") then
+                return
+            end
+            local style = vim.v.option_new == "light" and o.light_style or o.style
+            vim.schedule(function()
+                M.load({ style = style })
+            end)
+        end,
+    })
+end
 
 --- Register a callback that fires every time the colorscheme loads.
 --- The callback receives (colors: ColorScheme, opts: Config).

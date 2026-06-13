@@ -1,17 +1,8 @@
 # LVIM Colorscheme
 
-A Neovim colorscheme written in Lua with multiple theme families, each available in four variants.
+A Neovim colorscheme written in Lua with 12 theme families, each available in four variants.
 
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/lvim-tech/lvim-colorscheme/blob/main/LICENSE)
-
-## Screenshots
-
-![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_01.png)
-![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_02.png)
-![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_03.png)
-![LVIM Colorscheme](https://github.com/lvim-tech/lvim-colorscheme/blob/main/media/lvim-colorscheme-screenshot_04.png)
-
----
 
 ## Themes
 
@@ -53,6 +44,77 @@ Each family has four variants: **soft** (lighter dark), **dark** (base), **darke
 | Darker  | `everforest_darker` | `:colorscheme lvim-everforest-darker` |
 | Light   | `everforest_light`  | `:colorscheme lvim-everforest-light`  |
 
+### Catppuccin
+
+| Variant | Style name          | Colorscheme command                   |
+| ------- | ------------------- | ------------------------------------- |
+| Soft    | `catppuccin_soft`   | `:colorscheme lvim-catppuccin-soft`   |
+| Dark    | `catppuccin_dark`   | `:colorscheme lvim-catppuccin-dark`   |
+| Darker  | `catppuccin_darker` | `:colorscheme lvim-catppuccin-darker` |
+| Light   | `catppuccin_light`  | `:colorscheme lvim-catppuccin-light`  |
+
+### Tokyo Night
+
+| Variant | Style name          | Colorscheme command                   |
+| ------- | ------------------- | ------------------------------------- |
+| Soft    | `tokyonight_soft`   | `:colorscheme lvim-tokyonight-soft`   |
+| Dark    | `tokyonight_dark`   | `:colorscheme lvim-tokyonight-dark`   |
+| Darker  | `tokyonight_darker` | `:colorscheme lvim-tokyonight-darker` |
+| Light   | `tokyonight_light`  | `:colorscheme lvim-tokyonight-light`  |
+
+### Nord
+
+| Variant | Style name    | Colorscheme command             |
+| ------- | ------------- | ------------------------------- |
+| Soft    | `nord_soft`   | `:colorscheme lvim-nord-soft`   |
+| Dark    | `nord_dark`   | `:colorscheme lvim-nord-dark`   |
+| Darker  | `nord_darker` | `:colorscheme lvim-nord-darker` |
+| Light   | `nord_light`  | `:colorscheme lvim-nord-light`  |
+
+### Dracula
+
+| Variant | Style name       | Colorscheme command                |
+| ------- | ---------------- | ---------------------------------- |
+| Soft    | `dracula_soft`   | `:colorscheme lvim-dracula-soft`   |
+| Dark    | `dracula_dark`   | `:colorscheme lvim-dracula-dark`   |
+| Darker  | `dracula_darker` | `:colorscheme lvim-dracula-darker` |
+| Light   | `dracula_light`  | `:colorscheme lvim-dracula-light`  |
+
+### Rosé Pine
+
+| Variant | Style name        | Colorscheme command                 |
+| ------- | ----------------- | ----------------------------------- |
+| Soft    | `rosepine_soft`   | `:colorscheme lvim-rosepine-soft`   |
+| Dark    | `rosepine_dark`   | `:colorscheme lvim-rosepine-dark`   |
+| Darker  | `rosepine_darker` | `:colorscheme lvim-rosepine-darker` |
+| Light   | `rosepine_light`  | `:colorscheme lvim-rosepine-light`  |
+
+### Material
+
+| Variant | Style name        | Colorscheme command                 |
+| ------- | ----------------- | ----------------------------------- |
+| Soft    | `material_soft`   | `:colorscheme lvim-material-soft`   |
+| Dark    | `material_dark`   | `:colorscheme lvim-material-dark`   |
+| Darker  | `material_darker` | `:colorscheme lvim-material-darker` |
+| Light   | `material_light`  | `:colorscheme lvim-material-light`  |
+
+### Solarized
+
+| Variant | Style name         | Colorscheme command                  |
+| ------- | ------------------ | ------------------------------------ |
+| Soft    | `solarized_soft`   | `:colorscheme lvim-solarized-soft`   |
+| Dark    | `solarized_dark`   | `:colorscheme lvim-solarized-dark`   |
+| Darker  | `solarized_darker` | `:colorscheme lvim-solarized-darker` |
+| Light   | `solarized_light`  | `:colorscheme lvim-solarized-light`  |
+
+### Nightfox
+
+| Variant | Style name        | Colorscheme command                 |
+| ------- | ----------------- | ----------------------------------- |
+| Soft    | `nightfox_soft`   | `:colorscheme lvim-nightfox-soft`   |
+| Dark    | `nightfox_dark`   | `:colorscheme lvim-nightfox-dark`   |
+| Darker  | `nightfox_darker` | `:colorscheme lvim-nightfox-darker` |
+| Light   | `nightfox_light`  | `:colorscheme lvim-nightfox-light`  |
 ---
 
 ## Installation
@@ -60,7 +122,7 @@ Each family has four variants: **soft** (lighter dark), **dark** (base), **darke
 ### lazy.nvim
 
 ```lua
-{
+return {
     "lvim-tech/lvim-colorscheme",
     dependencies = { "lvim-tech/lvim-utils" },
     config = function()
@@ -86,14 +148,14 @@ vim.cmd("colorscheme lvim-dark")
 ### packer.nvim
 
 ```lua
-use {
+use({
     "lvim-tech/lvim-colorscheme",
     requires = { "lvim-tech/lvim-utils" },
     config = function()
         require("lvim-colorscheme").setup({ ... })
         vim.cmd("colorscheme lvim-dark")
     end,
-}
+})
 ```
 
 ---
@@ -108,6 +170,16 @@ require("lvim-colorscheme").setup({
     -- Style used when vim.o.background = "light"
     light_style = "lvim_light",
 
+    -- Reload style/light_style automatically when vim.o.background changes
+    auto_background = false,
+
+    -- Theme picker behaviour
+    picker = {
+        -- true: the picker recolors to each previewed theme too (full live preview);
+        -- false: picker keeps its own colors while only the editor previews
+        live_chrome = true,
+    },
+
     -- Disable background color (for transparent terminals)
     transparent = false,
 
@@ -116,8 +188,8 @@ require("lvim-colorscheme").setup({
 
     -- Syntax group styles
     styles = {
-        comments  = { italic = true },
-        keywords  = { italic = true },
+        comments = { italic = true },
+        keywords = { italic = true },
         functions = { italic = true },
         variables = {},
         -- sidebars = "dark",  -- "dark" | "transparent" | "normal"
@@ -159,20 +231,21 @@ require("lvim-colorscheme").setup({
 
 ## Theme picker
 
-Requires [lvim-utils](https://github.com/lvim-tech/lvim-utils).
-
 ```vim
 :LvimColorscheme
 ```
 
-Opens a floating panel organised by family. The currently active theme is marked with `➤`.
+Opens a floating panel organised by family (via [lvim-utils](https://github.com/lvim-tech/lvim-utils)),
+with **live preview** — the theme applies as you move between variants and is restored if
+you cancel. The currently active theme is marked with `➤`. When lvim-utils is not installed
+it falls back to `vim.ui.select`, so there is no hard dependency.
 
-| Key           | Action                |
-| ------------- | --------------------- |
-| `h` / `l`     | Switch family tab     |
-| `j` / `k`     | Move between variants |
-| `<CR>`        | Apply theme           |
-| `<Esc>` / `q` | Close without changes |
+| Key           | Action                            |
+| ------------- | --------------------------------- |
+| `h` / `l`     | Switch family tab                 |
+| `j` / `k`     | Move between variants (previewed) |
+| `<CR>`        | Apply theme                       |
+| `<Esc>` / `q` | Close, restoring the previous     |
 
 ---
 
@@ -183,8 +256,8 @@ Opens a floating panel organised by family. The currently active theme is marked
 ```lua
 local lcs = require("lvim-colorscheme")
 
-local colors = lcs.colors  -- ColorScheme | nil
-local opts   = lcs.opts    -- Config | nil
+local colors = lcs.colors -- ColorScheme | nil
+local opts = lcs.opts -- Config | nil
 ```
 
 `lcs.colors` always reflects the currently active theme — no caching on the caller side needed.
@@ -195,7 +268,7 @@ Fired after every colorscheme load, before the `User LvimColorscheme` autocmd.
 
 ```lua
 require("lvim-colorscheme").on_colors(function(colors, opts)
-    local bg   = colors.bg
+    local bg = colors.bg
     local blue = colors.blue
 end)
 ```
@@ -206,7 +279,7 @@ Use this when you want to react to theme changes without a hard dependency on th
 
 ```lua
 vim.api.nvim_create_autocmd("User", {
-    pattern  = "LvimColorscheme",
+    pattern = "LvimColorscheme",
     callback = function()
         local colors = require("lvim-colorscheme").colors
     end,
@@ -221,7 +294,7 @@ vim.api.nvim_create_autocmd("User", {
 require("lvim-colorscheme").setup({
     on_colors = function(colors)
         colors.blue = "#89b4fa"
-        colors.red  = "#f38ba8"
+        colors.red = "#f38ba8"
     end,
     on_highlights = function(hl, colors)
         hl.Comment = { fg = colors.comment, italic = false }
@@ -234,7 +307,7 @@ require("lvim-colorscheme").setup({
 ## Extras
 
 Generated configuration files for external tools, located in `extras/`.
-Each tool has one file per style (16 styles total).
+Each tool has one file per style (48 styles total).
 
 | Tool        | Format        |
 | ----------- | ------------- |
@@ -242,6 +315,9 @@ Each tool has one file per style (16 styles total).
 | Delta       | `.gitconfig`  |
 | Fzf         | `.sh`         |
 | Kitty       | `.conf`       |
+| WezTerm     | `.toml`       |
+| Alacritty   | `.toml`       |
+| Ghostty     | `.conf`       |
 | Lazydocker  | `.yml`        |
 | Lazygit     | `.yml`        |
 | Neomutt     | `.conf`       |
@@ -253,9 +329,12 @@ Each tool has one file per style (16 styles total).
 | Waybar      | `.css`        |
 | Xresources  | `.Xresources` |
 | Yazi        | `.toml`       |
+| Zed         | `.json`       |
+| Helix       | `.toml`       |
 
-To regenerate all extras after modifying a palette:
+Regenerate the extras after modifying a palette:
 
 ```vim
-:lua require("lvim-colorscheme.extra").generate_themes()
+:LvimColorscheme extras          " all tools
+:LvimColorscheme extras kitty    " a single tool
 ```

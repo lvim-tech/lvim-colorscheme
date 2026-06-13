@@ -4,8 +4,8 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  local tmux = util.template(
-    [[
+    local tmux = util.template(
+        [[
 set -g mode-style "fg=${bg_soft_dark},bg=${orange_dark}"
 
 set -g message-style "fg=${teal_dark},bg=${bg_dark}"
@@ -56,8 +56,10 @@ set -g @prefix_highlight_fg "${red},bold"
 set -g @prefix_highlight_bg "${bg_soft_dark}"
 set -g @prefix_highlight_show_copy_mode 'on'
 set -g @prefix_highlight_copy_mode_attr "fg=${red},bold,bg=${bg_dark}"
-]], colors)
-  return tmux
+]],
+        colors
+    )
+    return tmux
 end
 
 return M

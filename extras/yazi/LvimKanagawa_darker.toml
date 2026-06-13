@@ -16,14 +16,14 @@ marker_marked   = { fg = "#c4746e", bg = "#c4746e" }
 marker_selected = { fg = "#4d699b", bg = "#4d699b" }
 
 # Tab
-tab_active   = { fg = "#54546D", bg = "#212229" }
+tab_active   = { fg = "#54546d", bg = "#212229" }
 tab_inactive = { fg = "#505067", bg = "#1c1d23" }
 tab_width    = 1
 
 # Count
-count_copied   = { fg = "#54546D", bg = "#697b52" }
-count_cut      = { fg = "#54546D", bg = "#b24b4b" }
-count_selected = { fg = "#54546D", bg = "#4b869b" }
+count_copied   = { fg = "#54546d", bg = "#697b52" }
+count_cut      = { fg = "#54546d", bg = "#b24b4b" }
+count_selected = { fg = "#54546d", bg = "#4b869b" }
 
 # Border
 border_symbol = "│"
@@ -58,8 +58,8 @@ perm_sep   = { fg = "#51515b" }
 
 [pick]
 border   = { fg = "#5a6849" }
-active   = { fg = "#54546D",  bg = "#212229" }
-inactive = { fg = "#54546D" }
+active   = { fg = "#54546d",  bg = "#212229" }
+inactive = { fg = "#54546d" }
 
 # Input
 [input]
@@ -71,8 +71,8 @@ selected = { bg = "#212229" }
 # Completion
 [completion]
 border   = { fg = "#4a6494" }
-active   = { fg = "#54546D", bg = "#212229" }
-inactive = { fg = "#54546D" }
+active   = { fg = "#54546d", bg = "#212229" }
+inactive = { fg = "#54546d" }
 
 icon_file    = ""
 icon_folder  = ""
@@ -82,7 +82,7 @@ icon_command = ""
 [tasks]
 border  = { fg = "#5a6849" }
 title   = { fg = "#5a6849" }
-hovered = { fg = "#54546D", bg="#212229" }
+hovered = { fg = "#54546d", bg="#212229" }
 
 # Which
 [which]
@@ -124,7 +124,7 @@ icon_info = ""
 on      = { fg = "#6e8156" }
 run     = { fg = "#c4746e" }
 hovered = { bg = "#212229" }
-footer  = { fg = "#54546D", bg = "#1c1d23" }
+footer  = { fg = "#54546d", bg = "#1c1d23" }
 
 [filetype]
 

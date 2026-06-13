@@ -1,0 +1,192 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "FiraCode Nerd Font", monospace;
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #131a24;
+    color: #bcbdbd;
+    padding: 0;
+    margin: 0;
+}
+
+#workspaces,
+#clock,
+#tray,
+#pulseaudio,
+#network,
+#battery,
+#cpu,
+#memory,
+#disk,
+#disk-data,
+#custom-kb,
+#hyprland-language,
+#mpd,
+#backlight,
+#temperature {
+    padding: 0 8px;
+    margin: 0 4px;
+    background-color: #131a24;
+    border: none;
+}
+
+#clock:hover,
+#tray:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#disk-data:hover,
+#custom-kb:hover,
+#hyprland-language:hover,
+#mpd:hover,
+#backlight:hover,
+#temperature:hover {
+    background-color: #192330;
+}
+
+#workspaces {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+#workspaces button {
+    border-radius: 0;
+    padding: 0 10px;
+    margin: 0;
+    background: transparent;
+    color: #bcbcbd;
+    border: none;
+}
+
+#workspaces button:hover {
+    background: #192330;
+}
+
+#workspaces button.active {
+    border-radius: 0;
+    background: #192330;
+    color: #c1ac71;
+    border: none;
+}
+
+#window {
+    color: #c1ac71;
+    padding: 0 10px;
+}
+
+#disk {
+    color: #75bbbd;
+}
+
+#disk-data {
+    color: #75bbbd;
+}
+
+#language {
+    color: #75bbbd;
+    padding: 0 8px;
+    margin: 0 4px;
+    background-color: #131a24;
+    border: none;
+}
+
+#language:hover {
+    background-color: #192330;
+}
+
+#pulseaudio {
+    color: #d49360;
+}
+
+#pulseaudio.muted {
+    color: #b46478;
+}
+
+#network {
+    color: #7292bd;
+}
+
+#network.disconnected {
+    color: #b46478;
+}
+
+#battery {
+    color: #c1ac71;
+}
+
+#battery.charging {
+    color: #89aa9a;
+}
+
+#battery.warning,
+#battery.critical {
+    color: #b46478;
+}
+
+#cpu {
+    color: #b46478;
+}
+
+#memory {
+    color: #b46478;
+}
+
+#clock {
+    color: #7292bd;
+}
+
+#mpd {
+    color: #75bbbd;
+}
+
+#mpd.disconnected {
+    color: #b46478;
+}
+
+#mpd.stopped {
+    color: #b1b5bc;
+}
+
+#mpd.paused {
+    color: #62b2b4;
+}
+
+#custom-mpd-prev {
+    color: #75bbbd;
+}
+
+#custom-mpd-next {
+    color: #75bbbd;
+}
+
+#custom-mail {
+    color: #75bbbd;
+    padding: 0 8px;
+    margin: 0 4px;
+    background-color: #131a24;
+    border: none;
+}
+
+#custom-mail:hover {
+    background-color: #192330;
+}
+
+#custom-mail.has-mail {
+    color: #d49360;
+}
+
+#custom-mail.no-mail {
+    color: #89aa9a;
+}
+
+#custom-mail.error {
+    color: #b46478;
+}

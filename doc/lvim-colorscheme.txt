@@ -1,0 +1,199 @@
+*lvim-colorscheme.txt*    A Lua colorscheme with 12 muted theme families
+
+==============================================================================
+CONTENTS                                                  *lvim-colorscheme*
+
+  1. Introduction ........................... |lvim-colorscheme-intro|
+  2. Themes ................................. |lvim-colorscheme-themes|
+  3. Setup .................................. |lvim-colorscheme-setup|
+  4. Theme picker ........................... |lvim-colorscheme-picker|
+  5. Command ................................ |lvim-colorscheme-command|
+  6. Public API ............................. |lvim-colorscheme-api|
+  7. Color overrides ........................ |lvim-colorscheme-overrides|
+  8. Extras ................................. |lvim-colorscheme-extras|
+  9. Health ................................. |lvim-colorscheme-health|
+
+==============================================================================
+1. INTRODUCTION                                     *lvim-colorscheme-intro*
+
+lvim-colorscheme provides 12 theme families, each in four brightness variants
+(Soft, Dark, Darker, Light). All families share one muted, low-saturation
+aesthetic: backgrounds are dark and keep each theme's signature tint, accents
+are desaturated (purple most of all), foregrounds are neutralised.
+
+Highlights are generated from a palette and cached on disk. The cache is
+fingerprinted by an internal version (see |lvim-colorscheme-setup| `cache`);
+when the plugin's color logic changes the version is bumped so the cache
+regenerates on next load. Applying a theme fires |User| `LvimColorscheme`, so
+palette-driven plugins (e.g. lvim-utils) can re-theme themselves live.
+
+==============================================================================
+2. THEMES                                          *lvim-colorscheme-themes*
+
+Families: Lvim, Kanagawa, Gruvbox, Everforest, Catppuccin, Tokyo Night, Nord,
+Dracula, Rosé Pine, Material, Solarized, Nightfox.
+
+Each has four variants applied either via the `style` option (see
+|lvim-colorscheme-setup|) or directly with `:colorscheme`:
+>
+    :colorscheme lvim-dark
+    :colorscheme lvim-catppuccin-darker
+    :colorscheme lvim-solarized-soft
+    :colorscheme lvim-nord-light
+<
+The command name is `lvim-<family>-<variant>`; the matching `style` value is
+`<family>_<variant>` (the bare Lvim family drops the family segment, e.g.
+`lvim_soft` / `:colorscheme lvim-soft`). Variants: `soft`, `dark`, `darker`,
+`light`.
+
+==============================================================================
+3. SETUP                                            *lvim-colorscheme-setup*
+
+`setup()` merges your options into the live config; calling `load()` (or
+`:colorscheme`) applies them. Defaults:
+>lua
+  require("lvim-colorscheme").setup({
+      style = "lvim_dark",        -- active style (see |lvim-colorscheme-themes|)
+      light_style = "lvim_light", -- style used when &background is "light"
+      auto_background = false,    -- reload style on &background change
+      transparent = false,        -- do not set a background color
+      terminal_colors = true,     -- set terminal_color_* from the palette
+      picker = {
+          live_chrome = true,     -- recolour the picker itself during preview
+      },
+      styles = {                  -- attrs per syntax category (:h nvim_set_hl)
+          comments  = { italic = true },
+          keywords  = { italic = true },
+          functions = { italic = true },
+          variables = {},
+      },
+      day_brightness = 0.3,       -- vibrancy of the Light variants (0..1)
+      dim_active = true,          -- dim inactive windows
+      lualine_bold = false,       -- bold section headers in the lualine theme
+      cache = true,               -- cache generated highlights on disk
+      on_colors = function(colors) end,         -- |lvim-colorscheme-overrides|
+      on_highlights = function(hl, colors) end, -- |lvim-colorscheme-overrides|
+      plugins = {
+          all = package.loaded.lazy == nil,     -- theme every known plugin
+          auto = true,                          -- detect via the plugin manager
+      },
+  })
+<
+After `setup()`, set the active theme with `:colorscheme lvim-<…>` or by
+passing `style` and calling |lvim-colorscheme-api| `load()`.
+
+==============================================================================
+4. THEME PICKER                                    *lvim-colorscheme-picker*
+
+>
+    :LvimColorscheme
+<
+Opens a floating panel organised by family, with live preview — the theme
+applies as you move between variants and is restored if you cancel. The active
+theme is marked with `➤`. The family tab bar scrolls horizontally when the
+families do not all fit. Without lvim-utils it falls back to |vim.ui.select|,
+so there is no hard dependency.
+
+  Key            Action ~
+  h / l          Switch family tab
+  j / k          Move between variants (previewed)
+  <CR>           Apply theme
+  <Esc> / q      Close, restoring the previous theme
+
+`picker.live_chrome` (|lvim-colorscheme-setup|) controls whether the picker's
+own colors follow each previewed theme (true) or stay fixed (false).
+
+==============================================================================
+5. COMMAND                                        *lvim-colorscheme-command*
+
+                                                        *:LvimColorscheme*
+:LvimColorscheme                Open the |lvim-colorscheme-picker|.
+:LvimColorscheme extras         Regenerate every file under `extras/` for all
+                                styles and tools (see |lvim-colorscheme-extras|).
+:LvimColorscheme extras {tool}  Regenerate only that tool's extras files.
+
+==============================================================================
+6. PUBLIC API                                         *lvim-colorscheme-api*
+
+                                                  *lvim-colorscheme.load()*
+load({opts})                Apply a theme. `opts.style` selects the variant;
+                            other keys override the config for this call.
+                            Returns `colors, groups, opts`.
+>lua
+  require("lvim-colorscheme").load({ style = "nord_dark" })
+<
+Live color access ~
+
+The active palette is published to the plugin state and to listeners:
+>lua
+  local state = require("lvim-colorscheme.state")
+  local c = state.colors          -- the resolved ColorScheme table
+  -- c.bg, c.fg, c.blue, c.red, c.terminal.*, ...
+<
+Callback on load ~
+
+Register a function to run every time a theme is applied:
+>lua
+  table.insert(require("lvim-colorscheme.state").listeners, function(colors, opts)
+      -- colors = active palette, opts = effective config
+  end)
+<
+User autocmd ~
+                                                        *LvimColorscheme*
+Each applied theme fires |User| `LvimColorscheme`. Use it to re-theme your own
+UI from the active palette:
+>lua
+  vim.api.nvim_create_autocmd("User", {
+      pattern = "LvimColorscheme",
+      callback = function()
+          local c = require("lvim-colorscheme.state").colors
+          -- re-apply your highlights from `c`
+      end,
+  })
+<
+==============================================================================
+7. COLOR OVERRIDES                              *lvim-colorscheme-overrides*
+
+Two hooks let you adjust the result without forking a palette.
+
+`on_colors(colors)` mutates the palette before highlights are built:
+>lua
+  require("lvim-colorscheme").setup({
+      on_colors = function(colors)
+          colors.bg = "#101216"
+          colors.comment = colors.fg_dark
+      end,
+  })
+<
+`on_highlights(highlights, colors)` mutates the final highlight groups:
+>lua
+  require("lvim-colorscheme").setup({
+      on_highlights = function(hl, c)
+          hl.Comment = { fg = c.fg_dark, italic = true }
+          hl.LineNr = { fg = c.fg_dark }
+      end,
+  })
+<
+==============================================================================
+8. EXTRAS                                          *lvim-colorscheme-extras*
+
+Generated configuration files for external tools live under `extras/`, one
+file per style (48 styles total). Tools include bat, delta, fzf, kitty,
+lazygit, lazydocker, neomutt, qtile, qutebrowser, starship, tmux, vivid,
+waybar, xresources, yazi, wezterm, alacritty, ghostty, zed, helix.
+
+Regenerate them with the |:LvimColorscheme| `extras` command (all tools, or a
+single named tool). Point the target tool at the matching `extras/<tool>/`
+file for your chosen style.
+
+==============================================================================
+9. HEALTH                                          *lvim-colorscheme-health*
+
+>
+    :checkhealth lvim-colorscheme
+<
+Reports termguicolors / truecolor state, the active style, whether the
+highlight cache is writable, and lvim-utils availability for the picker.
+
+==============================================================================
+vim:tw=78:ts=8:noet:ft=help:norl:

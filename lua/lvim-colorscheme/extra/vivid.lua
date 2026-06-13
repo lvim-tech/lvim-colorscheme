@@ -120,7 +120,9 @@ executable:
   foreground: green
 unimportant:
   foreground: yellow
-]], clean_colors)
+]],
+        clean_colors
+    )
     return vivid
 end
 

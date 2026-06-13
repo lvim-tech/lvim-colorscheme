@@ -4,8 +4,9 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-  colors.bg_search = util.blend_bg(colors.info, 0.1)
-  local yazi = util.template([[
+    colors.bg_search = util.blend_bg(colors.info, 0.1)
+    local yazi = util.template(
+        [[
 [manager]
 cwd = { fg = "${fg_dark}", italic = true }
 
@@ -160,8 +161,10 @@ rules = [
 	# Fallback
 	{ name = "*/", fg = "${blue}" }
 ]
-    ]], colors)
-  return yazi
+    ]],
+        colors
+    )
+    return yazi
 end
 
 return M

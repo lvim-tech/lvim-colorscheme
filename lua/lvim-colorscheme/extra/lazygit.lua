@@ -224,7 +224,9 @@ keybinding:
   submodules:
     init: "i"
     update: "u"
-    bulkMenu: "b"]], colors)
+    bulkMenu: "b"]],
+        colors
+    )
     return lazygit
 end
 

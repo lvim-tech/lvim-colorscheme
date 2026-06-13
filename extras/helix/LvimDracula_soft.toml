@@ -1,0 +1,86 @@
+# Lvim Colorscheme for Helix
+
+"ui.background" = { bg = "bg_dark" }
+"ui.text" = "fg"
+"ui.text.focus" = "fg_light"
+"ui.cursor" = { fg = "bg_dark", bg = "green" }
+"ui.cursor.primary" = { fg = "bg_dark", bg = "green" }
+"ui.cursorline.primary" = { bg = "bg" }
+"ui.selection" = { bg = "bg_visual" }
+"ui.linenr" = "fg_dark"
+"ui.linenr.selected" = "fg_light"
+"ui.statusline" = { fg = "fg", bg = "bg" }
+"ui.statusline.inactive" = { fg = "fg_dark", bg = "bg" }
+"ui.popup" = { fg = "fg", bg = "bg_float" }
+"ui.window" = { fg = "bg_highlight" }
+"ui.help" = { fg = "fg", bg = "bg_float" }
+"ui.menu" = { fg = "fg", bg = "bg_float" }
+"ui.menu.selected" = { fg = "bg_dark", bg = "blue" }
+"ui.virtual.whitespace" = "bg_highlight"
+"ui.virtual.ruler" = { bg = "bg" }
+"ui.virtual.inlay-hint" = "comment"
+
+"comment" = { fg = "comment", modifiers = ["italic"] }
+"variable" = "fg"
+"variable.builtin" = "red"
+"variable.parameter" = "fg_light"
+"constant" = "orange"
+"constant.builtin" = "orange"
+"constant.numeric" = "orange"
+"string" = "green"
+"string.regexp" = "cyan"
+"keyword" = "purple"
+"keyword.control" = "purple"
+"function" = "blue"
+"function.builtin" = "blue"
+"function.macro" = "cyan"
+"type" = "yellow"
+"type.builtin" = "yellow"
+"constructor" = "yellow"
+"operator" = "cyan"
+"punctuation" = "fg_dark"
+"label" = "red"
+"tag" = "red"
+"namespace" = "yellow"
+"attribute" = "cyan"
+
+"markup.heading" = { fg = "blue", modifiers = ["bold"] }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.url" = { fg = "cyan", modifiers = ["underlined"] }
+"markup.link.text" = "red"
+"markup.raw" = "green"
+
+"diff.plus" = "git.add"
+"diff.delta" = "git.change"
+"diff.minus" = "git.delete"
+
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
+"diagnostic.info" = { underline = { color = "blue", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "cyan", style = "curl" } }
+"error" = "red"
+"warning" = "yellow"
+"info" = "blue"
+"hint" = "cyan"
+
+[palette]
+bg_dark = "#20222b"
+bg = "#292b36"
+bg_float = "#20222b"
+bg_highlight = "#313340"
+bg_visual = "#313340"
+fg = "#c7c7b3"
+fg_light = "#c2c2b7"
+fg_dark = "#828287"
+comment = "#737a94"
+blue = "#65c8dd"
+cyan = "#61dfca"
+green = "#58d879"
+orange = "#de9f5c"
+purple = "#9c80c3"
+red = "#dd5757"
+yellow = "#d0da68"
+"git.add" = "#58d879"
+"git.change" = "#d0da68"
+"git.delete" = "#dd5757"

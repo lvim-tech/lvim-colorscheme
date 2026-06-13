@@ -3,22 +3,54 @@ local util = require("lvim-colorscheme.util")
 local M = {}
 
 local styles = {
-    lvim_soft   = "LvimSoft",
-    lvim_dark   = "LvimDark",
+    lvim_soft = "LvimSoft",
+    lvim_dark = "LvimDark",
     lvim_darker = "LvimDarker",
-    lvim_light  = "LvimLight",
-    kanagawa_soft   = "KanagawaSoft",
-    kanagawa_dark   = "KanagawaDark",
+    lvim_light = "LvimLight",
+    kanagawa_soft = "KanagawaSoft",
+    kanagawa_dark = "KanagawaDark",
     kanagawa_darker = "KanagawaDarker",
-    kanagawa_light  = "KanagawaLight",
-    gruvbox_soft   = "GruvboxSoft",
-    gruvbox_dark   = "GruvboxDark",
+    kanagawa_light = "KanagawaLight",
+    gruvbox_soft = "GruvboxSoft",
+    gruvbox_dark = "GruvboxDark",
     gruvbox_darker = "GruvboxDarker",
-    gruvbox_light  = "GruvboxLight",
-    everforest_soft   = "EverforestSoft",
-    everforest_dark   = "EverforestDark",
+    gruvbox_light = "GruvboxLight",
+    everforest_soft = "EverforestSoft",
+    everforest_dark = "EverforestDark",
     everforest_darker = "EverforestDarker",
-    everforest_light  = "EverforestLight",
+    everforest_light = "EverforestLight",
+    catppuccin_soft = "CatppuccinSoft",
+    catppuccin_dark = "CatppuccinDark",
+    catppuccin_darker = "CatppuccinDarker",
+    catppuccin_light = "CatppuccinLight",
+    tokyonight_soft = "TokyonightSoft",
+    tokyonight_dark = "TokyonightDark",
+    tokyonight_darker = "TokyonightDarker",
+    tokyonight_light = "TokyonightLight",
+    nord_soft = "NordSoft",
+    nord_dark = "NordDark",
+    nord_darker = "NordDarker",
+    nord_light = "NordLight",
+    dracula_soft = "DraculaSoft",
+    dracula_dark = "DraculaDark",
+    dracula_darker = "DraculaDarker",
+    dracula_light = "DraculaLight",
+    rosepine_soft = "RosepineSoft",
+    rosepine_dark = "RosepineDark",
+    rosepine_darker = "RosepineDarker",
+    rosepine_light = "RosepineLight",
+    material_soft = "MaterialSoft",
+    material_dark = "MaterialDark",
+    material_darker = "MaterialDarker",
+    material_light = "MaterialLight",
+    solarized_soft = "SolarizedSoft",
+    solarized_dark = "SolarizedDark",
+    solarized_darker = "SolarizedDarker",
+    solarized_light = "SolarizedLight",
+    nightfox_soft = "NightfoxSoft",
+    nightfox_dark = "NightfoxDark",
+    nightfox_darker = "NightfoxDarker",
+    nightfox_light = "NightfoxLight",
 }
 
 -- map of plugin name to plugin extension
@@ -40,16 +72,23 @@ M.extras = {
   waybar          = { ext = "css", url = "https://github.com/Alexays/Waybar", label = "Waybar" },
   xresources      = { ext = "Xresources", url = "https://wiki.archlinux.org/title/X_resources", label = "Xresources" },
   yazi            = { ext = "toml", url = "https://github.com/sxyazi/yazi", label = "Yazi" },
+  wezterm         = { ext = "toml", url = "https://wezfurlong.org/wezterm", label = "WezTerm" },
+  alacritty       = { ext = "toml", url = "https://github.com/alacritty/alacritty", label = "Alacritty" },
+  ghostty         = { ext = "conf", url = "https://ghostty.org", label = "Ghostty" },
+  zed             = { ext = "json", url = "https://zed.dev", label = "Zed" },
+  helix           = { ext = "toml", url = "https://helix-editor.com", label = "Helix" },
 }
 
-function M.generate_themes()
+--- Regenerate the `extras/` theme files for every tool, or just `only` when given.
+---@param only? string  a single tool name from M.extras
+function M.generate_themes(only)
     local lvim_colorscheme = require("lvim-colorscheme")
     vim.o.background = "dark"
 
     -- map of style to style name
 
     ---@type string[]
-    local names = vim.tbl_keys(M.extras)
+    local names = only and { only } or vim.tbl_keys(M.extras)
     table.sort(names)
 
     local function capitalize_first_letter(str)
@@ -58,6 +97,9 @@ function M.generate_themes()
 
     for _, extra in ipairs(names) do
         local info = M.extras[extra]
+        if not info then
+            error("unknown extras tool: " .. tostring(extra))
+        end
         local plugin = require("lvim-colorscheme.extra." .. extra)
         for style, style_name in pairs(styles) do
             local colors, groups, opts = lvim_colorscheme.load({ style = style, plugins = { all = true } })

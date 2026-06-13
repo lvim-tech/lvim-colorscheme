@@ -27,7 +27,7 @@ style_root = "#e44a4a bold"
 [character]
 success_symbol = "[ ](bold #8a8e46)"
 error_symbol = "[ ](bold #e44a4a)"
-vimcmd_replace_one_symbol = "[ ](bold ${orange_dark_dark})"
+vimcmd_replace_one_symbol = "[ ](bold #a05e33)"
 vimcmd_replace_symbol = "[ ](bold #a05e33)"
 vimcmd_symbol = "[ ](bold dimmed #8a8e46)"
 vimcmd_visual_symbol = "[ ](bold dimmed #8a8e46)"
@@ -142,7 +142,7 @@ format = '[ $version]($style) '
 style = "bold #03589C"
 
 [erlang]
-format = '[ $version]$style) '
+format = '[ $version]($style) '
 style = "bold #B83998"
 
 [haskell]

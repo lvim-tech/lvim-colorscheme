@@ -28,7 +28,9 @@ function M.generate(colors)
 *color13: ${terminal.magenta_bright}
 *color14: ${terminal.cyan_bright}
 *color15: ${terminal.white_bright}
-]], colors)
+]],
+        colors
+    )
     return xr
 end
 

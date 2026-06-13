@@ -1,0 +1,42 @@
+[colors]
+foreground = "#b2c7c7"
+background = "#182023"
+cursor_bg = "#a6c974"
+cursor_fg = "#141a1d"
+cursor_border = "#a6c974"
+selection_fg = "#b2c7c7"
+selection_bg = "#242f34"
+scrollbar_thumb = "#242f34"
+split = "#242f34"
+
+ansi = [
+  "#161e21",
+  "#d1676c",
+  "#a6c974",
+  "#deb05c",
+  "#4978da",
+  "#da596e",
+  "#63bbdf",
+  "#bbc8cd",
+]
+brights = [
+  "#314549",
+  "#e76f75",
+  "#aadb56",
+  "#f7bb2d",
+  "#4584fa",
+  "#ef6279",
+  "#3fccfb",
+  "#b2c7c7",
+]
+
+[colors.tab_bar]
+background = "#141a1d"
+
+[colors.tab_bar.active_tab]
+bg_color = "#618adf"
+fg_color = "#141a1d"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#242f34"
+fg_color = "#1c2529"
