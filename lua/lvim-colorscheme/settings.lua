@@ -180,8 +180,17 @@ function M.value_disabled(spec, value)
     end
     -- `dark_active` darkens the active window's bg; with global `transparent` on Normal is NONE
     -- (nothing to darken) → inapplicable, whatever the value.
-    if spec.path == "dark_active" or spec.path == "dark_active_amount" then
+    if spec.path == "dark_active" then
         return opts.transparent == true
+    end
+    -- The darken STRENGTH is inert when transparent is on (as above) OR when the `dark_active`
+    -- toggle itself is off — there is no active-window darkening to size.
+    if spec.path == "dark_active_amount" then
+        return opts.transparent == true or opts.dark_active ~= true
+    end
+    -- The dim STRENGTH only matters while `dim_inactive` is on.
+    if spec.path == "dim_inactive_amount" then
+        return opts.dim_inactive ~= true
     end
     return false
 end
