@@ -115,6 +115,7 @@ Each family has four variants: **soft** (lighter dark), **dark** (base), **darke
 | Dark    | `nightfox_dark`   | `:colorscheme lvim-nightfox-dark`   |
 | Darker  | `nightfox_darker` | `:colorscheme lvim-nightfox-darker` |
 | Light   | `nightfox_light`  | `:colorscheme lvim-nightfox-light`  |
+
 ---
 
 ## Installation
@@ -201,7 +202,18 @@ require("lvim-colorscheme").setup({
 
     -- Filetypes treated as sidebars (get the sidebar background via a Normal:NormalSB winhl).
     -- Add the filetypes of your left/right panels that don't theme themselves.
-    sidebar_filetypes = { "help", "qf", "man", "checkhealth", "lspinfo", "undotree", "aerial", "Outline", "spectre_panel", "dbui" },
+    sidebar_filetypes = {
+        "help",
+        "qf",
+        "man",
+        "checkhealth",
+        "lspinfo",
+        "undotree",
+        "aerial",
+        "Outline",
+        "spectre_panel",
+        "dbui",
+    },
 
     -- Brightness for light variants (0.0 = dull, 1.0 = vibrant)
     day_brightness = 0.3,

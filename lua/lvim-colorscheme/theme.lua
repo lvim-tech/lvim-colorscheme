@@ -33,16 +33,23 @@ function M.setup(opts)
 
     -- `dim_inactive`: mute the foreground of non-focused windows via a window-local highlight
     -- namespace (rebuilt here from the freshly-applied groups); off tears it down. Independent
-    -- of `dark_active` (a darker bg for the focused window, handled in base.lua). Skipped
-    -- during preview (no live windows to manage).
-    if not preview then
-        local ok_dim, dim = pcall(require, "lvim-colorscheme.dim")
-        if ok_dim then
-            if opts.dim_inactive then
-                dim.enable(colors.bg, opts.dim_inactive_amount)
-            else
-                dim.disable()
+    -- of `dark_active` (a darker bg for the focused window, handled in base.lua).
+    local ok_dim, dim = pcall(require, "lvim-colorscheme.dim")
+    if ok_dim then
+        if preview then
+            -- Live preview only rewrites the global (ns 0) highlights, but every non-focused
+            -- split is parked on the dim namespace — so unless we rebuild that namespace from
+            -- the previewed palette those code splits keep their stale dimmed colours while the
+            -- picker float owns focus. (winhighlight panels — neo-tree etc. — aren't dimmed, so
+            -- they already track the preview; only the dimmed splits lagged.) Just rebuild the
+            -- namespace contents: don't reconcile windows or reinstall autocmds during preview.
+            if opts.dim_inactive and dim.ns then
+                dim.build(colors.bg, opts.dim_inactive_amount)
             end
+        elseif opts.dim_inactive then
+            dim.enable(colors.bg, opts.dim_inactive_amount)
+        else
+            dim.disable()
         end
     end
 

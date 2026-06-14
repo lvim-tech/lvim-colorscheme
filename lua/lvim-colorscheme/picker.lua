@@ -237,7 +237,6 @@ function M.open()
     local chrome = pin_chrome and snapshot_chrome() or nil
     ui.tabs({
         title = " Colorscheme",
-        subtitle = current_style and ("  lvim-" .. current_style) or nil,
         tabs = tabs,
         tab_selector = found_tab_idx,
         current_item = found_item_ref,
