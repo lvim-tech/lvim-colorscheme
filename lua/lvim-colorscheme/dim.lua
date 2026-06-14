@@ -119,9 +119,10 @@ end
 ---Enable fg-dimming: build the namespace, dim every non-current dimmable window, and install
 ---the focus/layout autocmds that keep the focused window at full colour.
 ---@param bg_hex string
----@param amount? number  foreground blend, default 0.4
+---@param amount? number  foreground blend (0..1), default 0.4
 function M.enable(bg_hex, amount)
-    M.build(bg_hex, amount or 0.4)
+    amount = math.max(0, math.min(1, amount or 0.4))
+    M.build(bg_hex, amount)
     aug = api.nvim_create_augroup("LvimColorschemeDim", { clear = true })
     reconcile()
     -- Reconcile on any focus/layout change. `BufWinEnter`/`WinNew` catch panels that open

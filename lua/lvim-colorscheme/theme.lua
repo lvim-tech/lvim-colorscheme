@@ -39,7 +39,7 @@ function M.setup(opts)
         local ok_dim, dim = pcall(require, "lvim-colorscheme.dim")
         if ok_dim then
             if opts.dim_inactive then
-                dim.enable(colors.bg)
+                dim.enable(colors.bg, opts.dim_inactive_amount)
             else
                 dim.disable()
             end

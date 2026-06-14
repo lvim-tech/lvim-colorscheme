@@ -127,9 +127,15 @@ function M.setup(colors, opts)
         colors = colors,
         plugins = names,
         version = config.version,
-        -- `dark_active` changes Normal's bg, so it is part of the cache fingerprint. `dim_inactive`
-        -- is a runtime namespace overlay (does not change generated groups) → not fingerprinted.
-        opts = { transparent = opts.transparent, styles = opts.styles, dark_active = opts.dark_active },
+        -- `dark_active` (+ its amount) changes Normal's bg, so they are part of the cache
+        -- fingerprint. `dim_inactive` (+ amount) is a runtime namespace overlay (does not change
+        -- generated groups) → not fingerprinted.
+        opts = {
+            transparent = opts.transparent,
+            styles = opts.styles,
+            dark_active = opts.dark_active,
+            dark_active_amount = opts.dark_active_amount,
+        },
     }
 
     local ret = cache and vim.deep_equal(inputs, cache.inputs) and cache.groups

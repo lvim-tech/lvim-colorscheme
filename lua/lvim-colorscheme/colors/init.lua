@@ -58,6 +58,11 @@ function M.setup(opts)
         or opts.styles.floats == "dark" and colors.bg_sidebar
         or colors.bg_dark
 
+    -- `dark_active` darkens the FOCUSED window's background toward black by `dark_active_amount`
+    -- (a 0..1 fraction; 0 = no change). Independent of `dim_inactive`. base.lua's Normal uses it.
+    colors.bg_active = opts.dark_active and util.blend("#000000", opts.dark_active_amount or 0.2, colors.bg)
+        or colors.bg
+
     local bg_blend = util.blend_bg(colors.bg_light, 0.5)
     colors.bg_visual = bg_blend
     colors.bg_search = bg_blend

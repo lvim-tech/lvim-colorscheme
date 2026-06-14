@@ -1,6 +1,6 @@
 local M = {}
 
-M.version = "1.1.5"
+M.version = "1.1.6"
 
 ---@class lvim-colorscheme.Config
 ---@field on_colors? fun(colors: ColorScheme)
@@ -34,10 +34,16 @@ M.defaults = {
     -- `dim_inactive` mutes the FOREGROUND of non-focused windows (the background stays
     -- uniform, so it works under `transparent`); applied via a window-local namespace.
     dim_inactive = false,
-    -- `dark_active` gives the FOCUSED window a slightly darker background (bg_soft_dark).
-    -- Note: under a translucent terminal a darker bg shows more through, so it reads lighter-
-    -- through rather than darker — pair with an opaque terminal for a true "darker active".
+    -- How strongly `dim_inactive` mutes the foreground: a 0..1 fraction blended toward the
+    -- background — 0 = no dimming, 1 = fully invisible. Default 0.4.
+    dim_inactive_amount = 0.4,
+    -- `dark_active` darkens the FOCUSED window's background (toward black). Note: under a
+    -- translucent terminal a darker bg shows more through — pair with an opaque terminal for a
+    -- true "darker active".
     dark_active = false,
+    -- How much darker `dark_active` makes the focused window: a 0..1 fraction toward black
+    -- (0 = no change, 1 = black). Default 0.2.
+    dark_active_amount = 0.2,
 
     --- You can override specific color groups to use other groups or a hex color.
     --- Called with a ColorScheme table (signature on the `lvim-colorscheme.Config` class).

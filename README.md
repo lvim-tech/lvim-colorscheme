@@ -202,8 +202,14 @@ require("lvim-colorscheme").setup({
     -- Mute the foreground of non-focused windows (background stays uniform; transparent-safe)
     dim_inactive = false,
 
-    -- Give the focused window a slightly darker background (independent of dim_inactive)
+    -- Strength of dim_inactive: 0..1 fraction toward the background (0 = none, 1 = invisible)
+    dim_inactive_amount = 0.4,
+
+    -- Darken the focused window's background toward black (independent of dim_inactive)
     dark_active = false,
+
+    -- How much dark_active darkens: 0..1 fraction toward black (0 = none, 1 = black)
+    dark_active_amount = 0.2,
 
     -- Override palette colors before highlights are generated
     ---@param colors ColorScheme

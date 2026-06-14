@@ -69,7 +69,9 @@ The command name is `lvim-<family>-<variant>`; the matching `style` value is
       },
       day_brightness = 0.3,       -- vibrancy of the Light variants (0..1)
       dim_inactive = false,       -- mute the foreground of non-focused windows
-      dark_active = false,        -- slightly darker bg for the focused window (independent)
+      dim_inactive_amount = 0.4,  -- strength of dim_inactive (0..1; 0 none, 1 invisible)
+      dark_active = false,        -- darken the focused window's bg toward black (independent)
+      dark_active_amount = 0.2,   -- how much dark_active darkens (0..1 toward black)
       cache = true,               -- cache generated highlights on disk
       on_colors = function(colors) end,         -- |lvim-colorscheme-overrides|
       on_highlights = function(hl, colors) end, -- |lvim-colorscheme-overrides|
