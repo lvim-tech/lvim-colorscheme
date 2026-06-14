@@ -50,13 +50,28 @@ function M.setup(opts)
     -- are left as configured: some groups blend against bg_sidebar, which must stay a hex.)
     colors.bg_statusline = opts.transparent and colors.none or colors.bg_soft_dark
 
-    colors.bg_sidebar = (opts.transparent or opts.styles.sidebars == "transparent") and colors.none
-        or opts.styles.sidebars == "dark" and colors.bg_sidebar
-        or colors.bg_dark
+    -- The theme's opaque "dark panel" shade (falls back to bg_dark when the palette has no
+    -- dedicated bg_sidebar). Captured before bg_sidebar is overwritten below.
+    local dark_panel = colors.bg_sidebar or colors.bg_dark
 
-    colors.bg_float = (opts.transparent or opts.styles.floats == "transparent") and colors.none
-        or opts.styles.floats == "dark" and colors.bg_sidebar
-        or colors.bg_dark
+    -- `styles.sidebars` / `styles.floats` are AUTHORITATIVE: an explicit value decides on its
+    -- own (so e.g. `transparent = true` + `sidebars = "normal"` keeps an OPAQUE sidebar). Only
+    -- when the style is unset (nil) does the global `transparent` decide.
+    -- Three DISTINCT styles: "normal" = the editor bg (`c.bg`), "dark" = a darker panel
+    -- (`dark_panel`), "transparent" = none. Unset follows the global `transparent`.
+    -- A "transparent" panel only goes NONE while the GLOBAL `transparent` is on; otherwise NONE
+    -- would just inherit the (opaque) global Normal — which `dark_active` darkens — so the panel
+    -- would wrongly take the focused-window darkening. With global transparent off we therefore
+    -- render it as an explicit "normal" (c.bg): opaque, independent of Normal/dark_active.
+    colors.bg_sidebar = opts.styles.sidebars == "transparent" and (opts.transparent and colors.none or colors.bg)
+        or opts.styles.sidebars == "dark" and dark_panel
+        or opts.styles.sidebars == "normal" and colors.bg
+        or (opts.transparent and colors.none or colors.bg_dark)
+
+    colors.bg_float = opts.styles.floats == "transparent" and (opts.transparent and colors.none or colors.bg)
+        or opts.styles.floats == "dark" and dark_panel
+        or opts.styles.floats == "normal" and colors.bg
+        or (opts.transparent and colors.none or colors.bg_dark)
 
     -- `dark_active` darkens the FOCUSED window's background toward black by `dark_active_amount`
     -- (a 0..1 fraction; 0 = no change). Independent of `dim_inactive`. base.lua's Normal uses it.

@@ -66,6 +66,14 @@ The command name is `lvim-<family>-<variant>`; the matching `style` value is
           keywords  = { italic = true },
           functions = { italic = true },
           variables = {},
+          -- sidebars/floats bg: "dark" | "normal" | "transparent". AUTHORITATIVE — an
+          -- explicit value overrides the global `transparent`.
+          -- sidebars = "dark",
+          -- floats   = "dark",
+      },
+      sidebar_filetypes = {       -- filetypes marked as sidebars (Normal:NormalSB winhl)
+          "help", "qf", "man", "checkhealth", "lspinfo",
+          "undotree", "aerial", "Outline", "spectre_panel", "dbui",
       },
       day_brightness = 0.3,       -- vibrancy of the Light variants (0..1)
       dim_inactive = false,       -- mute the foreground of non-focused windows
@@ -105,11 +113,29 @@ so there is no hard dependency.
 `picker.live_chrome` (|lvim-colorscheme-setup|) controls whether the picker's
 own colors follow each previewed theme (true) or stay fixed (false).
 
+                                                  *lvim-colorscheme-config-panel*
+SETTINGS PANEL ~
+>
+    :LvimColorscheme config
+<
+A floating panel (tabs Background / Focus / Syntax) to toggle the runtime
+options — transparency, sidebar/float style, dim_inactive / dark_active (and
+their strength), syntax italics, terminal colors, day brightness, cache. Each
+change applies live and is persisted, surviving a restart.
+
+Persistence has no hard dependency: when lvim-control-center is installed the
+values go into its database (the two plugins then recognise each other's
+settings); otherwise a JSON file under `stdpath("data")/lvim-colorscheme/` is
+used. `setup()` restores the saved values on top of your config (store wins).
+The panel itself needs lvim-utils for the tabbed UI.
+
 ==============================================================================
 5. COMMAND                                        *lvim-colorscheme-command*
 
                                                         *:LvimColorscheme*
 :LvimColorscheme                Open the |lvim-colorscheme-picker|.
+:LvimColorscheme config         Open the settings panel
+                                (see |lvim-colorscheme-config-panel|).
 :LvimColorscheme extras         Regenerate every file under `extras/` for all
                                 styles and tools (see |lvim-colorscheme-extras|).
 :LvimColorscheme extras {tool}  Regenerate only that tool's extras files.

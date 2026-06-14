@@ -6,7 +6,9 @@ M.url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
 
 ---@type lvim-colorscheme.HighlightsFn
 function M.get(c, opts)
-    local dark = (opts.transparent or opts.styles.sidebars == "transparent") and c.none
+    -- Tie the blend to the RESOLVED sidebar bg: blend only against a real hex; when the sidebar
+    -- is transparent (bg_sidebar == NONE) keep NONE, avoiding util.blend("NONE", …) on nil.
+    local dark = c.bg_sidebar == c.none and c.none
         or util.blend(c.bg_sidebar, 0.8, opts.style == "day" and c.fg or "#000000")
     -- stylua: ignore
     return {

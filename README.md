@@ -192,9 +192,16 @@ require("lvim-colorscheme").setup({
         keywords = { italic = true },
         functions = { italic = true },
         variables = {},
-        -- sidebars = "dark",  -- "dark" | "transparent" | "normal"
+        -- Sidebar / float background: "dark" (darker panel) | "normal" (editor bg) |
+        -- "transparent". AUTHORITATIVE — an explicit value overrides the global `transparent`
+        -- (so `transparent = true` + `sidebars = "normal"` keeps an OPAQUE sidebar).
+        -- sidebars = "dark",
         -- floats   = "dark",
     },
+
+    -- Filetypes treated as sidebars (get the sidebar background via a Normal:NormalSB winhl).
+    -- Add the filetypes of your left/right panels that don't theme themselves.
+    sidebar_filetypes = { "help", "qf", "man", "checkhealth", "lspinfo", "undotree", "aerial", "Outline", "spectre_panel", "dbui" },
 
     -- Brightness for light variants (0.0 = dull, 1.0 = vibrant)
     day_brightness = 0.3,
@@ -252,6 +259,26 @@ it falls back to `vim.ui.select`, so there is no hard dependency.
 | `j` / `k`     | Move between variants (previewed) |
 | `<CR>`        | Apply theme                       |
 | `<Esc>` / `q` | Close, restoring the previous     |
+
+---
+
+## Settings panel
+
+```vim
+:LvimColorscheme config
+```
+
+A floating panel (tabs **Background · Focus · Syntax**) to toggle the runtime options —
+transparency, sidebar/float style, `dim_inactive` / `dark_active` (with their strength),
+syntax italics, terminal colors, day brightness and more. Each change applies **live** and
+is **persisted**, so it survives a restart.
+
+Persistence has no hard dependency: if
+[lvim-control-center](https://github.com/lvim-tech/lvim-control-center) is installed the
+values are stored in its database (the two plugins then recognise each other's settings);
+otherwise a plain JSON file under `stdpath("data")/lvim-colorscheme/` is used. `setup()` is
+called once and restores the saved values on top of your config (the store wins). The panel
+needs lvim-utils for the tabbed UI.
 
 ---
 

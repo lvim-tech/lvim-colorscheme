@@ -1,6 +1,6 @@
 local M = {}
 
-M.version = "1.1.6"
+M.version = "1.1.8"
 
 ---@class lvim-colorscheme.Config
 ---@field on_colors? fun(colors: ColorScheme)
@@ -25,9 +25,28 @@ M.defaults = {
         keywords = { italic = true },
         functions = { italic = true },
         variables = {},
-        -- Background styles. Can be "dark", "transparent" or "normal"
-        -- sidebars = "dark", -- style for sidebars, see below
-        -- floats = "dark", -- style for floating windows
+        -- Background style for sidebars / floating windows: "dark", "transparent" or "normal".
+        -- AUTHORITATIVE — an explicit value wins over the global `transparent` (so
+        -- `transparent = true` + `sidebars = "normal"` keeps an OPAQUE sidebar). Left unset,
+        -- they follow `transparent`.
+        -- sidebars = "dark",
+        -- floats = "dark",
+    },
+    -- Filetypes whose windows are treated as SIDEBARS: a `Normal:NormalSB` winhighlight is
+    -- applied so they take the sidebar background (which follows `styles.sidebars`). Use this
+    -- for left/right panels that don't theme themselves (file trees / outlines that ship their
+    -- own groups already get it). Add your panels' filetypes here.
+    sidebar_filetypes = {
+        "help",
+        "qf",
+        "man",
+        "checkhealth",
+        "lspinfo",
+        "undotree",
+        "aerial",
+        "Outline",
+        "spectre_panel",
+        "dbui",
     },
     day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
     -- These two are INDEPENDENT (use either, both, or neither):
