@@ -12,6 +12,13 @@ local settings = require("lvim-colorscheme.settings")
 
 local M = {}
 
+-- Per-tab (group) icons, like the control-center tabs.
+local GROUP_ICONS = {
+    Background = "󰸉",
+    Focus = "󰈈",
+    Syntax = "󰅴",
+}
+
 --- Build the ordered list of group names as they first appear in the spec list.
 ---@return string[]
 local function group_order()
@@ -58,12 +65,12 @@ function M.open()
                 }
             end
         end
-        tabs[#tabs + 1] = { label = group, rows = rows }
+        tabs[#tabs + 1] = { label = group, icon = GROUP_ICONS[group], rows = rows }
     end
 
     ui.tabs({
-        title = " Colorscheme settings",
-        subtitle = " ",
+        title = "Colorscheme settings",
+        title_icon = "󰏘",
         tabs = tabs,
         on_change = function(row)
             local spec = by_name[row.name]

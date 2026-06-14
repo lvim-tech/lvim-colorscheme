@@ -167,14 +167,21 @@ local function encode(spec, value)
 end
 
 --- Whether `value` for `spec` can't actually apply in the current config (so the panel marks
---- it dimmed + struck through). A "transparent" sidebar/float only renders see-through while
---- the global `transparent` is on; otherwise it inherits the opaque editor bg → inert.
+--- it dimmed + struck through). Evaluated at render time, so it tracks the transparent toggle.
 ---@param spec lvim-colorscheme.Setting
 ---@param value any
 ---@return boolean
 function M.value_disabled(spec, value)
+    local opts = config.options or config.defaults
+    -- "transparent" sidebar/float only renders see-through while global `transparent` is on;
+    -- otherwise it inherits the opaque editor bg → inert.
     if (spec.path == "styles.sidebars" or spec.path == "styles.floats") and value == "transparent" then
-        return not (config.options or config.defaults).transparent
+        return not opts.transparent
+    end
+    -- `dark_active` darkens the active window's bg; with global `transparent` on Normal is NONE
+    -- (nothing to darken) → inapplicable, whatever the value.
+    if spec.path == "dark_active" or spec.path == "dark_active_amount" then
+        return opts.transparent == true
     end
     return false
 end
@@ -188,10 +195,14 @@ function M.get(spec)
     if spec.italic then
         return type(raw) == "table" and raw.italic == true
     end
-    -- A stored value that can't apply now is reported as the value actually IN EFFECT, so
-    -- re-opening the panel reflects reality rather than the inert choice. A "transparent"
-    -- sidebar/float renders as the editor bg (= "normal") while global `transparent` is off.
-    if M.value_disabled(spec, raw) then
+    -- A "transparent" sidebar/float that can't apply RENDERS as the editor bg (= "normal"), so
+    -- report that — re-opening reflects reality. Other disabled cases (e.g. dark_active) have no
+    -- effective equivalent: they keep their real value and are simply shown struck through.
+    if
+        (spec.path == "styles.sidebars" or spec.path == "styles.floats")
+        and raw == "transparent"
+        and not opts.transparent
+    then
         return "normal"
     end
     return raw
