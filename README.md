@@ -174,6 +174,14 @@ require("lvim-colorscheme").setup({
     -- Reload style/light_style automatically when vim.o.background changes
     auto_background = false,
 
+    -- Self-manage theme persistence. When true, setup() restores and applies the last
+    -- committed theme, and every committed change is saved — to the store (control-center
+    -- DB when present, else the JSON file) AND a plain mirror file
+    -- (stdpath("data")/lvim-colorscheme/theme) readable before the plugin loads. Lets a
+    -- distribution drop its own `colorscheme <name>` apply + persistence. `style` above is
+    -- the first-run default, used until a theme has been picked.
+    remember = false,
+
     -- Theme picker behaviour
     picker = {
         -- true: the picker recolors to each previewed theme too (full live preview);
@@ -291,6 +299,12 @@ values are stored in its database (the two plugins then recognise each other's s
 otherwise a plain JSON file under `stdpath("data")/lvim-colorscheme/` is used. `setup()` is
 called once and restores the saved values on top of your config (the store wins). The panel
 needs lvim-utils for the tabbed UI.
+
+With `remember = true`, the **active theme** is persisted the same way (shared `colorscheme`
+key, so it stays in sync with control-center's appearance panel) plus a plain mirror file
+`stdpath("data")/lvim-colorscheme/theme`. The mirror is what `setup()` reads to restore the
+theme — it is readable before any database, since lvim-colorscheme loads earlier than
+control-center — while the database copy keeps the other panel in sync.
 
 ---
 

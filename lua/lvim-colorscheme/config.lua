@@ -5,9 +5,15 @@ M.version = "1.1.8"
 ---@class lvim-colorscheme.Config
 ---@field on_colors? fun(colors: ColorScheme)
 ---@field on_highlights? fun(highlights: lvim-colorscheme.Highlights, colors: ColorScheme)
+---@field remember? boolean  Self-manage theme persistence (restore + apply on setup, save on commit)
 ---@field _preview? boolean  Internal: lightweight live-preview load (skips hi clear + User autocmd)
 M.defaults = {
     style = "lvim_dark",
+    -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
+    -- applies the last committed theme, and every committed change is persisted — to the store
+    -- (the control-center DB when present, else the JSON file) AND a plain mirror file readable
+    -- before the plugin loads. Lets a host drop its own `colorscheme <name>` apply + persistence.
+    remember = false,
     light_style = "lvim_light", -- The theme is used when the background is set to light
     auto_background = false, -- Reload `style`/`light_style` automatically when `vim.o.background` changes
     transparent = false, -- Enable this to disable setting the background color

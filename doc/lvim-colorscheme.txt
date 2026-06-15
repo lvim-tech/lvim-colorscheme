@@ -56,6 +56,7 @@ The command name is `lvim-<family>-<variant>`; the matching `style` value is
       style = "lvim_dark",        -- active style (see |lvim-colorscheme-themes|)
       light_style = "lvim_light", -- style used when &background is "light"
       auto_background = false,    -- reload style on &background change
+      remember = false,           -- self-manage theme persistence (see below)
       transparent = false,        -- do not set a background color
       terminal_colors = true,     -- set terminal_color_* from the palette
       picker = {
@@ -128,6 +129,25 @@ values go into its database (the two plugins then recognise each other's
 settings); otherwise a JSON file under `stdpath("data")/lvim-colorscheme/` is
 used. `setup()` restores the saved values on top of your config (store wins).
 The panel itself needs lvim-utils for the tabbed UI.
+
+                                                  *lvim-colorscheme-remember*
+REMEMBER (theme persistence) ~
+
+With `remember = true`, lvim-colorscheme OWNS the active theme: `setup()`
+restores and applies the last committed theme, and every committed change is
+saved automatically — so a distribution need not read a theme file or call
+`:colorscheme` itself.
+
+The theme is written to two places on each change:
+  - the store (control-center DB under the shared `colorscheme` key when
+    present, else the JSON file) — keeps the control-center appearance panel
+    in sync;
+  - a plain one-line mirror file `stdpath("data")/lvim-colorscheme/theme`.
+
+`setup()` restores from the MIRROR first: it is readable before any database
+(lvim-colorscheme loads earlier than control-center), so the theme is applied
+correctly at startup; the database copy is only for cross-panel sync. With
+nothing remembered yet, the configured `style` is the first-run default.
 
 ==============================================================================
 5. COMMAND                                        *lvim-colorscheme-command*

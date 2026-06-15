@@ -56,6 +56,36 @@ function M.setup(opts)
             end)
         end,
     })
+    -- `remember`: lvim-colorscheme owns theme persistence. Save every COMMITTED theme change
+    -- (live preview sets data.preview = true → skipped) to the store + mirror, and restore the
+    -- last theme now so the host need neither persist nor re-apply it. The save also keeps the
+    -- control-center DB row in sync (shared `colorscheme` key).
+    if (config.options or config.defaults).remember then
+        local store = require("lvim-colorscheme.store")
+        vim.api.nvim_create_autocmd("User", {
+            group = grp,
+            pattern = "LvimColorscheme",
+            callback = function(ev)
+                if ev.data and ev.data.preview == true then
+                    return
+                end
+                local name = M.current()
+                if name then
+                    store.save_theme(name)
+                end
+            end,
+        })
+        -- Restore the remembered theme (store wins; mirror file is the early/standalone
+        -- fallback). Applied via `:colorscheme` so it goes through the normal load path; the
+        -- apply re-fires the User autocmd above, which seeds the mirror on first run. With
+        -- nothing remembered yet, fall back to the configured default `style`.
+        local last = store.load_theme()
+        if last then
+            pcall(vim.cmd, "colorscheme " .. last)
+        else
+            M.load()
+        end
+    end
 end
 
 --- List of every available colorscheme name (the values accepted by `:colorscheme` and the

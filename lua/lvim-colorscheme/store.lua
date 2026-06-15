@@ -18,6 +18,16 @@ local M = {}
 
 local FILE = vim.fn.stdpath("data") .. "/lvim-colorscheme/settings.json"
 
+-- Plain one-line mirror of the active theme name. Written alongside the store on every commit
+-- so the theme is readable WITHOUT loading the plugin (and without touching sqlite) — e.g. a
+-- host's bootstrap/installer panel that paints itself before plugins load. The store (DB/JSON)
+-- stays the source of truth; this is the early-read shortcut.
+local THEME_FILE = vim.fn.stdpath("data") .. "/lvim-colorscheme/theme"
+
+-- Shared key for the active colorscheme; matches control-center's setting name so the two
+-- recognise each other's value (the panels stay in sync through the same DB row).
+local THEME_KEY = "colorscheme"
+
 --- lvim-control-center's data module, only when it is present AND usable.
 ---@return table? data  the persistence.data module, or nil to use the JSON fallback
 local function cc_data()
@@ -78,6 +88,40 @@ function M.load(name)
         end
     end
     return read_file()[name]
+end
+
+--- Persist the active theme: the store (control-center DB / JSON, under the shared
+--- `colorscheme` key) PLUS the plain mirror file for pre-load reads.
+---@param name string  canonical colorscheme name (dash form, e.g. "lvim-everforest-dark")
+function M.save_theme(name)
+    M.save(THEME_KEY, name)
+    pcall(vim.fn.mkdir, vim.fn.fnamemodify(THEME_FILE, ":h"), "p")
+    pcall(vim.fn.writefile, { name }, THEME_FILE)
+end
+
+--- The remembered theme name, or nil when none has been saved. Reads the MIRROR first: it is
+--- always readable this early — lvim-colorscheme loads before control-center, so its sqlite DB
+--- is not yet usable at restore time — and the mirror is rewritten on every commit alongside
+--- the store, so it never lags. The store is only a secondary source (e.g. a value seeded by
+--- the other panel while control-center happens to be up).
+---@return string|nil
+function M.load_theme()
+    local ok, lines = pcall(vim.fn.readfile, THEME_FILE)
+    if ok and type(lines) == "table" and type(lines[1]) == "string" and lines[1] ~= "" then
+        return lines[1]
+    end
+    local v = M.load(THEME_KEY)
+    if type(v) == "string" and v ~= "" then
+        return v
+    end
+    return nil
+end
+
+--- Absolute path of the plain theme mirror file (so a host can read it early, before the
+--- plugin is on the runtimepath).
+---@return string
+function M.theme_file()
+    return THEME_FILE
 end
 
 --- One-time bridge: when control-center is now available but its DB lacks a key the local
