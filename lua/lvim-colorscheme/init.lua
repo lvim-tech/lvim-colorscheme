@@ -35,8 +35,12 @@ function M.setup(opts)
     -- Mark the configured side-panel filetypes as sidebars (Normal:NormalSB winhighlight).
     require("lvim-colorscheme.sidebar").setup((config.options or config.defaults).sidebar_filetypes)
     local grp = vim.api.nvim_create_augroup("lvim_colorscheme", { clear = true })
-    -- Auto background: when `vim.o.background` flips, reload with the style for that
-    -- background (style for dark, light_style for light). Only the lvim styles are touched.
+    -- Auto background: when `vim.o.background` flips, reload with the theme for that background.
+    -- Use the variant the user actually CHOSE for that background — `M.styles[bg]` tracks the
+    -- last theme applied per background — NOT the configured default `style`/`light_style`.
+    -- Reverting a picked theme to the default on a background flip (then persisting it via the
+    -- User autocmd) is exactly the bug this guards against; `style`/`light_style` are only the
+    -- fallback for a background no theme has run on yet.
     vim.api.nvim_create_autocmd("OptionSet", {
         group = grp,
         pattern = "background",
@@ -45,7 +49,8 @@ function M.setup(opts)
             if not o.auto_background or not vim.g.colors_name or not vim.g.colors_name:match("^lvim%-") then
                 return
             end
-            local style = vim.v.option_new == "light" and o.light_style or o.style
+            local new_bg = vim.v.option_new
+            local style = (new_bg == "light" and (M.styles.light or o.light_style)) or (M.styles.dark or o.style)
             vim.schedule(function()
                 M.load({ style = style })
             end)
@@ -92,10 +97,19 @@ function M.set(overrides)
     end
     cfg.options = vim.tbl_deep_extend("force", {}, cur, overrides or {})
     if changed then
+        -- Re-applying options must NEVER switch the active theme. An option change — or a
+        -- persisted-settings restore (e.g. from control-center's DB on startup) — reverting a
+        -- chosen colorscheme to the default is the bug this guards against: load()'s bg-driven
+        -- style logic can pick the default style when re-entered. Remember the active theme and
+        -- re-assert it if the re-load changed it, so the theme depends ONLY on what was loaded.
+        local before = M.current()
         local opts = require("lvim-colorscheme.state").opts
         local style = opts and opts.style
         if style then
             M.load({ style = style })
+        end
+        if before and M.current() ~= before then
+            vim.cmd("colorscheme " .. before)
         end
     end
 end
