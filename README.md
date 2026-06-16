@@ -308,6 +308,25 @@ control-center — while the database copy keeps the other panel in sync.
 
 ---
 
+## Reload
+
+```vim
+:LvimColorscheme reload
+```
+
+Re-applies the active theme **live**, without restarting Neovim. It drops the active style's
+highlight cache and reloads the generated `groups` / `colors` / `theme` modules, so edits to a
+palette or highlight group (or a `version` bump) take effect immediately — handy while tuning a
+theme. Your runtime options and any `on_colors` listeners are preserved, so other plugins that
+re-theme themselves keep their bindings. A notification confirms the rebuild.
+
+> Edits to `config.lua` itself (runtime option defaults) still need a restart, since reloading it
+> would discard your live merged options. `cache-reload` is accepted as an alias.
+
+Equivalent API: `require("lvim-colorscheme").reload()` (returns `false` when no lvim theme is active).
+
+---
+
 ## Public API
 
 ### Live color access

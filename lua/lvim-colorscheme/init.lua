@@ -109,6 +109,40 @@ function M.current()
     return "lvim-" .. (style:gsub("^lvim_", ""):gsub("_", "-"))
 end
 
+--- Force-reload the active theme without restarting Neovim. Drops the on-disk highlight cache
+--- for the active style AND the generated `groups` / `colors` / `theme` modules from
+--- `package.loaded`, then re-applies the current colorscheme through the normal `:colorscheme`
+--- path — so live edits to palettes/highlights (or a `config.version` bump) take effect at once.
+--- Live user options (`config.options`) and registered on-load listeners are preserved, so other
+--- plugins that self-theme keep their bindings. Edits to `config.lua` itself still need a restart.
+---@return boolean ok  -- false when no lvim theme is currently active
+function M.reload()
+    -- `vim.g.colors_name` stores the underscore STYLE form ("lvim-everforest_soft") — that is the
+    -- cache key — while `:colorscheme` expects the dashed COMMAND name ("lvim-everforest-soft"),
+    -- which `M.current()` derives. Use each in its right place.
+    local style = (vim.g.colors_name or ""):match("^lvim%-(.+)$")
+    local cmd_name = M.current()
+    if not (style and cmd_name) then
+        return false
+    end
+    -- Bust the cache file for the active style so groups regenerate from source.
+    local util = require("lvim-colorscheme.util");
+    (vim.uv or vim.loop).fs_unlink(util.cache.file(style))
+    -- Drop only the highlight-producing modules so freshly-edited palettes/highlights are re-read;
+    -- keep config (live opts), state (listeners), settings and store intact.
+    for mod in pairs(package.loaded) do
+        if
+            mod:match("^lvim%-colorscheme%.groups")
+            or mod:match("^lvim%-colorscheme%.colors")
+            or mod == "lvim-colorscheme.theme"
+        then
+            package.loaded[mod] = nil
+        end
+    end
+    vim.cmd("colorscheme " .. cmd_name)
+    return true
+end
+
 --- Update colorscheme option(s) at runtime and re-apply the active theme so the change
 --- takes effect immediately. Merges `overrides` into the live config (e.g.
 --- `{ transparent = true }`, `{ dim_inactive = true }`, `{ dark_active = true }`).

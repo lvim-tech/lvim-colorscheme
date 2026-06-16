@@ -159,6 +159,15 @@ nothing remembered yet, the configured `style` is the first-run default.
 :LvimColorscheme extras         Regenerate every file under `extras/` for all
                                 styles and tools (see |lvim-colorscheme-extras|).
 :LvimColorscheme extras {tool}  Regenerate only that tool's extras files.
+:LvimColorscheme reload         Re-apply the active theme live (no restart):
+                                drop its highlight cache + reload the
+                                groups/colors/theme modules so palette and
+                                highlight edits (or a `version` bump) take
+                                effect at once. Runtime options and `on_colors`
+                                listeners are kept; `config.lua` edits still
+                                need a restart. Alias: `cache-reload`. A
+                                notification confirms the rebuild.
+                                See |lvim-colorscheme.reload()|.
 
 ==============================================================================
 6. PUBLIC API                                         *lvim-colorscheme-api*
@@ -169,6 +178,17 @@ load({opts})                Apply a theme. `opts.style` selects the variant;
                             Returns `colors, groups, opts`.
 >lua
   require("lvim-colorscheme").load({ style = "nord_dark" })
+<
+                                                  *lvim-colorscheme.reload()*
+reload()                    Re-apply the active theme live (the engine behind
+                            |:LvimColorscheme| `reload`): drop the active
+                            style's highlight cache and the generated
+                            groups/colors/theme modules, then re-apply so
+                            palette/highlight edits take effect without a
+                            restart. Keeps runtime options and listeners.
+                            Returns `false` when no lvim theme is active.
+>lua
+  require("lvim-colorscheme").reload()
 <
 Live color access ~
 
