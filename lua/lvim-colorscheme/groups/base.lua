@@ -57,11 +57,12 @@ function M.get(c, opts)
         }, -- error messages on the command line
         VertSplit = {
             fg = c.border,
-        }, -- the column separating vertically split windows
+            bg = c.border,
+        }, -- the column separating vertically split windows (solid: fg=bg hides the glyph's thin line)
         WinSeparator = {
             fg = c.border,
-            bold = true,
-        }, -- the column separating vertically split windows
+            bg = c.border,
+        }, -- the column/row separating split windows (solid: fg=bg hides the glyph's thin line)
         Folded = {
             bg = c.bg,
             fg = c.fg,

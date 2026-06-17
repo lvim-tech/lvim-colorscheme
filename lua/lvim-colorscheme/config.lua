@@ -1,6 +1,6 @@
 local M = {}
 
-M.version = "1.1.8"
+M.version = "1.1.9"
 
 ---@class lvim-colorscheme.Config
 ---@field on_colors? fun(colors: ColorScheme)
