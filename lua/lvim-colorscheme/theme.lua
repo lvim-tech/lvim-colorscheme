@@ -46,8 +46,15 @@ function M.setup(opts)
             if opts.dim_inactive and dim.ns then
                 dim.build(colors.bg, opts.dim_inactive_amount)
             end
-        elseif opts.dim_inactive then
-            dim.enable(colors.bg, opts.dim_inactive_amount)
+        elseif opts.dim_inactive or opts.dark_active then
+            -- One focus-follow manager drives BOTH: it keeps the active REAL window full-colour (dim) and
+            -- dark (dark_active), and excludes floats / panels so they never trigger or take the effect.
+            dim.enable({
+                dim = opts.dim_inactive,
+                dim_amount = opts.dim_inactive_amount,
+                dark = opts.dark_active,
+                bg = colors.bg,
+            })
         else
             dim.disable()
         end

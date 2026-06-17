@@ -1,17 +1,17 @@
--- lvim-colorscheme.dim: foreground-only dimming of non-focused windows (the `dim_inactive`
--- option). Independent of `dark_active`, which darkens the FOCUSED window's bg in base.lua.
+-- lvim-colorscheme.dim: focus-follow manager for the `dim_inactive` and `dark_active` options. The
+-- "active" window is always the last-focused REAL editor window (a normal-buffer, non-floating window) —
+-- floats and panels (pickers, the diagnostics peek, neo-tree, quickfix, …) never become the active
+-- window, are never dimmed, and never darkened. So opening or focusing one of them leaves the editor
+-- exactly as it was (its dim/dark state only changes when focus moves to ANOTHER real buffer).
 --
--- Dimming a window by its BACKGROUND fails under a translucent terminal: a darker bg just
--- lets more of the wallpaper bleed through, so the window reads see-through rather than
--- dimmed. So this mutes the FOREGROUND of every non-current window via a window-local
--- highlight namespace (|nvim_win_set_hl_ns|), leaving each window's background identical — so
--- it coexists with `transparent` and never reads as transparency.
---
--- The namespace holds a dimmed copy of every currently-defined highlight group (fg/sp
--- blended toward the editor background); the current window keeps namespace 0 (full colour),
--- the rest are switched to the dim namespace by the focus/layout autocmds. Windows that theme
--- themselves via `winhighlight` (neo-tree, …) are excluded — Neovim bypasses `winhighlight`
--- under a custom namespace, which would strip their background.
+--   • dim_inactive — mutes the FOREGROUND of every non-active real window via a window-local highlight
+--     namespace (|nvim_win_set_hl_ns|), leaving backgrounds untouched (so it coexists with `transparent`
+--     and never reads as see-through). Dimming a `winhighlight`-themed window would strip its bg (Neovim
+--     bypasses winhighlight under a custom namespace), so those are excluded.
+--   • dark_active — base.lua makes the focused window's `Normal` bg darker (`NormalNC` stays normal).
+--     That native current-window mechanism breaks the moment a float steals focus (the editor falls to
+--     `NormalNC` and lightens), so here the active real window is pinned dark with a `NormalNC:Normal`
+--     winhighlight while it is not current.
 --
 ---@module "lvim-colorscheme.dim"
 
@@ -19,10 +19,23 @@ local api = vim.api
 
 local M = {}
 
----@type integer? the highlight namespace holding the dimmed copies (lazily created)
+---@type integer? the highlight namespace holding the dimmed (fg-muted) copies (lazily created)
 M.ns = nil
 ---@type integer? augroup id for the focus-follow autocmds
 local aug = nil
+---@type integer? the last-focused REAL editor window (the active window)
+M.active = nil
+
+-- Effective options, set by enable().
+M.opts = { dim = false, dim_amount = 0.4, dark = false, bg = "#000000" }
+
+-- The winhighlight that keeps a window's bg "active" (dark) even when it is NOT the current window.
+local DARK_HL = "NormalNC:Normal"
+
+---@type table<integer, true> windows switched to the dim namespace (only ever reset our own).
+local dimmed = {}
+---@type table<integer, true> windows given the DARK_HL winhighlight override.
+local dark_marked = {}
 
 ---Numeric (0xRRGGBB) blend of `fg` toward `bg` by fraction `t` (0 = fg, 1 = bg).
 ---@param fg integer
@@ -38,36 +51,34 @@ local function blend(fg, bg, t)
     return r * 65536 + g * 256 + b
 end
 
----@type table<integer, true> windows we have switched to the dim namespace (so we only ever
---- reset windows we ourselves dimmed — never clobber a namespace another plugin owns).
-local dimmed = {}
-
----A window is dimmable only if it is normal (non-floating) AND does not theme itself through
----`winhighlight`. Neovim bypasses a window's `winhighlight` remaps while the window is on a
----custom highlight namespace (|nvim_win_set_hl_ns|), so dimming such a window would strip its
----themed background — e.g. neo-tree's dark sidebar would fall back to the editor's Normal bg.
----Those self-themed panels are therefore left at full colour (and keep their own background).
+---A REAL editor window: non-floating, a normal (`buftype == ""`) buffer, and not self-themed via
+---`winhighlight` (only OUR own dark override is allowed). Floats and panels (nofile / quickfix / help /
+---terminal / neo-tree …) are therefore never active, never dimmed, never darkened.
 ---@param win integer
 ---@return boolean
-local function is_dimmable(win)
+local function is_real(win)
     if not api.nvim_win_is_valid(win) then
         return false
     end
     if api.nvim_win_get_config(win).relative ~= "" then
         return false
     end
-    return (vim.wo[win].winhighlight or "") == ""
+    if vim.bo[api.nvim_win_get_buf(win)].buftype ~= "" then
+        return false
+    end
+    local wh = vim.wo[win].winhighlight or ""
+    return wh == "" or dark_marked[win] == true
 end
 
----Switch a window between the dim namespace and namespace 0 (full colour). Only resets a
----window we previously dimmed, so windows on someone else's namespace are left untouched.
+---Switch a window between the dim namespace and namespace 0 (full colour). Only resets a window we
+---previously dimmed, so windows on someone else's namespace are left untouched.
 ---@param win integer
----@param dim boolean
-local function set_dim(win, dim)
+---@param on boolean
+local function set_dim(win, on)
     if not api.nvim_win_is_valid(win) then
         return
     end
-    if dim then
+    if on then
         pcall(api.nvim_win_set_hl_ns, win, M.ns)
         dimmed[win] = true
     elseif dimmed[win] then
@@ -76,23 +87,49 @@ local function set_dim(win, dim)
     end
 end
 
----Reconcile every window in one pass: the current window gets full colour, all other
----DIMMABLE windows get the dim namespace, and self-themed/floating windows are un-dimmed.
----Run on focus/layout changes so panels that open WITHOUT taking focus (neo-tree, outline, …)
----are handled too — a WinLeave-only approach misses any window that is never explicitly left.
+---Add / remove the `NormalNC:Normal` winhighlight that pins a window's bg dark while it is not current
+---(preserving any existing winhighlight entries).
+---@param win integer
+---@param on boolean
+local function set_dark(win, on)
+    if not api.nvim_win_is_valid(win) then
+        return
+    end
+    -- Enforce the desired state (not just our own tracking): a freshly opened float/split INHERITS the
+    -- current window's `winhighlight`, so the active window's override leaks onto it — strip it back off
+    -- any window that should NOT be dark, even one we never marked.
+    local wh = vim.wo[win].winhighlight or ""
+    local has = wh:find(DARK_HL, 1, true) ~= nil
+    if on and not has then
+        vim.wo[win].winhighlight = wh == "" and DARK_HL or (DARK_HL .. "," .. wh)
+        dark_marked[win] = true
+    elseif not on and has then
+        vim.wo[win].winhighlight = (wh:gsub(DARK_HL .. ",?", "")):gsub(",$", "")
+        dark_marked[win] = nil
+    end
+end
+
+---Reconcile every window in one pass against the ACTIVE real window (not the raw current window — so a
+---float/panel holding focus keeps the editor active). Run on focus/layout changes.
 local function reconcile()
     local cur = api.nvim_get_current_win()
+    if is_real(cur) then
+        M.active = cur
+    end
+    local active = (M.active and api.nvim_win_is_valid(M.active)) and M.active or cur
     for _, win in ipairs(api.nvim_list_wins()) do
-        if is_dimmable(win) then
-            set_dim(win, win ~= cur)
-        else
-            set_dim(win, false)
+        local real = is_real(win)
+        if M.opts.dim then
+            set_dim(win, real and win ~= active)
+        end
+        if M.opts.dark then
+            set_dark(win, real and win == active)
         end
     end
 end
 
----(Re)build the dim namespace from the current global highlights. Call after every theme
----apply so the dimmed copies track the active palette.
+---(Re)build the dim namespace from the current global highlights. Call after every theme apply so the
+---dimmed copies track the active palette.
 ---@param bg_hex string  editor background colour the foregrounds are muted toward (colors.bg)
 ---@param amount number   fraction the foreground is blended toward bg (0..1)
 function M.build(bg_hex, amount)
@@ -116,19 +153,25 @@ function M.build(bg_hex, amount)
     end
 end
 
----Enable fg-dimming: build the namespace, dim every non-current dimmable window, and install
----the focus/layout autocmds that keep the focused window at full colour.
----@param bg_hex string
----@param amount? number  foreground blend (0..1), default 0.4
-function M.enable(bg_hex, amount)
-    amount = math.max(0, math.min(1, amount or 0.4))
-    M.build(bg_hex, amount)
+---Enable the focus-follow manager. Builds the dim namespace (when dimming), reconciles once, and installs
+---the focus/layout autocmds that keep the active real window full-colour + dark.
+---@param opts { dim?: boolean, dim_amount?: number, dark?: boolean, bg?: string }
+function M.enable(opts)
+    M.opts = {
+        dim = opts.dim or false,
+        dim_amount = math.max(0, math.min(1, opts.dim_amount or 0.4)),
+        dark = opts.dark or false,
+        bg = opts.bg or "#000000",
+    }
+    if M.opts.dim then
+        M.build(M.opts.bg, M.opts.dim_amount)
+    end
     aug = api.nvim_create_augroup("LvimColorschemeDim", { clear = true })
     reconcile()
-    -- Reconcile on any focus/layout change. `BufWinEnter`/`WinNew` catch panels that open
-    -- without taking focus; `TabEnter` re-dims after a tab switch. Scheduled so the current
-    -- window is settled (e.g. during startup `BufWinEnter`) before we read it.
-    api.nvim_create_autocmd({ "WinEnter", "WinNew", "BufWinEnter", "TabEnter" }, {
+    -- Reconcile on any focus/layout change. `BufWinEnter`/`WinNew` catch panels that open without taking
+    -- focus; `TabEnter` re-applies after a tab switch; `WinClosed` re-picks the active window if it closes.
+    -- Scheduled so the current window is settled (e.g. during startup `BufWinEnter`) before we read it.
+    api.nvim_create_autocmd({ "WinEnter", "WinNew", "BufWinEnter", "TabEnter", "WinClosed" }, {
         group = aug,
         callback = function()
             vim.schedule(reconcile)
@@ -136,8 +179,8 @@ function M.enable(bg_hex, amount)
     })
 end
 
----Disable fg-dimming: drop the autocmds and reset every window WE dimmed back to namespace 0
----(windows on another plugin's namespace are left alone).
+---Disable: drop the autocmds, reset every window WE dimmed back to namespace 0, and remove every dark
+---override we added (windows on another plugin's namespace / winhighlight are left alone).
 function M.disable()
     if aug then
         pcall(api.nvim_del_augroup_by_id, aug)
@@ -149,6 +192,11 @@ function M.disable()
         end
     end
     dimmed = {}
+    for win in pairs(dark_marked) do
+        set_dark(win, false)
+    end
+    dark_marked = {}
+    M.active = nil
 end
 
 return M
