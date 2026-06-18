@@ -98,13 +98,24 @@ local function set_dark(win, on)
     -- Enforce the desired state (not just our own tracking): a freshly opened float/split INHERITS the
     -- current window's `winhighlight`, so the active window's override leaks onto it — strip it back off
     -- any window that should NOT be dark, even one we never marked.
-    local wh = vim.wo[win].winhighlight or ""
-    local has = wh:find(DARK_HL, 1, true) ~= nil
+    --
+    -- Treat `winhighlight` as a LIST of `group:target` entries and match DARK_HL as a WHOLE entry. A plain
+    -- find/gsub matches it as a SUBSTRING too — e.g. `NormalNC:NormalSB` (a dark-marked sidebar) contains
+    -- `NormalNC:Normal`, so stripping it left a bare `SB`, an invalid winhighlight (E474 / E5248).
+    local kept, has = {}, false
+    for entry in (vim.wo[win].winhighlight or ""):gmatch("[^,]+") do
+        if entry == DARK_HL then
+            has = true
+        else
+            kept[#kept + 1] = entry
+        end
+    end
     if on and not has then
-        vim.wo[win].winhighlight = wh == "" and DARK_HL or (DARK_HL .. "," .. wh)
+        table.insert(kept, 1, DARK_HL)
+        vim.wo[win].winhighlight = table.concat(kept, ",")
         dark_marked[win] = true
     elseif not on and has then
-        vim.wo[win].winhighlight = (wh:gsub(DARK_HL .. ",?", "")):gsub(",$", "")
+        vim.wo[win].winhighlight = table.concat(kept, ",")
         dark_marked[win] = nil
     end
 end
