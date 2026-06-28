@@ -240,8 +240,8 @@ function M.open()
         tabs = tabs,
         tab_selector = found_tab_idx,
         current_item = found_item_ref,
-        width = 0.38,
-        height = 0.5,
+        width = 0.9,
+        -- height omitted → M.tabs auto-fits to the content (a family's 4 variants), capped at its 0.9 default.
         position = "editor",
         on_item_change = function(item)
             if type(item) == "table" and item._style and item._style ~= previewed then
