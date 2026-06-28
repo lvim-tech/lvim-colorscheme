@@ -43,6 +43,8 @@ function M.open()
         return
     end
 
+    local cfg = require("lvim-colorscheme.config").options or require("lvim-colorscheme.config").defaults
+
     -- One tab per group; each spec becomes a row carrying its current value.
     local by_name = {}
     local tabs = {}
@@ -78,7 +80,7 @@ function M.open()
                 settings.set(spec, row.value)
             end
         end,
-        width = 0.9,
+        width = cfg.picker.width,
         height = 0.6,
         position = "editor",
         footer_hints = true, -- bottom key-hint legend (panel keys • focused-row keys), like the control center

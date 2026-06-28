@@ -23,6 +23,8 @@ M.defaults = {
         -- theme too (full live preview); false keeps the picker's own colours stable while
         -- only the editor behind it previews.
         live_chrome = true,
+        -- Fraction of the screen wide for BOTH colorscheme popups (the theme picker + the `config` settings panel).
+        width = 0.9,
     },
     styles = {
         -- Style to be applied to different syntax groups

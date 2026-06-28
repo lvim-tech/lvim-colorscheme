@@ -240,7 +240,7 @@ function M.open()
         tabs = tabs,
         tab_selector = found_tab_idx,
         current_item = found_item_ref,
-        width = 0.9,
+        width = cfg.picker.width,
         -- height omitted → M.tabs auto-fits to the content (a family's 4 variants), capped at its 0.9 default.
         pad = 1, -- a single-space body lpad — the variant rows sit one space from the edge
         position = "editor",
