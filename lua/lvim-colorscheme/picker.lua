@@ -8,10 +8,13 @@
 local M = {}
 
 -- Theme families: lighter → base → darker → light
+-- Palette tab glyph, sourced from config (defaults until setup runs).
+local PALETTE = (require("lvim-colorscheme.config").options or require("lvim-colorscheme.config").defaults).picker.tab_icon
+
 local families = {
     {
         label = "Lvim",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Lvim Soft", icon = "◔", style = "lvim_soft" },
             { label = "Lvim Dark", icon = "◑", style = "lvim_dark" },
@@ -21,7 +24,7 @@ local families = {
     },
     {
         label = "Kanagawa",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Kanagawa Soft", icon = "◔", style = "kanagawa_soft" },
             { label = "Kanagawa Dark", icon = "◑", style = "kanagawa_dark" },
@@ -31,7 +34,7 @@ local families = {
     },
     {
         label = "Gruvbox",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Gruvbox Soft", icon = "◔", style = "gruvbox_soft" },
             { label = "Gruvbox Dark", icon = "◑", style = "gruvbox_dark" },
@@ -41,7 +44,7 @@ local families = {
     },
     {
         label = "Everforest",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Everforest Soft", icon = "◔", style = "everforest_soft" },
             { label = "Everforest Dark", icon = "◑", style = "everforest_dark" },
@@ -51,7 +54,7 @@ local families = {
     },
     {
         label = "Catppuccin",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Catppuccin Soft", icon = "◔", style = "catppuccin_soft" },
             { label = "Catppuccin Dark", icon = "◑", style = "catppuccin_dark" },
@@ -61,7 +64,7 @@ local families = {
     },
     {
         label = "Tokyo Night",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Tokyo Night Soft", icon = "◔", style = "tokyonight_soft" },
             { label = "Tokyo Night Dark", icon = "◑", style = "tokyonight_dark" },
@@ -71,7 +74,7 @@ local families = {
     },
     {
         label = "Nord",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Nord Soft", icon = "◔", style = "nord_soft" },
             { label = "Nord Dark", icon = "◑", style = "nord_dark" },
@@ -81,7 +84,7 @@ local families = {
     },
     {
         label = "Dracula",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Dracula Soft", icon = "◔", style = "dracula_soft" },
             { label = "Dracula Dark", icon = "◑", style = "dracula_dark" },
@@ -91,7 +94,7 @@ local families = {
     },
     {
         label = "Rosé Pine",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Rosé Pine Soft", icon = "◔", style = "rosepine_soft" },
             { label = "Rosé Pine Dark", icon = "◑", style = "rosepine_dark" },
@@ -101,7 +104,7 @@ local families = {
     },
     {
         label = "Material",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Material Soft", icon = "◔", style = "material_soft" },
             { label = "Material Dark", icon = "◑", style = "material_dark" },
@@ -111,7 +114,7 @@ local families = {
     },
     {
         label = "Solarized",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Solarized Soft", icon = "◔", style = "solarized_soft" },
             { label = "Solarized Dark", icon = "◑", style = "solarized_dark" },
@@ -121,7 +124,7 @@ local families = {
     },
     {
         label = "Nightfox",
-        icon = "󰏘",
+        icon = PALETTE,
         items = {
             { label = "Nightfox Soft", icon = "◔", style = "nightfox_soft" },
             { label = "Nightfox Dark", icon = "◑", style = "nightfox_dark" },

@@ -25,6 +25,8 @@ M.defaults = {
         live_chrome = true,
         -- Fraction of the screen wide for BOTH colorscheme popups (the theme picker + the `config` settings panel).
         width = 0.9,
+        -- The palette glyph on every theme-family tab in the picker.
+        tab_icon = "󰏘",
     },
     styles = {
         -- Style to be applied to different syntax groups
