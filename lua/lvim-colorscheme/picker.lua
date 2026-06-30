@@ -248,9 +248,6 @@ function M.open()
         pad = 1, -- a single-space body lpad — the variant rows sit one space from the edge
         position = "editor",
         footer_hints = true, -- bottom key-hint legend (panel keys • focused-row keys), like the control center
-        -- The frame defaults to TOP/RIGHT/LEFT borders only; add a BOTTOM edge (" ") so the content gets a
-        -- closing border row below it (scoped to this panel; the global frame border is unchanged).
-        border = { "", " ", "", " ", "", " ", "", " " },
 
         on_item_change = function(item)
             if type(item) == "table" and item._style and item._style ~= previewed then

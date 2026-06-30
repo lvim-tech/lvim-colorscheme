@@ -84,8 +84,6 @@ function M.open()
         height = 0.6,
         position = "editor",
         footer_hints = true, -- bottom key-hint legend (panel keys • focused-row keys), like the control center
-        -- add a BOTTOM edge (" ") so the content gets a closing border row below it (the frame defaults to none)
-        border = { "", " ", "", " ", "", " ", "", " " },
     })
 end
 
