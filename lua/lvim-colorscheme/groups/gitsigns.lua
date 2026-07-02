@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.gitsigns: highlight groups for gitsigns.nvim (https://github.com/lewis6991/gitsigns.nvim).
+--
+---@module "lvim-colorscheme.groups.gitsigns"
+
 local M = {}
 
 M.url = "https://github.com/lewis6991/gitsigns.nvim"

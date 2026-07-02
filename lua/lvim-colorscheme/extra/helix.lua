@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.helix: generate a Helix theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.helix"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

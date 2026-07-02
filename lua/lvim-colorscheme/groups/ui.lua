@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.ui: highlight groups for ui.nvim (https://github.com/OXY2DEV/ui.nvim).
+--
+---@module "lvim-colorscheme.groups.ui"
+
 local M = {}
 
 M.url = "https://github.com/OXY2DEV/ui.nvim"

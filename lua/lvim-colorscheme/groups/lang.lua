@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.lang: built-in filetype/syntax (vim regex) highlight groups.
+--
+---@module "lvim-colorscheme.groups.lang"
+
 local M = {}
 
 ---@type lvim-colorscheme.HighlightsFn

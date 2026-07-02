@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.hlslens: highlight groups for nvim-hlslens (https://github.com/kevinhwang91/nvim-hlslens).
+--
+---@module "lvim-colorscheme.groups.hlslens"
+
 local M = {}
 
 M.url = "https://github.com/kevinhwang91/nvim-hlslens"

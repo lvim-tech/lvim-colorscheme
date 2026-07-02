@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.quicker: highlight groups for quicker.nvim (https://github.com/stevearc/quicker.nvim).
+--
+---@module "lvim-colorscheme.groups.quicker"
+
 local M = {}
 
 M.url = "https://github.com/stevearc/quicker.nvim"

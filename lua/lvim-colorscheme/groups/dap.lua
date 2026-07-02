@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.dap: highlight groups for nvim-dap (https://github.com/mfussenegger/nvim-dap).
+--
+---@module "lvim-colorscheme.groups.dap"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

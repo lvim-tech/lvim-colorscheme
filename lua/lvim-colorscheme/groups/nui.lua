@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.nui: highlight groups for nui.nvim (https://github.com/MunifTanjim/nui.nvim).
+--
+---@module "lvim-colorscheme.groups.nui"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

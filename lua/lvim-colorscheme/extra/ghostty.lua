@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.ghostty: generate a Ghostty theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.ghostty"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

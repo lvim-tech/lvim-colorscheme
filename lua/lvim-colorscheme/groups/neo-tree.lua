@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.neo-tree: highlight groups for neo-tree.nvim (https://github.com/nvim-neo-tree/neo-tree.nvim).
+--
+---@module "lvim-colorscheme.groups.neo-tree"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

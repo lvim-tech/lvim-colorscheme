@@ -1,13 +1,30 @@
+-- lvim-colorscheme.init: the plugin's public entry point.
+-- Owns setup() (option merge + the optional auto-background / `remember` autocmds), the
+-- theme load/reload paths, and the runtime API other plugins build on (colorschemes /
+-- current / set / config_panel). Reads the live config table directly (no defaults/options
+-- split) and exposes `M.colors` / `M.opts` as live properties backed by `state`.
+--
+---@module "lvim-colorscheme"
+
 local config = require("lvim-colorscheme.config")
+local state = require("lvim-colorscheme.state")
+local util = require("lvim-colorscheme.util")
+local sidebar = require("lvim-colorscheme.sidebar")
+local store = require("lvim-colorscheme.store")
+local theme = require("lvim-colorscheme.theme")
+local utils = require("lvim-utils.utils")
 
 local M = {}
 
 ---@type {light?: string, dark?: string}
 M.styles = {}
 
+--- Load and apply a colorscheme, honouring `vim.o.background`. Overlays `opts` on the live
+--- config for this apply only (the picker's `_preview` path uses the same seam).
 ---@param opts? lvim-colorscheme.Config
+---@return ColorScheme colors, lvim-colorscheme.Highlights groups, lvim-colorscheme.Config opts
 function M.load(opts)
-    opts = require("lvim-colorscheme.config").extend(opts)
+    opts = config.extend(opts)
     local bg = vim.o.background
     local style_bg = opts.style == "day" and "light" or "dark"
 
@@ -19,7 +36,7 @@ function M.load(opts)
         end
     end
     M.styles[vim.o.background] = opts.style
-    return require("lvim-colorscheme.theme").setup(opts)
+    return theme.setup(opts)
 end
 
 --- Configure the colorscheme and register the optional autocmds (auto background swap).
@@ -27,13 +44,13 @@ end
 function M.setup(opts)
     config.setup(opts)
     -- Restore persisted panel settings (control-center's DB when present, else our own JSON
-    -- file). The store wins over `opts`; applied into config.options so the first theme load
+    -- file). The store wins over `opts`; applied into the live config so the first theme load
     -- already reflects them. Guarded so a persistence hiccup never breaks setup.
     pcall(function()
         require("lvim-colorscheme.settings").restore()
     end)
     -- Mark the configured side-panel filetypes as sidebars (Normal:NormalSB winhighlight).
-    require("lvim-colorscheme.sidebar").setup((config.options or config.defaults).sidebar_filetypes)
+    sidebar.setup(config.sidebar_filetypes)
     local grp = vim.api.nvim_create_augroup("lvim_colorscheme", { clear = true })
     -- Auto background: when `vim.o.background` flips, reload with the theme for that background.
     -- Use the variant the user actually CHOSE for that background — `M.styles[bg]` tracks the
@@ -45,12 +62,12 @@ function M.setup(opts)
         group = grp,
         pattern = "background",
         callback = function()
-            local o = config.options or config.defaults
-            if not o.auto_background or not vim.g.colors_name or not vim.g.colors_name:match("^lvim%-") then
+            if not config.auto_background or not vim.g.colors_name or not vim.g.colors_name:match("^lvim%-") then
                 return
             end
             local new_bg = vim.v.option_new
-            local style = (new_bg == "light" and (M.styles.light or o.light_style)) or (M.styles.dark or o.style)
+            local style = (new_bg == "light" and (M.styles.light or config.light_style))
+                or (M.styles.dark or config.style)
             vim.schedule(function()
                 M.load({ style = style })
             end)
@@ -60,8 +77,7 @@ function M.setup(opts)
     -- (live preview sets data.preview = true → skipped) to the store + mirror, and restore the
     -- last theme now so the host need neither persist nor re-apply it. The save also keeps the
     -- control-center DB row in sync (shared `colorscheme` key).
-    if (config.options or config.defaults).remember then
-        local store = require("lvim-colorscheme.store")
+    if config.remember then
         vim.api.nvim_create_autocmd("User", {
             group = grp,
             pattern = "LvimColorscheme",
@@ -113,7 +129,7 @@ end
 --- for the active style AND the generated `groups` / `colors` / `theme` modules from
 --- `package.loaded`, then re-applies the current colorscheme through the normal `:colorscheme`
 --- path — so live edits to palettes/highlights (or a `config.version` bump) take effect at once.
---- Live user options (`config.options`) and registered on-load listeners are preserved, so other
+--- Live user options and registered on-load listeners are preserved, so other
 --- plugins that self-theme keep their bindings. Edits to `config.lua` itself still need a restart.
 ---@return boolean ok  -- false when no lvim theme is currently active
 function M.reload()
@@ -126,7 +142,6 @@ function M.reload()
         return false
     end
     -- Bust the cache file for the active style so groups regenerate from source.
-    local util = require("lvim-colorscheme.util");
     (vim.uv or vim.loop).fs_unlink(util.cache.file(style))
     -- Drop only the highlight-producing modules so freshly-edited palettes/highlights are re-read;
     -- keep config (live opts), state (listeners), settings and store intact.
@@ -148,18 +163,19 @@ end
 --- `{ transparent = true }`, `{ dim_inactive = true }`, `{ dark_active = true }`).
 ---@param overrides lvim-colorscheme.Config
 function M.set(overrides)
-    local cfg = require("lvim-colorscheme.config")
-    local cur = cfg.options or cfg.defaults
+    overrides = overrides or {}
     -- Only re-apply when something actually changes, so restoring a value equal to the
     -- current one (e.g. on startup) does not trigger a needless theme reload.
     local changed = false
-    for k, v in pairs(overrides or {}) do
-        if cur[k] ~= v then
+    for k, v in pairs(overrides) do
+        if config[k] ~= v then
             changed = true
             break
         end
     end
-    cfg.options = vim.tbl_deep_extend("force", {}, cur, overrides or {})
+    -- Merge the overrides into the live config IN PLACE (via lvim-utils.utils.merge), so every
+    -- reader immediately sees the new effective values — same seam as config.setup().
+    utils.merge(config, overrides)
     if changed then
         -- Re-applying options must NEVER switch the active theme. An option change — or a
         -- persisted-settings restore (e.g. from control-center's DB on startup) — reverting a
@@ -167,7 +183,7 @@ function M.set(overrides)
         -- style logic can pick the default style when re-entered. Remember the active theme and
         -- re-assert it if the re-load changed it, so the theme depends ONLY on what was loaded.
         local before = M.current()
-        local opts = require("lvim-colorscheme.state").opts
+        local opts = state.opts
         local style = opts and opts.style
         if style then
             M.load({ style = style })
@@ -190,14 +206,14 @@ end
 --- Fires before the User LvimColorscheme autocmd.
 ---@param fn fun(colors: ColorScheme, opts: lvim-colorscheme.Config)
 function M.on_colors(fn)
-    table.insert(require("lvim-colorscheme.state").listeners, fn)
+    table.insert(state.listeners, fn)
 end
 
 -- Make M.colors and M.opts live properties — always reflect the current state.
 setmetatable(M, {
     __index = function(_, k)
         if k == "colors" or k == "opts" then
-            return require("lvim-colorscheme.state")[k]
+            return state[k]
         end
     end,
 })

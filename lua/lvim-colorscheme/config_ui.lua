@@ -43,7 +43,7 @@ function M.open()
         return
     end
 
-    local cfg = require("lvim-colorscheme.config").options or require("lvim-colorscheme.config").defaults
+    local cfg = require("lvim-colorscheme.config")
 
     -- One tab per group; each spec becomes a row carrying its current value.
     local by_name = {}

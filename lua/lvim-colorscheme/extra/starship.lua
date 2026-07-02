@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.starship: generate a Starship theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.starship"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

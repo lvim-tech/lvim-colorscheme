@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.diffview: highlight groups for diffview.nvim (https://github.com/sindrets/diffview.nvim).
+--
+---@module "lvim-colorscheme.groups.diffview"
+
 local M = {}
 
 M.url = "https://github.com/sindrets/diffview.nvim"

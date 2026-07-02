@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.dashboard: highlight groups for dashboard-nvim (https://github.com/nvimdev/dashboard-nvim).
+--
+---@module "lvim-colorscheme.groups.dashboard"
+
 local M = {}
 
 M.url = "https://github.com/nvimdev/dashboard-nvim"

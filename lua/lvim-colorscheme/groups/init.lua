@@ -1,3 +1,10 @@
+-- lvim-colorscheme.groups: assemble the full highlight-group set for a palette.
+-- Maps plugin names → group modules, picks which groups to build (all / lazy-detected /
+-- manual), merges each group module's output, and caches the result on disk keyed by style +
+-- a fingerprint of the colour-affecting inputs (palette, plugin set, version, dark_active).
+--
+---@module "lvim-colorscheme.groups"
+
 local config = require("lvim-colorscheme.config")
 local util = require("lvim-colorscheme.util")
 
@@ -60,20 +67,28 @@ M.plugins = {
 local me = debug.getinfo(1, "S").source:sub(2)
 me = vim.fn.fnamemodify(me, ":h")
 
+--- Lazy-load a single group module by short name (e.g. "base", "which-key").
+---@param name string
+---@return {get: lvim-colorscheme.HighlightsFn, url?: string}
 function M.get_group(name)
     ---@type {get: lvim-colorscheme.HighlightsFn, url: string}
     return util.mod("lvim-colorscheme.groups." .. name)
 end
 
+--- The highlights a single named group contributes for the given palette + opts.
+---@param name string
 ---@param colors ColorScheme
 ---@param opts lvim-colorscheme.Config
+---@return lvim-colorscheme.Highlights
 function M.get(name, colors, opts)
     local mod = M.get_group(name)
     return mod.get(colors, opts)
 end
 
+--- Build (or read from cache) the full merged highlight set for a palette + opts.
 ---@param colors ColorScheme
 ---@param opts lvim-colorscheme.Config
+---@return lvim-colorscheme.Highlights groups, table<string, boolean> enabled
 function M.setup(colors, opts)
     local groups = {
         base = true,
@@ -120,7 +135,9 @@ function M.setup(colors, opts)
     local names = vim.tbl_keys(groups)
     table.sort(names)
 
-    local cache_key = opts.style
+    -- `style` always resolves to a value here (config default "lvim_dark", set by config.extend
+    -- before load), so it is a valid cache key string.
+    local cache_key = opts.style --[[@as string]]
     local cache = opts.cache and util.cache.read(cache_key)
 
     local inputs = {

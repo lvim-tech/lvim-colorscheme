@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.snacks: highlight groups for snacks.nvim (https://github.com/folke/snacks.nvim).
+--
+---@module "lvim-colorscheme.groups.snacks"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

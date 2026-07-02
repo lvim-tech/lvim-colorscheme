@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.indent-blankline: highlight groups for indent-blankline.nvim (https://github.com/lukas-reineke/indent-blankline.nvim).
+--
+---@module "lvim-colorscheme.groups.indent-blankline"
+
 local M = {}
 
 M.url = "https://github.com/lukas-reineke/indent-blankline.nvim"

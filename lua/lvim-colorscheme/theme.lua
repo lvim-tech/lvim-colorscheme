@@ -1,11 +1,27 @@
+-- lvim-colorscheme.theme: the apply step — turn a resolved palette + groups into live nvim
+-- highlights. Sets `colors_name`, applies every highlight group, seeds the terminal ANSI
+-- colours, drives the dim/dark focus manager, publishes to `state`, and fires the
+-- `User LvimColorscheme` autocmd. The picker's live preview (`opts._preview`) reuses this with
+-- a lighter path (no `hi clear`) — see the note at the top of setup().
+--
+---@module "lvim-colorscheme.theme"
+
+local config = require("lvim-colorscheme.config")
+local colors_mod = require("lvim-colorscheme.colors")
+local groups_mod = require("lvim-colorscheme.groups")
+local state = require("lvim-colorscheme.state")
+
 local M = {}
 
+--- Resolve `opts` against the live config, build + apply the palette and highlight groups,
+--- publish to `state`, and fire the `User LvimColorscheme` autocmd.
 ---@param opts? lvim-colorscheme.Config
+---@return ColorScheme colors, lvim-colorscheme.Highlights groups, lvim-colorscheme.Config opts
 function M.setup(opts)
-    opts = require("lvim-colorscheme.config").extend(opts)
+    opts = config.extend(opts)
 
-    local colors = require("lvim-colorscheme.colors").setup(opts)
-    local groups = require("lvim-colorscheme.groups").setup(colors, opts)
+    local colors = colors_mod.setup(opts)
+    local groups = groups_mod.setup(colors, opts)
 
     -- Preview (`opts._preview`, set by the picker's live preview) skips only `hi clear`:
     -- it is unnecessary between lvim variants (the group set is identical, so nvim_set_hl
@@ -61,7 +77,6 @@ function M.setup(opts)
     end
 
     -- Publish to state and notify listeners
-    local state = require("lvim-colorscheme.state")
     state.colors = colors
     state.opts = opts
     for _, fn in ipairs(state.listeners) do

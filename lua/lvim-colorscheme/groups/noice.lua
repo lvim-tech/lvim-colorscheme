@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.noice: highlight groups for noice.nvim (https://github.com/folke/noice.nvim).
+--
+---@module "lvim-colorscheme.groups.noice"
+
 local M = {}
 
 M.url = "https://github.com/folke/noice.nvim"

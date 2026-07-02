@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.treesitter: tree-sitter capture highlight groups.
+--
+---@module "lvim-colorscheme.groups.treesitter"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

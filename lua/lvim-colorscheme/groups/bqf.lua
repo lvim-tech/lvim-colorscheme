@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.bqf: highlight groups for nvim-bqf (https://github.com/kevinhwang91/nvim-bqf).
+--
+---@module "lvim-colorscheme.groups.bqf"
+
 local M = {}
 
 M.url = "https://github.com/kevinhwang91/nvim-bqf"

@@ -1,7 +1,16 @@
+-- lvim-colorscheme.extra: generate matching theme files for external tools.
+-- Loads each lvim style, hands the palette to the per-tool generator in `extra/<tool>.lua`,
+-- and writes the result under `extras/`. `M.extras` is the tool registry (ext / url / label);
+-- `generate_themes([tool])` regenerates all tools (or one); `generate_gowall()` emits the
+-- gowall palette config. Invoked by `scripts/build` / `scripts/build_gowall`.
+--
+---@module "lvim-colorscheme.extra"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}
 
+-- Style key → capitalised style name used in the generated file names / theme labels.
 local styles = {
     lvim_soft = "LvimSoft",
     lvim_dark = "LvimDark",
@@ -119,6 +128,8 @@ function M.generate_themes(only)
     end
 end
 
+--- Emit the gowall palette config (`extras/gowall/config.yml`) from every lvim style.
+---@return string config_content
 function M.generate_gowall()
     local lvim_colorscheme = require("lvim-colorscheme")
 

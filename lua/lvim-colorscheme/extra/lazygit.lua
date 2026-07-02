@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.lazygit: generate a Lazygit theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.lazygit"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

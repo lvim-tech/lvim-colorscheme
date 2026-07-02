@@ -1,20 +1,21 @@
--- lvim-colorscheme: the :LvimColorscheme theme picker.
+-- lvim-colorscheme.picker: the :LvimColorscheme theme picker.
 -- Prefers the lvim-utils floating tabs UI (one tab per family, live preview as the cursor
 -- moves, ➤ on the active style). Falls back to the built-in vim.ui.select when lvim-utils
 -- is absent, so the picker has no hard dependency.
 --
 ---@module "lvim-colorscheme.picker"
 
+local config = require("lvim-colorscheme.config")
+
 local M = {}
 
--- Theme families: lighter → base → darker → light
--- Palette tab glyph, sourced from config (defaults until setup runs).
-local PALETTE = (require("lvim-colorscheme.config").options or require("lvim-colorscheme.config").defaults).picker.tab_icon
+-- The palette glyph shown on every family tab. Read LIVE from config at open time (below),
+-- so a runtime `setup({ picker = { tab_icon = … } })` takes effect without reloading the picker.
 
+-- Theme families: lighter → base → darker → light
 local families = {
     {
         label = "Lvim",
-        icon = PALETTE,
         items = {
             { label = "Lvim Soft", icon = "◔", style = "lvim_soft" },
             { label = "Lvim Dark", icon = "◑", style = "lvim_dark" },
@@ -24,7 +25,6 @@ local families = {
     },
     {
         label = "Kanagawa",
-        icon = PALETTE,
         items = {
             { label = "Kanagawa Soft", icon = "◔", style = "kanagawa_soft" },
             { label = "Kanagawa Dark", icon = "◑", style = "kanagawa_dark" },
@@ -34,7 +34,6 @@ local families = {
     },
     {
         label = "Gruvbox",
-        icon = PALETTE,
         items = {
             { label = "Gruvbox Soft", icon = "◔", style = "gruvbox_soft" },
             { label = "Gruvbox Dark", icon = "◑", style = "gruvbox_dark" },
@@ -44,7 +43,6 @@ local families = {
     },
     {
         label = "Everforest",
-        icon = PALETTE,
         items = {
             { label = "Everforest Soft", icon = "◔", style = "everforest_soft" },
             { label = "Everforest Dark", icon = "◑", style = "everforest_dark" },
@@ -54,7 +52,6 @@ local families = {
     },
     {
         label = "Catppuccin",
-        icon = PALETTE,
         items = {
             { label = "Catppuccin Soft", icon = "◔", style = "catppuccin_soft" },
             { label = "Catppuccin Dark", icon = "◑", style = "catppuccin_dark" },
@@ -64,7 +61,6 @@ local families = {
     },
     {
         label = "Tokyo Night",
-        icon = PALETTE,
         items = {
             { label = "Tokyo Night Soft", icon = "◔", style = "tokyonight_soft" },
             { label = "Tokyo Night Dark", icon = "◑", style = "tokyonight_dark" },
@@ -74,7 +70,6 @@ local families = {
     },
     {
         label = "Nord",
-        icon = PALETTE,
         items = {
             { label = "Nord Soft", icon = "◔", style = "nord_soft" },
             { label = "Nord Dark", icon = "◑", style = "nord_dark" },
@@ -84,7 +79,6 @@ local families = {
     },
     {
         label = "Dracula",
-        icon = PALETTE,
         items = {
             { label = "Dracula Soft", icon = "◔", style = "dracula_soft" },
             { label = "Dracula Dark", icon = "◑", style = "dracula_dark" },
@@ -94,7 +88,6 @@ local families = {
     },
     {
         label = "Rosé Pine",
-        icon = PALETTE,
         items = {
             { label = "Rosé Pine Soft", icon = "◔", style = "rosepine_soft" },
             { label = "Rosé Pine Dark", icon = "◑", style = "rosepine_dark" },
@@ -104,7 +97,6 @@ local families = {
     },
     {
         label = "Material",
-        icon = PALETTE,
         items = {
             { label = "Material Soft", icon = "◔", style = "material_soft" },
             { label = "Material Dark", icon = "◑", style = "material_dark" },
@@ -114,7 +106,6 @@ local families = {
     },
     {
         label = "Solarized",
-        icon = PALETTE,
         items = {
             { label = "Solarized Soft", icon = "◔", style = "solarized_soft" },
             { label = "Solarized Dark", icon = "◑", style = "solarized_dark" },
@@ -124,7 +115,6 @@ local families = {
     },
     {
         label = "Nightfox",
-        icon = PALETTE,
         items = {
             { label = "Nightfox Soft", icon = "◔", style = "nightfox_soft" },
             { label = "Nightfox Dark", icon = "◑", style = "nightfox_dark" },
@@ -214,7 +204,9 @@ function M.open()
 
     -- Build tabs, keeping a reference to the currently-active item so lvim-utils can mark
     -- it with the current_item indicator (➤) — comparison is by reference, so the exact
-    -- table object stored in tabs[n].items must be passed.
+    -- table object stored in tabs[n].items must be passed. The family tab glyph is read LIVE
+    -- from config here, so a runtime `tab_icon` change is honoured on the next open.
+    local tab_icon = config.picker.tab_icon
     local tabs = {}
     local found_item_ref, found_tab_idx = nil, nil
     for ti, fam in ipairs(families) do
@@ -226,7 +218,7 @@ function M.open()
             end
             items[#items + 1] = item
         end
-        tabs[#tabs + 1] = { label = fam.label, icon = fam.icon, items = items }
+        tabs[#tabs + 1] = { label = fam.label, icon = tab_icon, items = items }
     end
 
     -- Live preview: apply the theme as the cursor lands on each item; restore the original
@@ -235,7 +227,7 @@ function M.open()
     -- so it doesn't flicker through each previewed theme — the theme previews in the editor
     -- behind it; with live_chrome the picker itself recolours to the previewed theme too.
     local previewed = current_style
-    local cfg = require("lvim-colorscheme.config").options or require("lvim-colorscheme.config").defaults
+    local cfg = config
     local pin_chrome = not (cfg.picker and cfg.picker.live_chrome)
     local chrome = pin_chrome and snapshot_chrome() or nil
     ui.tabs({

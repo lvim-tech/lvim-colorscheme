@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.rainbow: highlight groups for rainbow-delimiters.nvim (https://github.com/HiPhish/rainbow-delimiters.nvim).
+--
+---@module "lvim-colorscheme.groups.rainbow"
+
 local M = {}
 
 M.url = "https://github.com/HiPhish/rainbow-delimiters.nvim"

@@ -1,3 +1,10 @@
+-- lvim-colorscheme.util: colour math + module/cache helpers for the engine.
+-- Blend / lighten / darken / brighten / invert (via hsluv) build the derived palette; `mod`
+-- lazy-loads a group/palette module by name; `resolve` flattens a group's `style` sub-table
+-- into nvim_set_hl keys; `cache.*` reads/writes the on-disk highlight cache keyed by style.
+--
+---@module "lvim-colorscheme.util"
+
 local M = {}
 
 M.bg = "#000000"

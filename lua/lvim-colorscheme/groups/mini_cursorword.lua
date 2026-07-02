@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.mini_cursorword: highlight groups for mini.cursorword (https://github.com/echasnovski/mini.cursorword).
+--
+---@module "lvim-colorscheme.groups.mini_cursorword"
+
 local M = {}
 
 M.url = "https://github.com/echasnovski/mini.cursorword"

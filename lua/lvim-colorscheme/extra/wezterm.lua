@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.wezterm: generate a WezTerm theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.wezterm"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

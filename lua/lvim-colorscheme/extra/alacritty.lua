@@ -1,8 +1,13 @@
+-- lvim-colorscheme.extra.alacritty: generate an Alacritty theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.alacritty"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}
 
---- @param colors ColorScheme
+---@param colors ColorScheme
+---@return string
 function M.generate(colors)
     return util.template(
         [[

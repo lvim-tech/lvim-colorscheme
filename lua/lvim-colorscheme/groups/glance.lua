@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.glance: highlight groups for glance.nvim (https://github.com/DNLHC/glance.nvim).
+--
+---@module "lvim-colorscheme.groups.glance"
+
 local M = {}
 
 M.url = "https://github.com/DNLHC/glance.nvim"

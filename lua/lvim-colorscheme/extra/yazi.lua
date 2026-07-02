@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.yazi: generate a Yazi theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.yazi"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

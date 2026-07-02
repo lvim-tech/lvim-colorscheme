@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.mason: highlight groups for mason.nvim (https://github.com/williamboman/mason.nvim).
+--
+---@module "lvim-colorscheme.groups.mason"
+
 local M = {}
 
 M.url = "https://github.com/williamboman/mason.nvim"

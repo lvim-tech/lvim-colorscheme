@@ -1,13 +1,46 @@
-local M = {}
+-- lvim-colorscheme.config: the live configuration table.
+-- Holds the defaults; setup() merges user overrides into it IN PLACE via
+-- lvim-utils.utils.merge, so every require("lvim-colorscheme.config") reader sees the
+-- effective values directly (config.<field>) — no defaults/options split. `version` is a
+-- config field because it is part of the highlight-cache fingerprint (groups/init.lua):
+-- bump it whenever the generated highlights change so on-disk caches regenerate.
+--
+---@module "lvim-colorscheme.config"
 
-M.version = "1.1.9"
+local utils = require("lvim-utils.utils")
 
 ---@class lvim-colorscheme.Config
+---@field version? string   Cache-fingerprint version (bump on any generated-highlight change)
+---@field style? string   Active dark-background style (e.g. "lvim_dark")
+---@field light_style? string   Style used when `vim.o.background` is "light"
+---@field auto_background? boolean   Reload style/light_style automatically on a background flip
+---@field remember? boolean   Self-manage theme persistence (restore + apply on setup, save on commit)
+---@field transparent? boolean   Drop the editor background (see-through terminal)
+---@field terminal_colors? boolean   Set the `:terminal` ANSI colours from the palette
+---@field picker? { live_chrome?: boolean, width?: number, tab_icon?: string }
+---@field styles? table   Per-syntax-group attr tables + sidebars/floats background style
+---@field sidebar_filetypes? string[]   Filetypes treated as sidebars (Normal:NormalSB)
+---@field day_brightness? number   0..1 vibrancy of the light ("day") style
+---@field dim_inactive? boolean   Mute the foreground of non-focused windows
+---@field dim_inactive_amount? number   0..1 strength of dim_inactive
+---@field dark_active? boolean   Darken the focused window's background toward black
+---@field dark_active_amount? number   0..1 strength of dark_active
 ---@field on_colors? fun(colors: ColorScheme)
 ---@field on_highlights? fun(highlights: lvim-colorscheme.Highlights, colors: ColorScheme)
----@field remember? boolean  Self-manage theme persistence (restore + apply on setup, save on commit)
+---@field cache? boolean   Cache the generated highlights on disk for faster loads
+---@field plugins? table<string, boolean|{enabled:boolean}>
+---@field dim_active? boolean  Deprecated back-compat alias for `dark_active` (mapped in setup)
 ---@field _preview? boolean  Internal: lightweight live-preview load (skips hi clear + User autocmd)
-M.defaults = {
+
+--- The config MODULE table: the live config (all Config fields) plus its setup/extend helpers.
+--- Readers `require("lvim-colorscheme.config")` and access effective values as `config.<field>`.
+---@class lvim-colorscheme.ConfigModule: lvim-colorscheme.Config
+---@field setup? fun(options?: lvim-colorscheme.Config)
+---@field extend? fun(opts?: lvim-colorscheme.Config): lvim-colorscheme.Config
+
+---@type lvim-colorscheme.ConfigModule
+local M = {
+    version = "1.1.9",
     style = "lvim_dark",
     -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
     -- applies the last committed theme, and every committed change is persisted — to the store
@@ -95,32 +128,27 @@ M.defaults = {
     },
 }
 
----@type lvim-colorscheme.Config
-M.options = nil
-
+--- Merge user `options` into the live config IN PLACE (via lvim-utils.utils.merge), so every
+--- `require("lvim-colorscheme.config")` reader immediately sees the effective values.
 ---@param options? lvim-colorscheme.Config
 function M.setup(options)
-    options = vim.tbl_deep_extend("force", {}, options or {})
+    options = options or {}
     -- Back-compat: the original `dim_active` darkened the FOCUSED window — that is exactly
     -- what `dark_active` now does, so map the old key onto it when the new one isn't supplied.
     if options.dim_active ~= nil and options.dark_active == nil then
         options.dark_active = options.dim_active
     end
     options.dim_active = nil
-    M.options = vim.tbl_deep_extend("force", {}, M.defaults, options)
+    utils.merge(M, options)
 end
 
+--- The live config overlaid with per-call `opts`, WITHOUT mutating the live table. Used by the
+--- load path (theme/colors) so a single `load({ style = … })` (or the picker's `_preview`) takes
+--- effect for that apply only. Returns the live config itself when there is nothing to overlay.
 ---@param opts? lvim-colorscheme.Config
+---@return lvim-colorscheme.Config
 function M.extend(opts)
-    return opts and vim.tbl_deep_extend("force", {}, M.options, opts) or M.options
+    return opts and vim.tbl_deep_extend("force", {}, M, opts) or M
 end
-
-setmetatable(M, {
-    __index = function(_, k)
-        if k == "options" then
-            return M.defaults
-        end
-    end,
-})
 
 return M

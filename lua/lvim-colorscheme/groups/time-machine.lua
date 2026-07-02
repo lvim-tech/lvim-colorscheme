@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.time-machine: highlight groups for time-machine.nvim (https://github.com/y3owk1n/time-machine.nvim).
+--
+---@module "lvim-colorscheme.groups.time-machine"
+
 local M = {}
 
 M.url = "https://github.com/y3owk1n/time-machine.nvim"

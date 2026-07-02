@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.flutter-tools: highlight groups for flutter-tools.nvim (https://github.com/nvim-flutter/flutter-tools.nvim).
+--
+---@module "lvim-colorscheme.groups.flutter-tools"
+
 local M = {}
 
 M.url = "https://github.com/nvim-flutter/flutter-tools.nvim"

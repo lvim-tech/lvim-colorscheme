@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.nomad: highlight groups for nomad (https://github.com/nomad/nomad).
+--
+---@module "lvim-colorscheme.groups.nomad"
+
 local M = {}
 
 M.url = "https://github.com/nomad/nomad"

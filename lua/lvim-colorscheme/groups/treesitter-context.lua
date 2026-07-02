@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.treesitter-context: highlight groups for nvim-treesitter-context (https://github.com/nvim-treesitter/nvim-treesitter-context).
+--
+---@module "lvim-colorscheme.groups.treesitter-context"
+
 local M = {}
 
 M.url = "https://github.com/nvim-treesitter/nvim-treesitter-context"

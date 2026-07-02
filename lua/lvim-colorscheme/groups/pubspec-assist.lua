@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.pubspec-assist: highlight groups for pubspec-assist.nvim (https://github.com/nvim-flutter/pubspec-assist.nvim).
+--
+---@module "lvim-colorscheme.groups.pubspec-assist"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

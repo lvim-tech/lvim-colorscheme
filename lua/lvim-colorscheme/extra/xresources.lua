@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.xresources: generate an Xresources theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.xresources"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

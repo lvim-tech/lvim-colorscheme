@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.waybar: generate a Waybar theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.waybar"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

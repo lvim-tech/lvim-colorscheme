@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.lightbulb: highlight groups for nvim-lightbulb (https://github.com/kosayoda/nvim-lightbulb).
+--
+---@module "lvim-colorscheme.groups.lightbulb"
+
 local M = {}
 
 M.url = "https://github.com/kosayoda/nvim-lightbulb"

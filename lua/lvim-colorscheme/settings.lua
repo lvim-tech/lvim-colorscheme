@@ -2,8 +2,8 @@
 --
 -- One spec list drives BOTH the config panel (`config_ui`) and the persistence restore, so
 -- they never drift. Each spec maps a persistence key (matching control-center's setting
--- names, for mutual recognition) to a dot-path inside `config.options`, plus the panel row
--- type. Values are applied live through `lvim-colorscheme.set` and persisted via `store`.
+-- names, for mutual recognition) to a dot-path inside the live `config` table, plus the panel
+-- row type. Values are applied live through `lvim-colorscheme.set` and persisted via `store`.
 --
 ---@module "lvim-colorscheme.settings"
 
@@ -22,7 +22,7 @@ local STYLE_OPTS = { "dark", "transparent", "normal" }
 ---@field group   string   tab the row belongs to
 ---@field type    "bool"|"select"
 ---@field options any[]|nil
----@field path    string   dot-path into config.options
+---@field path    string   dot-path into the live config table
 ---@field italic? boolean  encode/decode bool <-> { italic = true }
 
 ---@type lvim-colorscheme.Setting[]
@@ -172,7 +172,7 @@ end
 ---@param value any
 ---@return boolean
 function M.value_disabled(spec, value)
-    local opts = config.options or config.defaults
+    local opts = config
     -- "transparent" sidebar/float only renders see-through while global `transparent` is on;
     -- otherwise it inherits the opaque editor bg → inert.
     if (spec.path == "styles.sidebars" or spec.path == "styles.floats") and value == "transparent" then
@@ -199,7 +199,7 @@ end
 ---@param spec lvim-colorscheme.Setting
 ---@return any
 function M.get(spec)
-    local opts = config.options or config.defaults
+    local opts = config
     local raw = get_path(opts, spec.path)
     if spec.italic then
         return type(raw) == "table" and raw.italic == true

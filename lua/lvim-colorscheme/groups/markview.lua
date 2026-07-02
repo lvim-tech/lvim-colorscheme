@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.markview: highlight groups for lvim-space (https://github.com/lvim-tech/lvim-space).
+--
+---@module "lvim-colorscheme.groups.markview"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

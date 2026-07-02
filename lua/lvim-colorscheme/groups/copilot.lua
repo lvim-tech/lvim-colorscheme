@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.copilot: highlight groups for copilot.lua (https://github.com/zbirenbaum/copilot.lua).
+--
+---@module "lvim-colorscheme.groups.copilot"
+
 local M = {}
 
 M.url = "https://github.com/zbirenbaum/copilot.lua"

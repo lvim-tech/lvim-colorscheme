@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.notify: highlight groups for nvim-notify (https://github.com/rcarriga/nvim-notify).
+--
+---@module "lvim-colorscheme.groups.notify"
+
 local M = {}
 
 M.url = "https://github.com/rcarriga/nvim-notify"

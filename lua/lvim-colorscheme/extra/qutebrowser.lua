@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.qutebrowser: generate a Qutebrowser theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.qutebrowser"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.mini_diff: highlight groups for mini.files (https://github.com/echasnovski/mini.files).
+--
+---@module "lvim-colorscheme.groups.mini_diff"
+
 local M = {}
 
 M.url = "https://github.com/echasnovski/mini.files"

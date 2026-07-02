@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.fidget: highlight groups for fidget.nvim (https://github.com/j-hui/fidget.nvim).
+--
+---@module "lvim-colorscheme.groups.fidget"
+
 local M = {}
 
 M.url = "https://github.com/j-hui/fidget.nvim"

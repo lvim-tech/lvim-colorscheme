@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.trouble: highlight groups for trouble.nvim (https://github.com/folke/trouble.nvim).
+--
+---@module "lvim-colorscheme.groups.trouble"
+
 local M = {}
 
 M.url = "https://github.com/folke/trouble.nvim"

@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.kitty: generate a Kitty theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.kitty"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

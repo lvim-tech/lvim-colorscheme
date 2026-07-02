@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.rgflow: highlight groups for rgflow.nvim (https://github.com/mangelozzi/rgflow.nvim).
+--
+---@module "lvim-colorscheme.groups.rgflow"
+
 local M = {}
 
 M.url = "https://github.com/mangelozzi/rgflow.nvim"

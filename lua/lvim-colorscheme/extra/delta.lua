@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.delta: generate a Delta (git pager) theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.delta"
+
 ---@class DeltaColors
 ---@field add string
 ---@field delete string

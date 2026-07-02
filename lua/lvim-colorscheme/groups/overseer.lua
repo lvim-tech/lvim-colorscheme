@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.overseer: highlight groups for overseer.nvim (https://github.com/stevearc/overseer.nvim).
+--
+---@module "lvim-colorscheme.groups.overseer"
+
 local M = {}
 
 M.url = "https://github.com/stevearc/overseer.nvim"

@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.render-markdown: highlight groups for render-markdown.nvim (https://github.com/MeanderingProgrammer/render-markdown.nvim).
+--
+---@module "lvim-colorscheme.groups.render-markdown"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

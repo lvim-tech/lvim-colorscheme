@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.lazydocker: generate a Lazydocker theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.lazydocker"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

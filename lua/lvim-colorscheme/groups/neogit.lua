@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.neogit: highlight groups for neogit (https://github.com/TimUntersberger/neogit).
+--
+---@module "lvim-colorscheme.groups.neogit"
+
 local M = {}
 
 M.url = "https://github.com/TimUntersberger/neogit"

@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.alpha: highlight groups for alpha-nvim (https://github.com/goolord/alpha-nvim).
+--
+---@module "lvim-colorscheme.groups.alpha"
+
 local M = {}
 
 M.url = "https://github.com/goolord/alpha-nvim"

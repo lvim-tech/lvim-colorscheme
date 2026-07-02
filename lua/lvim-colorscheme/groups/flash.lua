@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.flash: highlight groups for flash.nvim (https://github.com/folke/flash.nvim).
+--
+---@module "lvim-colorscheme.groups.flash"
+
 local M = {}
 
 M.url = "https://github.com/folke/flash.nvim"

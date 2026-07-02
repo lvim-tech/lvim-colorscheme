@@ -1,3 +1,11 @@
+-- lvim-colorscheme.colors: assemble the full derived ColorScheme for a style.
+-- Loads the style's base palette (lazily, by name), then computes every derived colour the
+-- groups need: diffs, borders, sidebar/float/statusline backgrounds (honouring transparent +
+-- the authoritative styles.sidebars/floats), the dark_active bg, blends, rainbow and terminal
+-- ANSI sets. `styles` is a lazy map of style name → palette table (or light-invert function).
+--
+---@module "lvim-colorscheme.colors"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}
@@ -9,7 +17,9 @@ M.styles = setmetatable({}, {
     end,
 })
 
+--- Build the full derived ColorScheme for `opts.style` (overlaid on the live config).
 ---@param opts? lvim-colorscheme.Config
+---@return ColorScheme colors, lvim-colorscheme.Config opts
 function M.setup(opts)
     opts = require("lvim-colorscheme.config").extend(opts)
 

@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.gitgutter: highlight groups for vim-gitgutter (https://github.com/airblade/vim-gitgutter).
+--
+---@module "lvim-colorscheme.groups.gitgutter"
+
 local M = {}
 
 M.url = "https://github.com/airblade/vim-gitgutter"

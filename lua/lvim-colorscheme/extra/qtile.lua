@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.qtile: generate a Qtile theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.qtile"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

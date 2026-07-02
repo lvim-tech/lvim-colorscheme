@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.zed: generate a Zed theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.zed"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

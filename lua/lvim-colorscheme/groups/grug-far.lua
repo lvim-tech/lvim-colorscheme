@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.grug-far: highlight groups for grug-far.nvim (https://github.com/MagicDuck/grug-far.nvim).
+--
+---@module "lvim-colorscheme.groups.grug-far"
+
 local M = {}
 
 M.url = "https://github.com/MagicDuck/grug-far.nvim"

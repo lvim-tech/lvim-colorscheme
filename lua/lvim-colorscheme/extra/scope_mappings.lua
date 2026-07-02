@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.scope_mappings: shared TextMate scope -> highlight-group mappings used by the tmTheme-based generators (bat, ...).
+--
+---@module "lvim-colorscheme.extra.scope_mappings"
+
 local M = {}
 
 M.STANDARD_SCOPES = {

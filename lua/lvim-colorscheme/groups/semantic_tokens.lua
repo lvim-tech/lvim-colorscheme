@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.semantic_tokens: LSP semantic-token highlight groups.
+--
+---@module "lvim-colorscheme.groups.semantic_tokens"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

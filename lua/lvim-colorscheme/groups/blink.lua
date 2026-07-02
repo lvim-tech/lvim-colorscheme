@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.blink: highlight groups for blink.cmp (https://github.com/Saghen/blink.cmp).
+--
+---@module "lvim-colorscheme.groups.blink"
+
 local M = {}
 
 M.url = "https://github.com/Saghen/blink.cmp"

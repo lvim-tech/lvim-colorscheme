@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.package-info: highlight groups for package-info.nvim (https://github.com/vuki656/package-info.nvim).
+--
+---@module "lvim-colorscheme.groups.package-info"
+
 local M = {}
 
 M.url = "https://github.com/vuki656/package-info.nvim"

@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.base: core editor + UI highlight groups (Normal, statusline, floats, diagnostics, …).
+--
+---@module "lvim-colorscheme.groups.base"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

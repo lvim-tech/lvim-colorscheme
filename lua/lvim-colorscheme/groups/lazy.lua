@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.lazy: highlight groups for lazy.nvim (https://github.com/folke/lazy.nvim).
+--
+---@module "lvim-colorscheme.groups.lazy"
+
 local M = {}
 
 M.url = "https://github.com/folke/lazy.nvim"

@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.fzf: build the fzf highlight-link map that themes fzf-lua's built-in fzf UI.
+--
+---@module "lvim-colorscheme.extra.fzf"
+
 local M = {}
 
 function M.generate()

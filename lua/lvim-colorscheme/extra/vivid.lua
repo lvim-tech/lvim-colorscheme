@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.vivid: generate a Vivid (LS_COLORS) theme config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.vivid"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

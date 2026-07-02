@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.kinds: LSP/completion item-kind highlight groups.
+--
+---@module "lvim-colorscheme.groups.kinds"
+
 local M = {}
 
 -- lsp symbol kind and completion kind highlights

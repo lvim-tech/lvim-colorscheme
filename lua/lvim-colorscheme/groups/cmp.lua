@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.cmp: highlight groups for nvim-cmp (https://github.com/hrsh7th/nvim-cmp).
+--
+---@module "lvim-colorscheme.groups.cmp"
+
 local M = {}
 
 M.url = "https://github.com/hrsh7th/nvim-cmp"

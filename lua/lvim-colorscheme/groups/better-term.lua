@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.better-term: highlight groups for betterTerm.nvim (https://github.com/CRAG666/betterTerm.nvim).
+--
+---@module "lvim-colorscheme.groups.better-term"
+
 local M = {}
 
 M.url = "https://github.com/CRAG666/betterTerm.nvim"

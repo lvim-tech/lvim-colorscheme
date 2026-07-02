@@ -120,6 +120,19 @@ Each family has four variants: **soft** (lighter dark), **dark** (base), **darke
 
 ## Installation
 
+Requires Neovim >= 0.10 and [lvim-utils](https://github.com/lvim-tech/lvim-utils) (for the floating
+theme picker and settings panel — the picker falls back to `vim.ui.select` without it).
+
+### lvim-installer (recommended)
+
+Install and manage it from the LVIM package manager — open the **Plugins** tab and install / update / pin it:
+
+```vim
+:LvimInstaller plugins
+```
+
+lvim-installer installs plugins through Neovim's built-in `vim.pack`, so no external plugin manager is needed.
+
 ### lazy.nvim
 
 ```lua
@@ -133,19 +146,6 @@ return {
 }
 ```
 
-### Native (vim.pack / packadd)
-
-```lua
--- In your init.lua, after the plugin is on the runtimepath:
-vim.pack.add({
-    { src = "https://github.com/lvim-tech/lvim-utils" },
-    { src = "https://github.com/lvim-tech/lvim-colorscheme" },
-})
-
-require("lvim-colorscheme").setup({ ... })
-vim.cmd("colorscheme lvim-dark")
-```
-
 ### packer.nvim
 
 ```lua
@@ -157,6 +157,18 @@ use({
         vim.cmd("colorscheme lvim-dark")
     end,
 })
+```
+
+### Native (vim.pack)
+
+```lua
+vim.pack.add({
+    { src = "https://github.com/lvim-tech/lvim-utils" },
+    { src = "https://github.com/lvim-tech/lvim-colorscheme" },
+})
+
+require("lvim-colorscheme").setup({ ... })
+vim.cmd("colorscheme lvim-dark")
 ```
 
 ---
@@ -339,6 +351,26 @@ local opts = lcs.opts -- Config | nil
 ```
 
 `lcs.colors` always reflects the currently active theme — no caching on the caller side needed.
+
+### Runtime functions
+
+```lua
+local lcs = require("lvim-colorscheme")
+
+-- Every colorscheme name, in family/variant order (the values accepted by `:colorscheme`).
+-- Build dropdowns from this so they never go stale when new families are added.
+local names = lcs.colorschemes() -- string[], e.g. { "lvim-dark", ..., "lvim-everforest-soft", ... }
+
+-- The active colorscheme name (dash form), or nil when no lvim theme is active.
+local active = lcs.current() -- string | nil
+
+-- Change option(s) at runtime and re-apply the active theme immediately. Merged into the
+-- live config; never switches the active theme, only its rendering.
+lcs.set({ transparent = true, dim_inactive = true, dark_active = true })
+
+-- Open the runtime settings panel (same as `:LvimColorscheme config`).
+lcs.config_panel()
+```
 
 ### Callback on load
 

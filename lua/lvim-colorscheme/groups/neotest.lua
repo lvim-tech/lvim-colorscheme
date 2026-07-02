@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.neotest: highlight groups for neotest (https://github.com/nvim-neotest/neotest).
+--
+---@module "lvim-colorscheme.groups.neotest"
+
 local M = {}
 
 M.url = "https://github.com/nvim-neotest/neotest"

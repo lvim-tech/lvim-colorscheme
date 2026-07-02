@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.fzf: highlight groups for fzf-lua (https://github.com/ibhagwan/fzf-lua).
+--
+---@module "lvim-colorscheme.groups.fzf"
+
 local M = {}
 
 M.url = "https://github.com/ibhagwan/fzf-lua"

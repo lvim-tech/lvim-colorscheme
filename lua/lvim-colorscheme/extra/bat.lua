@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.bat: generate a Bat theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.bat"
+
 local scope_mappings = require("lvim-colorscheme.extra.scope_mappings")
 
 local M = {}
@@ -54,6 +58,8 @@ local function create_scope_element(name, scope, settings, indent)
     return table.concat(lines, "\n")
 end
 
+---@param colors ColorScheme
+---@return string
 function M.generate(colors)
     if type(scope_mappings) ~= "table" or not scope_mappings.STANDARD_SCOPES then
         error("Invalid scope_mappings: expected a table with STANDARD_SCOPES")

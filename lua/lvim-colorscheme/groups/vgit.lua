@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.vgit: highlight groups for vgit.nvim (https://github.com/tanvirtin/vgit.nvim).
+--
+---@module "lvim-colorscheme.groups.vgit"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

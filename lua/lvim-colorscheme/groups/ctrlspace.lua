@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.ctrlspace: highlight groups for vim-ctrlspace (https://github.com/vim-ctrlspace/vim-ctrlspace).
+--
+---@module "lvim-colorscheme.groups.ctrlspace"
+
 local M = {}
 
 M.url = "https://github.com/vim-ctrlspace/vim-ctrlspace"

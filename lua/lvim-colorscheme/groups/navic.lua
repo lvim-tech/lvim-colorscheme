@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.navic: highlight groups for nvim-navic (https://github.com/SmiteshP/nvim-navic).
+--
+---@module "lvim-colorscheme.groups.navic"
+
 local M = {}
 
 M.url = "https://github.com/SmiteshP/nvim-navic"

@@ -1,3 +1,10 @@
+-- lvim-colorscheme.types: shared LuaDoc type definitions (no runtime code).
+-- The Highlight / Highlights / HighlightsFn / Cache / Palette / ColorScheme classes and
+-- aliases used across the engine (groups, colors, theme, util) live here so the annotations
+-- stay in one place. Required for its side-effect of registering the types with the LSP.
+--
+---@module "lvim-colorscheme.types"
+
 ---@class lvim-colorscheme.Highlight
 ---@field fg? string
 ---@field bg? string

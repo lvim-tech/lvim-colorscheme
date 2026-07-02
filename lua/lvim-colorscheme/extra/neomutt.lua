@@ -1,3 +1,7 @@
+-- lvim-colorscheme.extra.neomutt: generate a Neomutt theme/colour config from the lvim-colorscheme palette.
+--
+---@module "lvim-colorscheme.extra.neomutt"
+
 local util = require("lvim-colorscheme.util")
 
 local M = {}

@@ -1,8 +1,11 @@
--- lvim-colorscheme: :checkhealth lvim-colorscheme
+-- lvim-colorscheme.health: :checkhealth lvim-colorscheme.
+-- Reports the Neovim version, 'termguicolors', whether lvim-utils (the floating picker) is
+-- present, the highlight-cache writability, and the active theme / cache-fingerprint version.
 --
 ---@module "lvim-colorscheme.health"
 
 local config = require("lvim-colorscheme.config")
+local state = require("lvim-colorscheme.state")
 
 local M = {}
 
@@ -39,10 +42,10 @@ function M.check()
 
     local active = vim.g.colors_name or "(none)"
     health.info(
-        ("version=%s  active=%s  options=%s"):format(
+        ("version=%s  active=%s  theme=%s"):format(
             config.version,
             active,
-            config.options and "loaded" or "defaults (setup not called)"
+            state.opts and "applied" or "not applied yet"
         )
     )
 end

@@ -1,3 +1,7 @@
+-- lvim-colorscheme.groups.which-key: highlight groups for which-key.nvim (https://github.com/folke/which-key.nvim).
+--
+---@module "lvim-colorscheme.groups.which-key"
+
 local M = {}
 
 M.url = "https://github.com/folke/which-key.nvim"
