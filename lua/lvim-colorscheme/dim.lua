@@ -151,15 +151,16 @@ function M.build(bg_hex, amount)
             -- Keep the link; the target is dimmed in this same namespace, so it resolves dim.
             api.nvim_set_hl(M.ns, name, { link = def.link })
         else
-            local d = vim.deepcopy(def)
-            if d.fg then
-                d.fg = blend(d.fg, bg, amount)
+            -- `nvim_get_hl(0, {})` hands us a fresh, caller-owned table per group, so mutate `def` in place
+            -- (no deepcopy — that ran ~1090x per theme apply for nothing).
+            if def.fg then
+                def.fg = blend(def.fg, bg, amount)
             end
-            if d.sp then
-                d.sp = blend(d.sp, bg, amount)
+            if def.sp then
+                def.sp = blend(def.sp, bg, amount)
             end
             -- bg/ctermbg left untouched so the window background (incl. NONE) is unchanged.
-            api.nvim_set_hl(M.ns, name, d)
+            api.nvim_set_hl(M.ns, name, def)
         end
     end
 end
