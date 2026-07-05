@@ -16,6 +16,7 @@
 ---@module "lvim-colorscheme.dim"
 
 local api = vim.api
+local dim = require("lvim-utils.dim")
 
 local M = {}
 
@@ -36,20 +37,6 @@ local DARK_HL = "NormalNC:Normal"
 local dimmed = {}
 ---@type table<integer, true> windows given the DARK_HL winhighlight override.
 local dark_marked = {}
-
----Numeric (0xRRGGBB) blend of `fg` toward `bg` by fraction `t` (0 = fg, 1 = bg).
----@param fg integer
----@param bg integer
----@param t number
----@return integer
-local function blend(fg, bg, t)
-    local fr, fgc, fb = math.floor(fg / 65536) % 256, math.floor(fg / 256) % 256, fg % 256
-    local br, bgc, bb = math.floor(bg / 65536) % 256, math.floor(bg / 256) % 256, bg % 256
-    local r = math.floor(fr * (1 - t) + br * t + 0.5)
-    local g = math.floor(fgc * (1 - t) + bgc * t + 0.5)
-    local b = math.floor(fb * (1 - t) + bb * t + 0.5)
-    return r * 65536 + g * 256 + b
-end
 
 ---A REAL editor window: non-floating, a normal (`buftype == ""`) buffer, and not self-themed via
 ---`winhighlight` (only OUR own dark override is allowed). Floats and panels (nofile / quickfix / help /
@@ -123,6 +110,11 @@ end
 ---Reconcile every window in one pass against the ACTIVE real window (not the raw current window — so a
 ---float/panel holding focus keeps the editor active). Run on focus/layout changes.
 local function reconcile()
+    -- Stand down while an lvim-ui surface owns a namespace backdrop (it dims/darkens EVERY window uniformly);
+    -- otherwise the two managers fight over the same windows and the backdrop covers only some of them.
+    if dim.suspended then
+        return
+    end
     local cur = api.nvim_get_current_win()
     if is_real(cur) then
         M.active = cur
@@ -139,30 +131,12 @@ local function reconcile()
     end
 end
 
----(Re)build the dim namespace from the current global highlights. Call after every theme apply so the
----dimmed copies track the active palette.
+---(Re)build the dim namespace from the current global highlights (via the shared `lvim-utils.dim`). Call
+---after every theme apply so the dimmed copies track the active palette.
 ---@param bg_hex string  editor background colour the foregrounds are muted toward (colors.bg)
 ---@param amount number   fraction the foreground is blended toward bg (0..1)
 function M.build(bg_hex, amount)
-    M.ns = M.ns or api.nvim_create_namespace("lvim_colorscheme_dim")
-    local bg = tonumber((bg_hex or "#000000"):gsub("#", ""), 16) or 0
-    for name, def in pairs(api.nvim_get_hl(0, {})) do
-        if def.link then
-            -- Keep the link; the target is dimmed in this same namespace, so it resolves dim.
-            api.nvim_set_hl(M.ns, name, { link = def.link })
-        else
-            -- `nvim_get_hl(0, {})` hands us a fresh, caller-owned table per group, so mutate `def` in place
-            -- (no deepcopy — that ran ~1090x per theme apply for nothing).
-            if def.fg then
-                def.fg = blend(def.fg, bg, amount)
-            end
-            if def.sp then
-                def.sp = blend(def.sp, bg, amount)
-            end
-            -- bg/ctermbg left untouched so the window background (incl. NONE) is unchanged.
-            api.nvim_set_hl(M.ns, name, def)
-        end
-    end
+    M.ns = dim.build(bg_hex, amount)
 end
 
 ---Enable the focus-follow manager. Builds the dim namespace (when dimming), reconciles once, and installs
@@ -210,5 +184,20 @@ function M.disable()
     dark_marked = {}
     M.active = nil
 end
+
+-- When an lvim-ui surface takes over dimming (its namespace backdrop), RELEASE every window we hold so the
+-- backdrop paints them all uniformly; when it lets go, re-reconcile (only if this manager is actually enabled).
+dim.on_suspend(function(suspended)
+    if suspended then
+        for win in pairs(dimmed) do
+            set_dim(win, false)
+        end
+        for win in pairs(dark_marked) do
+            set_dark(win, false)
+        end
+    elseif aug then
+        reconcile()
+    end
+end)
 
 return M
