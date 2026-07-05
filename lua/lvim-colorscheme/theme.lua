@@ -82,6 +82,12 @@ function M.setup(opts)
     for _, fn in ipairs(state.listeners) do
         pcall(fn, colors, opts)
     end
+    -- If an lvim-ui surface backdrop is open (e.g. THIS theme picker, previewing under a dim/darken veil),
+    -- rebuild its namespace from the freshly-applied highlights so the veiled editor tracks the new theme
+    -- instead of freezing on the palette captured when the picker opened. No-op when no backdrop is up.
+    pcall(function()
+        require("lvim-ui.surface").refresh_backdrop()
+    end)
     -- `data` lets listeners persist only COMMITTED changes: the picker's live preview sets
     -- preview = true, so a config can save the theme to its store on a real change while
     -- ignoring the preview keystrokes. `style` is the applied style (e.g. "everforest_dark").

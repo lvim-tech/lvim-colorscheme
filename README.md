@@ -203,19 +203,8 @@ require("lvim-colorscheme").setup({
     },
 
     -- Filetypes treated as sidebars (get the sidebar background via a Normal:NormalSB winhl).
-    -- Add the filetypes of your left/right panels that don't theme themselves.
-    sidebar_filetypes = {
-        "help",
-        "qf",
-        "man",
-        "checkhealth",
-        "lspinfo",
-        "undotree",
-        "aerial",
-        "Outline",
-        "spectre_panel",
-        "dbui",
-    },
+    -- Empty by default; add the filetypes of your left/right panels that don't theme themselves.
+    sidebar_filetypes = {},
 
     -- Brightness for light variants (0.0 = dull, 1.0 = vibrant)
     day_brightness = 0.3,

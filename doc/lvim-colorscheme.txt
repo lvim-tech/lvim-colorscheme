@@ -76,10 +76,7 @@ The command name is `lvim-<family>-<variant>`; the matching `style` value is
           -- sidebars = "dark",
           -- floats   = "dark",
       },
-      sidebar_filetypes = {       -- filetypes marked as sidebars (Normal:NormalSB winhl)
-          "help", "qf", "man", "checkhealth", "lspinfo",
-          "undotree", "aerial", "Outline", "spectre_panel", "dbui",
-      },
+      sidebar_filetypes = {},     -- filetypes marked as sidebars (Normal:NormalSB winhl); empty by default
       day_brightness = 0.3,       -- vibrancy of the Light variants (0..1)
       dim_inactive = false,       -- mute the foreground of non-focused windows
       dim_inactive_amount = 0.4,  -- strength of dim_inactive (0..1; 0 none, 1 invisible)

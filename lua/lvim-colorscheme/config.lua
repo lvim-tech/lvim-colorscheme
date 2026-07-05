@@ -89,19 +89,9 @@ local M = {
     -- Filetypes whose windows are treated as SIDEBARS: a `Normal:NormalSB` winhighlight is
     -- applied so they take the sidebar background (which follows `styles.sidebars`). Use this
     -- for left/right panels that don't theme themselves (file trees / outlines that ship their
-    -- own groups already get it). Add your panels' filetypes here.
-    sidebar_filetypes = {
-        "help",
-        "qf",
-        "man",
-        "checkhealth",
-        "lspinfo",
-        "undotree",
-        "aerial",
-        "Outline",
-        "spectre_panel",
-        "dbui",
-    },
+    -- own groups already get it). EMPTY by default — the theme makes no assumption about which
+    -- panels you run; add your own panels' filetypes from your config's `setup()`.
+    sidebar_filetypes = {},
     day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
     -- These two are INDEPENDENT (use either, both, or neither):
     -- `dim_inactive` mutes the FOREGROUND of non-focused windows (the background stays
