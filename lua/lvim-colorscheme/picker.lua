@@ -1,6 +1,6 @@
 -- lvim-colorscheme.picker: the :LvimColorscheme theme picker.
--- Prefers the lvim-utils floating tabs UI (one tab per family, live preview as the cursor
--- moves, ➤ on the active style). Falls back to the built-in vim.ui.select when lvim-utils
+-- Prefers the lvim-ui floating tabs UI (one tab per family, live preview as the cursor
+-- moves, ➤ on the active style). Falls back to the built-in vim.ui.select when lvim-ui
 -- is absent, so the picker has no hard dependency.
 --
 ---@module "lvim-colorscheme.picker"
@@ -176,7 +176,7 @@ local function restore_chrome(snap)
     end
 end
 
---- vim.ui.select fallback (no lvim-utils): a flat list of every style.
+--- vim.ui.select fallback (no lvim-ui): a flat list of every style.
 ---@param current string|nil
 local function select_fallback(current)
     local items, by_label = {}, {}
@@ -197,7 +197,7 @@ end
 function M.open()
     local current_style = active_style()
 
-    local ok, ui = pcall(require, "lvim-utils.ui")
+    local ok, ui = pcall(require, "lvim-ui")
     if not ok then
         return select_fallback(current_style)
     end
@@ -232,11 +232,12 @@ function M.open()
     local chrome = pin_chrome and snapshot_chrome() or nil
     ui.tabs({
         title = " Colorscheme",
+        title_pos = "center", -- centred title band, like the control center
         tabs = tabs,
         tab_selector = found_tab_idx,
         current_item = found_item_ref,
-        width = cfg.picker.width,
-        -- height omitted → M.tabs auto-fits to the content (a family's 4 variants), capped at its 0.9 default.
+        -- No explicit width/height: follow the SHARED lvim-ui geometry (config.ui.size.float), edited via the
+        -- control-center's Utils tab — so the picker resizes with every other float instead of a hardcoded 0.9.
         pad = 1, -- a single-space body lpad — the variant rows sit one space from the edge
         position = "editor",
         footer_hints = true, -- bottom key-hint legend (panel keys • focused-row keys), like the control center

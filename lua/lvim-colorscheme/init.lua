@@ -199,7 +199,7 @@ function M.set(overrides)
     end
 end
 
---- Open the runtime configuration panel (also reachable via `:LvimColorscheme config`).
+--- Open the runtime configuration panel (also reachable via `:LvimColorschemeConfig`).
 --- Lets you toggle transparency, dim/dark focus cues, syntax italics and more; each change
 --- applies live and is persisted in the panel's own lvim-control-center database.
 function M.config_panel()

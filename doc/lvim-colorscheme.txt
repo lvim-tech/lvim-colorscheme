@@ -121,7 +121,7 @@ own colors follow each previewed theme (true) or stay fixed (false).
                                                   *lvim-colorscheme-config-panel*
 SETTINGS PANEL ~
 >
-    :LvimColorscheme config
+    :LvimColorschemeConfig
 <
 A panel (tabs Background / Focus / Syntax) to toggle the runtime options —
 transparency, sidebar/float style, dim_inactive / dark_active (and their
@@ -129,11 +129,11 @@ strength), syntax italics, terminal colors, day brightness, cache. Each change
 applies live and is persisted, surviving a restart.
 
 The panel is hosted by lvim-control-center (a REQUIRED dependency) as its OWN
-instance with its OWN database — separate from every other control center. Both
-the command and the database directory are configurable via
-`config.settings_panel = { command, save }` (`save` nil →
-stdpath("data")/lvim-colorscheme). `:LvimColorscheme config` and the configured
-command open the same instance. `setup()` restores the saved values on top of
+instance with its OWN database — separate from every other control center.
+lvim-control-center REGISTERS the command (`:LvimColorschemeConfig` by default);
+`:LvimColorscheme` stays the theme picker. Both the command and the database dir
+are configurable via `config.settings_panel = { command, save }` (`save` nil →
+stdpath("data")/lvim-colorscheme). `setup()` restores the saved values on top of
 your config (store wins).
 
                                                   *lvim-colorscheme-remember*
@@ -157,10 +157,11 @@ configured `style` is the first-run default.
 ==============================================================================
 5. COMMAND                                        *lvim-colorscheme-command*
 
-                                                        *:LvimColorscheme*
+                                          *:LvimColorscheme* *:LvimColorschemeConfig*
 :LvimColorscheme                Open the |lvim-colorscheme-picker|.
-:LvimColorscheme config         Open the settings panel
-                                (see |lvim-colorscheme-config-panel|).
+:LvimColorschemeConfig          Open the settings panel (owned by
+                                lvim-control-center; see
+                                |lvim-colorscheme-config-panel|).
 :LvimColorscheme extras         Regenerate every file under `extras/` for all
                                 styles and tools (see |lvim-colorscheme-extras|).
 :LvimColorscheme extras {tool}  Regenerate only that tool's extras files.

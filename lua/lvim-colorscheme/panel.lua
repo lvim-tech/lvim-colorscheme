@@ -111,6 +111,8 @@ function M.setup()
     end
     local p = config.settings_panel or {}
     M.instance = cc.new({
+        -- control-center REGISTERS the panel command (`:LvimColorschemeConfig`) — the plugin's own
+        -- `:LvimColorscheme` stays the theme PICKER; the config panel is this separate command.
         command = p.command or "LvimColorschemeConfig",
         -- Its OWN database directory (separate store); default under the plugin's data dir.
         save = p.save or (vim.fn.stdpath("data") .. "/lvim-colorscheme"),

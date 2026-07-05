@@ -279,7 +279,7 @@ it falls back to `vim.ui.select`, so there is no hard dependency.
 ## Settings panel
 
 ```vim
-:LvimColorscheme config
+:LvimColorschemeConfig
 ```
 
 A panel (tabs **Background · Focus · Syntax**) to toggle the runtime options — transparency,
@@ -300,8 +300,9 @@ require("lvim-colorscheme").setup({
 })
 ```
 
-`:LvimColorscheme config` (and the configured command) open the same instance. `setup()` is
-called once and restores the saved values on top of your config (the store wins).
+control-center registers the command (`:LvimColorschemeConfig` by default); `:LvimColorscheme`
+stays the theme picker. `setup()` is called once and restores the saved values on top of your
+config (the store wins).
 
 With `remember = true`, the **active theme** is persisted the same way (in the panel's database,
 under the `colorscheme` key) plus a plain mirror file `stdpath("data")/lvim-colorscheme/theme`.
@@ -358,7 +359,7 @@ local active = lcs.current() -- string | nil
 -- live config; never switches the active theme, only its rendering.
 lcs.set({ transparent = true, dim_inactive = true, dark_active = true })
 
--- Open the runtime settings panel (same as `:LvimColorscheme config`).
+-- Open the runtime settings panel (same as `:LvimColorschemeConfig`).
 lcs.config_panel()
 ```
 

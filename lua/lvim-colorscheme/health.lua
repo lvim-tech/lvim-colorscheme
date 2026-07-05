@@ -26,7 +26,7 @@ function M.check()
     end
 
     -- lvim-utils is only needed for the floating theme picker (:LvimColorscheme).
-    if pcall(require, "lvim-utils.ui") then
+    if pcall(require, "lvim-ui") then
         health.ok("lvim-utils found — the floating theme picker is available")
     else
         health.info("lvim-utils not found — :LvimColorscheme falls back to vim.ui.select")

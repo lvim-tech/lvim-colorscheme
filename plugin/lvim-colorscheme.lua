@@ -1,5 +1,5 @@
 -- :LvimColorscheme            → open the theme picker
--- :LvimColorscheme config     → open the runtime settings panel
+-- (the runtime settings panel is :LvimColorschemeConfig — owned by lvim-control-center)
 -- :LvimColorscheme extras     → regenerate every extras/ theme file
 -- :LvimColorscheme extras <t> → regenerate just one tool (e.g. kitty, wezterm)
 -- :LvimColorscheme reload     → drop the highlight cache + reload groups/colors and re-apply the
@@ -8,8 +8,6 @@ vim.api.nvim_create_user_command("LvimColorscheme", function(cmd)
     local sub, arg = cmd.fargs[1], cmd.fargs[2]
     if sub == "extras" then
         require("lvim-colorscheme.extra").generate_themes(arg)
-    elseif sub == "config" then
-        require("lvim-colorscheme.panel").open()
     elseif sub == "reload" or sub == "cache-reload" then
         if require("lvim-colorscheme").reload() then
             vim.notify(
@@ -36,7 +34,7 @@ end, {
             table.sort(tools)
             return tools
         end
-        return { "config", "extras", "reload" }
+        return { "extras", "reload" }
     end,
     desc = "lvim-colorscheme: theme picker / config panel / regenerate extras / reload",
 })
