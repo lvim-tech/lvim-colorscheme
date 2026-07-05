@@ -43,9 +43,14 @@ end
 ---@param opts? lvim-colorscheme.Config
 function M.setup(opts)
     config.setup(opts)
-    -- Restore persisted panel settings (control-center's DB when present, else our own JSON
-    -- file). The store wins over `opts`; applied into the live config so the first theme load
-    -- already reflects them. Guarded so a persistence hiccup never breaks setup.
+    -- Create the settings panel's DEDICATED lvim-control-center instance (its own command + own
+    -- database) and bind the store to it — BEFORE restoring, so restore reads that database.
+    pcall(function()
+        require("lvim-colorscheme.panel").setup()
+    end)
+    -- Restore persisted panel settings from the instance's database. The store wins over `opts`;
+    -- applied into the live config so the first theme load already reflects them. Guarded so a
+    -- persistence hiccup never breaks setup.
     pcall(function()
         require("lvim-colorscheme.settings").restore()
     end)
@@ -196,9 +201,9 @@ end
 
 --- Open the runtime configuration panel (also reachable via `:LvimColorscheme config`).
 --- Lets you toggle transparency, dim/dark focus cues, syntax italics and more; each change
---- applies live and is persisted (control-center DB or a local JSON file).
+--- applies live and is persisted in the panel's own lvim-control-center database.
 function M.config_panel()
-    require("lvim-colorscheme.config_ui").open()
+    require("lvim-colorscheme.panel").open()
 end
 
 --- Register a callback that fires every time the colorscheme loads.

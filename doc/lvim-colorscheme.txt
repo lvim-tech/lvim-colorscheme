@@ -62,6 +62,10 @@ The command name is `lvim-<family>-<variant>`; the matching `style` value is
       picker = {
           live_chrome = true,     -- recolour the picker itself during preview
       },
+      settings_panel = {          -- the config panel, hosted by lvim-control-center
+          command = "LvimColorschemeConfig", -- command that opens it
+          save = nil,             -- its own DB dir; nil → stdpath("data")/lvim-colorscheme
+      },
       styles = {                  -- attrs per syntax category (:h nvim_set_hl)
           comments  = { italic = true },
           keywords  = { italic = true },
@@ -119,16 +123,18 @@ SETTINGS PANEL ~
 >
     :LvimColorscheme config
 <
-A floating panel (tabs Background / Focus / Syntax) to toggle the runtime
-options — transparency, sidebar/float style, dim_inactive / dark_active (and
-their strength), syntax italics, terminal colors, day brightness, cache. Each
-change applies live and is persisted, surviving a restart.
+A panel (tabs Background / Focus / Syntax) to toggle the runtime options —
+transparency, sidebar/float style, dim_inactive / dark_active (and their
+strength), syntax italics, terminal colors, day brightness, cache. Each change
+applies live and is persisted, surviving a restart.
 
-Persistence has no hard dependency: when lvim-control-center is installed the
-values go into its database (the two plugins then recognise each other's
-settings); otherwise a JSON file under `stdpath("data")/lvim-colorscheme/` is
-used. `setup()` restores the saved values on top of your config (store wins).
-The panel itself needs lvim-utils for the tabbed UI.
+The panel is hosted by lvim-control-center (a REQUIRED dependency) as its OWN
+instance with its OWN database — separate from every other control center. Both
+the command and the database directory are configurable via
+`config.settings_panel = { command, save }` (`save` nil →
+stdpath("data")/lvim-colorscheme). `:LvimColorscheme config` and the configured
+command open the same instance. `setup()` restores the saved values on top of
+your config (store wins).
 
                                                   *lvim-colorscheme-remember*
 REMEMBER (theme persistence) ~
@@ -139,15 +145,14 @@ saved automatically — so a distribution need not read a theme file or call
 `:colorscheme` itself.
 
 The theme is written to two places on each change:
-  - the store (control-center DB under the shared `colorscheme` key when
-    present, else the JSON file) — keeps the control-center appearance panel
-    in sync;
+  - the settings panel's own control-center database (under the `colorscheme`
+    key);
   - a plain one-line mirror file `stdpath("data")/lvim-colorscheme/theme`.
 
 `setup()` restores from the MIRROR first: it is readable before any database
-(lvim-colorscheme loads earlier than control-center), so the theme is applied
-correctly at startup; the database copy is only for cross-panel sync. With
-nothing remembered yet, the configured `style` is the first-run default.
+(e.g. a bootstrap/installer that paints itself before plugins load), so the
+theme is applied correctly at startup. With nothing remembered yet, the
+configured `style` is the first-run default.
 
 ==============================================================================
 5. COMMAND                                        *lvim-colorscheme-command*

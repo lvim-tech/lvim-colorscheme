@@ -1,9 +1,9 @@
 -- lvim-colorscheme.settings: the runtime-configurable option set.
 --
--- One spec list drives BOTH the config panel (`config_ui`) and the persistence restore, so
--- they never drift. Each spec maps a persistence key (matching control-center's setting
--- names, for mutual recognition) to a dot-path inside the live `config` table, plus the panel
--- row type. Values are applied live through `lvim-colorscheme.set` and persisted via `store`.
+-- One spec list drives BOTH the settings panel (`panel`, hosted by lvim-control-center) and the
+-- persistence restore, so they never drift. Each spec maps a persistence key to a dot-path inside
+-- the live `config` table, plus the panel row type. Values are applied live through
+-- `lvim-colorscheme.set` and persisted via `store` (the panel's own control-center database).
 --
 ---@module "lvim-colorscheme.settings"
 
@@ -232,13 +232,6 @@ end
 --- keys absent from the store are left untouched. Applied in ONE `set` call (one reload).
 --- Call once after `config.setup`.
 function M.restore()
-    local names = {}
-    for _, s in ipairs(M.specs) do
-        names[#names + 1] = s.name
-    end
-    -- Seed control-center's DB from a standalone JSON file the first time they cohabit.
-    store.migrate(names)
-
     local overrides = {}
     for _, spec in ipairs(M.specs) do
         local v = store.load(spec.name)

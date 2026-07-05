@@ -120,8 +120,10 @@ Each family has four variants: **soft** (lighter dark), **dark** (base), **darke
 
 ## Installation
 
-Requires Neovim >= 0.10 and [lvim-utils](https://github.com/lvim-tech/lvim-utils) (for the floating
-theme picker and settings panel — the picker falls back to `vim.ui.select` without it).
+Requires Neovim >= 0.10, [lvim-utils](https://github.com/lvim-tech/lvim-utils) (for the floating
+theme picker — falls back to `vim.ui.select` without it), and
+[lvim-control-center](https://github.com/lvim-tech/lvim-control-center) (which hosts the settings
+panel in its own database).
 
 ### lvim-installer (recommended)
 
@@ -133,37 +135,12 @@ Install and manage it from the LVIM package manager — open the **Plugins** tab
 
 lvim-installer installs plugins through Neovim's built-in `vim.pack`, so no external plugin manager is needed.
 
-### lazy.nvim
-
-```lua
-return {
-    "lvim-tech/lvim-colorscheme",
-    dependencies = { "lvim-tech/lvim-utils" },
-    config = function()
-        require("lvim-colorscheme").setup({ ... })
-        vim.cmd("colorscheme lvim-dark")
-    end,
-}
-```
-
-### packer.nvim
-
-```lua
-use({
-    "lvim-tech/lvim-colorscheme",
-    requires = { "lvim-tech/lvim-utils" },
-    config = function()
-        require("lvim-colorscheme").setup({ ... })
-        vim.cmd("colorscheme lvim-dark")
-    end,
-})
-```
-
 ### Native (vim.pack)
 
 ```lua
 vim.pack.add({
     { src = "https://github.com/lvim-tech/lvim-utils" },
+    { src = "https://github.com/lvim-tech/lvim-control-center" },
     { src = "https://github.com/lvim-tech/lvim-colorscheme" },
 })
 
@@ -187,12 +164,17 @@ require("lvim-colorscheme").setup({
     auto_background = false,
 
     -- Self-manage theme persistence. When true, setup() restores and applies the last
-    -- committed theme, and every committed change is saved — to the store (control-center
-    -- DB when present, else the JSON file) AND a plain mirror file
-    -- (stdpath("data")/lvim-colorscheme/theme) readable before the plugin loads. Lets a
-    -- distribution drop its own `colorscheme <name>` apply + persistence. `style` above is
-    -- the first-run default, used until a theme has been picked.
+    -- committed theme, and every committed change is saved — to the settings panel's own
+    -- control-center database AND a plain mirror file (stdpath("data")/lvim-colorscheme/theme)
+    -- readable before the plugin loads. Lets a distribution drop its own `colorscheme <name>`
+    -- apply + persistence. `style` above is the first-run default, used until a theme is picked.
     remember = false,
+
+    -- The runtime settings panel — hosted by lvim-control-center in its own database.
+    settings_panel = {
+        command = "LvimColorschemeConfig", -- the user command that opens the panel
+        save = nil, -- database directory; nil → stdpath("data")/lvim-colorscheme
+    },
 
     -- Theme picker behaviour
     picker = {
@@ -300,23 +282,31 @@ it falls back to `vim.ui.select`, so there is no hard dependency.
 :LvimColorscheme config
 ```
 
-A floating panel (tabs **Background · Focus · Syntax**) to toggle the runtime options —
-transparency, sidebar/float style, `dim_inactive` / `dark_active` (with their strength),
-syntax italics, terminal colors, day brightness and more. Each change applies **live** and
-is **persisted**, so it survives a restart.
+A panel (tabs **Background · Focus · Syntax**) to toggle the runtime options — transparency,
+sidebar/float style, `dim_inactive` / `dark_active` (with their strength), syntax italics,
+terminal colors, day brightness and more. Each change applies **live** and is **persisted**,
+so it survives a restart.
 
-Persistence has no hard dependency: if
-[lvim-control-center](https://github.com/lvim-tech/lvim-control-center) is installed the
-values are stored in its database (the two plugins then recognise each other's settings);
-otherwise a plain JSON file under `stdpath("data")/lvim-colorscheme/` is used. `setup()` is
-called once and restores the saved values on top of your config (the store wins). The panel
-needs lvim-utils for the tabbed UI.
+The panel is hosted by **[lvim-control-center](https://github.com/lvim-tech/lvim-control-center)**
+(a required dependency) as its OWN instance with its OWN database — separate from every other
+control center. Both the command that opens it and the database directory are configurable:
 
-With `remember = true`, the **active theme** is persisted the same way (shared `colorscheme`
-key, so it stays in sync with control-center's appearance panel) plus a plain mirror file
-`stdpath("data")/lvim-colorscheme/theme`. The mirror is what `setup()` reads to restore the
-theme — it is readable before any database, since lvim-colorscheme loads earlier than
-control-center — while the database copy keeps the other panel in sync.
+```lua
+require("lvim-colorscheme").setup({
+    settings_panel = {
+        command = "LvimColorschemeConfig", -- the user command that opens the panel
+        save = nil, -- database directory; nil → stdpath("data")/lvim-colorscheme
+    },
+})
+```
+
+`:LvimColorscheme config` (and the configured command) open the same instance. `setup()` is
+called once and restores the saved values on top of your config (the store wins).
+
+With `remember = true`, the **active theme** is persisted the same way (in the panel's database,
+under the `colorscheme` key) plus a plain mirror file `stdpath("data")/lvim-colorscheme/theme`.
+The mirror is what `setup()` reads to restore the theme — it is readable before any database
+(e.g. a bootstrap/installer painting itself before plugins load).
 
 ---
 

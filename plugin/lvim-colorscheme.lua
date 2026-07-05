@@ -9,7 +9,7 @@ vim.api.nvim_create_user_command("LvimColorscheme", function(cmd)
     if sub == "extras" then
         require("lvim-colorscheme.extra").generate_themes(arg)
     elseif sub == "config" then
-        require("lvim-colorscheme.config_ui").open()
+        require("lvim-colorscheme.panel").open()
     elseif sub == "reload" or sub == "cache-reload" then
         if require("lvim-colorscheme").reload() then
             vim.notify(

@@ -1,97 +1,63 @@
--- lvim-colorscheme.store: persistence adapter for the runtime settings panel.
+-- lvim-colorscheme.store: persistence for the runtime settings panel.
 --
--- One key/value store, accessed the same way regardless of what is installed:
---   * lvim-control-center present (and its sqlite backend working) → values go through ITS
---     `persistence.data` module — the SAME database it reads on startup, so the two plugins
---     recognise each other's values automatically (the keys match control-center's setting
---     names). No sqlite path/schema is duplicated here.
---   * otherwise → a plain JSON file under stdpath("data")/lvim-colorscheme/ (pure Lua, no
---     sqlite). lvim-colorscheme therefore NEVER hard-depends on sqlite.
+-- Values go through the plugin's OWN lvim-control-center instance (its own database) — bound
+-- via `M.bind(data)` when the panel is created (see `panel.lua`). There is no shared-database
+-- translator and no JSON fallback: lvim-control-center is a required dependency now, and each
+-- setting is a row in the dedicated instance's store.
 --
--- Every control-center call is pcall-guarded (the require AND the operation), so a present-
--- but-broken backend (e.g. sqlite missing, db not yet initialised) falls back to the JSON
--- file instead of erroring.
+-- The one file kept is the plain one-line THEME MIRROR: the active theme name, rewritten on
+-- every commit, so a host's bootstrap/installer can read the theme WITHOUT loading the plugin
+-- or touching sqlite. The database stays the source of truth; the mirror is the early-read
+-- shortcut (and the standalone fallback at restore, before the instance's data is bound).
 --
 ---@module "lvim-colorscheme.store"
 
 local M = {}
 
-local FILE = vim.fn.stdpath("data") .. "/lvim-colorscheme/settings.json"
-
--- Plain one-line mirror of the active theme name. Written alongside the store on every commit
--- so the theme is readable WITHOUT loading the plugin (and without touching sqlite) — e.g. a
--- host's bootstrap/installer panel that paints itself before plugins load. The store (DB/JSON)
--- stays the source of truth; this is the early-read shortcut.
+-- Plain one-line mirror of the active theme name (early-read shortcut, see the header).
 local THEME_FILE = vim.fn.stdpath("data") .. "/lvim-colorscheme/theme"
 
--- Shared key for the active colorscheme; matches control-center's setting name so the two
--- recognise each other's value (the panels stay in sync through the same DB row).
+-- Shared key for the active colorscheme; matches control-center's setting name.
 local THEME_KEY = "colorscheme"
 
---- lvim-control-center's data module, only when it is present AND usable.
----@return table? data  the persistence.data module, or nil to use the JSON fallback
-local function cc_data()
-    local ok, data = pcall(require, "lvim-control-center.persistence.data")
-    if ok and type(data) == "table" and type(data.save) == "function" and type(data.load) == "function" then
-        return data
-    end
-    return nil
+---@type LvimControlCenterData? the dedicated instance's persistence, set by panel.setup via M.bind
+local data = nil
+
+--- Bind the store to the settings panel's control-center instance data. Called once, from
+--- `panel.setup`, before `settings.restore()` so the restore reads the instance's database.
+---@param instance_data LvimControlCenterData
+function M.bind(instance_data)
+    data = instance_data
 end
 
---- Read the whole JSON file (empty table when missing/unreadable).
----@return table<string, any>
-local function read_file()
-    local fd = io.open(FILE, "r")
-    if not fd then
-        return {}
-    end
-    local content = fd:read("*a")
-    fd:close()
-    local ok, decoded = pcall(vim.json.decode, content or "")
-    return (ok and type(decoded) == "table") and decoded or {}
-end
-
---- Write the whole table back to the JSON file (creates the directory).
----@param tbl table<string, any>
-local function write_file(tbl)
-    pcall(vim.fn.mkdir, vim.fn.fnamemodify(FILE, ":h"), "p")
-    local fd = io.open(FILE, "w")
-    if not fd then
-        return
-    end
-    fd:write(vim.json.encode(tbl))
-    fd:close()
-end
-
---- Persist a value under `name` (control-center DB when available, else the JSON file).
+--- Persist a value under `name` in the dedicated instance's database (no-op until bound).
 ---@param name string
 ---@param value any
 function M.save(name, value)
-    local data = cc_data()
-    if data and pcall(data.save, name, value) then
-        return
+    if data then
+        pcall(function()
+            data:save(name, value)
+        end)
     end
-    local tbl = read_file()
-    tbl[name] = value
-    write_file(tbl)
 end
 
---- Read a persisted value, or nil when nothing has been saved.
+--- Read a persisted value, or nil when nothing has been saved / the store is not bound yet.
 ---@param name string
 ---@return any
 function M.load(name)
-    local data = cc_data()
     if data then
-        local ok, val = pcall(data.load, name)
+        local ok, val = pcall(function()
+            return data:load(name)
+        end)
         if ok then
             return val
         end
     end
-    return read_file()[name]
+    return nil
 end
 
---- Persist the active theme: the store (control-center DB / JSON, under the shared
---- `colorscheme` key) PLUS the plain mirror file for pre-load reads.
+--- Persist the active theme: the database (under the shared `colorscheme` key) PLUS the plain
+--- mirror file for pre-load reads.
 ---@param name string  canonical colorscheme name (dash form, e.g. "lvim-everforest-dark")
 function M.save_theme(name)
     M.save(THEME_KEY, name)
@@ -100,10 +66,9 @@ function M.save_theme(name)
 end
 
 --- The remembered theme name, or nil when none has been saved. Reads the MIRROR first: it is
---- always readable this early — lvim-colorscheme loads before control-center, so its sqlite DB
---- is not yet usable at restore time — and the mirror is rewritten on every commit alongside
---- the store, so it never lags. The store is only a secondary source (e.g. a value seeded by
---- the other panel while control-center happens to be up).
+--- always readable this early (the instance data may not be bound yet at restore time) and is
+--- rewritten on every commit alongside the store, so it never lags. The database is a secondary
+--- source (e.g. a value seeded by another panel that shares this instance).
 ---@return string|nil
 function M.load_theme()
     local ok, lines = pcall(vim.fn.readfile, THEME_FILE)
@@ -122,29 +87,6 @@ end
 ---@return string
 function M.theme_file()
     return THEME_FILE
-end
-
---- One-time bridge: when control-center is now available but its DB lacks a key the local
---- JSON file already holds, seed the DB from the file — so a setup configured standalone is
---- recognised once control-center is installed. No-op without control-center or without a file.
----@param names string[]  managed setting names to consider
-function M.migrate(names)
-    local data = cc_data()
-    if not data then
-        return
-    end
-    local tbl = read_file()
-    if not next(tbl) then
-        return
-    end
-    for _, name in ipairs(names) do
-        if tbl[name] ~= nil then
-            local ok, existing = pcall(data.load, name)
-            if ok and existing == nil then
-                pcall(data.save, name, tbl[name])
-            end
-        end
-    end
 end
 
 return M

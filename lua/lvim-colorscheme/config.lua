@@ -18,6 +18,7 @@ local utils = require("lvim-utils.utils")
 ---@field transparent? boolean   Drop the editor background (see-through terminal)
 ---@field terminal_colors? boolean   Set the `:terminal` ANSI colours from the palette
 ---@field picker? { live_chrome?: boolean, width?: number, tab_icon?: string }
+---@field settings_panel? { command?: string, save?: string }   The runtime settings panel, hosted by lvim-control-center: `command` = the user command that opens it, `save` = its OWN database directory
 ---@field styles? table   Per-syntax-group attr tables + sidebars/floats background style
 ---@field sidebar_filetypes? string[]   Filetypes treated as sidebars (Normal:NormalSB)
 ---@field day_brightness? number   0..1 vibrancy of the light ("day") style
@@ -56,10 +57,20 @@ local M = {
         -- theme too (full live preview); false keeps the picker's own colours stable while
         -- only the editor behind it previews.
         live_chrome = true,
-        -- Fraction of the screen wide for BOTH colorscheme popups (the theme picker + the `config` settings panel).
+        -- Fraction of the screen wide for the theme picker popup. (The `config` settings panel is a
+        -- lvim-control-center instance and follows the shared lvim-ui geometry instead.)
         width = 0.9,
         -- The palette glyph on every theme-family tab in the picker.
         tab_icon = "󰏘",
+    },
+    -- The runtime settings panel (transparency / focus / syntax) is hosted by lvim-control-center
+    -- (a required dependency) as its OWN instance with its OWN database — both configurable here.
+    settings_panel = {
+        -- The user command that opens the settings panel (also reachable via `:LvimColorscheme config`).
+        command = "LvimColorschemeConfig",
+        -- The panel's database DIRECTORY. nil → stdpath("data")/lvim-colorscheme (its own store,
+        -- separate from every other control center).
+        save = nil,
     },
     styles = {
         -- Style to be applied to different syntax groups
