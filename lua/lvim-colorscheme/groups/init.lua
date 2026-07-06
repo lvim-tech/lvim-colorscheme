@@ -64,8 +64,12 @@ M.plugins = {
   ["which-key.nvim"]                = "which-key",
 }
 
-local me = debug.getinfo(1, "S").source:sub(2)
-me = vim.fn.fnamemodify(me, ":h")
+--- Session memo of the last built highlight set per style. The picker's live preview re-enters
+--- setup() for the same styles as the cursor scrubs; this skips the on-disk read + full JSON decode
+--- for a style already built this session (disk stays the cross-session layer). Wiped whenever the
+--- module is reloaded (M.reload drops it from package.loaded), so palette/version edits still rebuild.
+---@type table<string, {groups: lvim-colorscheme.Highlights, inputs: table}>
+local memo = {}
 
 --- Lazy-load a single group module by short name (e.g. "base", "which-key").
 ---@param name string
@@ -138,7 +142,9 @@ function M.setup(colors, opts)
     -- `style` always resolves to a value here (config default "lvim_dark", set by config.extend
     -- before load), so it is a valid cache key string.
     local cache_key = opts.style --[[@as string]]
-    local cache = opts.cache and util.cache.read(cache_key)
+    -- Session memo first (no disk IO), then the on-disk cache. Both are validated by the same
+    -- input-fingerprint deep_equal below, so a stale layer is simply rebuilt.
+    local cache = opts.cache and (memo[cache_key] or util.cache.read(cache_key))
 
     local inputs = {
         colors = colors,
@@ -169,6 +175,9 @@ function M.setup(colors, opts)
         if opts.cache then
             util.cache.write(cache_key, { groups = ret, inputs = inputs })
         end
+    end
+    if opts.cache then
+        memo[cache_key] = { groups = ret, inputs = inputs }
     end
     opts.on_highlights(ret, colors)
 

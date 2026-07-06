@@ -78,6 +78,8 @@ local function migrate_legacy_json(instance)
         return
     end
     local ok, decoded = pcall(vim.json.decode, table.concat(vim.fn.readfile(file), "\n"))
+    -- Only remove the legacy file once we have actually migrated from it — a decode failure
+    -- (corrupt/partial file) leaves it in place so the data isn't lost and can be recovered.
     if ok and type(decoded) == "table" then
         local valid = { colorscheme = true }
         for _, s in ipairs(settings.specs) do
@@ -88,8 +90,8 @@ local function migrate_legacy_json(instance)
                 instance.data:save(k, v)
             end
         end
+        pcall(vim.fn.delete, file)
     end
-    pcall(vim.fn.delete, file)
 end
 
 --- Create the dedicated control-center instance (once) and bind the store to its database.

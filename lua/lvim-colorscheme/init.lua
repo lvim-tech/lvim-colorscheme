@@ -149,7 +149,7 @@ function M.reload()
         return false
     end
     -- Bust the cache file for the active style so groups regenerate from source.
-    (vim.uv or vim.loop).fs_unlink(util.cache.file(style))
+    vim.uv.fs_unlink(util.cache.file(style))
     -- Drop only the highlight-producing modules so freshly-edited palettes/highlights are re-read;
     -- keep config (live opts), state (listeners), settings and store intact.
     for mod in pairs(package.loaded) do

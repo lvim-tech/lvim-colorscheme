@@ -1,7 +1,7 @@
 -- lvim-colorscheme.picker: the :LvimColorscheme theme picker.
--- Prefers the lvim-ui floating tabs UI (one tab per family, live preview as the cursor
--- moves, ➤ on the active style). Falls back to the built-in vim.ui.select when lvim-ui
--- is absent, so the picker has no hard dependency.
+-- Uses the canonical lvim-ui floating tabs UI (one tab per family, live preview as the cursor
+-- moves, ➤ on the active style). lvim-ui is required — there is no non-canonical fallback; when
+-- it is missing the picker reports the missing dependency and does nothing.
 --
 ---@module "lvim-colorscheme.picker"
 
@@ -177,8 +177,7 @@ local function restore_chrome(snap)
 end
 
 --- Report a missing picker dependency without falling back to a non-canonical native selector.
----@param current string|nil
-local function select_fallback(current)
+local function select_fallback()
     vim.notify(
         "lvim-colorscheme: lvim-ui is required for the theme picker",
         vim.log.levels.ERROR,
@@ -191,7 +190,7 @@ function M.open()
 
     local ok, ui = pcall(require, "lvim-ui")
     if not ok then
-        return select_fallback(current_style)
+        return select_fallback()
     end
 
     -- Build tabs, keeping a reference to the currently-active item so lvim-utils can mark

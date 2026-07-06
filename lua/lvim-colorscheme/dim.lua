@@ -127,6 +127,23 @@ local function reconcile()
     end
 end
 
+---@type boolean one reconcile is already queued for this tick (coalesces bursts of focus/layout events).
+local pending = false
+
+---Queue a single reconcile for the next tick. A layout change fires several events at once
+---(WinEnter + WinNew + BufWinEnter …); collapsing them into one scheduled pass avoids re-walking
+---every window several times per change.
+local function schedule_reconcile()
+    if pending then
+        return
+    end
+    pending = true
+    vim.schedule(function()
+        pending = false
+        reconcile()
+    end)
+end
+
 ---(Re)build the dim namespace from the current global highlights (via the shared `lvim-utils.dim`). Call
 ---after every theme apply so the dimmed copies track the active palette.
 ---@param bg_hex string  editor background colour the foregrounds are muted toward (colors.bg)
@@ -152,11 +169,20 @@ function M.enable(opts)
     reconcile()
     -- Reconcile on any focus/layout change. `BufWinEnter`/`WinNew` catch panels that open without taking
     -- focus; `TabEnter` re-applies after a tab switch; `WinClosed` re-picks the active window if it closes.
-    -- Scheduled so the current window is settled (e.g. during startup `BufWinEnter`) before we read it.
+    -- Coalesced (schedule_reconcile) so a burst of these events costs one window walk, not several.
     api.nvim_create_autocmd({ "WinEnter", "WinNew", "BufWinEnter", "TabEnter", "WinClosed" }, {
         group = aug,
-        callback = function()
-            vim.schedule(reconcile)
+        callback = function(ev)
+            -- Prune our per-window tracking for a window that just closed, so the tables don't grow
+            -- unbounded across a long session (reconcile only ever visits still-open windows).
+            if ev.event == "WinClosed" then
+                local win = tonumber(ev.match)
+                if win then
+                    dimmed[win] = nil
+                    dark_marked[win] = nil
+                end
+            end
+            schedule_reconcile()
         end,
     })
 end
