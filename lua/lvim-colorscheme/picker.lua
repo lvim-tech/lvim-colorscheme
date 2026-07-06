@@ -176,22 +176,14 @@ local function restore_chrome(snap)
     end
 end
 
---- vim.ui.select fallback (no lvim-ui): a flat list of every style.
+--- Report a missing picker dependency without falling back to a non-canonical native selector.
 ---@param current string|nil
 local function select_fallback(current)
-    local items, by_label = {}, {}
-    for _, fam in ipairs(families) do
-        for _, def in ipairs(fam.items) do
-            local label = def.label .. (def.style == current and "  ➤" or "")
-            items[#items + 1] = label
-            by_label[label] = def.style
-        end
-    end
-    vim.ui.select(items, { prompt = "Colorscheme" }, function(choice)
-        if choice and by_label[choice] then
-            apply(by_label[choice])
-        end
-    end)
+    vim.notify(
+        "lvim-colorscheme: lvim-ui is required for the theme picker",
+        vim.log.levels.ERROR,
+        { title = "Colorscheme" }
+    )
 end
 
 function M.open()
@@ -230,6 +222,7 @@ function M.open()
     local cfg = config
     local pin_chrome = not (cfg.picker and cfg.picker.live_chrome)
     local chrome = pin_chrome and snapshot_chrome() or nil
+    local original_colorscheme = vim.g.colors_name
     ui.tabs({
         title = " Colorscheme",
         title_pos = "center", -- centred title band, like the control center
@@ -256,6 +249,8 @@ function M.open()
                 apply(result.item._style) -- final: full load (fires User autocmd)
             elseif current_style and previewed ~= current_style then
                 apply(current_style) -- cancelled after previewing → restore (full)
+            elseif not current_style and original_colorscheme then
+                pcall(vim.cmd.colorscheme, original_colorscheme)
             end
         end,
     })

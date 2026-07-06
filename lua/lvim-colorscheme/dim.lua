@@ -122,12 +122,8 @@ local function reconcile()
     local active = (M.active and api.nvim_win_is_valid(M.active)) and M.active or cur
     for _, win in ipairs(api.nvim_list_wins()) do
         local real = is_real(win)
-        if M.opts.dim then
-            set_dim(win, real and win ~= active)
-        end
-        if M.opts.dark then
-            set_dark(win, real and win == active)
-        end
+        set_dim(win, M.opts.dim and real and win ~= active)
+        set_dark(win, M.opts.dark and real and win == active)
     end
 end
 

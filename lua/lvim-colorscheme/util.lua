@@ -11,7 +11,7 @@ M.bg = "#000000"
 M.fg = "#ffffff"
 M.day_brightness = 0.3
 
-local uv = vim.uv or vim.loop
+local uv = vim.uv
 
 ---@param c string
 ---@return number[]
@@ -29,7 +29,11 @@ function M.mod(modname)
     if package.loaded[modname] then
         return package.loaded[modname]
     end
-    local ret = loadfile(me .. "/" .. modname:gsub("%.", "/") .. ".lua")()
+    local chunk, err = loadfile(me .. "/" .. modname:gsub("%.", "/") .. ".lua")
+    if not chunk then
+        error(("unknown module %q (%s)"):format(modname, err), 2)
+    end
+    local ret = chunk()
     package.loaded[modname] = ret
     return ret
 end
@@ -195,26 +199,11 @@ function M.cache.write(key, data)
 end
 
 function M.cache.clear()
-    local styles = {
-        "lvim_soft",
-        "lvim_dark",
-        "lvim_darker",
-        "lvim_light",
-        "kanagawa_soft",
-        "kanagawa_dark",
-        "kanagawa_darker",
-        "kanagawa_light",
-        "gruvbox_soft",
-        "gruvbox_dark",
-        "gruvbox_darker",
-        "gruvbox_light",
-        "everforest_soft",
-        "everforest_dark",
-        "everforest_darker",
-        "everforest_light",
-    }
-    for _, style in ipairs(styles) do
-        uv.fs_unlink(M.cache.file(style))
+    local dir = vim.fn.stdpath("cache")
+    for name, t in vim.fs.dir(dir) do
+        if t == "file" and name:match("^lvim%-.*%.json$") then
+            uv.fs_unlink(dir .. "/" .. name)
+        end
     end
 end
 

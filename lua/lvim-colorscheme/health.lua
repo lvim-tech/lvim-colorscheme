@@ -25,11 +25,11 @@ function M.check()
         health.warn("'termguicolors' is off — true colors won't render (set vim.o.termguicolors = true)")
     end
 
-    -- lvim-utils is only needed for the floating theme picker (:LvimColorscheme).
+    -- lvim-ui is only needed for the floating theme picker (:LvimColorscheme).
     if pcall(require, "lvim-ui") then
-        health.ok("lvim-utils found — the floating theme picker is available")
+        health.ok("lvim-ui found — the floating theme picker is available")
     else
-        health.info("lvim-utils not found — :LvimColorscheme falls back to vim.ui.select")
+        health.info("lvim-ui not found — :LvimColorscheme picker is unavailable")
     end
 
     -- lvim-control-center hosts the settings panel (:LvimColorscheme config) in its own database.

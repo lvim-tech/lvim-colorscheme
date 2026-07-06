@@ -30,8 +30,9 @@ function M.load(opts)
 
     if bg ~= style_bg then
         if vim.g.colors_name == "lvim-" .. opts.style then
-            opts.style = bg == "light" and (M.styles.light or "lvim_light") or (M.styles.dark or "lvim_dark")
+            opts.style = bg == "light" and (M.styles.light or config.light_style) or (M.styles.dark or config.style)
         else
+            M.styles[style_bg] = opts.style
             vim.o.background = style_bg
         end
     end
@@ -71,9 +72,12 @@ function M.setup(opts)
                 return
             end
             local new_bg = vim.v.option_new
-            local style = (new_bg == "light" and (M.styles.light or config.light_style))
-                or (M.styles.dark or config.style)
             vim.schedule(function()
+                local style = (new_bg == "light" and (M.styles.light or config.light_style))
+                    or (M.styles.dark or config.style)
+                if vim.g.colors_name == "lvim-" .. style then
+                    return
+                end
                 M.load({ style = style })
             end)
         end,
@@ -101,9 +105,7 @@ function M.setup(opts)
         -- apply re-fires the User autocmd above, which seeds the mirror on first run. With
         -- nothing remembered yet, fall back to the configured default `style`.
         local last = store.load_theme()
-        if last then
-            pcall(vim.cmd, "colorscheme " .. last)
-        else
+        if not last or not pcall(vim.cmd, "colorscheme " .. last) then
             M.load()
         end
     end
@@ -173,7 +175,12 @@ function M.set(overrides)
     -- current one (e.g. on startup) does not trigger a needless theme reload.
     local changed = false
     for k, v in pairs(overrides) do
-        if config[k] ~= v then
+        if type(config[k]) == "table" and type(v) == "table" then
+            if not vim.deep_equal(config[k], v) then
+                changed = true
+                break
+            end
+        elseif config[k] ~= v then
             changed = true
             break
         end
