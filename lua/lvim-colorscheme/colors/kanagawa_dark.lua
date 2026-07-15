@@ -35,10 +35,15 @@ return {
 
     terminal_bg = "#1c7060",
     git = {
-        add = "#5f7240",
-        change = "#a29512",
-        delete = "#96271a",
-        change_delete = "#b36000",
-        untracked = "#1a6759",
+        add = "#6e8156",
+        change = "#e0c286",
+        delete = "#b65252",
+        change_delete = "#c99460",
+        untracked = "#4d699b",
+        add_nr = "#4f5d3e",
+        change_nr = "#a18c60",
+        delete_nr = "#833b3b",
+        change_delete_nr = "#916b45",
+        untracked_nr = "#374c70",
     },
 }

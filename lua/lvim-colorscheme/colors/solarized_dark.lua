@@ -40,5 +40,10 @@ return {
         delete = "#bf4e4c",
         change_delete = "#ac5835",
         untracked = "#4386b5",
+        add_nr = "#525b13",
+        change_nr = "#6c5716",
+        delete_nr = "#8a3837",
+        change_delete_nr = "#7c3f26",
+        untracked_nr = "#306082",
     },
 }
