@@ -6,6 +6,7 @@
 
 local config = require("lvim-colorscheme.config")
 local state = require("lvim-colorscheme.state")
+local groups = require("lvim-colorscheme.groups")
 
 local M = {}
 
@@ -52,6 +53,27 @@ function M.check()
         health.ok(("highlight cache directory is writable (%s)"):format(cache_dir))
     else
         health.warn(("cache directory not writable (%s) — set cache = false"):format(cache_dir))
+    end
+
+    -- plugin group selection (all / auto-detected / manual)
+    if config.plugins and config.plugins.all then
+        health.ok("plugin groups: all (every known integration is themed)")
+    elseif config.plugins and config.plugins.auto then
+        local installed = groups.installed()
+        local detected = {}
+        for plugin, group in pairs(groups.plugins) do
+            if installed[plugin] then
+                detected[#detected + 1] = group
+            end
+        end
+        table.sort(detected)
+        if #detected > 0 then
+            health.ok(("plugin groups: auto — %d detected (%s)"):format(#detected, table.concat(detected, ", ")))
+        else
+            health.info("plugin groups: auto — no installed integrations detected (only core groups themed)")
+        end
+    else
+        health.info("plugin groups: manual (only groups you enabled + core)")
     end
 
     local active = vim.g.colors_name or "(none)"

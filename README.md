@@ -235,9 +235,11 @@ require("lvim-colorscheme").setup({
 
     -- Plugin highlight groups
     plugins = {
-        -- Load all plugin groups (default when lazy.nvim is not detected)
-        all = package.loaded.lazy == nil,
-        -- Auto-detect installed plugins via lazy.nvim
+        -- Theme every known plugin group unconditionally (installed or not)
+        all = false,
+        -- Auto-detect installed plugins and theme only those. Manager-agnostic:
+        -- reads the native vim.pack registry (the lvim-installer default), plus any
+        -- other plugin-manager provider that happens to be present.
         auto = true,
     },
 })

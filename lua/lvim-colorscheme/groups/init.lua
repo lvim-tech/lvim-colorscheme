@@ -1,5 +1,5 @@
 -- lvim-colorscheme.groups: assemble the full highlight-group set for a palette.
--- Maps plugin names → group modules, picks which groups to build (all / lazy-detected /
+-- Maps plugin names → group modules, picks which groups to build (all / auto-detected /
 -- manual), merges each group module's output, and caches the result on disk keyed by style +
 -- a fingerprint of the colour-affecting inputs (palette, plugin set, version, dark_active).
 --
@@ -71,6 +71,42 @@ M.plugins = {
 ---@type table<string, {groups: lvim-colorscheme.Highlights, inputs: table}>
 local memo = {}
 
+--- Repo-names of every plugin installed in this session, gathered manager-agnostically so
+--- `plugins.auto` themes third-party integrations however they were installed. Providers:
+---   • native `vim.pack` (Neovim 0.11+/0.12) — the lvim-tech default via lvim-installer;
+---     `get(nil, { info = false })` lists ALL managed plugins (active + lock-file) with no git IO;
+---   • `lazy.nvim`, when that happens to be the active manager — one more provider, not required.
+--- Both a resolved `vim.pack` spec name and a lazy plugin key are the repo directory name
+--- (e.g. "gitsigns.nvim"), which is exactly what `M.plugins` is keyed on — so the sets align.
+---@return table<string, boolean> installed  repo-name → true
+function M.installed()
+    ---@type table<string, boolean>
+    local installed = {}
+
+    if type(vim.pack) == "table" and type(vim.pack.get) == "function" then
+        local ok, plugs = pcall(vim.pack.get, nil, { info = false })
+        if ok and type(plugs) == "table" then
+            for _, p in ipairs(plugs) do
+                local name = p.spec and p.spec.name
+                if name then
+                    installed[name] = true
+                end
+            end
+        end
+    end
+
+    if package.loaded.lazy then
+        local ok, lazy = pcall(require, "lazy.core.config")
+        if ok and lazy and type(lazy.plugins) == "table" then
+            for name in pairs(lazy.plugins) do
+                installed[name] = true
+            end
+        end
+    end
+
+    return installed
+end
+
 --- Lazy-load a single group module by short name (e.g. "base", "which-key").
 ---@param name string
 ---@return {get: lvim-colorscheme.HighlightsFn, url?: string}
@@ -106,16 +142,17 @@ function M.setup(colors, opts)
         for _, group in pairs(M.plugins) do
             groups[group] = true
         end
-    elseif opts.plugins.auto and package.loaded.lazy then
-        local plugins = require("lazy.core.config").plugins
+    elseif opts.plugins.auto then
+        local installed = M.installed()
         for plugin, group in pairs(M.plugins) do
-            if plugins[plugin] then
+            if installed[plugin] then
                 groups[group] = true
             end
         end
 
-        -- special case for mini.nvim
-        if plugins["mini.nvim"] then
+        -- mini.nvim ships as ONE repo but many modules; when the monorepo is installed enable
+        -- every mini_* group (the standalone mini.* repos match directly through M.plugins above).
+        if installed["mini.nvim"] then
             for _, group in pairs(M.plugins) do
                 if group:find("^mini_") then
                     groups[group] = true

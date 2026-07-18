@@ -41,7 +41,7 @@ local utils = require("lvim-utils.utils")
 
 ---@type lvim-colorscheme.ConfigModule
 local M = {
-    version = "1.1.10",
+    version = "1.1.11",
     style = "lvim_dark",
     -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
     -- applies the last committed theme, and every committed change is persisted — to the store
@@ -120,11 +120,11 @@ local M = {
 
     ---@type table<string, boolean|{enabled:boolean}>
     plugins = {
-        -- enable all plugins when not using lazy.nvim
-        -- set to false to manually enable/disable plugins
-        all = package.loaded.lazy == nil,
-        -- uses your plugin manager to automatically enable needed plugins
-        -- currently only lazy.nvim is supported
+        -- Theme EVERY known plugin group unconditionally, whether or not it is installed.
+        -- Leave false and rely on `auto`; set true only to force the complete set.
+        all = false,
+        -- Auto-detect installed plugins and theme only those. Manager-agnostic: reads native
+        -- `vim.pack` (the lvim-installer default) and lazy.nvim when present.
         auto = true,
     },
 }

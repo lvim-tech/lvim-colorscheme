@@ -171,10 +171,17 @@ end
 
 M.cache = {}
 
+-- Plugin-owned cache directory. The highlight cache lives under a dedicated
+-- `lvim-colorscheme/` subdirectory of the shared cache root (not loose at the top level), so a
+-- cache clear can own the whole directory without ever touching another lvim-tech plugin that
+-- also caches `lvim-*.json`. `M.write` mkdir -p's the parent, so no explicit create is needed.
+---@type string
+M.cache.dir = vim.fn.stdpath("cache") .. "/lvim-colorscheme"
+
 ---@param key string
 ---@return string
 function M.cache.file(key)
-    return vim.fn.stdpath("cache") .. "/lvim-" .. key .. ".json"
+    return M.cache.dir .. "/" .. key .. ".json"
 end
 
 ---@param key string
@@ -196,13 +203,31 @@ end
 ---@param data lvim-colorscheme.Cache
 function M.cache.write(key, data)
     pcall(M.write, M.cache.file(key), vim.json.encode(data))
+    -- Migrate away from the pre-subdirectory layout: drop this style's orphaned top-level file
+    -- (if any) now that it is written under the plugin-owned directory. Targeted by exact key —
+    -- never a glob — so it can never touch another plugin's cache.
+    pcall(uv.fs_unlink, vim.fn.stdpath("cache") .. "/lvim-" .. key .. ".json")
 end
 
+--- Remove every cached highlight file. Clears the plugin-owned subdirectory wholesale, then
+--- unlinks any LEGACY top-level `lvim-<style>.json` written by earlier versions — matched against
+--- the exact set of known style names (the `colors/` modules), NEVER a broad `lvim-*` glob that
+--- would also delete another lvim-tech plugin's cache in the shared cache root.
 function M.cache.clear()
-    local dir = vim.fn.stdpath("cache")
-    for name, t in vim.fs.dir(dir) do
-        if t == "file" and name:match("^lvim%-.*%.json$") then
-            uv.fs_unlink(dir .. "/" .. name)
+    if vim.fn.isdirectory(M.cache.dir) == 1 then
+        for name, t in vim.fs.dir(M.cache.dir) do
+            if t == "file" and name:match("%.json$") then
+                uv.fs_unlink(M.cache.dir .. "/" .. name)
+            end
+        end
+    end
+
+    -- One-off migration cleanup: drop the orphaned pre-subdirectory files (one per known style).
+    local root = vim.fn.stdpath("cache")
+    for name, t in vim.fs.dir(me .. "/lvim-colorscheme/colors") do
+        local style = t == "file" and name:match("^(.+)%.lua$")
+        if style and style ~= "init" then
+            uv.fs_unlink(root .. "/lvim-" .. style .. ".json")
         end
     end
 end
