@@ -223,7 +223,7 @@ function M.open()
     local chrome = pin_chrome and snapshot_chrome() or nil
     local original_colorscheme = vim.g.colors_name
     ui.tabs({
-        title = " Colorscheme",
+        title = "Colorscheme",
         title_pos = "center", -- centred title band, like the control center
         tabs = tabs,
         tab_selector = found_tab_idx,
