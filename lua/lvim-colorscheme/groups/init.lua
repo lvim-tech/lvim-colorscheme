@@ -164,7 +164,9 @@ function M.setup(colors, opts)
     -- manually enable/disable plugins
     for plugin, group in pairs(M.plugins) do
         local use = opts.plugins[group]
-        use = use == nil and opts.plugins[plugin] or use
+        if use == nil then -- fall back to the repo-name key; a plain `x == nil and y or x` drops an explicit `false`
+            use = opts.plugins[plugin]
+        end
         if use ~= nil then
             if type(use) == "table" then
                 use = use.enabled
@@ -202,8 +204,10 @@ function M.setup(colors, opts)
 
     if not ret then
         ret = {}
-        -- merge highlights
-        for group in pairs(groups) do
+        -- merge highlights in the DETERMINISTIC sorted order (`names`), not hash order — otherwise a group
+        -- defined in two modules with different values (a real occurrence pre-cleanup) would freeze an
+        -- accidental winner into the cache.
+        for _, group in ipairs(names) do
             for k, v in pairs(M.get(group, colors, opts)) do
                 ret[k] = v
             end
@@ -216,6 +220,9 @@ function M.setup(colors, opts)
     if opts.cache then
         memo[cache_key] = { groups = ret, inputs = inputs }
     end
+    -- Hand on_highlights a FRESH copy: memo/disk store the PRE-hook set, so a non-idempotent hook (relative
+    -- transforms) must not mutate the cached table or it would compound on every memo hit (picker preview).
+    ret = vim.deepcopy(ret)
     opts.on_highlights(ret, colors)
 
     return ret, groups

@@ -7,14 +7,11 @@ local M = {}
 M.url = "https://github.com/sindrets/diffview.nvim"
 
 ---@type lvim-colorscheme.HighlightsFn
-function M.get(c)
-    -- stylua: ignore
-    return {
-        DiffAdd     = { bg = c.diff.add },
-        DiffChange  = { bg = c.diff.change },
-        DiffDelete  = { bg = c.diff.delete },
-        DiffText    = { bg = c.bg_sidebar },
-    }
+function M.get(_)
+    -- diffview.nvim renders its hunks with the CORE Diff* groups, which are owned by groups/base.lua (incl.
+    -- the readable DiffText). This module must NOT redefine them — doing so collided non-deterministically at
+    -- merge and, for DiffText, overrode base's fix with an invisible/odd bg. No diffview-specific groups today.
+    return {}
 end
 
 return M

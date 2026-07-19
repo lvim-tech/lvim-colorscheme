@@ -15,10 +15,8 @@ function M.get(c)
         GitAppBar       = { bg = util.blend_bg(c.bg_dark, 0.9) },
         GitFooter       = { bg = util.blend_bg(c.bg_dark, 0.9) },
         GitHeader       = { bg = util.blend_bg(c.bg_dark, 0.9) },
-        GitSignsAdd     = { fg = c.git.add },
-        GitSignsChange  = { fg = c.git.change },
-        GitSignsDelete  = { fg = c.git.delete },
-        GitSignsUntracked  = { fg = c.red }
+        -- GitSigns* are owned by groups/gitsigns.lua; vgit must not redefine them (it collided on Untracked,
+        -- vgit's red vs gitsigns' blue winning by hash accident). vgit's own chrome is the Git* bar groups above.
     }
 end
 

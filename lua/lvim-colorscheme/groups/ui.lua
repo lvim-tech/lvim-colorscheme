@@ -44,13 +44,8 @@ function M.get(colors)
         -- History UI
         UIHistoryKeymap = { bg = blend.blueLow, fg = colors.blue, bold = true },
         UIHistoryDesc = { bg = blend.blueHigh, fg = colors.blue },
-
-        -- Diagnostics
-        DiagnosticInfo = { fg = colors.blue },
-        DiagnosticOk = { fg = colors.green },
-        DiagnosticWarn = { fg = colors.orange },
-        DiagnosticError = { fg = colors.red },
-        DiagnosticHint = { fg = colors.cyan },
+        -- NOTE: core Diagnostic* live in groups/base.lua (the canonical owner). A UI-chrome module must not
+        -- restyle them, or the two definitions collide non-deterministically at merge time.
     }
 end
 

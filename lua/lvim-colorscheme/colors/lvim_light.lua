@@ -1,7 +1,9 @@
 ---@param opts lvim-colorscheme.Config
 return function(opts)
     local style = opts.light_style or "lvim_dark"
-    style = style == "lvim_light" and "lvim_dark" or style
+    -- normalise ANY light base to its dark sibling (this module INVERTS a dark palette); guarding only the
+    -- self-reference let a user's `light_style = "everforest_light"` index a function value and crash.
+    style = style:match("_light$") and (style:gsub("_light$", "_dark")) or style
 
     local util = require("lvim-colorscheme.util")
 

@@ -26,7 +26,7 @@ M.styles = {}
 function M.load(opts)
     opts = config.extend(opts)
     local bg = vim.o.background
-    local style_bg = opts.style == "day" and "light" or "dark"
+    local style_bg = opts.style:match("_light$") and "light" or "dark"
 
     if bg ~= style_bg then
         if vim.g.colors_name == "lvim-" .. opts.style then

@@ -45,7 +45,9 @@ function M.setup(opts)
         delete = util.blend_bg(colors.git.delete, 0.08),
         changeDelete = util.blend_bg(colors.git.change_delete, 0.08),
         untracked = util.blend_bg(colors.git.untracked, 0.08),
-        text = colors.fg,
+        -- a STRONGER change tint (0.25) so the changed span reads inside a DiffChange line — NOT colors.fg,
+        -- which made DiffText fg-on-fg (invisible) in diff mode.
+        text = util.blend_bg(colors.git.change, 0.25),
     }
 
     colors.git.ignore = colors.bg_soft_light
@@ -121,6 +123,7 @@ function M.setup(opts)
         "red",
         "cyan",
         "purple",
+        "yellow",
         "error",
         "warning",
         "info",
