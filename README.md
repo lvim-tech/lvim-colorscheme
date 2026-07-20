@@ -194,7 +194,7 @@ require("lvim-colorscheme").setup({
     -- foreground toward neutral. Dim text is unaffected — ANSI 8 has its own floor.
     terminal = {
         contrast = 6, -- floor for the terminal foreground against the terminal background
-        dim_contrast = 2.5, -- floor for ANSI 8 against it: lower = subtler block, higher = brighter dim text
+        dim_contrast = 1.15, -- floor for ANSI 8: LOW keeps a block a subtle tint (what a block needs)
     },
 
     -- Syntax group styles

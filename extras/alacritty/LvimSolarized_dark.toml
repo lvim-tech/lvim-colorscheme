@@ -18,10 +18,10 @@ yellow = "#96791f"
 blue = "#3d7aa5"
 magenta = "#b75283"
 cyan = "#3e8d87"
-white = "#6c777b"
+white = "#7b898f"
 
 [colors.bright]
-black = "#2a6778"
+black = "#10313a"
 red = "#e7433f"
 green = "#7e8d00"
 yellow = "#a78500"

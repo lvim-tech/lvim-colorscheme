@@ -1,5 +1,5 @@
 [colors]
-foreground = "#72a3a3"
+foreground = "#68a5a5"
 background = "#181c1f"
 cursor_bg = "#8AA55F"
 cursor_fg = "#141819"
@@ -17,17 +17,17 @@ ansi = [
   "#0974a1",
   "#c75940",
   "#018FA6",
-  "#3c7478",
+  "#349197",
 ]
 brights = [
-  "#4e6064",
+  "#202a2c",
   "#f76a5b",
   "#90b647",
   "#fecd65",
   "#0081b4",
   "#ea5625",
   "#009db6",
-  "#5e8888",
+  "#68a5a5",
 ]
 
 [colors.tab_bar]

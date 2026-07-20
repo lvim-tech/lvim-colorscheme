@@ -151,8 +151,13 @@ function M.setup(opts)
     local tcfg = opts.terminal or {}
     local term_bg = colors.bg_soft_dark or colors.bg_dark or colors.bg
     local term_fg = util.ensure_contrast(colors.fg, term_bg, tcfg.contrast or 6)
-    local black_bright = util.ensure_contrast(util.blend(term_fg, 0.1, term_bg), term_bg, tcfg.dim_contrast or 2.5)
+    local black_bright = util.ensure_contrast(util.blend(term_fg, 0.1, term_bg), term_bg, tcfg.dim_contrast or 1.08)
 
+    -- ANSI 7/15 ("white" / "bright white") were the editor's `fg_soft_dark` / `fg` verbatim — muted values
+    -- that read at ~2:1 on their own background. That is what actually made Claude Code's prompt block
+    -- unreadable: it writes that block in ANSI 15, so the block's text was the muted editor grey no matter
+    -- what ANSI 8 underneath it did. Chasing it through ANSI 8 could never have fixed it. Both now clear a
+    -- floor like every other derived terminal entry — 15 IS the terminal foreground, 7 a step below it.
     -- stylua: ignore
     --- @class TerminalColors
     colors.terminal = {
@@ -172,8 +177,8 @@ function M.setup(opts)
         magenta_bright = util.brighten(colors.magenta),
         cyan           = colors.cyan,
         cyan_bright    = util.brighten(colors.cyan),
-        white          = colors.fg_soft_dark,
-        white_bright   = colors.fg,
+        white          = util.ensure_contrast(colors.fg_soft_dark, term_bg, (tcfg.contrast or 6) * 0.75),
+        white_bright   = term_fg,
     }
 
     opts.on_colors(colors)
