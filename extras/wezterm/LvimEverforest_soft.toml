@@ -1,5 +1,5 @@
 [colors]
-foreground = "#949892"
+foreground = "#ced0cd"
 background = "#252a2d"
 cursor_bg = "#75783a"
 cursor_fg = "#202527"
@@ -20,7 +20,7 @@ ansi = [
   "#555c53",
 ]
 brights = [
-  "#323838",
+  "#727677",
   "#eb4d4d",
   "#82861f",
   "#c3ab58",

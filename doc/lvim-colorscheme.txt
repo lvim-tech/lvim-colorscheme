@@ -59,6 +59,10 @@ The command name is `lvim-<family>-<variant>`; the matching `style` value is
       remember = false,           -- self-manage theme persistence (see below)
       transparent = false,        -- do not set a background color
       terminal_colors = true,     -- set terminal_color_* from the palette
+      terminal = {                -- contrast floors for the TERMINAL palette
+          contrast = 9,           -- terminal foreground vs the terminal background
+          dim_contrast = 3,       -- ANSI 8 vs it (dim text stays legible)
+      },
       picker = {
           live_chrome = true,     -- recolour the picker itself during preview
       },

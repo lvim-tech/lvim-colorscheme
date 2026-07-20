@@ -134,27 +134,30 @@ function M.setup(opts)
         colors.blend[name .. "Low"] = util.blend(colors[name], 0.3, colors.bg)
     end
 
-    -- The terminal palette is NOT the editor palette. Two entries have to be derived rather than reused:
+    -- The terminal palette is NOT the editor palette, so `foreground` and ANSI 8 are DERIVED here rather
+    -- than reused from the editor colours. Both floors are config (`config.terminal`), not constants.
     --
-    -- `black_bright` (ANSI 8) is "bright black" — a DIM NEUTRAL, brighter than ANSI 0 but still clearly a
-    -- background shade. TUIs spend it on dim text AND as a subtle block BACKGROUND, so a saturated accent
-    -- there paints solid coloured blocks: `terminal_bg` is a full teal in the Kanagawa palettes (#1c7060)
-    -- and a warm brown in Gruvbox (#63584f), which is what made Claude Code's prompt block unreadable.
-    -- Derived instead as a small step from the terminal background toward the foreground — neutral by
-    -- construction, and close enough to `bg` that anything legible on `bg` stays legible on it.
+    -- `foreground`: the editor `fg` is tuned against one background under syntax highlighting, and several
+    -- palettes here keep it deliberately muted (Kanagawa's reads 2.32:1 on its own background) — fine for
+    -- code, unusable as a terminal default.
     --
-    -- `foreground` is the terminal's DEFAULT text colour. The editor `fg` is tuned against one background
-    -- under syntax highlighting; several palettes here keep it deliberately muted (Kanagawa #54546d reads
-    -- at 2.32:1 on its own background), which is fine for code and unusable as a terminal default. Lifted
-    -- to a WCAG AA floor against the exported background, so every export inherits a readable default.
+    -- `black_bright` (ANSI 8, "bright black"): a DIM NEUTRAL, never an accent. `terminal_bg` used to be
+    -- handed straight through, which is a full teal in the Kanagawa palettes (#1c7060) and a warm brown in
+    -- Gruvbox (#63584f) — that is what painted an unreadable coloured block wherever a TUI uses ANSI 8 as a
+    -- BACKGROUND. But ANSI 8 is also dim TEXT (a shell autosuggestion), and those two jobs pull opposite
+    -- ways: tuned for one, the other becomes unreadable. They only both fit when the foreground sits far
+    -- enough away to leave room in between. Measured over the 37 distinct backgrounds in this set, a 9:1
+    -- foreground puts both at ~3:1; at 4.5:1 there is no room and the block side collapses to 1.44:1.
+    local tcfg = opts.terminal or {}
     local term_bg = colors.bg_soft_dark or colors.bg_dark or colors.bg
-    local black_bright = util.blend(colors.fg, 0.25, term_bg)
+    local term_fg = util.ensure_contrast(colors.fg, term_bg, tcfg.contrast or 9)
+    local black_bright = util.ensure_contrast(util.blend(term_fg, 0.1, term_bg), term_bg, tcfg.dim_contrast or 3)
 
     -- stylua: ignore
     --- @class TerminalColors
     colors.terminal = {
         background     = term_bg,
-        foreground     = util.ensure_contrast(colors.fg, term_bg, 4.5),
+        foreground     = term_fg,
         black          = colors.black,
         black_bright   = black_bright,
         red            = colors.red,

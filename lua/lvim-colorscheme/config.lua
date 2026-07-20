@@ -17,6 +17,7 @@ local utils = require("lvim-utils.utils")
 ---@field remember? boolean   Self-manage theme persistence (restore + apply on setup, save on commit)
 ---@field transparent? boolean   Drop the editor background (see-through terminal)
 ---@field terminal_colors? boolean   Set the `:terminal` ANSI colours from the palette
+---@field terminal? { contrast?: number, dim_contrast?: number }   Contrast floors for the EXPORTED terminal palette
 ---@field picker? { live_chrome?: boolean, width?: number, tab_icon?: string }
 ---@field settings_panel? { command?: string, save?: string }   The runtime settings panel, hosted by lvim-control-center: `command` = the user command that opens it, `save` = its OWN database directory
 ---@field styles? table   Per-syntax-group attr tables + sidebars/floats background style
@@ -41,7 +42,7 @@ local utils = require("lvim-utils.utils")
 
 ---@type lvim-colorscheme.ConfigModule
 local M = {
-    version = "1.1.13",
+    version = "1.1.14",
     style = "lvim_dark",
     -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
     -- applies the last committed theme, and every committed change is persisted — to the store
@@ -52,6 +53,18 @@ local M = {
     auto_background = false, -- Reload `style`/`light_style` automatically when `vim.o.background` changes
     transparent = false, -- Enable this to disable setting the background color
     terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+    -- Contrast floors for the palette handed to TERMINALS (the `extras/` themes and `:terminal`).
+    -- A terminal palette is not an editor palette: the editor `fg` is tuned against one background
+    -- under syntax highlighting, while a terminal foreground must stay legible on every ANSI colour a
+    -- TUI paints a block with. ANSI 8 in particular carries two opposed jobs — dim TEXT (a shell
+    -- autosuggestion) and a subtle block BACKGROUND — and only fits both when the foreground leaves
+    -- room between them. Measured across the 37 backgrounds in this set, `contrast = 9` puts both at
+    -- ~3:1; at 4.5 the block side collapses to 1.44:1. Lower them for a moodier terminal, at the cost
+    -- of one of those two roles.
+    terminal = {
+        contrast = 9, -- floor for `terminal.foreground` against the terminal background
+        dim_contrast = 3, -- floor for ANSI 8 ("bright black") against it, so dim text stays readable
+    },
     picker = {
         -- During live preview: true (default) recolours the picker itself to each previewed
         -- theme too (full live preview); false keeps the picker's own colours stable while

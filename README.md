@@ -188,6 +188,13 @@ require("lvim-colorscheme").setup({
 
     -- Set terminal colors (vim.g.terminal_color_*)
     terminal_colors = true,
+    -- Contrast floors for the palette handed to TERMINALS (the extras/ themes and `:terminal`).
+    -- ANSI 8 doubles as dim TEXT and as a block BACKGROUND; those only both stay readable when the
+    -- foreground leaves room between them. Measured over this set, 9 puts both at ~3:1.
+    terminal = {
+        contrast = 9, -- floor for the terminal foreground against the terminal background
+        dim_contrast = 3, -- floor for ANSI 8 against it, so dim text stays legible
+    },
 
     -- Syntax group styles
     styles = {
