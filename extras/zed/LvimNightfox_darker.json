@@ -33,7 +33,7 @@
         "tab.inactive_background": "#141c26",
         "panel.background": "#141c26",
         "scrollbar.thumb.background": "#1c2736",
-        "terminal.background": "#0e131a",
+        "terminal.background": "#10161e",
         "terminal.foreground": "#bcbdbd",
         "terminal.ansi.black": "#10161e",
         "terminal.ansi.red": "#b46478",

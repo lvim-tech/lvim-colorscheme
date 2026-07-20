@@ -33,7 +33,7 @@ gui:
     unstagedChangesColor:
       - "#cb4f4f"
     defaultFgColor:
-      - "#645c54"
+      - "#a79480"
   commitLength:
     show: true
   mouseEvents: true

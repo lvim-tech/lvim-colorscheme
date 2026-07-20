@@ -45,7 +45,7 @@ gui:
     unstagedChangesColor:
       - "${red}"
     defaultFgColor:
-      - "${fg}"
+      - "${terminal.foreground}"
   commitLength:
     show: true
   mouseEvents: true

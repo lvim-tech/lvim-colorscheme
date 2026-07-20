@@ -30,7 +30,7 @@ colors:
   cyan: "${cyan}"
   pink: "${teal}"
   orange: "${orange}"
-  white: "${fg_soft_dark}"
+  white: "${terminal.white}"
 core:
   normal_text:
     foreground: white

@@ -7,7 +7,7 @@ colors:
   cyan: "527a57"
   pink: "357b6d"
   orange: "cc7942"
-  white: "555c53"
+  white: "#636c5f"
 core:
   normal_text:
     foreground: white
