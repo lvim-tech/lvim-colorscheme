@@ -50,7 +50,7 @@
         "terminal.ansi.bright_blue": "#5192d8",
         "terminal.ansi.bright_magenta": "#b08acd",
         "terminal.ansi.bright_cyan": "#5cced0",
-        "terminal.ansi.bright_white": "#bcbdbd",
+        "terminal.ansi.bright_white": "#b4b5b5",
         "created": "#89aa9a",
         "modified": "#c1ac71",
         "deleted": "#b46478",

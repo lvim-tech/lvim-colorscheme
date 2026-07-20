@@ -152,6 +152,23 @@ function M.setup(opts)
     local term_bg = colors.bg_soft_dark or colors.bg_dark or colors.bg
     local term_fg = util.ensure_contrast(colors.fg, term_bg, tcfg.contrast or 6)
     local black_bright = util.ensure_contrast(util.blend(term_fg, 0.1, term_bg), term_bg, tcfg.dim_contrast or 1.08)
+    -- ANSI 15 a touch below the terminal foreground: it is what lands ON a coloured block, and at the full
+    -- foreground brightness that reads hot. Never allowed to reach `white` (ANSI 7), which sits under it.
+    local white = util.ensure_contrast(colors.fg_soft_dark, term_bg, (tcfg.contrast or 6) * 0.75)
+    local white_bright = term_fg
+    do
+        local hsluv = require("lvim-colorscheme.hsluv")
+        local h = hsluv.hex_to_hsluv(term_fg)
+        local l0 = h[3]
+        h[3] = h[3] - (tcfg.bright_dim or 3)
+        if h[3] > 0 and l0 > 0 then
+            h[2] = math.min(h[2] * (h[3] / l0), 100)
+            local cand = hsluv.hsluv_to_hex(h)
+            if util.contrast(cand, term_bg) > util.contrast(white, term_bg) then
+                white_bright = cand
+            end
+        end
+    end
 
     -- ANSI 7/15 ("white" / "bright white") were the editor's `fg_soft_dark` / `fg` verbatim — muted values
     -- that read at ~2:1 on their own background. That is what actually made Claude Code's prompt block
@@ -177,8 +194,8 @@ function M.setup(opts)
         magenta_bright = util.brighten(colors.magenta),
         cyan           = colors.cyan,
         cyan_bright    = util.brighten(colors.cyan),
-        white          = util.ensure_contrast(colors.fg_soft_dark, term_bg, (tcfg.contrast or 6) * 0.75),
-        white_bright   = term_fg,
+        white          = white,
+        white_bright   = white_bright,
     }
 
     opts.on_colors(colors)

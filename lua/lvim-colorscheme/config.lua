@@ -17,7 +17,7 @@ local utils = require("lvim-utils.utils")
 ---@field remember? boolean   Self-manage theme persistence (restore + apply on setup, save on commit)
 ---@field transparent? boolean   Drop the editor background (see-through terminal)
 ---@field terminal_colors? boolean   Set the `:terminal` ANSI colours from the palette
----@field terminal? { contrast?: number, dim_contrast?: number }   Contrast floors for the EXPORTED terminal palette
+---@field terminal? { contrast?: number, dim_contrast?: number, bright_dim?: number }   Contrast floors for the EXPORTED terminal palette
 ---@field picker? { live_chrome?: boolean, width?: number, tab_icon?: string }
 ---@field settings_panel? { command?: string, save?: string }   The runtime settings panel, hosted by lvim-control-center: `command` = the user command that opens it, `save` = its OWN database directory
 ---@field styles? table   Per-syntax-group attr tables + sidebars/floats background style
@@ -42,7 +42,7 @@ local utils = require("lvim-utils.utils")
 
 ---@type lvim-colorscheme.ConfigModule
 local M = {
-    version = "1.1.18",
+    version = "1.1.19",
     style = "lvim_dark",
     -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
     -- applies the last committed theme, and every committed change is persisted — to the store
@@ -73,6 +73,12 @@ local M = {
         -- band with text at 1.16:1. It is ALSO dim text (a shell autosuggestion), which wants the opposite;
         -- that consumer is configurable on its own, a block background is not, so the block wins here.
         dim_contrast = 1.08,
+        -- How far ANSI 15 ("bright white") sits BELOW the terminal foreground, in hsluv lightness points.
+        -- ANSI 15 is what a TUI writes on a coloured block with (Claude Code's prompt block), so it has to
+        -- clear that block — but at the full foreground brightness it reads hot. 3 points takes the edge
+        -- off while keeping the block at 4.65:1 and ANSI 15 still clearly above ANSI 7. Clamped so it can
+        -- never fall to or below `white`.
+        bright_dim = 3,
     },
     picker = {
         -- During live preview: true (default) recolours the picker itself to each previewed
