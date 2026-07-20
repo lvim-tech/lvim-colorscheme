@@ -152,22 +152,39 @@ function M.setup(opts)
     local term_bg = colors.bg_soft_dark or colors.bg_dark or colors.bg
     local term_fg = util.ensure_contrast(colors.fg, term_bg, tcfg.contrast or 6)
     local black_bright = util.ensure_contrast(util.blend(term_fg, 0.1, term_bg), term_bg, tcfg.dim_contrast or 1.08)
-    -- ANSI 15 a touch below the terminal foreground: it is what lands ON a coloured block, and at the full
-    -- foreground brightness that reads hot. Never allowed to reach `white` (ANSI 7), which sits under it.
-    local white = util.ensure_contrast(colors.fg_soft_dark, term_bg, (tcfg.contrast or 6) * 0.75)
-    local white_bright = term_fg
-    do
-        local hsluv = require("lvim-colorscheme.hsluv")
-        local h = hsluv.hex_to_hsluv(term_fg)
+    -- ANSI 15 is what a TUI writes ON a coloured block (Claude Code's prompt block), so it is pulled BELOW
+    -- the terminal foreground: at full foreground brightness the block text reads as bright as ordinary
+    -- text and the block stops looking like a quote. What bounds the dim is the BLOCK staying readable —
+    -- not the ANSI 7 < 15 convention, which an earlier version clamped against and which merely stopped
+    -- the dim short. ANSI 7 is derived a further step below 15 so that ordering still holds by
+    -- construction, floored so it cannot sink into the background.
+    local hsluv = require("lvim-colorscheme.hsluv")
+    -- "dim" means TOWARD THE BACKGROUND, not "less lightness": on a light theme lowering L makes a colour
+    -- MORE contrasty, so a lightness-only version quietly did the opposite there — which is exactly how
+    -- ANSI 7 ended up brighter than 15 in all 12 light variants while the dark ones were fine.
+    local toward_bg = util.luminance(term_bg) < 0.5 and -1 or 1
+    local function dim(hex, points)
+        local h = hsluv.hex_to_hsluv(hex)
         local l0 = h[3]
-        h[3] = h[3] - (tcfg.bright_dim or 3)
-        if h[3] > 0 and l0 > 0 then
+        h[3] = math.min(math.max(h[3] + toward_bg * points, 0), 100)
+        if l0 > 0 then
             h[2] = math.min(h[2] * (h[3] / l0), 100)
-            local cand = hsluv.hsluv_to_hex(h)
-            if util.contrast(cand, term_bg) > util.contrast(white, term_bg) then
-                white_bright = cand
-            end
         end
+        return hsluv.hsluv_to_hex(h)
+    end
+    local bright_dim = tcfg.bright_dim or 12
+    local white_bright = dim(term_fg, bright_dim)
+    -- keep the block readable whatever the dim asks for
+    while util.contrast(white_bright, black_bright) < (tcfg.block_min or 3) and bright_dim > 0 do
+        bright_dim = bright_dim - 1
+        white_bright = dim(term_fg, bright_dim)
+    end
+    -- ANSI 7 a step under 15. The readability floor below can LIFT it, so it is clamped back afterwards:
+    -- without that the floor won and 7 came out brighter than 15 in 12 of 48 themes — the opposite of what
+    -- deriving it "below 15" was supposed to guarantee. Measured, not assumed.
+    local white = util.ensure_contrast(dim(white_bright, 8), term_bg, 3)
+    if util.contrast(white, term_bg) >= util.contrast(white_bright, term_bg) then
+        white = dim(white_bright, 4)
     end
 
     -- ANSI 7/15 ("white" / "bright white") were the editor's `fg_soft_dark` / `fg` verbatim — muted values

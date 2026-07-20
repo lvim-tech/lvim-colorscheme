@@ -62,7 +62,8 @@ The command name is `lvim-<family>-<variant>`; the matching `style` value is
       terminal = {                -- contrast floors for the TERMINAL palette
           contrast = 6,           -- terminal foreground vs the terminal background
           dim_contrast = 1.08,    -- ANSI 8 vs it (low = the block stays a subtle tint)
-          bright_dim = 3,         -- ANSI 15 sits this many L points below the foreground
+          bright_dim = 12,        -- ANSI 15 sits this many L points below the foreground
+          block_min = 3,          -- floor for ANSI 15 on ANSI 8 (text on a block)
       },
       picker = {
           live_chrome = true,     -- recolour the picker itself during preview

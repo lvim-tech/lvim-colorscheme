@@ -17,7 +17,7 @@ local utils = require("lvim-utils.utils")
 ---@field remember? boolean   Self-manage theme persistence (restore + apply on setup, save on commit)
 ---@field transparent? boolean   Drop the editor background (see-through terminal)
 ---@field terminal_colors? boolean   Set the `:terminal` ANSI colours from the palette
----@field terminal? { contrast?: number, dim_contrast?: number, bright_dim?: number }   Contrast floors for the EXPORTED terminal palette
+---@field terminal? { contrast?: number, dim_contrast?: number, bright_dim?: number, block_min?: number }   Contrast floors for the EXPORTED terminal palette
 ---@field picker? { live_chrome?: boolean, width?: number, tab_icon?: string }
 ---@field settings_panel? { command?: string, save?: string }   The runtime settings panel, hosted by lvim-control-center: `command` = the user command that opens it, `save` = its OWN database directory
 ---@field styles? table   Per-syntax-group attr tables + sidebars/floats background style
@@ -42,7 +42,7 @@ local utils = require("lvim-utils.utils")
 
 ---@type lvim-colorscheme.ConfigModule
 local M = {
-    version = "1.1.19",
+    version = "1.1.20",
     style = "lvim_dark",
     -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
     -- applies the last committed theme, and every committed change is persisted — to the store
@@ -74,11 +74,12 @@ local M = {
         -- that consumer is configurable on its own, a block background is not, so the block wins here.
         dim_contrast = 1.08,
         -- How far ANSI 15 ("bright white") sits BELOW the terminal foreground, in hsluv lightness points.
-        -- ANSI 15 is what a TUI writes on a coloured block with (Claude Code's prompt block), so it has to
-        -- clear that block — but at the full foreground brightness it reads hot. 3 points takes the edge
-        -- off while keeping the block at 4.65:1 and ANSI 15 still clearly above ANSI 7. Clamped so it can
-        -- never fall to or below `white`.
-        bright_dim = 3,
+        -- ANSI 15 is what a TUI writes on a coloured block with, so dimming it is what makes such a block
+        -- read as a quote rather than as ordinary text. `block_min` is the real bound: the dim is reduced
+        -- automatically if it would push the text on that block below this contrast. ANSI 7 is derived a
+        -- step below 15, so the 7 < 15 ordering holds however far this goes.
+        bright_dim = 12,
+        block_min = 3, -- floor for ANSI 15 on ANSI 8 — the text on a block
     },
     picker = {
         -- During live preview: true (default) recolours the picker itself to each previewed
