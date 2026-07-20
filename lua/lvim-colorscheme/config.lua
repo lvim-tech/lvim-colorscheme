@@ -42,7 +42,7 @@ local utils = require("lvim-utils.utils")
 
 ---@type lvim-colorscheme.ConfigModule
 local M = {
-    version = "1.1.20",
+    version = "1.1.21",
     style = "lvim_dark",
     -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
     -- applies the last committed theme, and every committed change is persisted — to the store
@@ -78,8 +78,8 @@ local M = {
         -- read as a quote rather than as ordinary text. `block_min` is the real bound: the dim is reduced
         -- automatically if it would push the text on that block below this contrast. ANSI 7 is derived a
         -- step below 15, so the 7 < 15 ordering holds however far this goes.
-        bright_dim = 12,
-        block_min = 3, -- floor for ANSI 15 on ANSI 8 — the text on a block
+        bright_dim = 20,
+        block_min = 2.5, -- floor for ANSI 15 on ANSI 8 — the text on a block
     },
     picker = {
         -- During live preview: true (default) recolours the picker itself to each previewed

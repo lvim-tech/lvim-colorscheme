@@ -172,10 +172,10 @@ function M.setup(opts)
         end
         return hsluv.hsluv_to_hex(h)
     end
-    local bright_dim = tcfg.bright_dim or 12
+    local bright_dim = tcfg.bright_dim or 20
     local white_bright = dim(term_fg, bright_dim)
     -- keep the block readable whatever the dim asks for
-    while util.contrast(white_bright, black_bright) < (tcfg.block_min or 3) and bright_dim > 0 do
+    while util.contrast(white_bright, black_bright) < (tcfg.block_min or 2.5) and bright_dim > 0 do
         bright_dim = bright_dim - 1
         white_bright = dim(term_fg, bright_dim)
     end

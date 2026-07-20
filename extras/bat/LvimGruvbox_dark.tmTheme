@@ -9,7 +9,7 @@
         <key>colorSpaceName</key>
         <string>sRGB</string>
         <key>uuid</key>
-        <string>dddc6d0a-12b1-4f8e-b781-6b0fccbb9c9e</string>
+        <string>3268613b-a302-4cd9-b222-84586a7400a7</string>
         <key>settings</key>
         <array>
         <dict>
@@ -17,46 +17,6 @@
             <string>editor</string>
             <key>settings</key>
             <dict>
-                <key>tealDark</key>
-                <string>#2d695d</string>
-                <key>redDark</key>
-                <string>#c53b3b</string>
-                <key>purpleDark</key>
-                <string>#575163</string>
-                <key>yellowDark</key>
-                <string>#a6935a</string>
-                <key>orangeDark</key>
-                <string>#b86d3c</string>
-                <key>magentaDark</key>
-                <string>#b3664c</string>
-                <key>cyanDark</key>
-                <string>#486b4c</string>
-                <key>greenDark</key>
-                <string>#656831</string>
-                <key>blueDark</key>
-                <string>#3a6479</string>
-                <key>invisibles</key>
-                <string>#181714</string>
-                <key>selectionBorder</key>
-                <string>#2c2a29</string>
-                <key>lineHighlight</key>
-                <string>#2c2a29</string>
-                <key>foregroundDark</key>
-                <string>#544c45</string>
-                <key>foregroundSoftDark</key>
-                <string>#5c544d</string>
-                <key>foregroundSoftLight</key>
-                <string>#6c645c</string>
-                <key>foregroundLight</key>
-                <string>#746c63</string>
-                <key>backgroundHighlight</key>
-                <string>#2c2a29</string>
-                <key>backgroundDark</key>
-                <string>#181714</string>
-                <key>backgroundSoftDark</key>
-                <string>#1d1c1b</string>
-                <key>backgroundSoftLight</key>
-                <string>#2c2a29</string>
                 <key>backgroundLight</key>
                 <string>#353231</string>
                 <key>tagsOptions</key>
@@ -65,38 +25,34 @@
                 <string>underline</string>
                 <key>bracketsOptions</key>
                 <string>underline</string>
-                <key>foreground</key>
-                <string>#645c54</string>
                 <key>caret</key>
                 <string>#746c63</string>
-                <key>magenta</key>
-                <string>#bb755e</string>
-                <key>yellow</key>
-                <string>#af9e6b</string>
-                <key>guide</key>
-                <string>#353231</string>
-                <key>comment</key>
-                <string>#63584f</string>
-                <key>green</key>
-                <string>#75783a</string>
-                <key>teal</key>
-                <string>#357b6d</string>
-                <key>blue</key>
-                <string>#42728b</string>
-                <key>selection</key>
-                <string>#2c2a29</string>
-                <key>gitModified</key>
-                <string>#af9e6b</string>
-                <key>purple</key>
-                <string>#635d71</string>
-                <key>cyan</key>
-                <string>#527a57</string>
-                <key>red</key>
-                <string>#cb4f4f</string>
-                <key>orange</key>
-                <string>#cc7942</string>
+                <key>foregroundSoftLight</key>
+                <string>#6c645c</string>
                 <key>bracketContentsForeground</key>
                 <string>#746c63</string>
+                <key>tealDark</key>
+                <string>#2d695d</string>
+                <key>guide</key>
+                <string>#353231</string>
+                <key>foreground</key>
+                <string>#645c54</string>
+                <key>yellowDark</key>
+                <string>#a6935a</string>
+                <key>invisibles</key>
+                <string>#181714</string>
+                <key>blueDark</key>
+                <string>#3a6479</string>
+                <key>greenDark</key>
+                <string>#656831</string>
+                <key>cyanDark</key>
+                <string>#486b4c</string>
+                <key>magentaDark</key>
+                <string>#b3664c</string>
+                <key>selection</key>
+                <string>#2c2a29</string>
+                <key>comment</key>
+                <string>#63584f</string>
                 <key>gutterForeground</key>
                 <string>#544c45</string>
                 <key>bracketsForeground</key>
@@ -107,12 +63,56 @@
                 <string>#af9e6b</string>
                 <key>gitDeleted</key>
                 <string>#cb4f4f</string>
-                <key>background</key>
-                <string>#222120</string>
+                <key>gitModified</key>
+                <string>#af9e6b</string>
                 <key>gitAdded</key>
                 <string>#75783a</string>
                 <key>terminalBackground</key>
                 <string>#63584f</string>
+                <key>magenta</key>
+                <string>#bb755e</string>
+                <key>redDark</key>
+                <string>#c53b3b</string>
+                <key>purpleDark</key>
+                <string>#575163</string>
+                <key>yellow</key>
+                <string>#af9e6b</string>
+                <key>orangeDark</key>
+                <string>#b86d3c</string>
+                <key>purple</key>
+                <string>#635d71</string>
+                <key>cyan</key>
+                <string>#527a57</string>
+                <key>red</key>
+                <string>#cb4f4f</string>
+                <key>orange</key>
+                <string>#cc7942</string>
+                <key>green</key>
+                <string>#75783a</string>
+                <key>blue</key>
+                <string>#42728b</string>
+                <key>background</key>
+                <string>#222120</string>
+                <key>selectionBorder</key>
+                <string>#2c2a29</string>
+                <key>lineHighlight</key>
+                <string>#2c2a29</string>
+                <key>foregroundDark</key>
+                <string>#544c45</string>
+                <key>foregroundSoftDark</key>
+                <string>#5c544d</string>
+                <key>teal</key>
+                <string>#357b6d</string>
+                <key>foregroundLight</key>
+                <string>#746c63</string>
+                <key>backgroundHighlight</key>
+                <string>#2c2a29</string>
+                <key>backgroundDark</key>
+                <string>#181714</string>
+                <key>backgroundSoftDark</key>
+                <string>#1d1c1b</string>
+                <key>backgroundSoftLight</key>
+                <string>#2c2a29</string>
             </dict>
         </dict>
         <dict>

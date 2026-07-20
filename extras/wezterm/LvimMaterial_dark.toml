@@ -17,7 +17,7 @@ ansi = [
   "#4978da",
   "#da596e",
   "#63bbdf",
-  "#848f8f",
+  "#727b7b",
 ]
 brights = [
   "#2d383c",
@@ -27,7 +27,7 @@ brights = [
   "#4584fa",
   "#ef6279",
   "#3fccfb",
-  "#96a5a5",
+  "#849090",
 ]
 
 [colors.tab_bar]
