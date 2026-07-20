@@ -10,10 +10,10 @@ local M = {}
 function M.generate(colors)
     local kitty = util.template(
         [[
-background ${bg_soft_dark}
-foreground ${fg}
+background ${terminal.background}
+foreground ${terminal.foreground}
 selection_background ${bg_visual}
-selection_foreground ${fg}
+selection_foreground ${terminal.foreground}
 url_color ${blue}
 cursor ${green}
 cursor_text_color ${bg_dark}
@@ -34,7 +34,7 @@ color0 ${terminal.black}
 color1 ${terminal.red}
 color2 ${terminal.green}
 color3 ${terminal.yellow}
-color4 ${terminal.black}
+color4 ${terminal.blue}
 color5 ${terminal.magenta}
 color6 ${terminal.cyan}
 color7 ${terminal.white}

@@ -10,12 +10,12 @@ local M = {}
 function M.generate(colors)
     return util.template(
         [[
-background = ${bg_soft_dark}
-foreground = ${fg}
+background = ${terminal.background}
+foreground = ${terminal.foreground}
 cursor-color = ${green}
 cursor-text = ${bg_dark}
 selection-background = ${bg_visual}
-selection-foreground = ${fg}
+selection-foreground = ${terminal.foreground}
 
 palette = 0=${terminal.black}
 palette = 1=${terminal.red}

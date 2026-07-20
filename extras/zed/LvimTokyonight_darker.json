@@ -43,7 +43,7 @@
         "terminal.ansi.magenta": "#9470d5",
         "terminal.ansi.cyan": "#60b0de",
         "terminal.ansi.white": "#7f8296",
-        "terminal.ansi.bright_black": "#3b4261",
+        "terminal.ansi.bright_black": "#393a42",
         "terminal.ansi.bright_red": "#ec6d84",
         "terminal.ansi.bright_green": "#a0cf66",
         "terminal.ansi.bright_yellow": "#deab54",

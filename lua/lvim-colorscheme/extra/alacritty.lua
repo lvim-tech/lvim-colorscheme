@@ -12,8 +12,8 @@ function M.generate(colors)
     return util.template(
         [[
 [colors.primary]
-background = "${bg_soft_dark}"
-foreground = "${fg}"
+background = "${terminal.background}"
+foreground = "${terminal.foreground}"
 
 [colors.cursor]
 text = "${bg_dark}"

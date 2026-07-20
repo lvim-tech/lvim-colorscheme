@@ -1,6 +1,6 @@
 [colors.primary]
 background = "#dfdfdf"
-foreground = "#5e8888"
+foreground = "#476666"
 
 [colors.cursor]
 text = "#dadada"
@@ -21,7 +21,7 @@ cyan = "#61848f"
 white = "#3c7478"
 
 [colors.bright]
-black = "#93a2bd"
+black = "#bfc9c9"
 red = "#bc5966"
 green = "#77935e"
 yellow = "#9b7f3b"

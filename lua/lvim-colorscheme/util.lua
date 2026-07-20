@@ -55,6 +55,55 @@ function M.blend(foreground, alpha, background)
     return string.format("#%02x%02x%02x", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
+--- Relative luminance (WCAG 2.1), 0 = black … 1 = white.
+---@param color string  "#rrggbb"
+---@return number
+function M.luminance(color)
+    local c = rgb(color)
+    local function chan(v)
+        v = v / 255
+        return v <= 0.03928 and (v / 12.92) or ((v + 0.055) / 1.055) ^ 2.4
+    end
+    return 0.2126 * chan(c[1]) + 0.7152 * chan(c[2]) + 0.0722 * chan(c[3])
+end
+
+--- WCAG contrast ratio between two colours: 1 = identical, 21 = black on white.
+---@param a string
+---@param b string
+---@return number
+function M.contrast(a, b)
+    local la, lb = M.luminance(a), M.luminance(b)
+    local hi, lo = math.max(la, lb), math.min(la, lb)
+    return (hi + 0.05) / (lo + 0.05)
+end
+
+--- Push `color` away from `bg` until it clears `min` contrast against it, keeping its hue: the colour is
+--- blended toward whichever pole (white / black) `bg` is NOT, in small steps, and the first step that clears
+--- the floor wins. Returns `color` unchanged when it already does.
+---
+--- Terminal palettes need this because an EDITOR foreground is tuned against exactly one background under
+--- syntax highlighting, while a TERMINAL foreground has to stay legible on every block background a TUI
+--- paints — and several palettes here carry a deliberately muted `fg` that reads at barely 2:1 on their own
+--- background once it is used that way.
+---@param color string
+---@param bg string
+---@param min number  the contrast floor to clear (4.5 = WCAG AA for body text)
+---@return string
+function M.ensure_contrast(color, bg, min)
+    if M.contrast(color, bg) >= min then
+        return color
+    end
+    local pole = M.luminance(bg) < 0.5 and "#ffffff" or "#000000"
+    local out = color
+    for step = 1, 20 do
+        out = M.blend(pole, step * 0.05, color)
+        if M.contrast(out, bg) >= min then
+            return out
+        end
+    end
+    return out
+end
+
 ---@param hex string
 ---@param amount number
 ---@param bg? string

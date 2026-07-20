@@ -10,8 +10,8 @@ local M = {}
 function M.generate(colors)
     local xr = util.template(
         [[
-*background: ${bg_soft_dark}
-*foreground: ${fg}
+*background: ${terminal.background}
+*foreground: ${terminal.foreground}
 
 # normal
 *color0: ${terminal.black}
