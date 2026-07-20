@@ -90,10 +90,27 @@ function M.setup(opts)
     colors.bg_active = opts.dark_active and util.blend("#000000", opts.dark_active_amount or 0.2, colors.bg)
         or colors.bg
 
+    -- Lift a washed-out comment to the saturation floor, keeping the hue the palette chose (see config).
+    if (opts.comment_saturation or 0) > 0 and colors.comment then
+        local hsluv = require("lvim-colorscheme.hsluv")
+        local h = hsluv.hex_to_hsluv(colors.comment)
+        if h[2] < opts.comment_saturation then
+            h[2] = opts.comment_saturation
+            colors.comment = hsluv.hsluv_to_hex(h)
+        end
+    end
+
     local bg_blend = util.blend_bg(colors.bg_light, 0.5)
     colors.bg_visual = bg_blend
     colors.bg_search = bg_blend
     colors.bg_highlight = bg_blend
+    -- The cursor line's wash, derived to a contrast RATIO over the background so it reads the same on every
+    -- palette. Keeps the background's own hue (hsluv lightness step), so the band is tinted, not grey.
+    colors.bg_cursorline = util.ensure_contrast(colors.bg_highlight, colors.bg, opts.cursorline_contrast or 1.2)
+    -- The cursor block: an accent from the palette rather than the muted foreground, matching what the
+    -- terminal exports have always used. Falls back to `fg` when the key is unset or does not resolve.
+    local ca = opts.cursor_accent
+    colors.cursor_block = (ca and colors[ca]) or colors.fg
     colors.fg_sidebar = colors.fg_soft_dark
     colors.fg_float = colors.fg
 

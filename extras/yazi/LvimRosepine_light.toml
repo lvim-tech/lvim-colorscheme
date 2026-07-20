@@ -54,7 +54,7 @@ perm_type  = { fg = "#578fa6" }
 perm_read  = { fg = "#927143" }
 perm_write = { fg = "#a04a63" }
 perm_exec  = { fg = "#5d8086" }
-perm_sep   = { fg = "#7c7a87" }
+perm_sep   = { fg = "#7d7799" }
 
 [pick]
 border   = { fg = "#779ba2" }
@@ -92,7 +92,7 @@ cand            = { fg = "#5d8086" }
 rest            = { fg = "#578fa6" }
 desc            = { fg = "#75509c" }
 separator       = " ➜ "
-separator_style = { fg = "#7c7a87" }
+separator_style = { fg = "#7d7799" }
 
 # Confirm
 [confirm]

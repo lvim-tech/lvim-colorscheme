@@ -17,6 +17,9 @@ local utils = require("lvim-utils.utils")
 ---@field remember? boolean   Self-manage theme persistence (restore + apply on setup, save on commit)
 ---@field transparent? boolean   Drop the editor background (see-through terminal)
 ---@field terminal_colors? boolean   Set the `:terminal` ANSI colours from the palette
+---@field comment_saturation? number   Floor for the comment colour's saturation (hsluv S; 0 = off)
+---@field cursor_accent? string|false   Palette key for the cursor block (false = the foreground)
+---@field cursorline_contrast? number   The cursor line's wash, as a contrast ratio over the background
 ---@field terminal? { contrast?: number, dim_contrast?: number, bright_dim?: number, block_min?: number }   Contrast floors for the EXPORTED terminal palette
 ---@field picker? { live_chrome?: boolean, width?: number, tab_icon?: string }
 ---@field settings_panel? { command?: string, save?: string }   The runtime settings panel, hosted by lvim-control-center: `command` = the user command that opens it, `save` = its OWN database directory
@@ -42,7 +45,7 @@ local utils = require("lvim-utils.utils")
 
 ---@type lvim-colorscheme.ConfigModule
 local M = {
-    version = "1.1.22",
+    version = "1.1.23",
     style = "lvim_dark",
     -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
     -- applies the last committed theme, and every committed change is persisted — to the store
@@ -64,6 +67,21 @@ local M = {
     -- 4.5 keeps almost all the character but leaves such a block at 1.5:1; 9 makes the block 3:1 and
     -- washes the foreground out to a near-neutral. 6 keeps the palette's tint while lifting the
     -- foreground clear of its own background.
+    -- Every palette already gives its COMMENT the theme's own hue — kanagawa violet, everforest green,
+    -- gruvbox warm — but the saturation each author chose ranges from 5.8 to 34.7, a six-fold spread, so
+    -- on some themes the tint is there in the numbers and invisible on screen. This is a FLOOR: palettes
+    -- already above it are untouched, the washed-out ones are lifted to it. Saturation moves at constant
+    -- lightness in hsluv, so contrast is unchanged (measured: kanagawa 2.05:1 -> 2.03:1). 0 disables.
+    comment_saturation = 22,
+    -- The cursor block's colour, as a PALETTE KEY. It used to be `fg` — the editor's muted foreground —
+    -- so the cursor was the least theme-coloured thing on screen, while the TERMINAL export has always
+    -- given it an accent (`cursor ${green}` in every terminal theme). Same accent here, so the block reads
+    -- the same in the editor and in a `:terminal`. Any palette key works ("blue", "orange", …); set false
+    -- to go back to the foreground.
+    cursor_accent = "green",
+    -- The cursor line's wash, as a contrast ratio over the background rather than a blend factor — a fixed
+    -- blend lands somewhere different in every palette (this one came out at 1.01:1, barely visible).
+    cursorline_contrast = 1.2,
     terminal = {
         contrast = 6, -- floor for `terminal.foreground` against the terminal background
         -- ANSI 8 is FIRST a block background. Measured against a real consumer: Claude Code paints its

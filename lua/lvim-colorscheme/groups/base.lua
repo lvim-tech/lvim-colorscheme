@@ -21,11 +21,11 @@ function M.get(c, opts)
             fg = c.bg_light,
         }, -- placeholder characters substituted for concealed text (see 'conceallevel')
         Cursor = {
-            bg = c.fg,
+            bg = c.cursor_block,
             fg = c.bg,
         }, -- character under the cursor
         lCursor = {
-            bg = c.fg,
+            bg = c.cursor_block,
             fg = c.bg,
         }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
         CursorIM = {
@@ -36,7 +36,7 @@ function M.get(c, opts)
             bg = c.bg_highlight,
         }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
         CursorLine = {
-            bg = util.blend_bg(c.bg_highlight, 0.1),
+            bg = c.bg_cursorline,
         }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
         Directory = {
             fg = c.green_dark,

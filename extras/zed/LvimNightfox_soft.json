@@ -15,7 +15,7 @@
         "editor.active_line.background": "#1d2837",
         "editor.gutter.background": "#171f2b",
         "text": "#bcbdbd",
-        "text.muted": "#7b8189",
+        "text.muted": "#758292",
         "text.accent": "#7292bd",
         "border": "#253347",
         "surface.background": "#171f2b",
@@ -59,7 +59,7 @@
         "info": "#7292bd",
         "hint": "#75bbbd",
         "syntax": {
-          "comment": { "color": "#7b8189", "font_style": "italic" },
+          "comment": { "color": "#758292", "font_style": "italic" },
           "string": { "color": "#89aa9a" },
           "string.regex": { "color": "#75bbbd" },
           "number": { "color": "#d49360" },

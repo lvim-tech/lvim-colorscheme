@@ -8,7 +8,7 @@ palette = {
     "foreground": "#5e8888",
     "foreground-alt": "#55a6ab",
     "foreground-attention": "#4c969a",
-    "comment": "#7c7a87",
+    "comment": "#7d7799",
     "cyan": "#5d8086",
     "green": "#5d8086",
     "orange": "#c0716d",
