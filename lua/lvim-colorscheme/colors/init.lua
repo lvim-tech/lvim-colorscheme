@@ -150,7 +150,7 @@ function M.setup(opts)
     -- foreground puts both at ~3:1; at 4.5:1 there is no room and the block side collapses to 1.44:1.
     local tcfg = opts.terminal or {}
     local term_bg = colors.bg_soft_dark or colors.bg_dark or colors.bg
-    local term_fg = util.ensure_contrast(colors.fg, term_bg, tcfg.contrast or 9)
+    local term_fg = util.ensure_contrast(colors.fg, term_bg, tcfg.contrast or 6)
     local black_bright = util.ensure_contrast(util.blend(term_fg, 0.1, term_bg), term_bg, tcfg.dim_contrast or 3)
 
     -- stylua: ignore

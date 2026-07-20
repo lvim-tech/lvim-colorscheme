@@ -42,7 +42,7 @@ local utils = require("lvim-utils.utils")
 
 ---@type lvim-colorscheme.ConfigModule
 local M = {
-    version = "1.1.14",
+    version = "1.1.15",
     style = "lvim_dark",
     -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
     -- applies the last committed theme, and every committed change is persisted — to the store
@@ -55,14 +55,17 @@ local M = {
     terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
     -- Contrast floors for the palette handed to TERMINALS (the `extras/` themes and `:terminal`).
     -- A terminal palette is not an editor palette: the editor `fg` is tuned against one background
-    -- under syntax highlighting, while a terminal foreground must stay legible on every ANSI colour a
-    -- TUI paints a block with. ANSI 8 in particular carries two opposed jobs — dim TEXT (a shell
-    -- autosuggestion) and a subtle block BACKGROUND — and only fits both when the foreground leaves
-    -- room between them. Measured across the 37 backgrounds in this set, `contrast = 9` puts both at
-    -- ~3:1; at 4.5 the block side collapses to 1.44:1. Lower them for a moodier terminal, at the cost
-    -- of one of those two roles.
+    -- under syntax highlighting, and several palettes here keep it muted enough to read at ~2:1 on
+    -- their own background — fine for code, unusable once a TUI paints text on a coloured block.
+    --
+    -- `contrast` is a DIAL between the theme's character and that block. Dim text is unaffected by it:
+    -- ANSI 8 is derived on its own floor and stays ~3:1 at any setting. Raising `contrast` only buys
+    -- readability for text sitting ON an ANSI 8 block, and spends the palette's mood for it —
+    -- 4.5 keeps almost all the character but leaves such a block at 1.5:1; 9 makes the block 3:1 and
+    -- washes the foreground out to a near-neutral. 6 keeps the palette's tint while lifting the
+    -- foreground clear of its own background.
     terminal = {
-        contrast = 9, -- floor for `terminal.foreground` against the terminal background
+        contrast = 6, -- floor for `terminal.foreground` against the terminal background
         dim_contrast = 3, -- floor for ANSI 8 ("bright black") against it, so dim text stays readable
     },
     picker = {

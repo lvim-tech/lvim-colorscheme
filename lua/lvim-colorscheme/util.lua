@@ -93,10 +93,20 @@ function M.ensure_contrast(color, bg, min)
     if M.contrast(color, bg) >= min then
         return color
     end
-    local pole = M.luminance(bg) < 0.5 and "#ffffff" or "#000000"
+    -- Move LIGHTNESS in hsluv, never blend toward white/black: blending desaturates, so a palette's
+    -- tinted foreground came back as a near-neutral grey and the theme lost its character. hsluv is
+    -- perceptually uniform, so stepping L keeps the hue and saturation the palette chose and only makes
+    -- the colour lighter (on a dark background) or darker (on a light one) until it clears the floor.
+    local hsluv = require("lvim-colorscheme.hsluv")
+    local hsl = hsluv.hex_to_hsluv(color)
+    local up = M.luminance(bg) < 0.5
     local out = color
-    for step = 1, 20 do
-        out = M.blend(pole, step * 0.05, color)
+    for _ = 1, 100 do
+        hsl[3] = hsl[3] + (up and 1 or -1)
+        if hsl[3] > 100 or hsl[3] < 0 then
+            return out
+        end
+        out = hsluv.hsluv_to_hex(hsl)
         if M.contrast(out, bg) >= min then
             return out
         end
