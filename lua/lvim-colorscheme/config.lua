@@ -42,7 +42,7 @@ local utils = require("lvim-utils.utils")
 
 ---@type lvim-colorscheme.ConfigModule
 local M = {
-    version = "1.1.15",
+    version = "1.1.16",
     style = "lvim_dark",
     -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
     -- applies the last committed theme, and every committed change is persisted — to the store
@@ -66,7 +66,12 @@ local M = {
     -- foreground clear of its own background.
     terminal = {
         contrast = 6, -- floor for `terminal.foreground` against the terminal background
-        dim_contrast = 3, -- floor for ANSI 8 ("bright black") against it, so dim text stays readable
+        -- ANSI 8 pulls both ways and LOWER is better for the block: pushed far from the background it
+        -- reads as a glaring light band and the text on it loses contrast (3.0 → the block at 3.10:1 and
+        -- text on it at only 1.94:1); pulled close it is a subtle tint the foreground sits on cleanly.
+        -- Only dim TEXT wants it high. 2.5 matches the level these palettes shipped before any of this
+        -- (2.67:1), while lifting text on the block from 1.23:1 to 2.35:1.
+        dim_contrast = 2.5,
     },
     picker = {
         -- During live preview: true (default) recolours the picker itself to each previewed
