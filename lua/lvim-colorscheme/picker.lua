@@ -154,15 +154,19 @@ local function apply(style, preview)
     require("lvim-colorscheme").load({ style = style, _preview = preview or nil })
 end
 
---- Snapshot the picker's own chrome highlights (every `LvimUi*` group). Live preview
---- re-applies the previewed theme's highlights globally, which would recolour the picker
---- itself on every keystroke; restoring this snapshot after each preview keeps the picker
---- visually stable (the theme is previewed in the editor behind it, not in the picker).
+--- Snapshot the picker float's OWN surface highlights (the `LvimUi*` groups it renders with) so
+--- live preview — which re-applies the previewed theme globally — does not recolour the picker
+--- itself on every keystroke; restoring this snapshot after each preview keeps the picker stable.
+---
+--- The editor CHROME bars (`LvimUiChrome*` — winbar / statusline / tabline) are DELIBERATELY
+--- EXCLUDED: they belong to the editor behind the float and MUST preview live. They never render
+--- inside the picker surface (lvim-ui uses no `LvimUiChrome*` group), so pinning them served no
+--- stability purpose — it only froze the winbar a theme behind while the picker was open.
 ---@return table<string, table>
 local function snapshot_chrome()
     local snap = {}
     for name, def in pairs(vim.api.nvim_get_hl(0, {})) do
-        if name:find("^LvimUi") then
+        if name:find("^LvimUi") and not name:find("^LvimUiChrome") then
             snap[name] = def
         end
     end
