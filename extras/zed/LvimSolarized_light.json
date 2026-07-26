@@ -5,7 +5,7 @@
   "themes": [
     {
       "name": "Lvim Colorscheme SolarizedLight",
-      "appearance": "dark",
+      "appearance": "light",
       "style": {
         "background": "#dfdfdf",
         "editor.background": "#dadada",

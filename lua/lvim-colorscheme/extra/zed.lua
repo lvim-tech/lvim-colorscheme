@@ -8,6 +8,9 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
+    -- Zed switches its own UI chrome on this field, so a light palette shipped as "dark" makes the
+    -- editor draw dark chrome around light code. The style name carries the answer (`*_light`).
+    colors._appearance = tostring(colors._style):match("_light$") and "light" or "dark"
     return util.template(
         [[
 {
@@ -17,7 +20,7 @@ function M.generate(colors)
   "themes": [
     {
       "name": "${_style_name}",
-      "appearance": "dark",
+      "appearance": "${_appearance}",
       "style": {
         "background": "${bg_soft_dark}",
         "editor.background": "${bg_dark}",
