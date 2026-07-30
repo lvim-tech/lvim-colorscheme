@@ -68,9 +68,9 @@ The command name is `lvim-<family>-<variant>`; the matching `style` value is
       picker = {
           live_chrome = true,     -- recolour the picker itself during preview
       },
-      settings_panel = {          -- the config panel, hosted by lvim-control-center
+      settings_panel = {          -- the config panel (built on lvim-ui)
           command = "LvimColorschemeConfig", -- command that opens it
-          save = nil,             -- its own DB dir; nil → stdpath("data")/lvim-colorscheme
+          layout = "float",       -- "float" | "area" | "bottom"
       },
       styles = {                  -- attrs per syntax category (:h nvim_set_hl)
           comments  = { italic = true },
@@ -131,13 +131,15 @@ transparency, sidebar/float style, dim_inactive / dark_active (and their
 strength), syntax italics, terminal colors, day brightness, cache. Each change
 applies live and is persisted, surviving a restart.
 
-The panel is hosted by lvim-control-center (a REQUIRED dependency) as its OWN
-instance with its OWN database — separate from every other control center.
-lvim-control-center REGISTERS the command (`:LvimColorschemeConfig` by default);
-`:LvimColorscheme` stays the theme picker. Both the command and the database dir
-are configurable via `config.settings_panel = { command, save }` (`save` nil →
-stdpath("data")/lvim-colorscheme). `setup()` restores the saved values on top of
-your config (store wins).
+The panel is the plugin's own, built on lvim-ui, and its values live in the
+plugin's own document, `stdpath("data")/lvim-colorscheme/settings.json`.
+
+`:LvimColorschemeConfig [section] [float|area|bottom]` opens it — a section name
+("Background", "Focus", "Syntax") focuses that tab, and the layout token
+overrides `settings_panel.layout` for that one open. `:LvimColorscheme` stays
+the theme picker. Both the command and the layout are configurable via
+`config.settings_panel = { command, layout }`. `setup()` restores the saved
+values on top of your config (store wins).
 
                                                   *lvim-colorscheme-remember*
 REMEMBER (theme persistence) ~
@@ -148,11 +150,10 @@ saved automatically — so a distribution need not read a theme file or call
 `:colorscheme` itself.
 
 The theme is written to two places on each change:
-  - the settings panel's own control-center database (under the `colorscheme`
-    key);
+  - the settings document (under the `colorscheme` key);
   - a plain one-line mirror file `stdpath("data")/lvim-colorscheme/theme`.
 
-`setup()` restores from the MIRROR first: it is readable before any database
+`setup()` restores from the MIRROR first: it is readable before any store
 (e.g. a bootstrap/installer that paints itself before plugins load), so the
 theme is applied correctly at startup. With nothing remembered yet, the
 configured `style` is the first-run default.
@@ -162,9 +163,9 @@ configured `style` is the first-run default.
 
                                           *:LvimColorscheme* *:LvimColorschemeConfig*
 :LvimColorscheme                Open the |lvim-colorscheme-picker|.
-:LvimColorschemeConfig          Open the settings panel (owned by
-                                lvim-control-center; see
-                                |lvim-colorscheme-config-panel|).
+:LvimColorschemeConfig [{section}] [{layout}]
+                                Open the settings panel; see
+                                |lvim-colorscheme-config-panel|.
 :LvimColorscheme extras         Regenerate every file under `extras/` for all
                                 styles and tools (see |lvim-colorscheme-extras|).
 :LvimColorscheme extras {tool}  Regenerate only that tool's extras files.

@@ -22,7 +22,7 @@ local utils = require("lvim-utils.utils")
 ---@field cursorline_contrast? number   The cursor line's wash, as a contrast ratio over the background
 ---@field terminal? { contrast?: number, dim_contrast?: number, bright_dim?: number, block_min?: number }   Contrast floors for the EXPORTED terminal palette
 ---@field picker? { live_chrome?: boolean, width?: number, tab_icon?: string }
----@field settings_panel? { command?: string, save?: string }   The runtime settings panel, hosted by lvim-control-center: `command` = the user command that opens it, `save` = its OWN database directory
+---@field settings_panel? { command?: string, layout?: string }   The runtime settings panel: `command` = the user command that opens it, `layout` = how it opens ("float"|"area"|"bottom")
 ---@field styles? table   Per-syntax-group attr tables + sidebars/floats background style
 ---@field sidebar_filetypes? string[]   Filetypes treated as sidebars (Normal:NormalSB)
 ---@field day_brightness? number   0..1 vibrancy of the light ("day") style
@@ -48,9 +48,9 @@ local M = {
     version = "1.1.23",
     style = "lvim_dark",
     -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
-    -- applies the last committed theme, and every committed change is persisted — to the store
-    -- (the control-center DB when present, else the JSON file) AND a plain mirror file readable
-    -- before the plugin loads. Lets a host drop its own `colorscheme <name>` apply + persistence.
+    -- applies the last committed theme, and every committed change is persisted — to the settings
+    -- document AND a plain mirror file readable before the plugin loads. Lets a host drop its own
+    -- `colorscheme <name>` apply + persistence.
     remember = false,
     light_style = "lvim_light", -- The theme is used when the background is set to light
     auto_background = false, -- Reload `style`/`light_style` automatically when `vim.o.background` changes
@@ -104,20 +104,19 @@ local M = {
         -- theme too (full live preview); false keeps the picker's own colours stable while
         -- only the editor behind it previews.
         live_chrome = true,
-        -- Fraction of the screen wide for the theme picker popup. (The `config` settings panel is a
-        -- lvim-control-center instance and follows the shared lvim-ui geometry instead.)
+        -- Fraction of the screen wide for the theme picker popup. (The `config` settings panel
+        -- carries no width of its own and follows the shared lvim-ui geometry.)
         width = 0.9,
         -- The palette glyph on every theme-family tab in the picker.
         tab_icon = "󰏘",
     },
-    -- The runtime settings panel (transparency / focus / syntax) is hosted by lvim-control-center
-    -- (a required dependency) as its OWN instance with its OWN database — both configurable here.
+    -- The runtime settings panel (transparency / focus / syntax), built on lvim-ui. Its values are
+    -- persisted in the plugin's own document, stdpath("data")/lvim-colorscheme/settings.json.
     settings_panel = {
         -- The user command that opens the settings panel (also reachable via `:LvimColorscheme config`).
         command = "LvimColorschemeConfig",
-        -- The panel's database DIRECTORY. nil → stdpath("data")/lvim-colorscheme (its own store,
-        -- separate from every other control center).
-        save = nil,
+        -- How the panel opens: "float" (centred modal) | "area" (cmdline zone) | "bottom".
+        layout = "float",
     },
     styles = {
         -- Style to be applied to different syntax groups

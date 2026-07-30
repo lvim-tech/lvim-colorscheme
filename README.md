@@ -120,10 +120,9 @@ Each family has four variants: **soft** (lighter dark), **dark** (base), **darke
 
 ## Installation
 
-Requires Neovim >= 0.10, [lvim-utils](https://github.com/lvim-tech/lvim-utils) (for the floating
-theme picker — falls back to `vim.ui.select` without it), and
-[lvim-control-center](https://github.com/lvim-tech/lvim-control-center) (which hosts the settings
-panel in its own database).
+Requires Neovim >= 0.10, [lvim-utils](https://github.com/lvim-tech/lvim-utils) and
+[lvim-ui](https://github.com/lvim-tech/lvim-ui) — the theme picker and the settings panel both
+render through it.
 
 ### lvim-installer (recommended)
 
@@ -140,7 +139,7 @@ lvim-installer installs plugins through Neovim's built-in `vim.pack`, so no exte
 ```lua
 vim.pack.add({
     { src = "https://github.com/lvim-tech/lvim-utils" },
-    { src = "https://github.com/lvim-tech/lvim-control-center" },
+    { src = "https://github.com/lvim-tech/lvim-ui" },
     { src = "https://github.com/lvim-tech/lvim-colorscheme" },
 })
 
@@ -164,16 +163,16 @@ require("lvim-colorscheme").setup({
     auto_background = false,
 
     -- Self-manage theme persistence. When true, setup() restores and applies the last
-    -- committed theme, and every committed change is saved — to the settings panel's own
-    -- control-center database AND a plain mirror file (stdpath("data")/lvim-colorscheme/theme)
-    -- readable before the plugin loads. Lets a distribution drop its own `colorscheme <name>`
-    -- apply + persistence. `style` above is the first-run default, used until a theme is picked.
+    -- committed theme, and every committed change is saved — to the settings document AND a
+    -- plain mirror file (stdpath("data")/lvim-colorscheme/theme) readable before the plugin
+    -- loads. Lets a distribution drop its own `colorscheme <name>` apply + persistence.
+    -- `style` above is the first-run default, used until a theme is picked.
     remember = false,
 
-    -- The runtime settings panel — hosted by lvim-control-center in its own database.
+    -- The runtime settings panel (built on lvim-ui).
     settings_panel = {
         command = "LvimColorschemeConfig", -- the user command that opens the panel
-        save = nil, -- database directory; nil → stdpath("data")/lvim-colorscheme
+        layout = "float", -- how it opens: "float" | "area" | "bottom"
     },
 
     -- Theme picker behaviour
@@ -288,26 +287,26 @@ sidebar/float style, `dim_inactive` / `dark_active` (with their strength), synta
 terminal colors, day brightness and more. Each change applies **live** and is **persisted**,
 so it survives a restart.
 
-The panel is hosted by **[lvim-control-center](https://github.com/lvim-tech/lvim-control-center)**
-(a required dependency) as its OWN instance with its OWN database — separate from every other
-control center. Both the command that opens it and the database directory are configurable:
+The panel is the plugin's own, built on **[lvim-ui](https://github.com/lvim-tech/lvim-ui)**, and
+its values live in the plugin's own document — `stdpath("data")/lvim-colorscheme/settings.json`.
+Both the command that opens it and how it opens are configurable:
 
 ```lua
 require("lvim-colorscheme").setup({
     settings_panel = {
         command = "LvimColorschemeConfig", -- the user command that opens the panel
-        save = nil, -- database directory; nil → stdpath("data")/lvim-colorscheme
+        layout = "float", -- how it opens: "float" | "area" | "bottom"
     },
 })
 ```
 
-control-center registers the command (`:LvimColorschemeConfig` by default); `:LvimColorscheme`
-stays the theme picker. `setup()` is called once and restores the saved values on top of your
+`:LvimColorschemeConfig [section] [float|area|bottom]` opens it (a section name focuses that tab);
+`:LvimColorscheme` stays the theme picker. `setup()` restores the saved values on top of your
 config (the store wins).
 
-With `remember = true`, the **active theme** is persisted the same way (in the panel's database,
+With `remember = true`, the **active theme** is persisted the same way (in the settings document,
 under the `colorscheme` key) plus a plain mirror file `stdpath("data")/lvim-colorscheme/theme`.
-The mirror is what `setup()` reads to restore the theme — it is readable before any database
+The mirror is what `setup()` reads to restore the theme — it is readable before any store
 (e.g. a bootstrap/installer painting itself before plugins load).
 
 ---

@@ -1,9 +1,9 @@
 -- lvim-colorscheme.settings: the runtime-configurable option set.
 --
--- One spec list drives BOTH the settings panel (`panel`, hosted by lvim-control-center) and the
--- persistence restore, so they never drift. Each spec maps a persistence key to a dot-path inside
--- the live `config` table, plus the panel row type. Values are applied live through
--- `lvim-colorscheme.set` and persisted via `store` (the panel's own control-center database).
+-- One spec list drives BOTH the settings panel (`panel`, on lvim-ui) and the persistence restore, so
+-- they never drift. Each spec maps a persistence key to a dot-path inside the live `config` table,
+-- plus the panel row type. Values are applied live through `lvim-colorscheme.set` and persisted via
+-- `store` (the plugin's own settings document).
 --
 ---@module "lvim-colorscheme.settings"
 
@@ -17,7 +17,7 @@ local FRACTIONS = { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 }
 local STYLE_OPTS = { "dark", "transparent", "normal" }
 
 ---@class lvim-colorscheme.Setting
----@field name    string   persistence key (matches the control-center setting names)
+---@field name    string   persistence key (also the panel row name)
 ---@field label   string
 ---@field group   string   tab the row belongs to
 ---@field type    "bool"|"select"

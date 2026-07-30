@@ -1,74 +1,78 @@
 -- lvim-colorscheme.store: persistence for the runtime settings panel.
 --
--- Values go through the plugin's OWN lvim-control-center instance (its own database) — bound
--- via `M.bind(data)` when the panel is created (see `panel.lua`). There is no shared-database
--- translator and no JSON fallback: lvim-control-center is a required dependency now, and each
--- setting is a row in the dedicated instance's store.
+-- The settings live in the plugin's OWN document, `stdpath("data")/lvim-colorscheme/settings.json`,
+-- written through the shared `lvim-utils.store` (json backend): atomic writes, and a plain readable
+-- file rather than a database only one plugin knows how to open. They used to be rows in a dedicated
+-- lvim-control-center instance; that made a colorscheme unable to render its own settings without a
+-- second plugin present, and bought nothing these values need — there is exactly one of each, they
+-- belong to the colorscheme, and the panel that edits them is this plugin's own.
 --
--- The one file kept is the plain one-line THEME MIRROR: the active theme name, rewritten on
--- every commit, so a host's bootstrap/installer can read the theme WITHOUT loading the plugin
--- or touching sqlite. The database stays the source of truth; the mirror is the early-read
--- shortcut (and the standalone fallback at restore, before the instance's data is bound).
+-- Alongside it, one plain one-line THEME MIRROR: the active theme name, rewritten on every commit,
+-- so a host's bootstrap/installer can read the theme WITHOUT loading the plugin. The document stays
+-- the source of truth; the mirror is the early-read shortcut.
 --
 ---@module "lvim-colorscheme.store"
 
+local ustore = require("lvim-utils.store")
+
 local M = {}
 
--- Plain one-line mirror of the active theme name (early-read shortcut, see the header).
-local THEME_FILE = vim.fn.stdpath("data") .. "/lvim-colorscheme/theme"
+-- The settings document and the plain mirror, both under the plugin's own data directory.
+local DIR = vim.fn.stdpath("data") .. "/lvim-colorscheme"
+local SETTINGS_FILE = DIR .. "/settings.json"
+local THEME_FILE = DIR .. "/theme"
 
--- Shared key for the active colorscheme; matches control-center's setting name.
+-- Shared key for the active colorscheme.
 local THEME_KEY = "colorscheme"
 
----@type LvimControlCenterData? the dedicated instance's persistence, set by panel.setup via M.bind
-local data = nil
+---@type table? the live store handle, opened on first use
+local handle = nil
 
---- Bind the store to the settings panel's control-center instance data. Called once, from
---- `panel.setup`, before `settings.restore()` so the restore reads the instance's database.
----@param instance_data LvimControlCenterData
-function M.bind(instance_data)
-    data = instance_data
+--- The store handle. Opening READS but never creates, so a fresh install writes nothing until the
+--- first setting is changed.
+---@return table
+local function store()
+    if not handle then
+        handle = ustore.new({ backend = "json", path = SETTINGS_FILE })
+    end
+    return handle
 end
 
---- Persist a value under `name` in the dedicated instance's database (no-op until bound).
+--- Persist a value under `name`.
 ---@param name string
 ---@param value any
+---@return nil
 function M.save(name, value)
-    if data then
-        pcall(function()
-            data:save(name, value)
-        end)
-    end
+    pcall(function()
+        store()[name] = value
+    end)
 end
 
---- Read a persisted value, or nil when nothing has been saved / the store is not bound yet.
+--- Read a persisted value, or nil when nothing has been saved.
 ---@param name string
 ---@return any
 function M.load(name)
-    if data then
-        local ok, val = pcall(function()
-            return data:load(name)
-        end)
-        if ok then
-            return val
-        end
+    local ok, value = pcall(function()
+        return store()[name]
+    end)
+    if ok then
+        return value
     end
     return nil
 end
 
---- Persist the active theme: the database (under the shared `colorscheme` key) PLUS the plain
---- mirror file for pre-load reads.
+--- Persist the active theme: the document (under the shared `colorscheme` key) PLUS the plain mirror
+--- file for pre-load reads.
 ---@param name string  canonical colorscheme name (dash form, e.g. "lvim-everforest-dark")
+---@return nil
 function M.save_theme(name)
     M.save(THEME_KEY, name)
-    pcall(vim.fn.mkdir, vim.fn.fnamemodify(THEME_FILE, ":h"), "p")
+    pcall(vim.fn.mkdir, DIR, "p")
     pcall(vim.fn.writefile, { name }, THEME_FILE)
 end
 
---- The remembered theme name, or nil when none has been saved. Reads the MIRROR first: it is
---- always readable this early (the instance data may not be bound yet at restore time) and is
---- rewritten on every commit alongside the store, so it never lags. The database is a secondary
---- source (e.g. a value seeded by another panel that shares this instance).
+--- The remembered theme name, or nil when none has been saved. Reads the MIRROR first: it is always
+--- readable this early and is rewritten on every commit alongside the document, so it never lags.
 ---@return string|nil
 function M.load_theme()
     local ok, lines = pcall(vim.fn.readfile, THEME_FILE)
@@ -82,11 +86,17 @@ function M.load_theme()
     return nil
 end
 
---- Absolute path of the plain theme mirror file (so a host can read it early, before the
---- plugin is on the runtimepath).
+--- Absolute path of the plain theme mirror file (so a host can read it early, before the plugin is
+--- on the runtimepath).
 ---@return string
 function M.theme_file()
     return THEME_FILE
+end
+
+--- Absolute path of the settings document.
+---@return string
+function M.settings_file()
+    return SETTINGS_FILE
 end
 
 return M

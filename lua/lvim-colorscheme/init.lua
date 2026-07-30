@@ -44,17 +44,13 @@ end
 ---@param opts? lvim-colorscheme.Config
 function M.setup(opts)
     config.setup(opts)
-    -- Create the settings panel's DEDICATED lvim-control-center instance (its own command + own
-    -- database) and bind the store to it — BEFORE restoring, so restore reads that database.
-    pcall(function()
-        require("lvim-colorscheme.panel").setup()
-    end)
-    -- Restore persisted panel settings from the instance's database. The store wins over `opts`;
-    -- applied into the live config so the first theme load already reflects them. Guarded so a
-    -- persistence hiccup never breaks setup.
+    -- Restore persisted panel settings from the plugin's own settings document. The store wins over
+    -- `opts`; applied into the live config so the first theme load already reflects them. Guarded so
+    -- a persistence hiccup never breaks setup.
     pcall(function()
         require("lvim-colorscheme.settings").restore()
     end)
+    M.config_command()
     -- Mark the configured side-panel filetypes as sidebars (Normal:NormalSB winhighlight).
     sidebar.setup(config.sidebar_filetypes)
     local grp = vim.api.nvim_create_augroup("lvim_colorscheme", { clear = true })
@@ -84,8 +80,7 @@ function M.setup(opts)
     })
     -- `remember`: lvim-colorscheme owns theme persistence. Save every COMMITTED theme change
     -- (live preview sets data.preview = true → skipped) to the store + mirror, and restore the
-    -- last theme now so the host need neither persist nor re-apply it. The save also keeps the
-    -- control-center DB row in sync (shared `colorscheme` key).
+    -- last theme now so the host need neither persist nor re-apply it.
     if config.remember then
         vim.api.nvim_create_autocmd("User", {
             group = grp,
@@ -190,7 +185,7 @@ function M.set(overrides)
     utils.merge(config, overrides)
     if changed then
         -- Re-applying options must NEVER switch the active theme. An option change — or a
-        -- persisted-settings restore (e.g. from control-center's DB on startup) — reverting a
+        -- persisted-settings restore on startup — reverting a
         -- chosen colorscheme to the default is the bug this guards against: load()'s bg-driven
         -- style logic can pick the default style when re-entered. Remember the active theme and
         -- re-assert it if the re-load changed it, so the theme depends ONLY on what was loaded.
@@ -208,9 +203,61 @@ end
 
 --- Open the runtime configuration panel (also reachable via `:LvimColorschemeConfig`).
 --- Lets you toggle transparency, dim/dark focus cues, syntax italics and more; each change
---- applies live and is persisted in the panel's own lvim-control-center database.
-function M.config_panel()
-    require("lvim-colorscheme.panel").open()
+--- applies live and is persisted in the plugin's own settings document.
+---@param tab? string|integer  the section to focus — its name ("Background" …) or an index
+---@param layout? string  "float" | "area" | "bottom"; overrides `settings_panel.layout`
+---@return nil
+function M.config_panel(tab, layout)
+    require("lvim-colorscheme.panel").open(tab, layout)
+end
+
+--- How the panel may be opened, offered as the command's completion.
+---@type string[]
+local LAYOUTS = { "float", "area", "bottom" }
+
+--- Register the settings-panel command (`settings_panel.command`, `:LvimColorschemeConfig` by
+--- default). The plugin's own `:LvimColorscheme` stays the theme PICKER; this is the config panel.
+---   :LvimColorschemeConfig [section] [float|area|bottom]
+---@return nil
+function M.config_command()
+    local p = config.settings_panel or {}
+    vim.api.nvim_create_user_command(p.command or "LvimColorschemeConfig", function(opts)
+        local tab, layout
+        for _, arg in ipairs(opts.fargs) do
+            if vim.tbl_contains(LAYOUTS, arg) then
+                layout = arg
+            else
+                tab = tab or arg
+            end
+        end
+        M.config_panel(tab, layout)
+    end, {
+        nargs = "*",
+        desc = "lvim-colorscheme: runtime settings panel",
+        ---@param lead string  the argument being typed
+        ---@param line string  the whole command line so far
+        ---@return string[]
+        complete = function(lead, line)
+            -- Which argument POSITION is being typed: the sections first, the layout after them —
+            -- offering every token at every position is what makes a completion unreadable.
+            local words = vim.split(vim.trim(line), "%s+")
+            local pos = #words - 1 - (lead == "" and 0 or 1)
+            local pool = LAYOUTS
+            if pos <= 0 then
+                pool = {}
+                local seen = {}
+                for _, spec in ipairs(require("lvim-colorscheme.settings").specs) do
+                    if not seen[spec.group] then
+                        seen[spec.group] = true
+                        pool[#pool + 1] = spec.group
+                    end
+                end
+            end
+            return vim.tbl_filter(function(item)
+                return item:find(lead, 1, true) == 1
+            end, pool)
+        end,
+    })
 end
 
 --- Register a callback that fires every time the colorscheme loads.

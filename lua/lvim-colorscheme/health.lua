@@ -33,18 +33,19 @@ function M.check()
         health.info("lvim-ui not found — :LvimColorscheme picker is unavailable")
     end
 
-    -- lvim-control-center hosts the settings panel (:LvimColorscheme config) in its own database.
+    -- The settings panel (`:LvimColorschemeConfig`) renders through lvim-ui and persists into the
+    -- plugin's own document — reported here so "where did my setting go" has one answer.
     local p = config.settings_panel or {}
-    if pcall(require, "lvim-control-center") then
-        local cc = require("lvim-control-center")
-        local inst = cc.get(p.command or "LvimColorschemeConfig")
-        if inst and inst.db and inst.db:is_open() then
-            health.ok(("settings panel database open (%s, :%s)"):format(inst.config.save, inst.config.command))
-        else
-            health.info("lvim-control-center found — the settings panel opens on first use")
-        end
+    local store = require("lvim-colorscheme.store")
+    if pcall(require, "lvim-ui") then
+        health.ok(("settings panel available (:%s)"):format(p.command or "LvimColorschemeConfig"))
     else
-        health.error("lvim-control-center not found — :LvimColorscheme config (the settings panel) is unavailable")
+        health.error("lvim-ui not found — the settings panel is unavailable")
+    end
+    if vim.fn.filereadable(store.settings_file()) == 1 then
+        health.ok("settings: " .. store.settings_file())
+    else
+        health.info("settings: none saved yet (" .. store.settings_file() .. ")")
     end
 
     -- highlight cache writability

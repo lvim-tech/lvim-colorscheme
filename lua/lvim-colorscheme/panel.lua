@@ -1,138 +1,105 @@
--- lvim-colorscheme.panel: the runtime settings panel, hosted by lvim-control-center.
+-- lvim-colorscheme.panel: the runtime settings panel, built directly on lvim-ui.
 --
--- Instead of a bespoke float, the settings (Background / Focus / Syntax) run as a DEDICATED
--- lvim-control-center instance with its OWN command and its OWN database (both configurable via
--- `config.settings_panel`) — so lvim-colorscheme's settings never mix with any other control
--- center. The groups are built from `settings.specs`; each row applies live through
--- `settings.set` and persists through the instance's store (`store.bind` points the store at
--- this instance's database). Startup restore stays owned by `settings.restore()` (one reload),
--- so every row carries `break_load = true` to skip the host's per-setting re-apply.
+-- One tab per section of `settings.specs` (Background / Focus / Syntax), each row typed from its
+-- spec. Editing a row applies live through `settings.set`, which also persists it — these are the
+-- colorscheme's own options, there is exactly one of each, and this panel is the only thing that
+-- edits them, so there is nothing for a separate "save" step to decide.
+--
+-- It used to run as a dedicated lvim-control-center instance, which made a colorscheme unable to
+-- show its own settings without a second plugin installed, in exchange for a command surface
+-- (export / import / reset / preset) these options never needed. `lvim-ui.tabs` is the canonical
+-- tabbed-form preset (§1 of the panel canon) — and is what control-center itself renders through.
+--
+-- Startup restore stays owned by `settings.restore()` — one `set` call, one reload — so opening the
+-- panel never re-applies anything by itself.
 --
 ---@module "lvim-colorscheme.panel"
 
+local ui = require("lvim-ui")
 local settings = require("lvim-colorscheme.settings")
-local store = require("lvim-colorscheme.store")
 local config = require("lvim-colorscheme.config")
 
 local M = {}
 
--- Per-tab (group) icons.
+--- The panel's title.
+local TITLE = "COLORSCHEME SETTINGS"
+
+-- Per-tab (section) icons.
 local GROUP_ICONS = {
     Background = "󰸉",
     Focus = "󰈈",
     Syntax = "󰅴",
 }
 
----@type LvimControlCenterInstance? the dedicated control-center instance (created once)
-M.instance = nil
-
---- Build the control-center groups from `settings.specs` (one group per section, in spec order).
----@return LvimControlCenterGroup[]
-local function build_groups()
-    local order, by_name = {}, {}
+--- Build one tab per section of `settings.specs`, in spec order.
+---@return table[] tabs, table<string, lvim-colorscheme.Setting> by_row_name
+local function build_tabs()
+    local order, by_group, by_name = {}, {}, {}
     for _, spec in ipairs(settings.specs) do
-        if not by_name[spec.group] then
-            by_name[spec.group] = {
+        if not by_group[spec.group] then
+            by_group[spec.group] = {
                 name = spec.group,
                 label = spec.group,
                 icon = GROUP_ICONS[spec.group],
-                settings = {},
+                rows = {},
             }
             order[#order + 1] = spec.group
         end
-        local s = spec
-        table.insert(by_name[s.group].settings, {
-            name = s.name,
-            label = s.label,
-            type = s.type,
-            options = s.options,
-            -- lvim-colorscheme OWNS startup restore (settings.restore applies ALL in ONE reload); skip the
-            -- host's per-setting re-apply, else each row would trigger a full highlight reload on startup.
-            break_load = true,
-            get = function()
-                return settings.get(s)
+        by_name[spec.name] = spec
+        local rows = by_group[spec.group].rows
+        rows[#rows + 1] = {
+            type = spec.type,
+            name = spec.name,
+            label = spec.label,
+            options = spec.options,
+            value = settings.get(spec),
+            -- Evaluated live at render, so a row goes inert the moment the toggle it depends on
+            -- changes (a "transparent" sidebar while the global transparent is off, say). The
+            -- predicate is handed the ROW — `value_disabled` wants the VALUE, and passing the row
+            -- straight through (as the control-center version did) silently never matched, so no
+            -- row ever rendered as inert.
+            disabled = function(row)
+                return settings.value_disabled(spec, row.value)
             end,
-            set = function(value, is_load)
-                settings.set(s, value, not is_load) -- persist on a user change, not while restoring
-            end,
-            disabled = function(value)
-                return settings.value_disabled(s, value)
-            end,
-        })
+        }
     end
-    local groups = {}
-    for _, g in ipairs(order) do
-        groups[#groups + 1] = by_name[g]
+    local tabs = {}
+    for _, name in ipairs(order) do
+        tabs[#tabs + 1] = by_group[name]
     end
-    return groups
+    return tabs, by_name
 end
 
---- One-time migration: seed the dedicated database from the pre-refactor JSON store
---- (stdpath("data")/lvim-colorscheme/settings.json) the first time, then remove the file. Older
---- versions persisted there when control-center's shared DB was unavailable. Only real setting
---- names (and the theme key) are copied; junk keys are dropped. No-op without the file.
----@param instance LvimControlCenterInstance
-local function migrate_legacy_json(instance)
-    local file = vim.fn.stdpath("data") .. "/lvim-colorscheme/settings.json"
-    if vim.fn.filereadable(file) == 0 then
-        return
-    end
-    local ok, decoded = pcall(vim.json.decode, table.concat(vim.fn.readfile(file), "\n"))
-    -- Only remove the legacy file once we have actually migrated from it — a decode failure
-    -- (corrupt/partial file) leaves it in place so the data isn't lost and can be recovered.
-    if ok and type(decoded) == "table" then
-        local valid = { colorscheme = true }
-        for _, s in ipairs(settings.specs) do
-            valid[s.name] = true
-        end
-        for k, v in pairs(decoded) do
-            if valid[k] and instance.data:load(k) == nil then
-                instance.data:save(k, v)
-            end
-        end
-        pcall(vim.fn.delete, file)
-    end
-end
-
---- Create the dedicated control-center instance (once) and bind the store to its database.
---- Call in setup() BEFORE settings.restore() so the restore reads persisted values. Returns the
---- instance, or nil when lvim-control-center is unavailable (the panel then can't open).
----@return LvimControlCenterInstance|nil
-function M.setup()
-    if M.instance then
-        return M.instance
-    end
-    local ok, cc = pcall(require, "lvim-control-center")
-    if not ok then
-        vim.notify(
-            "lvim-colorscheme: the settings panel requires lvim-control-center",
-            vim.log.levels.WARN,
-            { title = "lvim-colorscheme" }
-        )
-        return nil
-    end
+--- Open the settings panel.
+---@param tab? string|integer  the section to focus — its name, or an index
+---@param layout? string  "float" (default) | "area" | "bottom"; overrides `settings_panel.layout`
+---@return nil
+function M.open(tab, layout)
     local p = config.settings_panel or {}
-    M.instance = cc.new({
-        -- control-center REGISTERS the panel command (`:LvimColorschemeConfig`) — the plugin's own
-        -- `:LvimColorscheme` stays the theme PICKER; the config panel is this separate command.
-        command = p.command or "LvimColorschemeConfig",
-        -- Its OWN database directory (separate store); default under the plugin's data dir.
-        save = p.save or (vim.fn.stdpath("data") .. "/lvim-colorscheme"),
-        title = "COLORSCHEME SETTINGS",
-        title_icon = config.picker and config.picker.tab_icon or "󰏘",
-        groups = build_groups(),
+    local tabs, by_name = build_tabs()
+    ---@type table? the ui.tabs handle, so an edit can repaint the rows it invalidated
+    local handle
+    handle = ui.tabs({
+        title = TITLE,
+        title_pos = "center",
+        layout = layout or p.layout or "float",
+        tabs = tabs,
+        tab_selector = tab,
+        footer_hints = true,
+        ---@param row table
+        on_change = function(row)
+            local spec = by_name[row.name]
+            if not spec then
+                return
+            end
+            settings.set(spec, row.value)
+            -- Several rows gate each other (transparent → the sidebar/float styles, dim_inactive →
+            -- its strength), so an edit changes which OTHER rows are inert. Repaint to show it.
+            if handle and handle.render then
+                handle.render()
+            end
+        end,
     })
-    store.bind(M.instance.data)
-    migrate_legacy_json(M.instance)
-    return M.instance
-end
-
---- Open the settings panel (creating the instance on first call).
-function M.open()
-    local inst = M.instance or M.setup()
-    if inst then
-        inst:open()
-    end
 end
 
 return M
