@@ -85,9 +85,25 @@ function M.setup(opts)
         or opts.styles.floats == "normal" and colors.bg
         or (opts.transparent and colors.none or colors.bg_dark)
 
-    -- `dark_active` darkens the FOCUSED window's background toward black by `dark_active_amount`
-    -- (a 0..1 fraction; 0 = no change). Independent of `dim_inactive`. base.lua's Normal uses it.
-    colors.bg_active = opts.dark_active and util.blend("#000000", opts.dark_active_amount or 0.2, colors.bg)
+    -- `dark_active` pulls the FOCUSED window's background AWAY from its surroundings by
+    -- `dark_active_amount` (a 0..1 fraction; 0 = no change). Independent of `dim_inactive`; base.lua's
+    -- Normal uses it.
+    --
+    -- The direction follows the palette, not the option's name. On a DARK background it deepens toward
+    -- black, as always. On a LIGHT one, toward black is the WRONG way: it made the window you are working
+    -- in the dimmest thing on screen — darker than the sidebars, the floats and the unfocused splits
+    -- beside it — which is the opposite of a focus cue. There it lifts toward white instead, so the cue
+    -- reads the same way on both: the focused window separates from what is around it.
+    local function light_bg()
+        local ok, hsluv = pcall(require, "lvim-colorscheme.hsluv")
+        if not (ok and colors.bg and colors.bg:sub(1, 1) == "#") then
+            return false
+        end
+        local ok_l, hl = pcall(hsluv.hex_to_hsluv, colors.bg)
+        return ok_l and type(hl) == "table" and (hl[3] or 0) > 50
+    end
+    colors.bg_active = opts.dark_active
+            and util.blend(light_bg() and "#ffffff" or "#000000", opts.dark_active_amount or 0.2, colors.bg)
         or colors.bg
 
     -- Lift a washed-out comment to the saturation floor, keeping the hue the palette chose (see config).

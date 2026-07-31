@@ -222,6 +222,13 @@ function M.open()
     -- so it doesn't flicker through each previewed theme — the theme previews in the editor
     -- behind it; with live_chrome the picker itself recolours to the previewed theme too.
     local previewed = current_style
+    -- The FIRST `on_item_change` is the picker settling on a row as it opens, not the user moving. Previewing
+    -- there applies whatever theme that row names — and when the opening row is not the active one (the tab
+    -- lands on its first variant), the whole editor is repainted with a FOREIGN theme for an instant. Any
+    -- backdrop raised in that same instant snapshots THAT palette and keeps it, which is how opening the
+    -- picker "mixed a light and a dark theme" without the user changing anything. Previewing starts with the
+    -- first real cursor move.
+    local settling = true
     local cfg = config
     local pin_chrome = not (cfg.picker and cfg.picker.live_chrome)
     local chrome = pin_chrome and snapshot_chrome() or nil
@@ -239,6 +246,13 @@ function M.open()
         footer_hints = true, -- bottom key-hint legend (panel keys • focused-row keys), like the control center
 
         on_item_change = function(item)
+            if settling then
+                settling = false
+                if type(item) == "table" and item._style then
+                    previewed = item._style -- remember where we landed, so the first move away previews
+                end
+                return
+            end
             if type(item) == "table" and item._style and item._style ~= previewed then
                 previewed = item._style
                 apply(item._style, true) -- lightweight preview
