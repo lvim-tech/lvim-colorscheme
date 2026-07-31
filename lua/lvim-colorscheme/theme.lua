@@ -53,12 +53,6 @@ function M.setup(opts)
     for _, fn in ipairs(state.listeners) do
         pcall(fn, colors, opts)
     end
-    -- If an lvim-ui surface backdrop is open (e.g. THIS theme picker, previewing under a dim/darken veil),
-    -- rebuild its namespace from the freshly-applied highlights so the veiled editor tracks the new theme
-    -- instead of freezing on the palette captured when the picker opened. No-op when no backdrop is up.
-    pcall(function()
-        require("lvim-ui.surface").refresh_backdrop()
-    end)
     -- `data` lets listeners persist only COMMITTED changes: the picker's live preview sets
     -- preview = true, so a config can save the theme to its store on a real change while
     -- ignoring the preview keystrokes. `style` is the applied style (e.g. "everforest_dark").
@@ -67,6 +61,23 @@ function M.setup(opts)
         modeline = false,
         data = { style = opts.style, preview = preview },
     })
+
+    -- If an lvim-ui surface backdrop is open (e.g. THIS theme picker, previewing under a dim/darken veil),
+    -- rebuild its namespace from the freshly-applied highlights so the veiled editor tracks the new theme
+    -- instead of freezing on the palette captured when the picker opened. No-op when no backdrop is up.
+    --
+    -- AFTER the User autocmd, and that ordering is the whole point. A namespace is a SNAPSHOT: whatever a
+    -- group looks like the moment the veil is built is what the veiled windows keep showing. Only the groups
+    -- SET above (lines 41-44) are lvim-colorscheme's own; every self-themed group in the set —
+    -- `LvimUi*`, the chrome bars, the panels — recolours from `lvim-utils.colors`, which re-syncs on that
+    -- autocmd (synchronously, `sync_from_lcs` → the on_change listeners). Rebuilding BEFORE it therefore
+    -- captured those groups still in the OLD palette and froze them there: previewing a dark variant from a
+    -- light theme left the statusline, the winbar chip and the tree's cursor row as LIGHT strips on a now-dark
+    -- screen, while groups the stale veil did not define at all fell back to ns 0 and came back at full,
+    -- undimmed colour. Half the screen in the new theme, half in the old one.
+    pcall(function()
+        require("lvim-ui.surface").refresh_backdrop()
+    end)
 
     -- `dim_inactive`: build after listeners/User autocmds so self-themed dependent groups are already synced.
     local ok_dim, dim = pcall(require, "lvim-colorscheme.dim")
