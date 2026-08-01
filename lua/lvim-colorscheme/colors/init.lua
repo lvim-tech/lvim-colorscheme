@@ -185,7 +185,7 @@ function M.setup(opts)
     local term_bg = colors.bg_soft_dark or colors.bg_dark or colors.bg
     local term_fg = util.ensure_contrast(colors.fg, term_bg, tcfg.contrast or 6)
     local black_bright = util.ensure_contrast(util.blend(term_fg, 0.1, term_bg), term_bg, tcfg.dim_contrast or 1.08)
-    -- ANSI 15 is what a TUI writes ON a coloured block (Claude Code's prompt block), so it is pulled BELOW
+    -- ANSI 15 is what a TUI writes ON a coloured block (a prompt block, say), so it is pulled BELOW
     -- the terminal foreground: at full foreground brightness the block text reads as bright as ordinary
     -- text and the block stops looking like a quote. What bounds the dim is the BLOCK staying readable —
     -- not the ANSI 7 < 15 convention, which an earlier version clamped against and which merely stopped
@@ -221,7 +221,7 @@ function M.setup(opts)
     end
 
     -- ANSI 7/15 ("white" / "bright white") were the editor's `fg_soft_dark` / `fg` verbatim — muted values
-    -- that read at ~2:1 on their own background. That is what actually made Claude Code's prompt block
+    -- that read at ~2:1 on their own background. That is what actually made a TUI's prompt block
     -- unreadable: it writes that block in ANSI 15, so the block's text was the muted editor grey no matter
     -- what ANSI 8 underneath it did. Chasing it through ANSI 8 could never have fixed it. Both now clear a
     -- floor like every other derived terminal entry — 15 IS the terminal foreground, 7 a step below it.

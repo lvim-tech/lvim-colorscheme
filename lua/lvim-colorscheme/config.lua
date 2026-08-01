@@ -84,7 +84,7 @@ local M = {
     cursorline_contrast = 1.2,
     terminal = {
         contrast = 6, -- floor for `terminal.foreground` against the terminal background
-        -- ANSI 8 is FIRST a block background. Measured against a real consumer: Claude Code paints its
+        -- ANSI 8 is FIRST a block background. Measured against a real consumer: a TUI that paints its
         -- prompt block with ANSI 8 and writes on it in a fixed colour of its own (#55556d) that no palette
         -- controls — so the closer ANSI 8 sits to the background, the better that text reads, and the more
         -- the block looks like the translucent tint it is meant to be. Pushed away it becomes a glaring
