@@ -140,12 +140,19 @@ function M.generate_gowall()
     -- Generate yaml content
     local themes_yaml = "themes:\n"
 
-    for style, style_name in pairs(styles) do
+    -- Sorted, so regenerating does not reshuffle the file: `styles` is a hash and pairs() has no
+    -- defined order, which made every run produce a different diff.
+    local style_keys = vim.tbl_keys(styles)
+    table.sort(style_keys)
+
+    for _, style in ipairs(style_keys) do
         -- Load the style colors
         local colors = lvim_colorscheme.load({ style = style, plugins = { all = true } })
 
-        -- Create theme entry
-        themes_yaml = themes_yaml .. '- name: "Lvim' .. style_name .. '"\n'
+        -- Create theme entry. The name matches the generated file names in extras/ ("LvimNord_dark"),
+        -- NOT the `styles` label ("LvimNordDark") — gowall is selected by this string, and having it
+        -- differ from every other tool's spelling of the same theme is a trap.
+        themes_yaml = themes_yaml .. '- name: "Lvim' .. (style:gsub("^%l", string.upper)) .. '"\n'
         themes_yaml = themes_yaml .. "  colors:\n"
 
         -- Add selected colors as a list based on the requested colors
