@@ -66,8 +66,12 @@ local styles = {
 --- @type table<string, {ext:string, url:string, label:string, subdir?: string, sep?:string}>
 -- stylua: ignore
 M.extras = {
+  atuin           = { ext = "toml", url = "https://github.com/atuinsh/atuin", label = "Atuin" },
   bat             = { ext = "tmTheme", url = "https://github.com/sharkdp/bat", label = "Bat" },
+  clipack         = { ext = "yaml", url = "https://github.com/lvim-tech/clipack", label = "Clipack" },
   delta           = { ext = "gitconfig", url = "https://github.com/dandavison/delta", label = "Delta" },
+  eza             = { ext = "yml", url = "https://github.com/eza-community/eza", label = "Eza" },
+  fsel            = { ext = "toml", url = "https://github.com/Mjoyufull/fsel", label = "Fsel" },
   fzf             = { ext = "sh", url = "https://github.com/junegunn/fzf", label = "Fzf" },
   kitty           = { ext = "conf", url = "https://sw.kovidgoyal.net/kitty/conf.html", label = "Kitty" },
   lazydocker      = { ext = "yml", url = "https://github.com/jesseduffield/lazydocker", label = "Lazydocker" },

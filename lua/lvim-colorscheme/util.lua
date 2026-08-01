@@ -124,6 +124,51 @@ function M.ensure_contrast(color, bg, min)
     return out
 end
 
+--- Move `color` to roughly `target` contrast against `bg`, in EITHER direction, keeping its hue.
+---
+--- `ensure_contrast` is a floor: it only ever pushes a colour further from the background. That is
+--- the wrong tool for a tier — "secondary text, visibly quieter than the body text" — because it
+--- cannot bring a too-bright colour DOWN, and several palettes here carry a `fg_soft_dark` that is
+--- brighter than the derived terminal foreground (measured: dracula, material and nightfox in all
+--- four variants each). Floored against the background they came out level with, or above, the very
+--- colour they were supposed to sit under, and the tier collapsed.
+---
+--- Stepping is the same as `ensure_contrast`: hsluv lightness, saturation held to the L:S ratio, so
+--- the palette's hue and character survive the move.
+---@param color string
+---@param bg string
+---@param target number  the contrast ratio to land on
+---@return string
+function M.to_contrast(color, bg, target)
+    local hsluv = require("lvim-colorscheme.hsluv")
+    local hsl = hsluv.hex_to_hsluv(color)
+    local l0, s0 = hsl[3], hsl[2]
+    -- Away from the background raises contrast, toward it lowers: which way that is in LIGHTNESS
+    -- depends on which side the background sits on.
+    local away = M.luminance(bg) < 0.5 and 1 or -1
+    local step = M.contrast(color, bg) < target and away or -away
+    local out = color
+    for _ = 1, 100 do
+        hsl[3] = hsl[3] + step
+        if hsl[3] > 100 or hsl[3] < 0 then
+            return out
+        end
+        if l0 > 0 then
+            hsl[2] = math.min(s0 * (hsl[3] / l0), 100)
+        end
+        local next_color = hsluv.hsluv_to_hex(hsl)
+        -- Stop at the first crossing, and keep whichever of the two ends up closer to the target.
+        local crossed = step == away and M.contrast(next_color, bg) >= target
+            or step ~= away and M.contrast(next_color, bg) <= target
+        if crossed then
+            local a, b = math.abs(M.contrast(out, bg) - target), math.abs(M.contrast(next_color, bg) - target)
+            return b <= a and next_color or out
+        end
+        out = next_color
+    end
+    return out
+end
+
 ---@param hex string
 ---@param amount number
 ---@param bg? string
