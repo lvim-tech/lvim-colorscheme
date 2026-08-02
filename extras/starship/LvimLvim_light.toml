@@ -1,175 +1,35 @@
-"$schema" = "https://starship.rs/config-schema.json"
-
-add_newline = true
-
-format = "$all$username$time$character"
-
-[memory_usage]
-format = "[󰍛 ${ram}]($style) "
-disabled = false
-threshold = -1
-symbol = "󰍛 "
-style = "bold #2a9b86"
-
-[time]
-format = "[$time]($style) "
-time_format = "%T"
-style = "bold #018ca3"
-disabled = false
-
-[username]
-format = "[](#876826) [$user]($style) "
-disabled = false
-show_always = true
-style_user = "#556738 bold"
-style_root = "#c53f30 bold"
-
-[character]
-success_symbol = "[ ](bold #556738)"
-error_symbol = "[ ](bold #c53f30)"
-vimcmd_replace_one_symbol = "[ ](bold #b66400)"
-vimcmd_replace_symbol = "[ ](bold #b66400)"
-vimcmd_symbol = "[ ](bold dimmed #556738)"
-vimcmd_visual_symbol = "[ ](bold dimmed #556738)"
-
-[directory]
-truncation_length = 3
-truncate_to_repo = false
-truncation_symbol = " …/"
-home_symbol = " "
-style = "bold #1f91d1"
-read_only_style = "bold #c53f30"
-
-[git_branch]
-format = '[$symbol$branch(:$remote_branch)]($style) '
-symbol = " "
-style = "bold #876826"
-
-[git_commit]
-format = '[ $hash$tag]($style) '
-commit_hash_length = 7
-style = "bold #d15a3f"
-
-[git_status]
-format = '([](#876826) [$all_status$ahead_behind]($style)[](#876826) )'
-ahead = " "
-behind = " "
-diverged = " "
-untracked = " "
-stashed = " "
-modified = " "
-staged = " "
-conflicted = " "
-
-[hostname]
-ssh_only = true
-style = "bold dimmed #556738"
-
-[jobs]
-symbol = "✦ "
-style = "bold #0d8abf"
-
-[line_break]
-disabled = false
-
-[cmd_duration]
-format = '[$duration]($style)'
-min_time = 500
-show_milliseconds = true
-style = "bold #c53f30"
-
-[package]
-format = '[ $version](bold #b66400) '
-
-[lua]
-format = '[󰢱 $version]($style) '
-style = "bold #366B8A"
-
-[python]
-format = '[ $version]($style) '
-style = "bold #805E02"
-
-[ruby]
-format = '[ $version]($style) '
-style = "bold #701516"
-
-[nodejs]
-format = '[ $version]($style) '
-style = "bold #447028"
-
-[golang]
-format = '[ $version]($style) '
-style = "bold #36677C"
-
-[java]
-format = '[ $version]($style) '
-style = "bold #992E33"
-
-[rust]
-format = '[ $version]($style) '
-style = "bold #6F5242"
-
-[php]
-format = '[ $version]($style) '
-style = "bold #6B4D83"
-
-[elixir]
-format = '[ $version]($style) '
-style = "bold #6B4D83"
-
-[swift]
-format = '[ $version]($style) '
-style = "bold #975122"
-
-[kotlin]
-format = '[ $version]($style) '
-style = "bold #5F3EBF"
-
-[gradle]
-format = '[ $version]($style) '
-style = "bold #005F87"
-
-[crystal]
-format = '[ $version]($style) '
-style = "bold #434343"
-
-[nim]
-format = '[ $version]($style) '
-style = "bold #514700"
-
-[dart]
-format = '[ $version]($style) '
-style = "bold #03589C"
-
-[erlang]
-format = '[ $version]($style) '
-style = "bold #8A2B72"
-
-[haskell]
-format = '[ $version]($style) '
-style = "bold #6B4D83"
-
-[c]
-format = '[ $version]($style) '
-style = "bold #3B69AA"
-
-[shell]
-format = '[ $version]($style) '
-style = "bold #447028"
-
-[ocaml]
-format = '[ $version]($style) '
-style = "bold #975122"
-
-[scala]
-format = '[ $version]($style) '
-style = "bold #992E33"
-
-[perl]
-format = '[ $version]($style) '
-style = "bold #36677C"
-
-[haxe]
-format = '[ $version]($style) '
-style = "bold #9C5715"
-    
+# Palette fragment — appended after prompt.toml by clipack's config.sh.
+# Not a complete starship configuration.
+[palettes.lvim]
+teal_dark = "#2a9b86"
+cyan_dark = "#018ca3"
+yellow_dark = "#876826"
+green_dark = "#556738"
+red_dark = "#c53f30"
+orange_dark = "#b66400"
+purple_dark = "#1f91d1"
+magenta_dark = "#d15a3f"
+blue_dark = "#0d8abf"
+lua = "#366B8A"
+python = "#805E02"
+ruby = "#701516"
+nodejs = "#447028"
+golang = "#36677C"
+java = "#992E33"
+rust = "#6F5242"
+php = "#6B4D83"
+elixir = "#6B4D83"
+swift = "#975122"
+kotlin = "#5F3EBF"
+gradle = "#005F87"
+crystal = "#434343"
+nim = "#514700"
+dart = "#03589C"
+erlang = "#8A2B72"
+haskell = "#6B4D83"
+c = "#3B69AA"
+shell = "#447028"
+ocaml = "#975122"
+scala = "#992E33"
+perl = "#36677C"
+haxe = "#9C5715"
