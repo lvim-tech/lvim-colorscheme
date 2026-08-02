@@ -8,208 +8,26 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors, _, opts)
-    local function capitalizeFirstLetter(str)
-        return (str:gsub("^%l", string.upper))
-    end
-
-    local nameTheme = "Lvim" .. capitalizeFirstLetter(opts.style)
-
+    -- Colours only, as named @define-color values. The 190 lines of
+    -- structure this used to duplicate per theme live once in the user's
+    -- structure.css, which current.css imports AFTER this palette so every
+    -- @name is already defined when it is used.
     local waybar = util.template(
         [[
-* {
-    font-family: "JetBrainsMono Nerd Font", "FiraCode Nerd Font", monospace;
-    font-size: 13px;
-    font-weight: bold;
-    min-height: 0;
-}
-
-window#waybar {
-    background-color: ${bg_dark};
-    color: ${fg};
-    padding: 0;
-    margin: 0;
-}
-
-#workspaces,
-#clock,
-#tray,
-#pulseaudio,
-#network,
-#battery,
-#cpu,
-#memory,
-#disk,
-#disk-data,
-#custom-kb,
-#hyprland-language,
-#mpd,
-#backlight,
-#temperature {
-    padding: 0 8px;
-    margin: 0 4px;
-    background-color: ${bg_dark};
-    border: none;
-}
-
-#clock:hover,
-#tray:hover,
-#pulseaudio:hover,
-#network:hover,
-#battery:hover,
-#cpu:hover,
-#memory:hover,
-#disk:hover,
-#disk-data:hover,
-#custom-kb:hover,
-#hyprland-language:hover,
-#mpd:hover,
-#backlight:hover,
-#temperature:hover {
-    background-color: ${bg};
-}
-
-#workspaces {
-    background: transparent;
-    border: none;
-    margin: 0;
-    padding: 0;
-}
-
-#workspaces button {
-    border-radius: 0;
-    padding: 0 10px;
-    margin: 0;
-    background: transparent;
-    color: ${fg_light};
-    border: none;
-}
-
-#workspaces button:hover {
-    background: ${bg};
-}
-
-#workspaces button.active {
-    border-radius: 0;
-    background: ${bg};
-    color: ${yellow};
-    border: none;
-}
-
-#window {
-    color: ${yellow};
-    padding: 0 10px;
-}
-
-#disk {
-    color: ${cyan};
-}
-
-#disk-data {
-    color: ${teal};
-}
-
-#language {
-    color: ${teal};
-    padding: 0 8px;
-    margin: 0 4px;
-    background-color: ${bg_dark};
-    border: none;
-}
-
-#language:hover {
-    background-color: ${bg};
-}
-
-#pulseaudio {
-    color: ${orange};
-}
-
-#pulseaudio.muted {
-    color: ${red};
-}
-
-#network {
-    color: ${blue};
-}
-
-#network.disconnected {
-    color: ${red};
-}
-
-#battery {
-    color: ${yellow};
-}
-
-#battery.charging {
-    color: ${green};
-}
-
-#battery.warning,
-#battery.critical {
-    color: ${red};
-}
-
-#cpu {
-    color: ${red};
-}
-
-#memory {
-    color: ${red};
-}
-
-#clock {
-    color: ${blue};
-}
-
-#mpd {
-    color: ${cyan};
-}
-
-#mpd.disconnected {
-    color: ${red};
-}
-
-#mpd.stopped {
-    color: ${fg_soft_dark};
-}
-
-#mpd.paused {
-    color: ${cyan_dark};
-}
-
-#custom-mpd-prev {
-    color: ${cyan};
-}
-
-#custom-mpd-next {
-    color: ${cyan};
-}
-
-#custom-mail {
-    color: ${cyan};
-    padding: 0 8px;
-    margin: 0 4px;
-    background-color: ${bg_dark};
-    border: none;
-}
-
-#custom-mail:hover {
-    background-color: ${bg};
-}
-
-#custom-mail.has-mail {
-    color: ${orange};
-}
-
-#custom-mail.no-mail {
-    color: ${green};
-}
-
-#custom-mail.error {
-    color: ${red};
-}
-]],
-        vim.tbl_extend("force", colors, { style = nameTheme })
+@define-color bg ${bg};
+@define-color bg_dark ${bg_dark};
+@define-color fg ${fg};
+@define-color fg_light ${fg_light};
+@define-color fg_soft_dark ${fg_soft_dark};
+@define-color red ${red};
+@define-color orange ${orange};
+@define-color yellow ${yellow};
+@define-color green ${green};
+@define-color teal ${teal};
+@define-color cyan ${cyan};
+@define-color cyan_dark ${cyan_dark};
+@define-color blue ${blue};]],
+        colors
     )
 
     return waybar
