@@ -64,13 +64,12 @@ function M.generate()
     return M.template:format(table.concat(ret, "\n"))
 end
 
+-- Colours only. The behaviour flags this used to carry (--ansi, --info,
+-- --layout, --border, --highlight-line) belong to whoever owns the fzf
+-- config — clipack's config.sh already sets its own and sources this file
+-- afterwards, so the theme's copies silently won every disagreement.
 M.template = [[export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --ansi \
-  --info=inline-right \
-  --layout=reverse \
-  --border=none \
 %s
-  --highlight-line
 "]]
 
 return M
