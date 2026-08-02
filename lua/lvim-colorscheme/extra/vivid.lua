@@ -6,9 +6,21 @@ local util = require("lvim-colorscheme.util")
 
 local M = {}
 
+-- vivid rejects "#rrggbb" outright, so every hex reaching the template must be
+-- bare. Recursive, because the palette nests: ${terminal.white} resolves into
+-- colors.terminal, and a flat pass over the top-level keys left exactly that
+-- one colour with its hash — one "Could not parse color string '#6c7569'" on
+-- every shell start, from the single field the old loop could not see.
 local function remove_hash(color)
     if type(color) == "string" then
-        return color:gsub("#", "")
+        return (color:gsub("#", ""))
+    end
+    if type(color) == "table" then
+        local out = {}
+        for k, v in pairs(color) do
+            out[k] = remove_hash(v)
+        end
+        return out
     end
     return color
 end
