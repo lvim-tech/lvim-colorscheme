@@ -88,11 +88,9 @@ function M.generate(colors, _, opts)
 
 name: ${clipack_theme_name}
 
-# rounded | normal | thick | double | hidden | none
-border: normal
-
-# unicode | ascii
-icons: unicode
+# Colours only — border and icons are preferences, not palette. clipack's
+# loader merges this file over a fully populated default (border: normal,
+# icons: unicode), and config.yaml can override either per machine.
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
