@@ -1,6 +1,17 @@
 #!/bin/env bash
 
-# Regenerate every tool theme under extras/ (run from the repo root).
-# Equivalent to :lua require("lvim-colorscheme.extra").generate_themes()
+# Regenerate the tool themes under extras/ (run from the repo root).
+# No argument does every tool; one argument does just that tool:
+#   scripts/build            # all
+#   scripts/build fzf        # only extras/fzf
+#
+# The rtp points at the repo itself, not a plugin manager's copy — the old
+# ~/.local/share/nvim/lazy path stopped existing and silently generated
+# nothing. lvim-utils rides along because config.lua requires it.
 
-nvim --headless -u NONE -c "set rtp+=~/.local/share/nvim/lazy/lvim-colorscheme" -c "lua require('lvim-colorscheme.extra').generate_themes()" +qa
+REPO=$(cd "$(dirname "$0")/.." && pwd)
+ONLY=${1:+"'$1'"}
+
+nvim --headless -u NONE \
+    -c "set rtp+=$REPO,$HOME/lvim-tech/lvim-utils" \
+    -c "lua require('lvim-colorscheme.extra').generate_themes($ONLY)" +qa

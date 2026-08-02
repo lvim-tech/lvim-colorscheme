@@ -1,6 +1,12 @@
 #!/bin/env bash
 
-# Regenerate the gowall palette config under extras/gowall/ (run from the repo root).
+# Regenerate the gowall palette file under extras/gowall/ (run from the repo root).
 # Equivalent to :lua require("lvim-colorscheme.extra").generate_gowall()
+#
+# Same rtp story as scripts/build: the repo itself plus lvim-utils.
 
-nvim --headless -u NONE -c "set rtp+=~/.local/share/nvim/lazy/lvim-colorscheme" -c "lua require('lvim-colorscheme.extra').generate_gowall()" +qa
+REPO=$(cd "$(dirname "$0")/.." && pwd)
+
+nvim --headless -u NONE \
+    -c "set rtp+=$REPO,$HOME/lvim-tech/lvim-utils" \
+    -c "lua require('lvim-colorscheme.extra').generate_gowall()" +qa
