@@ -1,22 +1,7 @@
 [delta]
     syntax-theme = LvimKanagawa_soft
-    side-by-side = false
-    navigate = true
-    hyperlinks = true
-    keep-plus-minus-markers = false
     zero-style = syntax
-    file-added-label = [+]
-    file-copied-label = [==]
-    file-modified-label = [*]
-    file-removed-label = [-]
-    file-renamed-label = [->]
-    line-numbers = true
-    line-numbers-left-format = "{nm:>1} "
-    line-numbers-right-format = "{np:>1} "
-    blame-code-style = syntax 
-    blame-format = "{author:<18} ({commit:>7}) {timestamp:^16} "
-    merge-conflict-begin-symbol = ⌃
-    merge-conflict-end-symbol = ⌄
+    blame-code-style = syntax
     merge-conflict-ours-diff-header-decoration-style = ''
     merge-conflict-theirs-diff-header-decoration-style = ''
 
@@ -47,4 +32,3 @@
         bold blue => syntax "#1d1e22", \
         bold cyan => syntax "#2b2c33", \
         bold yellow => syntax "#2f3038"
-    zero-style = syntax

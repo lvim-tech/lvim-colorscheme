@@ -33,27 +33,16 @@ function M.generate(colors)
         delete = util.brighten(colors.diff.delete, 0.01, 0.5),
     }
     local bat_theme = "Lvim" .. (colors._style:gsub("^%l", string.upper))
+    -- Styles and the matching bat syntax-theme only. The behaviour keys this
+    -- used to carry (side-by-side, navigate, line-numbers, labels, symbols,
+    -- blame-format) are the user's [delta] section in ~/.gitconfig — they were
+    -- identical in all 48 files and duplicated on every regeneration.
     local delta = util.template([[
 [delta]
     syntax-theme = ]] .. bat_theme .. [[
 
-    side-by-side = false
-    navigate = true
-    hyperlinks = true
-    keep-plus-minus-markers = false
     zero-style = syntax
-    file-added-label = [+]
-    file-copied-label = [==]
-    file-modified-label = [*]
-    file-removed-label = [-]
-    file-renamed-label = [->]
-    line-numbers = true
-    line-numbers-left-format = "{nm:>1} "
-    line-numbers-right-format = "{np:>1} "
-    blame-code-style = syntax 
-    blame-format = "{author:<18} ({commit:>7}) {timestamp:^16} "
-    merge-conflict-begin-symbol = ⌃
-    merge-conflict-end-symbol = ⌄
+    blame-code-style = syntax
     merge-conflict-ours-diff-header-decoration-style = ''
     merge-conflict-theirs-diff-header-decoration-style = ''
 
@@ -83,8 +72,7 @@ function M.generate(colors)
         bold purple => syntax "${bg_soft_dark}", \
         bold blue => syntax "${bg_dark}", \
         bold cyan => syntax "${bg_soft_light}", \
-        bold yellow => syntax "${bg_light}"
-    zero-style = syntax]], colors)
+        bold yellow => syntax "${bg_light}"]], colors)
     return delta
 end
 
