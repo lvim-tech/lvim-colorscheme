@@ -9,13 +9,14 @@ local M = {}
 --- @param colors ColorScheme
 function M.generate(colors)
     colors.bg_line = util.blend_bg(colors.bg_highlight, 0.1)
-    local lazygit = util.template(
-        [[---
-gui:
-  scrollHeight: 2
-  language: "auto"
-  border: "hidden"
-  theme:
+    -- A palette FRAGMENT, not a standalone file: lazydocker reads exactly one
+    -- config.yml and has no include or multi-file mechanism, so clipack's
+    -- config.sh appends these keys under the `theme:` line that base.yml
+    -- deliberately ends with. The settings this used to carry (logs,
+    -- commandTemplates, stats graphs, ...) are that base.yml.
+    local lazydocker = util.template(
+        [[# Palette fragment — appended under `gui: theme:` at the end of base.yml
+# by clipack's config.sh. Not a complete lazydocker configuration.
     activeBorderColor:
       - "${orange}"
       - "bold"
@@ -24,50 +25,10 @@ gui:
     selectedLineBgColor:
       - "${bg_line}"
     optionsTextColor:
-      - "${blue}"
-  returnImmediately: false
-  wrapMainPanel: true
-  sidePanelWidth: 0.333
-  showBottomLine: true
-  expandFocusedSidePanel: false
-  screenMode: "normal"
-  containerStatusHealthStyle: "long"
-logs:
-  timestamps: false
-  since: '60m'
-  tail: ''
-commandTemplates:
-  dockerCompose: docker compose # Determines the Docker Compose command to run, referred to as .DockerCompose in commandTemplates
-  restartService: '{{ .DockerCompose }} restart {{ .Service.Name }}'
-  up:  '{{ .DockerCompose }} up -d'
-  down: '{{ .DockerCompose }} down'
-  downWithVolumes: '{{ .DockerCompose }} down --volumes'
-  upService:  '{{ .DockerCompose }} up -d {{ .Service.Name }}'
-  startService: '{{ .DockerCompose }} start {{ .Service.Name }}'
-  stopService: '{{ .DockerCompose }} stop {{ .Service.Name }}'
-  serviceLogs: '{{ .DockerCompose }} logs --since=60m --follow {{ .Service.Name }}'
-  viewServiceLogs: '{{ .DockerCompose }} logs --follow {{ .Service.Name }}'
-  rebuildService: '{{ .DockerCompose }} up -d --build {{ .Service.Name }}'
-  recreateService: '{{ .DockerCompose }} up -d --force-recreate {{ .Service.Name }}'
-  allLogs: '{{ .DockerCompose }} logs --tail=300 --follow'
-  viewAlLogs: '{{ .DockerCompose }} logs'
-  dockerComposeConfig: '{{ .DockerCompose }} config'
-  checkDockerComposeConfig: '{{ .DockerCompose }} config --quiet'
-  serviceTop: '{{ .DockerCompose }} top {{ .Service.Name }}'
-oS:
-  openCommand: open {{filename}}
-  openLinkCommand: open {{link}}
-stats:
-  graphs:
-    - caption: CPU (%)
-      statPath: DerivedStats.CPUPercentage
-      color: blue
-    - caption: Memory (%)
-      statPath: DerivedStats.MemoryPercentage
-      color: green]],
+      - "${blue}"]],
         colors
     )
-    return lazygit
+    return lazydocker
 end
 
 return M
