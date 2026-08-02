@@ -1,9 +1,5 @@
-EnableImagePreviewing: true
-InlineImagePreview: true
-ImagePreviewBackend: "chafa"
-
-OutputFolder: "MyImages"
-ColorCorrectionBackend: nn
+# themes.yml — GENERATED, palettes only. Do not add settings here;
+# they belong in settings.yml next to this file, and config.sh joins the two.
 
 themes:
 - name: "LvimCatppuccin_dark"

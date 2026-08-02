@@ -182,24 +182,22 @@ function M.generate_gowall()
         themes_yaml = themes_yaml .. "\n"
     end
 
-    -- Final config content
-    local config_content = [[
-EnableImagePreviewing: true
-InlineImagePreview: true
-ImagePreviewBackend: "chafa"
-
-OutputFolder: "MyImages"
-ColorCorrectionBackend: nn
-
-]] .. themes_yaml
+    -- Themes only. gowall reads a single config.yml with no include
+    -- mechanism, so the app settings this used to hardcode (preview backend,
+    -- OutputFolder, ...) live with whoever assembles the final file — clipack's
+    -- config.sh concatenates its settings.yml with this block. Shipping
+    -- settings from here meant every regeneration overwrote them.
+    local config_content = "# themes.yml — GENERATED, palettes only. Do not add settings here;\n"
+        .. "# they belong in settings.yml next to this file, and config.sh joins the two.\n\n"
+        .. themes_yaml
 
     -- Make sure directory exists
     local dir_path = "extras/gowall"
     os.execute("mkdir -p " .. dir_path)
 
     -- Write the file
-    util.write(dir_path .. "/config.yml", config_content)
-    print("[write] extras/gowall/config.yml")
+    util.write(dir_path .. "/themes.yml", config_content)
+    print("[write] extras/gowall/themes.yml")
 
     return config_content
 end
