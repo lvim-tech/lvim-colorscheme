@@ -79,11 +79,14 @@ function M.setup(opts)
         require("lvim-ui.surface").refresh_backdrop()
     end)
 
-    -- `dim_inactive`: build after listeners/User autocmds so self-themed dependent groups are already synced.
+    -- `dim_inactive`: point the manager at the new palette AFTER listeners/User autocmds, so the self-themed
+    -- dependent groups it copies are already synced. `dim.build` only re-walks the highlight table when a
+    -- window is wearing the dim namespace right now — otherwise it just marks it stale and the next dimmed
+    -- window builds it (which is why the `dim.ns` guard that used to sit here is gone: build self-guards).
     local ok_dim, dim = pcall(require, "lvim-colorscheme.dim")
     if ok_dim then
         if preview then
-            if opts.dim_inactive and dim.ns then
+            if opts.dim_inactive then
                 dim.build(colors.bg, opts.dim_inactive_amount)
             end
         elseif opts.dim_inactive or opts.dark_active then

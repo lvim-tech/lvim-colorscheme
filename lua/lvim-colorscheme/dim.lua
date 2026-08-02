@@ -20,8 +20,11 @@ local dim = require("lvim-utils.dim")
 
 local M = {}
 
----@type integer? the highlight namespace holding the dimmed (fg-muted) copies (lazily created)
+---@type integer? the highlight namespace holding the dimmed (fg-muted) copies (built on first use)
 M.ns = nil
+---@type boolean the namespace's contents no longer match the live palette/amount — rebuild before next use.
+--- Starts true so the first window that needs dimming builds it.
+local stale = true
 ---@type integer? augroup id for the focus-follow autocmds
 local aug = nil
 ---@type integer? the last-focused REAL editor window (the active window)
@@ -57,6 +60,23 @@ local function is_real(win)
     return wh == "" or dark_marked[win] == true
 end
 
+---Build the dim namespace, or rebuild it when it no longer matches the live palette. Called from the ONE
+---place that reads it — the moment a window is actually switched onto it.
+---
+---DEFERRED ON PURPOSE. The namespace is a full muted copy of EVERY highlight group (measured at 8.3 ms on a
+---433-group theme, a third of this plugin's whole load cost), and nothing reads it until some window is not
+---the active one. A single-window session — every startup, the dashboard included — never dims anything, so
+---building it in `enable()` charged that 8.3 ms to every start for a namespace no window ever looked at.
+---@return integer? ns
+local function ensure_ns()
+    if M.ns and not stale then
+        return M.ns
+    end
+    M.ns = dim.build(M.opts.bg, M.opts.dim_amount)
+    stale = false
+    return M.ns
+end
+
 ---Switch a window between the dim namespace and namespace 0 (full colour). Only resets a window we
 ---previously dimmed, so windows on someone else's namespace are left untouched.
 ---@param win integer
@@ -66,7 +86,7 @@ local function set_dim(win, on)
         return
     end
     if on then
-        pcall(api.nvim_win_set_hl_ns, win, M.ns)
+        pcall(api.nvim_win_set_hl_ns, win, ensure_ns())
         dimmed[win] = true
     elseif dimmed[win] then
         pcall(api.nvim_win_set_hl_ns, win, 0)
@@ -144,16 +164,25 @@ local function schedule_reconcile()
     end)
 end
 
----(Re)build the dim namespace from the current global highlights (via the shared `lvim-utils.dim`). Call
----after every theme apply so the dimmed copies track the active palette.
+---Point the dim namespace at a new palette. Call after every theme apply so the dimmed copies track it.
+---
+---The rebuild itself is DEFERRED to the next window that is actually dimmed (see `ensure_ns`) — except when
+---a window is wearing the namespace right now, in which case it is showing the OLD palette on screen and the
+---rebuild cannot wait. That is the theme picker's live preview with a split open.
 ---@param bg_hex string  editor background colour the foregrounds are muted toward (colors.bg)
 ---@param amount number   fraction the foreground is blended toward bg (0..1)
 function M.build(bg_hex, amount)
-    M.ns = dim.build(bg_hex, amount)
+    M.opts.bg = bg_hex or M.opts.bg
+    M.opts.dim_amount = amount or M.opts.dim_amount
+    stale = true
+    if M.ns and next(dimmed) then
+        ensure_ns()
+    end
 end
 
----Enable the focus-follow manager. Builds the dim namespace (when dimming), reconciles once, and installs
----the focus/layout autocmds that keep the active real window full-colour + dark.
+---Enable the focus-follow manager: reconcile once, then install the focus/layout autocmds that keep the
+---active real window full-colour + dark. The dim namespace is NOT built here — `reconcile` builds it through
+---`ensure_ns` the first time a window actually has to be dimmed (see `ensure_ns` for why).
 ---@param opts { dim?: boolean, dim_amount?: number, dark?: boolean, bg?: string }
 function M.enable(opts)
     M.opts = {
@@ -162,9 +191,8 @@ function M.enable(opts)
         dark = opts.dark or false,
         bg = opts.bg or "#000000",
     }
-    if M.opts.dim then
-        M.build(M.opts.bg, M.opts.dim_amount)
-    end
+    -- The options (palette, amount) just changed, so whatever the namespace holds is from the previous theme.
+    stale = true
     aug = api.nvim_create_augroup("LvimColorschemeDim", { clear = true })
     reconcile()
     -- Reconcile on any focus/layout change. `BufWinEnter`/`WinNew` catch panels that open without taking
