@@ -1,0 +1,121 @@
+// Lvim Colorscheme DraculaSoft
+themes {
+    lvim {
+        text_unselected {
+            base "#c7c7b3"
+            background "#20222b"
+            emphasis_0 "#de9f5c"
+            emphasis_1 "#61dfca"
+            emphasis_2 "#58d879"
+            emphasis_3 "#dc61a8"
+        }
+        text_selected {
+            base "#c2c2b7"
+            background "#313340"
+            emphasis_0 "#de9f5c"
+            emphasis_1 "#61dfca"
+            emphasis_2 "#58d879"
+            emphasis_3 "#dc61a8"
+        }
+        ribbon_selected {
+            base "#20222b"
+            background "#58d879"
+            emphasis_0 "#dd5757"
+            emphasis_1 "#de9f5c"
+            emphasis_2 "#dc61a8"
+            emphasis_3 "#9c80c3"
+        }
+        ribbon_unselected {
+            base "#c7c7b3"
+            background "#393b4a"
+            emphasis_0 "#de9f5c"
+            emphasis_1 "#c2c2b7"
+            emphasis_2 "#dc61a8"
+            emphasis_3 "#9c80c3"
+        }
+        table_title {
+            base "#58d879"
+            background "#20222b"
+            emphasis_0 "#de9f5c"
+            emphasis_1 "#61dfca"
+            emphasis_2 "#58d879"
+            emphasis_3 "#dc61a8"
+        }
+        table_cell_selected {
+            base "#c2c2b7"
+            background "#313340"
+            emphasis_0 "#de9f5c"
+            emphasis_1 "#61dfca"
+            emphasis_2 "#58d879"
+            emphasis_3 "#dc61a8"
+        }
+        table_cell_unselected {
+            base "#c7c7b3"
+            background "#20222b"
+            emphasis_0 "#de9f5c"
+            emphasis_1 "#61dfca"
+            emphasis_2 "#58d879"
+            emphasis_3 "#dc61a8"
+        }
+        list_selected {
+            base "#c2c2b7"
+            background "#313340"
+            emphasis_0 "#de9f5c"
+            emphasis_1 "#61dfca"
+            emphasis_2 "#58d879"
+            emphasis_3 "#dc61a8"
+        }
+        list_unselected {
+            base "#c7c7b3"
+            background "#20222b"
+            emphasis_0 "#de9f5c"
+            emphasis_1 "#61dfca"
+            emphasis_2 "#58d879"
+            emphasis_3 "#dc61a8"
+        }
+        frame_selected {
+            base "#65c8dd"
+            background "#20222b"
+            emphasis_0 "#de9f5c"
+            emphasis_1 "#61dfca"
+            emphasis_2 "#58d879"
+            emphasis_3 "#dc61a8"
+        }
+        frame_highlight {
+            base "#de9f5c"
+            background "#20222b"
+            emphasis_0 "#dc61a8"
+            emphasis_1 "#61dfca"
+            emphasis_2 "#58d879"
+            emphasis_3 "#9c80c3"
+        }
+        exit_code_success {
+            base "#58d879"
+            background "#20222b"
+            emphasis_0 "#65c8dd"
+            emphasis_1 "#61dfca"
+            emphasis_2 "#58d879"
+            emphasis_3 "#dc61a8"
+        }
+        exit_code_error {
+            base "#dd5757"
+            background "#20222b"
+            emphasis_0 "#de9f5c"
+            emphasis_1 "#d0da68"
+            emphasis_2 "#dc61a8"
+            emphasis_3 "#9c80c3"
+        }
+        multiplayer_user_colors {
+            player_1 "#dc61a8"
+            player_2 "#65c8dd"
+            player_3 "#58d879"
+            player_4 "#de9f5c"
+            player_5 "#9c80c3"
+            player_6 "#65c8dd"
+            player_7 "#61dfca"
+            player_8 "#d0da68"
+            player_9 "#dd5757"
+            player_10 "#727a98"
+        }
+    }
+}

@@ -1,0 +1,8 @@
+# Lvim Colorscheme SolarizedDarker
+style:
+  tag:
+    color: dark_cyan
+  comment:
+    color: cyan
+  snippet:
+    color: dark_yellow

@@ -1,0 +1,38 @@
+# Lvim Colorscheme NordLight
+
+[styles.cpu]
+all_entry_color = "#5e8888"
+avg_entry_color = "#9e8299"
+cpu_core_colors = ["#768ba1", "#738366", "#87734a", "#b27f6f", "#8d8497", "#698483", "#61848f", "#935d63"]
+
+[styles.memory]
+ram_color = "#738366"
+cache_color = "#61848f"
+swap_color = "#b27f6f"
+arc_color = "#698483"
+
+[styles.network]
+rx_color = "#738366"
+tx_color = "#9e8299"
+rx_total_color = "#788c67"
+tx_total_color = "#7c6377"
+
+[styles.battery]
+high_battery_color = "#738366"
+medium_battery_color = "#87734a"
+low_battery_color = "#935d63"
+
+[styles.tables]
+headers = { color = "#768ba1", bold = true }
+
+[styles.graphs]
+graph_color = "#737d95"
+legend_text = "#5f646e"
+
+[styles.widgets]
+border_color = "#eeeeee"
+selected_border_color = "#768ba1"
+widget_title = { color = "#55a6ab", bold = true }
+text = "#5e8888"
+selected_text = { color = "#dadada", bg_color = "#768ba1" }
+disabled_text = "#737d95"

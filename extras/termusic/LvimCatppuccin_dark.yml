@@ -1,0 +1,26 @@
+# Lvim Colorscheme CatppuccinDark
+colors:
+  primary:
+    background: "#11111b"
+    foreground: "#b2b7c7"
+  cursor:
+    text: "#11111b"
+    cursor: "#b2b7c7"
+  normal:
+    black: "#181825"
+    red: "#d36d89"
+    green: "#84c27f"
+    yellow: "#d8b973"
+    blue: "#5082d4"
+    magenta: "#d07fba"
+    cyan: "#71becc"
+    white: "#6a6e7d"
+  bright:
+    black: "#272835"
+    red: "#e97596"
+    green: "#75d66b"
+    yellow: "#efc655"
+    blue: "#458ff6"
+    magenta: "#e787cd"
+    cyan: "#53d0e4"
+    white: "#7c8296"

@@ -1,0 +1,27 @@
+[style]
+header = "60"
+unit = "96"
+tree = "236"
+
+[style.by_percentage]
+color_000 = "60"
+color_025 = "109"
+color_050 = "179"
+color_075 = "174"
+color_100 = "168"
+
+[style.by_state]
+color_d = "168"
+color_r = "109"
+color_s = "60"
+color_t = "179"
+color_z = "140"
+color_x = "96"
+
+[style.by_unit]
+color_k = "60"
+color_m = "109"
+color_g = "179"
+color_t = "174"
+color_p = "168"
+color_x = "96"

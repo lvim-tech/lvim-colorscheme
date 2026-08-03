@@ -1,0 +1,8 @@
+# Lvim Colorscheme TokyonightLight
+style:
+  tag:
+    color: cyan
+  comment:
+    color: blue
+  snippet:
+    color: dark_yellow

@@ -1,0 +1,27 @@
+[style]
+header = "67"
+unit = "244"
+tree = "236"
+
+[style.by_percentage]
+color_000 = "67"
+color_025 = "108"
+color_050 = "143"
+color_075 = "173"
+color_100 = "132"
+
+[style.by_state]
+color_d = "132"
+color_r = "108"
+color_s = "67"
+color_t = "143"
+color_z = "103"
+color_x = "244"
+
+[style.by_unit]
+color_k = "67"
+color_m = "108"
+color_g = "143"
+color_t = "173"
+color_p = "132"
+color_x = "244"

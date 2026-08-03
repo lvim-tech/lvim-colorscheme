@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme RosepineDarker
+user: "#d6a765"
+group: "#d09a4f"
+permission:
+  read: "#83b2ba"
+  write: "#d6a765"
+  exec: "#cd6985"
+  exec-sticky: "#9f80c4"
+  no-access: "#746e91"
+  octal: "#416d7f"
+  acl: "#416d7f"
+  context: "#83b2ba"
+date:
+  hour-old: "#83b2ba"
+  day-old: "#71a7b0"
+  older: "#3b6374"
+size:
+  none: "#746e91"
+  small: "#83b2ba"
+  medium: "#d6a765"
+  large: "#c68784"
+inode:
+  valid: "#958fa7"
+  invalid: "#746e91"
+links:
+  valid: "#958fa7"
+  invalid: "#746e91"
+tree-edge: "#2f2c3c"
+git-status:
+  default: "#b4b2c7"
+  unmodified: "#746e91"
+  ignored: "#746e91"
+  new-in-index: "#83b2ba"
+  new-in-workdir: "#83b2ba"
+  typechange: "#d6a765"
+  deleted: "#cd6985"
+  renamed: "#416d7f"
+  modified: "#c68784"
+  conflicted: "#9f80c4"

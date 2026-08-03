@@ -1,0 +1,26 @@
+# Lvim Colorscheme NordDarker
+colors:
+  primary:
+    background: "#14171c"
+    foreground: "#b3bac6"
+  cursor:
+    text: "#14171c"
+    cursor: "#b3bac6"
+  normal:
+    black: "#171a20"
+    red: "#af7177"
+    green: "#97ab86"
+    yellow: "#cbae72"
+    blue: "#6f89a4"
+    magenta: "#a58aa0"
+    cyan: "#7eaab7"
+    white: "#6b7179"
+  bright:
+    black: "#282d33"
+    red: "#cd757f"
+    green: "#9abd7a"
+    yellow: "#e2ba59"
+    blue: "#6798c3"
+    magenta: "#c48eba"
+    cyan: "#70bbcf"
+    white: "#7e8590"

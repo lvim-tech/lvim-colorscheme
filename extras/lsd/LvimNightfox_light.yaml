@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme NightfoxLight
+user: "#86774d"
+group: "#907d48"
+permission:
+  read: "#6b8578"
+  write: "#86774d"
+  exec: "#a65c6e"
+  exec-sticky: "#725986"
+  no-access: "#646f7d"
+  octal: "#4e7f80"
+  acl: "#4e7f80"
+  context: "#4e7f80"
+date:
+  hour-old: "#6b8578"
+  day-old: "#6d8f7f"
+  older: "#498789"
+size:
+  none: "#646f7d"
+  small: "#6b8578"
+  medium: "#86774d"
+  large: "#a9754b"
+inode:
+  valid: "#725b95"
+  invalid: "#646f7d"
+links:
+  valid: "#725b95"
+  invalid: "#646f7d"
+tree-edge: "#eeeeee"
+git-status:
+  default: "#5e8888"
+  unmodified: "#646f7d"
+  ignored: "#646f7d"
+  new-in-index: "#6b8578"
+  new-in-workdir: "#6b8578"
+  typechange: "#86774d"
+  deleted: "#a65c6e"
+  renamed: "#4a607e"
+  modified: "#a9754b"
+  conflicted: "#725986"

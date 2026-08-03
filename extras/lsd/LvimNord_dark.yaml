@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme NordDark
+user: "#cbae72"
+group: "#c3a25d"
+permission:
+  read: "#97ab86"
+  write: "#cbae72"
+  exec: "#af7177"
+  exec-sticky: "#a58aa0"
+  no-access: "#677185"
+  octal: "#88aaa9"
+  acl: "#88aaa9"
+  context: "#7eaab7"
+date:
+  hour-old: "#97ab86"
+  day-old: "#89a076"
+  older: "#789f9d"
+size:
+  none: "#677185"
+  small: "#97ab86"
+  medium: "#cbae72"
+  large: "#ba8574"
+inode:
+  valid: "#9b93a4"
+  invalid: "#677185"
+links:
+  valid: "#9b93a4"
+  invalid: "#677185"
+tree-edge: "#323946"
+git-status:
+  default: "#b3bac6"
+  unmodified: "#677185"
+  ignored: "#677185"
+  new-in-index: "#97ab86"
+  new-in-workdir: "#97ab86"
+  typechange: "#cbae72"
+  deleted: "#af7177"
+  renamed: "#8097af"
+  modified: "#ba8574"
+  conflicted: "#a58aa0"

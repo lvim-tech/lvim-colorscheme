@@ -1,0 +1,8 @@
+# Lvim Colorscheme MaterialLight
+style:
+  tag:
+    color: cyan
+  comment:
+    color: blue
+  snippet:
+    color: dark_yellow

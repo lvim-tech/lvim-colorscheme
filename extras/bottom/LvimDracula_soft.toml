@@ -1,0 +1,38 @@
+# Lvim Colorscheme DraculaSoft
+
+[styles.cpu]
+all_entry_color = "#c7c7b3"
+avg_entry_color = "#dc61a8"
+cpu_core_colors = ["#65c8dd", "#58d879", "#d0da68", "#de9f5c", "#9c80c3", "#65c8dd", "#61dfca", "#dd5757"]
+
+[styles.memory]
+ram_color = "#58d879"
+cache_color = "#61dfca"
+swap_color = "#de9f5c"
+arc_color = "#65c8dd"
+
+[styles.network]
+rx_color = "#58d879"
+tx_color = "#dc61a8"
+rx_total_color = "#42d367"
+tx_total_color = "#d74a9b"
+
+[styles.battery]
+high_battery_color = "#58d879"
+medium_battery_color = "#d0da68"
+low_battery_color = "#dd5757"
+
+[styles.tables]
+headers = { color = "#65c8dd", bold = true }
+
+[styles.graphs]
+graph_color = "#727a98"
+legend_text = "#828287"
+
+[styles.widgets]
+border_color = "#393b4a"
+selected_border_color = "#65c8dd"
+widget_title = { color = "#c2c2b7", bold = true }
+text = "#c7c7b3"
+selected_text = { color = "#20222b", bg_color = "#65c8dd" }
+disabled_text = "#727a98"

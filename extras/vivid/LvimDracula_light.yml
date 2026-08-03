@@ -1,12 +1,12 @@
 colors:
-  black: "3d4113"
-  green: "1c512a"
+  black: "636924"
+  green: "2f7a42"
   purple: "75519f"
   red: "ba4040"
-  yellow: "393c18"
-  cyan: "19463e"
-  pink: "25515b"
-  orange: "72502b"
+  yellow: "60652c"
+  cyan: "2d7065"
+  pink: "3a7885"
+  orange: "9e703f"
   white: "619494"
 core:
   normal_text:

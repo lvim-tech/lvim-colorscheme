@@ -1,0 +1,38 @@
+# Lvim Colorscheme RosepineSoft
+
+[styles.cpu]
+all_entry_color = "#b4b2c7"
+avg_entry_color = "#9f80c4"
+cpu_core_colors = ["#416d7f", "#83b2ba", "#d6a765", "#c68784", "#958fa7", "#416d7f", "#83b2ba", "#cd6985"]
+
+[styles.memory]
+ram_color = "#83b2ba"
+cache_color = "#83b2ba"
+swap_color = "#c68784"
+arc_color = "#416d7f"
+
+[styles.network]
+rx_color = "#83b2ba"
+tx_color = "#9f80c4"
+rx_total_color = "#71a7b0"
+tx_total_color = "#906cbb"
+
+[styles.battery]
+high_battery_color = "#83b2ba"
+medium_battery_color = "#d6a765"
+low_battery_color = "#cd6985"
+
+[styles.tables]
+headers = { color = "#416d7f", bold = true }
+
+[styles.graphs]
+graph_color = "#746e91"
+legend_text = "#73717f"
+
+[styles.widgets]
+border_color = "#3b384b"
+selected_border_color = "#416d7f"
+widget_title = { color = "#b8b5c4", bold = true }
+text = "#b4b2c7"
+selected_text = { color = "#141321", bg_color = "#416d7f" }
+disabled_text = "#746e91"

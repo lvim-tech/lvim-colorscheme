@@ -1,0 +1,8 @@
+# Lvim Colorscheme KanagawaDark
+style:
+  tag:
+    color: dark_cyan
+  comment:
+    color: blue
+  snippet:
+    color: yellow

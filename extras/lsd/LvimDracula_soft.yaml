@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme DraculaSoft
+user: "#d0da68"
+group: "#c9d451"
+permission:
+  read: "#58d879"
+  write: "#d0da68"
+  exec: "#dd5757"
+  exec-sticky: "#dc61a8"
+  no-access: "#727a98"
+  octal: "#65c8dd"
+  acl: "#65c8dd"
+  context: "#61dfca"
+date:
+  hour-old: "#58d879"
+  day-old: "#42d367"
+  older: "#4dc0d8"
+size:
+  none: "#727a98"
+  small: "#58d879"
+  medium: "#d0da68"
+  large: "#de9f5c"
+inode:
+  valid: "#9c80c3"
+  invalid: "#727a98"
+links:
+  valid: "#9c80c3"
+  invalid: "#727a98"
+tree-edge: "#393b4a"
+git-status:
+  default: "#c7c7b3"
+  unmodified: "#727a98"
+  ignored: "#727a98"
+  new-in-index: "#58d879"
+  new-in-workdir: "#58d879"
+  typechange: "#d0da68"
+  deleted: "#dd5757"
+  renamed: "#65c8dd"
+  modified: "#de9f5c"
+  conflicted: "#dc61a8"

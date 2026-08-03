@@ -1,0 +1,38 @@
+# Lvim Colorscheme NightfoxSoft
+
+[styles.cpu]
+all_entry_color = "#bcbdbd"
+avg_entry_color = "#9b82af"
+cpu_core_colors = ["#7292bd", "#89aa9a", "#c1ac71", "#d49360", "#9380b2", "#75bbbd", "#75bbbd", "#b46478"]
+
+[styles.memory]
+ram_color = "#89aa9a"
+cache_color = "#75bbbd"
+swap_color = "#d49360"
+arc_color = "#75bbbd"
+
+[styles.network]
+rx_color = "#89aa9a"
+tx_color = "#9b82af"
+rx_total_color = "#799e8c"
+tx_total_color = "#8e71a4"
+
+[styles.battery]
+high_battery_color = "#89aa9a"
+medium_battery_color = "#c1ac71"
+low_battery_color = "#b46478"
+
+[styles.tables]
+headers = { color = "#7292bd", bold = true }
+
+[styles.graphs]
+graph_color = "#758292"
+legend_text = "#7b8189"
+
+[styles.widgets]
+border_color = "#2d3e56"
+selected_border_color = "#7292bd"
+widget_title = { color = "#bcbcbd", bold = true }
+text = "#bcbdbd"
+selected_text = { color = "#171f2b", bg_color = "#7292bd" }
+disabled_text = "#758292"

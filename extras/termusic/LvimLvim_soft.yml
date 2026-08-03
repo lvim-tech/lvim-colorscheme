@@ -1,0 +1,26 @@
+# Lvim Colorscheme LvimSoft
+colors:
+  primary:
+    background: "#1e2325"
+    foreground: "#5e8888"
+  cursor:
+    text: "#1e2325"
+    cursor: "#5e8888"
+  normal:
+    black: "#1e2427"
+    red: "#e65e4f"
+    green: "#8AA55F"
+    yellow: "#edc060"
+    blue: "#0974a1"
+    magenta: "#c75940"
+    cyan: "#018FA6"
+    white: "#567575"
+  bright:
+    black: "#293538"
+    red: "#f76a5b"
+    green: "#90b647"
+    yellow: "#fecd65"
+    blue: "#0081b4"
+    magenta: "#ea5625"
+    cyan: "#009db6"
+    white: "#577777"

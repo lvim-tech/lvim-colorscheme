@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme MaterialLight
+user: "#8b6d37"
+group: "#97722c"
+permission:
+  read: "#5f7541"
+  write: "#8b6d37"
+  exec: "#a9484d"
+  exec-sticky: "#b44356"
+  no-access: "#798991"
+  octal: "#2b7362"
+  acl: "#2b7362"
+  context: "#407e97"
+date:
+  hour-old: "#5f7541"
+  day-old: "#617c3b"
+  older: "#217864"
+size:
+  none: "#798991"
+  small: "#5f7541"
+  medium: "#8b6d37"
+  large: "#c77259"
+inode:
+  valid: "#6f567f"
+  invalid: "#798991"
+links:
+  valid: "#6f567f"
+  invalid: "#798991"
+tree-edge: "#eeeeee"
+git-status:
+  default: "#5e8888"
+  unmodified: "#798991"
+  ignored: "#798991"
+  new-in-index: "#5f7541"
+  new-in-workdir: "#5f7541"
+  typechange: "#8b6d37"
+  deleted: "#a9484d"
+  renamed: "#3c62a8"
+  modified: "#c77259"
+  conflicted: "#b44356"

@@ -1,0 +1,26 @@
+# Lvim Colorscheme NightfoxDarker
+colors:
+  primary:
+    background: "#0e131a"
+    foreground: "#bcbdbd"
+  cursor:
+    text: "#0e131a"
+    cursor: "#bcbdbd"
+  normal:
+    black: "#10161e"
+    red: "#b46478"
+    green: "#89aa9a"
+    yellow: "#c1ac71"
+    blue: "#5f84b4"
+    magenta: "#9b82af"
+    cyan: "#75bbbd"
+    white: "#737474"
+  bright:
+    black: "#21272e"
+    red: "#d76383"
+    green: "#7ebda0"
+    yellow: "#d6b95a"
+    blue: "#5192d8"
+    magenta: "#b08acd"
+    cyan: "#5cced0"
+    white: "#878888"

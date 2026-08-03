@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme TokyonightDarker
+user: "#c5a06b"
+group: "#bd9357"
+permission:
+  read: "#9dbd7b"
+  write: "#c5a06b"
+  exec: "#d76479"
+  exec-sticky: "#9470d5"
+  no-access: "#616784"
+  octal: "#36a08b"
+  acl: "#36a08b"
+  context: "#60b0de"
+date:
+  hour-old: "#9dbd7b"
+  day-old: "#8fb468"
+  older: "#31927e"
+size:
+  none: "#616784"
+  small: "#9dbd7b"
+  medium: "#c5a06b"
+  large: "#dd8b5a"
+inode:
+  valid: "#9381b3"
+  invalid: "#616784"
+links:
+  valid: "#9381b3"
+  invalid: "#616784"
+tree-edge: "#232739"
+git-status:
+  default: "#b2b6c7"
+  unmodified: "#616784"
+  ignored: "#616784"
+  new-in-index: "#9dbd7b"
+  new-in-workdir: "#9dbd7b"
+  typechange: "#c5a06b"
+  deleted: "#d76479"
+  renamed: "#6589d7"
+  modified: "#dd8b5a"
+  conflicted: "#9470d5"

@@ -1,0 +1,26 @@
+# Lvim Colorscheme TokyonightDark
+colors:
+  primary:
+    background: "#13131a"
+    foreground: "#b2b6c7"
+  cursor:
+    text: "#13131a"
+    cursor: "#b2b6c7"
+  normal:
+    black: "#15161e"
+    red: "#d76479"
+    green: "#9dbd7b"
+    yellow: "#c5a06b"
+    blue: "#4e78d1"
+    magenta: "#9470d5"
+    cyan: "#60b0de"
+    white: "#696d7e"
+  bright:
+    black: "#26262f"
+    red: "#ec6d84"
+    green: "#a0cf66"
+    yellow: "#deab54"
+    blue: "#4784f4"
+    magenta: "#a479f0"
+    cyan: "#49c0fa"
+    white: "#7c8196"

@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme EverforestLight
+user: "#8f8156"
+group: "#998853"
+permission:
+  read: "#7b7e3d"
+  write: "#8f8156"
+  exec: "#c74d4d"
+  exec-sticky: "#915a47"
+  no-access: "#8b9a83"
+  octal: "#3d8b7c"
+  acl: "#3d8b7c"
+  context: "#5c8861"
+date:
+  hour-old: "#7b7e3d"
+  day-old: "#8a8e46"
+  older: "#479e8d"
+size:
+  none: "#8b9a83"
+  small: "#7b7e3d"
+  medium: "#8f8156"
+  large: "#8d522b"
+inode:
+  valid: "#918c9d"
+  invalid: "#8b9a83"
+links:
+  valid: "#918c9d"
+  invalid: "#8b9a83"
+tree-edge: "#eeeeee"
+git-status:
+  default: "#5e8888"
+  unmodified: "#8b9a83"
+  ignored: "#8b9a83"
+  new-in-index: "#7b7e3d"
+  new-in-workdir: "#7b7e3d"
+  typechange: "#8f8156"
+  deleted: "#c74d4d"
+  renamed: "#5089a6"
+  modified: "#8d522b"
+  conflicted: "#915a47"

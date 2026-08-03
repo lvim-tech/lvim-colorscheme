@@ -1,0 +1,121 @@
+// Lvim Colorscheme GruvboxSoft
+themes {
+    lvim {
+        text_unselected {
+            base "#645c54"
+            background "#1e1d1a"
+            emphasis_0 "#cc7942"
+            emphasis_1 "#527a57"
+            emphasis_2 "#75783a"
+            emphasis_3 "#bb755e"
+        }
+        text_selected {
+            base "#746c63"
+            background "#32302f"
+            emphasis_0 "#cc7942"
+            emphasis_1 "#527a57"
+            emphasis_2 "#75783a"
+            emphasis_3 "#bb755e"
+        }
+        ribbon_selected {
+            base "#1e1d1a"
+            background "#75783a"
+            emphasis_0 "#cb4f4f"
+            emphasis_1 "#cc7942"
+            emphasis_2 "#bb755e"
+            emphasis_3 "#635d71"
+        }
+        ribbon_unselected {
+            base "#645c54"
+            background "#3b3837"
+            emphasis_0 "#cc7942"
+            emphasis_1 "#746c63"
+            emphasis_2 "#bb755e"
+            emphasis_3 "#635d71"
+        }
+        table_title {
+            base "#75783a"
+            background "#1e1d1a"
+            emphasis_0 "#cc7942"
+            emphasis_1 "#527a57"
+            emphasis_2 "#75783a"
+            emphasis_3 "#bb755e"
+        }
+        table_cell_selected {
+            base "#746c63"
+            background "#32302f"
+            emphasis_0 "#cc7942"
+            emphasis_1 "#527a57"
+            emphasis_2 "#75783a"
+            emphasis_3 "#bb755e"
+        }
+        table_cell_unselected {
+            base "#645c54"
+            background "#1e1d1a"
+            emphasis_0 "#cc7942"
+            emphasis_1 "#527a57"
+            emphasis_2 "#75783a"
+            emphasis_3 "#bb755e"
+        }
+        list_selected {
+            base "#746c63"
+            background "#32302f"
+            emphasis_0 "#cc7942"
+            emphasis_1 "#527a57"
+            emphasis_2 "#75783a"
+            emphasis_3 "#bb755e"
+        }
+        list_unselected {
+            base "#645c54"
+            background "#1e1d1a"
+            emphasis_0 "#cc7942"
+            emphasis_1 "#527a57"
+            emphasis_2 "#75783a"
+            emphasis_3 "#bb755e"
+        }
+        frame_selected {
+            base "#42728b"
+            background "#1e1d1a"
+            emphasis_0 "#cc7942"
+            emphasis_1 "#527a57"
+            emphasis_2 "#75783a"
+            emphasis_3 "#bb755e"
+        }
+        frame_highlight {
+            base "#cc7942"
+            background "#1e1d1a"
+            emphasis_0 "#bb755e"
+            emphasis_1 "#527a57"
+            emphasis_2 "#75783a"
+            emphasis_3 "#635d71"
+        }
+        exit_code_success {
+            base "#75783a"
+            background "#1e1d1a"
+            emphasis_0 "#357b6d"
+            emphasis_1 "#527a57"
+            emphasis_2 "#75783a"
+            emphasis_3 "#bb755e"
+        }
+        exit_code_error {
+            base "#cb4f4f"
+            background "#1e1d1a"
+            emphasis_0 "#cc7942"
+            emphasis_1 "#af9e6b"
+            emphasis_2 "#bb755e"
+            emphasis_3 "#635d71"
+        }
+        multiplayer_user_colors {
+            player_1 "#bb755e"
+            player_2 "#42728b"
+            player_3 "#75783a"
+            player_4 "#cc7942"
+            player_5 "#635d71"
+            player_6 "#357b6d"
+            player_7 "#527a57"
+            player_8 "#af9e6b"
+            player_9 "#cb4f4f"
+            player_10 "#64584e"
+        }
+    }
+}

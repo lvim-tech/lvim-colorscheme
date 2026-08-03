@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme RosepineLight
+user: "#927143"
+group: "#a1763b"
+permission:
+  read: "#5d8086"
+  write: "#927143"
+  exec: "#a04a63"
+  exec-sticky: "#75509c"
+  no-access: "#7d7799"
+  octal: "#578fa6"
+  acl: "#578fa6"
+  context: "#5d8086"
+date:
+  hour-old: "#5d8086"
+  day-old: "#5c8991"
+  older: "#5e99b2"
+size:
+  none: "#7d7799"
+  small: "#5d8086"
+  medium: "#927143"
+  large: "#c0716d"
+inode:
+  valid: "#8d87a0"
+  invalid: "#7d7799"
+links:
+  valid: "#8d87a0"
+  invalid: "#7d7799"
+tree-edge: "#eeeeee"
+git-status:
+  default: "#5e8888"
+  unmodified: "#7d7799"
+  ignored: "#7d7799"
+  new-in-index: "#5d8086"
+  new-in-workdir: "#5d8086"
+  typechange: "#927143"
+  deleted: "#a04a63"
+  renamed: "#578fa6"
+  modified: "#c0716d"
+  conflicted: "#75509c"

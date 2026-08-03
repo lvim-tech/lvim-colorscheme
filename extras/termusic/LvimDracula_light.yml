@@ -1,0 +1,26 @@
+# Lvim Colorscheme DraculaLight
+colors:
+  primary:
+    background: "#dadada"
+    foreground: "#5e8888"
+  cursor:
+    text: "#dadada"
+    cursor: "#5e8888"
+  normal:
+    black: "#b6b6b6"
+    red: "#ba4040"
+    green: "#2f7a42"
+    yellow: "#60652c"
+    blue: "#307f90"
+    magenta: "#9f3d77"
+    cyan: "#2d7065"
+    white: "#619494"
+  bright:
+    black: "#cfd1d1"
+    red: "#e13030"
+    green: "#078b3a"
+    yellow: "#6c7310"
+    blue: "#008fa4"
+    magenta: "#c32d8d"
+    cyan: "#028071"
+    white: "#5d8989"

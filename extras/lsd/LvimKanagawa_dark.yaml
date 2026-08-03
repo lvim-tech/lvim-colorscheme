@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme KanagawaDark
+user: "#e0c286"
+group: "#debe7e"
+permission:
+  read: "#6e8156"
+  write: "#e0c286"
+  exec: "#b65252"
+  exec-sticky: "#c4746e"
+  no-access: "#4e4e73"
+  octal: "#4e8ca2"
+  acl: "#4e8ca2"
+  context: "#597b75"
+date:
+  hour-old: "#6e8156"
+  day-old: "#697b52"
+  older: "#4b869b"
+size:
+  none: "#4e4e73"
+  small: "#6e8156"
+  medium: "#e0c286"
+  large: "#c99460"
+inode:
+  valid: "#766b90"
+  invalid: "#4e4e73"
+links:
+  valid: "#766b90"
+  invalid: "#4e4e73"
+tree-edge: "#292a32"
+git-status:
+  default: "#54546d"
+  unmodified: "#4e4e73"
+  ignored: "#4e4e73"
+  new-in-index: "#6e8156"
+  new-in-workdir: "#6e8156"
+  typechange: "#e0c286"
+  deleted: "#b65252"
+  renamed: "#4d699b"
+  modified: "#c99460"
+  conflicted: "#c4746e"

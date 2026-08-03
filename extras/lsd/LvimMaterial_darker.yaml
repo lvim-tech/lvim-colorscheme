@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme MaterialDarker
+user: "#deb05c"
+group: "#d9a544"
+permission:
+  read: "#a6c974"
+  write: "#deb05c"
+  exec: "#d1676c"
+  exec-sticky: "#da596e"
+  no-access: "#5e6a70"
+  octal: "#5addbe"
+  acl: "#5addbe"
+  context: "#63bbdf"
+date:
+  hour-old: "#a6c974"
+  day-old: "#99c15f"
+  older: "#43d8b5"
+size:
+  none: "#5e6a70"
+  small: "#a6c974"
+  medium: "#deb05c"
+  large: "#d77c61"
+inode:
+  valid: "#9e86b0"
+  invalid: "#5e6a70"
+links:
+  valid: "#9e86b0"
+  invalid: "#5e6a70"
+tree-edge: "#2b383e"
+git-status:
+  default: "#b2c7c7"
+  unmodified: "#5e6a70"
+  ignored: "#5e6a70"
+  new-in-index: "#a6c974"
+  new-in-workdir: "#a6c974"
+  typechange: "#deb05c"
+  deleted: "#d1676c"
+  renamed: "#618adf"
+  modified: "#d77c61"
+  conflicted: "#da596e"

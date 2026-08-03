@@ -1,0 +1,38 @@
+# Lvim Colorscheme KanagawaDarker
+
+[styles.cpu]
+all_entry_color = "#54546d"
+avg_entry_color = "#c4746e"
+cpu_core_colors = ["#4d699b", "#6e8156", "#e0c286", "#c99460", "#766b90", "#4e8ca2", "#597b75", "#b65252"]
+
+[styles.memory]
+ram_color = "#6e8156"
+cache_color = "#597b75"
+swap_color = "#c99460"
+arc_color = "#4e8ca2"
+
+[styles.network]
+rx_color = "#6e8156"
+tx_color = "#c4746e"
+rx_total_color = "#697b52"
+tx_total_color = "#c16d67"
+
+[styles.battery]
+high_battery_color = "#6e8156"
+medium_battery_color = "#e0c286"
+low_battery_color = "#b65252"
+
+[styles.tables]
+headers = { color = "#4d699b", bold = true }
+
+[styles.graphs]
+graph_color = "#4e4e73"
+legend_text = "#4b4b61"
+
+[styles.widgets]
+border_color = "#25262e"
+selected_border_color = "#4d699b"
+widget_title = { color = "#5d5d79", bold = true }
+text = "#54546d"
+selected_text = { color = "#131418", bg_color = "#4d699b" }
+disabled_text = "#4e4e73"

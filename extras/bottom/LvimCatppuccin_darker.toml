@@ -1,0 +1,38 @@
+# Lvim Colorscheme CatppuccinDarker
+
+[styles.cpu]
+all_entry_color = "#b2b7c7"
+avg_entry_color = "#d07fba"
+cpu_core_colors = ["#6793da", "#84c27f", "#d8b973", "#da9366", "#a183c5", "#7ac3b7", "#71becc", "#d36d89"]
+
+[styles.memory]
+ram_color = "#84c27f"
+cache_color = "#71becc"
+swap_color = "#da9366"
+arc_color = "#7ac3b7"
+
+[styles.network]
+rx_color = "#84c27f"
+tx_color = "#d07fba"
+rx_total_color = "#71b96b"
+tx_total_color = "#c869ae"
+
+[styles.battery]
+high_battery_color = "#84c27f"
+medium_battery_color = "#d8b973"
+low_battery_color = "#d36d89"
+
+[styles.tables]
+headers = { color = "#6793da", bold = true }
+
+[styles.graphs]
+graph_color = "#6c7393"
+legend_text = "#868995"
+
+[styles.widgets]
+border_color = "#2d2f3b"
+selected_border_color = "#6793da"
+widget_title = { color = "#b2b7c7", bold = true }
+text = "#b2b7c7"
+selected_text = { color = "#0b0b12", bg_color = "#6793da" }
+disabled_text = "#6c7393"

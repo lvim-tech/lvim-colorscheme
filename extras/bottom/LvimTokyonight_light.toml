@@ -1,0 +1,38 @@
+# Lvim Colorscheme TokyonightLight
+
+[styles.cpu]
+all_entry_color = "#5e8888"
+avg_entry_color = "#8051c9"
+cpu_core_colors = ["#4363a3", "#667b4f", "#95784f", "#b57148", "#715a95", "#216a5c", "#4682a5", "#a94357"]
+
+[styles.memory]
+ram_color = "#667b4f"
+cache_color = "#4682a5"
+swap_color = "#b57148"
+arc_color = "#216a5c"
+
+[styles.network]
+rx_color = "#667b4f"
+tx_color = "#8051c9"
+rx_total_color = "#68844b"
+tx_total_color = "#8d69d4"
+
+[styles.battery]
+high_battery_color = "#667b4f"
+medium_battery_color = "#95784f"
+low_battery_color = "#a94357"
+
+[styles.tables]
+headers = { color = "#4363a3", bold = true }
+
+[styles.graphs]
+graph_color = "#8085a2"
+legend_text = "#878b9e"
+
+[styles.widgets]
+border_color = "#eeeeee"
+selected_border_color = "#4363a3"
+widget_title = { color = "#55a6ab", bold = true }
+text = "#5e8888"
+selected_text = { color = "#dadada", bg_color = "#4363a3" }
+disabled_text = "#8085a2"

@@ -1,0 +1,26 @@
+# Lvim Colorscheme KanagawaSoft
+colors:
+  primary:
+    background: "#1d1e22"
+    foreground: "#54546d"
+  cursor:
+    text: "#1d1e22"
+    cursor: "#54546d"
+  normal:
+    black: "#1e1f24"
+    red: "#b65252"
+    green: "#6e8156"
+    yellow: "#e0c286"
+    blue: "#4a6494"
+    magenta: "#c4746e"
+    cyan: "#597b75"
+    white: "#60607c"
+  bright:
+    black: "#2d2e36"
+    red: "#df4848"
+    green: "#74914a"
+    yellow: "#f6cf79"
+    blue: "#4170b8"
+    magenta: "#dc7c74"
+    cyan: "#508c82"
+    white: "#6a6a87"

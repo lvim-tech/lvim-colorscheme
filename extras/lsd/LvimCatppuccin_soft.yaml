@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme CatppuccinSoft
+user: "#d8b973"
+group: "#d2ad5c"
+permission:
+  read: "#84c27f"
+  write: "#d8b973"
+  exec: "#d36d89"
+  exec-sticky: "#d07fba"
+  no-access: "#6c7393"
+  octal: "#7ac3b7"
+  acl: "#7ac3b7"
+  context: "#71becc"
+date:
+  hour-old: "#84c27f"
+  day-old: "#71b96b"
+  older: "#66baac"
+size:
+  none: "#6c7393"
+  small: "#84c27f"
+  medium: "#d8b973"
+  large: "#da9366"
+inode:
+  valid: "#a183c5"
+  invalid: "#6c7393"
+links:
+  valid: "#a183c5"
+  invalid: "#6c7393"
+tree-edge: "#393b4a"
+git-status:
+  default: "#b2b7c7"
+  unmodified: "#6c7393"
+  ignored: "#6c7393"
+  new-in-index: "#84c27f"
+  new-in-workdir: "#84c27f"
+  typechange: "#d8b973"
+  deleted: "#d36d89"
+  renamed: "#6793da"
+  modified: "#da9366"
+  conflicted: "#d07fba"

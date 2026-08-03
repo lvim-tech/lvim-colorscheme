@@ -1,0 +1,8 @@
+# Lvim Colorscheme NordSoft
+style:
+  tag:
+    color: cyan
+  comment:
+    color: blue
+  snippet:
+    color: green

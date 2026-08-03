@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme GruvboxLight
+user: "#8f8156"
+group: "#998853"
+permission:
+  read: "#7b7e3d"
+  write: "#8f8156"
+  exec: "#c74d4d"
+  exec-sticky: "#915a47"
+  no-access: "#a59283"
+  octal: "#3d8b7c"
+  acl: "#3d8b7c"
+  context: "#5c8861"
+date:
+  hour-old: "#7b7e3d"
+  day-old: "#8a8e46"
+  older: "#479e8d"
+size:
+  none: "#a59283"
+  small: "#7b7e3d"
+  medium: "#8f8156"
+  large: "#8d522b"
+inode:
+  valid: "#918c9d"
+  invalid: "#a59283"
+links:
+  valid: "#918c9d"
+  invalid: "#a59283"
+tree-edge: "#eeeeee"
+git-status:
+  default: "#5e8888"
+  unmodified: "#a59283"
+  ignored: "#a59283"
+  new-in-index: "#7b7e3d"
+  new-in-workdir: "#7b7e3d"
+  typechange: "#8f8156"
+  deleted: "#c74d4d"
+  renamed: "#5089a6"
+  modified: "#8d522b"
+  conflicted: "#915a47"

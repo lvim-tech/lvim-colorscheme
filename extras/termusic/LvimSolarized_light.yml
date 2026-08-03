@@ -1,0 +1,26 @@
+# Lvim Colorscheme SolarizedLight
+colors:
+  primary:
+    background: "#dadada"
+    foreground: "#5e8888"
+  cursor:
+    text: "#dadada"
+    cursor: "#5e8888"
+  normal:
+    black: "#b6b6b6"
+    red: "#cc5452"
+    green: "#707c19"
+    yellow: "#896f1c"
+    blue: "#407fac"
+    magenta: "#bd5588"
+    cyan: "#347873"
+    white: "#619494"
+  bright:
+    black: "#cfd1d1"
+    red: "#ea5552"
+    green: "#7c8a00"
+    yellow: "#9a7b00"
+    blue: "#168ecb"
+    magenta: "#e6479c"
+    cyan: "#0d8882"
+    white: "#5d8989"

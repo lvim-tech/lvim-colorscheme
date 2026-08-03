@@ -1,0 +1,8 @@
+# Lvim Colorscheme DraculaLight
+style:
+  tag:
+    color: dark_cyan
+  comment:
+    color: dark_cyan
+  snippet:
+    color: dark_green

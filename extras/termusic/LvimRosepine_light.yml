@@ -1,0 +1,26 @@
+# Lvim Colorscheme RosepineLight
+colors:
+  primary:
+    background: "#dadada"
+    foreground: "#5e8888"
+  cursor:
+    text: "#dadada"
+    cursor: "#5e8888"
+  normal:
+    black: "#b6b6b6"
+    red: "#a04a63"
+    green: "#5d8086"
+    yellow: "#927143"
+    blue: "#5e99b2"
+    magenta: "#75509c"
+    cyan: "#5d8086"
+    white: "#619494"
+  bright:
+    black: "#cfd1d1"
+    red: "#c6416e"
+    green: "#539099"
+    yellow: "#a87b2f"
+    blue: "#47aacc"
+    magenta: "#8f4ccb"
+    cyan: "#539099"
+    white: "#5d8989"

@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme SolarizedLight
+user: "#896f1c"
+group: "#967a20"
+permission:
+  read: "#707c19"
+  write: "#896f1c"
+  exec: "#cc5452"
+  exec-sticky: "#bd5588"
+  no-access: "#798890"
+  octal: "#347873"
+  acl: "#347873"
+  context: "#347873"
+date:
+  hour-old: "#707c19"
+  day-old: "#7a881e"
+  older: "#3a8580"
+size:
+  none: "#798890"
+  small: "#707c19"
+  medium: "#896f1c"
+  large: "#c3643d"
+inode:
+  valid: "#626587"
+  invalid: "#798890"
+links:
+  valid: "#626587"
+  invalid: "#798890"
+tree-edge: "#eeeeee"
+git-status:
+  default: "#5e8888"
+  unmodified: "#798890"
+  ignored: "#798890"
+  new-in-index: "#707c19"
+  new-in-workdir: "#707c19"
+  typechange: "#896f1c"
+  deleted: "#cc5452"
+  renamed: "#39739c"
+  modified: "#c3643d"
+  conflicted: "#bd5588"

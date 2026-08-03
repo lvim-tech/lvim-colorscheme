@@ -1,0 +1,38 @@
+# Lvim Colorscheme MaterialDark
+
+[styles.cpu]
+all_entry_color = "#b2c7c7"
+avg_entry_color = "#da596e"
+cpu_core_colors = ["#618adf", "#a6c974", "#deb05c", "#d77c61", "#9e86b0", "#5addbe", "#63bbdf", "#d1676c"]
+
+[styles.memory]
+ram_color = "#a6c974"
+cache_color = "#63bbdf"
+swap_color = "#d77c61"
+arc_color = "#5addbe"
+
+[styles.network]
+rx_color = "#a6c974"
+tx_color = "#da596e"
+rx_total_color = "#99c15f"
+tx_total_color = "#d5425a"
+
+[styles.battery]
+high_battery_color = "#a6c974"
+medium_battery_color = "#deb05c"
+low_battery_color = "#d1676c"
+
+[styles.tables]
+headers = { color = "#618adf", bold = true }
+
+[styles.graphs]
+graph_color = "#5e6a70"
+legend_text = "#5e6a70"
+
+[styles.widgets]
+border_color = "#314047"
+selected_border_color = "#618adf"
+widget_title = { color = "#b8bec2", bold = true }
+text = "#b2c7c7"
+selected_text = { color = "#1a2226", bg_color = "#618adf" }
+disabled_text = "#5e6a70"

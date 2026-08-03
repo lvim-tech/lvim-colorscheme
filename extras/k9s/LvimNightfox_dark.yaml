@@ -1,0 +1,76 @@
+# Lvim Colorscheme NightfoxDark
+k9s:
+  body:
+    fgColor: "#bcbdbd"
+    bgColor: "#131a24"
+    logoColor: "#9380b2"
+  prompt:
+    fgColor: "#bcbcbd"
+    bgColor: "#192330"
+    suggestColor: "#758292"
+  info:
+    fgColor: "#758292"
+    sectionColor: "#bcbdbd"
+  dialog:
+    fgColor: "#bcbdbd"
+    bgColor: "#192330"
+    buttonFgColor: "#bcbcbd"
+    buttonBgColor: "#212e40"
+    buttonFocusFgColor: "#131a24"
+    buttonFocusBgColor: "#7292bd"
+    labelFgColor: "#d49360"
+    fieldFgColor: "#bcbdbd"
+  frame:
+    border:
+      fgColor: "#29394f"
+      focusColor: "#7292bd"
+    menu:
+      fgColor: "#bcbdbd"
+      keyColor: "#9b82af"
+      numKeyColor: "#d49360"
+    crumbs:
+      fgColor: "#131a24"
+      bgColor: "#212e40"
+      activeColor: "#7292bd"
+    status:
+      newColor: "#75bbbd"
+      modifyColor: "#7292bd"
+      addColor: "#89aa9a"
+      errorColor: "#b46478"
+      highlightColor: "#d49360"
+      killColor: "#758292"
+      completedColor: "#758292"
+    title:
+      fgColor: "#bcbdbd"
+      bgColor: "#192330"
+      highlightColor: "#d49360"
+      counterColor: "#9380b2"
+      filterColor: "#9b82af"
+  views:
+    charts:
+      bgColor: "#131a24"
+      defaultDialColors:
+        - "#89aa9a"
+        - "#b46478"
+      defaultChartColors:
+        - "#89aa9a"
+        - "#b46478"
+    table:
+      fgColor: "#bcbdbd"
+      bgColor: "#131a24"
+      cursorFgColor: "#131a24"
+      cursorBgColor: "#212e40"
+      header:
+        fgColor: "#bcbcbd"
+        bgColor: "#131a24"
+        sorterColor: "#75bbbd"
+    yaml:
+      keyColor: "#7292bd"
+      colonColor: "#758292"
+      valueColor: "#bcbdbd"
+    logs:
+      fgColor: "#bcbdbd"
+      bgColor: "#131a24"
+      indicator:
+        fgColor: "#9380b2"
+        bgColor: "#131a24"

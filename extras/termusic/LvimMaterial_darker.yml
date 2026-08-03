@@ -1,0 +1,26 @@
+# Lvim Colorscheme MaterialDarker
+colors:
+  primary:
+    background: "#141a1d"
+    foreground: "#b2c7c7"
+  cursor:
+    text: "#141a1d"
+    cursor: "#b2c7c7"
+  normal:
+    black: "#161e21"
+    red: "#d1676c"
+    green: "#a6c974"
+    yellow: "#deb05c"
+    blue: "#4978da"
+    magenta: "#da596e"
+    cyan: "#63bbdf"
+    white: "#727b7b"
+  bright:
+    black: "#273133"
+    red: "#e76f75"
+    green: "#aadb56"
+    yellow: "#f7bb2d"
+    blue: "#4584fa"
+    magenta: "#ef6279"
+    cyan: "#3fccfb"
+    white: "#849090"

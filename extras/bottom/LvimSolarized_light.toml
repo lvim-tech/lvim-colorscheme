@@ -1,0 +1,38 @@
+# Lvim Colorscheme SolarizedLight
+
+[styles.cpu]
+all_entry_color = "#5e8888"
+avg_entry_color = "#bd5588"
+cpu_core_colors = ["#39739c", "#707c19", "#896f1c", "#c3643d", "#626587", "#347873", "#347873", "#cc5452"]
+
+[styles.memory]
+ram_color = "#707c19"
+cache_color = "#347873"
+swap_color = "#c3643d"
+arc_color = "#347873"
+
+[styles.network]
+rx_color = "#707c19"
+tx_color = "#bd5588"
+rx_total_color = "#7a881e"
+tx_total_color = "#d25a94"
+
+[styles.battery]
+high_battery_color = "#707c19"
+medium_battery_color = "#896f1c"
+low_battery_color = "#cc5452"
+
+[styles.tables]
+headers = { color = "#39739c", bold = true }
+
+[styles.graphs]
+graph_color = "#798890"
+legend_text = "#7b888e"
+
+[styles.widgets]
+border_color = "#eeeeee"
+selected_border_color = "#39739c"
+widget_title = { color = "#55a6ab", bold = true }
+text = "#5e8888"
+selected_text = { color = "#dadada", bg_color = "#39739c" }
+disabled_text = "#798890"

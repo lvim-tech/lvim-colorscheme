@@ -1,0 +1,27 @@
+[style]
+header = "80"
+unit = "244"
+tree = "237"
+
+[style.by_percentage]
+color_000 = "80"
+color_025 = "78"
+color_050 = "185"
+color_075 = "179"
+color_100 = "167"
+
+[style.by_state]
+color_d = "167"
+color_r = "78"
+color_s = "80"
+color_t = "185"
+color_z = "169"
+color_x = "244"
+
+[style.by_unit]
+color_k = "80"
+color_m = "78"
+color_g = "185"
+color_t = "179"
+color_p = "167"
+color_x = "244"

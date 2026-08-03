@@ -1,0 +1,76 @@
+# Lvim Colorscheme CatppuccinSoft
+k9s:
+  body:
+    fgColor: "#b2b7c7"
+    bgColor: "#151522"
+    logoColor: "#a183c5"
+  prompt:
+    fgColor: "#b2b7c7"
+    bgColor: "#222235"
+    suggestColor: "#6c7393"
+  info:
+    fgColor: "#6c7393"
+    sectionColor: "#b2b7c7"
+  dialog:
+    fgColor: "#b2b7c7"
+    bgColor: "#222235"
+    buttonFgColor: "#b2b7c7"
+    buttonBgColor: "#2e2f40"
+    buttonFocusFgColor: "#151522"
+    buttonFocusBgColor: "#6793da"
+    labelFgColor: "#da9366"
+    fieldFgColor: "#b2b7c7"
+  frame:
+    border:
+      fgColor: "#393b4a"
+      focusColor: "#6793da"
+    menu:
+      fgColor: "#b2b7c7"
+      keyColor: "#d07fba"
+      numKeyColor: "#da9366"
+    crumbs:
+      fgColor: "#151522"
+      bgColor: "#2e2f40"
+      activeColor: "#6793da"
+    status:
+      newColor: "#7ac3b7"
+      modifyColor: "#6793da"
+      addColor: "#84c27f"
+      errorColor: "#d36d89"
+      highlightColor: "#da9366"
+      killColor: "#6c7393"
+      completedColor: "#6c7393"
+    title:
+      fgColor: "#b2b7c7"
+      bgColor: "#222235"
+      highlightColor: "#da9366"
+      counterColor: "#a183c5"
+      filterColor: "#d07fba"
+  views:
+    charts:
+      bgColor: "#151522"
+      defaultDialColors:
+        - "#84c27f"
+        - "#d36d89"
+      defaultChartColors:
+        - "#84c27f"
+        - "#d36d89"
+    table:
+      fgColor: "#b2b7c7"
+      bgColor: "#151522"
+      cursorFgColor: "#151522"
+      cursorBgColor: "#2e2f40"
+      header:
+        fgColor: "#b2b7c7"
+        bgColor: "#151522"
+        sorterColor: "#71becc"
+    yaml:
+      keyColor: "#6793da"
+      colonColor: "#6c7393"
+      valueColor: "#b2b7c7"
+    logs:
+      fgColor: "#b2b7c7"
+      bgColor: "#151522"
+      indicator:
+        fgColor: "#a183c5"
+        bgColor: "#151522"

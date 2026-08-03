@@ -1,0 +1,76 @@
+# Lvim Colorscheme GruvboxDark
+k9s:
+  body:
+    fgColor: "#645c54"
+    bgColor: "#181714"
+    logoColor: "#635d71"
+  prompt:
+    fgColor: "#746c63"
+    bgColor: "#222120"
+    suggestColor: "#64584e"
+  info:
+    fgColor: "#64584e"
+    sectionColor: "#645c54"
+  dialog:
+    fgColor: "#645c54"
+    bgColor: "#222120"
+    buttonFgColor: "#746c63"
+    buttonBgColor: "#2c2a29"
+    buttonFocusFgColor: "#181714"
+    buttonFocusBgColor: "#42728b"
+    labelFgColor: "#cc7942"
+    fieldFgColor: "#645c54"
+  frame:
+    border:
+      fgColor: "#353231"
+      focusColor: "#42728b"
+    menu:
+      fgColor: "#645c54"
+      keyColor: "#bb755e"
+      numKeyColor: "#cc7942"
+    crumbs:
+      fgColor: "#181714"
+      bgColor: "#2c2a29"
+      activeColor: "#42728b"
+    status:
+      newColor: "#357b6d"
+      modifyColor: "#42728b"
+      addColor: "#75783a"
+      errorColor: "#cb4f4f"
+      highlightColor: "#cc7942"
+      killColor: "#64584e"
+      completedColor: "#64584e"
+    title:
+      fgColor: "#645c54"
+      bgColor: "#222120"
+      highlightColor: "#cc7942"
+      counterColor: "#635d71"
+      filterColor: "#bb755e"
+  views:
+    charts:
+      bgColor: "#181714"
+      defaultDialColors:
+        - "#75783a"
+        - "#cb4f4f"
+      defaultChartColors:
+        - "#75783a"
+        - "#cb4f4f"
+    table:
+      fgColor: "#645c54"
+      bgColor: "#181714"
+      cursorFgColor: "#181714"
+      cursorBgColor: "#2c2a29"
+      header:
+        fgColor: "#746c63"
+        bgColor: "#181714"
+        sorterColor: "#527a57"
+    yaml:
+      keyColor: "#42728b"
+      colonColor: "#64584e"
+      valueColor: "#645c54"
+    logs:
+      fgColor: "#645c54"
+      bgColor: "#181714"
+      indicator:
+        fgColor: "#635d71"
+        bgColor: "#181714"

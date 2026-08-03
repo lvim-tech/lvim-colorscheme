@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme LvimLight
+user: "#7e652f"
+group: "#876826"
+permission:
+  read: "#748c50"
+  write: "#7e652f"
+  exec: "#ac4135"
+  exec-sticky: "#bc533c"
+  no-access: "#789698"
+  octal: "#228773"
+  acl: "#228773"
+  context: "#01778a"
+date:
+  hour-old: "#748c50"
+  day-old: "#556738"
+  older: "#2a9b86"
+size:
+  none: "#789698"
+  small: "#748c50"
+  medium: "#7e652f"
+  large: "#a96400"
+inode:
+  valid: "#1981bd"
+  invalid: "#789698"
+links:
+  valid: "#1981bd"
+  invalid: "#789698"
+tree-edge: "#eeeeee"
+git-status:
+  default: "#5e8888"
+  unmodified: "#789698"
+  ignored: "#789698"
+  new-in-index: "#748c50"
+  new-in-workdir: "#748c50"
+  typechange: "#7e652f"
+  deleted: "#ac4135"
+  renamed: "#0879a9"
+  modified: "#a96400"
+  conflicted: "#bc533c"

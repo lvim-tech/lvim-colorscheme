@@ -1,0 +1,76 @@
+# Lvim Colorscheme NordDark
+k9s:
+  body:
+    fgColor: "#b3bac6"
+    bgColor: "#1a1e25"
+    logoColor: "#9b93a4"
+  prompt:
+    fgColor: "#b4bac6"
+    bgColor: "#232831"
+    suggestColor: "#677185"
+  info:
+    fgColor: "#677185"
+    sectionColor: "#b3bac6"
+  dialog:
+    fgColor: "#b3bac6"
+    bgColor: "#232831"
+    buttonFgColor: "#b4bac6"
+    buttonBgColor: "#2b313c"
+    buttonFocusFgColor: "#1a1e25"
+    buttonFocusBgColor: "#8097af"
+    labelFgColor: "#ba8574"
+    fieldFgColor: "#b3bac6"
+  frame:
+    border:
+      fgColor: "#323946"
+      focusColor: "#8097af"
+    menu:
+      fgColor: "#b3bac6"
+      keyColor: "#a58aa0"
+      numKeyColor: "#ba8574"
+    crumbs:
+      fgColor: "#1a1e25"
+      bgColor: "#2b313c"
+      activeColor: "#8097af"
+    status:
+      newColor: "#88aaa9"
+      modifyColor: "#8097af"
+      addColor: "#97ab86"
+      errorColor: "#af7177"
+      highlightColor: "#ba8574"
+      killColor: "#677185"
+      completedColor: "#677185"
+    title:
+      fgColor: "#b3bac6"
+      bgColor: "#232831"
+      highlightColor: "#ba8574"
+      counterColor: "#9b93a4"
+      filterColor: "#a58aa0"
+  views:
+    charts:
+      bgColor: "#1a1e25"
+      defaultDialColors:
+        - "#97ab86"
+        - "#af7177"
+      defaultChartColors:
+        - "#97ab86"
+        - "#af7177"
+    table:
+      fgColor: "#b3bac6"
+      bgColor: "#1a1e25"
+      cursorFgColor: "#1a1e25"
+      cursorBgColor: "#2b313c"
+      header:
+        fgColor: "#b4bac6"
+        bgColor: "#1a1e25"
+        sorterColor: "#7eaab7"
+    yaml:
+      keyColor: "#8097af"
+      colonColor: "#677185"
+      valueColor: "#b3bac6"
+    logs:
+      fgColor: "#b3bac6"
+      bgColor: "#1a1e25"
+      indicator:
+        fgColor: "#9b93a4"
+        bgColor: "#1a1e25"

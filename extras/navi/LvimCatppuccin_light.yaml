@@ -1,0 +1,8 @@
+# Lvim Colorscheme CatppuccinLight
+style:
+  tag:
+    color: dark_cyan
+  comment:
+    color: blue
+  snippet:
+    color: dark_green

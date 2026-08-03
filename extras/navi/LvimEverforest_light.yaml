@@ -1,0 +1,8 @@
+# Lvim Colorscheme EverforestLight
+style:
+  tag:
+    color: green
+  comment:
+    color: cyan
+  snippet:
+    color: dark_yellow
