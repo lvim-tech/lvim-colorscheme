@@ -1,5 +1,5 @@
 -- lvim-colorscheme.extra: generate matching theme files for external tools.
--- Loads each lvim style, hands the palette to the per-tool generator in `extra/<tool>.lua`,
+-- Loads each lvim style, hands the palette to the per-tool generator in `extra/<group>/<tool>.lua`,
 -- and writes the result under `extras/`. `M.extras` is the tool registry (ext / url / label);
 -- `generate_themes([tool])` regenerates all tools (or one); `generate_gowall()` emits the
 -- gowall palette config. Invoked by `scripts/build` / `scripts/build_gowall`.
@@ -63,33 +63,56 @@ local styles = {
 }
 
 -- map of plugin name to plugin extension
---- @type table<string, {ext:string, url:string, label:string, subdir?: string, sep?:string}>
+--- `group` is the SOURCE folder of the generator (extra/<group>/<tool>.lua); it does NOT
+--- affect the OUTPUT path, which stays extras/<tool>/ — the registry references those by
+--- raw URL in hundreds of places and moving them would break every one.
+--- @type table<string, {ext:string, url:string, label:string, group?:string, subdir?: string, sep?:string}>
 -- stylua: ignore
 M.extras = {
-  atuin           = { ext = "toml", url = "https://github.com/atuinsh/atuin", label = "Atuin" },
-  bat             = { ext = "tmTheme", url = "https://github.com/sharkdp/bat", label = "Bat" },
-  clipack         = { ext = "yaml", url = "https://github.com/lvim-tech/clipack", label = "Clipack" },
-  delta           = { ext = "gitconfig", url = "https://github.com/dandavison/delta", label = "Delta" },
-  eza             = { ext = "yml", url = "https://github.com/eza-community/eza", label = "Eza" },
-  fsel            = { ext = "toml", url = "https://github.com/Mjoyufull/fsel", label = "Fsel" },
-  fzf             = { ext = "sh", url = "https://github.com/junegunn/fzf", label = "Fzf" },
-  kitty           = { ext = "conf", url = "https://sw.kovidgoyal.net/kitty/conf.html", label = "Kitty" },
-  lazydocker      = { ext = "yml", url = "https://github.com/jesseduffield/lazydocker", label = "Lazydocker" },
-  lazygit         = { ext = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit" },
-  neomutt         = { ext = "conf", url = "https://github.com/neomutt/neomutt", label = "Neomutt" },
-  qtile           = { ext = "py", url = "https://github.com/qtile/qtile", label = "Qtile" },
-  qutebrowser     = { ext = "py", url = "https://github.com/qutebrowser/qutebrowser", label = "Qutebrowser" },
-  starship        = { ext = "toml", url = "https://starship.rs", label = "Starship" },
-  tmux            = { ext = "conf", url = "https://github.com/tmux/tmux/wiki", label = "Tmux" },
-  vivid           = { ext = "yml", url = "https://github.com/sharkdp/vivid", label = "Vivid" },
-  waybar          = { ext = "css", url = "https://github.com/Alexays/Waybar", label = "Waybar" },
-  xresources      = { ext = "Xresources", url = "https://wiki.archlinux.org/title/X_resources", label = "Xresources" },
-  yazi            = { ext = "toml", url = "https://github.com/sxyazi/yazi", label = "Yazi" },
-  wezterm         = { ext = "toml", url = "https://wezfurlong.org/wezterm", label = "WezTerm" },
-  alacritty       = { ext = "toml", url = "https://github.com/alacritty/alacritty", label = "Alacritty" },
-  ghostty         = { ext = "conf", url = "https://ghostty.org", label = "Ghostty" },
-  zed             = { ext = "json", url = "https://zed.dev", label = "Zed" },
-  helix           = { ext = "toml", url = "https://helix-editor.com", label = "Helix" },
+  atuin           = { ext = "toml", url = "https://github.com/atuinsh/atuin", label = "Atuin", group = "shell" },
+  bat             = { ext = "tmTheme", url = "https://github.com/sharkdp/bat", label = "Bat", group = "text" },
+  clipack         = { ext = "yaml", url = "https://github.com/lvim-tech/clipack", label = "Clipack", group = "misc" },
+  delta           = { ext = "gitconfig", url = "https://github.com/dandavison/delta", label = "Delta", group = "git" },
+  eza             = { ext = "yml", url = "https://github.com/eza-community/eza", label = "Eza", group = "files" },
+  fsel            = { ext = "toml", url = "https://github.com/Mjoyufull/fsel", label = "Fsel", group = "desktop" },
+  fzf             = { ext = "sh", url = "https://github.com/junegunn/fzf", label = "Fzf", group = "shell" },
+  kitty           = { ext = "conf", url = "https://sw.kovidgoyal.net/kitty/conf.html", label = "Kitty", group = "terminals" },
+  lazydocker      = { ext = "yml", url = "https://github.com/jesseduffield/lazydocker", label = "Lazydocker", group = "containers" },
+  lazygit         = { ext = "yml", url = "https://github.com/jesseduffield/lazygit", label = "Lazygit", group = "git" },
+  neomutt         = { ext = "conf", url = "https://github.com/neomutt/neomutt", label = "Neomutt", group = "misc" },
+  qtile           = { ext = "py", url = "https://github.com/qtile/qtile", label = "Qtile", group = "desktop" },
+  qutebrowser     = { ext = "py", url = "https://github.com/qutebrowser/qutebrowser", label = "Qutebrowser", group = "desktop" },
+  starship        = { ext = "toml", url = "https://starship.rs", label = "Starship", group = "shell" },
+  tmux            = { ext = "conf", url = "https://github.com/tmux/tmux/wiki", label = "Tmux", group = "shell" },
+  vivid           = { ext = "yml", url = "https://github.com/sharkdp/vivid", label = "Vivid", group = "shell" },
+  waybar          = { ext = "css", url = "https://github.com/Alexays/Waybar", label = "Waybar", group = "desktop" },
+  xresources      = { ext = "Xresources", url = "https://wiki.archlinux.org/title/X_resources", label = "Xresources", group = "desktop" },
+  yazi            = { ext = "toml", url = "https://github.com/sxyazi/yazi", label = "Yazi", group = "files" },
+  wezterm         = { ext = "toml", url = "https://wezfurlong.org/wezterm", label = "WezTerm", group = "terminals" },
+  alacritty       = { ext = "toml", url = "https://github.com/alacritty/alacritty", label = "Alacritty", group = "terminals" },
+  ghostty         = { ext = "conf", url = "https://ghostty.org", label = "Ghostty", group = "terminals" },
+  zed             = { ext = "json", url = "https://zed.dev", label = "Zed", group = "editors" },
+  helix           = { ext = "toml", url = "https://helix-editor.com", label = "Helix", group = "editors" },
+  bottom          = { ext = "toml", url = "https://github.com/ClementTsang/bottom", label = "Bottom", group = "system" },
+  broot           = { ext = "hjson", url = "https://github.com/Canop/broot", label = "Broot", group = "files" },
+  btop            = { ext = "theme", url = "https://github.com/aristocratos/btop", label = "Btop", group = "system" },
+  fastfetch       = { ext = "jsonc", url = "https://github.com/fastfetch-cli/fastfetch", label = "Fastfetch", group = "system" },
+  gdu             = { ext = "yaml", url = "https://github.com/dundee/gdu", label = "Gdu", group = "files" },
+  gitui           = { ext = "ron", url = "https://github.com/gitui-org/gitui", label = "Gitui", group = "git" },
+  glow            = { ext = "json", url = "https://github.com/charmbracelet/glow", label = "Glow", group = "text" },
+  jq              = { ext = "sh", url = "https://github.com/jqlang/jq", label = "Jq", group = "text" },
+  k9s             = { ext = "yaml", url = "https://github.com/derailed/k9s", label = "K9s", group = "containers" },
+  lsd             = { ext = "yaml", url = "https://github.com/lsd-rs/lsd", label = "Lsd", group = "files" },
+  miller          = { ext = "sh", url = "https://github.com/johnkerl/miller", label = "Miller", group = "text" },
+  navi            = { ext = "yaml", url = "https://github.com/denisidoro/navi", label = "Navi", group = "misc" },
+  nushell         = { ext = "nu", url = "https://www.nushell.sh", label = "Nushell", group = "shell" },
+  procs           = { ext = "toml", url = "https://github.com/dalance/procs", label = "Procs", group = "system" },
+  ripgrep         = { ext = "conf", url = "https://github.com/BurntSushi/ripgrep", label = "Ripgrep", group = "files" },
+  tealdeer        = { ext = "toml", url = "https://github.com/tealdeer-rs/tealdeer", label = "Tealdeer", group = "misc" },
+  termusic        = { ext = "yml", url = "https://github.com/tramhao/termusic", label = "Termusic", group = "media" },
+  trippy          = { ext = "toml", url = "https://github.com/fujiapple852/trippy", label = "Trippy", group = "network" },
+  xplr            = { ext = "lua", url = "https://github.com/sayanarijit/xplr", label = "Xplr", group = "files" },
+  zellij          = { ext = "kdl", url = "https://github.com/zellij-org/zellij", label = "Zellij", group = "shell" },
 }
 
 --- Regenerate the `extras/` theme files for every tool, or just `only` when given.
@@ -113,7 +136,7 @@ function M.generate_themes(only)
         if not info then
             error("unknown extras tool: " .. tostring(extra))
         end
-        local plugin = require("lvim-colorscheme.extra." .. extra)
+        local plugin = require("lvim-colorscheme.extra." .. (info.group and info.group .. "." or "") .. extra)
         for style, style_name in pairs(styles) do
             local colors, groups, opts = lvim_colorscheme.load({ style = style, plugins = { all = true } })
             local fname = extra
