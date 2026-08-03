@@ -19,7 +19,6 @@ return function(opts)
     colors.bg = "#E4E4E4"
     colors.bg_soft_dark = "#dfdfdf"
     colors.bg_dark = "#dadada"
-    colors.bg_highlight = "#262f34"
 
     colors.fg_light = "#55a6ab"
     colors.fg_soft_light = "#4c969a"

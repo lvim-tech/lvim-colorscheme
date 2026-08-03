@@ -1,10 +1,9 @@
 return {
-    bg_light = "#2c3339",
-    bg_soft_light = "#272e33",
-    bg = "#23292d",
-    bg_soft_dark = "#1f2427",
-    bg_dark = "#1a1f21",
-    bg_highlight = "#455156",
+    bg_light = "#272e2e",
+    bg_soft_light = "#252c2c",
+    bg = "#232929",
+    bg_soft_dark = "#212626",
+    bg_dark = "#1f2424",
 
     fg_light = "#646c62",
     fg_soft_light = "#5f675d",

@@ -7,5 +7,4 @@ return vim.tbl_deep_extend("force", ret, {
     bg = "#292f33",
     bg_soft_dark = "#252a2d",
     bg_dark = "#202527",
-    bg_highlight = "#4b575c",
 })
