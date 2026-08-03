@@ -40,15 +40,40 @@ function M.generate(colors, _, opts)
     -- ordinary text well clear of the background, secondary text a step below it.
     local text = util.ensure_contrast(colors.terminal.foreground, term_bg, 4.5)
     local muted = util.ensure_contrast(colors.comment, term_bg, 3)
-    local accent = util.ensure_contrast(colors.magenta, term_bg, 3)
-    local accent_alt = util.ensure_contrast(colors.blue, term_bg, 3)
+    -- No magenta and no yellow anywhere: neither hue belongs to this desktop, and the two of them
+    -- were the whole of what read as foreign in the interface — a salmon title badge and an olive
+    -- update badge under a green theme.
+    --
+    -- That leaves four hues for five roles, and the shortage is real rather than a matter of taste:
+    -- of the nine accents every palette declares, only blue, green, orange and red stay reliably
+    -- distinct across all 48 styles. Measured — teal is byte-identical to blue in dracula and
+    -- rosepine, cyan to green in rosepine, and purple comes within ΔE 6.3 of blue in lvim.
+    --
+    -- So `warning` and `error` share the red, and are told apart by WEIGHT: the error styles are
+    -- bold, the warning ones are not (see NewStyles in clipack's tui/styles.go).
+    local accent = util.ensure_contrast(colors.blue, term_bg, 3)
+    local accent_alt = util.ensure_contrast(colors.orange, term_bg, 3)
     local success = util.ensure_contrast(colors.green, term_bg, 3)
-    local warning = util.ensure_contrast(colors.yellow, term_bg, 3)
+    local warning = util.ensure_contrast(colors.red, term_bg, 3)
     local error_color = util.ensure_contrast(colors.red, term_bg, 3)
 
     -- The title badge is the one place clipack paints a background: its text sits ON `accent`,
-    -- so it takes the editor background and is checked against the accent, not the terminal.
-    local title_fg = util.ensure_contrast(colors.bg, accent, 3)
+    -- so it is checked against the accent rather than against the terminal.
+    --
+    -- WHICHEVER end of the scale the accent can actually carry, not the editor background lifted
+    -- until it clears a floor. Lifting is what the accent change exposed: against a salmon accent
+    -- the dark background passed at 3.76 and stayed dark, but against the blue one it measured 2.88
+    -- and was walked up — hue intact — to a pale blue #93d8fc that scraped 3.02 and read as a
+    -- washed-out badge. White on the same accent measures 4.71, black 4.46.
+    --
+    -- So both ends are tried and the better one wins, which also keeps the badge legible on the
+    -- light styles, where the dark end is the right answer.
+    local title_dark = util.ensure_contrast(colors.bg, accent, 3)
+    local title_light = "#ffffff"
+    local title_fg = title_light
+    if util.contrast(title_dark, accent) > util.contrast(title_light, accent) then
+        title_fg = title_dark
+    end
 
     -- Unfocused pane borders. `bg_light` is the palette's own "one step off the background"
     -- value, which is what a quiet border wants — but it is a step off the EDITOR background,
