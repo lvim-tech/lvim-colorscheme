@@ -4,117 +4,117 @@ themes {
         text_unselected {
             base "#5e8888"
             background "#dadada"
-            emphasis_0 "#8d522b"
+            emphasis_0 "#875537"
             emphasis_1 "#5c8861"
-            emphasis_2 "#7b7e3d"
+            emphasis_2 "#7a7d48"
             emphasis_3 "#915a47"
         }
         text_selected {
             base "#55a6ab"
             background "#e9e9e9"
-            emphasis_0 "#8d522b"
+            emphasis_0 "#875537"
             emphasis_1 "#5c8861"
-            emphasis_2 "#7b7e3d"
+            emphasis_2 "#7a7d48"
             emphasis_3 "#915a47"
         }
         ribbon_selected {
             base "#dadada"
-            background "#7b7e3d"
-            emphasis_0 "#c74d4d"
-            emphasis_1 "#8d522b"
+            background "#7a7d48"
+            emphasis_0 "#c74e4e"
+            emphasis_1 "#875537"
             emphasis_2 "#915a47"
             emphasis_3 "#918c9d"
         }
         ribbon_unselected {
             base "#5e8888"
             background "#eeeeee"
-            emphasis_0 "#8d522b"
+            emphasis_0 "#875537"
             emphasis_1 "#55a6ab"
             emphasis_2 "#915a47"
             emphasis_3 "#918c9d"
         }
         table_title {
-            base "#7b7e3d"
+            base "#7a7d48"
             background "#dadada"
-            emphasis_0 "#8d522b"
+            emphasis_0 "#875537"
             emphasis_1 "#5c8861"
-            emphasis_2 "#7b7e3d"
+            emphasis_2 "#7a7d48"
             emphasis_3 "#915a47"
         }
         table_cell_selected {
             base "#55a6ab"
             background "#e9e9e9"
-            emphasis_0 "#8d522b"
+            emphasis_0 "#875537"
             emphasis_1 "#5c8861"
-            emphasis_2 "#7b7e3d"
+            emphasis_2 "#7a7d48"
             emphasis_3 "#915a47"
         }
         table_cell_unselected {
             base "#5e8888"
             background "#dadada"
-            emphasis_0 "#8d522b"
+            emphasis_0 "#875537"
             emphasis_1 "#5c8861"
-            emphasis_2 "#7b7e3d"
+            emphasis_2 "#7a7d48"
             emphasis_3 "#915a47"
         }
         list_selected {
             base "#55a6ab"
             background "#e9e9e9"
-            emphasis_0 "#8d522b"
+            emphasis_0 "#875537"
             emphasis_1 "#5c8861"
-            emphasis_2 "#7b7e3d"
+            emphasis_2 "#7a7d48"
             emphasis_3 "#915a47"
         }
         list_unselected {
             base "#5e8888"
             background "#dadada"
-            emphasis_0 "#8d522b"
+            emphasis_0 "#875537"
             emphasis_1 "#5c8861"
-            emphasis_2 "#7b7e3d"
+            emphasis_2 "#7a7d48"
             emphasis_3 "#915a47"
         }
         frame_selected {
-            base "#5089a6"
+            base "#5988a3"
             background "#dadada"
-            emphasis_0 "#8d522b"
+            emphasis_0 "#875537"
             emphasis_1 "#5c8861"
-            emphasis_2 "#7b7e3d"
+            emphasis_2 "#7a7d48"
             emphasis_3 "#915a47"
         }
         frame_highlight {
-            base "#8d522b"
+            base "#875537"
             background "#dadada"
             emphasis_0 "#915a47"
             emphasis_1 "#5c8861"
-            emphasis_2 "#7b7e3d"
+            emphasis_2 "#7a7d48"
             emphasis_3 "#918c9d"
         }
         exit_code_success {
-            base "#7b7e3d"
+            base "#7a7d48"
             background "#dadada"
-            emphasis_0 "#3d8b7c"
+            emphasis_0 "#4d8a7c"
             emphasis_1 "#5c8861"
-            emphasis_2 "#7b7e3d"
+            emphasis_2 "#7a7d48"
             emphasis_3 "#915a47"
         }
         exit_code_error {
-            base "#c74d4d"
+            base "#c74e4e"
             background "#dadada"
-            emphasis_0 "#8d522b"
+            emphasis_0 "#875537"
             emphasis_1 "#8f8156"
             emphasis_2 "#915a47"
             emphasis_3 "#918c9d"
         }
         multiplayer_user_colors {
             player_1 "#915a47"
-            player_2 "#5089a6"
-            player_3 "#7b7e3d"
-            player_4 "#8d522b"
+            player_2 "#5988a3"
+            player_3 "#7a7d48"
+            player_4 "#875537"
             player_5 "#918c9d"
-            player_6 "#3d8b7c"
+            player_6 "#4d8a7c"
             player_7 "#5c8861"
             player_8 "#8f8156"
-            player_9 "#c74d4d"
+            player_9 "#c74e4e"
             player_10 "#a59283"
         }
     }

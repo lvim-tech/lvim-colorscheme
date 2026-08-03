@@ -2,18 +2,18 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "color": {
-      "1": "#0A85B9",
-      "2": "#177ab3",
-      "3": "#8AA55F",
-      "4": "#edc060",
-      "5": "#e65e4f",
-      "6": "#218471"
+      "1": "#447ca2",
+      "2": "#40719a",
+      "3": "#7e965a",
+      "4": "#d8b36f",
+      "5": "#d75e52",
+      "6": "#407e70"
     }
   },
   "display": {
     "color": {
-      "keys": "#0A85B9",
-      "title": "#c75940",
+      "keys": "#447ca2",
+      "title": "#c6614d",
       "output": "#5e8888",
       "separator": "#4d6263"
     }

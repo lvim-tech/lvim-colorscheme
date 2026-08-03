@@ -18,35 +18,35 @@ header_title_color = "#42758f"
 pin_color = "#cc7942"
 
 # Panel borders.
-main_border_color = "#394650"
-apps_border_color = "#394650"
-input_border_color = "#394650"
+main_border_color = "#394b4b"
+apps_border_color = "#394b4b"
+input_border_color = "#394b4b"
 
 # Panel text.
-main_text_color = "#94a68e"
-apps_text_color = "#94a68e"
-input_text_color = "#94a68e"
+main_text_color = "#96a991"
+apps_text_color = "#96a991"
+input_text_color = "#96a991"
 
 # --- dmenu mode ------------------------------------------------------------
 
 [dmenu]
 highlight_color = "#bb755e"
 header_title_color = "#42758f"
-main_border_color = "#394650"
-items_border_color = "#394650"
-input_border_color = "#394650"
-main_text_color = "#94a68e"
-items_text_color = "#94a68e"
-input_text_color = "#94a68e"
+main_border_color = "#394b4b"
+items_border_color = "#394b4b"
+input_border_color = "#394b4b"
+main_text_color = "#96a991"
+items_text_color = "#96a991"
+input_text_color = "#96a991"
 
 # --- cclip mode ------------------------------------------------------------
 
 [cclip]
 highlight_color = "#bb755e"
 header_title_color = "#42758f"
-main_border_color = "#394650"
-items_border_color = "#394650"
-input_border_color = "#394650"
-main_text_color = "#94a68e"
-items_text_color = "#94a68e"
-input_text_color = "#94a68e"
+main_border_color = "#394b4b"
+items_border_color = "#394b4b"
+input_border_color = "#394b4b"
+main_text_color = "#96a991"
+items_text_color = "#96a991"
+input_text_color = "#96a991"

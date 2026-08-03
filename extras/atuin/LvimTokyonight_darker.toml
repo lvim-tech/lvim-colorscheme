@@ -16,25 +16,25 @@ name = "LvimTokyonight_darker"
 # Default foreground.
 Base = "#b2b6c7"
 # Failures.
-AlertError = "#d76479"
+AlertError = "#bb6171"
 # Non-fatal problems.
-AlertWarn = "#c5a06b"
+AlertWarn = "#b79d7b"
 # Informational notices.
-AlertInfo = "#9dbd7b"
+AlertInfo = "#788a67"
 # Secondary text.
 Muted = "#898ca0"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#5f6580"
 # The selected entry.
-Important = "#9470d5"
+Important = "#907bba"
 # Section headings.
-Title = "#6589d7"
+Title = "#6073a4"
 # Keybinding hints.
-Guidance = "#60b0de"
+Guidance = "#648299"
 # Command preview.
-SyntaxCommand = "#9dbd7b"
-SyntaxFlag = "#60b0de"
-SyntaxString = "#dd8b5a"
-SyntaxVariable = "#9470d5"
+SyntaxCommand = "#788a67"
+SyntaxFlag = "#648299"
+SyntaxString = "#bb866d"
+SyntaxVariable = "#907bba"
 SyntaxOperator = "#b2b6c7"
 SyntaxComment = "#5f6580"

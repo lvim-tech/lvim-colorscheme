@@ -3,7 +3,7 @@ themes {
     lvim {
         text_unselected {
             base "#5a6158"
-            background "#1a1f21"
+            background "#1f2424"
             emphasis_0 "#cc7942"
             emphasis_1 "#527a57"
             emphasis_2 "#75783a"
@@ -11,14 +11,14 @@ themes {
         }
         text_selected {
             base "#646c62"
-            background "#282e33"
+            background "#252c2c"
             emphasis_0 "#cc7942"
             emphasis_1 "#527a57"
             emphasis_2 "#75783a"
             emphasis_3 "#bb755e"
         }
         ribbon_selected {
-            base "#1a1f21"
+            base "#1f2424"
             background "#75783a"
             emphasis_0 "#cb4f4f"
             emphasis_1 "#cc7942"
@@ -27,7 +27,7 @@ themes {
         }
         ribbon_unselected {
             base "#5a6158"
-            background "#2c3339"
+            background "#272e2e"
             emphasis_0 "#cc7942"
             emphasis_1 "#646c62"
             emphasis_2 "#bb755e"
@@ -35,7 +35,7 @@ themes {
         }
         table_title {
             base "#75783a"
-            background "#1a1f21"
+            background "#1f2424"
             emphasis_0 "#cc7942"
             emphasis_1 "#527a57"
             emphasis_2 "#75783a"
@@ -43,7 +43,7 @@ themes {
         }
         table_cell_selected {
             base "#646c62"
-            background "#282e33"
+            background "#252c2c"
             emphasis_0 "#cc7942"
             emphasis_1 "#527a57"
             emphasis_2 "#75783a"
@@ -51,7 +51,7 @@ themes {
         }
         table_cell_unselected {
             base "#5a6158"
-            background "#1a1f21"
+            background "#1f2424"
             emphasis_0 "#cc7942"
             emphasis_1 "#527a57"
             emphasis_2 "#75783a"
@@ -59,7 +59,7 @@ themes {
         }
         list_selected {
             base "#646c62"
-            background "#282e33"
+            background "#252c2c"
             emphasis_0 "#cc7942"
             emphasis_1 "#527a57"
             emphasis_2 "#75783a"
@@ -67,7 +67,7 @@ themes {
         }
         list_unselected {
             base "#5a6158"
-            background "#1a1f21"
+            background "#1f2424"
             emphasis_0 "#cc7942"
             emphasis_1 "#527a57"
             emphasis_2 "#75783a"
@@ -75,7 +75,7 @@ themes {
         }
         frame_selected {
             base "#42728b"
-            background "#1a1f21"
+            background "#1f2424"
             emphasis_0 "#cc7942"
             emphasis_1 "#527a57"
             emphasis_2 "#75783a"
@@ -83,7 +83,7 @@ themes {
         }
         frame_highlight {
             base "#cc7942"
-            background "#1a1f21"
+            background "#1f2424"
             emphasis_0 "#bb755e"
             emphasis_1 "#527a57"
             emphasis_2 "#75783a"
@@ -91,7 +91,7 @@ themes {
         }
         exit_code_success {
             base "#75783a"
-            background "#1a1f21"
+            background "#1f2424"
             emphasis_0 "#357b6d"
             emphasis_1 "#527a57"
             emphasis_2 "#75783a"
@@ -99,7 +99,7 @@ themes {
         }
         exit_code_error {
             base "#cb4f4f"
-            background "#1a1f21"
+            background "#1f2424"
             emphasis_0 "#cc7942"
             emphasis_1 "#af9e6b"
             emphasis_2 "#bb755e"

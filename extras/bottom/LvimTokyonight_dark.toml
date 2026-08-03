@@ -2,37 +2,37 @@
 
 [styles.cpu]
 all_entry_color = "#b2b6c7"
-avg_entry_color = "#9470d5"
-cpu_core_colors = ["#6589d7", "#9dbd7b", "#c5a06b", "#dd8b5a", "#9381b3", "#36a08b", "#60b0de", "#d76479"]
+avg_entry_color = "#907bba"
+cpu_core_colors = ["#6073a4", "#788a67", "#b79d7b", "#bb866d", "#73638e", "#5a7f76", "#648299", "#bb6171"]
 
 [styles.memory]
-ram_color = "#9dbd7b"
-cache_color = "#60b0de"
-swap_color = "#dd8b5a"
-arc_color = "#36a08b"
+ram_color = "#788a67"
+cache_color = "#648299"
+swap_color = "#bb866d"
+arc_color = "#5a7f76"
 
 [styles.network]
-rx_color = "#9dbd7b"
-tx_color = "#9470d5"
-rx_total_color = "#8fb468"
-tx_total_color = "#8359ce"
+rx_color = "#788a67"
+tx_color = "#907bba"
+rx_total_color = "#697b58"
+tx_total_color = "#826cb1"
 
 [styles.battery]
-high_battery_color = "#9dbd7b"
-medium_battery_color = "#c5a06b"
-low_battery_color = "#d76479"
+high_battery_color = "#788a67"
+medium_battery_color = "#b79d7b"
+low_battery_color = "#bb6171"
 
 [styles.tables]
-headers = { color = "#6589d7", bold = true }
+headers = { color = "#6073a4", bold = true }
 
 [styles.graphs]
 graph_color = "#616784"
 legend_text = "#5e6274"
 
 [styles.widgets]
-border_color = "#292e42"
-selected_border_color = "#6589d7"
+border_color = "#21242c"
+selected_border_color = "#6073a4"
 widget_title = { color = "#b5b9ca", bold = true }
 text = "#b2b6c7"
-selected_text = { color = "#13131a", bg_color = "#6589d7" }
+selected_text = { color = "#191c24", bg_color = "#6073a4" }
 disabled_text = "#616784"

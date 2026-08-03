@@ -11,16 +11,16 @@
 # --- app launcher (root level) ---------------------------------------------
 
 # Selected item and cursor.
-highlight_color = "#a58aa0"
+highlight_color = "#a2869d"
 # Panel titles.
-header_title_color = "#8097af"
+header_title_color = "#73889e"
 # Pin icon on pinned entries.
-pin_color = "#ba8574"
+pin_color = "#b88473"
 
 # Panel borders.
-main_border_color = "#3c475a"
-apps_border_color = "#3c475a"
-input_border_color = "#3c475a"
+main_border_color = "#3a475d"
+apps_border_color = "#3a475d"
+input_border_color = "#3a475d"
 
 # Panel text.
 main_text_color = "#b3bac6"
@@ -30,11 +30,11 @@ input_text_color = "#b3bac6"
 # --- dmenu mode ------------------------------------------------------------
 
 [dmenu]
-highlight_color = "#a58aa0"
-header_title_color = "#8097af"
-main_border_color = "#3c475a"
-items_border_color = "#3c475a"
-input_border_color = "#3c475a"
+highlight_color = "#a2869d"
+header_title_color = "#73889e"
+main_border_color = "#3a475d"
+items_border_color = "#3a475d"
+input_border_color = "#3a475d"
 main_text_color = "#b3bac6"
 items_text_color = "#b3bac6"
 input_text_color = "#b3bac6"
@@ -42,11 +42,11 @@ input_text_color = "#b3bac6"
 # --- cclip mode ------------------------------------------------------------
 
 [cclip]
-highlight_color = "#a58aa0"
-header_title_color = "#8097af"
-main_border_color = "#3c475a"
-items_border_color = "#3c475a"
-input_border_color = "#3c475a"
+highlight_color = "#a2869d"
+header_title_color = "#73889e"
+main_border_color = "#3a475d"
+items_border_color = "#3a475d"
+input_border_color = "#3a475d"
 main_text_color = "#b3bac6"
 items_text_color = "#b3bac6"
 input_text_color = "#b3bac6"

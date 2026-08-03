@@ -8,14 +8,14 @@ function M.setup()
     c.prompt.style.fg = { Rgb = { 187, 117, 94 } }
     c.cursor.style.fg = { Rgb = { 66, 114, 139 } }
     c.default_ui.style.fg = { Rgb = { 90, 97, 88 } }
-    c.focus_ui.style = { fg = { Rgb = { 26, 31, 33 } }, bg = { Rgb = { 66, 114, 139 } }, add_modifiers = { "Bold" } }
+    c.focus_ui.style = { fg = { Rgb = { 31, 36, 36 } }, bg = { Rgb = { 66, 114, 139 } }, add_modifiers = { "Bold" } }
     c.selection_ui.style = { fg = { Rgb = { 117, 120, 58 } }, add_modifiers = { "Bold" } }
-    c.focus_selection_ui.style = { fg = { Rgb = { 26, 31, 33 } }, bg = { Rgb = { 117, 120, 58 } } , add_modifiers = { "Bold" } }
+    c.focus_selection_ui.style = { fg = { Rgb = { 31, 36, 36 } }, bg = { Rgb = { 117, 120, 58 } } , add_modifiers = { "Bold" } }
     c.table.header.style = { fg = { Rgb = { 83, 93, 78 } }, add_modifiers = { "Bold" } }
     c.table.row.style.fg = { Rgb = { 90, 97, 88 } }
-    c.table.tree[1].style.fg = { Rgb = { 44, 51, 57 } }
-    c.table.tree[2].style.fg = { Rgb = { 44, 51, 57 } }
-    c.table.tree[3].style.fg = { Rgb = { 44, 51, 57 } }
+    c.table.tree[1].style.fg = { Rgb = { 39, 46, 46 } }
+    c.table.tree[2].style.fg = { Rgb = { 39, 46, 46 } }
+    c.table.tree[3].style.fg = { Rgb = { 39, 46, 46 } }
     c.panel_ui.default.style.fg = { Rgb = { 90, 97, 88 } }
     c.panel_ui.table.style.fg = { Rgb = { 90, 97, 88 } }
     c.panel_ui.help_menu.style.fg = { Rgb = { 90, 97, 88 } }

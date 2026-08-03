@@ -21,20 +21,20 @@ name: LvimCatppuccin_soft
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#d07fba"
+    accent: "#b976a7"
     # Section headings, the active tab and step markers.
-    accent_alt: "#6793da"
+    accent_alt: "#6076a0"
     # Default foreground.
     text: "#b2b7c7"
     # Descriptions, field labels, hints, streamed build output.
     muted: "#6c7393"
     # Unfocused pane borders.
-    subtle: "#3d3f51"
+    subtle: "#3f425e"
     # Installed packages and completed operations.
-    success: "#84c27f"
+    success: "#6b8d69"
     # Available updates and non-fatal problems.
-    warning: "#d8b973"
+    warning: "#b8a47e"
     # Failures.
-    error: "#d36d89"
+    error: "#b7657a"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#222235"
+    title_fg: "#22232d"

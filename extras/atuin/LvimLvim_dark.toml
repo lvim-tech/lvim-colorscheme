@@ -14,27 +14,27 @@ name = "LvimLvim_dark"
 
 [colors]
 # Default foreground.
-Base = "#69abab"
+Base = "#6aaeae"
 # Failures.
-AlertError = "#e65e4f"
+AlertError = "#d75e52"
 # Non-fatal problems.
-AlertWarn = "#edc060"
+AlertWarn = "#d8b36f"
 # Informational notices.
-AlertInfo = "#8AA55F"
+AlertInfo = "#7e965a"
 # Secondary text.
-Muted = "#3a8287"
+Muted = "#39858a"
 # Tertiary text: timestamps, durations, exit codes.
-Annotation = "#475859"
+Annotation = "#4a5d5e"
 # The selected entry.
-Important = "#c75940"
+Important = "#c6614d"
 # Section headings.
-Title = "#0A85B9"
+Title = "#447ca2"
 # Keybinding hints.
-Guidance = "#018FA6"
+Guidance = "#448595"
 # Command preview.
-SyntaxCommand = "#8AA55F"
-SyntaxFlag = "#018FA6"
-SyntaxString = "#FF9C2A"
-SyntaxVariable = "#c75940"
-SyntaxOperator = "#69abab"
-SyntaxComment = "#475859"
+SyntaxCommand = "#7e965a"
+SyntaxFlag = "#448595"
+SyntaxString = "#e19556"
+SyntaxVariable = "#c6614d"
+SyntaxOperator = "#6aaeae"
+SyntaxComment = "#4a5d5e"

@@ -10,201 +10,201 @@
 # overwrite whatever you had set.
 
 blocks:
-  foreground: "#3a8287"
+  foreground: "#39858a"
 broken_path_overlay:
-  foreground: "#e65e4f"
+  foreground: "#d75e52"
   is_underline: true
 broken_symlink:
-  foreground: "#e65e4f"
+  foreground: "#d75e52"
   is_bold: true
 control_char:
-  foreground: "#e65e4f"
+  foreground: "#d75e52"
   is_bold: true
 date:
-  foreground: "#218471"
+  foreground: "#407e70"
 file_type:
   build:
-    foreground: "#FF9C2A"
+    foreground: "#e19556"
   compiled:
-    foreground: "#edc060"
+    foreground: "#d8b36f"
   compressed:
-    foreground: "#e65e4f"
+    foreground: "#d75e52"
     is_bold: true
   crypto:
-    foreground: "#e65e4f"
+    foreground: "#d75e52"
     is_bold: true
   document:
-    foreground: "#0A85B9"
+    foreground: "#447ca2"
   image:
-    foreground: "#c75940"
+    foreground: "#c6614d"
   lossless:
-    foreground: "#218471"
+    foreground: "#407e70"
   music:
-    foreground: "#018FA6"
+    foreground: "#448595"
   source:
-    foreground: "#8AA55F"
+    foreground: "#7e965a"
   temp:
-    foreground: "#475859"
+    foreground: "#4a5d5e"
   video:
-    foreground: "#FF9C2A"
+    foreground: "#e19556"
     is_bold: true
 filekinds:
   block_device:
-    foreground: "#FF9C2A"
+    foreground: "#e19556"
     is_bold: true
   char_device:
-    foreground: "#FF9C2A"
+    foreground: "#e19556"
     is_bold: true
   directory:
-    foreground: "#0A85B9"
+    foreground: "#447ca2"
     is_bold: true
   executable:
-    foreground: "#8AA55F"
+    foreground: "#7e965a"
     is_bold: true
   mount_point:
-    foreground: "#218471"
+    foreground: "#407e70"
     is_bold: true
   normal:
-    foreground: "#69abab"
+    foreground: "#6aaeae"
   pipe:
-    foreground: "#edc060"
+    foreground: "#d8b36f"
   socket:
-    foreground: "#c75940"
+    foreground: "#c6614d"
     is_bold: true
   special:
-    foreground: "#c75940"
+    foreground: "#c6614d"
   symlink:
-    foreground: "#018FA6"
+    foreground: "#448595"
 flags:
-  foreground: "#475859"
+  foreground: "#4a5d5e"
 git:
   conflicted:
-    foreground: "#e65e4f"
+    foreground: "#d75e52"
     is_bold: true
   deleted:
-    foreground: "#e65e4f"
+    foreground: "#d75e52"
   ignored:
-    foreground: "#475859"
+    foreground: "#4a5d5e"
   modified:
-    foreground: "#edc060"
+    foreground: "#d8b36f"
   new:
-    foreground: "#8AA55F"
+    foreground: "#7e965a"
   renamed:
-    foreground: "#0A85B9"
+    foreground: "#447ca2"
   typechange:
-    foreground: "#c75940"
+    foreground: "#c6614d"
 git_repo:
   branch_main:
-    foreground: "#8AA55F"
+    foreground: "#7e965a"
   branch_other:
-    foreground: "#edc060"
+    foreground: "#d8b36f"
   git_clean:
-    foreground: "#8AA55F"
+    foreground: "#7e965a"
   git_dirty:
-    foreground: "#e65e4f"
+    foreground: "#d75e52"
     is_bold: true
 header:
-  foreground: "#69abab"
+  foreground: "#6aaeae"
   is_bold: true
   is_underline: true
 inode:
-  foreground: "#475859"
+  foreground: "#4a5d5e"
 links:
   multi_link_file:
-    foreground: "#FF9C2A"
+    foreground: "#e19556"
     is_bold: true
   normal:
-    foreground: "#018FA6"
+    foreground: "#448595"
 octal:
-  foreground: "#8AA55F"
+  foreground: "#7e965a"
 perms:
   attribute:
-    foreground: "#475859"
+    foreground: "#4a5d5e"
   group_execute:
-    foreground: "#8AA55F"
+    foreground: "#7e965a"
   group_read:
-    foreground: "#edc060"
+    foreground: "#d8b36f"
   group_write:
-    foreground: "#e65e4f"
+    foreground: "#d75e52"
   other_execute:
-    foreground: "#3a8287"
+    foreground: "#39858a"
   other_read:
-    foreground: "#3a8287"
+    foreground: "#39858a"
   other_write:
-    foreground: "#3a8287"
+    foreground: "#39858a"
   special_other:
-    foreground: "#475859"
+    foreground: "#4a5d5e"
   special_user_file:
-    foreground: "#c75940"
+    foreground: "#c6614d"
   user_execute_file:
-    foreground: "#8AA55F"
+    foreground: "#7e965a"
     is_bold: true
   user_execute_other:
-    foreground: "#8AA55F"
+    foreground: "#7e965a"
     is_bold: true
   user_read:
-    foreground: "#edc060"
+    foreground: "#d8b36f"
     is_bold: true
   user_write:
-    foreground: "#e65e4f"
+    foreground: "#d75e52"
     is_bold: true
 punctuation:
-  foreground: "#475859"
+  foreground: "#4a5d5e"
 security_context:
   none:
-    foreground: "#475859"
+    foreground: "#4a5d5e"
   selinux:
     colon:
-      foreground: "#475859"
+      foreground: "#4a5d5e"
     range:
-      foreground: "#018FA6"
+      foreground: "#448595"
     role:
-      foreground: "#8AA55F"
+      foreground: "#7e965a"
     typ:
-      foreground: "#edc060"
+      foreground: "#d8b36f"
     user:
-      foreground: "#0A85B9"
+      foreground: "#447ca2"
 size:
   major:
-    foreground: "#FF9C2A"
+    foreground: "#e19556"
     is_bold: true
   minor:
-    foreground: "#FF9C2A"
+    foreground: "#e19556"
   number_byte:
-    foreground: "#3a8287"
+    foreground: "#39858a"
   number_giga:
-    foreground: "#FF9C2A"
+    foreground: "#e19556"
   number_huge:
-    foreground: "#e65e4f"
+    foreground: "#d75e52"
     is_bold: true
   number_kilo:
-    foreground: "#8AA55F"
+    foreground: "#7e965a"
   number_mega:
-    foreground: "#edc060"
+    foreground: "#d8b36f"
   unit_byte:
-    foreground: "#475859"
+    foreground: "#4a5d5e"
   unit_giga:
-    foreground: "#ff9010"
+    foreground: "#da8950"
   unit_huge:
-    foreground: "#e34a39"
+    foreground: "#cc5147"
   unit_kilo:
-    foreground: "#7d9654"
+    foreground: "#718650"
   unit_mega:
-    foreground: "#eab749"
+    foreground: "#d1aa64"
 symlink_path:
-  foreground: "#018FA6"
+  foreground: "#448595"
 users:
   group_other:
-    foreground: "#475859"
+    foreground: "#4a5d5e"
   group_root:
-    foreground: "#e65e4f"
+    foreground: "#d75e52"
   group_yours:
-    foreground: "#edc060"
+    foreground: "#d8b36f"
   user_other:
-    foreground: "#475859"
+    foreground: "#4a5d5e"
   user_root:
-    foreground: "#e65e4f"
+    foreground: "#d75e52"
     is_bold: true
   user_you:
-    foreground: "#edc060"
+    foreground: "#d8b36f"
     is_bold: true

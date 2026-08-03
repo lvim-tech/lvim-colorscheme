@@ -21,9 +21,9 @@ name: LvimSolarized_light
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#bd5588"
+    accent: "#b35181"
     # Section headings, the active tab and step markers.
-    accent_alt: "#39739c"
+    accent_alt: "#4c799d"
     # Default foreground.
     text: "#425353"
     # Descriptions, field labels, hints, streamed build output.
@@ -31,10 +31,10 @@ colors:
     # Unfocused pane borders.
     subtle: "#b1b1b1"
     # Installed packages and completed operations.
-    success: "#707c19"
+    success: "#727c3e"
     # Available updates and non-fatal problems.
-    warning: "#896f1c"
+    warning: "#786435"
     # Failures.
-    error: "#cc5452"
+    error: "#ca5350"
     # Text of the title badge, drawn on `accent`.
     title_fg: "#E4E4E4"

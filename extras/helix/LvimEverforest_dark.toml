@@ -65,11 +65,11 @@
 "hint" = "cyan"
 
 [palette]
-bg_dark = "#1a1f21"
-bg = "#23292d"
-bg_float = "#1a1f21"
-bg_highlight = "#282e33"
-bg_visual = "#282e33"
+bg_dark = "#1f2424"
+bg = "#232929"
+bg_float = "#1f2424"
+bg_highlight = "#252c2c"
+bg_visual = "#252c2c"
 fg = "#5a6158"
 fg_light = "#646c62"
 fg_dark = "#50574e"

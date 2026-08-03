@@ -21,20 +21,20 @@ name: LvimLvim_darker
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#c75940"
+    accent: "#c6614d"
     # Section headings, the active tab and step markers.
-    accent_alt: "#0A85B9"
+    accent_alt: "#447ca2"
     # Default foreground.
-    text: "#68a5a5"
+    text: "#68a8a8"
     # Descriptions, field labels, hints, streamed build output.
-    muted: "#536d6e"
+    muted: "#546f70"
     # Unfocused pane borders.
-    subtle: "#354149"
+    subtle: "#31444d"
     # Installed packages and completed operations.
-    success: "#8AA55F"
+    success: "#7e965a"
     # Available updates and non-fatal problems.
-    warning: "#edc060"
+    warning: "#d8b36f"
     # Failures.
-    error: "#e65e4f"
+    error: "#d75e52"
     # Text of the title badge, drawn on `accent`.
     title_fg: "#1c2225"

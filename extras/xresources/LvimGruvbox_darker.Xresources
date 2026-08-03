@@ -1,22 +1,22 @@
-*background: #191817
-*foreground: #a79480
+*background: #1c1b1a
+*foreground: #aa9782
 
 # normal
 *color0: #181716
-*color1: #cb4f4f
-*color2: #75783a
+*color1: #ca4f4f
+*color2: #757845
 *color3: #af9e6b
-*color4: #3a6479
+*color4: #3f6376
 *color5: #bb755e
 *color6: #527a57
-*color7: #615a52
+*color7: #645c54
 
 # bright
-*color8:  #272422
-*color9:  #eb4d4d
-*color10: #82861f
+*color8:  #2a2724
+*color9:  #ea4c4c
+*color10: #828633
 *color11: #c3ab58
-*color12: #2a7390
+*color12: #33728d
 *color13: #dd7950
 *color14: #488b52
-*color15: #6c635a
+*color15: #6f665c

@@ -25,11 +25,11 @@ colors:
     # Section headings, the active tab and step markers.
     accent_alt: "#42758f"
     # Default foreground.
-    text: "#94a68e"
+    text: "#96a991"
     # Descriptions, field labels, hints, streamed build output.
-    muted: "#63725c"
+    muted: "#66745e"
     # Unfocused pane borders.
-    subtle: "#394650"
+    subtle: "#394b4b"
     # Installed packages and completed operations.
     success: "#75783a"
     # Available updates and non-fatal problems.
@@ -37,4 +37,4 @@ colors:
     # Failures.
     error: "#cb4f4f"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#23292d"
+    title_fg: "#232929"

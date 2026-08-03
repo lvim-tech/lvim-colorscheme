@@ -1,8 +1,8 @@
 # Lvim Colorscheme RosepineDark
 style:
   tag:
-    color: cyan
+    color: grey
   comment:
-    color: dark_cyan
+    color: dark_grey
   snippet:
-    color: cyan
+    color: grey

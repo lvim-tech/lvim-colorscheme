@@ -1,22 +1,22 @@
-*background: #1f2427
-*foreground: #94a68e
+*background: #212626
+*foreground: #96a991
 
 # normal
-*color0: #1c2124
+*color0: #1c2121
 *color1: #cb4f4f
 *color2: #75783a
 *color3: #af9e6b
 *color4: #3a6479
 *color5: #bb755e
 *color6: #527a57
-*color7: #667063
+*color7: #677165
 
 # bright
-*color8:  #2b3131
+*color8:  #2d3331
 *color9:  #eb4d4d
 *color10: #82861f
 *color11: #c3ab58
 *color12: #2a7390
 *color13: #dd7950
 *color14: #488b52
-*color15: #677064
+*color15: #697367

@@ -6,27 +6,27 @@
 cwd = { fg = "#b2b7c7", italic = true }
 
 # Find
-find_keyword  = { fg = "#0b0b12", bg = "#da9366", bold = true }
-find_position = { fg = "#b2b7c7", bg = "#1e2337", bold = true }
+find_keyword  = { fg = "#14151c", bg = "#b88970", bold = true }
+find_position = { fg = "#b2b7c7", bg = "#1e212b", bold = true }
 
 # Symlink
 symlink_target = { fg = "#6c7393", italic = true }
 
 # Marker — a solid bar, so foreground and background match on purpose
-marker_copied   = { fg = "#d2ad5c", bg = "#d2ad5c" }
-marker_cut      = { fg = "#d36d89", bg = "#d36d89" }
-marker_marked   = { fg = "#d07fba", bg = "#d07fba" }
-marker_selected = { fg = "#6793da", bg = "#6793da" }
+marker_copied   = { fg = "#af9973", bg = "#af9973" }
+marker_cut      = { fg = "#b7657a", bg = "#b7657a" }
+marker_marked   = { fg = "#b976a7", bg = "#b976a7" }
+marker_selected = { fg = "#6076a0", bg = "#6076a0" }
 marker_symbol   = "│"
 
 # Count
-count_copied   = { fg = "#0b0b12", bg = "#71b96b" }
-count_cut      = { fg = "#0b0b12", bg = "#cc5777" }
-count_selected = { fg = "#0b0b12", bg = "#66baac" }
+count_copied   = { fg = "#ffffff", bg = "#5b7e59" }
+count_cut      = { fg = "#f8f9ff", bg = "#a85a6d" }
+count_selected = { fg = "#f8f9ff", bg = "#577972" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "#5f995d" }
+border_style  = { fg = "#4e6a4e" }
 
 # The row under the cursor in each pane. In 25 this was `hovered` and
 # `preview_hovered` under [manager]; 26 gives the parent pane one of its own.
@@ -47,52 +47,52 @@ border_style  = { fg = "#5f995d" }
 # what Yazi 25 did here — does reach it, and an empty padding then costs the
 # hovered row a column and shifts its icon out of line with every other row.
 [indicator]
-parent  = { bg = "#252633" }
-current = { bg = "#2a2c3e" }
-preview = { bg = "#2a2c3e" }
+parent  = { bg = "#232532" }
+current = { bg = "#282b3c" }
+preview = { bg = "#282b3c" }
 padding = { open = " ", close = " " }
 
 [tabs]
-active   = { fg = "#b2b7c7", bg = "#232430", bold = true }
-inactive = { fg = "#9b9eaa", bg = "#181825" }
+active   = { fg = "#b2b7c7", bg = "#1a1b22", bold = true }
+inactive = { fg = "#9b9eaa", bg = "#181920" }
 
 [mode]
-normal_main = { fg = "#0b0b12", bg = "#6793da", bold = true }
-normal_alt  = { fg = "#729be0", bg = "#2f313e" }
+normal_main = { fg = "#ffffff", bg = "#6076a0", bold = true }
+normal_alt  = { fg = "#7c9ad3", bg = "#2e3145" }
 
-select_main = { fg = "#0b0b12", bg = "#d07fba", bold = true }
-select_alt  = { fg = "#d07fba", bg = "#2f313e" }
+select_main = { fg = "#14151c", bg = "#b976a7", bold = true }
+select_alt  = { fg = "#c688b5", bg = "#2e3145" }
 
-unset_main  = { fg = "#0b0b12", bg = "#a183c5", bold = true }
-unset_alt   = { fg = "#ab8ece", bg = "#2f313e" }
+unset_main  = { fg = "#eaedff", bg = "#7c609b", bold = true }
+unset_alt   = { fg = "#aa8ecb", bg = "#2e3145" }
 
 [status]
 # Progress
 progress_label  = { fg = "#b2b7c7", bold = true }
-progress_normal = { fg = "#b2b7c7", bg = "#0b0b12" }
-progress_error  = { fg = "#0b0b12", bg = "#d36d89" }
+progress_normal = { fg = "#b2b7c7", bg = "#14151c" }
+progress_error  = { fg = "#ffffff", bg = "#b7657a" }
 
 # Permissions
-perm_type  = { fg = "#6793da" }
-perm_read  = { fg = "#d8b973" }
-perm_write = { fg = "#d36d89" }
-perm_exec  = { fg = "#84c27f" }
+perm_type  = { fg = "#6783b5" }
+perm_read  = { fg = "#b8a47e" }
+perm_write = { fg = "#c0687f" }
+perm_exec  = { fg = "#6b8d69" }
 perm_sep   = { fg = "#6c7393" }
 
 [pick]
-border   = { fg = "#5082d4" }
-active   = { fg = "#b2b7c7", bg = "#232430" }
+border   = { fg = "#546891" }
+active   = { fg = "#b2b7c7", bg = "#1a1b22" }
 inactive = { fg = "#b2b7c7" }
 
 [input]
-border   = { fg = "#5082d4" }
-title    = { fg = "#5082d4" }
-value    = { fg = "#a183c5" }
-selected = { fg = "#b2b7c7", bg = "#232430" }
+border   = { fg = "#546891" }
+title    = { fg = "#546891" }
+value    = { fg = "#9476b6" }
+selected = { fg = "#b2b7c7", bg = "#1a1b22" }
 
 [cmp]
-border   = { fg = "#5082d4" }
-active   = { fg = "#b2b7c7", bg = "#232430" }
+border   = { fg = "#546891" }
+active   = { fg = "#b2b7c7", bg = "#1a1b22" }
 inactive = { fg = "#b2b7c7" }
 
 icon_file    = ""
@@ -100,74 +100,74 @@ icon_folder  = ""
 icon_command = ""
 
 [tasks]
-border  = { fg = "#5f995d" }
+border  = { fg = "#4e6a4e" }
 title   = { fg = "#b2b7c7" }
-hovered = { fg = "#b2b7c7", bg = "#232430" }
+hovered = { fg = "#b2b7c7", bg = "#1a1b22" }
 
 [which]
 cols            = 3
-mask            = { bg = "#0b0b12" }
-cand            = { fg = "#71becc" }
-rest            = { fg = "#6793da" }
-desc            = { fg = "#d07fba" }
+mask            = { bg = "#14151c" }
+cand            = { fg = "#65878e" }
+rest            = { fg = "#6680b1" }
+desc            = { fg = "#b976a7" }
 separator       = " ➜ "
 separator_style = { fg = "#6c7393" }
 
 [confirm]
-border  = { fg = "#5082d4" }
-title   = { fg = "#5082d4" }
+border  = { fg = "#546891" }
+title   = { fg = "#546891" }
 body    = {}
 list    = {}
-btn_yes = { fg = "#b2b7c7", bg = "#232430" }
+btn_yes = { fg = "#b2b7c7", bg = "#1a1b22" }
 btn_no  = {}
 btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 
 [spot]
-border   = { fg = "#5f995d" }
+border   = { fg = "#4e6a4e" }
 title    = { fg = "#b2b7c7" }
-tbl_col  = { fg = "#6793da" }
-tbl_cell = { fg = "#d8b973", bg = "#232430" }
+tbl_col  = { fg = "#6783b5" }
+tbl_cell = { fg = "#b8a47e", bg = "#1a1b22" }
 
 [notify]
-title_info  = { fg = "#5082d4" }
-title_warn  = { fg = "#d4834f" }
-title_error = { fg = "#d15879" }
+title_info  = { fg = "#6284c2" }
+title_warn  = { fg = "#ac7a63" }
+title_error = { fg = "#c7647d" }
 
 icon_info  = ""
 icon_warn  = ""
 icon_error = ""
 
 [help]
-on      = { fg = "#84c27f" }
-run     = { fg = "#d07fba" }
+on      = { fg = "#6b8d69" }
+run     = { fg = "#b976a7" }
 desc    = { fg = "#9b9eaa" }
-hovered = { fg = "#b2b7c7", bg = "#232430", bold = true }
-footer  = { fg = "#b2b7c7", bg = "#232430" }
+hovered = { fg = "#b2b7c7", bg = "#1a1b22", bold = true }
+footer  = { fg = "#b2b7c7", bg = "#1a1b22" }
 
 [filetype]
 rules = [
 	# Images
-	{ mime = "image/*", fg = "#d8b973" },
+	{ mime = "image/*", fg = "#b8a47e" },
 
 	# Media
-	{ mime = "{audio,video}/*", fg = "#d07fba" },
+	{ mime = "{audio,video}/*", fg = "#b976a7" },
 
 	# Archives
-	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#d36d89" },
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#c0687f" },
 
 	# Documents
-	{ mime = "application/{pdf,doc,rtf}", fg = "#71becc" },
+	{ mime = "application/{pdf,doc,rtf}", fg = "#65878e" },
 
 	# Virtual file system — 26 reports unreachable remote entries through this
 	{ mime = "vfs/{absent,stale}", fg = "#6c7393" },
 
 	# Special files. `url` here was `name` before 26.
-	{ url = "*", is = "orphan", bg = "#d36d89" },
-	{ url = "*", is = "exec"  , fg = "#84c27f" },
-	{ url = "*", is = "dummy", bg = "#d36d89" },
-	{ url = "*/", is = "dummy", bg = "#d36d89" },
+	{ url = "*", is = "orphan", bg = "#b7657a" },
+	{ url = "*", is = "exec"  , fg = "#6b8d69" },
+	{ url = "*", is = "dummy", bg = "#b7657a" },
+	{ url = "*/", is = "dummy", bg = "#b7657a" },
 
 	# Fallback
-	{ url = "*/", fg = "#6793da" }
+	{ url = "*/", fg = "#6783b5" }
 ]
     

@@ -14,27 +14,27 @@ name = "LvimKanagawa_soft"
 
 [colors]
 # Default foreground.
-Base = "#9d9dba"
+Base = "#a0a0bc"
 # Failures.
-AlertError = "#b65252"
+AlertError = "#ba5454"
 # Non-fatal problems.
-AlertWarn = "#e0c286"
+AlertWarn = "#d1b57c"
 # Informational notices.
-AlertInfo = "#6e8156"
+AlertInfo = "#6c7f54"
 # Secondary text.
-Muted = "#777794"
+Muted = "#797997"
 # Tertiary text: timestamps, durations, exit codes.
-Annotation = "#53537a"
+Annotation = "#55557d"
 # The selected entry.
-Important = "#c4746e"
+Important = "#c4726c"
 # Section headings.
-Title = "#4f6ea4"
+Title = "#506fa5"
 # Keybinding hints.
-Guidance = "#597b75"
+Guidance = "#587a74"
 # Command preview.
-SyntaxCommand = "#6e8156"
-SyntaxFlag = "#597b75"
-SyntaxString = "#c99460"
-SyntaxVariable = "#c4746e"
-SyntaxOperator = "#9d9dba"
-SyntaxComment = "#53537a"
+SyntaxCommand = "#6c7f54"
+SyntaxFlag = "#587a74"
+SyntaxString = "#bf8f62"
+SyntaxVariable = "#c4726c"
+SyntaxOperator = "#a0a0bc"
+SyntaxComment = "#55557d"

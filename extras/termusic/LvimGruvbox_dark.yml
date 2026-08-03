@@ -1,26 +1,26 @@
 # Lvim Colorscheme GruvboxDark
 colors:
   primary:
-    background: "#181714"
+    background: "#1e1d1c"
     foreground: "#645c54"
   cursor:
-    text: "#181714"
+    text: "#1e1d1c"
     cursor: "#645c54"
   normal:
     black: "#1b1a1a"
-    red: "#cb4f4f"
-    green: "#75783a"
+    red: "#ca4f4f"
+    green: "#757845"
     yellow: "#af9e6b"
-    blue: "#3a6479"
+    blue: "#3f6376"
     magenta: "#bb755e"
     cyan: "#527a57"
-    white: "#645c54"
+    white: "#665e56"
   bright:
-    black: "#2b2825"
-    red: "#eb4d4d"
-    green: "#82861f"
+    black: "#2e2b28"
+    red: "#ea4c4c"
+    green: "#828633"
     yellow: "#c3ab58"
-    blue: "#2a7390"
+    blue: "#33728d"
     magenta: "#dd7950"
     cyan: "#488b52"
-    white: "#6f665c"
+    white: "#71675e"

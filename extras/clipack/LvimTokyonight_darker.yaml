@@ -21,20 +21,20 @@ name: LvimTokyonight_darker
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#9470d5"
+    accent: "#907bba"
     # Section headings, the active tab and step markers.
-    accent_alt: "#6589d7"
+    accent_alt: "#6073a4"
     # Default foreground.
     text: "#b2b6c7"
     # Descriptions, field labels, hints, streamed build output.
     muted: "#616784"
     # Unfocused pane borders.
-    subtle: "#2e375b"
+    subtle: "#303d56"
     # Installed packages and completed operations.
-    success: "#9dbd7b"
+    success: "#788a67"
     # Available updates and non-fatal problems.
-    warning: "#c5a06b"
+    warning: "#b79d7b"
     # Failures.
-    error: "#d76479"
+    error: "#bb6171"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#14151d"
+    title_fg: "#181b22"

@@ -3,20 +3,20 @@
 
 # normal
 *color0: #b6b6b6
-*color1: #9d445e
-*color2: #557f51
-*color3: #7f6c41
-*color4: #416cb1
-*color5: #c065a9
-*color6: #487d86
+*color1: #a45a6d
+*color2: #557153
+*color3: #8a7b5e
+*color4: #6d86ba
+*color5: #845377
+*color6: #557278
 *color7: #619494
 
 # bright
 *color8:  #cfd1d1
-*color9:  #c23a68
-*color10: #4d9045
-*color11: #927830
-*color12: #2678d9
-*color13: #e161c3
-*color14: #358d9a
+*color9:  #cc5377
+*color10: #50824c
+*color11: #9e8754
+*color12: #6d93d9
+*color13: #a65092
+*color14: #4e828b
 *color15: #5d8989

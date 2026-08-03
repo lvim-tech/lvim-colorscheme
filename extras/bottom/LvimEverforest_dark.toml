@@ -30,9 +30,9 @@ graph_color = "#535d4e"
 legend_text = "#50574e"
 
 [styles.widgets]
-border_color = "#2c3339"
+border_color = "#272e2e"
 selected_border_color = "#42728b"
 widget_title = { color = "#646c62", bold = true }
 text = "#5a6158"
-selected_text = { color = "#1a1f21", bg_color = "#42728b" }
+selected_text = { color = "#1f2424", bg_color = "#42728b" }
 disabled_text = "#535d4e"

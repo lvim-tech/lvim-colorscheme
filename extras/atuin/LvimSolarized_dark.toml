@@ -16,25 +16,25 @@ name = "LvimSolarized_dark"
 # Default foreground.
 Base = "#9da4a4"
 # Failures.
-AlertError = "#bf4e4c"
+AlertError = "#c24f4d"
 # Non-fatal problems.
-AlertWarn = "#96791f"
+AlertWarn = "#9f8549"
 # Informational notices.
-AlertInfo = "#727f1a"
+AlertInfo = "#727c3e"
 # Secondary text.
 Muted = "#707c81"
 # Tertiary text: timestamps, durations, exit codes.
-Annotation = "#4f585c"
+Annotation = "#515b5f"
 # The selected entry.
-Important = "#b75283"
+Important = "#c0578a"
 # Section headings.
-Title = "#4386b5"
+Title = "#4f7ea3"
 # Keybinding hints.
-Guidance = "#3e8d87"
+Guidance = "#4b8580"
 # Command preview.
-SyntaxCommand = "#727f1a"
-SyntaxFlag = "#3e8d87"
-SyntaxString = "#ac5835"
-SyntaxVariable = "#b75283"
+SyntaxCommand = "#727c3e"
+SyntaxFlag = "#4b8580"
+SyntaxString = "#b46548"
+SyntaxVariable = "#c0578a"
 SyntaxOperator = "#9da4a4"
-SyntaxComment = "#4f585c"
+SyntaxComment = "#515b5f"

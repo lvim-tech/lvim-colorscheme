@@ -6,8 +6,8 @@
 cwd = { fg = "#849380", italic = true }
 
 # Find
-find_keyword  = { fg = "#1a1f21", bg = "#cc7942", bold = true }
-find_position = { fg = "#8a9986", bg = "#252f35", bold = true }
+find_keyword  = { fg = "#1f2424", bg = "#cc7942", bold = true }
+find_position = { fg = "#8a9986", bg = "#252f31", bold = true }
 
 # Symlink
 symlink_target = { fg = "#687760", italic = true }
@@ -20,13 +20,13 @@ marker_selected = { fg = "#42728b", bg = "#42728b" }
 marker_symbol   = "│"
 
 # Count
-count_copied   = { fg = "#b6ecff", bg = "#656831" }
-count_cut      = { fg = "#def6ff", bg = "#c53b3b" }
-count_selected = { fg = "#9ae6ff", bg = "#2d695d" }
+count_copied   = { fg = "#00fbfb", bg = "#656831" }
+count_cut      = { fg = "#a7ffff", bg = "#c53b3b" }
+count_selected = { fg = "#00f1f1", bg = "#2d695d" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "#585b30" }
+border_style  = { fg = "#585b2f" }
 
 # The row under the cursor in each pane. In 25 this was `hovered` and
 # `preview_hovered` under [manager]; 26 gives the parent pane one of its own.
@@ -47,30 +47,30 @@ border_style  = { fg = "#585b30" }
 # what Yazi 25 did here — does reach it, and an empty padding then costs the
 # hovered row a column and shifts its icon out of line with every other row.
 [indicator]
-parent  = { bg = "#2d353b" }
-current = { bg = "#303941" }
-preview = { bg = "#303941" }
+parent  = { bg = "#2b3535" }
+current = { bg = "#2e3a3a" }
+preview = { bg = "#2e3a3a" }
 padding = { open = " ", close = " " }
 
 [tabs]
-active   = { fg = "#8a9986", bg = "#282e33", bold = true }
-inactive = { fg = "#738070", bg = "#23292d" }
+active   = { fg = "#889784", bg = "#252c2c", bold = true }
+inactive = { fg = "#738070", bg = "#232929" }
 
 [mode]
-normal_main = { fg = "#d7f4ff", bg = "#42728b", bold = true }
-normal_alt  = { fg = "#00b5ea", bg = "#343e47" }
+normal_main = { fg = "#a7ffff", bg = "#42728b", bold = true }
+normal_alt  = { fg = "#00b8ee", bg = "#334141" }
 
-select_main = { fg = "#1a1f21", bg = "#bb755e", bold = true }
-select_alt  = { fg = "#e49277", bg = "#343e47" }
+select_main = { fg = "#fbffff", bg = "#bb755e", bold = true }
+select_alt  = { fg = "#e5957c", bg = "#334141" }
 
-unset_main  = { fg = "#9ae6ff", bg = "#635d71", bold = true }
-unset_alt   = { fg = "#aba4ba", bg = "#343e47" }
+unset_main  = { fg = "#00f4f4", bg = "#635d71", bold = true }
+unset_alt   = { fg = "#ada7bd", bg = "#334141" }
 
 [status]
 # Progress
 progress_label  = { fg = "#849380", bold = true }
-progress_normal = { fg = "#7d897a", bg = "#1a1f21" }
-progress_error  = { fg = "#fbfeff", bg = "#cb4f4f" }
+progress_normal = { fg = "#818e7e", bg = "#1f2424" }
+progress_error  = { fg = "#fbffff", bg = "#cb4f4f" }
 
 # Permissions
 perm_type  = { fg = "#379ac3" }
@@ -81,18 +81,18 @@ perm_sep   = { fg = "#687760" }
 
 [pick]
 border   = { fg = "#387a97" }
-active   = { fg = "#8a9986", bg = "#282e33" }
+active   = { fg = "#889784", bg = "#252c2c" }
 inactive = { fg = "#849380" }
 
 [input]
 border   = { fg = "#387a97" }
 title    = { fg = "#387a97" }
 value    = { fg = "#938ca4" }
-selected = { fg = "#8a9986", bg = "#282e33" }
+selected = { fg = "#889784", bg = "#252c2c" }
 
 [cmp]
 border   = { fg = "#387a97" }
-active   = { fg = "#8a9986", bg = "#282e33" }
+active   = { fg = "#889784", bg = "#252c2c" }
 inactive = { fg = "#849380" }
 
 icon_file    = ""
@@ -100,33 +100,33 @@ icon_folder  = ""
 icon_command = ""
 
 [tasks]
-border  = { fg = "#585b30" }
+border  = { fg = "#585b2f" }
 title   = { fg = "#849380" }
-hovered = { fg = "#8a9986", bg = "#282e33" }
+hovered = { fg = "#889784", bg = "#252c2c" }
 
 [which]
 cols            = 3
-mask            = { bg = "#1a1f21" }
-cand            = { fg = "#5b9463" }
-rest            = { fg = "#3e8eb2" }
-desc            = { fg = "#bb755e" }
+mask            = { bg = "#1f2424" }
+cand            = { fg = "#5c9764" }
+rest            = { fg = "#3b94bb" }
+desc            = { fg = "#bf775f" }
 separator       = " ➜ "
-separator_style = { fg = "#5f6d59" }
+separator_style = { fg = "#63725c" }
 
 [confirm]
 border  = { fg = "#387a97" }
 title   = { fg = "#387a97" }
 body    = {}
 list    = {}
-btn_yes = { fg = "#8a9986", bg = "#282e33" }
+btn_yes = { fg = "#889784", bg = "#252c2c" }
 btn_no  = {}
 btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 
 [spot]
-border   = { fg = "#585b30" }
+border   = { fg = "#585b2f" }
 title    = { fg = "#849380" }
 tbl_col  = { fg = "#379ac3" }
-tbl_cell = { fg = "#af9e6b", bg = "#282e33" }
+tbl_cell = { fg = "#af9e6b", bg = "#252c2c" }
 
 [notify]
 title_info  = { fg = "#179ac5" }
@@ -141,8 +141,8 @@ icon_error = ""
 on      = { fg = "#92962d" }
 run     = { fg = "#c87b61" }
 desc    = { fg = "#738070" }
-hovered = { fg = "#8a9986", bg = "#282e33", bold = true }
-footer  = { fg = "#8a9986", bg = "#282e33" }
+hovered = { fg = "#889784", bg = "#252c2c", bold = true }
+footer  = { fg = "#889784", bg = "#252c2c" }
 
 [filetype]
 rules = [

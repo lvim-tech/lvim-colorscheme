@@ -21,20 +21,20 @@ name: LvimNord_soft
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#a58aa0"
+    accent: "#a2869d"
     # Section headings, the active tab and step markers.
-    accent_alt: "#8097af"
+    accent_alt: "#73889e"
     # Default foreground.
     text: "#b3bac6"
     # Descriptions, field labels, hints, streamed build output.
     muted: "#697488"
     # Unfocused pane borders.
-    subtle: "#40495e"
+    subtle: "#404c65"
     # Installed packages and completed operations.
-    success: "#97ab86"
+    success: "#879978"
     # Available updates and non-fatal problems.
-    warning: "#cbae72"
+    warning: "#c3a870"
     # Failures.
-    error: "#af7177"
+    error: "#ac6e74"
     # Text of the title badge, drawn on `accent`.
     title_fg: "#282d38"

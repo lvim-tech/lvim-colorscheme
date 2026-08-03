@@ -16,25 +16,25 @@ name = "LvimNightfox_light"
 # Default foreground.
 Base = "#425353"
 # Failures.
-AlertError = "#a65c6e"
+AlertError = "#a75d70"
 # Non-fatal problems.
-AlertWarn = "#86774d"
+AlertWarn = "#897a50"
 # Informational notices.
-AlertInfo = "#6b8578"
+AlertInfo = "#6b8377"
 # Secondary text.
 Muted = "#3c7a7e"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#8499b2"
 # The selected entry.
-Important = "#725986"
+Important = "#755a88"
 # Section headings.
-Title = "#4a607e"
+Title = "#546d8e"
 # Keybinding hints.
-Guidance = "#4e7f80"
+Guidance = "#588586"
 # Command preview.
-SyntaxCommand = "#6b8578"
-SyntaxFlag = "#4e7f80"
-SyntaxString = "#a5734b"
-SyntaxVariable = "#725986"
+SyntaxCommand = "#6b8377"
+SyntaxFlag = "#588586"
+SyntaxString = "#a17351"
+SyntaxVariable = "#755a88"
 SyntaxOperator = "#425353"
 SyntaxComment = "#8499b2"

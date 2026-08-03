@@ -10,7 +10,7 @@
 # overwrite whatever you had set.
 
 blocks:
-  foreground: "#717e6e"
+  foreground: "#738070"
 broken_path_overlay:
   foreground: "#cb4f4f"
   is_underline: true
@@ -44,7 +44,7 @@ file_type:
   source:
     foreground: "#75783a"
   temp:
-    foreground: "#515a4c"
+    foreground: "#535d4e"
   video:
     foreground: "#cc7942"
     is_bold: true
@@ -65,7 +65,7 @@ filekinds:
     foreground: "#357b6d"
     is_bold: true
   normal:
-    foreground: "#94a68e"
+    foreground: "#96a991"
   pipe:
     foreground: "#af9e6b"
   socket:
@@ -76,7 +76,7 @@ filekinds:
   symlink:
     foreground: "#527a57"
 flags:
-  foreground: "#515a4c"
+  foreground: "#535d4e"
 git:
   conflicted:
     foreground: "#cb4f4f"
@@ -84,7 +84,7 @@ git:
   deleted:
     foreground: "#cb4f4f"
   ignored:
-    foreground: "#515a4c"
+    foreground: "#535d4e"
   modified:
     foreground: "#af9e6b"
   new:
@@ -104,11 +104,11 @@ git_repo:
     foreground: "#cb4f4f"
     is_bold: true
 header:
-  foreground: "#94a68e"
+  foreground: "#96a991"
   is_bold: true
   is_underline: true
 inode:
-  foreground: "#515a4c"
+  foreground: "#535d4e"
 links:
   multi_link_file:
     foreground: "#cc7942"
@@ -119,7 +119,7 @@ octal:
   foreground: "#75783a"
 perms:
   attribute:
-    foreground: "#515a4c"
+    foreground: "#535d4e"
   group_execute:
     foreground: "#75783a"
   group_read:
@@ -127,13 +127,13 @@ perms:
   group_write:
     foreground: "#cb4f4f"
   other_execute:
-    foreground: "#717e6e"
+    foreground: "#738070"
   other_read:
-    foreground: "#717e6e"
+    foreground: "#738070"
   other_write:
-    foreground: "#717e6e"
+    foreground: "#738070"
   special_other:
-    foreground: "#515a4c"
+    foreground: "#535d4e"
   special_user_file:
     foreground: "#bb755e"
   user_execute_file:
@@ -149,13 +149,13 @@ perms:
     foreground: "#cb4f4f"
     is_bold: true
 punctuation:
-  foreground: "#515a4c"
+  foreground: "#535d4e"
 security_context:
   none:
-    foreground: "#515a4c"
+    foreground: "#535d4e"
   selinux:
     colon:
-      foreground: "#515a4c"
+      foreground: "#535d4e"
     range:
       foreground: "#527a57"
     role:
@@ -171,7 +171,7 @@ size:
   minor:
     foreground: "#cc7942"
   number_byte:
-    foreground: "#717e6e"
+    foreground: "#738070"
   number_giga:
     foreground: "#cc7942"
   number_huge:
@@ -182,11 +182,11 @@ size:
   number_mega:
     foreground: "#af9e6b"
   unit_byte:
-    foreground: "#515a4c"
+    foreground: "#535d4e"
   unit_giga:
     foreground: "#b86d3c"
   unit_huge:
-    foreground: "#c53b3b"
+    foreground: "#cb3b3b"
   unit_kilo:
     foreground: "#6f722e"
   unit_mega:
@@ -195,13 +195,13 @@ symlink_path:
   foreground: "#527a57"
 users:
   group_other:
-    foreground: "#515a4c"
+    foreground: "#535d4e"
   group_root:
     foreground: "#cb4f4f"
   group_yours:
     foreground: "#af9e6b"
   user_other:
-    foreground: "#515a4c"
+    foreground: "#535d4e"
   user_root:
     foreground: "#cb4f4f"
     is_bold: true

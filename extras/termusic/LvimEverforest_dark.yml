@@ -1,26 +1,26 @@
 # Lvim Colorscheme EverforestDark
 colors:
   primary:
-    background: "#1a1f21"
+    background: "#1f2424"
     foreground: "#5a6158"
   cursor:
-    text: "#1a1f21"
+    text: "#1f2424"
     cursor: "#5a6158"
   normal:
-    black: "#1c2124"
+    black: "#1c2121"
     red: "#cb4f4f"
     green: "#75783a"
     yellow: "#af9e6b"
     blue: "#3a6479"
     magenta: "#bb755e"
     cyan: "#527a57"
-    white: "#667063"
+    white: "#677165"
   bright:
-    black: "#2b3131"
+    black: "#2d3331"
     red: "#eb4d4d"
     green: "#82861f"
     yellow: "#c3ab58"
     blue: "#2a7390"
     magenta: "#dd7950"
     cyan: "#488b52"
-    white: "#677064"
+    white: "#697367"

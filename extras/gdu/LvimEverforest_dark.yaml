@@ -1,16 +1,16 @@
 style:
     selected-row:
-        text-color: "#1a1f21"
+        text-color: "#1f2424"
         background-color: "#42728b"
     marked:
-        text-color: "#1a1f21"
+        text-color: "#1f2424"
         background-color: "#cc7942"
     footer:
-        text-color: "#1a1f21"
+        text-color: "#1f2424"
         background-color: "#75783a"
-        number-color: "#1a1f21"
+        number-color: "#1f2424"
     header:
-        text-color: "#1a1f21"
+        text-color: "#1f2424"
         background-color: "#635d71"
         hidden: false
     result-row:

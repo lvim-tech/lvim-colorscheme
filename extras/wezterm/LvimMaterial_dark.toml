@@ -1,42 +1,42 @@
 [colors]
 foreground = "#b2c7c7"
-background = "#1e282c"
-cursor_bg = "#a6c974"
-cursor_fg = "#1a2226"
-cursor_border = "#a6c974"
+background = "#202b30"
+cursor_bg = "#90ad68"
+cursor_fg = "#1e292e"
+cursor_border = "#90ad68"
 selection_fg = "#b2c7c7"
-selection_bg = "#2a373d"
-scrollbar_thumb = "#2a373d"
-split = "#2a373d"
+selection_bg = "#242f34"
+scrollbar_thumb = "#242f34"
+split = "#242f34"
 
 ansi = [
   "#1b2428",
-  "#d1676c",
-  "#a6c974",
-  "#deb05c",
-  "#4978da",
-  "#da596e",
-  "#63bbdf",
+  "#d05e64",
+  "#90ad68",
+  "#cfa96a",
+  "#4f6fbb",
+  "#d75d70",
+  "#65a1bd",
   "#727b7b",
 ]
 brights = [
-  "#2d383c",
-  "#e76f75",
-  "#aadb56",
-  "#f7bb2d",
-  "#4584fa",
-  "#ef6279",
-  "#3fccfb",
+  "#2f3b3f",
+  "#e6666d",
+  "#95be51",
+  "#e7b44e",
+  "#3e7ae8",
+  "#ec667b",
+  "#4eb2d9",
   "#849090",
 ]
 
 [colors.tab_bar]
-background = "#1a2226"
+background = "#1e292e"
 
 [colors.tab_bar.active_tab]
-bg_color = "#618adf"
-fg_color = "#1a2226"
+bg_color = "#5b7fcb"
+fg_color = "#1e292e"
 
 [colors.tab_bar.inactive_tab]
-bg_color = "#2a373d"
+bg_color = "#242f34"
 fg_color = "#222d32"

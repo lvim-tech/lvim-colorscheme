@@ -6,27 +6,27 @@
 cwd = { fg = "#506a6a", italic = true }
 
 # Find
-find_keyword  = { fg = "#fcfcfc", bg = "#b27f6f", bold = true }
-find_position = { fg = "#466264", bg = "#d6d8da", bold = true }
+find_keyword  = { fg = "#dadada", bg = "#7a564b", bold = true }
+find_position = { fg = "#466264", bg = "#d7d9dc", bold = true }
 
 # Symlink
 symlink_target = { fg = "#737d95", italic = true }
 
 # Marker — a solid bar, so foreground and background match on purpose
-marker_copied   = { fg = "#937944", bg = "#937944" }
-marker_cut      = { fg = "#935d63", bg = "#935d63" }
-marker_marked   = { fg = "#9e8299", bg = "#9e8299" }
-marker_selected = { fg = "#768ba1", bg = "#768ba1" }
+marker_copied   = { fg = "#967e50", bg = "#967e50" }
+marker_cut      = { fg = "#976065", bg = "#976065" }
+marker_marked   = { fg = "#6e5a6b", bg = "#6e5a6b" }
+marker_selected = { fg = "#596a7c", bg = "#596a7c" }
 marker_symbol   = "│"
 
 # Count
-count_copied   = { fg = "#fcfcfc", bg = "#788c67" }
-count_cut      = { fg = "#fcfcfc", bg = "#ae656c" }
-count_selected = { fg = "#fcfcfc", bg = "#6a8d8b" }
+count_copied   = { fg = "#e8e8e8", bg = "#5d6d50" }
+count_cut      = { fg = "#fcfcfc", bg = "#b2676e" }
+count_selected = { fg = "#eeeeee", bg = "#54706e" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "#8e9e80" }
+border_style  = { fg = "#78856e" }
 
 # The row under the cursor in each pane. In 25 this was `hovered` and
 # `preview_hovered` under [manager]; 26 gives the parent pane one of its own.
@@ -57,41 +57,41 @@ active   = { fg = "#4b6f72", bg = "#e9e9e9", bold = true }
 inactive = { fg = "#3c7478", bg = "#E4E4E4" }
 
 [mode]
-normal_main = { fg = "#fcfcfc", bg = "#768ba1", bold = true }
-normal_alt  = { fg = "#495159", bg = "#c4c4c4" }
+normal_main = { fg = "#e8e8e8", bg = "#596a7c", bold = true }
+normal_alt  = { fg = "#47515c", bg = "#c4c4c4" }
 
-select_main = { fg = "#fcfcfc", bg = "#9e8299", bold = true }
-select_alt  = { fg = "#594e57", bg = "#c4c4c4" }
+select_main = { fg = "#dadada", bg = "#6e5a6b", bold = true }
+select_alt  = { fg = "#5c4d5a", bg = "#c4c4c4" }
 
-unset_main  = { fg = "#fcfcfc", bg = "#8d8497", bold = true }
-unset_alt   = { fg = "#544f59", bg = "#c4c4c4" }
+unset_main  = { fg = "#eeeeee", bg = "#71687d", bold = true }
+unset_alt   = { fg = "#544f5b", bg = "#c4c4c4" }
 
 [status]
 # Progress
 progress_label  = { fg = "#506a6a", bold = true }
 progress_normal = { fg = "#476567", bg = "#dadada" }
-progress_error  = { fg = "#eeeeee", bg = "#935d63" }
+progress_error  = { fg = "#f4f4f4", bg = "#976065" }
 
 # Permissions
-perm_type  = { fg = "#5b6774" }
-perm_read  = { fg = "#716245" }
-perm_write = { fg = "#87585d" }
-perm_exec  = { fg = "#5e6855" }
+perm_type  = { fg = "#576779" }
+perm_read  = { fg = "#726447" }
+perm_write = { fg = "#87595d" }
+perm_exec  = { fg = "#5d6756" }
 perm_sep   = { fg = "#737d95" }
 
 [pick]
-border   = { fg = "#556a80" }
+border   = { fg = "#60788f" }
 active   = { fg = "#4b6f72", bg = "#e9e9e9" }
 inactive = { fg = "#506a6a" }
 
 [input]
-border   = { fg = "#556a80" }
-title    = { fg = "#556a80" }
-value    = { fg = "#696270" }
+border   = { fg = "#60788f" }
+title    = { fg = "#60788f" }
+value    = { fg = "#696174" }
 selected = { fg = "#4b6f72", bg = "#e9e9e9" }
 
 [cmp]
-border   = { fg = "#556a80" }
+border   = { fg = "#60788f" }
 active   = { fg = "#4b6f72", bg = "#e9e9e9" }
 inactive = { fg = "#506a6a" }
 
@@ -100,22 +100,22 @@ icon_folder  = ""
 icon_command = ""
 
 [tasks]
-border  = { fg = "#8e9e80" }
+border  = { fg = "#78856e" }
 title   = { fg = "#506a6a" }
 hovered = { fg = "#4b6f72", bg = "#e9e9e9" }
 
 [which]
 cols            = 3
 mask            = { bg = "#dadada" }
-cand            = { fg = "#4e6168" }
-rest            = { fg = "#555f6b" }
-desc            = { fg = "#675964" }
+cand            = { fg = "#506167" }
+rest            = { fg = "#52606f" }
+desc            = { fg = "#6e5a6b" }
 separator       = " ➜ "
 separator_style = { fg = "#717a92" }
 
 [confirm]
-border  = { fg = "#556a80" }
-title   = { fg = "#556a80" }
+border  = { fg = "#60788f" }
+title   = { fg = "#60788f" }
 body    = {}
 list    = {}
 btn_yes = { fg = "#4b6f72", bg = "#e9e9e9" }
@@ -123,23 +123,23 @@ btn_no  = {}
 btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 
 [spot]
-border   = { fg = "#8e9e80" }
+border   = { fg = "#78856e" }
 title    = { fg = "#506a6a" }
-tbl_col  = { fg = "#5b6774" }
-tbl_cell = { fg = "#786746", bg = "#e9e9e9" }
+tbl_col  = { fg = "#576779" }
+tbl_cell = { fg = "#756648", bg = "#e9e9e9" }
 
 [notify]
-title_info  = { fg = "#53677d" }
-title_warn  = { fg = "#885a4d" }
-title_error = { fg = "#8d575c" }
+title_info  = { fg = "#556677" }
+title_warn  = { fg = "#865a4c" }
+title_error = { fg = "#8c575c" }
 
 icon_info  = ""
 icon_warn  = ""
 icon_error = ""
 
 [help]
-on      = { fg = "#5e6855" }
-run     = { fg = "#70606d" }
+on      = { fg = "#5d6756" }
+run     = { fg = "#6e5a6b" }
 desc    = { fg = "#3c7478" }
 hovered = { fg = "#4b6f72", bg = "#e9e9e9", bold = true }
 footer  = { fg = "#4b6f72", bg = "#e9e9e9" }
@@ -147,27 +147,27 @@ footer  = { fg = "#4b6f72", bg = "#e9e9e9" }
 [filetype]
 rules = [
 	# Images
-	{ mime = "image/*", fg = "#716245" },
+	{ mime = "image/*", fg = "#726447" },
 
 	# Media
-	{ mime = "{audio,video}/*", fg = "#70606d" },
+	{ mime = "{audio,video}/*", fg = "#6e5a6b" },
 
 	# Archives
-	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#87585d" },
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#87595d" },
 
 	# Documents
-	{ mime = "application/{pdf,doc,rtf}", fg = "#536971" },
+	{ mime = "application/{pdf,doc,rtf}", fg = "#55696f" },
 
 	# Virtual file system — 26 reports unreachable remote entries through this
 	{ mime = "vfs/{absent,stale}", fg = "#737d95" },
 
 	# Special files. `url` here was `name` before 26.
-	{ url = "*", is = "orphan", bg = "#935d63" },
-	{ url = "*", is = "exec"  , fg = "#5e6855" },
-	{ url = "*", is = "dummy", bg = "#935d63" },
-	{ url = "*/", is = "dummy", bg = "#935d63" },
+	{ url = "*", is = "orphan", bg = "#976065" },
+	{ url = "*", is = "exec"  , fg = "#5d6756" },
+	{ url = "*", is = "dummy", bg = "#976065" },
+	{ url = "*/", is = "dummy", bg = "#976065" },
 
 	# Fallback
-	{ url = "*/", fg = "#5b6774" }
+	{ url = "*/", fg = "#576779" }
 ]
     

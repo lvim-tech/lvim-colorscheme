@@ -1,7 +1,7 @@
 # Lvim Colorscheme EverforestDark
 export def main [] {
     return {
-        separator: "#2c3339"
+        separator: "#272e2e"
         leading_trailing_space_bg: { attr: "n" }
         header: { fg: "#75783a" attr: "b" }
         empty: "#42728b"

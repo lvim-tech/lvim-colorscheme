@@ -13,40 +13,40 @@
 # Selected item and cursor.
 highlight_color = "#bb755e"
 # Panel titles.
-header_title_color = "#42728b"
+header_title_color = "#497188"
 # Pin icon on pinned entries.
-pin_color = "#cc7942"
+pin_color = "#c47d54"
 
 # Panel borders.
-main_border_color = "#443f3d"
-apps_border_color = "#443f3d"
-input_border_color = "#443f3d"
+main_border_color = "#44413e"
+apps_border_color = "#44413e"
+input_border_color = "#44413e"
 
 # Panel text.
-main_text_color = "#aa9782"
-apps_text_color = "#aa9782"
-input_text_color = "#aa9782"
+main_text_color = "#ad9984"
+apps_text_color = "#ad9984"
+input_text_color = "#ad9984"
 
 # --- dmenu mode ------------------------------------------------------------
 
 [dmenu]
 highlight_color = "#bb755e"
-header_title_color = "#42728b"
-main_border_color = "#443f3d"
-items_border_color = "#443f3d"
-input_border_color = "#443f3d"
-main_text_color = "#aa9782"
-items_text_color = "#aa9782"
-input_text_color = "#aa9782"
+header_title_color = "#497188"
+main_border_color = "#44413e"
+items_border_color = "#44413e"
+input_border_color = "#44413e"
+main_text_color = "#ad9984"
+items_text_color = "#ad9984"
+input_text_color = "#ad9984"
 
 # --- cclip mode ------------------------------------------------------------
 
 [cclip]
 highlight_color = "#bb755e"
-header_title_color = "#42728b"
-main_border_color = "#443f3d"
-items_border_color = "#443f3d"
-input_border_color = "#443f3d"
-main_text_color = "#aa9782"
-items_text_color = "#aa9782"
-input_text_color = "#aa9782"
+header_title_color = "#497188"
+main_border_color = "#44413e"
+items_border_color = "#44413e"
+input_border_color = "#44413e"
+main_text_color = "#ad9984"
+items_text_color = "#ad9984"
+input_text_color = "#ad9984"

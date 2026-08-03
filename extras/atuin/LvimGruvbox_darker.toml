@@ -14,27 +14,27 @@ name = "LvimGruvbox_darker"
 
 [colors]
 # Default foreground.
-Base = "#a79480"
+Base = "#aa9782"
 # Failures.
-AlertError = "#cb4f4f"
+AlertError = "#ca4f4f"
 # Non-fatal problems.
 AlertWarn = "#af9e6b"
 # Informational notices.
-AlertInfo = "#75783a"
+AlertInfo = "#757845"
 # Secondary text.
-Muted = "#7b6e62"
+Muted = "#7e7064"
 # Tertiary text: timestamps, durations, exit codes.
-Annotation = "#594f47"
+Annotation = "#5c5149"
 # The selected entry.
 Important = "#bb755e"
 # Section headings.
-Title = "#42728b"
+Title = "#497188"
 # Keybinding hints.
 Guidance = "#527a57"
 # Command preview.
-SyntaxCommand = "#75783a"
+SyntaxCommand = "#757845"
 SyntaxFlag = "#527a57"
-SyntaxString = "#cc7942"
+SyntaxString = "#c47d54"
 SyntaxVariable = "#bb755e"
-SyntaxOperator = "#a79480"
-SyntaxComment = "#594f47"
+SyntaxOperator = "#aa9782"
+SyntaxComment = "#5c5149"

@@ -16,25 +16,25 @@ name = "LvimDracula_light"
 # Default foreground.
 Base = "#425353"
 # Failures.
-AlertError = "#ba4040"
+AlertError = "#af5959"
 # Non-fatal problems.
-AlertWarn = "#60652c"
+AlertWarn = "#777b56"
 # Informational notices.
-AlertInfo = "#2f7a42"
+AlertInfo = "#466d4e"
 # Secondary text.
 Muted = "#3c7a7e"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#8f96b5"
 # The selected entry.
-Important = "#9f3d77"
+Important = "#905274"
 # Section headings.
-Title = "#3a7885"
+Title = "#517079"
 # Keybinding hints.
-Guidance = "#2d7065"
+Guidance = "#496b64"
 # Command preview.
-SyntaxCommand = "#2f7a42"
-SyntaxFlag = "#2d7065"
-SyntaxString = "#9e703f"
-SyntaxVariable = "#9f3d77"
+SyntaxCommand = "#466d4e"
+SyntaxFlag = "#496b64"
+SyntaxString = "#957860"
+SyntaxVariable = "#905274"
 SyntaxOperator = "#425353"
 SyntaxComment = "#8f96b5"

@@ -16,25 +16,25 @@ name = "LvimCatppuccin_soft"
 # Default foreground.
 Base = "#b2b7c7"
 # Failures.
-AlertError = "#d36d89"
+AlertError = "#b7657a"
 # Non-fatal problems.
-AlertWarn = "#d8b973"
+AlertWarn = "#b8a47e"
 # Informational notices.
-AlertInfo = "#84c27f"
+AlertInfo = "#6b8d69"
 # Secondary text.
 Muted = "#888c98"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#5f647d"
 # The selected entry.
-Important = "#d07fba"
+Important = "#b976a7"
 # Section headings.
-Title = "#6793da"
+Title = "#6076a0"
 # Keybinding hints.
-Guidance = "#71becc"
+Guidance = "#65878e"
 # Command preview.
-SyntaxCommand = "#84c27f"
-SyntaxFlag = "#71becc"
-SyntaxString = "#da9366"
-SyntaxVariable = "#d07fba"
+SyntaxCommand = "#6b8d69"
+SyntaxFlag = "#65878e"
+SyntaxString = "#b88970"
+SyntaxVariable = "#b976a7"
 SyntaxOperator = "#b2b7c7"
 SyntaxComment = "#5f647d"

@@ -21,9 +21,9 @@ name: LvimDracula_light
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#9f3d77"
+    accent: "#905274"
     # Section headings, the active tab and step markers.
-    accent_alt: "#3a7885"
+    accent_alt: "#517079"
     # Default foreground.
     text: "#425353"
     # Descriptions, field labels, hints, streamed build output.
@@ -31,10 +31,10 @@ colors:
     # Unfocused pane borders.
     subtle: "#b1b1b1"
     # Installed packages and completed operations.
-    success: "#2f7a42"
+    success: "#466d4e"
     # Available updates and non-fatal problems.
-    warning: "#60652c"
+    warning: "#777b56"
     # Failures.
-    error: "#ba4040"
+    error: "#af5959"
     # Text of the title badge, drawn on `accent`.
     title_fg: "#E4E4E4"

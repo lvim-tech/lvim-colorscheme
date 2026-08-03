@@ -1,8 +1,8 @@
 # Lvim Colorscheme LvimDark
 style:
   tag:
-    color: dark_cyan
+    color: cyan
   comment:
-    color: dark_cyan
+    color: cyan
   snippet:
     color: yellow

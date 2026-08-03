@@ -21,20 +21,20 @@ name: LvimKanagawa_soft
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#c4746e"
+    accent: "#c4726c"
     # Section headings, the active tab and step markers.
-    accent_alt: "#4f6ea4"
+    accent_alt: "#506fa5"
     # Default foreground.
-    text: "#9d9dba"
+    text: "#a0a0bc"
     # Descriptions, field labels, hints, streamed build output.
-    muted: "#686896"
+    muted: "#6a6a99"
     # Unfocused pane borders.
-    subtle: "#424453"
+    subtle: "#434554"
     # Installed packages and completed operations.
-    success: "#6e8156"
+    success: "#6c7f54"
     # Available updates and non-fatal problems.
-    warning: "#e0c286"
+    warning: "#d1b57c"
     # Failures.
-    error: "#b65252"
+    error: "#ba5454"
     # Text of the title badge, drawn on `accent`.
     title_fg: "#26272d"

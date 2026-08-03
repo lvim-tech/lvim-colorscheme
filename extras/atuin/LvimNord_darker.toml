@@ -16,25 +16,25 @@ name = "LvimNord_darker"
 # Default foreground.
 Base = "#b3bac6"
 # Failures.
-AlertError = "#af7177"
+AlertError = "#ac6e74"
 # Non-fatal problems.
-AlertWarn = "#cbae72"
+AlertWarn = "#c3a870"
 # Informational notices.
-AlertInfo = "#97ab86"
+AlertInfo = "#879978"
 # Secondary text.
 Muted = "#8a8e96"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#5f6778"
 # The selected entry.
-Important = "#a58aa0"
+Important = "#a2869d"
 # Section headings.
-Title = "#8097af"
+Title = "#73889e"
 # Keybinding hints.
-Guidance = "#7eaab7"
+Guidance = "#7097a3"
 # Command preview.
-SyntaxCommand = "#97ab86"
-SyntaxFlag = "#7eaab7"
-SyntaxString = "#ba8574"
-SyntaxVariable = "#a58aa0"
+SyntaxCommand = "#879978"
+SyntaxFlag = "#7097a3"
+SyntaxString = "#b88473"
+SyntaxVariable = "#a2869d"
 SyntaxOperator = "#b3bac6"
 SyntaxComment = "#5f6778"

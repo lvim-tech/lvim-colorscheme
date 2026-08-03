@@ -14,27 +14,27 @@ name = "LvimRosepine_dark"
 
 [colors]
 # Default foreground.
-Base = "#b4b2c7"
+Base = "#b3afb2"
 # Failures.
-AlertError = "#cd6985"
+AlertError = "#a0727c"
 # Non-fatal problems.
-AlertWarn = "#d6a765"
+AlertWarn = "#b6a18b"
 # Informational notices.
-AlertInfo = "#83b2ba"
+AlertInfo = "#788b7c"
 # Secondary text.
-Muted = "#898796"
+Muted = "#8a8588"
 # Tertiary text: timestamps, durations, exit codes.
-Annotation = "#655f80"
+Annotation = "#72596d"
 # The selected entry.
-Important = "#9f80c4"
+Important = "#9084a2"
 # Section headings.
-Title = "#417082"
+Title = "#5d6d74"
 # Keybinding hints.
-Guidance = "#83b2ba"
+Guidance = "#788787"
 # Command preview.
-SyntaxCommand = "#83b2ba"
-SyntaxFlag = "#83b2ba"
-SyntaxString = "#c68784"
-SyntaxVariable = "#9f80c4"
-SyntaxOperator = "#b4b2c7"
-SyntaxComment = "#655f80"
+SyntaxCommand = "#788b7c"
+SyntaxFlag = "#788787"
+SyntaxString = "#a98a89"
+SyntaxVariable = "#9084a2"
+SyntaxOperator = "#b3afb2"
+SyntaxComment = "#72596d"

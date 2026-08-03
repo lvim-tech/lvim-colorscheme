@@ -3,6 +3,6 @@ style:
   tag:
     color: cyan
   comment:
-    color: blue
+    color: dark_blue
   snippet:
-    color: grey
+    color: green

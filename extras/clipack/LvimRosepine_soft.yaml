@@ -21,20 +21,20 @@ name: LvimRosepine_soft
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#9f80c4"
+    accent: "#9084a2"
     # Section headings, the active tab and step markers.
-    accent_alt: "#42758a"
+    accent_alt: "#5d6d74"
     # Default foreground.
-    text: "#b4b2c7"
+    text: "#b3afb2"
     # Descriptions, field labels, hints, streamed build output.
-    muted: "#746e91"
+    muted: "#896882"
     # Unfocused pane borders.
-    subtle: "#47425d"
+    subtle: "#46404e"
     # Installed packages and completed operations.
-    success: "#83b2ba"
+    success: "#788b7c"
     # Available updates and non-fatal problems.
-    warning: "#d6a765"
+    warning: "#b6a18b"
     # Failures.
-    error: "#cd6985"
+    error: "#a0727c"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#1e1b2b"
+    title_fg: "#232126"

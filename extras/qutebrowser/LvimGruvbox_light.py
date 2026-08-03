@@ -10,10 +10,10 @@ palette = {
     "foreground-attention": "#4c969a",
     "comment": "#a59283",
     "cyan": "#5c8861",
-    "green": "#7b7e3d",
-    "orange": "#8d522b",
+    "green": "#7a7d48",
+    "orange": "#875537",
     "pink": "#915a47",
     "purple": "#918c9d",
-    "red": "#c74d4d",
+    "red": "#c74e4e",
     "yellow": "#8f8156",
 }

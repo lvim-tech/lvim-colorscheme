@@ -16,11 +16,11 @@ name = "LvimGruvbox_light"
 # Default foreground.
 Base = "#425353"
 # Failures.
-AlertError = "#c74d4d"
+AlertError = "#c74e4e"
 # Non-fatal problems.
 AlertWarn = "#8c7e55"
 # Informational notices.
-AlertInfo = "#7b7e3d"
+AlertInfo = "#7a7d48"
 # Secondary text.
 Muted = "#3c7a7e"
 # Tertiary text: timestamps, durations, exit codes.
@@ -28,13 +28,13 @@ Annotation = "#a59283"
 # The selected entry.
 Important = "#915a47"
 # Section headings.
-Title = "#4f839e"
+Title = "#57829c"
 # Keybinding hints.
 Guidance = "#5c8861"
 # Command preview.
-SyntaxCommand = "#7b7e3d"
+SyntaxCommand = "#7a7d48"
 SyntaxFlag = "#5c8861"
-SyntaxString = "#8d522b"
+SyntaxString = "#875537"
 SyntaxVariable = "#915a47"
 SyntaxOperator = "#425353"
 SyntaxComment = "#a59283"

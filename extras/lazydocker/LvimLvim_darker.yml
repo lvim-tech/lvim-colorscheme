@@ -1,11 +1,11 @@
 # Palette fragment — appended under `gui: theme:` at the end of base.yml
 # by clipack's config.sh. Not a complete lazydocker configuration.
     activeBorderColor:
-      - "#FF9C2A"
+      - "#e19556"
       - "bold"
     inactiveBorderColor:
-      - "#6a7f4b"
+      - "#607247"
     selectedLineBgColor:
-      - "#1d2327"
+      - "#1c2225"
     optionsTextColor:
-      - "#0A85B9"
+      - "#447ca2"

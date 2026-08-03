@@ -13,9 +13,9 @@
 # Selected item and cursor.
 highlight_color = "#915a47"
 # Panel titles.
-header_title_color = "#4f839e"
+header_title_color = "#57829c"
 # Pin icon on pinned entries.
-pin_color = "#8d522b"
+pin_color = "#875537"
 
 # Panel borders.
 main_border_color = "#b1b1b1"
@@ -31,7 +31,7 @@ input_text_color = "#425353"
 
 [dmenu]
 highlight_color = "#915a47"
-header_title_color = "#4f839e"
+header_title_color = "#57829c"
 main_border_color = "#b1b1b1"
 items_border_color = "#b1b1b1"
 input_border_color = "#b1b1b1"
@@ -43,7 +43,7 @@ input_text_color = "#425353"
 
 [cclip]
 highlight_color = "#915a47"
-header_title_color = "#4f839e"
+header_title_color = "#57829c"
 main_border_color = "#b1b1b1"
 items_border_color = "#b1b1b1"
 input_border_color = "#b1b1b1"

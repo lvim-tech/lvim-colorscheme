@@ -1,8 +1,8 @@
 # Lvim Colorscheme NightfoxLight
 style:
   tag:
-    color: dark_cyan
+    color: cyan
   comment:
-    color: dark_blue
+    color: blue
   snippet:
     color: grey

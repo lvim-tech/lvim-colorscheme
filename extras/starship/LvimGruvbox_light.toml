@@ -1,15 +1,15 @@
 # Palette fragment — appended after prompt.toml by clipack's config.sh.
 # Not a complete starship configuration.
 [palettes.lvim]
-teal_dark = "#479e8d"
+teal_dark = "#599c8e"
 cyan_dark = "#67976d"
-yellow_dark = "#998853"
-green_dark = "#8a8e46"
-red_dark = "#e44a4a"
-orange_dark = "#a05e33"
+yellow_dark = "#988857"
+green_dark = "#8a8e52"
+red_dark = "#db5353"
+orange_dark = "#9a6140"
 purple_dark = "#9f9aa9"
-magenta_dark = "#a96047"
-blue_dark = "#5b97b6"
+magenta_dark = "#a7614a"
+blue_dark = "#6397b3"
 lua = "#51A0CF"
 python = "#FFBC03"
 ruby = "#701516"

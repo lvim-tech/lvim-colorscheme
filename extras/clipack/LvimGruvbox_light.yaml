@@ -23,7 +23,7 @@ colors:
     # Selection cursor, focused pane border and the title badge background.
     accent: "#915a47"
     # Section headings, the active tab and step markers.
-    accent_alt: "#4f839e"
+    accent_alt: "#57829c"
     # Default foreground.
     text: "#425353"
     # Descriptions, field labels, hints, streamed build output.
@@ -31,10 +31,10 @@ colors:
     # Unfocused pane borders.
     subtle: "#b1b1b1"
     # Installed packages and completed operations.
-    success: "#7b7e3d"
+    success: "#7a7d48"
     # Available updates and non-fatal problems.
     warning: "#8c7e55"
     # Failures.
-    error: "#c74d4d"
+    error: "#c74e4e"
     # Text of the title badge, drawn on `accent`.
     title_fg: "#E4E4E4"
