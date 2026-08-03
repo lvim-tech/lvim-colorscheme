@@ -21,9 +21,9 @@ name: LvimNord_light
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#6e5a6b"
+    accent: "#596a7c"
     # Section headings, the active tab and step markers.
-    accent_alt: "#596a7c"
+    accent_alt: "#7a564b"
     # Default foreground.
     text: "#425353"
     # Descriptions, field labels, hints, streamed build output.
@@ -33,8 +33,8 @@ colors:
     # Installed packages and completed operations.
     success: "#738168"
     # Available updates and non-fatal problems.
-    warning: "#8b774e"
+    warning: "#976065"
     # Failures.
     error: "#976065"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#E4E4E4"
+    title_fg: "#ffffff"

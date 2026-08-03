@@ -21,9 +21,9 @@ name: LvimCatppuccin_light
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#845377"
+    accent: "#6279a4"
     # Section headings, the active tab and step markers.
-    accent_alt: "#6279a4"
+    accent_alt: "#9a7561"
     # Default foreground.
     text: "#425353"
     # Descriptions, field labels, hints, streamed build output.
@@ -33,8 +33,8 @@ colors:
     # Installed packages and completed operations.
     success: "#557153"
     # Available updates and non-fatal problems.
-    warning: "#8a7b5e"
+    warning: "#a45a6d"
     # Failures.
     error: "#a45a6d"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#E4E4E4"
+    title_fg: "#ffffff"

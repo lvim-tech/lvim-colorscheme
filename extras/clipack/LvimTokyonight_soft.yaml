@@ -21,9 +21,9 @@ name: LvimTokyonight_soft
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#907bba"
+    accent: "#6073a4"
     # Section headings, the active tab and step markers.
-    accent_alt: "#6073a4"
+    accent_alt: "#bb866d"
     # Default foreground.
     text: "#b2b6c7"
     # Descriptions, field labels, hints, streamed build output.
@@ -33,8 +33,8 @@ colors:
     # Installed packages and completed operations.
     success: "#788a67"
     # Available updates and non-fatal problems.
-    warning: "#b79d7b"
+    warning: "#bb6171"
     # Failures.
     error: "#bb6171"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#22252e"
+    title_fg: "#ffffff"

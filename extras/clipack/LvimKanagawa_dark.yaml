@@ -21,9 +21,9 @@ name: LvimKanagawa_dark
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#c4726c"
+    accent: "#4e6a9c"
     # Section headings, the active tab and step markers.
-    accent_alt: "#4e6a9c"
+    accent_alt: "#bf8f62"
     # Default foreground.
     text: "#9a9ab8"
     # Descriptions, field labels, hints, streamed build output.
@@ -33,8 +33,8 @@ colors:
     # Installed packages and completed operations.
     success: "#6c7f54"
     # Available updates and non-fatal problems.
-    warning: "#d1b57c"
+    warning: "#ba5454"
     # Failures.
     error: "#ba5454"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#202127"
+    title_fg: "#ffffff"

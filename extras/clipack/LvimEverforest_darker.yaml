@@ -21,9 +21,9 @@ name: LvimEverforest_darker
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#bb755e"
+    accent: "#42728b"
     # Section headings, the active tab and step markers.
-    accent_alt: "#42728b"
+    accent_alt: "#cc7942"
     # Default foreground.
     text: "#92a48c"
     # Descriptions, field labels, hints, streamed build output.
@@ -33,8 +33,8 @@ colors:
     # Installed packages and completed operations.
     success: "#75783a"
     # Available updates and non-fatal problems.
-    warning: "#af9e6b"
+    warning: "#cb4f4f"
     # Failures.
     error: "#cb4f4f"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#1f2529"
+    title_fg: "#ffffff"

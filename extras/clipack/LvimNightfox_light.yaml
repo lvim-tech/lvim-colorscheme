@@ -21,9 +21,9 @@ name: LvimNightfox_light
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#755a88"
+    accent: "#546d8e"
     # Section headings, the active tab and step markers.
-    accent_alt: "#546d8e"
+    accent_alt: "#a17351"
     # Default foreground.
     text: "#425353"
     # Descriptions, field labels, hints, streamed build output.
@@ -33,8 +33,8 @@ colors:
     # Installed packages and completed operations.
     success: "#6b8377"
     # Available updates and non-fatal problems.
-    warning: "#897a50"
+    warning: "#a75d70"
     # Failures.
     error: "#a75d70"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#E4E4E4"
+    title_fg: "#ffffff"

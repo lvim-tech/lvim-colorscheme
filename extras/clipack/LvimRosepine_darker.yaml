@@ -21,9 +21,9 @@ name: LvimRosepine_darker
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#9084a2"
+    accent: "#5d6d74"
     # Section headings, the active tab and step markers.
-    accent_alt: "#5d6d74"
+    accent_alt: "#a98a89"
     # Default foreground.
     text: "#b3afb2"
     # Descriptions, field labels, hints, streamed build output.
@@ -33,8 +33,8 @@ colors:
     # Installed packages and completed operations.
     success: "#788b7c"
     # Available updates and non-fatal problems.
-    warning: "#b6a18b"
+    warning: "#a0727c"
     # Failures.
     error: "#a0727c"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#171519"
+    title_fg: "#ffffff"

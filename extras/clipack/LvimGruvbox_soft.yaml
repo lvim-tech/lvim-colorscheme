@@ -21,9 +21,9 @@ name: LvimGruvbox_soft
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#bb755e"
+    accent: "#4a748c"
     # Section headings, the active tab and step markers.
-    accent_alt: "#4a748c"
+    accent_alt: "#c47d54"
     # Default foreground.
     text: "#b49f88"
     # Descriptions, field labels, hints, streamed build output.
@@ -33,8 +33,8 @@ colors:
     # Installed packages and completed operations.
     success: "#757845"
     # Available updates and non-fatal problems.
-    warning: "#af9e6b"
+    warning: "#ca4f4f"
     # Failures.
     error: "#ca4f4f"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#282726"
+    title_fg: "#ffffff"

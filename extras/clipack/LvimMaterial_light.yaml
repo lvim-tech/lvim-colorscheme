@@ -21,9 +21,9 @@ name: LvimMaterial_light
 
 colors:
     # Selection cursor, focused pane border and the title badge background.
-    accent: "#b04556"
+    accent: "#4d6cae"
     # Section headings, the active tab and step markers.
-    accent_alt: "#4d6cae"
+    accent_alt: "#b36b57"
     # Default foreground.
     text: "#425353"
     # Descriptions, field labels, hints, streamed build output.
@@ -33,8 +33,8 @@ colors:
     # Installed packages and completed operations.
     success: "#6f864f"
     # Available updates and non-fatal problems.
-    warning: "#8e7347"
+    warning: "#b14b51"
     # Failures.
     error: "#b14b51"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#E4E4E4"
+    title_fg: "#ffffff"
