@@ -39,8 +39,12 @@ function M.setup(opts)
     vim.g.colors_name = "lvim-" .. opts.style
 
     for group, hl in pairs(groups) do
-        hl = type(hl) == "string" and { link = hl } or hl
-        vim.api.nvim_set_hl(0, group, hl)
+        -- A group is either a definition table or a bare string naming the group it links to.
+        if type(hl) == "string" then
+            vim.api.nvim_set_hl(0, group, { link = hl })
+        else
+            vim.api.nvim_set_hl(0, group, hl)
+        end
     end
 
     if opts.terminal_colors then

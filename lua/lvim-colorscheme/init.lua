@@ -100,7 +100,7 @@ function M.setup(opts)
         -- apply re-fires the User autocmd above, which seeds the mirror on first run. With
         -- nothing remembered yet, fall back to the configured default `style`.
         local last = store.load_theme()
-        if not last or not pcall(vim.cmd, "colorscheme " .. last) then
+        if not last or not pcall(vim.cmd.colorscheme, last) then
             M.load()
         end
     end

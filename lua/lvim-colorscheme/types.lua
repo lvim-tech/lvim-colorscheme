@@ -5,11 +5,12 @@
 --
 ---@module "lvim-colorscheme.types"
 
----@class lvim-colorscheme.Highlight
----@field fg? string
----@field bg? string
+--- A group definition is everything `nvim_set_hl` accepts, plus the engine-only `style`
+--- key (a `styles.*` config value — `"italic"`, `{ italic = true }`, `false`). `util.highlight`
+--- expands `style` into the real boolean attributes and strips it before the value reaches
+--- the API, so the extra field never leaves the engine.
+---@class lvim-colorscheme.Highlight : vim.api.keyset.highlight
 ---@field style? string|table
----@field sp? string
 
 --- A highlight is either a definition table or a string linking to another group.
 ---@alias lvim-colorscheme.Highlights table<string, lvim-colorscheme.Highlight|string>

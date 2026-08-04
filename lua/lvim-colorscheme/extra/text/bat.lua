@@ -91,6 +91,9 @@ function M.generate(colors)
         background = "light"
     end
     local theme_name = "Lvim" .. (colors._style:gsub("^%l", string.upper))
+    -- stylua: ignore
+    -- The plist preamble, one entry per line of it, with the embedded \n where the generated file
+    -- has one. Reflowed by column_width the entries stop lining up with the XML they emit.
     local theme = {
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">',

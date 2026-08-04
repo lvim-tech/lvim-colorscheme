@@ -21,6 +21,10 @@ function M.generate(colors)
         return string.format("{ Rgb = { %d, %d, %d } }", r, g, b)
     end
 
+    -- stylua: ignore
+    -- One entry per LINE OF THE GENERATED FILE, so the table reads as the file it produces. Past
+    -- column_width stylua breaks the `..` chains across five lines each, and that correspondence —
+    -- the only reason to write it this way — is gone.
     local lines = {
         "-- " .. (colors._style_name or "Lvim"),
         "local M = {}",

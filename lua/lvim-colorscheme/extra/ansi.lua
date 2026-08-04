@@ -80,26 +80,6 @@ function M.to_256(hex)
     return best
 end
 
--- crossterm's sixteen names with the colours they conventionally render as.
-local NAMED = {
-    { "black", 0, 0, 0 },
-    { "dark_red", 128, 0, 0 },
-    { "dark_green", 0, 128, 0 },
-    { "dark_yellow", 128, 128, 0 },
-    { "dark_blue", 0, 0, 128 },
-    { "dark_magenta", 128, 0, 128 },
-    { "dark_cyan", 0, 128, 128 },
-    { "grey", 192, 192, 192 },
-    { "dark_grey", 128, 128, 128 },
-    { "red", 255, 0, 0 },
-    { "green", 0, 255, 0 },
-    { "yellow", 255, 255, 0 },
-    { "blue", 0, 0, 255 },
-    { "magenta", 255, 0, 255 },
-    { "cyan", 0, 255, 255 },
-    { "white", 255, 255, 255 },
-}
-
 --- Nearest crossterm colour NAME — the only thing navi accepts. The choice
 --- goes by HUE, not by euclidean distance: with only sixteen names a pastel
 --- blue is numerically closest to grey, which is exactly the wrong answer for

@@ -8,7 +8,6 @@ M.url = "https://github.com/hrsh7th/nvim-cmp"
 
 ---@type lvim-colorscheme.HighlightsFn
 function M.get(c)
-    local blend = c.blend
     -- stylua: ignore
     local ret = {
         CmpDocumentation       = { bg = c.bg_float,       fg = c.fg },

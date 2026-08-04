@@ -7,7 +7,7 @@ local util = require("lvim-colorscheme.util")
 local M = {}
 
 --- @param colors ColorScheme
-function M.generate(colors, _, opts)
+function M.generate(colors)
     -- Colours only, as named @define-color values. The 190 lines of
     -- structure this used to duplicate per theme live once in the user's
     -- structure.css, which current.css imports AFTER this palette so every

@@ -58,7 +58,7 @@ function M.kinds(hl, pattern)
 end
 
 ---@type lvim-colorscheme.HighlightsFn
-function M.get(_c, _opts)
+function M.get()
     return M.kinds()
 end
 
