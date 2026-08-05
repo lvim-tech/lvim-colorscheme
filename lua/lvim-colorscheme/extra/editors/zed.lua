@@ -6,6 +6,16 @@ local util = require("lvim-colorscheme.util")
 
 local M = {}
 
+-- BOTH element families are written in full — background, hover, selected, active, disabled — because
+-- a key left out is not left neutral: Zed substitutes its own default, which is built for a light UI.
+-- `ghost_element.selected` was the one missing, and it is what paints the SELECTED row of the project
+-- panel, so the open file sat in a near-white box with the palette's own `text` on top, unreadable
+-- under every dark theme. `ghost_element.hover` was present, which is why hovering looked correct and
+-- only selection did not. The schema at zed.dev lists five keys per family; all ten are set here.
+--
+-- selected and hover resolve to the same colour, deliberately left so: colors/init.lua assigns one
+-- `bg_blend` to bg_visual, bg_search and bg_highlight alike, and distinguishing them would mean a new
+-- derived colour in every palette.
 --- @param colors ColorScheme
 function M.generate(colors)
     -- Zed switches its own UI chrome on this field, so a light palette shipped as "dark" makes the
@@ -38,7 +48,13 @@ function M.generate(colors)
         "element.background": "${bg}",
         "element.hover": "${bg_highlight}",
         "element.selected": "${bg_visual}",
+        "element.active": "${bg_visual}",
+        "element.disabled": "${bg}",
+        "ghost_element.background": "${bg}",
         "ghost_element.hover": "${bg_highlight}",
+        "ghost_element.selected": "${bg_visual}",
+        "ghost_element.active": "${bg_visual}",
+        "ghost_element.disabled": "${bg}",
         "drop_target.background": "${bg_visual}",
         "status_bar.background": "${bg}",
         "title_bar.background": "${bg}",
