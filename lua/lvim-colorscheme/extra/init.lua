@@ -156,6 +156,31 @@ function M.generate_themes(only)
             util.write("extras/" .. fname, plugin.generate(colors, groups, opts))
         end
     end
+
+    M.write_index()
+end
+
+--- Write extras/themes.txt: the canonical theme names, one per line, sorted.
+---
+--- The list exists so a consumer can learn which themes there are without
+--- listing a directory through the GitHub API — one raw URL, no rate limit, and
+--- no arbitrary choice of which tool's directory to count. themer reads exactly
+--- this; it used to carry its own copy of all 48 palettes for the same purpose
+--- and that copy went stale.
+---
+--- Written on every generate_themes run, including a single-tool one, because
+--- the names come from the style table rather than from what was just emitted.
+---@return nil
+function M.write_index()
+    ---@type string[]
+    local names = {}
+    for style, _ in pairs(styles) do
+        local capitalised = (style:gsub("^%l", string.upper))
+        table.insert(names, "Lvim" .. capitalised)
+    end
+    table.sort(names)
+    print("[write] themes.txt")
+    util.write("extras/themes.txt", table.concat(names, "\n") .. "\n")
 end
 
 --- Emit the gowall palette config (`extras/gowall/config.yml`) from every lvim style.
