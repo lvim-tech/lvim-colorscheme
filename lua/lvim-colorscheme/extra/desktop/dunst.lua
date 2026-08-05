@@ -1,28 +1,28 @@
 -- lvim-colorscheme.extra.dunst: generate dunst's colours from the lvim-colorscheme palette.
 --
--- THE URGENCY IS THE BACKGROUND. A notification here is a coloured card — yellow, orange or red for
--- low, normal and critical — rather than a dark card with a coloured edge. So the palette colour
--- lands in `background`, and `frame_color` is set to match it so a frame of any width disappears
--- into it rather than outlining it.
+-- THE CARD IS THE THEME'S OWN BACKGROUND and carries no frame. The urgency is told by the TITLE,
+-- which takes the palette's yellow, orange or red, while the body stays neutral — so the colour is
+-- a word rather than a wall, and a stack of notifications reads as one surface.
 --
--- That single decision is what forces everything else in this file. A colour chosen to be SEEN
--- against a dark window needs about 3:1; a colour that CARRIES TEXT needs 4.5, and the two are not
--- the same number. Everforest's yellow measured 2.65:1 against white while it was only ever a frame,
--- which was fine — nothing was written on it. As a background it would be unreadable.
+-- A frame is not an option here even where it might suit: dunst's `frame_width` is a single number
+-- for all four sides, and nothing in its settings table names a side — checked against
+-- settings_data.h, which has frame_width, frame_color, corners and corner_radius, and no more.
+-- A line under the notification alone cannot be asked for.
 --
--- The text is the palette's own background — the colour the desktop is otherwise made of — so a
--- notification reads as the theme inverted rather than as white paint dropped on it. That fixes the
--- label and leaves the card as the thing that has to move: each urgency colour is walked away from
--- `bg` until `bg` has room on it. On a dark palette that lifts the card, on a light one it deepens
--- it, and in both directions the card also parts from the window it sits over.
+-- COLOURING THE TITLE APART FROM THE BODY takes a rule, not an urgency section. Urgency sections
+-- accept only background, foreground, highlight, timeout, frame_color and icon; `format` is a rule
+-- attribute, so each urgency gets a named rule matching on msg_urgency. And it has to be `format`:
+-- markup there is parsed whatever `markup` is set to, while markup arriving inside a notification's
+-- own text is subject to it and comes out as literal `<span …>` — measured, on this machine, before
+-- this file was written.
 --
--- `highlight` is the progress bar, drawn ON the card, so it takes the text colour rather than the
--- urgency colour — a bar in the same colour as its background is not a bar.
+-- The body takes the palette's own foreground on its own background — the pairing every other
+-- window here already uses, so a notification reads as part of the desktop rather than apart from it.
+
 --
 -- Written as a DROP-IN. dunst reads its dunstrc and then every *.conf in dunstrc.d/ in alphabetical
--- order, the later winning — read from settings.c, where config_files_add_drop_ins() appends that
--- directory after the base file and is_drop_in() accepts exactly the .conf suffix. The hand-written
--- config is never touched and does not mention this file.
+-- order, the later winning — config_files_add_drop_ins() in settings.c, with is_drop_in() accepting
+-- exactly the .conf suffix.
 --
 ---@module "lvim-colorscheme.extra.dunst"
 
@@ -30,23 +30,21 @@ local util = require("lvim-colorscheme.util")
 
 local M = {}
 
---- The label for a card, decided by measurement rather than by preference.
----
---- The palette's own background is tried first, because a notification that reads as the theme
---- inverted belongs to the desktop in a way white paint does not. It is not always possible: red and
---- orange are dark colours in several of these palettes and sit close to the very background that
---- would be written on them — measured across the 48, the pair fell below the floor 65 times out of
---- 144, worst at 2.88:1 for Solarized's deep blue on its red. So where it does not clear, the label
---- falls to whichever extreme measures better on that card. The card itself never moves.
-local function label_for(colors, fill)
-    if util.contrast(colors.bg, fill) >= 4.5 then
-        return colors.bg
-    end
-    return util.contrast("#ffffff", fill) >= util.contrast("#000000", fill) and "#ffffff" or "#000000"
-end
-
 --- @param colors ColorScheme
 function M.generate(colors)
+    local bg = colors.bg
+
+    -- The body: the palette's own foreground on its own background, the pairing the rest of the
+    -- desktop already uses.
+    local body = colors.fg
+
+    -- A title is text, so it is held to the text floor rather than to the 3:1 a coloured edge would
+    -- have needed. The palette's own hue survives — ensure_contrast moves lightness in hsluv and
+    -- leaves hue and saturation where the palette put them.
+    local function title(color)
+        return util.ensure_contrast(color, bg, 4.5)
+    end
+
     return util.template(
         [[
 # lvim-colorscheme — colours only, as a drop-in.
@@ -60,30 +58,44 @@ function M.generate(colors)
     separator_color = frame
 
 [urgency_low]
-    background = "${dunst_low}"
-    foreground = "${dunst_low_fg}"
-    frame_color = "${dunst_low}"
-    highlight = "${dunst_low_fg}"
+    background = "${dunst_bg}"
+    foreground = "${dunst_body}"
+    frame_color = "${dunst_bg}"
+    highlight = "${dunst_low}"
 
 [urgency_normal]
-    background = "${dunst_normal}"
-    foreground = "${dunst_normal_fg}"
-    frame_color = "${dunst_normal}"
-    highlight = "${dunst_normal_fg}"
+    background = "${dunst_bg}"
+    foreground = "${dunst_body}"
+    frame_color = "${dunst_bg}"
+    highlight = "${dunst_normal}"
 
 [urgency_critical]
-    background = "${dunst_critical}"
-    foreground = "${dunst_critical_fg}"
-    frame_color = "${dunst_critical}"
-    highlight = "${dunst_critical_fg}"
+    background = "${dunst_bg}"
+    foreground = "${dunst_body}"
+    frame_color = "${dunst_bg}"
+    highlight = "${dunst_critical}"
+
+# The title, coloured by urgency. These are rules rather than urgency sections because `format` is
+# a rule attribute; the filter is what an urgency section would have had implied.
+
+[lvim_title_low]
+    msg_urgency = low
+    format = "<span foreground='${dunst_low}'><b>%s</b></span>\n%b"
+
+[lvim_title_normal]
+    msg_urgency = normal
+    format = "<span foreground='${dunst_normal}'><b>%s</b></span>\n%b"
+
+[lvim_title_critical]
+    msg_urgency = critical
+    format = "<span foreground='${dunst_critical}'><b>%s</b></span>\n%b"
 ]],
         vim.tbl_extend("force", colors, {
-            dunst_low = colors.yellow,
-            dunst_normal = colors.orange,
-            dunst_critical = colors.red,
-            dunst_low_fg = label_for(colors, colors.yellow),
-            dunst_normal_fg = label_for(colors, colors.orange),
-            dunst_critical_fg = label_for(colors, colors.red),
+            dunst_bg = bg,
+            dunst_body = body,
+            dunst_low = title(colors.yellow),
+            dunst_normal = title(colors.orange),
+            dunst_critical = title(colors.red),
         })
     )
 end
