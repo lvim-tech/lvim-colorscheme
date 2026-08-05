@@ -73,6 +73,7 @@ M.extras = {
   bat             = { ext = "tmTheme", url = "https://github.com/sharkdp/bat", label = "Bat", group = "text" },
   clipack         = { ext = "yaml", url = "https://github.com/lvim-tech/clipack", label = "Clipack", group = "misc" },
   delta           = { ext = "gitconfig", url = "https://github.com/dandavison/delta", label = "Delta", group = "git" },
+  dunst           = { ext = "conf", url = "https://github.com/dunst-project/dunst", label = "Dunst", group = "desktop" },
   eza             = { ext = "yml", url = "https://github.com/eza-community/eza", label = "Eza", group = "files" },
   fsel            = { ext = "toml", url = "https://github.com/Mjoyufull/fsel", label = "Fsel", group = "desktop" },
   fzf             = { ext = "sh", url = "https://github.com/junegunn/fzf", label = "Fzf", group = "shell" },
