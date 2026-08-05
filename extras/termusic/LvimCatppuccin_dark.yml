@@ -1,5 +1,7 @@
 # Lvim Colorscheme CatppuccinDark
 colors:
+  name: Lvim Colorscheme CatppuccinDark
+  author: lvim-colorscheme
   primary:
     background: "#191a23"
     foreground: "#b2b7c7"

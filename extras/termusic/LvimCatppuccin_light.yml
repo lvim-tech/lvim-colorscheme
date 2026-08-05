@@ -1,5 +1,7 @@
 # Lvim Colorscheme CatppuccinLight
 colors:
+  name: Lvim Colorscheme CatppuccinLight
+  author: lvim-colorscheme
   primary:
     background: "#dadada"
     foreground: "#5e8888"

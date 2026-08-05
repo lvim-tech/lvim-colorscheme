@@ -1,5 +1,7 @@
 # Lvim Colorscheme RosepineSoft
 colors:
+  name: Lvim Colorscheme RosepineSoft
+  author: lvim-colorscheme
   primary:
     background: "#1f1d22"
     foreground: "#b3afb2"

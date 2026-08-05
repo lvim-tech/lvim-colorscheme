@@ -1,5 +1,7 @@
 # Lvim Colorscheme EverforestDarker
 colors:
+  name: Lvim Colorscheme EverforestDarker
+  author: lvim-colorscheme
   primary:
     background: "#161b1d"
     foreground: "#5a6158"

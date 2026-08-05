@@ -1,5 +1,7 @@
 # Lvim Colorscheme SolarizedDarker
 colors:
+  name: Lvim Colorscheme SolarizedDarker
+  author: lvim-colorscheme
   primary:
     background: "#001b23"
     foreground: "#9da4a4"

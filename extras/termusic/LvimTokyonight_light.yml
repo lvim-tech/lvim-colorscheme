@@ -1,5 +1,7 @@
 # Lvim Colorscheme TokyonightLight
 colors:
+  name: Lvim Colorscheme TokyonightLight
+  author: lvim-colorscheme
   primary:
     background: "#dadada"
     foreground: "#5e8888"

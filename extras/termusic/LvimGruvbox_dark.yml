@@ -1,5 +1,7 @@
 # Lvim Colorscheme GruvboxDark
 colors:
+  name: Lvim Colorscheme GruvboxDark
+  author: lvim-colorscheme
   primary:
     background: "#1e1d1c"
     foreground: "#645c54"

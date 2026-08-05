@@ -1,5 +1,7 @@
 # Lvim Colorscheme MaterialLight
 colors:
+  name: Lvim Colorscheme MaterialLight
+  author: lvim-colorscheme
   primary:
     background: "#dadada"
     foreground: "#5e8888"

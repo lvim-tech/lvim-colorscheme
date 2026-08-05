@@ -1,5 +1,7 @@
 # Lvim Colorscheme MaterialDarker
 colors:
+  name: Lvim Colorscheme MaterialDarker
+  author: lvim-colorscheme
   primary:
     background: "#182125"
     foreground: "#b2c7c7"

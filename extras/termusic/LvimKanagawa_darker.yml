@@ -1,5 +1,7 @@
 # Lvim Colorscheme KanagawaDarker
 colors:
+  name: Lvim Colorscheme KanagawaDarker
+  author: lvim-colorscheme
   primary:
     background: "#18191f"
     foreground: "#54546d"

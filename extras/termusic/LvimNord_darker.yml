@@ -1,5 +1,7 @@
 # Lvim Colorscheme NordDarker
 colors:
+  name: Lvim Colorscheme NordDarker
+  author: lvim-colorscheme
   primary:
     background: "#191d24"
     foreground: "#b3bac6"

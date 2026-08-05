@@ -2,7 +2,12 @@
 --
 --     mkdir -p ~/.config/termusic/themes
 --     ln -sf .../extras/termusic/LvimNord_dark.yml ~/.config/termusic/themes/
---     # then pick it in the in-app Config Editor
+--     # then in tui.toml: [theme] name = "Lvim Colorscheme NordDark"
+--
+-- `colors.name` is what tui.toml's [theme] name matches against, so a file
+-- without it cannot be selected at all. MEASURED against the vscode.dark.yml
+-- termusic ships: it carries name and author inside colors, and the generated
+-- files did not.
 --
 -- termusic splits theming in two: this alacritty-shaped palette file, and
 -- `tui.toml`, where each widget names a palette SLOT (`red`, `light_blue`,
@@ -22,6 +27,8 @@ function M.generate(colors)
         [[
 # ${_style_name}
 colors:
+  name: ${_style_name}
+  author: lvim-colorscheme
   primary:
     background: "${bg_dark}"
     foreground: "${fg}"

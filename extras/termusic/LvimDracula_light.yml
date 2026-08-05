@@ -1,5 +1,7 @@
 # Lvim Colorscheme DraculaLight
 colors:
+  name: Lvim Colorscheme DraculaLight
+  author: lvim-colorscheme
   primary:
     background: "#dadada"
     foreground: "#5e8888"

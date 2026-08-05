@@ -1,5 +1,7 @@
 # Lvim Colorscheme NightfoxLight
 colors:
+  name: Lvim Colorscheme NightfoxLight
+  author: lvim-colorscheme
   primary:
     background: "#dadada"
     foreground: "#5e8888"
