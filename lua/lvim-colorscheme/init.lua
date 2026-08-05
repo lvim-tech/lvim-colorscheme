@@ -103,6 +103,44 @@ function M.setup(opts)
         if not last or not pcall(vim.cmd.colorscheme, last) then
             M.load()
         end
+        -- A theme switched from OUTSIDE this neovim — by whatever dresses the
+        -- rest of the desktop, or by a second instance — reaches a running one
+        -- no other way. Every other program in that setup either takes a signal
+        -- (kitty SIGUSR1, ghostty and waybar SIGUSR2) or watches its own config;
+        -- neovim has neither, and driving it from outside would mean --server
+        -- and a socket path nothing has any business guessing at. So the editor
+        -- notices for itself. Without this the mirror is already correct while
+        -- the running editor keeps the previous colours until it is restarted.
+        --
+        -- The DIRECTORY is watched, not the file. A writer that replaces the
+        -- mirror by renaming a temporary over it leaves a file watch bound to an
+        -- inode nobody will write again, and the switch is then missed silently.
+        --
+        -- The comparison against the live name is what stops this feeding
+        -- itself: save_theme above writes this same file on every committed
+        -- change, so a switch made HERE would wake the watcher, which would
+        -- re-apply, which would save again.
+        local uv = vim.uv or vim.loop
+        local watcher = uv.new_fs_event()
+        if watcher then
+            watcher:start(vim.fn.fnamemodify(store.theme_file(), ":h"), {}, function()
+                -- fs_event runs off the main loop; :colorscheme must not.
+                vim.schedule(function()
+                    local name = store.load_theme()
+                    if name and name ~= M.current() then
+                        pcall(vim.cmd.colorscheme, name)
+                    end
+                end)
+            end)
+            vim.api.nvim_create_autocmd("VimLeavePre", {
+                group = grp,
+                callback = function()
+                    pcall(function()
+                        watcher:stop()
+                    end)
+                end,
+            })
+        end
     end
 end
 
