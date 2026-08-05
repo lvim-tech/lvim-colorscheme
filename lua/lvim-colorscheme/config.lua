@@ -11,7 +11,7 @@ local utils = require("lvim-utils.utils")
 
 ---@class lvim-colorscheme.Config
 ---@field version? string   Cache-fingerprint version (bump on any generated-highlight change)
----@field style? string   Active dark-background style (e.g. "lvim_dark")
+---@field style? string   Active dark-background style (e.g. "base_dark")
 ---@field light_style? string   Style used when `vim.o.background` is "light"
 ---@field auto_background? boolean   Reload style/light_style automatically on a background flip
 ---@field remember? boolean   Self-manage theme persistence (restore + apply on setup, save on commit)
@@ -46,13 +46,13 @@ local utils = require("lvim-utils.utils")
 ---@type lvim-colorscheme.ConfigModule
 local M = {
     version = "1.1.25",
-    style = "lvim_dark",
+    style = "base_dark",
     -- When true, lvim-colorscheme REMEMBERS the active theme itself: `setup()` restores and
     -- applies the last committed theme, and every committed change is persisted — to the settings
     -- document AND a plain mirror file readable before the plugin loads. Lets a host drop its own
     -- `colorscheme <name>` apply + persistence.
     remember = false,
-    light_style = "lvim_light", -- The theme is used when the background is set to light
+    light_style = "base_light", -- The theme is used when the background is set to light
     auto_background = false, -- Reload `style`/`light_style` automatically when `vim.o.background` changes
     transparent = false, -- Enable this to disable setting the background color
     terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim

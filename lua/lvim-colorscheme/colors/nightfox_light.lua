@@ -1,6 +1,6 @@
 ---@param opts lvim-colorscheme.Config
 return function(opts)
-    return require("lvim-colorscheme.colors.lvim_light")(
+    return require("lvim-colorscheme.colors.base_light")(
         vim.tbl_extend("force", opts, { light_style = "nightfox_dark" })
     )
 end

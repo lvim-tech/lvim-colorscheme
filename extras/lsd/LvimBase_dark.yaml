@@ -1,0 +1,40 @@
+---
+# Lvim Colorscheme BaseDark
+user: "#d8b36f"
+group: "#d1aa64"
+permission:
+  read: "#7e965a"
+  write: "#d8b36f"
+  exec: "#d75e52"
+  exec-sticky: "#c6614d"
+  no-access: "#4d6263"
+  octal: "#407e70"
+  acl: "#407e70"
+  context: "#448595"
+date:
+  hour-old: "#7e965a"
+  day-old: "#718650"
+  older: "#366c5f"
+size:
+  none: "#4d6263"
+  small: "#7e965a"
+  medium: "#d8b36f"
+  large: "#e19556"
+inode:
+  valid: "#40719a"
+  invalid: "#4d6263"
+links:
+  valid: "#40719a"
+  invalid: "#4d6263"
+tree-edge: "#242b2f"
+git-status:
+  default: "#5e8888"
+  unmodified: "#4d6263"
+  ignored: "#4d6263"
+  new-in-index: "#7e965a"
+  new-in-workdir: "#7e965a"
+  typechange: "#d8b36f"
+  deleted: "#d75e52"
+  renamed: "#447ca2"
+  modified: "#e19556"
+  conflicted: "#c6614d"

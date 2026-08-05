@@ -1,3 +1,7 @@
+LvimBase_dark #20272b #5e8888 #d75e52 #e19556 #d8b36f #7e965a #407e70 #448595 #447ca2 #40719a #c6614d
+LvimBase_darker #1c2225 #5e8888 #d75e52 #e19556 #d8b36f #7e965a #407e70 #448595 #447ca2 #40719a #c6614d
+LvimBase_light #E4E4E4 #5e8888 #ae4b41 #aa703f #856e42 #55673c #458677 #3e7a89 #457da3 #4d86b6 #af5543
+LvimBase_soft #262d31 #5e8888 #d75e52 #e19556 #d8b36f #7e965a #407e70 #448595 #447ca2 #40719a #c6614d
 LvimCatppuccin_dark #1d1e27 #b2b7c7 #b7657a #b88970 #b8a47e #6b8d69 #658882 #65878e #6076a0 #7c609b #b976a7
 LvimCatppuccin_darker #181920 #b2b7c7 #b7657a #b88970 #b8a47e #6b8d69 #658882 #65878e #6076a0 #7c609b #b976a7
 LvimCatppuccin_light #E4E4E4 #5e8888 #a45a6d #ac8068 #8a7b5e #557153 #55736e #557278 #6279a4 #9078ad #845377
@@ -18,10 +22,6 @@ LvimKanagawa_dark #202127 #54546d #ba5454 #bf8f62 #d1b57c #6c7f54 #538396 #587a7
 LvimKanagawa_darker #1c1d23 #54546d #ba5454 #bf8f62 #d1b57c #6c7f54 #538396 #587a74 #4e6a9c #70658b #c4726c
 LvimKanagawa_light #E4E4E4 #5e8888 #c35959 #a87e56 #816f4a #697b51 #4b7889 #5e827b #6385c2 #887fa0 #94544f
 LvimKanagawa_soft #26272d #54546d #ba5454 #bf8f62 #d1b57c #6c7f54 #538396 #587a74 #4e6a9c #70658b #c4726c
-LvimLvim_dark #20272b #5e8888 #d75e52 #e19556 #d8b36f #7e965a #407e70 #448595 #447ca2 #40719a #c6614d
-LvimLvim_darker #1c2225 #5e8888 #d75e52 #e19556 #d8b36f #7e965a #407e70 #448595 #447ca2 #40719a #c6614d
-LvimLvim_light #E4E4E4 #5e8888 #ae4b41 #aa703f #856e42 #55673c #458677 #3e7a89 #457da3 #4d86b6 #af5543
-LvimLvim_soft #262d31 #5e8888 #d75e52 #e19556 #d8b36f #7e965a #407e70 #448595 #447ca2 #40719a #c6614d
 LvimMaterial_dark #222d32 #b2c7c7 #d05e64 #d37a60 #cfa96a #90ad68 #65b7a1 #65a1bd #5b7fcb #8f74a3 #d75d70
 LvimMaterial_darker #1c2529 #b2c7c7 #d05e64 #d37a60 #cfa96a #90ad68 #65b7a1 #65a1bd #5b7fcb #8f74a3 #d75d70
 LvimMaterial_light #E4E4E4 #5e8888 #b14b51 #c9745b #8e7347 #6f864f #498776 #578ca5 #4d6cae #806594 #b04556

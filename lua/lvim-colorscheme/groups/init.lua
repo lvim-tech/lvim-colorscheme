@@ -178,7 +178,7 @@ function M.setup(colors, opts)
     local names = vim.tbl_keys(groups)
     table.sort(names)
 
-    -- `style` always resolves to a value here (config default "lvim_dark", set by config.extend
+    -- `style` always resolves to a value here (config default "base_dark", set by config.extend
     -- before load), so it is a valid cache key string.
     local cache_key = opts.style --[[@as string]]
     -- Session memo first (no disk IO), then the on-disk cache. Both are validated by the same

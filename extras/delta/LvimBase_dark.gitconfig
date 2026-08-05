@@ -1,0 +1,34 @@
+[delta]
+    syntax-theme = LvimBase_dark
+    zero-style = syntax
+    blame-code-style = syntax
+    merge-conflict-ours-diff-header-decoration-style = ''
+    merge-conflict-theirs-diff-header-decoration-style = ''
+
+    file-style = omit "#c6614d"
+    commit-decoration-style = "#b65745" ol
+    commit-style = raw
+    blame-separator-style = "#4d6263"
+    hunk-header-decoration-style = "#e19556" ul
+    hunk-header-file-style = "#7e965a"
+    hunk-header-line-number-style = "#718650"
+    hunk-header-style = file line-number syntax bold italic
+    minus-style = syntax "#2f2b2e"
+    minus-non-emph-style = syntax "#2f2b2e"
+    minus-emph-style = syntax "#481f40"
+    minus-empty-line-marker-style = syntax "#2f2b2e"
+    line-numbers-minus-style = "#d75e52"
+    plus-style = syntax "#28302f"
+    plus-non-emph-style = syntax "#28302f"
+    plus-emph-style = syntax "#163633"
+    plus-empty-line-marker-style = syntax "#28302f"
+    line-numbers-plus-style = "#7e965a"
+    line-numbers-zero-style = "#5e8888"
+    whitespace-error-style = "#40719a"
+    merge-conflict-ours-diff-header-style = "#d8b36f" bold
+    merge-conflict-theirs-diff-header-style = "#d1aa64" bold overline
+    map-styles = \
+        bold purple => syntax "#1e2529", \
+        bold blue => syntax "#1c2327", \
+        bold cyan => syntax "#22292d", \
+        bold yellow => syntax "#242b2f"

@@ -15,12 +15,12 @@ local M = {}
 -- Theme families: lighter → base → darker → light
 local families = {
     {
-        label = "Lvim",
+        label = "Base",
         items = {
-            { label = "Lvim Soft", icon = "◔", style = "lvim_soft" },
-            { label = "Lvim Dark", icon = "◑", style = "lvim_dark" },
-            { label = "Lvim Darker", icon = "●", style = "lvim_darker" },
-            { label = "Lvim Light", icon = "○", style = "lvim_light" },
+            { label = "Base Soft", icon = "◔", style = "base_soft" },
+            { label = "Base Dark", icon = "◑", style = "base_dark" },
+            { label = "Base Darker", icon = "●", style = "base_darker" },
+            { label = "Base Light", icon = "○", style = "base_light" },
         },
     },
     {
@@ -131,9 +131,11 @@ function M.list()
     local out = {}
     for _, fam in ipairs(families) do
         for _, def in ipairs(fam.items) do
-            -- colorscheme name = "lvim-" + style (dashes), with the redundant "lvim_" prefix
-            -- of the base family stripped (lvim_soft → lvim-soft, catppuccin_soft → lvim-catppuccin-soft).
-            out[#out + 1] = "lvim-" .. (def.style:gsub("^lvim_", ""):gsub("_", "-"))
+            -- colorscheme name = "lvim-" + style with dashes. No special case: the
+            -- base family is called `base`, not `lvim`, so nothing has to be stripped
+            -- to avoid lvim-lvim-dark. That rename is what removed the branch — and
+            -- the matching one in themer, which had no way to express it at all.
+            out[#out + 1] = "lvim-" .. def.style:gsub("_", "-")
         end
     end
     return out

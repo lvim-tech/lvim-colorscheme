@@ -12,10 +12,10 @@ local M = {}
 
 -- Style key → capitalised style name used in the generated file names / theme labels.
 local styles = {
-    lvim_soft = "LvimSoft",
-    lvim_dark = "LvimDark",
-    lvim_darker = "LvimDarker",
-    lvim_light = "LvimLight",
+    base_soft = "BaseSoft",
+    base_dark = "BaseDark",
+    base_darker = "BaseDarker",
+    base_light = "BaseLight",
     kanagawa_soft = "KanagawaSoft",
     kanagawa_dark = "KanagawaDark",
     kanagawa_darker = "KanagawaDarker",
