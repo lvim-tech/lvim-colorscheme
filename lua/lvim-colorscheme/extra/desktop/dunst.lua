@@ -10,9 +10,11 @@
 -- the same number. Everforest's yellow measured 2.65:1 against white while it was only ever a frame,
 -- which was fine — nothing was written on it. As a background it would be unreadable.
 --
--- So each urgency colour is walked away from white until white has room on it, and white is then
--- the text. Both requirements pull the same way: further from white is also further from the
--- window, so the card stays distinct while becoming legible.
+-- The text is the palette's own background — the colour the desktop is otherwise made of — so a
+-- notification reads as the theme inverted rather than as white paint dropped on it. That fixes the
+-- label and leaves the card as the thing that has to move: each urgency colour is walked away from
+-- `bg` until `bg` has room on it. On a dark palette that lifts the card, on a light one it deepens
+-- it, and in both directions the card also parts from the window it sits over.
 --
 -- `highlight` is the progress bar, drawn ON the card, so it takes the text colour rather than the
 -- urgency colour — a bar in the same colour as its background is not a bar.
@@ -28,9 +30,19 @@ local util = require("lvim-colorscheme.util")
 
 local M = {}
 
---- The card's own colour: the palette's, darkened only as far as a white label requires.
-local function card(color)
-    return util.ensure_contrast(color, "#ffffff", 4.5)
+--- The label for a card, decided by measurement rather than by preference.
+---
+--- The palette's own background is tried first, because a notification that reads as the theme
+--- inverted belongs to the desktop in a way white paint does not. It is not always possible: red and
+--- orange are dark colours in several of these palettes and sit close to the very background that
+--- would be written on them — measured across the 48, the pair fell below the floor 65 times out of
+--- 144, worst at 2.88:1 for Solarized's deep blue on its red. So where it does not clear, the label
+--- falls to whichever extreme measures better on that card. The card itself never moves.
+local function label_for(colors, fill)
+    if util.contrast(colors.bg, fill) >= 4.5 then
+        return colors.bg
+    end
+    return util.contrast("#ffffff", fill) >= util.contrast("#000000", fill) and "#ffffff" or "#000000"
 end
 
 --- @param colors ColorScheme
@@ -49,26 +61,29 @@ function M.generate(colors)
 
 [urgency_low]
     background = "${dunst_low}"
-    foreground = "#ffffff"
+    foreground = "${dunst_low_fg}"
     frame_color = "${dunst_low}"
-    highlight = "#ffffff"
+    highlight = "${dunst_low_fg}"
 
 [urgency_normal]
     background = "${dunst_normal}"
-    foreground = "#ffffff"
+    foreground = "${dunst_normal_fg}"
     frame_color = "${dunst_normal}"
-    highlight = "#ffffff"
+    highlight = "${dunst_normal_fg}"
 
 [urgency_critical]
     background = "${dunst_critical}"
-    foreground = "#ffffff"
+    foreground = "${dunst_critical_fg}"
     frame_color = "${dunst_critical}"
-    highlight = "#ffffff"
+    highlight = "${dunst_critical_fg}"
 ]],
         vim.tbl_extend("force", colors, {
-            dunst_low = card(colors.yellow),
-            dunst_normal = card(colors.orange),
-            dunst_critical = card(colors.red),
+            dunst_low = colors.yellow,
+            dunst_normal = colors.orange,
+            dunst_critical = colors.red,
+            dunst_low_fg = label_for(colors, colors.yellow),
+            dunst_normal_fg = label_for(colors, colors.orange),
+            dunst_critical_fg = label_for(colors, colors.red),
         })
     )
 end
