@@ -1,0 +1,13 @@
+/* lvim-colorscheme — colours only.
+ *
+ * Import this from your own theme and keep the layout there:
+ *
+ *     @import "~/.config/rofi/colors.rasi"
+ */
+
+* {
+    bg:           #1d1f27ff;
+    fg:           #c7c7b3ff;
+    selected-bg:  #597f60ff;
+    selected-fg:  #ffffffff;
+}
