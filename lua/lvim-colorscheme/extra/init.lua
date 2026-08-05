@@ -160,27 +160,46 @@ function M.generate_themes(only)
     M.write_index()
 end
 
---- Write extras/themes.txt: the canonical theme names, one per line, sorted.
+--- The eleven colours a consumer may want to SHOW beside a theme name, in the
+--- order they read best: backgrounds, then the accents around the wheel.
+---
+--- Presentation only. Nothing configures a program from these — every tool gets
+--- a file generated in its own format — so a consumer that draws them is not
+--- holding a palette, it is holding a picture of one.
+local SWATCH = { "bg", "fg", "red", "orange", "yellow", "green", "teal", "cyan", "blue", "purple", "magenta" }
+
+--- Write extras/themes.txt: one line per theme, `name` then its swatch.
+---
+---     LvimEverforest_dark #232929 #5a6158 #cb4f4f …
 ---
 --- The list exists so a consumer can learn which themes there are without
 --- listing a directory through the GitHub API — one raw URL, no rate limit, and
 --- no arbitrary choice of which tool's directory to count. themer reads exactly
---- this; it used to carry its own copy of all 48 palettes for the same purpose
---- and that copy went stale.
+--- this; it used to carry its own copy of all 48 palettes for the same purpose,
+--- and that copy went stale by two colours without either side noticing.
+---
+--- The swatch rides along on the same line rather than in a second file: it is
+--- wanted at exactly the moment the names are, and one fetch cannot half-fail.
 ---
 --- Written on every generate_themes run, including a single-tool one, because
 --- the names come from the style table rather than from what was just emitted.
 ---@return nil
 function M.write_index()
+    local lvim_colorscheme = require("lvim-colorscheme")
+
     ---@type string[]
-    local names = {}
+    local lines = {}
     for style, _ in pairs(styles) do
-        local capitalised = (style:gsub("^%l", string.upper))
-        table.insert(names, "Lvim" .. capitalised)
+        local colors = lvim_colorscheme.load({ style = style, plugins = { all = true } })
+        local parts = { "Lvim" .. (style:gsub("^%l", string.upper)) }
+        for _, key in ipairs(SWATCH) do
+            table.insert(parts, colors[key])
+        end
+        table.insert(lines, table.concat(parts, " "))
     end
-    table.sort(names)
+    table.sort(lines)
     print("[write] themes.txt")
-    util.write("extras/themes.txt", table.concat(names, "\n") .. "\n")
+    util.write("extras/themes.txt", table.concat(lines, "\n") .. "\n")
 end
 
 --- Emit the gowall palette config (`extras/gowall/config.yml`) from every lvim style.
