@@ -68,6 +68,9 @@ c.colors.downloads.start.fg = palette["background"]
 c.colors.downloads.start.bg = palette["cyan"]
 c.colors.downloads.stop.fg = palette["background"]
 c.colors.downloads.stop.bg = palette["green"]
+# "none" is not a colour: it tells qutebrowser to take the system colour
+# system rather than interpret the value as one.
+c.colors.downloads.system.bg = "none"
 c.colors.downloads.error.fg = palette["background"]
 c.colors.downloads.error.bg = palette["red"]
 
@@ -123,6 +126,7 @@ c.colors.tabs.bar.bg = palette["background"]
 c.colors.tabs.indicator.start = palette["cyan"]
 c.colors.tabs.indicator.stop = palette["green"]
 c.colors.tabs.indicator.error = palette["red"]
+c.colors.tabs.indicator.system = "none"
 c.colors.tabs.odd.fg = palette["foreground"]
 c.colors.tabs.odd.bg = palette["background-alt"]
 c.colors.tabs.even.fg = palette["foreground"]
