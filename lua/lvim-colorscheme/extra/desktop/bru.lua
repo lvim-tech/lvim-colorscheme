@@ -35,6 +35,17 @@ function M.generate(colors, _, _)
     --bg-dark: ${bg_dark};
     --bg-highlight: ${bg_highlight};
 
+    /* The palette's own foreground is made for reading code in an editor for
+       hours; against a chrome strip it measures around 2.3:1, and a reader
+       needs 4.5:1. `ensure_contrast` walks LIGHTNESS up in hsluv until it
+       clears that floor and stops there, so the hue and saturation the palette
+       chose survive — the same call, and the same 4.5, that extra/desktop/rofi.lua
+       makes for exactly this reason. Every interface text colour below points
+       here rather than at --fg; --fg itself stays verbatim, because a page or a
+       hand-written override still wants the palette's own answer. */
+    --ui-fg: ${bru_ui_fg};
+    --ui-fg-dim: ${bru_ui_fg_dim};
+
     --fg-light: ${fg_light};
     --fg-soft-light: ${fg_soft_light};
     --fg: ${fg};
@@ -54,29 +65,29 @@ function M.generate(colors, _, _)
     --yellow: ${yellow};
 
     /* c.colors.completion.* */
-    --completion-fg: var(--fg);
+    --completion-fg: var(--ui-fg);
     --completion-odd-bg: var(--bg-soft-light);
     --completion-even-bg: var(--bg);
     --completion-category-fg: var(--yellow);
     --completion-category-bg: var(--bg);
     --completion-category-border-top: var(--bg);
     --completion-category-border-bottom: var(--bg);
-    --completion-item-selected-fg: var(--fg);
+    --completion-item-selected-fg: var(--ui-fg);
     --completion-item-selected-bg: var(--bg-light);
     --completion-item-selected-border-top: var(--bg-light);
     --completion-item-selected-border-bottom: var(--bg-light);
     --completion-item-selected-match-fg: var(--green);
     --completion-match-fg: var(--orange);
-    --completion-scrollbar-fg: var(--fg);
+    --completion-scrollbar-fg: var(--ui-fg);
     --completion-scrollbar-bg: var(--bg);
 
     /* c.colors.contextmenu.* */
     --contextmenu-disabled-bg: var(--bg-soft-light);
     --contextmenu-disabled-fg: var(--comment);
     --contextmenu-menu-bg: var(--bg);
-    --contextmenu-menu-fg: var(--fg);
+    --contextmenu-menu-fg: var(--ui-fg);
     --contextmenu-selected-bg: var(--bg-light);
-    --contextmenu-selected-fg: var(--fg);
+    --contextmenu-selected-fg: var(--ui-fg);
 
     /* c.colors.downloads.* */
     --downloads-bar-bg: var(--bg);
@@ -97,7 +108,7 @@ function M.generate(colors, _, _)
 
     /* c.colors.keyhint.* */
     --keyhint-fg: var(--purple);
-    --keyhint-suffix-fg: var(--fg);
+    --keyhint-suffix-fg: var(--ui-fg);
     --keyhint-bg: var(--bg);
 
     /* c.colors.messages.* */
@@ -107,36 +118,36 @@ function M.generate(colors, _, _)
     --messages-warning-fg: var(--bg);
     --messages-warning-bg: var(--orange);
     --messages-warning-border: var(--orange);
-    --messages-info-fg: var(--fg);
+    --messages-info-fg: var(--ui-fg);
     --messages-info-bg: var(--bg);
     --messages-info-border: var(--bg);
 
     /* c.colors.prompts.* */
-    --prompts-fg: var(--fg);
+    --prompts-fg: var(--ui-fg);
     --prompts-border: var(--bg);
     --prompts-bg: var(--bg-soft-light);
-    --prompts-selected-fg: var(--fg);
+    --prompts-selected-fg: var(--ui-fg);
     --prompts-selected-bg: var(--bg-light);
 
     /* c.colors.statusbar.* */
-    --statusbar-normal-fg: var(--fg);
+    --statusbar-normal-fg: var(--ui-fg);
     --statusbar-normal-bg: var(--bg);
     --statusbar-insert-fg: var(--bg);
     --statusbar-insert-bg: var(--green);
     --statusbar-passthrough-fg: var(--bg);
     --statusbar-passthrough-bg: var(--cyan);
-    --statusbar-private-fg: var(--fg);
+    --statusbar-private-fg: var(--ui-fg);
     --statusbar-private-bg: var(--bg-dark);
-    --statusbar-command-fg: var(--fg);
+    --statusbar-command-fg: var(--ui-fg);
     --statusbar-command-bg: var(--bg);
-    --statusbar-command-private-fg: var(--fg);
+    --statusbar-command-private-fg: var(--ui-fg);
     --statusbar-command-private-bg: var(--bg-dark);
     --statusbar-caret-fg: var(--bg);
     --statusbar-caret-bg: var(--purple);
     --statusbar-caret-selection-fg: var(--bg);
     --statusbar-caret-selection-bg: var(--magenta);
     --statusbar-progress-bg: var(--cyan);
-    --statusbar-url-fg: var(--fg);
+    --statusbar-url-fg: var(--ui-fg);
     --statusbar-url-error-fg: var(--red);
     --statusbar-url-hover-fg: var(--cyan);
     --statusbar-url-success-http-fg: var(--yellow);
@@ -149,26 +160,26 @@ function M.generate(colors, _, _)
     --tabs-indicator-stop: var(--green);
     --tabs-indicator-error: var(--red);
     --tabs-indicator-system: transparent;
-    --tabs-odd-fg: var(--fg);
+    --tabs-odd-fg: var(--ui-fg);
     --tabs-odd-bg: var(--bg-soft-light);
-    --tabs-even-fg: var(--fg);
+    --tabs-even-fg: var(--ui-fg);
     --tabs-even-bg: var(--bg);
-    --tabs-selected-odd-fg: var(--fg);
+    --tabs-selected-odd-fg: var(--ui-fg);
     --tabs-selected-odd-bg: var(--bg-light);
-    --tabs-selected-even-fg: var(--fg);
+    --tabs-selected-even-fg: var(--ui-fg);
     --tabs-selected-even-bg: var(--bg-light);
-    --tabs-pinned-odd-fg: var(--fg);
+    --tabs-pinned-odd-fg: var(--ui-fg);
     --tabs-pinned-odd-bg: var(--bg-soft-light);
-    --tabs-pinned-even-fg: var(--fg);
+    --tabs-pinned-even-fg: var(--ui-fg);
     --tabs-pinned-even-bg: var(--bg);
-    --tabs-pinned-selected-odd-fg: var(--fg);
+    --tabs-pinned-selected-odd-fg: var(--ui-fg);
     --tabs-pinned-selected-odd-bg: var(--bg-light);
-    --tabs-pinned-selected-even-fg: var(--fg);
+    --tabs-pinned-selected-even-fg: var(--ui-fg);
     --tabs-pinned-selected-even-bg: var(--bg-light);
 
     /* c.colors.tooltip.* */
     --tooltip-bg: var(--bg-soft-light);
-    --tooltip-fg: var(--fg);
+    --tooltip-fg: var(--ui-fg);
 
     /* c.colors.webpage.bg */
     --webpage-bg: var(--bg);
@@ -178,11 +189,20 @@ function M.generate(colors, _, _)
     --statusbar-border: var(--bg-soft-dark);
     --completion-border: var(--bg-soft-dark);
     --statusbar-keystring-fg: var(--purple);
-    --statusbar-percentage-fg: var(--fg-soft-light);
-    --statusbar-tabindex-fg: var(--comment);
+    --statusbar-percentage-fg: var(--ui-fg-dim);
+    --statusbar-tabindex-fg: var(--ui-fg-dim);
 }
 ]],
-        colors
+        vim.tbl_extend("force", colors, {
+            -- Floored against --bg, which is what the tab strip, the status bar and the
+            -- completion rows are all painted on.
+            bru_ui_fg = util.ensure_contrast(colors.fg, colors.bg, 4.5),
+            -- The quieter tier — a scroll percentage, a tab index — floored at 3:1 so it stays
+            -- legible while still reading as secondary. `ensure_contrast` is a floor and cannot
+            -- bring a bright colour down, so this starts from the palette's dimmest foreground
+            -- rather than from --fg.
+            bru_ui_fg_dim = util.ensure_contrast(colors.comment, colors.bg, 3.0),
+        })
     )
     return bru
 end
