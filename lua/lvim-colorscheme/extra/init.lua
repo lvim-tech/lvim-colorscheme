@@ -99,6 +99,7 @@ M.extras = {
   zed             = { ext = "json", url = "https://zed.dev", label = "Zed", group = "editors" },
   helix           = { ext = "toml", url = "https://helix-editor.com", label = "Helix", group = "editors" },
   bottom          = { ext = "toml", url = "https://github.com/ClementTsang/bottom", label = "Bottom", group = "system" },
+  bru             = { ext = "css", url = "https://github.com/lvim-tech/bru", label = "Bru", group = "desktop" },
   broot           = { ext = "hjson", url = "https://github.com/Canop/broot", label = "Broot", group = "files" },
   btop            = { ext = "theme", url = "https://github.com/aristocratos/btop", label = "Btop", group = "system" },
   fastfetch       = { ext = "jsonc", url = "https://github.com/fastfetch-cli/fastfetch", label = "Fastfetch", group = "system" },

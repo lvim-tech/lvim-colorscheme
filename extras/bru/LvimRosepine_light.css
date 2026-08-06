@@ -1,0 +1,157 @@
+/* Lvim Colorscheme RosepineLight — GENERATED for bru. Loaded as bru://chrome/theme.css. */
+
+:root {
+    /* Palette — the lvim-colorscheme keys, unchanged. */
+    --bg-light: #eeeeee;
+    --bg-soft-light: #e9e9e9;
+    --bg: #E4E4E4;
+    --bg-soft-dark: #dfdfdf;
+    --bg-dark: #dadada;
+    --bg-highlight: #e9e9e9;
+
+    --fg-light: #55a6ab;
+    --fg-soft-light: #4c969a;
+    --fg: #5e8888;
+    --fg-soft-dark: #3c7478;
+    --fg-dark: #7f7b7e;
+
+    --comment: #95718d;
+
+    --blue: #73878f;
+    --cyan: #606d6d;
+    --green: #5d6c60;
+    --magenta: #6d5f81;
+    --orange: #a58382;
+    --purple: #7f7c88;
+    --red: #8e656e;
+    --teal: #6f877e;
+    --yellow: #8c7b6a;
+
+    /* c.colors.completion.* */
+    --completion-fg: var(--fg);
+    --completion-odd-bg: var(--bg-soft-light);
+    --completion-even-bg: var(--bg);
+    --completion-category-fg: var(--yellow);
+    --completion-category-bg: var(--bg);
+    --completion-category-border-top: var(--bg);
+    --completion-category-border-bottom: var(--bg);
+    --completion-item-selected-fg: var(--fg);
+    --completion-item-selected-bg: var(--bg-light);
+    --completion-item-selected-border-top: var(--bg-light);
+    --completion-item-selected-border-bottom: var(--bg-light);
+    --completion-item-selected-match-fg: var(--green);
+    --completion-match-fg: var(--orange);
+    --completion-scrollbar-fg: var(--fg);
+    --completion-scrollbar-bg: var(--bg);
+
+    /* c.colors.contextmenu.* */
+    --contextmenu-disabled-bg: var(--bg-soft-light);
+    --contextmenu-disabled-fg: var(--comment);
+    --contextmenu-menu-bg: var(--bg);
+    --contextmenu-menu-fg: var(--fg);
+    --contextmenu-selected-bg: var(--bg-light);
+    --contextmenu-selected-fg: var(--fg);
+
+    /* c.colors.downloads.* */
+    --downloads-bar-bg: var(--bg);
+    --downloads-start-fg: var(--bg);
+    --downloads-start-bg: var(--cyan);
+    --downloads-stop-fg: var(--bg);
+    --downloads-stop-bg: var(--green);
+    /* qutebrowser's "none" means "take the system colour"; in CSS the honest
+       equivalent is to paint nothing and let what is behind show through. */
+    --downloads-system-bg: transparent;
+    --downloads-error-fg: var(--bg);
+    --downloads-error-bg: var(--red);
+
+    /* c.colors.hints.* */
+    --hints-fg: var(--bg);
+    --hints-bg: var(--yellow);
+    --hints-match-fg: var(--comment);
+
+    /* c.colors.keyhint.* */
+    --keyhint-fg: var(--purple);
+    --keyhint-suffix-fg: var(--fg);
+    --keyhint-bg: var(--bg);
+
+    /* c.colors.messages.* */
+    --messages-error-fg: var(--bg);
+    --messages-error-bg: var(--red);
+    --messages-error-border: var(--red);
+    --messages-warning-fg: var(--bg);
+    --messages-warning-bg: var(--orange);
+    --messages-warning-border: var(--orange);
+    --messages-info-fg: var(--fg);
+    --messages-info-bg: var(--bg);
+    --messages-info-border: var(--bg);
+
+    /* c.colors.prompts.* */
+    --prompts-fg: var(--fg);
+    --prompts-border: var(--bg);
+    --prompts-bg: var(--bg-soft-light);
+    --prompts-selected-fg: var(--fg);
+    --prompts-selected-bg: var(--bg-light);
+
+    /* c.colors.statusbar.* */
+    --statusbar-normal-fg: var(--fg);
+    --statusbar-normal-bg: var(--bg);
+    --statusbar-insert-fg: var(--bg);
+    --statusbar-insert-bg: var(--green);
+    --statusbar-passthrough-fg: var(--bg);
+    --statusbar-passthrough-bg: var(--cyan);
+    --statusbar-private-fg: var(--fg);
+    --statusbar-private-bg: var(--bg-dark);
+    --statusbar-command-fg: var(--fg);
+    --statusbar-command-bg: var(--bg);
+    --statusbar-command-private-fg: var(--fg);
+    --statusbar-command-private-bg: var(--bg-dark);
+    --statusbar-caret-fg: var(--bg);
+    --statusbar-caret-bg: var(--purple);
+    --statusbar-caret-selection-fg: var(--bg);
+    --statusbar-caret-selection-bg: var(--magenta);
+    --statusbar-progress-bg: var(--cyan);
+    --statusbar-url-fg: var(--fg);
+    --statusbar-url-error-fg: var(--red);
+    --statusbar-url-hover-fg: var(--cyan);
+    --statusbar-url-success-http-fg: var(--yellow);
+    --statusbar-url-success-https-fg: var(--green);
+    --statusbar-url-warn-fg: var(--orange);
+
+    /* c.colors.tabs.* */
+    --tabs-bar-bg: var(--bg);
+    --tabs-indicator-start: var(--cyan);
+    --tabs-indicator-stop: var(--green);
+    --tabs-indicator-error: var(--red);
+    --tabs-indicator-system: transparent;
+    --tabs-odd-fg: var(--fg);
+    --tabs-odd-bg: var(--bg-soft-light);
+    --tabs-even-fg: var(--fg);
+    --tabs-even-bg: var(--bg);
+    --tabs-selected-odd-fg: var(--fg);
+    --tabs-selected-odd-bg: var(--bg-light);
+    --tabs-selected-even-fg: var(--fg);
+    --tabs-selected-even-bg: var(--bg-light);
+    --tabs-pinned-odd-fg: var(--fg);
+    --tabs-pinned-odd-bg: var(--bg-soft-light);
+    --tabs-pinned-even-fg: var(--fg);
+    --tabs-pinned-even-bg: var(--bg);
+    --tabs-pinned-selected-odd-fg: var(--fg);
+    --tabs-pinned-selected-odd-bg: var(--bg-light);
+    --tabs-pinned-selected-even-fg: var(--fg);
+    --tabs-pinned-selected-even-bg: var(--bg-light);
+
+    /* c.colors.tooltip.* */
+    --tooltip-bg: var(--bg-soft-light);
+    --tooltip-fg: var(--fg);
+
+    /* c.colors.webpage.bg */
+    --webpage-bg: var(--bg);
+
+    /* Bru's own, where a page needs a colour a Qt widget got for free. */
+    --tabs-bar-border: var(--bg-soft-dark);
+    --statusbar-border: var(--bg-soft-dark);
+    --completion-border: var(--bg-soft-dark);
+    --statusbar-keystring-fg: var(--purple);
+    --statusbar-percentage-fg: var(--fg-soft-light);
+    --statusbar-tabindex-fg: var(--comment);
+}
