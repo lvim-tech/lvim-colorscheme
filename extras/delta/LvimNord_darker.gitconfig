@@ -8,7 +8,7 @@
     file-style = omit "#a2869d"
     commit-decoration-style = "#95788f" ol
     commit-style = raw
-    blame-separator-style = "#677185"
+    blame-separator-style = "#7a88a4"
     hunk-header-decoration-style = "#b88473" ul
     hunk-header-file-style = "#879978"
     hunk-header-line-number-style = "#788c67"
@@ -17,14 +17,14 @@
     minus-non-emph-style = syntax "#28272e"
     minus-emph-style = syntax "#2c2058"
     minus-empty-line-marker-style = syntax "#28272e"
-    line-numbers-minus-style = "#ac6e74"
+    line-numbers-minus-style = "#b3767c"
     plus-style = syntax "#252b2e"
     plus-non-emph-style = syntax "#252b2e"
     plus-emph-style = syntax "#153039"
     plus-empty-line-marker-style = syntax "#252b2e"
     line-numbers-plus-style = "#879978"
     line-numbers-zero-style = "#b3bac6"
-    whitespace-error-style = "#887f93"
+    whitespace-error-style = "#8b8296"
     merge-conflict-ours-diff-header-style = "#c3a870" bold
     merge-conflict-theirs-diff-header-style = "#b99c64" bold overline
     map-styles = \

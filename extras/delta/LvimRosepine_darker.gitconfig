@@ -8,10 +8,10 @@
     file-style = omit "#9084a2"
     commit-decoration-style = "#837597" ol
     commit-style = raw
-    blame-separator-style = "#896882"
+    blame-separator-style = "#9a7292"
     hunk-header-decoration-style = "#a98a89" ul
     hunk-header-file-style = "#788b7c"
-    hunk-header-line-number-style = "#697d6d"
+    hunk-header-line-number-style = "#6f8573"
     hunk-header-style = file line-number syntax bold italic
     minus-style = syntax "#221c21"
     minus-non-emph-style = syntax "#221c21"
@@ -24,7 +24,7 @@
     plus-empty-line-marker-style = syntax "#1f1e21"
     line-numbers-plus-style = "#788b7c"
     line-numbers-zero-style = "#b3afb2"
-    whitespace-error-style = "#726f7c"
+    whitespace-error-style = "#7f7c89"
     merge-conflict-ours-diff-header-style = "#b6a18b" bold
     merge-conflict-theirs-diff-header-style = "#ac9682" bold overline
     map-styles = \

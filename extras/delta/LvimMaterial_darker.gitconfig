@@ -5,10 +5,10 @@
     merge-conflict-ours-diff-header-decoration-style = ''
     merge-conflict-theirs-diff-header-decoration-style = ''
 
-    file-style = omit "#d75d70"
+    file-style = omit "#da6576"
     commit-decoration-style = "#ce4c5f" ol
     commit-style = raw
-    blame-separator-style = "#5e6a70"
+    blame-separator-style = "#788c96"
     hunk-header-decoration-style = "#d37a60" ul
     hunk-header-file-style = "#90ad68"
     hunk-header-line-number-style = "#83a15c"
@@ -17,14 +17,14 @@
     minus-non-emph-style = syntax "#2a2a2e"
     minus-emph-style = syntax "#252561"
     minus-empty-line-marker-style = syntax "#2a2a2e"
-    line-numbers-minus-style = "#d05e64"
+    line-numbers-minus-style = "#d5696e"
     plus-style = syntax "#25302e"
     plus-non-emph-style = syntax "#25302e"
     plus-emph-style = syntax "#113631"
     plus-empty-line-marker-style = syntax "#25302e"
     line-numbers-plus-style = "#90ad68"
     line-numbers-zero-style = "#b2c7c7"
-    whitespace-error-style = "#8f74a3"
+    whitespace-error-style = "#997ead"
     merge-conflict-ours-diff-header-style = "#cfa96a" bold
     merge-conflict-theirs-diff-header-style = "#c79e5e" bold overline
     map-styles = \

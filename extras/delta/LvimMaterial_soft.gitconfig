@@ -5,11 +5,11 @@
     merge-conflict-ours-diff-header-decoration-style = ''
     merge-conflict-theirs-diff-header-decoration-style = ''
 
-    file-style = omit "#d75d70"
+    file-style = omit "#e27786"
     commit-decoration-style = "#ce4c5f" ol
     commit-style = raw
-    blame-separator-style = "#5e6a70"
-    hunk-header-decoration-style = "#d37a60" ul
+    blame-separator-style = "#819aa5"
+    hunk-header-decoration-style = "#dc7e61" ul
     hunk-header-file-style = "#90ad68"
     hunk-header-line-number-style = "#83a15c"
     hunk-header-style = file line-number syntax bold italic
@@ -17,14 +17,14 @@
     minus-non-emph-style = syntax "#35363c"
     minus-emph-style = syntax "#2a3664"
     minus-empty-line-marker-style = syntax "#35363c"
-    line-numbers-minus-style = "#d05e64"
+    line-numbers-minus-style = "#dc7b7f"
     plus-style = syntax "#2f3d3d"
     plus-non-emph-style = syntax "#2f3d3d"
     plus-emph-style = syntax "#154343"
     plus-empty-line-marker-style = syntax "#2f3d3d"
     line-numbers-plus-style = "#90ad68"
     line-numbers-zero-style = "#b2c7c7"
-    whitespace-error-style = "#8f74a3"
+    whitespace-error-style = "#a68cba"
     merge-conflict-ours-diff-header-style = "#cfa96a" bold
     merge-conflict-theirs-diff-header-style = "#c79e5e" bold overline
     map-styles = \
