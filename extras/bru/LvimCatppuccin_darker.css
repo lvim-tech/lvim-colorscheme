@@ -9,6 +9,16 @@
     --bg-dark: #14151c;
     --bg-highlight: #1a1b22;
 
+    /* Derived, not palette: **a surface that reads as one step above the page.**
+       The palette's own tiers sit 1.06:1 apart, which an editor wants and a web
+       page cannot use — see `surfaces` in extra/desktop/bru.lua for the two
+       measurements, and for why on a light palette the step goes DOWN.
+       These are what a per-site stylesheet names for a card, a search bar or a
+       popup, so that "raised" means the same thing on all 49 palettes and nothing
+       has to guess a percentage against one of them. */
+    --raised: #26293b;
+    --raised-more: #303553;
+
     /* The palette's own foreground is made for reading code in an editor for
        hours; against a chrome strip it measures around 2.3:1, and a reader
        needs 4.5:1. `ensure_contrast` walks LIGHTNESS up in hsluv until it

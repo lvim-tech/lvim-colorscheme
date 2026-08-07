@@ -22,6 +22,69 @@ end
 
 local readable_on = util.readable_on
 
+--- The two **visible** surface steps a page needs, off `bg`, as `{raised, raised_more}`.
+---
+--- **The palette's surfaces are too close together to read as a step on a page.** Measured on
+--- everforest dark 2026-08-07: `--bg` is `#232929` and `--bg-soft-light`, the next tier up, is
+--- `#252c2c` — two and three units per channel, **1.06:1**. That is right for an editor, where the
+--- chrome must not shout at the code, and wrong for a web page, where a card has to look like a
+--- card. A scan across a raised search field and the page either side came back `rgb(37,44,44)`
+--- against `rgb(35,41,41)`: a difference a screenshot can find and an eye cannot. `1.22:1` is what
+--- read as a surface on the same screen, and `1.45:1` is the second step, for the thing under the
+--- pointer.
+---
+--- **Direction from the palette — unless the palette's direction has no room.** `util.to_contrast`
+--- is the obvious tool and it is the wrong one: it picks its direction from `luminance(bg) < 0.5`,
+--- so on a light theme it walks a raised surface *darker* without asking. Which way "up" is on a
+--- surface tier is what the palette means by `bg_light`, so that chooses the sign first.
+---
+--- But it cannot choose alone, and the sweep is what said so. On all **12 light styles** `--bg` is
+--- `#E4E4E4`, and walking up runs into white: `raised` landed at `#fbfbfb` and `raised_more` at
+--- `#fefefe`, **1.026:1 apart** — two names for one colour, and the second tier silently gone.
+--- So the direction is chosen once, by which side has room for the LARGER step, and both tiers take
+--- it. Both on the same side matters: "more raised" that crosses to the other side of the page is
+--- not a further step, it is a different idea.
+---
+--- The hue and the L:S ratio are `bg`'s own, `ensure_contrast`'s rule, so a step stays this
+--- palette's colour rather than drifting toward grey. A tier that cannot be reached in either
+--- direction comes back as far as the walk got, which is a flat page rather than a wrong one.
+---@param bg string
+---@param bg_light string  the palette's own next surface up — read for its DIRECTION only
+---@param near number  contrast ratio against `bg` for the first step
+---@param far number  and for the second
+---@return string, string
+local function surfaces(bg, bg_light, near, far)
+    local hsluv = require("lvim-colorscheme.hsluv")
+    local base = hsluv.hex_to_hsluv(bg)
+    local l0, s0 = base[3], base[2]
+
+    -- Walk `dir` until the ratio is met; answer how far it actually got as well, so the caller can
+    -- tell "reached" from "ran out".
+    local function walk(dir, target)
+        local hsl = { base[1], base[2], base[3] }
+        local out = bg
+        for _ = 1, 100 do
+            hsl[3] = hsl[3] + dir
+            if hsl[3] > 100 or hsl[3] < 0 then
+                return out, false
+            end
+            if l0 > 0 then
+                hsl[2] = math.min(s0 * (hsl[3] / l0), 100)
+            end
+            out = hsluv.hsluv_to_hex(hsl)
+            if util.contrast(out, bg) >= target then
+                return out, true
+            end
+        end
+        return out, false
+    end
+
+    local up = hsluv.hex_to_hsluv(bg_light)[3] >= base[3] and 1 or -1
+    local _, room = walk(up, far)
+    local dir = room and up or -up
+    return (walk(dir, near)), (walk(dir, far))
+end
+
 --- @param colors ColorScheme
 function M.generate(colors, _, _)
     -- Bru's chrome is an HTML page, so its theme is a stylesheet: one `:root`
@@ -50,6 +113,16 @@ function M.generate(colors, _, _)
     --bg-soft-dark: ${bg_soft_dark};
     --bg-dark: ${bg_dark};
     --bg-highlight: ${bg_highlight};
+
+    /* Derived, not palette: **a surface that reads as one step above the page.**
+       The palette's own tiers sit 1.06:1 apart, which an editor wants and a web
+       page cannot use — see `surfaces` in extra/desktop/bru.lua for the two
+       measurements, and for why on a light palette the step goes DOWN.
+       These are what a per-site stylesheet names for a card, a search bar or a
+       popup, so that "raised" means the same thing on all 49 palettes and nothing
+       has to guess a percentage against one of them. */
+    --raised: ${bru_raised};
+    --raised-more: ${bru_raised_more};
 
     /* The palette's own foreground is made for reading code in an editor for
        hours; against a chrome strip it measures around 2.3:1, and a reader
@@ -404,6 +477,11 @@ function M.generate(colors, _, _)
                 colors.green, readable_on(colors.green, colors.bg), 4.5
             ),
             -- --- end accents used as TEXT --------------------------------------------------
+
+            -- The two surface steps a page needs — see `surfaces` for the two measurements the
+            -- numbers come from, and for why the direction is not simply "lighter".
+            bru_raised = select(1, surfaces(colors.bg, colors.bg_light, 1.22, 1.45)),
+            bru_raised_more = select(2, surfaces(colors.bg, colors.bg_light, 1.22, 1.45)),
         })
     )
     return bru
