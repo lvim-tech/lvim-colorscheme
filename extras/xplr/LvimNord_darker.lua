@@ -11,7 +11,7 @@ function M.setup()
     c.focus_ui.style = { fg = { Rgb = { 25, 29, 36 } }, bg = { Rgb = { 115, 136, 158 } }, add_modifiers = { "Bold" } }
     c.selection_ui.style = { fg = { Rgb = { 135, 153, 120 } }, add_modifiers = { "Bold" } }
     c.focus_selection_ui.style = { fg = { Rgb = { 25, 29, 36 } }, bg = { Rgb = { 135, 153, 120 } } , add_modifiers = { "Bold" } }
-    c.table.header.style = { fg = { Rgb = { 103, 113, 133 } }, add_modifiers = { "Bold" } }
+    c.table.header.style = { fg = { Rgb = { 122, 136, 164 } }, add_modifiers = { "Bold" } }
     c.table.row.style.fg = { Rgb = { 179, 186, 198 } }
     c.table.tree[1].style.fg = { Rgb = { 33, 37, 44 } }
     c.table.tree[2].style.fg = { Rgb = { 33, 37, 44 } }
@@ -25,7 +25,7 @@ function M.setup()
     c.logs.info.style.fg = { Rgb = { 115, 136, 158 } }
     c.logs.success.style.fg = { Rgb = { 135, 153, 120 } }
     c.logs.warning.style.fg = { Rgb = { 195, 168, 112 } }
-    c.logs.error.style.fg = { Rgb = { 172, 110, 116 } }
+    c.logs.error.style.fg = { Rgb = { 179, 118, 124 } }
 
     local n = xplr.config.node_types
     n.directory.style = { fg = { Rgb = { 115, 136, 158 } }, add_modifiers = { "Bold" } }

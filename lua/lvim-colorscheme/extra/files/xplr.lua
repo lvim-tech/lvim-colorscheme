@@ -11,6 +11,7 @@
 ---@module "lvim-colorscheme.extra.files.xplr"
 
 local ansi = require("lvim-colorscheme.extra.ansi")
+local util = require("lvim-colorscheme.util")
 
 local M = {}
 
@@ -19,6 +20,26 @@ function M.generate(colors)
     local function rgb(hex)
         local r, g, b = ansi.rgb(hex)
         return string.format("{ Rgb = { %d, %d, %d } }", r, g, b)
+    end
+
+    -- Text here lands on the TERMINAL's background, which this project themes from the same
+    -- palette -- so `terminal.background` is the honest surface rather than a guess. The palette's
+    -- own `terminal.*` entries are never re-floored: ANSI 0-15 is a measured hierarchy of its own
+    -- in `colors/init.lua` and a second floor on top would undo it.
+    --
+    -- `c.table.tree[1..3]` are left verbatim: they draw the tree's connector glyphs, which are
+    -- structure and not words, and they are `bg_light` so the file names stand in front of them.
+    -- The three `*_ui.style` entries that name both a fg and a bg are paired the other way -- the
+    -- text is chosen from the two the theme has and the accent gives a step of lightness only where
+    -- that cannot reach the floor -- so a focused row stays blue and a selected one stays green.
+    local function text(hex)
+        return util.ensure_contrast(hex, colors.terminal.background, 4.5)
+    end
+    local function on(accent)
+        return util.readable_on(accent, colors.bg_dark)
+    end
+    local function strip(accent)
+        return util.ensure_contrast(accent, on(accent), 4.5)
     end
 
     -- stylua: ignore
@@ -33,32 +54,32 @@ function M.generate(colors)
         "    local xplr = xplr",
         "    local c = xplr.config.general",
         "",
-        "    c.prompt.style.fg = " .. rgb(colors.magenta),
-        "    c.cursor.style.fg = " .. rgb(colors.blue),
-        "    c.default_ui.style.fg = " .. rgb(colors.fg),
-        "    c.focus_ui.style = { fg = " .. rgb(colors.bg_dark) .. ", bg = " .. rgb(colors.blue) .. ', add_modifiers = { "Bold" } }',
-        "    c.selection_ui.style = { fg = " .. rgb(colors.green) .. ', add_modifiers = { "Bold" } }',
-        "    c.focus_selection_ui.style = { fg = " .. rgb(colors.bg_dark) .. ", bg = " .. rgb(colors.green) .. ' , add_modifiers = { "Bold" } }',
-        "    c.table.header.style = { fg = " .. rgb(colors.comment) .. ', add_modifiers = { "Bold" } }',
-        "    c.table.row.style.fg = " .. rgb(colors.fg),
+        "    c.prompt.style.fg = " .. rgb(text(colors.magenta)),
+        "    c.cursor.style.fg = " .. rgb(text(colors.blue)),
+        "    c.default_ui.style.fg = " .. rgb(text(colors.fg)),
+        "    c.focus_ui.style = { fg = " .. rgb(on(colors.blue)) .. ", bg = " .. rgb(strip(colors.blue)) .. ', add_modifiers = { "Bold" } }',
+        "    c.selection_ui.style = { fg = " .. rgb(text(colors.green)) .. ', add_modifiers = { "Bold" } }',
+        "    c.focus_selection_ui.style = { fg = " .. rgb(on(colors.green)) .. ", bg = " .. rgb(strip(colors.green)) .. ' , add_modifiers = { "Bold" } }',
+        "    c.table.header.style = { fg = " .. rgb(text(colors.comment)) .. ', add_modifiers = { "Bold" } }',
+        "    c.table.row.style.fg = " .. rgb(text(colors.fg)),
         "    c.table.tree[1].style.fg = " .. rgb(colors.bg_light),
         "    c.table.tree[2].style.fg = " .. rgb(colors.bg_light),
         "    c.table.tree[3].style.fg = " .. rgb(colors.bg_light),
-        "    c.panel_ui.default.style.fg = " .. rgb(colors.fg),
-        "    c.panel_ui.table.style.fg = " .. rgb(colors.fg),
-        "    c.panel_ui.help_menu.style.fg = " .. rgb(colors.fg),
-        "    c.panel_ui.input_and_logs.style.fg = " .. rgb(colors.fg),
-        "    c.panel_ui.selection.style.fg = " .. rgb(colors.green),
-        "    c.panel_ui.sort_and_filter.style.fg = " .. rgb(colors.yellow),
-        "    c.logs.info.style.fg = " .. rgb(colors.blue),
-        "    c.logs.success.style.fg = " .. rgb(colors.green),
-        "    c.logs.warning.style.fg = " .. rgb(colors.yellow),
-        "    c.logs.error.style.fg = " .. rgb(colors.red),
+        "    c.panel_ui.default.style.fg = " .. rgb(text(colors.fg)),
+        "    c.panel_ui.table.style.fg = " .. rgb(text(colors.fg)),
+        "    c.panel_ui.help_menu.style.fg = " .. rgb(text(colors.fg)),
+        "    c.panel_ui.input_and_logs.style.fg = " .. rgb(text(colors.fg)),
+        "    c.panel_ui.selection.style.fg = " .. rgb(text(colors.green)),
+        "    c.panel_ui.sort_and_filter.style.fg = " .. rgb(text(colors.yellow)),
+        "    c.logs.info.style.fg = " .. rgb(text(colors.blue)),
+        "    c.logs.success.style.fg = " .. rgb(text(colors.green)),
+        "    c.logs.warning.style.fg = " .. rgb(text(colors.yellow)),
+        "    c.logs.error.style.fg = " .. rgb(text(colors.red)),
         "",
         "    local n = xplr.config.node_types",
-        "    n.directory.style = { fg = " .. rgb(colors.blue) .. ', add_modifiers = { "Bold" } }',
-        "    n.file.style = { fg = " .. rgb(colors.fg) .. " }",
-        "    n.symlink.style = { fg = " .. rgb(colors.cyan) .. ', add_modifiers = { "Italic" } }',
+        "    n.directory.style = { fg = " .. rgb(text(colors.blue)) .. ', add_modifiers = { "Bold" } }',
+        "    n.file.style = { fg = " .. rgb(text(colors.fg)) .. " }",
+        "    n.symlink.style = { fg = " .. rgb(text(colors.cyan)) .. ', add_modifiers = { "Italic" } }',
         "end",
         "",
         "return M",

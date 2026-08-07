@@ -6,12 +6,12 @@ function M.setup()
     local c = xplr.config.general
 
     c.prompt.style.fg = { Rgb = { 191, 111, 154 } }
-    c.cursor.style.fg = { Rgb = { 99, 137, 147 } }
+    c.cursor.style.fg = { Rgb = { 100, 140, 150 } }
     c.default_ui.style.fg = { Rgb = { 199, 199, 179 } }
     c.focus_ui.style = { fg = { Rgb = { 25, 27, 35 } }, bg = { Rgb = { 99, 137, 147 } }, add_modifiers = { "Bold" } }
     c.selection_ui.style = { fg = { Rgb = { 98, 150, 109 } }, add_modifiers = { "Bold" } }
     c.focus_selection_ui.style = { fg = { Rgb = { 25, 27, 35 } }, bg = { Rgb = { 98, 150, 109 } } , add_modifiers = { "Bold" } }
-    c.table.header.style = { fg = { Rgb = { 114, 122, 152 } }, add_modifiers = { "Bold" } }
+    c.table.header.style = { fg = { Rgb = { 124, 132, 163 } }, add_modifiers = { "Bold" } }
     c.table.row.style.fg = { Rgb = { 199, 199, 179 } }
     c.table.tree[1].style.fg = { Rgb = { 33, 35, 43 } }
     c.table.tree[2].style.fg = { Rgb = { 33, 35, 43 } }
@@ -22,13 +22,13 @@ function M.setup()
     c.panel_ui.input_and_logs.style.fg = { Rgb = { 199, 199, 179 } }
     c.panel_ui.selection.style.fg = { Rgb = { 98, 150, 109 } }
     c.panel_ui.sort_and_filter.style.fg = { Rgb = { 173, 178, 126 } }
-    c.logs.info.style.fg = { Rgb = { 99, 137, 147 } }
+    c.logs.info.style.fg = { Rgb = { 100, 140, 150 } }
     c.logs.success.style.fg = { Rgb = { 98, 150, 109 } }
     c.logs.warning.style.fg = { Rgb = { 173, 178, 126 } }
-    c.logs.error.style.fg = { Rgb = { 188, 96, 96 } }
+    c.logs.error.style.fg = { Rgb = { 199, 107, 107 } }
 
     local n = xplr.config.node_types
-    n.directory.style = { fg = { Rgb = { 99, 137, 147 } }, add_modifiers = { "Bold" } }
+    n.directory.style = { fg = { Rgb = { 100, 140, 150 } }, add_modifiers = { "Bold" } }
     n.file.style = { fg = { Rgb = { 199, 199, 179 } } }
     n.symlink.style = { fg = { Rgb = { 102, 147, 138 } }, add_modifiers = { "Italic" } }
 end

@@ -6,12 +6,12 @@ function M.setup()
     local c = xplr.config.general
 
     c.prompt.style.fg = { Rgb = { 154, 128, 174 } }
-    c.cursor.style.fg = { Rgb = { 104, 133, 173 } }
+    c.cursor.style.fg = { Rgb = { 107, 138, 181 } }
     c.default_ui.style.fg = { Rgb = { 188, 189, 189 } }
-    c.focus_ui.style = { fg = { Rgb = { 21, 31, 44 } }, bg = { Rgb = { 104, 133, 173 } }, add_modifiers = { "Bold" } }
+    c.focus_ui.style = { fg = { Rgb = { 21, 31, 44 } }, bg = { Rgb = { 105, 136, 177 } }, add_modifiers = { "Bold" } }
     c.selection_ui.style = { fg = { Rgb = { 123, 153, 138 } }, add_modifiers = { "Bold" } }
     c.focus_selection_ui.style = { fg = { Rgb = { 21, 31, 44 } }, bg = { Rgb = { 123, 153, 138 } } , add_modifiers = { "Bold" } }
-    c.table.header.style = { fg = { Rgb = { 117, 130, 146 } }, add_modifiers = { "Bold" } }
+    c.table.header.style = { fg = { Rgb = { 123, 138, 156 } }, add_modifiers = { "Bold" } }
     c.table.row.style.fg = { Rgb = { 188, 189, 189 } }
     c.table.tree[1].style.fg = { Rgb = { 29, 39, 52 } }
     c.table.tree[2].style.fg = { Rgb = { 29, 39, 52 } }
@@ -22,13 +22,13 @@ function M.setup()
     c.panel_ui.input_and_logs.style.fg = { Rgb = { 188, 189, 189 } }
     c.panel_ui.selection.style.fg = { Rgb = { 123, 153, 138 } }
     c.panel_ui.sort_and_filter.style.fg = { Rgb = { 187, 167, 111 } }
-    c.logs.info.style.fg = { Rgb = { 104, 133, 173 } }
+    c.logs.info.style.fg = { Rgb = { 107, 138, 181 } }
     c.logs.success.style.fg = { Rgb = { 123, 153, 138 } }
     c.logs.warning.style.fg = { Rgb = { 187, 167, 111 } }
-    c.logs.error.style.fg = { Rgb = { 178, 99, 119 } }
+    c.logs.error.style.fg = { Rgb = { 196, 110, 131 } }
 
     local n = xplr.config.node_types
-    n.directory.style = { fg = { Rgb = { 104, 133, 173 } }, add_modifiers = { "Bold" } }
+    n.directory.style = { fg = { Rgb = { 107, 138, 181 } }, add_modifiers = { "Bold" } }
     n.file.style = { fg = { Rgb = { 188, 189, 189 } } }
     n.symlink.style = { fg = { Rgb = { 105, 163, 164 } }, add_modifiers = { "Italic" } }
 end
