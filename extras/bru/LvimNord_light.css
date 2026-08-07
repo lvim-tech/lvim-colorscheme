@@ -18,6 +18,11 @@
        here rather than at --fg; --fg itself stays verbatim, because a page or a
        hand-written override still wants the palette's own answer. */
     --ui-fg: #506a6a;
+    /* The text on a mode pill: whichever of the theme's own dark and a plain
+       white reads better on the pills themselves. `lvim-hud`'s `pill_on`
+       (chrome/init.lua:73) makes exactly this choice for the statusline, and
+       the two must not disagree — they are the same word on the same screen. */
+    --pill-fg: #ffffff;
     --ui-fg-dim: #737d95;
 
     --fg-light: #55a6ab;
@@ -104,38 +109,53 @@
     --prompts-selected-bg: var(--bg-light);
 
     /* c.colors.statusbar.* */
-    --statusbar-normal-fg: var(--ui-fg);
-    --statusbar-normal-bg: var(--bg);
-    --statusbar-insert-fg: var(--bg);
-    --statusbar-insert-bg: var(--green);
-    --statusbar-passthrough-fg: var(--bg);
-    --statusbar-passthrough-bg: var(--cyan);
+    /* The bar itself. Its own pair, because the mode pairs below are the
+       *pill's* and normal's is no longer the bar's: aligning the pills with the
+       statusline made `--statusbar-normal-bg` green, and anything still drawing
+       the bar with it turned the whole strip green. A variable that two things
+       read is a variable one of them will one day repaint by accident. */
+    --statusbar-bg: var(--bg);
+    --statusbar-fg: var(--ui-fg);
+
+    /* **The same pills as this user's neovim statusline.** `lvim-hud`'s
+       `chrome/init.lua:98-103` paints the mode as a coloured pill — normal
+       green, insert red, visual orange, command purple, replace cyan, terminal
+       blue — and bru's bar sits under the same eyes on the same screen, so the
+       modes they share are the same colour. Asked for 2026-08-07.
+
+       Passthrough takes the terminal blue because that is what it is: the keys
+       stop being the browser's and go straight to what is underneath. The five
+       modes neovim has no counterpart for take what is left.
+
+       The text colour is `--pill-fg`, which is whichever of the theme's dark or
+       light reads better on that pill — the same rule `pill_on` applies in the
+       statusline, so the two never disagree about a colour. */
+    --statusbar-normal-fg: var(--pill-fg);
+    --statusbar-normal-bg: var(--green);
+    --statusbar-insert-fg: var(--pill-fg);
+    --statusbar-insert-bg: var(--red);
+    --statusbar-caret-fg: var(--pill-fg);
+    --statusbar-caret-bg: var(--orange);
+    --statusbar-command-fg: var(--pill-fg);
+    --statusbar-command-bg: var(--purple);
+    --statusbar-passthrough-fg: var(--pill-fg);
+    --statusbar-passthrough-bg: var(--blue);
+    --statusbar-hint-fg: var(--pill-fg);
+    --statusbar-hint-bg: var(--yellow);
+    --statusbar-set-mark-fg: var(--pill-fg);
+    --statusbar-set-mark-bg: var(--cyan);
+    --statusbar-jump-mark-fg: var(--pill-fg);
+    --statusbar-jump-mark-bg: var(--cyan);
+    --statusbar-record-macro-fg: var(--pill-fg);
+    --statusbar-record-macro-bg: var(--magenta);
+    --statusbar-run-macro-fg: var(--pill-fg);
+    --statusbar-run-macro-bg: var(--teal);
     --statusbar-private-fg: var(--ui-fg);
     --statusbar-private-bg: var(--bg-dark);
-    --statusbar-command-fg: var(--ui-fg);
-    --statusbar-command-bg: var(--bg);
     --statusbar-command-private-fg: var(--ui-fg);
     --statusbar-command-private-bg: var(--bg-dark);
-    --statusbar-caret-fg: var(--bg);
-    --statusbar-caret-bg: var(--purple);
-    --statusbar-caret-selection-fg: var(--bg);
+    --statusbar-caret-selection-fg: var(--pill-fg);
     --statusbar-caret-selection-bg: var(--magenta);
-    /* bru's own modes, which qutebrowser has no colours for: it names only the
-       modes above and says the rest with nothing. bru draws a mode indicator at
-       the front of its bar and every mode it can be in needs a background, or
-       the ones without one are indistinguishable from normal. Each is the
-       palette colour whose job already matches: hint and its two register modes
-       are asking for a key, macros are recording or replaying. */
-    --statusbar-hint-fg: var(--bg);
-    --statusbar-hint-bg: var(--yellow);
-    --statusbar-set-mark-fg: var(--bg);
-    --statusbar-set-mark-bg: var(--orange);
-    --statusbar-jump-mark-fg: var(--bg);
-    --statusbar-jump-mark-bg: var(--orange);
-    --statusbar-record-macro-fg: var(--bg);
-    --statusbar-record-macro-bg: var(--red);
-    --statusbar-run-macro-fg: var(--bg);
-    --statusbar-run-macro-bg: var(--blue);
     --statusbar-progress-bg: var(--cyan);
     --statusbar-url-fg: var(--ui-fg);
     --statusbar-url-error-fg: var(--red);
