@@ -29,14 +29,14 @@
     --comment: #798991;
 
     --blue: #4d6cae;
-    --cyan: #578ca5;
-    --green: #6f864f;
+    --cyan: #426b7e;
+    --green: #516339;
     --magenta: #b04556;
-    --orange: #c9745b;
+    --orange: #9e5a46;
     --purple: #806594;
     --red: #b14b51;
-    --teal: #498776;
-    --yellow: #8e7347;
+    --teal: #336255;
+    --yellow: #655130;
 
     /* c.colors.completion.* */
     --completion-fg: var(--ui-fg);
@@ -120,6 +120,22 @@
     --statusbar-caret-bg: var(--purple);
     --statusbar-caret-selection-fg: var(--bg);
     --statusbar-caret-selection-bg: var(--magenta);
+    /* bru's own modes, which qutebrowser has no colours for: it names only the
+       modes above and says the rest with nothing. bru draws a mode indicator at
+       the front of its bar and every mode it can be in needs a background, or
+       the ones without one are indistinguishable from normal. Each is the
+       palette colour whose job already matches: hint and its two register modes
+       are asking for a key, macros are recording or replaying. */
+    --statusbar-hint-fg: var(--bg);
+    --statusbar-hint-bg: var(--yellow);
+    --statusbar-set-mark-fg: var(--bg);
+    --statusbar-set-mark-bg: var(--orange);
+    --statusbar-jump-mark-fg: var(--bg);
+    --statusbar-jump-mark-bg: var(--orange);
+    --statusbar-record-macro-fg: var(--bg);
+    --statusbar-record-macro-bg: var(--red);
+    --statusbar-run-macro-fg: var(--bg);
+    --statusbar-run-macro-bg: var(--blue);
     --statusbar-progress-bg: var(--cyan);
     --statusbar-url-fg: var(--ui-fg);
     --statusbar-url-error-fg: var(--red);
