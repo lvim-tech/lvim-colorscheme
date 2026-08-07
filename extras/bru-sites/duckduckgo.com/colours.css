@@ -24,44 +24,52 @@
  * switching the theme moves this with it and nothing here names a hex. */
 
 :root {
-    /* `--raised` and `--raised-more` are **not defined here.** They come from
-     * `theme.css`, which bru prepends to this file, and they are computed per
-     * palette by `extra/desktop/bru.lua::surfaces` — see the note there for the
-     * two measurements behind 1.22:1 and 1.45:1, and for why the direction is not
-     * simply "lighter" (on all twelve light styles it is darker, because `#E4E4E4`
-     * has no room above it for two steps).
+    /* **The theme's two surface steps, with a fallback that is not a hole.**
      *
-     * They used to be a `color-mix` right here, at a percentage guessed against
-     * one dark palette. That is exactly the freezing this whole arrangement
-     * exists to avoid, one level up: a number that is right for Everforest dark
-     * and has no reason to be right for Solarized light. */
+     * `--raised` and `--raised-more` are computed per palette by
+     * `extra/desktop/bru.lua::surfaces` — see the note there for the measurements
+     * behind 1.22:1 and 1.45:1, and for why on a light palette the step goes DOWN.
+     *
+     * **A bare `var(--raised)` was wrong, and it cost a whole page.** Measured
+     * 2026-08-07: themer rewrote `theme.css` from a checkout that predates those
+     * two properties, `var(--raised)` had nothing to resolve to — and an unresolved
+     * `var()` does not fall back to the previous value, it makes the **whole
+     * declaration invalid**. All 41 uses vanished at once and every raised surface
+     * on the site went flat, on both pages, with nothing in the file wrong.
+     *
+     * So the fallback is the mix this file used to compute itself, kept for exactly
+     * this: a theme that has the properties wins, a theme that does not still gets
+     * a visible step instead of nothing. The percentage is guessed against one dark
+     * palette, which is why it is the fallback and not the answer. */
+    --ddg-raised: var(--raised, color-mix(in srgb, var(--bg-light) 91%, var(--ui-fg)));
+    --ddg-raised-more: var(--raised-more, color-mix(in srgb, var(--bg-light) 82%, var(--ui-fg)));
 
     /* --- surfaces ------------------------------------------------------- */
     --theme-col-bg-page: var(--bg) !important;
     --theme-col-bg-header: var(--bg) !important;
     --theme-col-bg-header-transparent: transparent !important;
     --theme-col-bg-page-transparent: transparent !important;
-    --theme-col-bg-modal: var(--raised) !important;
+    --theme-col-bg-modal: var(--ddg-raised) !important;
     --result-item-bg: var(--bg) !important;
     --result-item-bg-transparent: transparent !important;
 
     /* One step up, for the things that really are a block: the search field, a
      * card's header, a text area. */
-    --theme-col-bg-ui: var(--raised) !important;
-    --theme-col-bg-ui-header: var(--raised) !important;
-    --theme-col-bg-ext-dropdown: var(--raised) !important;
-    --theme-col-bg-textarea: var(--raised) !important;
-    --theme-col-bg-card-header: var(--raised) !important;
-    --theme-col-bg-page-alt-1: var(--raised) !important;
+    --theme-col-bg-ui: var(--ddg-raised) !important;
+    --theme-col-bg-ui-header: var(--ddg-raised) !important;
+    --theme-col-bg-ext-dropdown: var(--ddg-raised) !important;
+    --theme-col-bg-textarea: var(--ddg-raised) !important;
+    --theme-col-bg-card-header: var(--ddg-raised) !important;
+    --theme-col-bg-page-alt-1: var(--ddg-raised) !important;
     --theme-col-bg-page-alt-2: var(--bg) !important;
     --theme-col-bg-page-alt-3: var(--bg) !important;
 
     /* Hover and active, one further step so a pointer has something to land on. */
-    --theme-col-bg-ui-active: var(--raised-more) !important;
-    --theme-col-bg-expandcollapse-hover: var(--raised-more) !important;
-    --theme-col-bg-button-expandcollapse-hover: var(--raised-more) !important;
-    --theme-col-bg-button-qna: var(--raised) !important;
-    --theme-col-bg-button-qna-hover: var(--raised-more) !important;
+    --theme-col-bg-ui-active: var(--ddg-raised-more) !important;
+    --theme-col-bg-expandcollapse-hover: var(--ddg-raised-more) !important;
+    --theme-col-bg-button-expandcollapse-hover: var(--ddg-raised-more) !important;
+    --theme-col-bg-button-qna: var(--ddg-raised) !important;
+    --theme-col-bg-button-qna-hover: var(--ddg-raised-more) !important;
 
     /* --- text ----------------------------------------------------------- */
     --theme-col-txt-snippet: var(--ui-fg) !important;
@@ -199,7 +207,7 @@ input[class],
 input,
 textarea,
 select {
-    background-color: var(--raised) !important;
+    background-color: var(--ddg-raised) !important;
 }
 
 /* **An overlay click target must stay transparent, or it paints over the icon it
@@ -223,7 +231,7 @@ select {
 [class][class*="_active"],
 [class][class*="_hover"],
 [class][class*="_plusMinus"] {
-    background-color: var(--raised-more) !important;
+    background-color: var(--ddg-raised-more) !important;
 }
 
 /* The search field's border: it is a ring the site draws to say "type here", and
@@ -316,7 +324,7 @@ textarea:focus,
  * after it — the search bar is the one control on the page shaped like a control,
  * and it was asked for. Everything else stays square. */
 [data-testid="search-form-input-wrapper"] {
-    background-color: var(--raised) !important;
+    background-color: var(--ddg-raised) !important;
     border-radius: 8px !important;
 }
 
@@ -347,7 +355,7 @@ textarea:focus,
  * bottom edge and takes that row with it. Only the card. */
 li[data-layout]:not([data-layout="organic"]):not([data-layout="about"]):not([data-layout="related_searches"]) > * > *:first-child,
 [data-testid="about"] {
-    background-color: var(--raised) !important;
+    background-color: var(--ddg-raised) !important;
     border-radius: 8px !important;
 }
 
@@ -386,7 +394,7 @@ li[data-layout]:not([data-layout="organic"]):not([data-layout="about"]):not([dat
  *
  * Measured: ten `<a>`, 311x40 each, one per `<li>`. */
 li[data-layout="related_searches"] a {
-    background-color: var(--raised) !important;
+    background-color: var(--ddg-raised) !important;
     border-radius: 8px !important;
 }
 
@@ -411,7 +419,7 @@ li[data-layout="related_searches"] a * {
  * now half wrong: a result is the page, a modal is not. The token above moved
  * with it. */
 .modal__box {
-    background-color: var(--raised) !important;
+    background-color: var(--ddg-raised) !important;
     border-radius: 8px !important;
 }
 
@@ -454,7 +462,7 @@ li[data-layout="related_searches"] a * {
 
 [class*="ai-searchbox_combobox"],
 [class*="search-input_searchbox"] {
-    background-color: var(--raised) !important;
+    background-color: var(--ddg-raised) !important;
     border-radius: 24px !important;
 }
 
@@ -468,7 +476,7 @@ li[data-layout="related_searches"] a * {
 }
 
 [class*="chip-select_selectedIndicator"] {
-    background-color: var(--raised-more) !important;
+    background-color: var(--ddg-raised-more) !important;
 }
 
 /* The field's own children, transparent, for the fifth and last time in this
