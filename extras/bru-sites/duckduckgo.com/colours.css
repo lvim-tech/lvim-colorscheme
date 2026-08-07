@@ -554,3 +554,47 @@ li[data-layout="related_searches"] a * {
 [role="switch"][aria-checked="true"] {
     background-color: var(--completion-category-fg) !important;
 }
+
+/* --- text painted for a light surface -------------------------------------
+ *
+ * DuckDuckGo colours some controls with a literal near-black — `#222222`, meant
+ * for a button that is light in their theme. This file flattens the button to the
+ * page and the letters stay theirs, so the label goes dark-on-dark: measured
+ * 2026-08-08 at **1.17:1**, which is a control you can click and cannot read.
+ *
+ * **CSS cannot select an element by the colour it computed**, so this cannot be
+ * expressed as the rule it really is — "anything painted for a light surface".
+ * What it can name is the families that carry it, and that list grows by report
+ * rather than by reasoning. Two so far: the legacy `.set-tab` of the settings
+ * page — an old dashed name and therefore a safe one — and the React button
+ * components, which this file already raises and can therefore also letter.
+ *
+ * The way to find the next one is not to read the page. It is to ask it:
+ * walk every leaf with text, resolve the first non-transparent background above
+ * it, and report anything under 3:1. That single query found this one and nothing
+ * else on a full results page. */
+.set-tab,
+[class*="link-button_button"],
+[class*="icon-button_iconButton"] {
+    color: var(--ui-fg) !important;
+}
+
+/* --- a card separates by its step, not by an outline ----------------------
+ *
+ * The shadows note above gives the argument and this finishes it: separation is
+ * one step of background, which is how bru's own completion panel sits on the
+ * page without casting or outlining anything. An outline on top of that step is
+ * the same statement made twice, and where the outline and the fill disagree it
+ * reads as a fault — measured 2026-08-08 on the AI module, a 140-tall box with a
+ * 114-tall raised fill inside it, so the border drew a rectangle whose bottom
+ * 26px were page colour and looked unpainted rather than empty.
+ *
+ * `.related-searches` and `.related-searches__item` are old dashed names, safe to
+ * say; `.react-module` is the one React name here that is not hashed. */
+[data-testid="about"],
+li[data-layout] > * > *:first-child,
+.related-searches,
+.related-searches__item,
+.react-module {
+    border: 0 !important;
+}
