@@ -1,38 +1,38 @@
 # Lvim Colorscheme NightfoxLight
 
 [styles.cpu]
-all_entry_color = "#5e8888"
-avg_entry_color = "#755a88"
-cpu_core_colors = ["#546d8e", "#749182", "#897a50", "#ac7a53", "#8069a2", "#599181", "#5b8e8f", "#a75d70"]
+all_entry_color = "#4e6767"
+avg_entry_color = "#725884"
+cpu_core_colors = ["#4e637f", "#57665e", "#6c6147", "#795c47", "#6d5a89", "#4b6960", "#4c6768", "#895260"]
 
 [styles.memory]
-ram_color = "#749182"
-cache_color = "#5b8e8f"
-swap_color = "#ac7a53"
-arc_color = "#599181"
+ram_color = "#57665e"
+cache_color = "#4c6768"
+swap_color = "#795c47"
+arc_color = "#4b6960"
 
 [styles.network]
-rx_color = "#749182"
-tx_color = "#755a88"
-rx_total_color = "#557063"
-tx_total_color = "#84679c"
+rx_color = "#57665e"
+tx_color = "#725884"
+rx_total_color = "#50685d"
+tx_total_color = "#6e5980"
 
 [styles.battery]
-high_battery_color = "#749182"
-medium_battery_color = "#897a50"
-low_battery_color = "#a75d70"
+high_battery_color = "#57665e"
+medium_battery_color = "#6c6147"
+low_battery_color = "#895260"
 
 [styles.tables]
-headers = { color = "#546d8e", bold = true }
+headers = { color = "#4e637f", bold = true }
 
 [styles.graphs]
 graph_color = "#646f7d"
-legend_text = "#696e75"
+legend_text = "#5e6267"
 
 [styles.widgets]
 border_color = "#eeeeee"
 selected_border_color = "#546d8e"
-widget_title = { color = "#55a6ab", bold = true }
-text = "#5e8888"
-selected_text = { color = "#dadada", bg_color = "#546d8e" }
-disabled_text = "#646f7d"
+widget_title = { color = "#486769", bold = true }
+text = "#4e6767"
+selected_text = { color = "#ffffff", bg_color = "#546d8e" }
+disabled_text = "#5a626e"

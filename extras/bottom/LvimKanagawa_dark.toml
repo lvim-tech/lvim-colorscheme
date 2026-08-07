@@ -1,38 +1,38 @@
 # Lvim Colorscheme KanagawaDark
 
 [styles.cpu]
-all_entry_color = "#54546d"
+all_entry_color = "#8585a4"
 avg_entry_color = "#c4726c"
-cpu_core_colors = ["#4e6a9c", "#6c7f54", "#d1b57c", "#bf8f62", "#70658b", "#538396", "#587a74", "#ba5454"]
+cpu_core_colors = ["#5588d7", "#789059", "#d1b57c", "#bf8f62", "#8c81a9", "#558ea4", "#629189", "#d66666"]
 
 [styles.memory]
-ram_color = "#6c7f54"
-cache_color = "#587a74"
+ram_color = "#789059"
+cache_color = "#629189"
 swap_color = "#bf8f62"
-arc_color = "#538396"
+arc_color = "#558ea4"
 
 [styles.network]
-rx_color = "#6c7f54"
+rx_color = "#789059"
 tx_color = "#c4726c"
-rx_total_color = "#64754e"
-tx_total_color = "#bc6a64"
+rx_total_color = "#768e56"
+tx_total_color = "#c56d67"
 
 [styles.battery]
-high_battery_color = "#6c7f54"
+high_battery_color = "#789059"
 medium_battery_color = "#d1b57c"
-low_battery_color = "#ba5454"
+low_battery_color = "#d66666"
 
 [styles.tables]
-headers = { color = "#4e6a9c", bold = true }
+headers = { color = "#5588d7", bold = true }
 
 [styles.graphs]
 graph_color = "#4e4e73"
-legend_text = "#4b4b61"
+legend_text = "#8585a4"
 
 [styles.widgets]
 border_color = "#24252b"
 selected_border_color = "#4e6a9c"
-widget_title = { color = "#5d5d79", bold = true }
-text = "#54546d"
-selected_text = { color = "#1c1d23", bg_color = "#4e6a9c" }
-disabled_text = "#4e4e73"
+widget_title = { color = "#8585a5", bold = true }
+text = "#8585a4"
+selected_text = { color = "#ffffff", bg_color = "#4e6a9c" }
+disabled_text = "#8383b4"

@@ -1,38 +1,38 @@
 # Lvim Colorscheme NordLight
 
 [styles.cpu]
-all_entry_color = "#5e8888"
+all_entry_color = "#4e6767"
 avg_entry_color = "#6e5a6b"
-cpu_core_colors = ["#596a7c", "#7e8f70", "#8b774e", "#7a564b", "#71687d", "#739190", "#6c919d", "#976065"]
+cpu_core_colors = ["#546272", "#5b6454", "#6f6146", "#7a564b", "#665f70", "#576666", "#53666d", "#84575b"]
 
 [styles.memory]
-ram_color = "#7e8f70"
-cache_color = "#6c919d"
+ram_color = "#5b6454"
+cache_color = "#53666d"
 swap_color = "#7a564b"
-arc_color = "#739190"
+arc_color = "#576666"
 
 [styles.network]
-rx_color = "#7e8f70"
+rx_color = "#5b6454"
 tx_color = "#6e5a6b"
-rx_total_color = "#5d6d50"
-tx_total_color = "#7f667a"
+rx_total_color = "#57654c"
+tx_total_color = "#6f5b6b"
 
 [styles.battery]
-high_battery_color = "#7e8f70"
-medium_battery_color = "#8b774e"
-low_battery_color = "#976065"
+high_battery_color = "#5b6454"
+medium_battery_color = "#6f6146"
+low_battery_color = "#84575b"
 
 [styles.tables]
-headers = { color = "#596a7c", bold = true }
+headers = { color = "#546272", bold = true }
 
 [styles.graphs]
 graph_color = "#737d95"
-legend_text = "#5f646e"
+legend_text = "#5d626b"
 
 [styles.widgets]
 border_color = "#eeeeee"
 selected_border_color = "#596a7c"
-widget_title = { color = "#55a6ab", bold = true }
-text = "#5e8888"
-selected_text = { color = "#dadada", bg_color = "#596a7c" }
-disabled_text = "#737d95"
+widget_title = { color = "#486769", bold = true }
+text = "#4e6767"
+selected_text = { color = "#ffffff", bg_color = "#596a7c" }
+disabled_text = "#5b6271"

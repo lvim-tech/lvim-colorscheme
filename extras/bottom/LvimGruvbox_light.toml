@@ -1,38 +1,38 @@
 # Lvim Colorscheme GruvboxLight
 
 [styles.cpu]
-all_entry_color = "#5e8888"
-avg_entry_color = "#915a47"
-cpu_core_colors = ["#5988a3", "#7a7d48", "#8f8156", "#875537", "#918c9d", "#4d8a7c", "#5c8861", "#c74e4e"]
+all_entry_color = "#4e6767"
+avg_entry_color = "#895645"
+cpu_core_colors = ["#4b6575", "#616342", "#696149", "#875537", "#635f6d", "#45685f", "#4d6950", "#9f4747"]
 
 [styles.memory]
-ram_color = "#7a7d48"
-cache_color = "#5c8861"
+ram_color = "#616342"
+cache_color = "#4d6950"
 swap_color = "#875537"
-arc_color = "#4d8a7c"
+arc_color = "#45685f"
 
 [styles.network]
-rx_color = "#7a7d48"
-tx_color = "#915a47"
-rx_total_color = "#8a8e52"
-tx_total_color = "#a7614a"
+rx_color = "#616342"
+tx_color = "#895645"
+rx_total_color = "#626446"
+tx_total_color = "#8a5544"
 
 [styles.battery]
-high_battery_color = "#7a7d48"
-medium_battery_color = "#8f8156"
-low_battery_color = "#c74e4e"
+high_battery_color = "#616342"
+medium_battery_color = "#696149"
+low_battery_color = "#9f4747"
 
 [styles.tables]
-headers = { color = "#5988a3", bold = true }
+headers = { color = "#4b6575", bold = true }
 
 [styles.graphs]
 graph_color = "#a59283"
-legend_text = "#b0a193"
+legend_text = "#66605b"
 
 [styles.widgets]
 border_color = "#eeeeee"
 selected_border_color = "#5988a3"
-widget_title = { color = "#55a6ab", bold = true }
-text = "#5e8888"
-selected_text = { color = "#dadada", bg_color = "#5988a3" }
-disabled_text = "#a59283"
+widget_title = { color = "#486769", bold = true }
+text = "#4e6767"
+selected_text = { color = "#ffffff", bg_color = "#557a91" }
+disabled_text = "#6a615a"

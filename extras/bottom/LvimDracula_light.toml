@@ -1,38 +1,38 @@
 # Lvim Colorscheme DraculaLight
 
 [styles.cpu]
-all_entry_color = "#5e8888"
-avg_entry_color = "#905274"
-cpu_core_colors = ["#517079", "#466d4e", "#777b56", "#a38165", "#8b79a6", "#4d7066", "#496b64", "#af5959"]
+all_entry_color = "#4e6767"
+avg_entry_color = "#884f6e"
+cpu_core_colors = ["#4c656d", "#456a4d", "#61644b", "#725e50", "#6b5c81", "#49685f", "#486862", "#904f4f"]
 
 [styles.memory]
-ram_color = "#466d4e"
-cache_color = "#496b64"
-swap_color = "#a38165"
-arc_color = "#4d7066"
+ram_color = "#456a4d"
+cache_color = "#486862"
+swap_color = "#725e50"
+arc_color = "#49685f"
 
 [styles.network]
-rx_color = "#466d4e"
-tx_color = "#905274"
-rx_total_color = "#507a57"
-tx_total_color = "#a65981"
+rx_color = "#456a4d"
+tx_color = "#884f6e"
+rx_total_color = "#49694e"
+tx_total_color = "#8c506f"
 
 [styles.battery]
-high_battery_color = "#466d4e"
-medium_battery_color = "#777b56"
-low_battery_color = "#af5959"
+high_battery_color = "#456a4d"
+medium_battery_color = "#61644b"
+low_battery_color = "#904f4f"
 
 [styles.tables]
-headers = { color = "#517079", bold = true }
+headers = { color = "#4c656d", bold = true }
 
 [styles.graphs]
 graph_color = "#6b728f"
-legend_text = "#6b6b71"
+legend_text = "#616167"
 
 [styles.widgets]
 border_color = "#eeeeee"
 selected_border_color = "#517079"
-widget_title = { color = "#55a6ab", bold = true }
-text = "#5e8888"
-selected_text = { color = "#dadada", bg_color = "#517079" }
-disabled_text = "#6b728f"
+widget_title = { color = "#486769", bold = true }
+text = "#4e6767"
+selected_text = { color = "#ffffff", bg_color = "#517079" }
+disabled_text = "#5c6177"

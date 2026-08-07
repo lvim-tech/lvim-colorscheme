@@ -1,38 +1,38 @@
 # Lvim Colorscheme MaterialLight
 
 [styles.cpu]
-all_entry_color = "#5e8888"
-avg_entry_color = "#b04556"
-cpu_core_colors = ["#4d6cae", "#6f864f", "#8e7347", "#c9745b", "#806594", "#498776", "#578ca5", "#b14b51"]
+all_entry_color = "#4e6767"
+avg_entry_color = "#a14351"
+cpu_core_colors = ["#496095", "#596846", "#746042", "#86564a", "#6d597d", "#446a5f", "#4a6674", "#9d474c"]
 
 [styles.memory]
-ram_color = "#6f864f"
-cache_color = "#578ca5"
-swap_color = "#c9745b"
-arc_color = "#498776"
+ram_color = "#596846"
+cache_color = "#4a6674"
+swap_color = "#86564a"
+arc_color = "#446a5f"
 
 [styles.network]
-rx_color = "#6f864f"
-tx_color = "#b04556"
-rx_total_color = "#748f51"
-tx_total_color = "#c7495c"
+rx_color = "#596846"
+tx_color = "#a14351"
+rx_total_color = "#596846"
+tx_total_color = "#9e4350"
 
 [styles.battery]
-high_battery_color = "#6f864f"
-medium_battery_color = "#8e7347"
-low_battery_color = "#b14b51"
+high_battery_color = "#596846"
+medium_battery_color = "#746042"
+low_battery_color = "#9d474c"
 
 [styles.tables]
-headers = { color = "#4d6cae", bold = true }
+headers = { color = "#496095", bold = true }
 
 [styles.graphs]
 graph_color = "#798991"
-legend_text = "#7a8990"
+legend_text = "#5a6266"
 
 [styles.widgets]
 border_color = "#eeeeee"
 selected_border_color = "#4d6cae"
-widget_title = { color = "#55a6ab", bold = true }
-text = "#5e8888"
-selected_text = { color = "#dadada", bg_color = "#4d6cae" }
-disabled_text = "#798991"
+widget_title = { color = "#486769", bold = true }
+text = "#4e6767"
+selected_text = { color = "#ffffff", bg_color = "#4d6cae" }
+disabled_text = "#5a6267"

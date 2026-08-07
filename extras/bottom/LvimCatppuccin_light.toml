@@ -1,38 +1,38 @@
 # Lvim Colorscheme CatppuccinLight
 
 [styles.cpu]
-all_entry_color = "#5e8888"
+all_entry_color = "#4e6767"
 avg_entry_color = "#845377"
-cpu_core_colors = ["#6279a4", "#557153", "#8a7b5e", "#ac8068", "#9078ad", "#55736e", "#557278", "#a45a6d"]
+cpu_core_colors = ["#546380", "#50694f", "#6a604e", "#755c50", "#6c5a83", "#4f6864", "#4f676c", "#8a515f"]
 
 [styles.memory]
-ram_color = "#557153"
-cache_color = "#557278"
-swap_color = "#ac8068"
-arc_color = "#55736e"
+ram_color = "#50694f"
+cache_color = "#4f676c"
+swap_color = "#755c50"
+arc_color = "#4f6864"
 
 [styles.network]
-rx_color = "#557153"
+rx_color = "#50694f"
 tx_color = "#845377"
-rx_total_color = "#5e825c"
-tx_total_color = "#955e84"
+rx_total_color = "#50694f"
+tx_total_color = "#825574"
 
 [styles.battery]
-high_battery_color = "#557153"
-medium_battery_color = "#8a7b5e"
-low_battery_color = "#a45a6d"
+high_battery_color = "#50694f"
+medium_battery_color = "#6a604e"
+low_battery_color = "#8a515f"
 
 [styles.tables]
-headers = { color = "#6279a4", bold = true }
+headers = { color = "#546380", bold = true }
 
 [styles.graphs]
 graph_color = "#727897"
-legend_text = "#62656f"
+legend_text = "#60636c"
 
 [styles.widgets]
 border_color = "#eeeeee"
 selected_border_color = "#6279a4"
-widget_title = { color = "#55a6ab", bold = true }
-text = "#5e8888"
-selected_text = { color = "#dadada", bg_color = "#6279a4" }
-disabled_text = "#727897"
+widget_title = { color = "#486769", bold = true }
+text = "#4e6767"
+selected_text = { color = "#ffffff", bg_color = "#6076a0" }
+disabled_text = "#5e6279"
