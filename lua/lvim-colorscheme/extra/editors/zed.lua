@@ -29,6 +29,54 @@ function M.generate(colors)
     -- Zed switches its own UI chrome on this field, so a light palette shipped as "dark" makes the
     -- editor draw dark chrome around light code. The style name carries the answer (`*_light`).
     colors._appearance = tostring(colors._style):match("_light$") and "light" or "dark"
+
+    -- Zed is an EDITOR, so the `syntax` object at the bottom is a deliberate hierarchy — a comment
+    -- recedes because that is its job — and it is not floored. What is floored is the CHROME read
+    -- as words: the UI's body and muted text, the gutter's line numbers, the accent text, and the
+    -- status labels a panel writes beside a file name.
+    --
+    -- `editor.foreground` stays with the syntax rather than the chrome. It is zed's `Normal`, the
+    -- base the hierarchy is built on, and `groups/base.lua` leaves neovim's `Normal` at the
+    -- palette's muted `fg` (2.03:1 on kanagawa_soft) while flooring every float around it.
+    --
+    -- Measured across the 48 styles before this existed, 772 of zed's 960 chrome pairs were under
+    -- WCAG AA's 4.5:1 — the line number at **1.42:1** on base_soft.
+    --
+    -- Zed writes chrome text on six palette surfaces (the window background, a panel, the editor,
+    -- a float, a status wash, a selected element). They sit close together, so a colour clearing
+    -- whichever it is NEAREST clears the rest; the walk is repeated because a colour that starts
+    -- inside that cluster would otherwise stop on the next surface up.
+    local function ui(hex)
+        local v = hex
+        for _ = 1, 4 do
+            v = util.ensure_contrast(v, util.hardest(v, colors.bg_soft_dark, colors.bg, colors.bg_dark,
+                colors.bg_float, colors.bg_highlight, colors.bg_visual), 4.5)
+        end
+        return v
+    end
+
+    -- One floored value per tier, reused by every key on that tier — including the icons, so an
+    -- icon and the label beside it stay the same shade. Every `*.background` and `*.border` keeps
+    -- the palette's own value: a status family's background is a tint zed expects, and a border is
+    -- a line rather than a word. `terminal.*` keeps the palette's ANSI hierarchy untouched, and so
+    -- do `players` and `accents`, which are identity rather than text.
+    local t = vim.tbl_extend("force", colors, {
+        zed_ui_fg = ui(colors.fg),
+        zed_ui_muted = ui(colors.comment),
+        zed_line_nr = ui(colors.fg_dark),
+        zed_active_line_nr = ui(colors.fg_light),
+        zed_text_blue = ui(colors.blue),
+        zed_created = ui(colors.git.add),
+        zed_modified = ui(colors.git.change),
+        zed_deleted = ui(colors.git.delete),
+        zed_renamed = ui(colors.purple),
+        zed_conflict = ui(colors.orange),
+        zed_error = ui(colors.red),
+        zed_warning = ui(colors.yellow),
+        zed_hint = ui(colors.cyan),
+        zed_success = ui(colors.green),
+    })
+
     return util.template(
         [[
 {
@@ -43,13 +91,13 @@ function M.generate(colors)
         "background": "${bg_soft_dark}",
         "editor.background": "${bg_dark}",
         "editor.foreground": "${fg}",
-        "editor.line_number": "${fg_dark}",
-        "editor.active_line_number": "${fg_light}",
+        "editor.line_number": "${zed_line_nr}",
+        "editor.active_line_number": "${zed_active_line_nr}",
         "editor.active_line.background": "${bg}",
         "editor.gutter.background": "${bg_dark}",
-        "text": "${fg}",
-        "text.muted": "${comment}",
-        "text.accent": "${blue}",
+        "text": "${zed_ui_fg}",
+        "text.muted": "${zed_ui_muted}",
+        "text.accent": "${zed_text_blue}",
         "border": "${bg_highlight}",
         "surface.background": "${bg_float}",
         "elevated_surface.background": "${bg_float}",
@@ -96,14 +144,14 @@ function M.generate(colors)
         "border.selected": "${blue}",
         "border.transparent": "#00000000",
         "border.disabled": "${bg_highlight}",
-        "text.disabled": "${comment}",
+        "text.disabled": "${zed_ui_muted}",
         "text.placeholder": "${comment}",
-        "icon": "${fg}",
-        "icon.accent": "${blue}",
-        "icon.muted": "${comment}",
-        "icon.disabled": "${comment}",
+        "icon": "${zed_ui_fg}",
+        "icon.accent": "${zed_text_blue}",
+        "icon.muted": "${zed_ui_muted}",
+        "icon.disabled": "${zed_ui_muted}",
         "icon.placeholder": "${comment}",
-        "link_text.hover": "${blue}",
+        "link_text.hover": "${zed_text_blue}",
         "title_bar.inactive_background": "${bg_dark}",
         "pane.focused_border": "${blue}",
         "pane_group.border": "${bg_highlight}",
@@ -126,46 +174,46 @@ function M.generate(colors)
         "editor.document_highlight.read_background": "${bg_visual}",
         "editor.document_highlight.write_background": "${bg_visual}",
         "editor.document_highlight.bracket_background": "${bg_visual}",
-        "created": "${git.add}",
+        "created": "${zed_created}",
         "created.background": "${bg_highlight}",
         "created.border": "${git.add}",
-        "modified": "${git.change}",
+        "modified": "${zed_modified}",
         "modified.background": "${bg_highlight}",
         "modified.border": "${git.change}",
-        "deleted": "${git.delete}",
+        "deleted": "${zed_deleted}",
         "deleted.background": "${bg_highlight}",
         "deleted.border": "${git.delete}",
-        "renamed": "${purple}",
+        "renamed": "${zed_renamed}",
         "renamed.background": "${bg_highlight}",
         "renamed.border": "${purple}",
-        "conflict": "${orange}",
+        "conflict": "${zed_conflict}",
         "conflict.background": "${bg_highlight}",
         "conflict.border": "${orange}",
-        "error": "${red}",
+        "error": "${zed_error}",
         "error.background": "${bg_highlight}",
         "error.border": "${red}",
-        "warning": "${yellow}",
+        "warning": "${zed_warning}",
         "warning.background": "${bg_highlight}",
         "warning.border": "${yellow}",
-        "info": "${blue}",
+        "info": "${zed_text_blue}",
         "info.background": "${bg_highlight}",
         "info.border": "${blue}",
-        "hint": "${cyan}",
+        "hint": "${zed_hint}",
         "hint.background": "${bg_highlight}",
         "hint.border": "${cyan}",
-        "success": "${green}",
+        "success": "${zed_success}",
         "success.background": "${bg_highlight}",
         "success.border": "${green}",
-        "ignored": "${comment}",
+        "ignored": "${zed_ui_muted}",
         "ignored.background": "${bg_highlight}",
         "ignored.border": "${comment}",
-        "hidden": "${comment}",
+        "hidden": "${zed_ui_muted}",
         "hidden.background": "${bg_highlight}",
         "hidden.border": "${comment}",
         "predictive": "${comment}",
         "predictive.background": "${bg_highlight}",
         "predictive.border": "${comment}",
-        "unreachable": "${comment}",
+        "unreachable": "${zed_ui_muted}",
         "unreachable.background": "${bg_highlight}",
         "unreachable.border": "${comment}",
         "terminal.ansi.background": "${terminal.background}",
@@ -214,7 +262,7 @@ function M.generate(colors)
     }
   ]
 }]],
-        colors
+        t
     )
 end
 
