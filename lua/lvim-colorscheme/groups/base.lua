@@ -6,9 +6,63 @@ local util = require("lvim-colorscheme.util")
 
 local M = {}
 
+--- Floor one **interface text** colour at 4.5:1 against whichever of the surfaces it is drawn over
+--- gives it the hardest time.
+---
+--- **This is not applied to everything, and must not be.** A colourscheme's syntax groups are a
+--- deliberate hierarchy — `Comment` recedes because that is its job — and measured against 4.5, 599
+--- of this scheme's 675 syntax pairs "fail", as they do in every colourscheme in the world. So does
+--- every group whose invisibility is the point: `EndOfBuffer` hides the `~` after the last line at
+--- 1.00:1, `VertSplit` and `WinSeparator` hide the split at 1.00:1, `SpecialKey`, `NonText`,
+--- `Whitespace` and `Conceal` mark characters that are not really there and are meant to be noticed
+--- only when looked for. Flooring any of those puts tildes and split lines back on the screen.
+---
+--- What is floored is the chrome that is read as *words*: line numbers, the status line, tab
+--- labels, messages, prompts, float and popup body text, diagnostics. Measured before this existed,
+--- `LineNr` sat at **1.98:1** on everforest_dark and at **1.42:1** on base_soft — a line number is
+--- read, and 1.42:1 is not a design choice.
+---
+--- Two details cost measurements. `opts.transparent` collapses `bg_statusline` and friends to
+--- `c.none` (the string "NONE"), which is not a colour and cannot be measured, so non-hex surfaces
+--- are dropped and the opaque value is what gets floored — a transparent statusline shows the
+--- terminal's background, which this file cannot know. And a group usually has more than one
+--- surface: `LineNr` is drawn on `bg` in an unfocused window and on `bg_active` in the focused one,
+--- `Pmenu`'s foreground is drawn on `bg_popup` and again on `PmenuSel`'s wash. `util.hardest` picks
+--- the nearest in luminance, which is the one that has to be cleared, and clearing it clears the
+--- rest — naming a surface instead of choosing one is the bug that gave 4.47:1 on everforest_light.
+---@param fg string
+---@param ... string  the surfaces it may be painted on
+---@return string
+local function ui(fg, ...)
+    local surfaces = {}
+    for _, s in ipairs({ ... }) do
+        if type(s) == "string" and s:match("^#%x%x%x%x%x%x$") then
+            surfaces[#surfaces + 1] = s
+        end
+    end
+    if #surfaces == 0 or type(fg) ~= "string" or not fg:match("^#%x%x%x%x%x%x$") then
+        return fg
+    end
+    return util.ensure_contrast(fg, util.hardest(fg, unpack(surfaces)), 4.5)
+end
+
 ---@type lvim-colorscheme.HighlightsFn
 function M.get(c, opts)
     local blend = c.blend
+    -- The surfaces each piece of chrome is painted on, named once. `bg_soft_dark` rather than
+    -- `bg_statusline` and `bg_popup` because those two are the same colour and either may have been
+    -- turned into "NONE" by `transparent`; the floor is against what is painted when it is not.
+    local page = { c.bg, c.bg_active }
+    local strip = { c.bg_soft_dark }
+    -- `PmenuSel` sets only a background, so `Pmenu`'s foreground is what neovim draws on the
+    -- selected row too — both surfaces have to clear.
+    local popup = { c.bg_popup, blend.blueHigh }
+    -- The active tab label paints an accent and puts text on it. The background is the one that
+    -- must not move far — a tab strip that is no longer green has stopped matching the theme — so
+    -- the text is chosen from the two the theme has, and only if that still cannot reach 4.5:1 does
+    -- the accent give a step of lightness. hsluv holds the hue, so it stays green.
+    local tabsel_fg = util.readable_on(c.green_dark, c.black)
+    local tabsel_bg = util.ensure_contrast(c.green_dark, tabsel_fg, 4.5)
     return {
         Comment = {
             fg = c.comment,
@@ -39,7 +93,7 @@ function M.get(c, opts)
             bg = c.bg_cursorline,
         }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
         Directory = {
-            fg = c.green_dark,
+            fg = ui(c.green_dark, unpack(page)),
         }, -- directory names (and other special names in listings)
         DiffAdd = {
             bg = c.diff.add,
@@ -57,7 +111,7 @@ function M.get(c, opts)
             fg = c.bg,
         }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
         ErrorMsg = {
-            fg = c.error,
+            fg = ui(c.error, unpack(page)),
         }, -- error messages on the command line
         VertSplit = {
             fg = c.border,
@@ -69,39 +123,39 @@ function M.get(c, opts)
         }, -- the column/row separating split windows (solid: fg=bg hides the glyph's thin line)
         Folded = {
             bg = c.bg,
-            fg = c.fg,
+            fg = ui(c.fg, c.bg),
         }, -- line used for closed folds
         FoldColumn = {
             bg = opts.transparent and c.none or c.bg,
-            fg = c.comment,
+            fg = ui(c.comment, unpack(page)),
         }, -- 'foldcolumn'
         SignColumn = {
             bg = opts.transparent and c.none or c.bg,
-            fg = c.fg_dark,
+            fg = ui(c.fg_dark, unpack(page)),
         }, -- column where |signs| are displayed
         SignColumnSB = {
             bg = c.bg_sidebar,
-            fg = c.fg_dark,
+            fg = ui(c.fg_dark, c.bg_sidebar),
         }, -- column where |signs| are displayed
         Substitute = {
             bg = c.red,
             fg = c.black,
         }, -- |:substitute| replacement text highlighting
         LineNr = {
-            fg = c.fg_dark,
+            fg = ui(c.fg_dark, unpack(page)),
         }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
         CursorLineNr = {
-            fg = c.yellow_dark,
+            fg = ui(c.yellow_dark, c.bg_cursorline, unpack(page)),
             bold = true,
         }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
         LineNrAbove = {
-            fg = c.fg_dark,
+            fg = ui(c.fg_dark, unpack(page)),
         },
         SCVLine = {
             fg = util.blend_bg(c.fg_dark, 0.2),
         },
         LineNrBelow = {
-            fg = c.fg_dark,
+            fg = ui(c.fg_dark, unpack(page)),
         },
         MatchParen = {
             bg = blend.blueHigh,
@@ -109,14 +163,14 @@ function M.get(c, opts)
             bold = true,
         }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
         ModeMsg = {
-            fg = c.fg_soft_dark,
+            fg = ui(c.fg_soft_dark, unpack(page)),
             bold = true,
         }, -- 'showmode' message (e.g., "-- INSERT -- ")
         MsgArea = {
-            fg = c.fg_soft_dark,
+            fg = ui(c.fg_soft_dark, unpack(page)),
         }, -- Area for messages and cmdline
         MoreMsg = {
-            fg = c.green_dark,
+            fg = ui(c.green_dark, unpack(page)),
         }, -- |more-prompt|
         NonText = {
             fg = c.comment,
@@ -137,7 +191,7 @@ function M.get(c, opts)
         }, -- normal text in sidebar
         NormalFloat = {
             bg = c.bg_float,
-            fg = c.fg_float,
+            fg = ui(c.fg_float, c.bg_float),
         }, -- Normal text in floating windows.
         FloatBorder = {
             bg = c.bg_float,
@@ -145,15 +199,15 @@ function M.get(c, opts)
         },
         FloatTitle = {
             bg = c.bg_float,
-            fg = c.border_highlight,
+            fg = ui(c.border_highlight, c.bg_float),
         },
         Pmenu = {
             bg = c.bg_popup,
-            fg = c.fg,
+            fg = ui(c.fg, unpack(popup)),
         }, -- Popup menu: normal item.
         PmenuMatch = {
             bg = blend.blueHigh,
-            fg = c.blue,
+            fg = ui(c.blue, blend.blueHigh),
             bold = true,
         }, -- Popup menu: Matched text in normal item.
         PmenuSel = {
@@ -161,7 +215,7 @@ function M.get(c, opts)
         }, -- Popup menu: selected item.
         PmenuMatchSel = {
             bg = blend.blueHigh,
-            fg = c.blue,
+            fg = ui(c.blue, blend.blueHigh),
             bold = true,
         }, -- Popup menu: Matched text in selected item.
         PmenuSbar = {
@@ -171,7 +225,7 @@ function M.get(c, opts)
             bg = c.green_dark,
         }, -- Popup menu: Thumb of the scrollbar.
         Question = {
-            fg = c.green_dark,
+            fg = ui(c.green_dark, unpack(page)),
         }, -- |hit-enter| prompt and yes/no questions
         QuickFixLine = {
             bg = c.bg_visual,
@@ -209,25 +263,25 @@ function M.get(c, opts)
         }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
         StatusLine = {
             bg = c.bg_statusline,
-            fg = c.fg_sidebar,
+            fg = ui(c.fg_sidebar, unpack(strip)),
         }, -- status line of current window
         StatusLineNC = {
             bg = c.bg_statusline,
-            fg = c.fg_dark,
+            fg = ui(c.fg_dark, unpack(strip)),
         }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
         TabLine = {
             bg = c.bg_statusline,
-            fg = c.fg_dark,
+            fg = ui(c.fg_dark, unpack(strip)),
         }, -- tab pages line, not active tab page label
         TabLineFill = {
             bg = c.black,
         }, -- tab pages line, where there are no labels
         TabLineSel = {
-            bg = c.green_dark,
-            fg = c.black,
+            bg = tabsel_bg,
+            fg = tabsel_fg,
         }, -- tab pages line, active tab page label
         Title = {
-            fg = c.green_dark,
+            fg = ui(c.green_dark, unpack(page)),
             bold = true,
         }, -- titles for output from ":set all", ":autocmd" etc.
         Visual = {
@@ -237,7 +291,7 @@ function M.get(c, opts)
             bg = c.bg_visual,
         }, -- Visual mode selection when vim is "Not Owning the Selection".
         WarningMsg = {
-            fg = c.warning,
+            fg = ui(c.warning, unpack(page)),
         }, -- warning messages
         Whitespace = {
             fg = c.fg_dark,
@@ -327,10 +381,12 @@ function M.get(c, opts)
             bold = true,
         },
         qfFileName = {
-            fg = c.green_dark,
+            fg = ui(c.green_dark, unpack(page)),
         },
+        -- A quickfix line number is a line number: it is read, and it was `bg_light` — a
+        -- *background* key used as text, which is near-invisible by construction.
         qfLineNr = {
-            fg = c.bg_light,
+            fg = ui(c.bg_light, unpack(page)),
         },
 
         -- These groups are for the native LSP client. Some other LSP clients may
@@ -367,58 +423,58 @@ function M.get(c, opts)
 
         -- diagnostics
         DiagnosticSourceInfo = {
-            fg = c.fg_soft_dark,
+            fg = ui(c.fg_soft_dark, c.bg, c.bg_active, c.bg_float),
             style = opts.styles.comments,
         }, -- Diagnostic source information
         DiagnosticOk = {
-            fg = c.blue,
+            fg = ui(c.blue, unpack(page)),
         }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticError = {
-            fg = c.error,
+            fg = ui(c.error, unpack(page)),
         }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticWarn = {
-            fg = c.warning,
+            fg = ui(c.warning, unpack(page)),
         }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticInfo = {
-            fg = c.info,
+            fg = ui(c.info, unpack(page)),
         }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticHint = {
-            fg = c.hint,
+            fg = ui(c.hint, unpack(page)),
         }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticUnnecessary = {
             fg = c.comment,
         }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         DiagnosticVirtualLinesError = {
             bg = util.blend_bg(c.error, 0.1),
-            fg = c.error,
+            fg = ui(c.error, util.blend_bg(c.error, 0.1)),
         }, -- Used for "Error" diagnostic virtual lines
         DiagnosticVirtualLinesWarn = {
             bg = util.blend_bg(c.warning, 0.1),
-            fg = c.warning,
+            fg = ui(c.warning, util.blend_bg(c.warning, 0.1)),
         }, -- Used for "Warning" diagnostic virtual lines
         DiagnosticVirtualLinesInfo = {
             bg = util.blend_bg(c.info, 0.1),
-            fg = c.info,
+            fg = ui(c.info, util.blend_bg(c.info, 0.1)),
         }, -- Used for "Information" diagnostic virtual lines
         DiagnosticVirtualLinesHint = {
             bg = util.blend_bg(c.hint, 0.1),
-            fg = c.hint,
+            fg = ui(c.hint, util.blend_bg(c.hint, 0.1)),
         }, -- Used for "Hint" diagnostic virtual lines
         DiagnosticVirtualTextError = {
             bg = util.blend_bg(c.error, 0.1),
-            fg = c.error,
+            fg = ui(c.error, util.blend_bg(c.error, 0.1)),
         }, -- Used for "Error" diagnostic virtual text
         DiagnosticVirtualTextWarn = {
             bg = util.blend_bg(c.warning, 0.1),
-            fg = c.warning,
+            fg = ui(c.warning, util.blend_bg(c.warning, 0.1)),
         }, -- Used for "Warning" diagnostic virtual text
         DiagnosticVirtualTextInfo = {
             bg = util.blend_bg(c.info, 0.1),
-            fg = c.info,
+            fg = ui(c.info, util.blend_bg(c.info, 0.1)),
         }, -- Used for "Information" diagnostic virtual text
         DiagnosticVirtualTextHint = {
             bg = util.blend_bg(c.hint, 0.1),
-            fg = c.hint,
+            fg = ui(c.hint, util.blend_bg(c.hint, 0.1)),
         }, -- Used for "Hint" diagnostic virtual text
         DiagnosticUnderlineError = {
             undercurl = true,
@@ -439,13 +495,13 @@ function M.get(c, opts)
 
         -- Health
         healthError = {
-            fg = c.error,
+            fg = ui(c.error, unpack(page)),
         },
         healthSuccess = {
-            fg = c.teal_dark,
+            fg = ui(c.teal_dark, unpack(page)),
         },
         healthWarning = {
-            fg = c.warning,
+            fg = ui(c.warning, unpack(page)),
         },
 
         -- diff (not needed anymore?)
