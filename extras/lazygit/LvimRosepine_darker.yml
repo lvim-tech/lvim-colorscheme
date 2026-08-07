@@ -10,15 +10,15 @@ gui:
       - "#a98a89"
       - "bold"
     optionsTextColor:
-      - "#5d6d74"
+      - "#6c828c"
     selectedLineBgColor:
       - "#171519"
     cherryPickedCommitFgColor:
-      - "#5d6d74"
+      - "#131115"
     cherryPickedCommitBgColor:
       - "#9084a2"
     markedBaseCommitFgColor:
-      - "#5d6d74"
+      - "#131115"
     markedBaseCommitBgColor:
       - "#b6a18b"
     unstagedChangesColor:
