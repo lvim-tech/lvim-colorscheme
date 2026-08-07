@@ -324,11 +324,19 @@ function M.generate(colors, _, _)
                 colors.bg,
                 3.0
             ),
-            -- The quieter tier — a scroll percentage, a tab index — floored at 3:1 so it stays
-            -- legible while still reading as secondary. `ensure_contrast` is a floor and cannot
-            -- bring a bright colour down, so this starts from the palette's dimmest foreground
-            -- rather than from --fg.
-            bru_ui_fg_dim = util.ensure_contrast(colors.comment, colors.bg, 3.0),
+            -- The quieter tier — a scroll percentage, a tab index, a timestamp. **Floored at 4.5,
+            -- not at 3.0.** It sat at 3.0 so that it would still read as secondary, and 3:1 is
+            -- WCAG AA for *large* text; bru's chrome is 13px monospace, which is not large, so the
+            -- tier was the one thing on screen that failed the standard the rest was held to.
+            --
+            -- What keeps it a tier at 4.5 is that it starts from a **different colour**:
+            -- `--comment` is its own hue in every palette here, and `ensure_contrast` walks
+            -- lightness in hsluv without touching hue, so the two arrive at the same ratio by
+            -- different routes and stay visibly different. Measured across all 48 generated
+            -- themes — see the numbers in bru's commit. Where a palette's comment and foreground
+            -- are the same hue, the tier is thinner than it was, and that is the price of the
+            -- floor rather than a defect.
+            bru_ui_fg_dim = util.ensure_contrast(colors.comment, hardest(colors, colors.comment), 4.5),
 
             -- --- accents used as TEXT ------------------------------------------------------
             -- An accent is two different jobs and only one of them needs a floor. As a
