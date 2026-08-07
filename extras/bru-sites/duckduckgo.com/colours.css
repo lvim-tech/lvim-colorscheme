@@ -77,6 +77,14 @@
     --theme-col-txt-card-title: var(--ui-fg) !important;
     --theme-col-txt-card-subtitle: var(--ui-fg) !important;
     --theme-col-txt-button-secondary: var(--ui-fg) !important;
+    /* **Their token for text on a primary button, and it ships `#222`.** That is a
+     * colour for a light button, and this file paints the button dark like the rest
+     * of the page — so the label came out near-black on `--bg`, measured 1.17:1 on
+     * `See More`. It was found by asking the page which of its 821 custom properties
+     * held a near-black, not by reading the element: the class is hashed whole and
+     * there is nothing else on it to name. Which is the file's own first rule,
+     * arrived at again — their tokens, not their classes. */
+    --theme-col-txt-button-primary: var(--ui-fg) !important;
 
     /* The quieter tier — a URL, an aside, a label. */
     --theme-col-txt-url: var(--ui-fg-dim) !important;
@@ -569,11 +577,19 @@ li[data-layout="related_searches"] a * {
  * page — an old dashed name and therefore a safe one — and the React button
  * components, which this file already raises and can therefore also letter.
  *
+ * The list grew twice while this comment was being written, which is the honest
+ * shape of it: `See More` came from `--theme-col-txt-button-primary`, found by
+ * asking the page which of its **821** custom properties held a near-black rather
+ * than by reading the element — its class is hashed whole and there is nothing
+ * else on it to name. `Add DuckDuckGo to Chrome` came a query later, at 1.07:1,
+ * and that one does have a name: `.badge-link__btn`, old and dashed.
+ *
  * The way to find the next one is not to read the page. It is to ask it:
  * walk every leaf with text, resolve the first non-transparent background above
  * it, and report anything under 3:1. That single query found this one and nothing
  * else on a full results page. */
 .set-tab,
+.badge-link__btn,
 [class*="link-button_button"],
 [class*="icon-button_iconButton"] {
     color: var(--ui-fg) !important;
