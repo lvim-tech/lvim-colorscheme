@@ -9,14 +9,14 @@ k9s:
     bgColor: "#171519"
     suggestColor: "#896882"
   info:
-    fgColor: "#896882"
+    fgColor: "#9e7495"
     sectionColor: "#b3afb2"
   dialog:
     fgColor: "#b3afb2"
     bgColor: "#171519"
     buttonFgColor: "#b9b4b5"
     buttonBgColor: "#19171b"
-    buttonFocusFgColor: "#131115"
+    buttonFocusFgColor: "#ffffff"
     buttonFocusBgColor: "#5d6d74"
     labelFgColor: "#a98a89"
     fieldFgColor: "#b3afb2"
@@ -29,22 +29,22 @@ k9s:
       keyColor: "#9084a2"
       numKeyColor: "#a98a89"
     crumbs:
-      fgColor: "#131115"
+      fgColor: "#b94cf8"
       bgColor: "#19171b"
-      activeColor: "#5d6d74"
+      activeColor: "#191a1a"
     status:
-      newColor: "#5d716a"
-      modifyColor: "#5d6d74"
+      newColor: "#6b877d"
+      modifyColor: "#6d858f"
       addColor: "#788b7c"
-      errorColor: "#a0727c"
+      errorColor: "#a4747e"
       highlightColor: "#a98a89"
-      killColor: "#896882"
-      completedColor: "#896882"
+      killColor: "#9e7495"
+      completedColor: "#9e7495"
     title:
       fgColor: "#b3afb2"
       bgColor: "#171519"
       highlightColor: "#a98a89"
-      counterColor: "#726f7c"
+      counterColor: "#84818e"
       filterColor: "#9084a2"
   views:
     charts:
@@ -58,19 +58,19 @@ k9s:
     table:
       fgColor: "#b3afb2"
       bgColor: "#131115"
-      cursorFgColor: "#131115"
+      cursorFgColor: "#b94cf8"
       cursorBgColor: "#19171b"
       header:
         fgColor: "#b9b4b5"
         bgColor: "#131115"
         sorterColor: "#788787"
     yaml:
-      keyColor: "#5d6d74"
-      colonColor: "#896882"
+      keyColor: "#6d858f"
+      colonColor: "#9e7495"
       valueColor: "#b3afb2"
     logs:
       fgColor: "#b3afb2"
       bgColor: "#131115"
       indicator:
-        fgColor: "#726f7c"
+        fgColor: "#84818e"
         bgColor: "#131115"

@@ -9,14 +9,14 @@ k9s:
     bgColor: "#22252e"
     suggestColor: "#616784"
   info:
-    fgColor: "#616784"
+    fgColor: "#858db1"
     sectionColor: "#b2b6c7"
   dialog:
     fgColor: "#b2b6c7"
     bgColor: "#22252e"
     buttonFgColor: "#b5b9ca"
     buttonBgColor: "#242730"
-    buttonFocusFgColor: "#1e212a"
+    buttonFocusFgColor: "#ffffff"
     buttonFocusBgColor: "#6073a4"
     labelFgColor: "#bb866d"
     fieldFgColor: "#b2b6c7"
@@ -26,26 +26,26 @@ k9s:
       focusColor: "#6073a4"
     menu:
       fgColor: "#b2b6c7"
-      keyColor: "#907bba"
+      keyColor: "#9883c1"
       numKeyColor: "#bb866d"
     crumbs:
-      fgColor: "#1e212a"
+      fgColor: "#448bfc"
       bgColor: "#242730"
-      activeColor: "#6073a4"
+      activeColor: "#25272e"
     status:
-      newColor: "#5a7f76"
-      modifyColor: "#6073a4"
-      addColor: "#788a67"
-      errorColor: "#bb6171"
+      newColor: "#64998c"
+      modifyColor: "#758cc9"
+      addColor: "#81956d"
+      errorColor: "#cd7483"
       highlightColor: "#bb866d"
-      killColor: "#616784"
-      completedColor: "#616784"
+      killColor: "#858db1"
+      completedColor: "#858db1"
     title:
       fgColor: "#b2b6c7"
       bgColor: "#22252e"
       highlightColor: "#bb866d"
-      counterColor: "#73638e"
-      filterColor: "#907bba"
+      counterColor: "#9786b4"
+      filterColor: "#9883c1"
   views:
     charts:
       bgColor: "#1e212a"
@@ -58,19 +58,19 @@ k9s:
     table:
       fgColor: "#b2b6c7"
       bgColor: "#1e212a"
-      cursorFgColor: "#1e212a"
+      cursorFgColor: "#448bfc"
       cursorBgColor: "#242730"
       header:
         fgColor: "#b5b9ca"
         bgColor: "#1e212a"
-        sorterColor: "#648299"
+        sorterColor: "#6c92af"
     yaml:
-      keyColor: "#6073a4"
-      colonColor: "#616784"
+      keyColor: "#758cc9"
+      colonColor: "#858db1"
       valueColor: "#b2b6c7"
     logs:
       fgColor: "#b2b6c7"
       bgColor: "#1e212a"
       indicator:
-        fgColor: "#73638e"
+        fgColor: "#9786b4"
         bgColor: "#1e212a"

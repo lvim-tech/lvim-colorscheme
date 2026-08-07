@@ -9,16 +9,16 @@ k9s:
     bgColor: "#273339"
     suggestColor: "#5e6a70"
   info:
-    fgColor: "#5e6a70"
+    fgColor: "#859fac"
     sectionColor: "#b2c7c7"
   dialog:
     fgColor: "#b2c7c7"
     bgColor: "#273339"
     buttonFgColor: "#b8bec2"
     buttonBgColor: "#29353b"
-    buttonFocusFgColor: "#232f35"
-    buttonFocusBgColor: "#5b7fcb"
-    labelFgColor: "#d37a60"
+    buttonFocusFgColor: "#ffffff"
+    buttonFocusBgColor: "#5775b7"
+    labelFgColor: "#e18469"
     fieldFgColor: "#b2c7c7"
   frame:
     border:
@@ -26,26 +26,26 @@ k9s:
       focusColor: "#5b7fcb"
     menu:
       fgColor: "#b2c7c7"
-      keyColor: "#d75d70"
-      numKeyColor: "#d37a60"
+      keyColor: "#e57e8c"
+      numKeyColor: "#e18469"
     crumbs:
-      fgColor: "#232f35"
+      fgColor: "#00aad3"
       bgColor: "#29353b"
-      activeColor: "#5b7fcb"
+      activeColor: "#2f3443"
     status:
       newColor: "#65b7a1"
-      modifyColor: "#5b7fcb"
+      modifyColor: "#7c9ce7"
       addColor: "#90ad68"
-      errorColor: "#d05e64"
-      highlightColor: "#d37a60"
-      killColor: "#5e6a70"
-      completedColor: "#5e6a70"
+      errorColor: "#df8286"
+      highlightColor: "#e18469"
+      killColor: "#859fac"
+      completedColor: "#859fac"
     title:
       fgColor: "#b2c7c7"
       bgColor: "#273339"
-      highlightColor: "#d37a60"
-      counterColor: "#8f74a3"
-      filterColor: "#d75d70"
+      highlightColor: "#e18469"
+      counterColor: "#ab91be"
+      filterColor: "#e57e8c"
   views:
     charts:
       bgColor: "#232f35"
@@ -58,19 +58,19 @@ k9s:
     table:
       fgColor: "#b2c7c7"
       bgColor: "#232f35"
-      cursorFgColor: "#232f35"
+      cursorFgColor: "#00aad3"
       cursorBgColor: "#29353b"
       header:
         fgColor: "#b8bec2"
         bgColor: "#232f35"
-        sorterColor: "#65a1bd"
+        sorterColor: "#66a4c1"
     yaml:
-      keyColor: "#5b7fcb"
-      colonColor: "#5e6a70"
+      keyColor: "#7c9ce7"
+      colonColor: "#859fac"
       valueColor: "#b2c7c7"
     logs:
       fgColor: "#b2c7c7"
       bgColor: "#232f35"
       indicator:
-        fgColor: "#8f74a3"
+        fgColor: "#ab91be"
         bgColor: "#232f35"

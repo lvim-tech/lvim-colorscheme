@@ -1,51 +1,51 @@
 # Lvim Colorscheme EverforestDarker
 k9s:
   body:
-    fgColor: "#5a6158"
+    fgColor: "#869682"
     bgColor: "#161b1d"
     logoColor: "#635d71"
   prompt:
-    fgColor: "#646c62"
+    fgColor: "#869482"
     bgColor: "#1f2529"
     suggestColor: "#535d4e"
   info:
-    fgColor: "#535d4e"
-    sectionColor: "#5a6158"
+    fgColor: "#809873"
+    sectionColor: "#869682"
   dialog:
-    fgColor: "#5a6158"
+    fgColor: "#869682"
     bgColor: "#1f2529"
-    buttonFgColor: "#646c62"
+    buttonFgColor: "#869482"
     buttonBgColor: "#242a2f"
-    buttonFocusFgColor: "#161b1d"
+    buttonFocusFgColor: "#ffffff"
     buttonFocusBgColor: "#42728b"
-    labelFgColor: "#cc7942"
-    fieldFgColor: "#5a6158"
+    labelFgColor: "#d07b41"
+    fieldFgColor: "#869682"
   frame:
     border:
       fgColor: "#282f35"
       focusColor: "#42728b"
     menu:
-      fgColor: "#5a6158"
-      keyColor: "#bb755e"
-      numKeyColor: "#cc7942"
+      fgColor: "#869682"
+      keyColor: "#cc7d62"
+      numKeyColor: "#d07b41"
     crumbs:
-      fgColor: "#161b1d"
+      fgColor: "#009fbc"
       bgColor: "#242a2f"
-      activeColor: "#42728b"
+      activeColor: "#252c31"
     status:
-      newColor: "#357b6d"
-      modifyColor: "#42728b"
-      addColor: "#75783a"
-      errorColor: "#cb4f4f"
-      highlightColor: "#cc7942"
-      killColor: "#535d4e"
-      completedColor: "#535d4e"
+      newColor: "#0ba38d"
+      modifyColor: "#379ac3"
+      addColor: "#92962d"
+      errorColor: "#e36a6a"
+      highlightColor: "#d07b41"
+      killColor: "#809873"
+      completedColor: "#809873"
     title:
-      fgColor: "#5a6158"
+      fgColor: "#869682"
       bgColor: "#1f2529"
-      highlightColor: "#cc7942"
-      counterColor: "#635d71"
-      filterColor: "#bb755e"
+      highlightColor: "#d07b41"
+      counterColor: "#938ca4"
+      filterColor: "#cc7d62"
   views:
     charts:
       bgColor: "#161b1d"
@@ -56,21 +56,21 @@ k9s:
         - "#75783a"
         - "#cb4f4f"
     table:
-      fgColor: "#5a6158"
+      fgColor: "#869682"
       bgColor: "#161b1d"
-      cursorFgColor: "#161b1d"
+      cursorFgColor: "#009fbc"
       cursorBgColor: "#242a2f"
       header:
-        fgColor: "#646c62"
+        fgColor: "#869482"
         bgColor: "#161b1d"
-        sorterColor: "#527a57"
+        sorterColor: "#5ea067"
     yaml:
-      keyColor: "#42728b"
-      colonColor: "#535d4e"
-      valueColor: "#5a6158"
+      keyColor: "#379ac3"
+      colonColor: "#809873"
+      valueColor: "#869682"
     logs:
-      fgColor: "#5a6158"
+      fgColor: "#869682"
       bgColor: "#161b1d"
       indicator:
-        fgColor: "#635d71"
+        fgColor: "#938ca4"
         bgColor: "#161b1d"

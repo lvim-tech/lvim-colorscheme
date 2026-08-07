@@ -9,7 +9,7 @@ k9s:
     bgColor: "#1d1f27"
     suggestColor: "#727a98"
   info:
-    fgColor: "#727a98"
+    fgColor: "#7f87a5"
     sectionColor: "#c7c7b3"
   dialog:
     fgColor: "#c7c7b3"
@@ -29,22 +29,22 @@ k9s:
       keyColor: "#bf6f9a"
       numKeyColor: "#b58f70"
     crumbs:
-      fgColor: "#191b23"
+      fgColor: "#4783ff"
       bgColor: "#1f2129"
-      activeColor: "#638993"
+      activeColor: "#1f2122"
     status:
-      newColor: "#638e82"
-      modifyColor: "#638993"
+      newColor: "#649184"
+      modifyColor: "#658f99"
       addColor: "#62966d"
-      errorColor: "#bc6060"
+      errorColor: "#c96e6e"
       highlightColor: "#b58f70"
-      killColor: "#727a98"
-      completedColor: "#727a98"
+      killColor: "#7f87a5"
+      completedColor: "#7f87a5"
     title:
       fgColor: "#c7c7b3"
       bgColor: "#1d1f27"
       highlightColor: "#b58f70"
-      counterColor: "#796496"
+      counterColor: "#9580b4"
       filterColor: "#bf6f9a"
   views:
     charts:
@@ -58,19 +58,19 @@ k9s:
     table:
       fgColor: "#c7c7b3"
       bgColor: "#191b23"
-      cursorFgColor: "#191b23"
+      cursorFgColor: "#4783ff"
       cursorBgColor: "#1f2129"
       header:
         fgColor: "#c2c2b7"
         bgColor: "#191b23"
         sorterColor: "#66938a"
     yaml:
-      keyColor: "#638993"
-      colonColor: "#727a98"
+      keyColor: "#658f99"
+      colonColor: "#7f87a5"
       valueColor: "#c7c7b3"
     logs:
       fgColor: "#c7c7b3"
       bgColor: "#191b23"
       indicator:
-        fgColor: "#796496"
+        fgColor: "#9580b4"
         bgColor: "#191b23"

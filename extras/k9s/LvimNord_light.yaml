@@ -1,50 +1,50 @@
 # Lvim Colorscheme NordLight
 k9s:
   body:
-    fgColor: "#5e8888"
+    fgColor: "#4c6262"
     bgColor: "#dadada"
     logoColor: "#71687d"
   prompt:
-    fgColor: "#55a6ab"
+    fgColor: "#476567"
     bgColor: "#E4E4E4"
     suggestColor: "#737d95"
   info:
-    fgColor: "#737d95"
-    sectionColor: "#5e8888"
+    fgColor: "#595f6e"
+    sectionColor: "#4c6262"
   dialog:
-    fgColor: "#5e8888"
+    fgColor: "#4c6262"
     bgColor: "#E4E4E4"
-    buttonFgColor: "#55a6ab"
+    buttonFgColor: "#476567"
     buttonBgColor: "#e9e9e9"
-    buttonFocusFgColor: "#dadada"
+    buttonFocusFgColor: "#ffffff"
     buttonFocusBgColor: "#596a7c"
     labelFgColor: "#7a564b"
-    fieldFgColor: "#5e8888"
+    fieldFgColor: "#4c6262"
   frame:
     border:
       fgColor: "#eeeeee"
       focusColor: "#596a7c"
     menu:
-      fgColor: "#5e8888"
+      fgColor: "#4c6262"
       keyColor: "#6e5a6b"
       numKeyColor: "#7a564b"
     crumbs:
-      fgColor: "#dadada"
+      fgColor: "#686868"
       bgColor: "#e9e9e9"
-      activeColor: "#596a7c"
+      activeColor: "#deeaf8"
     status:
-      newColor: "#739190"
-      modifyColor: "#596a7c"
-      addColor: "#7e8f70"
-      errorColor: "#976065"
+      newColor: "#536160"
+      modifyColor: "#52606f"
+      addColor: "#596252"
+      errorColor: "#7c5357"
       highlightColor: "#7a564b"
-      killColor: "#737d95"
-      completedColor: "#737d95"
+      killColor: "#595f6e"
+      completedColor: "#595f6e"
     title:
-      fgColor: "#5e8888"
+      fgColor: "#4c6262"
       bgColor: "#E4E4E4"
       highlightColor: "#7a564b"
-      counterColor: "#71687d"
+      counterColor: "#645d6d"
       filterColor: "#6e5a6b"
   views:
     charts:
@@ -56,21 +56,21 @@ k9s:
         - "#7e8f70"
         - "#976065"
     table:
-      fgColor: "#5e8888"
+      fgColor: "#4c6262"
       bgColor: "#dadada"
-      cursorFgColor: "#dadada"
+      cursorFgColor: "#686868"
       cursorBgColor: "#e9e9e9"
       header:
-        fgColor: "#55a6ab"
+        fgColor: "#476567"
         bgColor: "#dadada"
-        sorterColor: "#6c919d"
+        sorterColor: "#506167"
     yaml:
-      keyColor: "#596a7c"
-      colonColor: "#737d95"
-      valueColor: "#5e8888"
+      keyColor: "#52606f"
+      colonColor: "#595f6e"
+      valueColor: "#4c6262"
     logs:
-      fgColor: "#5e8888"
+      fgColor: "#4c6262"
       bgColor: "#dadada"
       indicator:
-        fgColor: "#71687d"
+        fgColor: "#645d6d"
         bgColor: "#dadada"

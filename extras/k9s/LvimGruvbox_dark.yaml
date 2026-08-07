@@ -1,51 +1,51 @@
 # Lvim Colorscheme GruvboxDark
 k9s:
   body:
-    fgColor: "#645c54"
+    fgColor: "#988877"
     bgColor: "#1e1d1c"
     logoColor: "#635d71"
   prompt:
-    fgColor: "#746c63"
+    fgColor: "#968a7b"
     bgColor: "#222120"
     suggestColor: "#64584e"
   info:
-    fgColor: "#64584e"
-    sectionColor: "#645c54"
+    fgColor: "#9e856e"
+    sectionColor: "#988877"
   dialog:
-    fgColor: "#645c54"
+    fgColor: "#988877"
     bgColor: "#222120"
-    buttonFgColor: "#746c63"
+    buttonFgColor: "#968a7b"
     buttonBgColor: "#242322"
-    buttonFocusFgColor: "#1e1d1c"
+    buttonFocusFgColor: "#ffffff"
     buttonFocusBgColor: "#497188"
     labelFgColor: "#c47d54"
-    fieldFgColor: "#645c54"
+    fieldFgColor: "#988877"
   frame:
     border:
       fgColor: "#262524"
       focusColor: "#497188"
     menu:
-      fgColor: "#645c54"
-      keyColor: "#bb755e"
+      fgColor: "#988877"
+      keyColor: "#c37960"
       numKeyColor: "#c47d54"
     crumbs:
-      fgColor: "#1e1d1c"
+      fgColor: "#9a8874"
       bgColor: "#242322"
-      activeColor: "#497188"
+      activeColor: "#202326"
     status:
-      newColor: "#43796d"
-      modifyColor: "#497188"
-      addColor: "#757845"
-      errorColor: "#ca4f4f"
+      newColor: "#419a88"
+      modifyColor: "#4c92b6"
+      addColor: "#8c9045"
+      errorColor: "#df6262"
       highlightColor: "#c47d54"
-      killColor: "#64584e"
-      completedColor: "#64584e"
+      killColor: "#9e856e"
+      completedColor: "#9e856e"
     title:
-      fgColor: "#645c54"
+      fgColor: "#988877"
       bgColor: "#222120"
       highlightColor: "#c47d54"
-      counterColor: "#635d71"
-      filterColor: "#bb755e"
+      counterColor: "#8e879f"
+      filterColor: "#c37960"
   views:
     charts:
       bgColor: "#1e1d1c"
@@ -56,21 +56,21 @@ k9s:
         - "#757845"
         - "#ca4f4f"
     table:
-      fgColor: "#645c54"
+      fgColor: "#988877"
       bgColor: "#1e1d1c"
-      cursorFgColor: "#1e1d1c"
+      cursorFgColor: "#9a8874"
       cursorBgColor: "#242322"
       header:
-        fgColor: "#746c63"
+        fgColor: "#968a7b"
         bgColor: "#1e1d1c"
-        sorterColor: "#527a57"
+        sorterColor: "#5c9764"
     yaml:
-      keyColor: "#497188"
-      colonColor: "#64584e"
-      valueColor: "#645c54"
+      keyColor: "#4c92b6"
+      colonColor: "#9e856e"
+      valueColor: "#988877"
     logs:
-      fgColor: "#645c54"
+      fgColor: "#988877"
       bgColor: "#1e1d1c"
       indicator:
-        fgColor: "#635d71"
+        fgColor: "#8e879f"
         bgColor: "#1e1d1c"

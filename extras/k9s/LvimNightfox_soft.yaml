@@ -9,7 +9,7 @@ k9s:
     bgColor: "#1d2837"
     suggestColor: "#758292"
   info:
-    fgColor: "#758292"
+    fgColor: "#8292a5"
     sectionColor: "#bcbdbd"
   dialog:
     fgColor: "#bcbdbd"
@@ -17,7 +17,7 @@ k9s:
     buttonFgColor: "#bcbcbd"
     buttonBgColor: "#1f2a39"
     buttonFocusFgColor: "#192433"
-    buttonFocusBgColor: "#6885ad"
+    buttonFocusBgColor: "#6c8db9"
     labelFgColor: "#c88e62"
     fieldFgColor: "#bcbdbd"
   frame:
@@ -26,26 +26,26 @@ k9s:
       focusColor: "#6885ad"
     menu:
       fgColor: "#bcbdbd"
-      keyColor: "#9a80ae"
+      keyColor: "#a288b5"
       numKeyColor: "#c88e62"
     crumbs:
-      fgColor: "#192433"
+      fgColor: "#0095f2"
       bgColor: "#1f2a39"
-      activeColor: "#6885ad"
+      activeColor: "#272a2f"
     status:
       newColor: "#66a492"
-      modifyColor: "#6885ad"
+      modifyColor: "#6f92c2"
       addColor: "#7b998a"
-      errorColor: "#b26377"
+      errorColor: "#cb7b8e"
       highlightColor: "#c88e62"
-      killColor: "#758292"
-      completedColor: "#758292"
+      killColor: "#8292a5"
+      completedColor: "#8292a5"
     title:
       fgColor: "#bcbdbd"
       bgColor: "#1d2837"
       highlightColor: "#c88e62"
-      counterColor: "#8670a7"
-      filterColor: "#9a80ae"
+      counterColor: "#9d88be"
+      filterColor: "#a288b5"
   views:
     charts:
       bgColor: "#192433"
@@ -58,19 +58,19 @@ k9s:
     table:
       fgColor: "#bcbdbd"
       bgColor: "#192433"
-      cursorFgColor: "#192433"
+      cursorFgColor: "#0095f2"
       cursorBgColor: "#1f2a39"
       header:
         fgColor: "#bcbcbd"
         bgColor: "#192433"
         sorterColor: "#69a3a4"
     yaml:
-      keyColor: "#6885ad"
-      colonColor: "#758292"
+      keyColor: "#6f92c2"
+      colonColor: "#8292a5"
       valueColor: "#bcbdbd"
     logs:
       fgColor: "#bcbdbd"
       bgColor: "#192433"
       indicator:
-        fgColor: "#8670a7"
+        fgColor: "#9d88be"
         bgColor: "#192433"
