@@ -361,6 +361,15 @@ textarea:focus,
  * `Source: Wikipedia • Was this helpful?` row, which belongs to the page and not
  * to the card — raise the list item and the light runs on past the card's own
  * bottom edge and takes that row with it. Only the card. */
+/* **By name as well as by position.** The positional half reaches a module only
+ * while React keeps the nesting it had when this was written, and React does not
+ * promise it: measured 2026-08-08, the same box answered `--ddg-raised` to one
+ * query and painted a shade off `--bg` a second later, and a magenta marker
+ * written onto it survived on 4% of its own area before a re-render took it back.
+ * A rule that depends on being the first child loses the moment a wrapper appears.
+ * `.react-module` is the one class in this application that is not hashed, so it
+ * is the one that can be said out loud. */
+.react-module,
 li[data-layout]:not([data-layout="organic"]):not([data-layout="about"]):not([data-layout="related_searches"]) > * > *:first-child,
 [data-testid="about"] {
     background-color: var(--ddg-raised) !important;
@@ -380,6 +389,7 @@ li[data-layout]:not([data-layout="organic"]):not([data-layout="about"]):not([dat
  * file, and the box came back `rgba(0,0,0,0)` with the raise measurably applied
  * and measurably lost. A selector meant for the children must not be able to name
  * the parent. */
+.react-module *,
 li[data-layout]:not([data-layout="organic"]):not([data-layout="about"]):not([data-layout="related_searches"]) > * > *:first-child *,
 [data-testid="about"] * {
     background-color: transparent !important;
