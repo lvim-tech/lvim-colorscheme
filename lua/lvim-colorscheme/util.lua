@@ -169,6 +169,59 @@ function M.to_contrast(color, bg, target)
     return out
 end
 
+--- The readable text colour for one accent used as a *background*, of the two a theme has.
+---
+--- `ensure_contrast` is the wrong tool for this case, and the reason is which colour is free to
+--- move. On a message strip, a mode pill or a hint label the background is the palette's accent and
+--- must not move — an error strip that is no longer red has stopped being an error strip — so the
+--- *text* is what gets chosen, and it has only two candidates: the theme's own background, or
+--- white. Whichever of the two reads better on that accent wins.
+---
+--- **Choosing the better of two texts is not always enough.** The accent caps what any text on it
+--- can reach: measured on everforest, the darker candidate on `orange` reached only 4.49:1 and the
+--- white one on `red` only 4.40:1, and both were the best answer available. When that happens the
+--- accent has to give as well — feed this result back through `ensure_contrast` with the strip as
+--- the colour and the text as the background, as `extra/desktop/bru.lua` does. hsluv holds the hue,
+--- so a red strip stays red and only its lightness moves; the palette key itself is untouched.
+---@param accent string  the background, which does not move
+---@param dark string  the theme's own background, the dark candidate
+---@return string
+function M.readable_on(accent, dark)
+    if M.contrast("#ffffff", accent) > M.contrast(dark, accent) then
+        return "#ffffff"
+    end
+    return dark
+end
+
+--- Of the surfaces a colour may be painted on, the one it has the hardest time on: the nearest in
+--- luminance. A colour floored against that one clears all of them.
+---
+--- **Which surface is the hard one depends on the palette**, and assuming it costs a measurement.
+--- bru's completion rows are drawn on three surfaces; on everforest *dark* `bg_light` is the
+--- lightest of the three, so flooring against it covered the other two, and on everforest *light*
+--- the same floor came out at **4.47:1** because there the tab rows (`bg_soft_light`, `#e9e9e9`)
+--- were the near one. Nearest-in-luminance is the honest test on either side of the wheel, and it
+--- needs no knowledge of whether the theme is dark or light.
+---
+--- Variadic rather than taking the palette and naming three keys, which is what this was when it
+--- lived in `extra/desktop/bru.lua`: those three are *bru's* surfaces. A statusline is drawn on
+--- `bg_statusline`, a float on `bg_float`, a number column on `bg` or on the focused window's
+--- `bg_active` — every caller has its own set, and the only thing they share is the question.
+---@param text string  the colour that has to stay readable
+---@param ... string  the surfaces it may be painted on; at least one
+---@return string
+function M.hardest(text, ...)
+    local lum = M.luminance(text)
+    local worst, gap = nil, math.huge
+    for _, surface in ipairs({ ... }) do
+        local d = math.abs(M.luminance(surface) - lum)
+        if d < gap then
+            gap, worst = d, surface
+        end
+    end
+    return worst
+end
+
 ---@param hex string
 ---@param amount number
 ---@param bg? string

@@ -6,47 +6,21 @@ local util = require("lvim-colorscheme.util")
 
 local M = {}
 
---- The readable text colour for one accent *background*, of the two the theme actually has.
+--- The three surfaces bru paints text over, in the order `util.hardest` wants them: `--bg` is the
+--- strip and the page, `--bg-soft-light` is an odd tab row, `--bg-light` is the selected row.
 ---
---- `ensure_contrast` is the wrong tool here and the reason is which colour is free to move. On a
---- message strip the background is the palette's accent and must not move — an error strip that is
---- no longer red has stopped being an error strip — so the *text* is what is chosen, and it has
---- only two candidates: the theme's own background, or white. Whichever of the two reads better on
---- that accent wins, which is `bru_pill_fg`'s rule applied per accent instead of once for all ten
---- mode pills.
----
---- Local to this target rather than added to `util`, because ten other desktop targets read that
---- file and none of them asked for this.
----@param accent string  the background, which does not move
----@param dark string  the theme's own background, the dark candidate
----@return string
-local function readable_on(accent, dark)
-    if util.contrast("#ffffff", accent) > util.contrast(dark, accent) then
-        return "#ffffff"
-    end
-    return dark
-end
-
---- The surface a text colour has the hardest time on, of the three bru paints text over.
----
---- `--bg` is the strip and the page, `--bg-soft-light` is an odd tab row, `--bg-light` is the
---- selected row. On a dark palette the last is the lightest and clearing it clears the others; on a
---- light palette that is exactly backwards. Nearest in luminance is the honest test either way, and
---- a colour floored against it clears all three.
+--- `util.readable_on` and `util.hardest` used to be locals here, and the comment on them said they
+--- were local "because ten other desktop targets read that file and none of them asked for this".
+--- They are asking now — every target with interface text needs the same two answers — so both live
+--- in `util` and `hardest` takes its surfaces variadically instead of naming bru's three.
 ---@param colors ColorScheme
 ---@param text string
 ---@return string
 local function hardest(colors, text)
-    local lum = util.luminance(text)
-    local worst, gap = colors.bg, math.huge
-    for _, surface in ipairs({ colors.bg, colors.bg_soft_light, colors.bg_light }) do
-        local d = math.abs(util.luminance(surface) - lum)
-        if d < gap then
-            gap, worst = d, surface
-        end
-    end
-    return worst
+    return util.hardest(text, colors.bg, colors.bg_soft_light, colors.bg_light)
 end
+
+local readable_on = util.readable_on
 
 --- @param colors ColorScheme
 function M.generate(colors, _, _)
