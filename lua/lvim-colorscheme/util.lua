@@ -169,6 +169,53 @@ function M.to_contrast(color, bg, target)
     return out
 end
 
+--- Clear `min` contrast against `bg` by walking in EITHER direction, keeping the hue.
+---
+--- **`ensure_contrast` picks its direction once, from `luminance(bg) < 0.5`, and that is unsafe on a
+--- mid-luminance background.** A saturated accent used as a *surface* sits between 0.18 and 0.49
+--- luminance on all 48 palettes here, so the heuristic sends the walk toward white when down was
+--- the way out — and `ensure_contrast` returns its best effort rather than raising, so it fails
+--- **silently**. Measured 2026-08-07: qutebrowser's hint-match colour climbed to 1.96:1 on
+--- kanagawa_dark while walking down reached 10.61:1, and it was wrong that way on **38 of 48
+--- styles**. tmux's copy-mode strip had the same shape at 2.68:1 on solarized_soft.
+---
+--- So: try the floor, and if the floor did not reach, walk the other way. Stepping is
+--- `ensure_contrast`'s — one unit of hsluv lightness, saturation held to the L:S ratio, so the hue
+--- and the character the palette chose survive the move. Returns its best effort when neither
+--- direction reaches, which is a colour that is still the palette's rather than a raise nobody
+--- catches; the caller that needs to know can ask [`M.contrast`].
+---
+--- `ensure_contrast` is deliberately left alone: it is what eleven desktop targets already call, and
+--- changing which way it walks would move colours nobody asked to have moved.
+---@param color string
+---@param bg string
+---@param min number
+---@return string
+function M.ensure_contrast_either_way(color, bg, min)
+    local walked = M.ensure_contrast(color, bg, min)
+    if M.contrast(walked, bg) >= min then
+        return walked
+    end
+    local hsluv = require("lvim-colorscheme.hsluv")
+    local hsl = hsluv.hex_to_hsluv(color)
+    local l0, s0 = hsl[3], hsl[2]
+    local out = walked
+    for _ = 1, 100 do
+        hsl[3] = hsl[3] - 1
+        if hsl[3] < 0 then
+            return out
+        end
+        if l0 > 0 then
+            hsl[2] = math.min(s0 * (hsl[3] / l0), 100)
+        end
+        out = hsluv.hsluv_to_hex(hsl)
+        if M.contrast(out, bg) >= min then
+            return out
+        end
+    end
+    return out
+end
+
 --- The readable text colour for one accent used as a *background*, of the two a theme has.
 ---
 --- `ensure_contrast` is the wrong tool for this case, and the reason is which colour is free to

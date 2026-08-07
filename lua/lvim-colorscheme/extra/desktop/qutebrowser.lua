@@ -41,37 +41,6 @@ function M.generate(colors, _, opts)
     --- caller that has ever hit the wall. Everything else in this file floors against a page or a
     --- pole, where the direction is not in doubt. `util.ensure_contrast` is unchanged, and every
     --- colour that already clears its floor comes back from here untouched.
-    ---@param color string
-    ---@param bg string
-    ---@return string
-    local function either_way(color, bg)
-        local walked = util.ensure_contrast(color, bg, 4.5)
-        if util.contrast(walked, bg) >= 4.5 then
-            return walked
-        end
-        local hsluv = require("lvim-colorscheme.hsluv")
-        local hsl = hsluv.hex_to_hsluv(color)
-        local l0, s0 = hsl[3], hsl[2]
-        local out = walked
-        -- The other direction, stepped the same way `ensure_contrast` steps: one unit of hsluv
-        -- lightness at a time, saturation held to the L:S ratio so the hue and the character the
-        -- palette chose survive the move.
-        for _ = 1, 100 do
-            hsl[3] = hsl[3] - 1
-            if hsl[3] < 0 then
-                return out
-            end
-            if l0 > 0 then
-                hsl[2] = math.min(s0 * (hsl[3] / l0), 100)
-            end
-            out = hsluv.hsluv_to_hex(hsl)
-            if util.contrast(out, bg) >= 4.5 then
-                return out
-            end
-        end
-        return out
-    end
-
     local nameTheme = "Lvim" .. capitalizeFirstLetter(opts.style)
     local qutebrowser = util.template(
         [[
@@ -300,9 +269,10 @@ c.colors.webpage.bg = palette["background"]
 
             -- Against the label it is drawn on, which is `strip-yellow` and not the page, and in
             -- whichever lightness direction that label leaves room in.
-            qb_hint_match = either_way(
+            qb_hint_match = util.ensure_contrast_either_way(
                 colors.comment,
-                util.ensure_contrast(colors.yellow, util.readable_on(colors.yellow, colors.bg), 4.5)
+                util.ensure_contrast(colors.yellow, util.readable_on(colors.yellow, colors.bg), 4.5),
+                4.5
             ),
         })
     )

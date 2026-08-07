@@ -125,7 +125,7 @@ function M.generate(colors, _, _)
     /* c.colors.hints.* */
     --hints-fg: ${bru_on_yellow};
     --hints-bg: ${bru_strip_yellow};
-    --hints-match-fg: var(--comment);
+    --hints-match-fg: ${bru_hint_match};
 
     /* c.colors.keyhint.* */
     --keyhint-fg: ${bru_text_purple};
@@ -380,6 +380,22 @@ function M.generate(colors, _, _)
             bru_on_yellow = readable_on(colors.yellow, colors.bg),
             bru_strip_yellow = util.ensure_contrast(
                 colors.yellow, readable_on(colors.yellow, colors.bg), 4.5
+            ),
+            -- The already-typed part of a hint label, drawn **on the hint's own background**, which
+            -- is an accent and not `--bg`. It read at **1.03:1** — `--comment` on yellow — which is
+            -- the one defect the contrast sweep found in bru and could not reach, because bru was
+            -- out of that pass's scope.
+            --
+            -- `ensure_contrast_either_way`, not `ensure_contrast`: the floor picks its direction
+            -- once from `luminance(bg) < 0.5`, and a saturated accent used as a *surface* sits
+            -- between 0.18 and 0.49 on every palette here — so the walk climbs toward white when
+            -- down was the way out, and returns its best effort rather than raising. Measured on
+            -- qutebrowser's identical pair: 1.96:1 climbing against 10.61:1 descending, wrong that
+            -- way on 38 of 48 styles.
+            bru_hint_match = util.ensure_contrast_either_way(
+                colors.comment,
+                util.ensure_contrast(colors.yellow, readable_on(colors.yellow, colors.bg), 4.5),
+                4.5
             ),
             bru_strip_cyan = util.ensure_contrast(
                 colors.cyan, readable_on(colors.cyan, colors.bg), 4.5

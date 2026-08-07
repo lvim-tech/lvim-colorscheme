@@ -83,7 +83,7 @@
     /* c.colors.hints.* */
     --hints-fg: #202127;
     --hints-bg: #d1b57c;
-    --hints-match-fg: var(--comment);
+    --hints-match-fg: #454564;
 
     /* c.colors.keyhint.* */
     --keyhint-fg: #8f83ab;
