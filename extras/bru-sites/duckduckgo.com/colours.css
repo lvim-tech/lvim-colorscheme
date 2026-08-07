@@ -504,3 +504,53 @@ li[data-layout="related_searches"] a * {
 [class*="chip-select_"] * {
     background-color: transparent !important;
 }
+
+/* --- the two controls the flat rule erased -------------------------------
+ *
+ * `[class]` paints every classed element `--bg` and the square rule takes every
+ * radius, and between them they deleted two controls outright: the protection
+ * check before `Protected` and the region toggle after it. Measured 2026-08-08 —
+ * the check is three stacked divs, 16x16, 8x8 and 16x16, and the toggle is a
+ * 32x16 track with a 12x12 knob; every one of the six came back `rgb(41,47,51)`
+ * with `border-radius: 0`. The site draws them in CSS, not as images, so
+ * flattening the page flattened them with it.
+ *
+ * **An indicator is neither the page nor a raised surface**, which is the gap in
+ * this file's rule: it is content that happens to be drawn with a background. It
+ * cannot be exempted from the flat rule — `!important` from a broad selector
+ * cannot be undone by `revert`, both being author origin, and widening the flat
+ * rule's `:not()` would push its specificity above the raised list and flatten
+ * everything this file lifts. So they are drawn again here, in the theme's own
+ * colours, after the rules that erased them.
+ *
+ * Named by `data-testid` and by `role`, not by class: these are hashed whole
+ * (`MdTimh5XRAJzHIEU2HIT`), and a switch's role is the one thing about it that
+ * cannot change without changing what it is. */
+/* **The check is three background-IMAGES, so ours is to get out of the way.**
+ * Measured 2026-08-08 after painting them: the shield is drawn by
+ * `background-image: url(duckduckgo.com/dist/react-…)` on three stacked 16x16 and
+ * 8x8 divs, and a `background-color` sits UNDER that image — so ours did not
+ * recolour the shield, it put a solid block behind it that showed round the
+ * artwork's edges, square where the shield is not. `border-radius` made it worse
+ * by rounding a box that no longer matched what was drawn on it.
+ *
+ * Transparent is the whole fix. The site's own artwork is already the right
+ * colours; the flat rule was covering the space around it, not the icon. */
+[data-testid="privacy-reminder"] div div > * {
+    background-color: transparent !important;
+}
+
+[role="switch"] {
+    background-color: var(--raised-more) !important;
+    border-radius: 999px !important;
+}
+
+[role="switch"] > * {
+    background-color: var(--ui-fg) !important;
+    border-radius: 999px !important;
+}
+
+/* On, in bru's own accent — the colour the completion gives a category heading. */
+[role="switch"][aria-checked="true"] {
+    background-color: var(--completion-category-fg) !important;
+}
