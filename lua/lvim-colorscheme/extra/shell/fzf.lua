@@ -2,6 +2,8 @@
 --
 ---@module "lvim-colorscheme.extra.fzf"
 
+local util = require("lvim-colorscheme.util")
+
 local M = {}
 
 function M.generate()
@@ -40,8 +42,33 @@ function M.generate()
         ["spinner"] = { "fg", "FzfLuaFzfSpinner" },
         ["header"] = { "fg", "FzfLuaFzfHeader" },
     }
-    local ret = {}
+    -- Which slot paints the SURFACE each foreground slot is read on. fzf draws a normal row on
+    -- `bg` and the row under the cursor on `bg+`, so `fg` has to clear both — the slot is one
+    -- colour and the terminal picks the row. The four slots left out of this table are left out
+    -- deliberately: `border` and `separator` are the box's own lines, `scrollbar` is the thumb
+    -- beside them, and `gutter` is a background rather than something drawn on one. Nothing is
+    -- read against any of the four, and flooring them draws lines nobody asked for.
+    --
+    -- The colours here are neovim's own highlight groups, already floored for neovim's floats by
+    -- `groups/base.lua`. That is not the same measurement: fzf is a separate process painting on
+    -- its own window, so `FzfLuaNormal`'s foreground lands on `FzfLuaNormal`'s background with no
+    -- popup wash under it. Measured across the 48 styles before this existed, 377 of fzf's 480
+    -- text pairs were under 4.5:1 — `fg` at **1.97:1** on everforest_soft and the match counter
+    -- at **1.90:1** on kanagawa_light.
+    local on = {
+        ["fg"] = { "bg", "bg+" },
+        ["hl"] = { "bg" },
+        ["hl+"] = { "bg+" },
+        ["info"] = { "bg" },
+        ["query"] = { "bg" },
+        ["prompt"] = { "bg" },
+        ["header"] = { "bg" },
+        ["pointer"] = { "bg+" },
+        ["marker"] = { "bg+" },
+        ["spinner"] = { "bg" },
+    }
 
+    local value = {}
     for c, v in pairs(spec) do
         local hl_group = links[v[2]]
         if vim.fn.hlexists(v[2]) == 1 then
@@ -52,8 +79,27 @@ function M.generate()
         assert(hl, "hl not found for " .. hl_group)
         local color = hl[v[1]]
         assert(color, "color not found for " .. c .. ":" .. hl_group)
-        color = string.format("#%06x", color)
-        local line = string.format("--color=%s:%s", c, color)
+        value[c] = string.format("#%06x", color)
+    end
+
+    -- Floored after every slot is resolved, because a foreground's surface is another slot.
+    for c, surfaces in pairs(on) do
+        if value[c] then
+            local list = {}
+            for _, s in ipairs(surfaces) do
+                if value[s] then
+                    list[#list + 1] = value[s]
+                end
+            end
+            if #list > 0 then
+                value[c] = util.ensure_contrast(value[c], util.hardest(value[c], unpack(list)), 4.5)
+            end
+        end
+    end
+
+    local ret = {}
+    for c, v in pairs(spec) do
+        local line = string.format("--color=%s:%s", c, value[c])
         if v[3] then
             line = line .. ":" .. v[3]
         end
