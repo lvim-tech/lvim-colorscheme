@@ -1,6 +1,6 @@
 [style]
 header = "67"
-unit = "60"
+unit = "103"
 tree = "234"
 
 [style.by_percentage]
@@ -16,7 +16,7 @@ color_r = "65"
 color_s = "67"
 color_t = "144"
 color_z = "139"
-color_x = "60"
+color_x = "103"
 
 [style.by_unit]
 color_k = "67"
@@ -24,4 +24,4 @@ color_m = "65"
 color_g = "144"
 color_t = "137"
 color_p = "132"
-color_x = "60"
+color_x = "103"

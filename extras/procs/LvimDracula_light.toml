@@ -1,27 +1,27 @@
 [style]
-header = "60"
+header = "59"
 unit = "60"
 tree = "255"
 
 [style.by_percentage]
-color_000 = "60"
+color_000 = "59"
 color_025 = "240"
-color_050 = "101"
-color_075 = "137"
-color_100 = "131"
+color_050 = "240"
+color_075 = "59"
+color_100 = "95"
 
 [style.by_state]
-color_d = "131"
+color_d = "95"
 color_r = "240"
-color_s = "60"
-color_t = "101"
-color_z = "96"
+color_s = "59"
+color_t = "240"
+color_z = "95"
 color_x = "60"
 
 [style.by_unit]
-color_k = "60"
+color_k = "59"
 color_m = "240"
-color_g = "101"
-color_t = "137"
-color_p = "131"
+color_g = "240"
+color_t = "59"
+color_p = "95"
 color_x = "60"

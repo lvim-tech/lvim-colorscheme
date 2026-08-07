@@ -1,27 +1,27 @@
 [style]
-header = "242"
-unit = "96"
+header = "66"
+unit = "139"
 tree = "235"
 
 [style.by_percentage]
-color_000 = "242"
+color_000 = "66"
 color_025 = "244"
 color_050 = "144"
 color_075 = "138"
-color_100 = "132"
+color_100 = "138"
 
 [style.by_state]
-color_d = "132"
+color_d = "138"
 color_r = "244"
-color_s = "242"
+color_s = "66"
 color_t = "144"
 color_z = "103"
-color_x = "96"
+color_x = "139"
 
 [style.by_unit]
-color_k = "242"
+color_k = "66"
 color_m = "244"
 color_g = "144"
 color_t = "138"
-color_p = "132"
-color_x = "96"
+color_p = "138"
+color_x = "139"

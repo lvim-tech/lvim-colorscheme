@@ -1,10 +1,10 @@
 [style]
-header = "242"
+header = "66"
 unit = "96"
 tree = "234"
 
 [style.by_percentage]
-color_000 = "242"
+color_000 = "66"
 color_025 = "244"
 color_050 = "144"
 color_075 = "138"
@@ -13,13 +13,13 @@ color_100 = "132"
 [style.by_state]
 color_d = "132"
 color_r = "244"
-color_s = "242"
+color_s = "66"
 color_t = "144"
 color_z = "103"
 color_x = "96"
 
 [style.by_unit]
-color_k = "242"
+color_k = "66"
 color_m = "244"
 color_g = "144"
 color_t = "138"
