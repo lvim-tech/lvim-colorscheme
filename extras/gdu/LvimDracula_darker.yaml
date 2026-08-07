@@ -10,12 +10,12 @@ style:
         background-color: "#62966d"
         number-color: "#191b23"
     header:
-        text-color: "#191b23"
+        text-color: "#ffffff"
         background-color: "#796496"
         hidden: false
     result-row:
         number-color: "#adb27e"
-        directory-color: "#638993"
+        directory-color: "#648c96"
     progress-modal:
         border-color: "#638993"
         text-color: "#c7c7b3"

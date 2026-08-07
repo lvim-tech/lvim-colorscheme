@@ -1,21 +1,21 @@
 style:
     selected-row:
-        text-color: "#242322"
+        text-color: "#ffffff"
         background-color: "#497188"
     marked:
         text-color: "#242322"
         background-color: "#c47d54"
     footer:
-        text-color: "#242322"
+        text-color: "#ffffff"
         background-color: "#757845"
-        number-color: "#242322"
+        number-color: "#ffffff"
     header:
-        text-color: "#242322"
+        text-color: "#ffffff"
         background-color: "#635d71"
         hidden: false
     result-row:
         number-color: "#af9e6b"
-        directory-color: "#497188"
+        directory-color: "#4b95ba"
     progress-modal:
         border-color: "#497188"
-        text-color: "#645c54"
+        text-color: "#9b8a79"

@@ -11,7 +11,7 @@ style:
         number-color: "#191d24"
     header:
         text-color: "#191d24"
-        background-color: "#887f93"
+        background-color: "#8b8296"
         hidden: false
     result-row:
         number-color: "#c3a870"

@@ -10,8 +10,8 @@ style:
         background-color: "#7b998a"
         number-color: "#101822"
     header:
-        text-color: "#101822"
-        background-color: "#8670a7"
+        text-color: "#ffffff"
+        background-color: "#816ba1"
         hidden: false
     result-row:
         number-color: "#bba76f"

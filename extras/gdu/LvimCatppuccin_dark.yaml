@@ -1,6 +1,6 @@
 style:
     selected-row:
-        text-color: "#191a23"
+        text-color: "#ffffff"
         background-color: "#6076a0"
     marked:
         text-color: "#191a23"
@@ -10,12 +10,12 @@ style:
         background-color: "#6b8d69"
         number-color: "#191a23"
     header:
-        text-color: "#191a23"
+        text-color: "#ffffff"
         background-color: "#7c609b"
         hidden: false
     result-row:
         number-color: "#b8a47e"
-        directory-color: "#6076a0"
+        directory-color: "#6985ba"
     progress-modal:
         border-color: "#6076a0"
         text-color: "#b2b7c7"
