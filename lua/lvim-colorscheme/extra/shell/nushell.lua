@@ -59,6 +59,13 @@ function M.generate(colors)
     -- palette and `ensure_contrast` picks its direction from the background alone, so it is the
     -- either-way walk that is needed here.
     --
+    -- What that costs is worth saying: the block lands mid-luminance, and 4.5:1 against a surface
+    -- at luminance L admits only text below (L+0.05)/4.5-0.05 or above 4.5*(L+0.05)-0.05, so on
+    -- base_dark the red comes out #1c1616 and on everforest_soft #fdcdcd — the hue survives as a
+    -- tint and no more. That is the whole room this block leaves; a red that stays red on it does
+    -- not exist. It is one colour on one block, so nothing is lost that has to be told apart,
+    -- which is why this is floored where `zellij`'s four ribbon emphases are not.
+    --
     -- `shape_garbage` is the other way round — light text on the palette's red — and there the
     -- red itself gives a step of lightness where the text alone cannot reach, exactly as
     -- `extra/desktop/qutebrowser.lua` does with its message strips. hsluv holds the hue, so it
