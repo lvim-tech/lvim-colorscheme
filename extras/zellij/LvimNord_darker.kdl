@@ -31,7 +31,7 @@ themes {
             emphasis_0 "#b88473"
             emphasis_1 "#b4bac6"
             emphasis_2 "#a2869d"
-            emphasis_3 "#887f93"
+            emphasis_3 "#92899d"
         }
         table_title {
             base "#879978"
@@ -74,7 +74,7 @@ themes {
             emphasis_3 "#a2869d"
         }
         frame_selected {
-            base "#73889e"
+            base "#7990a8"
             background "#191d24"
             emphasis_0 "#b88473"
             emphasis_1 "#7097a3"
@@ -87,7 +87,7 @@ themes {
             emphasis_0 "#a2869d"
             emphasis_1 "#7097a3"
             emphasis_2 "#879978"
-            emphasis_3 "#887f93"
+            emphasis_3 "#92899d"
         }
         exit_code_success {
             base "#879978"
@@ -98,12 +98,12 @@ themes {
             emphasis_3 "#a2869d"
         }
         exit_code_error {
-            base "#ac6e74"
+            base "#b77c82"
             background "#191d24"
             emphasis_0 "#b88473"
             emphasis_1 "#c3a870"
             emphasis_2 "#a2869d"
-            emphasis_3 "#887f93"
+            emphasis_3 "#92899d"
         }
         multiplayer_user_colors {
             player_1 "#a2869d"

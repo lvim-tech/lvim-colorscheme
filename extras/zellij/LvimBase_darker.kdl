@@ -2,20 +2,20 @@
 themes {
     lvim {
         text_unselected {
-            base "#5e8888"
+            base "#639696"
             background "#181e21"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
+            emphasis_1 "#4097aa"
             emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_3 "#de684e"
         }
         text_selected {
             base "#55a6ab"
             background "#1e2427"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
+            emphasis_1 "#4097aa"
             emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_3 "#de684e"
         }
         ribbon_selected {
             base "#181e21"
@@ -26,84 +26,84 @@ themes {
             emphasis_3 "#40719a"
         }
         ribbon_unselected {
-            base "#5e8888"
+            base "#639696"
             background "#202629"
             emphasis_0 "#e19556"
             emphasis_1 "#55a6ab"
-            emphasis_2 "#c6614d"
-            emphasis_3 "#40719a"
+            emphasis_2 "#de684e"
+            emphasis_3 "#3392d2"
         }
         table_title {
             base "#7e965a"
             background "#181e21"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
+            emphasis_1 "#4097aa"
             emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_3 "#de684e"
         }
         table_cell_selected {
             base "#55a6ab"
             background "#1e2427"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
+            emphasis_1 "#4097aa"
             emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_3 "#de684e"
         }
         table_cell_unselected {
-            base "#5e8888"
+            base "#639696"
             background "#181e21"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
+            emphasis_1 "#4097aa"
             emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_3 "#de684e"
         }
         list_selected {
             base "#55a6ab"
             background "#1e2427"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
+            emphasis_1 "#4097aa"
             emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_3 "#de684e"
         }
         list_unselected {
-            base "#5e8888"
+            base "#639696"
             background "#181e21"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
+            emphasis_1 "#4097aa"
             emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_3 "#de684e"
         }
         frame_selected {
-            base "#447ca2"
+            base "#3d95c9"
             background "#181e21"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
+            emphasis_1 "#4097aa"
             emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_3 "#de684e"
         }
         frame_highlight {
             base "#e19556"
             background "#181e21"
-            emphasis_0 "#c6614d"
-            emphasis_1 "#448595"
+            emphasis_0 "#de684e"
+            emphasis_1 "#4097aa"
             emphasis_2 "#7e965a"
-            emphasis_3 "#40719a"
+            emphasis_3 "#3392d2"
         }
         exit_code_success {
             base "#7e965a"
             background "#181e21"
-            emphasis_0 "#407e70"
-            emphasis_1 "#448595"
+            emphasis_0 "#399c88"
+            emphasis_1 "#4097aa"
             emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_3 "#de684e"
         }
         exit_code_error {
-            base "#d75e52"
+            base "#e1655a"
             background "#181e21"
             emphasis_0 "#e19556"
             emphasis_1 "#d8b36f"
-            emphasis_2 "#c6614d"
-            emphasis_3 "#40719a"
+            emphasis_2 "#de684e"
+            emphasis_3 "#3392d2"
         }
         multiplayer_user_colors {
             player_1 "#c6614d"

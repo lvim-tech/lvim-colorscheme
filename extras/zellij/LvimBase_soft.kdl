@@ -2,108 +2,108 @@
 themes {
     lvim {
         text_unselected {
-            base "#5e8888"
+            base "#67a2a2"
             background "#22292d"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
-            emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_1 "#38a6bd"
+            emphasis_2 "#86a25c"
+            emphasis_3 "#eb7760"
         }
         text_selected {
             base "#55a6ab"
             background "#282f33"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
-            emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_1 "#38a6bd"
+            emphasis_2 "#86a25c"
+            emphasis_3 "#eb7760"
         }
         ribbon_selected {
             base "#22292d"
-            background "#7e965a"
+            background "#80995b"
             emphasis_0 "#d75e52"
             emphasis_1 "#e19556"
             emphasis_2 "#c6614d"
             emphasis_3 "#40719a"
         }
         ribbon_unselected {
-            base "#5e8888"
+            base "#67a2a2"
             background "#2a3135"
             emphasis_0 "#e19556"
             emphasis_1 "#55a6ab"
-            emphasis_2 "#c6614d"
-            emphasis_3 "#40719a"
+            emphasis_2 "#eb7760"
+            emphasis_3 "#1aa0eb"
         }
         table_title {
-            base "#7e965a"
+            base "#86a25c"
             background "#22292d"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
-            emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_1 "#38a6bd"
+            emphasis_2 "#86a25c"
+            emphasis_3 "#eb7760"
         }
         table_cell_selected {
             base "#55a6ab"
             background "#282f33"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
-            emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_1 "#38a6bd"
+            emphasis_2 "#86a25c"
+            emphasis_3 "#eb7760"
         }
         table_cell_unselected {
-            base "#5e8888"
+            base "#67a2a2"
             background "#22292d"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
-            emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_1 "#38a6bd"
+            emphasis_2 "#86a25c"
+            emphasis_3 "#eb7760"
         }
         list_selected {
             base "#55a6ab"
             background "#282f33"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
-            emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_1 "#38a6bd"
+            emphasis_2 "#86a25c"
+            emphasis_3 "#eb7760"
         }
         list_unselected {
-            base "#5e8888"
+            base "#67a2a2"
             background "#22292d"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
-            emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_1 "#38a6bd"
+            emphasis_2 "#86a25c"
+            emphasis_3 "#eb7760"
         }
         frame_selected {
-            base "#447ca2"
+            base "#33a1dc"
             background "#22292d"
             emphasis_0 "#e19556"
-            emphasis_1 "#448595"
-            emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_1 "#38a6bd"
+            emphasis_2 "#86a25c"
+            emphasis_3 "#eb7760"
         }
         frame_highlight {
             base "#e19556"
             background "#22292d"
-            emphasis_0 "#c6614d"
-            emphasis_1 "#448595"
-            emphasis_2 "#7e965a"
-            emphasis_3 "#40719a"
+            emphasis_0 "#eb7760"
+            emphasis_1 "#38a6bd"
+            emphasis_2 "#86a25c"
+            emphasis_3 "#1aa0eb"
         }
         exit_code_success {
-            base "#7e965a"
+            base "#86a25c"
             background "#22292d"
-            emphasis_0 "#407e70"
-            emphasis_1 "#448595"
-            emphasis_2 "#7e965a"
-            emphasis_3 "#c6614d"
+            emphasis_0 "#31a992"
+            emphasis_1 "#38a6bd"
+            emphasis_2 "#86a25c"
+            emphasis_3 "#eb7760"
         }
         exit_code_error {
-            base "#d75e52"
+            base "#e7786f"
             background "#22292d"
             emphasis_0 "#e19556"
             emphasis_1 "#d8b36f"
-            emphasis_2 "#c6614d"
-            emphasis_3 "#40719a"
+            emphasis_2 "#eb7760"
+            emphasis_3 "#1aa0eb"
         }
         multiplayer_user_colors {
             player_1 "#c6614d"

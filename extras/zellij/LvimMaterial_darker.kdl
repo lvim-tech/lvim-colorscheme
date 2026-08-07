@@ -7,7 +7,7 @@ themes {
             emphasis_0 "#d37a60"
             emphasis_1 "#65a1bd"
             emphasis_2 "#90ad68"
-            emphasis_3 "#d75d70"
+            emphasis_3 "#dd6c7c"
         }
         text_selected {
             base "#b8bec2"
@@ -15,7 +15,7 @@ themes {
             emphasis_0 "#d37a60"
             emphasis_1 "#65a1bd"
             emphasis_2 "#90ad68"
-            emphasis_3 "#d75d70"
+            emphasis_3 "#dd6c7c"
         }
         ribbon_selected {
             base "#182125"
@@ -30,8 +30,8 @@ themes {
             background "#20292d"
             emphasis_0 "#d37a60"
             emphasis_1 "#b8bec2"
-            emphasis_2 "#d75d70"
-            emphasis_3 "#8f74a3"
+            emphasis_2 "#dd6c7c"
+            emphasis_3 "#9e84b2"
         }
         table_title {
             base "#90ad68"
@@ -39,7 +39,7 @@ themes {
             emphasis_0 "#d37a60"
             emphasis_1 "#65a1bd"
             emphasis_2 "#90ad68"
-            emphasis_3 "#d75d70"
+            emphasis_3 "#dd6c7c"
         }
         table_cell_selected {
             base "#b8bec2"
@@ -47,7 +47,7 @@ themes {
             emphasis_0 "#d37a60"
             emphasis_1 "#65a1bd"
             emphasis_2 "#90ad68"
-            emphasis_3 "#d75d70"
+            emphasis_3 "#dd6c7c"
         }
         table_cell_unselected {
             base "#b2c7c7"
@@ -55,7 +55,7 @@ themes {
             emphasis_0 "#d37a60"
             emphasis_1 "#65a1bd"
             emphasis_2 "#90ad68"
-            emphasis_3 "#d75d70"
+            emphasis_3 "#dd6c7c"
         }
         list_selected {
             base "#b8bec2"
@@ -63,7 +63,7 @@ themes {
             emphasis_0 "#d37a60"
             emphasis_1 "#65a1bd"
             emphasis_2 "#90ad68"
-            emphasis_3 "#d75d70"
+            emphasis_3 "#dd6c7c"
         }
         list_unselected {
             base "#b2c7c7"
@@ -71,23 +71,23 @@ themes {
             emphasis_0 "#d37a60"
             emphasis_1 "#65a1bd"
             emphasis_2 "#90ad68"
-            emphasis_3 "#d75d70"
+            emphasis_3 "#dd6c7c"
         }
         frame_selected {
-            base "#5b7fcb"
+            base "#6b8edd"
             background "#182125"
             emphasis_0 "#d37a60"
             emphasis_1 "#65a1bd"
             emphasis_2 "#90ad68"
-            emphasis_3 "#d75d70"
+            emphasis_3 "#dd6c7c"
         }
         frame_highlight {
             base "#d37a60"
             background "#182125"
-            emphasis_0 "#d75d70"
+            emphasis_0 "#dd6c7c"
             emphasis_1 "#65a1bd"
             emphasis_2 "#90ad68"
-            emphasis_3 "#8f74a3"
+            emphasis_3 "#9e84b2"
         }
         exit_code_success {
             base "#90ad68"
@@ -95,15 +95,15 @@ themes {
             emphasis_0 "#65b7a1"
             emphasis_1 "#65a1bd"
             emphasis_2 "#90ad68"
-            emphasis_3 "#d75d70"
+            emphasis_3 "#dd6c7c"
         }
         exit_code_error {
-            base "#d05e64"
+            base "#d87075"
             background "#182125"
             emphasis_0 "#d37a60"
             emphasis_1 "#cfa96a"
-            emphasis_2 "#d75d70"
-            emphasis_3 "#8f74a3"
+            emphasis_2 "#dd6c7c"
+            emphasis_3 "#9e84b2"
         }
         multiplayer_user_colors {
             player_1 "#d75d70"
