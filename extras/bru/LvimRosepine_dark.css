@@ -117,45 +117,53 @@
     --statusbar-bg: var(--bg);
     --statusbar-fg: var(--ui-fg);
 
-    /* **The same pills as this user's neovim statusline.** `lvim-hud`'s
-       `chrome/init.lua:98-103` paints the mode as a coloured pill — normal
-       green, insert red, visual orange, command purple, replace cyan, terminal
-       blue — and bru's bar sits under the same eyes on the same screen, so the
-       modes they share are the same colour. Asked for 2026-08-07.
-
-       Passthrough takes the terminal blue because that is what it is: the keys
-       stop being the browser's and go straight to what is underneath. The five
-       modes neovim has no counterpart for take what is left.
-
-       The text colour is `--pill-fg`, which is whichever of the theme's dark or
-       light reads better on that pill — the same rule `pill_on` applies in the
-       statusline, so the two never disagree about a colour. */
-    --statusbar-normal-fg: var(--pill-fg);
-    --statusbar-normal-bg: var(--green);
-    --statusbar-insert-fg: var(--pill-fg);
-    --statusbar-insert-bg: var(--red);
-    --statusbar-caret-fg: var(--pill-fg);
-    --statusbar-caret-bg: var(--orange);
-    --statusbar-command-fg: var(--pill-fg);
-    --statusbar-command-bg: var(--purple);
-    --statusbar-passthrough-fg: var(--pill-fg);
-    --statusbar-passthrough-bg: var(--blue);
-    --statusbar-hint-fg: var(--pill-fg);
-    --statusbar-hint-bg: var(--yellow);
-    --statusbar-set-mark-fg: var(--pill-fg);
-    --statusbar-set-mark-bg: var(--cyan);
-    --statusbar-jump-mark-fg: var(--pill-fg);
-    --statusbar-jump-mark-bg: var(--cyan);
-    --statusbar-record-macro-fg: var(--pill-fg);
-    --statusbar-record-macro-bg: var(--magenta);
-    --statusbar-run-macro-fg: var(--pill-fg);
-    --statusbar-run-macro-bg: var(--teal);
-    --statusbar-private-fg: var(--ui-fg);
-    --statusbar-private-bg: var(--bg-dark);
+    /* The status bar's own widgets, with the meanings they have always had:
+       `command` is the command *line*, `insert`/`caret`/`passthrough` are what
+       qutebrowser recolours the whole bar with. bru no longer recolours the bar
+       — that is `--statusbar-bg` above — but these keep their names and their
+       jobs, because two of them are read by real inputs and a variable that
+       changes meaning repaints something nobody was looking at. It has happened
+       twice here: once the whole strip went green, once the command line did. */
+    --statusbar-normal-fg: var(--ui-fg);
+    --statusbar-normal-bg: var(--bg);
+    --statusbar-command-fg: var(--ui-fg);
+    --statusbar-command-bg: var(--bg);
     --statusbar-command-private-fg: var(--ui-fg);
     --statusbar-command-private-bg: var(--bg-dark);
-    --statusbar-caret-selection-fg: var(--pill-fg);
+    --statusbar-private-fg: var(--ui-fg);
+    --statusbar-private-bg: var(--bg-dark);
+    --statusbar-insert-fg: var(--bg);
+    --statusbar-insert-bg: var(--green);
+    --statusbar-passthrough-fg: var(--bg);
+    --statusbar-passthrough-bg: var(--cyan);
+    --statusbar-caret-fg: var(--bg);
+    --statusbar-caret-bg: var(--purple);
+    --statusbar-caret-selection-fg: var(--bg);
     --statusbar-caret-selection-bg: var(--magenta);
+
+    /* **The mode pills, and nothing else reads these.** Their own namespace
+       because the first attempt spent `--statusbar-normal-bg` and
+       `--statusbar-command-bg` on them, and both were already the background of
+       something — the whole bar, and the command line.
+
+       The colours are this user's neovim statusline, `lvim-hud`'s
+       `chrome/init.lua:98-103`: normal green, insert red, visual orange,
+       command purple, replace cyan, terminal blue. bru's bar sits under the
+       same eyes on the same screen, so the modes they share are the same
+       colour. Passthrough takes the terminal blue because that is what it is —
+       the keys stop being the browser's. The five modes neovim has no
+       counterpart for take what is left. */
+    --mode-fg: var(--pill-fg);
+    --mode-normal-bg: var(--green);
+    --mode-insert-bg: var(--red);
+    --mode-caret-bg: var(--orange);
+    --mode-command-bg: var(--purple);
+    --mode-passthrough-bg: var(--blue);
+    --mode-hint-bg: var(--yellow);
+    --mode-set-mark-bg: var(--cyan);
+    --mode-jump-mark-bg: var(--cyan);
+    --mode-record-macro-bg: var(--magenta);
+    --mode-run-macro-bg: var(--teal);
     --statusbar-progress-bg: var(--cyan);
     --statusbar-url-fg: var(--ui-fg);
     --statusbar-url-error-fg: var(--red);
