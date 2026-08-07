@@ -1,0 +1,498 @@
+/* DuckDuckGo in whatever theme bru is wearing.
+ *
+ * **Their tokens, not their classes.** The first version of this file chased class
+ * names and lost: they are hashed, they change, and half the page was never
+ * covered. DuckDuckGo has a proper design-token system — `--theme-col-*` — and
+ * its own dark theme works by setting those to dark values. So this file does not
+ * write a dark theme; it changes WHICH dark values theirs uses, and every card,
+ * panel, button and border follows because their stylesheet already reads them.
+ *
+ * Read out of the running page 2026-08-07 with `bru --remote js`, which is what
+ * the socket is for. Their dark values, and what each becomes here:
+ *
+ *     #161616  page, header            -> --bg
+ *     #222222  a result, a modal       -> --bg          (flat: see the shadows note)
+ *     #282828  inputs and chrome       -> --bg-soft-light
+ *     #333333  a raised panel          -> --bg-soft-light
+ *     #444 #3d3d3d  hover              -> --bg-light
+ *     #666     borders                 -> --bg-light
+ *     #fff #eee #e8e8e8  text          -> --ui-fg
+ *     #ccc #ababab  the quieter tier   -> --ui-fg-dim
+ *     #adc2fc  a link                  -> --completion-category-fg
+ *
+ * Every colour is a var() from theme.css, which bru injects above this file, so
+ * switching the theme moves this with it and nothing here names a hex. */
+
+:root {
+    /* `--raised` and `--raised-more` are **not defined here.** They come from
+     * `theme.css`, which bru prepends to this file, and they are computed per
+     * palette by `extra/desktop/bru.lua::surfaces` — see the note there for the
+     * two measurements behind 1.22:1 and 1.45:1, and for why the direction is not
+     * simply "lighter" (on all twelve light styles it is darker, because `#E4E4E4`
+     * has no room above it for two steps).
+     *
+     * They used to be a `color-mix` right here, at a percentage guessed against
+     * one dark palette. That is exactly the freezing this whole arrangement
+     * exists to avoid, one level up: a number that is right for Everforest dark
+     * and has no reason to be right for Solarized light. */
+
+    /* --- surfaces ------------------------------------------------------- */
+    --theme-col-bg-page: var(--bg) !important;
+    --theme-col-bg-header: var(--bg) !important;
+    --theme-col-bg-header-transparent: transparent !important;
+    --theme-col-bg-page-transparent: transparent !important;
+    --theme-col-bg-modal: var(--raised) !important;
+    --result-item-bg: var(--bg) !important;
+    --result-item-bg-transparent: transparent !important;
+
+    /* One step up, for the things that really are a block: the search field, a
+     * card's header, a text area. */
+    --theme-col-bg-ui: var(--raised) !important;
+    --theme-col-bg-ui-header: var(--raised) !important;
+    --theme-col-bg-ext-dropdown: var(--raised) !important;
+    --theme-col-bg-textarea: var(--raised) !important;
+    --theme-col-bg-card-header: var(--raised) !important;
+    --theme-col-bg-page-alt-1: var(--raised) !important;
+    --theme-col-bg-page-alt-2: var(--bg) !important;
+    --theme-col-bg-page-alt-3: var(--bg) !important;
+
+    /* Hover and active, one further step so a pointer has something to land on. */
+    --theme-col-bg-ui-active: var(--raised-more) !important;
+    --theme-col-bg-expandcollapse-hover: var(--raised-more) !important;
+    --theme-col-bg-button-expandcollapse-hover: var(--raised-more) !important;
+    --theme-col-bg-button-qna: var(--raised) !important;
+    --theme-col-bg-button-qna-hover: var(--raised-more) !important;
+
+    /* --- text ----------------------------------------------------------- */
+    --theme-col-txt-snippet: var(--ui-fg) !important;
+    --theme-col-txt-card-body: var(--ui-fg) !important;
+    --theme-col-txt-card-title: var(--ui-fg) !important;
+    --theme-col-txt-card-subtitle: var(--ui-fg) !important;
+    --theme-col-txt-button-secondary: var(--ui-fg) !important;
+
+    /* The quieter tier — a URL, an aside, a label. */
+    --theme-col-txt-url: var(--ui-fg-dim) !important;
+    --theme-col-txt-url-domain: var(--ui-fg-dim) !important;
+    --theme-col-txt-card-aside: var(--ui-fg-dim) !important;
+    --theme-col-txt-large-tab: var(--ui-fg-dim) !important;
+    --theme-col-label-annotation: var(--ui-fg-dim) !important;
+
+    /* A link is the thing you came to click, so it takes the colour bru's own
+     * completion gives a category heading. */
+    --theme-col-txt-title: var(--completion-category-fg) !important;
+    --theme-col-txt-header-link-hover: var(--completion-category-fg) !important;
+    --theme-col-txt-button-ghost-hover: var(--completion-category-fg) !important;
+    --theme-col-bg-button-primary: var(--completion-category-fg) !important;
+
+    /* --- lines and edges ------------------------------------------------ */
+    --theme-col-border-card-nested: var(--bg-light) !important;
+    --theme-col-card-inner-border: var(--bg-light) !important;
+    --theme-col-border-large-tab-selected: var(--ui-fg) !important;
+    --theme-col-border-dashed: var(--bg-light) !important;
+    --theme-col-modal-border: var(--bg-light) !important;
+    --theme-col-modal-header-border: var(--bg-light) !important;
+
+    /* Their two status colours, from the palette rather than from their guesses. */
+    --theme-col-success: var(--green) !important;
+    --theme-col-error: var(--red) !important;
+
+    /* The glow behind a focused field: a colour with an alpha suffix in their
+     * stylesheet, so it takes a colour and not a var. Off. */
+    --theme-col-glow: transparent !important;
+}
+
+/* --- the surfaces the tokens do not reach ---------------------------------
+ *
+ * Overriding `--theme-col-*` covers everything DERIVED from them — cards, buttons,
+ * borders, every piece of text — and that is most of the page. It does not cover
+ * the page itself. Measured 2026-08-07 with `bru --remote js`, on a page where the
+ * override had plainly landed:
+ *
+ *     --theme-col-bg-page  #232929   the token is ours
+ *     html, body           #161616   the paint is theirs
+ *
+ * So the top-level surfaces are set with a literal somewhere rather than read from
+ * the token, and they need naming. This is not the class-chasing the first version
+ * of this file did and lost at: it is four containers that exist to BE the page,
+ * and their names are the oldest and least likely to move on the site. */
+html,
+body,
+.site-wrapper,
+#links_wrapper,
+.serp__results {
+    background-color: var(--bg) !important;
+    color: var(--ui-fg) !important;
+}
+
+/* Their link blue, which is a colour rather than a token: the dictionary card's
+ * cross-references and the header links both use it directly. */
+a:not([class]),
+.about-info a,
+.zci a,
+.c-base__title a {
+    color: var(--completion-category-fg) !important;
+}
+
+/* --- the components ------------------------------------------------------
+ *
+ * The rest of the page is React with CSS modules, and every class carries a build
+ * hash: `minimal-homepage_layout__jbnsx`, `ai-searchbox_combobox__LWmQ_`. Naming
+ * them one at a time was tried and abandoned twice — the first time by class, the
+ * second by component prefix — because the list has no end: after six were named,
+ * one pass with `bru --remote js` found **47 more**, with names like
+ * `pull-tab-scroll-button_` and `product-showcase-chip_` that exist on one page.
+ *
+ * So the rule is inverted. **Everything the site paints is the page**, and the few
+ * things that should stand off it are raised by name below. That is a real trade:
+ * a block the site meant to raise and this file has not heard of comes out flat.
+ * Flat and complete beats raised and patchy — and the alternative was a file that
+ * grows every time a page is opened.
+ *
+ * `[class]` and not `[class*="_"]`, corrected 2026-08-07, and the correction is
+ * the whole of the black header and the black footer. "The hashed classes all
+ * carry an underscore" was read off the homepage and is not true of the results
+ * page. One `bru --remote js` pass over `hello at DuckDuckGo` asked which elements
+ * paint a background that is not `--bg`, and answered with seven — **every one of
+ * them without an underscore in its class**:
+ *
+ *     #161616  1931x107 at the top     header-wrap js-header-wrap
+ *     #161616  1931x223 at the bottom  footer
+ *     #282828  654x243  the Hello card O9Ipab51rBntYb0pwOQn
+ *     #222222  194x132  a result box   BdZVYXbdg6Rx9Lrm5wzC
+ *     #222222  259x1260 the side menu  nav-menu--slideout
+ *     #333333  684x44   the search box T265XEcezvjUhK71U8pN
+ *
+ * Two families, and neither could ever match: the React classes here are hashed
+ * **whole** — `T265XEcezvjUhK71U8pN`, no component prefix and no separator — and
+ * the page's own frame is old markup with dashes, `header-wrap` and `footer`. So
+ * the substring was never the rule; having a class is. `[class]` and not `*`
+ * still, because a bare `*` has zero specificity and would lose to everything.
+ *
+ * html and body are named above with the same colour, so a class on either changes
+ * nothing. */
+[class] {
+    background-color: var(--bg) !important;
+    border-color: var(--bg-light) !important;
+}
+
+/* Raised on purpose: the things a pointer lands on.
+ *
+ * `[class][class]` — 0,2,0 — because the flat rule above is now 0,1,0 and would
+ * otherwise win on order, and because `input` alone is 0,0,1 and would lose to it
+ * outright. That is what flattened the search field the first time this was
+ * broadened. */
+[class][class*="ai-searchbox_combobox"],
+[class][class*="chip-select_"],
+[class][class*="button_button"],
+[class][class*="_card"],
+[class][class*="_panel"],
+[class][class*="dropdown_"],
+/* **No `[class*="searchbox"]` here.** It was, and it raised the whole page:
+ * `<html>` on the start page carries `is-not-searchbox-focused` among its state
+ * classes, the substring matched, and 2158x1400 of document came out one step up.
+ * A substring match over a class LIST is not a match on a component — it is a
+ * match on any word that happens to contain those letters, state flags included.
+ * The field is named exactly instead, by `data-testid` on the results page and by
+ * `ai-searchbox_` here. */
+[class][class*="nav-menu--slideout"],
+input[class],
+input,
+textarea,
+select {
+    background-color: var(--raised) !important;
+}
+
+/* **An overlay click target must stay transparent, or it paints over the icon it
+ * exists to make clickable.** The settings control next to `Duck.ai` is two
+ * elements stacked: a React `<svg>` that draws the gear, and above it an empty
+ * legacy `<a class="dropdown__button">` that catches the click. Asked with
+ * `document.elementsFromPoint` at the gear's centre 2026-08-07, the `<a>` came
+ * back topmost, 32x29, `innerHTML` empty, no background-image, and its only
+ * content an `::after` glyph from an icon font. Give it a background of any kind
+ * and the gear underneath is gone — which is what an empty raised box in the
+ * header was.
+ *
+ * It matched the raised list by accident: `dropdown__button` contains the
+ * substring `dropdown_`. Named here after it, so it wins on order. */
+[class][class*="dropdown__button"],
+[class][class*="__button"]:empty {
+    background-color: transparent !important;
+}
+
+[class][class*="_selectedIndicator"],
+[class][class*="_active"],
+[class][class*="_hover"],
+[class][class*="_plusMinus"] {
+    background-color: var(--raised-more) !important;
+}
+
+/* The search field's border: it is a ring the site draws to say "type here", and
+ * on a background that is not theirs it reads as a box drawn round nothing. The
+ * field is already one step off the page, which says the same thing more quietly.
+ * Focus is still visible — `:focus-visible` at the bottom of this file draws it. */
+input,
+textarea,
+[class*="searchbox"],
+[class*="_combobox"],
+#search_form,
+#searchbox_input {
+    border: 0 !important;
+    outline: none;
+}
+
+/* --- shadows -------------------------------------------------------------
+ *
+ * A drop shadow is a device for a light background: it says "this is above that"
+ * by darkening what is under it, and on a dark page there is nothing left to
+ * darken — what shows instead is a grey smear round every block. The separation
+ * is done above, with one step of background, which is how bru's own completion
+ * panel sits on the page without casting anything.
+ *
+ * `[class][class]` and not `*`: a bare `*` has zero specificity and loses to any
+ * rule with a class in it even when both carry `!important`. Two attribute
+ * selectors put this at 0,2,0, which is above what a site writes for a card. */
+[class][class],
+[class][class]::before,
+[class][class]::after,
+*, *::before, *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+/* Focus back as an outline — but **not on the search field**, which is the one
+ * control on the page that has focus the moment it loads. A ring drawn round it
+ * before anybody has pressed a key is not feedback, it is decoration, and it read
+ * as a yellow box round nothing.
+ *
+ * Everything else keeps it: a shadow is how this site draws keyboard focus, and
+ * the shadows are gone above, so without this the page cannot be navigated
+ * without a mouse. */
+:focus-visible:not(input):not(textarea):not([class*="searchbox"]):not([class*="_combobox"]) {
+    outline: 2px solid var(--completion-category-fg) !important;
+    outline-offset: 2px !important;
+}
+
+input:focus,
+input:focus-visible,
+textarea:focus,
+[class*="searchbox"]:focus-within,
+[class*="_combobox"]:focus-within {
+    outline: none !important;
+    border: 0 !important;
+}
+
+/* --- square corners -------------------------------------------------------
+ *
+ * bru draws none. The tab strip, the command line, the completion table and the
+ * prompt are all square, and `scrollbar.rs` declares `border-radius:0` on the
+ * thumb outright rather than leaving it out — for the reason written there: a
+ * radius that is not declared is not overridden, it is inherited from whatever
+ * the page said. A rounded card on a page that is otherwise bru's is the one
+ * thing left saying which site you are on.
+ *
+ * `img` and `svg` are out of it: the duck is a round avatar and squaring it would
+ * be a different thing from squaring a card, and a thumbnail's corners belong to
+ * the picture. `:not()` takes its argument's specificity, so `*:not(img):not(svg)`
+ * is 0,0,2 rather than the 0,0,0 a bare `*` would be — which is what lets this
+ * reach a card that names itself. */
+*:not(img):not(svg):not(svg *) {
+    border-radius: 0 !important;
+}
+
+/* --- the two things that are shapes, not surfaces -------------------------
+ *
+ * Asked for by name 2026-08-07, and both are named by `data-testid` rather than
+ * by a class: `search-form-input-wrapper`, `about`, `sidebar`. Those attributes
+ * are what DuckDuckGo's own tests hold on to, so they outlive a build in a way
+ * `T265XEcezvjUhK71U8pN` cannot — which is the whole lesson of this file.
+ *
+ * **The search bar is the wrapper, not the input.** Measured: the input is 636 px
+ * and the wrapper 684, and the 48 px between them is where the two buttons on the
+ * right sit. Raising the input alone drew the light exactly up to the buttons and
+ * stopped, which is what made them look like they were outside their own field.
+ * Raise the wrapper and they are inside it.
+ *
+ * The radius is here and the square rule above says otherwise, so this comes
+ * after it — the search bar is the one control on the page shaped like a control,
+ * and it was asked for. Everything else stays square. */
+[data-testid="search-form-input-wrapper"] {
+    background-color: var(--raised) !important;
+    border-radius: 8px !important;
+}
+
+/* **Only the wrapper paints.** Everything inside it is transparent and the bar
+ * shows through, which is the difference between one bar with two icons on it and
+ * one bar with two dark squares punched out of it: the flat rule above gives every
+ * classed element `--bg`, and on a raised bar `--bg` is a hole. Measured — the
+ * magnifier's button came back `rgb(35,41,41)`, 32x32, sitting on `#2F3735`.
+ *
+ * The input included. It is 636 px inside a 684 px wrapper, and painting it the
+ * same colour as the wrapper only invites the two to disagree the day one of them
+ * changes. */
+[data-testid="search-form-input-wrapper"] *,
+[data-testid="search-form-input-wrapper"] input {
+    background-color: transparent !important;
+}
+
+/* The two boxes beside the results: the dictionary card and the panel in the
+ * sidebar. Both are modules — a thing the page assembled rather than a result —
+ * and they take the same one step up as the search bar, so the page has one
+ * raised tier and not three.
+ *
+ * **The card, not the slot it sits in.** Measured all four candidates side by
+ * side: `li[data-layout="about"]` and `[data-react-module-id]` are both 448x275,
+ * `[data-testid="about"]` is 450x243. The 32 px between them is the
+ * `Source: Wikipedia • Was this helpful?` row, which belongs to the page and not
+ * to the card — raise the list item and the light runs on past the card's own
+ * bottom edge and takes that row with it. Only the card. */
+li[data-layout]:not([data-layout="organic"]):not([data-layout="about"]):not([data-layout="related_searches"]) > * > *:first-child,
+[data-testid="about"] {
+    background-color: var(--raised) !important;
+    border-radius: 8px !important;
+}
+
+/* And inside them, nothing paints — the search bar's rule again, for the same
+ * failure. Raising the module alone left a box whose only raised pixels were the
+ * 10 px of margin round the edge: measured, ten descendants of `about` came back
+ * `rgb(35,41,41)` over a raised container, the outermost of them 654x275 against
+ * the module's own 672x275. The colour was there and every child was painting on
+ * top of it.
+ *
+ * **Descendants of the card, and nothing wider.** `[data-react-module-id] *` was
+ * in this list and the card is a descendant of the module — so the rule matched
+ * the card itself, at the same 0,1,0 as the rule that raises it and later in the
+ * file, and the box came back `rgba(0,0,0,0)` with the raise measurably applied
+ * and measurably lost. A selector meant for the children must not be able to name
+ * the parent. */
+li[data-layout]:not([data-layout="organic"]):not([data-layout="about"]):not([data-layout="related_searches"]) > * > *:first-child *,
+[data-testid="about"] * {
+    background-color: transparent !important;
+    /* And no outlines either. A raised card is one surface; the related-searches
+     * module draws a border round every chip, and on a card that is already a step
+     * off the page each of those reads as a box inside a box — a grid where the
+     * page meant a list. Measured on `related_searches`: one raised 652x314 box
+     * with ten bordered children in it. */
+    border-color: transparent !important;
+}
+
+/* --- related searches: the chips, not the box round them ------------------
+ *
+ * Asked for outright, twice, and it is the one module where the general rule is
+ * wrong. Every other module is a card with things written in it; this one is a
+ * list of ten targets and the box round them is a heading, not a surface. Raising
+ * the container made a grid of ten bordered cells inside one lighter rectangle —
+ * a box inside a box, which is what the page already looked like before any of
+ * this. Raise the ten and leave the rectangle to the page.
+ *
+ * Measured: ten `<a>`, 311x40 each, one per `<li>`. */
+li[data-layout="related_searches"] a {
+    background-color: var(--raised) !important;
+    border-radius: 8px !important;
+}
+
+/* And inside the chip, nothing paints — the third time this exact failure has
+ * come up in this file, and it is always the same sentence: **the container
+ * paints, a child punches a hole in it.** The flat rule gives every classed
+ * element `--bg`, so the span wrapping a chip's text drew a dark field across the
+ * middle of its own chip. */
+li[data-layout="related_searches"] a * {
+    background-color: transparent !important;
+}
+
+/* --- the settings popup ---------------------------------------------------
+ *
+ * `.modal__box` — the Search Settings panel behind the gear, and one of the old
+ * dashed class names rather than a hashed one, so it is safe to say out loud.
+ * It floats over the page, which is the one thing on this site that genuinely is
+ * above the page rather than part of it, so it takes the raised step; flat, it
+ * read as a hole punched in the results.
+ *
+ * The header of this file maps `#222222  a result, a modal -> --bg`, and that is
+ * now half wrong: a result is the page, a modal is not. The token above moved
+ * with it. */
+.modal__box {
+    background-color: var(--raised) !important;
+    border-radius: 8px !important;
+}
+
+.modal__box * {
+    background-color: transparent !important;
+}
+
+/* --- the side menu --------------------------------------------------------
+ *
+ * `.nav-menu--slideout` is already in the raised list above, and it was already
+ * raised — measured 259x1134 at `--raised` while the panel still looked flat,
+ * because `ul.nav-menu__list` fills it edge to edge and paints `--bg` over the
+ * top. The fourth instance of the same thing, so it gets the same answer rather
+ * than a new one.
+ *
+ * No radius: it is flush to the window edge, and a rounded corner against an edge
+ * is a gap, not a shape. */
+[class*="nav-menu--slideout"] * {
+    background-color: transparent !important;
+}
+
+/* --- the start page -------------------------------------------------------
+ *
+ * `start.duckduckgo.com` is a different application from the results page —
+ * `minimal-homepage_layout`, its own components — and the results page's rules
+ * land on it wrong in one specific way: `ai-searchbox_` matched the field, the
+ * form, the form's wrapper and the mode-selector wrapper, so a 620x87 rectangle
+ * came up raised where the site draws a pill on an empty page. Raise the field
+ * and the two chips; leave the scaffolding round them to the page.
+ *
+ * The radii are the site's own, and they are named here because the square rule
+ * above would otherwise take them: a search field on an empty page and a pair of
+ * mode chips are the two controls this page IS, and squaring them is not the same
+ * decision as squaring a card. */
+[class*="ai-searchbox_modeSelectorWrapper"],
+[class*="ai-searchbox_formWrapper"],
+[class*="ai-searchbox_form"] {
+    background-color: transparent !important;
+}
+
+[class*="ai-searchbox_combobox"],
+[class*="search-input_searchbox"] {
+    background-color: var(--raised) !important;
+    border-radius: 24px !important;
+}
+
+[class*="chip-select_root"],
+[class*="chip-select_option"],
+[class*="chip-select_selectedIndicator"],
+[class*="icon-button_iconButton"],
+[class*="link-button_button"],
+[class*="button_button"] {
+    border-radius: 999px !important;
+}
+
+[class*="chip-select_selectedIndicator"] {
+    background-color: var(--raised-more) !important;
+}
+
+/* The field's own children, transparent, for the fifth and last time in this
+ * file: the magnifier's button drew a dark square inside the pill. */
+[class*="ai-searchbox_combobox"] *,
+[class*="search-input_searchbox"] * {
+    background-color: transparent !important;
+}
+
+/* --- everything raised, and its children, once ----------------------------
+ *
+ * The sixth instance of the same failure, so it stops being a list of incidents
+ * and becomes the rule: **anything this file raises has transparent contents.**
+ * CSS cannot say "inside something raised", so the raised component families are
+ * named here together. Measured on the tagline: a 330x46 pill at `--raised` with
+ * a 272x20 span at `--bg` lying across the middle of it, which is a dark bar
+ * behind the words and nothing else. The Duck.ai button had the same thing at
+ * 16x16 behind its icon.
+ *
+ * If a family is added to the raised list above, add it here in the same commit
+ * or it will draw its own holes. */
+[class*="link-button_button"] *,
+[class*="button_button"] *,
+[class*="icon-button_iconButton"] *,
+[class*="chip-select_"] * {
+    background-color: transparent !important;
+}
