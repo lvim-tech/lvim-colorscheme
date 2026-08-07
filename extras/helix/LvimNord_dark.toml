@@ -2,20 +2,20 @@
 
 "ui.background" = { bg = "bg_dark" }
 "ui.text" = "fg"
-"ui.text.focus" = "fg_light"
-"ui.cursor" = { fg = "bg_dark", bg = "green" }
-"ui.cursor.primary" = { fg = "bg_dark", bg = "green" }
+"ui.text.focus" = "ui_fg_light"
+"ui.cursor" = { fg = "on_green", bg = "strip_green" }
+"ui.cursor.primary" = { fg = "on_green", bg = "strip_green" }
 "ui.cursorline.primary" = { bg = "bg" }
 "ui.selection" = { bg = "bg_visual" }
-"ui.linenr" = "fg_dark"
-"ui.linenr.selected" = "fg_light"
-"ui.statusline" = { fg = "fg", bg = "bg" }
-"ui.statusline.inactive" = { fg = "fg_dark", bg = "bg" }
-"ui.popup" = { fg = "fg", bg = "bg_float" }
+"ui.linenr" = "ui_fg_dark"
+"ui.linenr.selected" = "ui_fg_light"
+"ui.statusline" = { fg = "ui_fg", bg = "bg" }
+"ui.statusline.inactive" = { fg = "ui_fg_dark", bg = "bg" }
+"ui.popup" = { fg = "ui_fg", bg = "bg_float" }
 "ui.window" = { fg = "bg_highlight" }
-"ui.help" = { fg = "fg", bg = "bg_float" }
-"ui.menu" = { fg = "fg", bg = "bg_float" }
-"ui.menu.selected" = { fg = "bg_dark", bg = "blue" }
+"ui.help" = { fg = "ui_fg", bg = "bg_float" }
+"ui.menu" = { fg = "ui_fg", bg = "bg_float" }
+"ui.menu.selected" = { fg = "on_blue", bg = "strip_blue" }
 "ui.virtual.whitespace" = "bg_highlight"
 "ui.virtual.ruler" = { bg = "bg" }
 "ui.virtual.inlay-hint" = "comment"
@@ -59,10 +59,10 @@
 "diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
 "diagnostic.info" = { underline = { color = "blue", style = "curl" } }
 "diagnostic.hint" = { underline = { color = "cyan", style = "curl" } }
-"error" = "red"
-"warning" = "yellow"
-"info" = "blue"
-"hint" = "cyan"
+"error" = "text_red"
+"warning" = "text_yellow"
+"info" = "text_blue"
+"hint" = "text_cyan"
 
 [palette]
 bg_dark = "#1f242d"
@@ -84,3 +84,14 @@ yellow = "#c3a870"
 "git.add" = "#879978"
 "git.change" = "#c3a870"
 "git.delete" = "#ac6e74"
+ui_fg = "#b3bac6"
+ui_fg_light = "#b4bac6"
+ui_fg_dark = "#8b93a1"
+text_red = "#bb8287"
+text_yellow = "#c3a870"
+text_blue = "#7a93ac"
+text_cyan = "#7097a3"
+on_blue = "#1f242d"
+strip_blue = "#778da5"
+on_green = "#1f242d"
+strip_green = "#879978"
