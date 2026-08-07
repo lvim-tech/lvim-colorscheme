@@ -16,23 +16,50 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
+    -- btop paints its own background (`main_bg`), so every colour that carries a WORD is floored
+    -- against that and not against the terminal's. Measured before this existed, `inactive_fg` read
+    -- at 1.94:1 and `graph_text` at 1.46:1 on their own panel — a legend that cannot be read is not
+    -- a quieter tier, it is a missing one.
+    --
+    -- The nine gradients below are NOT floored and must not be: `temp_*`, `cpu_*`, `free_*`,
+    -- `cached_*`, `available_*`, `used_*`, `download_*`, `upload_*` and `process_*` are the fill of
+    -- a meter, `meter_bg` and `div_line` are a rule and a trough. Nothing is read against any of
+    -- them, and flooring them would repaint every meter in the program to fix text that is not there.
+    local function text(hex, bg)
+        return util.ensure_contrast(hex, bg or colors.bg_dark, 4.5)
+    end
+    local t = vim.tbl_extend("force", colors, {
+        btop_fg = text(colors.fg),
+        btop_title = text(colors.fg_light),
+        btop_hi = text(colors.blue),
+        -- The selected row has a background of its own.
+        btop_sel_fg = text(colors.fg_light, colors.bg_highlight),
+        btop_inactive = text(colors.comment),
+        btop_graph_text = text(colors.fg_dark),
+        btop_proc_misc = text(colors.purple),
+        -- A box colour draws the frame AND the box's name in the frame, so it is read.
+        btop_cpu_box = text(colors.blue_dark),
+        btop_mem_box = text(colors.green_dark),
+        btop_net_box = text(colors.red_dark),
+        btop_proc_box = text(colors.purple_dark),
+    })
     return util.template(
         [[
 # ${_style_name}
 theme[main_bg]="${bg_dark}"
-theme[main_fg]="${fg}"
-theme[title]="${fg_light}"
-theme[hi_fg]="${blue}"
+theme[main_fg]="${btop_fg}"
+theme[title]="${btop_title}"
+theme[hi_fg]="${btop_hi}"
 theme[selected_bg]="${bg_highlight}"
-theme[selected_fg]="${fg_light}"
-theme[inactive_fg]="${comment}"
-theme[graph_text]="${fg_dark}"
+theme[selected_fg]="${btop_sel_fg}"
+theme[inactive_fg]="${btop_inactive}"
+theme[graph_text]="${btop_graph_text}"
 theme[meter_bg]="${bg_light}"
-theme[proc_misc]="${purple}"
-theme[cpu_box]="${blue_dark}"
-theme[mem_box]="${green_dark}"
-theme[net_box]="${red_dark}"
-theme[proc_box]="${purple_dark}"
+theme[proc_misc]="${btop_proc_misc}"
+theme[cpu_box]="${btop_cpu_box}"
+theme[mem_box]="${btop_mem_box}"
+theme[net_box]="${btop_net_box}"
+theme[proc_box]="${btop_proc_box}"
 theme[div_line]="${bg_light}"
 theme[temp_start]="${teal}"
 theme[temp_mid]="${yellow}"
@@ -62,7 +89,7 @@ theme[process_start]="${blue}"
 theme[process_mid]="${purple}"
 theme[process_end]="${magenta}"
 ]],
-        colors
+        t
     )
 end
 
