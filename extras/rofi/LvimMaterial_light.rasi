@@ -8,6 +8,6 @@
 * {
     bg:           #E4E4E4ff;
     fg:           #506a6aff;
-    selected-bg:  #516339ff;
+    selected-bg:  #677b4cff;
     selected-fg:  #ffffffff;
 }
