@@ -12,10 +12,10 @@
   },
   "display": {
     "color": {
-      "keys": "#546d8e",
-      "title": "#755a88",
-      "output": "#5e8888",
-      "separator": "#646f7d"
+      "keys": "#4e637f",
+      "title": "#725884",
+      "output": "#4e6767",
+      "separator": "#5a626e"
     }
   }
 }
