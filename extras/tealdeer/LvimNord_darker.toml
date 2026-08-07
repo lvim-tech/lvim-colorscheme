@@ -6,7 +6,7 @@ foreground = { rgb = { r = 115, g = 136, b = 158 } }
 bold = true
 
 [style.example_text]
-foreground = { rgb = { r = 103, g = 113, b = 133 } }
+foreground = { rgb = { r = 122, g = 136, b = 164 } }
 
 [style.example_code]
 foreground = { rgb = { r = 135, g = 153, b = 120 } }

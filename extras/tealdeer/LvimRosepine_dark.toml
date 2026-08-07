@@ -2,11 +2,11 @@
 foreground = { rgb = { r = 179, g = 175, b = 178 } }
 
 [style.command_name]
-foreground = { rgb = { r = 93, g = 109, b = 116 } }
+foreground = { rgb = { r = 111, g = 135, b = 146 } }
 bold = true
 
 [style.example_text]
-foreground = { rgb = { r = 137, g = 104, b = 130 } }
+foreground = { rgb = { r = 161, g = 118, b = 153 } }
 
 [style.example_code]
 foreground = { rgb = { r = 120, g = 139, b = 124 } }
