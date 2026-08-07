@@ -6,6 +6,48 @@ local util = require("lvim-colorscheme.util")
 
 local M = {}
 
+--- The readable text colour for one accent *background*, of the two the theme actually has.
+---
+--- `ensure_contrast` is the wrong tool here and the reason is which colour is free to move. On a
+--- message strip the background is the palette's accent and must not move — an error strip that is
+--- no longer red has stopped being an error strip — so the *text* is what is chosen, and it has
+--- only two candidates: the theme's own background, or white. Whichever of the two reads better on
+--- that accent wins, which is `bru_pill_fg`'s rule applied per accent instead of once for all ten
+--- mode pills.
+---
+--- Local to this target rather than added to `util`, because ten other desktop targets read that
+--- file and none of them asked for this.
+---@param accent string  the background, which does not move
+---@param dark string  the theme's own background, the dark candidate
+---@return string
+local function readable_on(accent, dark)
+    if util.contrast("#ffffff", accent) > util.contrast(dark, accent) then
+        return "#ffffff"
+    end
+    return dark
+end
+
+--- The surface a text colour has the hardest time on, of the three bru paints text over.
+---
+--- `--bg` is the strip and the page, `--bg-soft-light` is an odd tab row, `--bg-light` is the
+--- selected row. On a dark palette the last is the lightest and clearing it clears the others; on a
+--- light palette that is exactly backwards. Nearest in luminance is the honest test either way, and
+--- a colour floored against it clears all three.
+---@param colors ColorScheme
+---@param text string
+---@return string
+local function hardest(colors, text)
+    local lum = util.luminance(text)
+    local worst, gap = colors.bg, math.huge
+    for _, surface in ipairs({ colors.bg, colors.bg_soft_light, colors.bg_light }) do
+        local d = math.abs(util.luminance(surface) - lum)
+        if d < gap then
+            gap, worst = d, surface
+        end
+    end
+    return worst
+end
+
 --- @param colors ColorScheme
 function M.generate(colors, _, _)
     -- Bru's chrome is an HTML page, so its theme is a stylesheet: one `:root`
@@ -73,16 +115,16 @@ function M.generate(colors, _, _)
     --completion-fg: var(--ui-fg);
     --completion-odd-bg: var(--bg-soft-light);
     --completion-even-bg: var(--bg);
-    --completion-category-fg: var(--yellow);
+    --completion-category-fg: ${bru_text_yellow};
     --completion-category-bg: var(--bg);
     --completion-category-border-top: var(--bg);
     --completion-category-border-bottom: var(--bg);
-    --completion-item-selected-fg: var(--ui-fg);
+    --completion-item-selected-fg: ${bru_sel_fg};
     --completion-item-selected-bg: var(--bg-light);
     --completion-item-selected-border-top: var(--bg-light);
     --completion-item-selected-border-bottom: var(--bg-light);
-    --completion-item-selected-match-fg: var(--green);
-    --completion-match-fg: var(--orange);
+    --completion-item-selected-match-fg: ${bru_sel_green};
+    --completion-match-fg: ${bru_text_orange};
     --completion-scrollbar-fg: var(--ui-fg);
     --completion-scrollbar-bg: var(--bg);
 
@@ -92,46 +134,46 @@ function M.generate(colors, _, _)
     --contextmenu-menu-bg: var(--bg);
     --contextmenu-menu-fg: var(--ui-fg);
     --contextmenu-selected-bg: var(--bg-light);
-    --contextmenu-selected-fg: var(--ui-fg);
+    --contextmenu-selected-fg: ${bru_sel_fg};
 
     /* c.colors.downloads.* */
     --downloads-bar-bg: var(--bg);
-    --downloads-start-fg: var(--bg);
-    --downloads-start-bg: var(--cyan);
-    --downloads-stop-fg: var(--bg);
-    --downloads-stop-bg: var(--green);
+    --downloads-start-fg: ${bru_on_cyan};
+    --downloads-start-bg: ${bru_strip_cyan};
+    --downloads-stop-fg: ${bru_on_green};
+    --downloads-stop-bg: ${bru_strip_green};
     /* qutebrowser's "none" means "take the system colour"; in CSS the honest
        equivalent is to paint nothing and let what is behind show through. */
     --downloads-system-bg: transparent;
-    --downloads-error-fg: var(--bg);
-    --downloads-error-bg: var(--red);
+    --downloads-error-fg: ${bru_on_red};
+    --downloads-error-bg: ${bru_strip_red};
 
     /* c.colors.hints.* */
-    --hints-fg: var(--bg);
-    --hints-bg: var(--yellow);
+    --hints-fg: ${bru_on_yellow};
+    --hints-bg: ${bru_strip_yellow};
     --hints-match-fg: var(--comment);
 
     /* c.colors.keyhint.* */
-    --keyhint-fg: var(--purple);
+    --keyhint-fg: ${bru_text_purple};
     --keyhint-suffix-fg: var(--ui-fg);
     --keyhint-bg: var(--bg);
 
     /* c.colors.messages.* */
-    --messages-error-fg: var(--bg);
-    --messages-error-bg: var(--red);
-    --messages-error-border: var(--red);
-    --messages-warning-fg: var(--bg);
-    --messages-warning-bg: var(--orange);
-    --messages-warning-border: var(--orange);
+    --messages-error-fg: ${bru_on_red};
+    --messages-error-bg: ${bru_strip_red};
+    --messages-error-border: ${bru_strip_red};
+    --messages-warning-fg: ${bru_on_orange};
+    --messages-warning-bg: ${bru_strip_orange};
+    --messages-warning-border: ${bru_strip_orange};
     --messages-info-fg: var(--ui-fg);
     --messages-info-bg: var(--bg);
     --messages-info-border: var(--bg);
 
     /* c.colors.prompts.* */
-    --prompts-fg: var(--ui-fg);
+    --prompts-fg: ${bru_sel_fg};
     --prompts-border: var(--bg);
     --prompts-bg: var(--bg-soft-light);
-    --prompts-selected-fg: var(--ui-fg);
+    --prompts-selected-fg: ${bru_sel_fg};
     --prompts-selected-bg: var(--bg-light);
 
     /* c.colors.statusbar.* */
@@ -190,13 +232,25 @@ function M.generate(colors, _, _)
     --mode-jump-mark-bg: var(--cyan);
     --mode-record-macro-bg: var(--magenta);
     --mode-run-macro-bg: var(--teal);
+    /* The two prompt modes — bru is asking and the browser is waiting.
+       Every one of the palette's nine hues was already spent by the ten modes
+       above, and a tenth *palette* key cannot be added here: not every colours/
+       file defines the `*_dark` siblings, so a theme picked at random would get
+       an empty variable and an unpainted pill. So this one is derived, from the
+       colour whose job is closest — command purple, because a prompt is the
+       other half of "the bar is talking to you" — brightened until it is
+       plainly a different pill beside it rather than a shade of it.
+       Both modes share it, exactly as set_mark and jump_mark share cyan: they
+       are one situation with two shapes, and the word in the pill says which. */
+    --mode-prompt-bg: ${bru_prompt_pill};
+    --mode-yesno-bg: ${bru_prompt_pill};
     --statusbar-progress-bg: var(--cyan);
     --statusbar-url-fg: var(--ui-fg);
-    --statusbar-url-error-fg: var(--red);
-    --statusbar-url-hover-fg: var(--cyan);
-    --statusbar-url-success-http-fg: var(--yellow);
-    --statusbar-url-success-https-fg: var(--green);
-    --statusbar-url-warn-fg: var(--orange);
+    --statusbar-url-error-fg: ${bru_text_red};
+    --statusbar-url-hover-fg: ${bru_text_cyan};
+    --statusbar-url-success-http-fg: ${bru_text_yellow};
+    --statusbar-url-success-https-fg: ${bru_text_green};
+    --statusbar-url-warn-fg: ${bru_text_orange};
 
     /* c.colors.tabs.* */
     --tabs-bar-bg: var(--bg);
@@ -204,19 +258,19 @@ function M.generate(colors, _, _)
     --tabs-indicator-stop: var(--green);
     --tabs-indicator-error: var(--red);
     --tabs-indicator-system: transparent;
-    --tabs-odd-fg: var(--ui-fg);
+    --tabs-odd-fg: ${bru_sel_fg};
     --tabs-odd-bg: var(--bg-soft-light);
     --tabs-even-fg: var(--ui-fg);
     --tabs-even-bg: var(--bg);
-    --tabs-selected-odd-fg: var(--ui-fg);
+    --tabs-selected-odd-fg: ${bru_sel_fg};
     --tabs-selected-odd-bg: var(--bg-light);
     --tabs-selected-even-fg: var(--ui-fg);
     --tabs-selected-even-bg: var(--bg-light);
-    --tabs-pinned-odd-fg: var(--ui-fg);
+    --tabs-pinned-odd-fg: ${bru_sel_fg};
     --tabs-pinned-odd-bg: var(--bg-soft-light);
     --tabs-pinned-even-fg: var(--ui-fg);
     --tabs-pinned-even-bg: var(--bg);
-    --tabs-pinned-selected-odd-fg: var(--ui-fg);
+    --tabs-pinned-selected-odd-fg: ${bru_sel_fg};
     --tabs-pinned-selected-odd-bg: var(--bg-light);
     --tabs-pinned-selected-even-fg: var(--ui-fg);
     --tabs-pinned-selected-even-bg: var(--bg-light);
@@ -232,7 +286,7 @@ function M.generate(colors, _, _)
     --tabs-bar-border: var(--bg-soft-dark);
     --statusbar-border: var(--bg-soft-dark);
     --completion-border: var(--bg-soft-dark);
-    --statusbar-keystring-fg: var(--purple);
+    --statusbar-keystring-fg: ${bru_text_purple};
     --statusbar-percentage-fg: var(--ui-fg-dim);
     --statusbar-tabindex-fg: var(--ui-fg-dim);
 }
@@ -260,11 +314,98 @@ function M.generate(colors, _, _)
                 end
                 return colors.bg
             end)(),
+            -- The prompt and yesno pills. Derived rather than picked, because the palette's
+            -- nine hues are all spoken for and the `*_dark` siblings do not exist in every
+            -- colours/ file. Brightened from purple far enough to read as its own pill next to
+            -- command's, and floored against the same `--bg` every pill sits on so a light
+            -- palette does not produce one that disappears.
+            bru_prompt_pill = util.ensure_contrast(
+                util.brighten(colors.purple, 0.22, 0.35),
+                colors.bg,
+                3.0
+            ),
             -- The quieter tier — a scroll percentage, a tab index — floored at 3:1 so it stays
             -- legible while still reading as secondary. `ensure_contrast` is a floor and cannot
             -- bring a bright colour down, so this starts from the palette's dimmest foreground
             -- rather than from --fg.
             bru_ui_fg_dim = util.ensure_contrast(colors.comment, colors.bg, 3.0),
+
+            -- --- accents used as TEXT ------------------------------------------------------
+            -- An accent is two different jobs and only one of them needs a floor. As a
+            -- *background* — a mode pill, a message strip — the palette's own value is right and
+            -- `bru_pill_fg` is what has to clear the ratio against it. As *text* on `--bg` it has
+            -- to clear the ratio itself, and several of these did not: measured against everforest
+            -- dark before this block existed, `--purple` behind the pending-key string read at
+            -- **2.35:1**, `--cyan` behind a hovered link at 3.01:1, `--green` behind an https url
+            -- at 3.17:1 and `--red` behind a failed one at 3.36:1. WCAG AA for body text is 4.5:1.
+            --
+            -- So the palette keys stay exactly what the palette says — `--red` is still `--red`,
+            -- and anything painting a background with it is untouched — and these are separate
+            -- names that only the text rules use. That is the same split `bru_ui_fg` already makes
+            -- against `--fg`, for the same reason: an editor foreground is tuned against one
+            -- background under syntax highlighting, and interface text is doing a different job.
+            bru_text_red = util.ensure_contrast(colors.red, colors.bg, 4.5),
+            bru_text_green = util.ensure_contrast(colors.green, colors.bg, 4.5),
+            bru_text_yellow = util.ensure_contrast(colors.yellow, colors.bg, 4.5),
+            bru_text_orange = util.ensure_contrast(colors.orange, colors.bg, 4.5),
+            bru_text_cyan = util.ensure_contrast(colors.cyan, colors.bg, 4.5),
+            bru_text_purple = util.ensure_contrast(colors.purple, colors.bg, 4.5),
+            bru_text_blue = util.ensure_contrast(colors.blue, colors.bg, 4.5),
+
+            -- The same seven again, against the *selected* row rather than against `--bg`.
+            -- `--bg-light` is lighter, so a colour that clears 4.5:1 on `--bg` can fall under it
+            -- here — measured: the matched letters of the selected completion row read at
+            -- **2.97:1** while the identical colour on an unselected row read at 3.17:1. One
+            -- floor for both surfaces would have to be the stricter one everywhere, which pushes
+            -- every accent lighter than the palette needs.
+            --
+            -- **Which of the three surfaces is the hard one depends on the palette**, and assuming
+            -- `bg_light` cost a measurement: on everforest *dark* it is the lightest of the three
+            -- and flooring against it covers the other two, but on everforest *light* the tab rows
+            -- are `--bg-soft-light` at `#e9e9e9` and the same floor came out at **4.47:1** there.
+            -- So the surface is chosen rather than named: whichever of the three is nearest the
+            -- text in luminance is the one that has to be cleared, and clearing it clears the rest.
+            bru_sel_red = util.ensure_contrast(colors.red, hardest(colors, colors.red), 4.5),
+            bru_sel_green = util.ensure_contrast(colors.green, hardest(colors, colors.green), 4.5),
+            bru_sel_orange = util.ensure_contrast(colors.orange, hardest(colors, colors.orange), 4.5),
+            bru_sel_fg = util.ensure_contrast(colors.fg, hardest(colors, colors.fg), 4.5),
+
+            -- Text on an accent *background* — the info, warning and error strips, and the
+            -- download rows. Here the background is the palette's and the text is derived, which
+            -- is `bru_pill_fg`'s rule applied per strip rather than once: `--bg` on `--red` read
+            -- at 3.36:1 and `--bg` on `--orange` at 4.49:1, and each strip's own accent is what
+            -- decides whether the dark or the light answer wins.
+            bru_on_red = readable_on(colors.red, colors.bg),
+            bru_on_orange = readable_on(colors.orange, colors.bg),
+            bru_on_cyan = readable_on(colors.cyan, colors.bg),
+            bru_on_green = readable_on(colors.green, colors.bg),
+
+            -- **Choosing the better of two texts is not always enough**, and this is the one place
+            -- it was not: on everforest's `--orange` the darker candidate reached **4.49:1** and on
+            -- its `--red` the white one reached **4.40:1**. Both are the best answer available and
+            -- both are under 4.5, because the accent caps what any text on it can reach.
+            --
+            -- So the accent moves too — `ensure_contrast` walked the other way, with the *strip*
+            -- as the colour and the text it just got as the background. hsluv keeps the hue, so a
+            -- red strip stays red and an orange one stays orange; only the lightness gives. That is
+            -- the whole difference between this and repainting the palette: the strip is still the
+            -- palette's colour, one or two steps of L away from it, and `--red` itself is untouched
+            -- for everything that paints with it.
+            bru_strip_red = util.ensure_contrast(colors.red, readable_on(colors.red, colors.bg), 4.5),
+            bru_strip_orange = util.ensure_contrast(
+                colors.orange, readable_on(colors.orange, colors.bg), 4.5
+            ),
+            bru_on_yellow = readable_on(colors.yellow, colors.bg),
+            bru_strip_yellow = util.ensure_contrast(
+                colors.yellow, readable_on(colors.yellow, colors.bg), 4.5
+            ),
+            bru_strip_cyan = util.ensure_contrast(
+                colors.cyan, readable_on(colors.cyan, colors.bg), 4.5
+            ),
+            bru_strip_green = util.ensure_contrast(
+                colors.green, readable_on(colors.green, colors.bg), 4.5
+            ),
+            -- --- end accents used as TEXT --------------------------------------------------
         })
     )
     return bru

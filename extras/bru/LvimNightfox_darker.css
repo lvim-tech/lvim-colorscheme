@@ -47,16 +47,16 @@
     --completion-fg: var(--ui-fg);
     --completion-odd-bg: var(--bg-soft-light);
     --completion-even-bg: var(--bg);
-    --completion-category-fg: var(--yellow);
+    --completion-category-fg: #bba76f;
     --completion-category-bg: var(--bg);
     --completion-category-border-top: var(--bg);
     --completion-category-border-bottom: var(--bg);
-    --completion-item-selected-fg: var(--ui-fg);
+    --completion-item-selected-fg: #bcbdbd;
     --completion-item-selected-bg: var(--bg-light);
     --completion-item-selected-border-top: var(--bg-light);
     --completion-item-selected-border-bottom: var(--bg-light);
-    --completion-item-selected-match-fg: var(--green);
-    --completion-match-fg: var(--orange);
+    --completion-item-selected-match-fg: #7b998a;
+    --completion-match-fg: #c88e62;
     --completion-scrollbar-fg: var(--ui-fg);
     --completion-scrollbar-bg: var(--bg);
 
@@ -66,46 +66,46 @@
     --contextmenu-menu-bg: var(--bg);
     --contextmenu-menu-fg: var(--ui-fg);
     --contextmenu-selected-bg: var(--bg-light);
-    --contextmenu-selected-fg: var(--ui-fg);
+    --contextmenu-selected-fg: #bcbdbd;
 
     /* c.colors.downloads.* */
     --downloads-bar-bg: var(--bg);
-    --downloads-start-fg: var(--bg);
-    --downloads-start-bg: var(--cyan);
-    --downloads-stop-fg: var(--bg);
-    --downloads-stop-bg: var(--green);
+    --downloads-start-fg: #141c26;
+    --downloads-start-bg: #69a3a4;
+    --downloads-stop-fg: #141c26;
+    --downloads-stop-bg: #7b998a;
     /* qutebrowser's "none" means "take the system colour"; in CSS the honest
        equivalent is to paint nothing and let what is behind show through. */
     --downloads-system-bg: transparent;
-    --downloads-error-fg: var(--bg);
-    --downloads-error-bg: var(--red);
+    --downloads-error-fg: #ffffff;
+    --downloads-error-bg: #a96072;
 
     /* c.colors.hints.* */
-    --hints-fg: var(--bg);
-    --hints-bg: var(--yellow);
+    --hints-fg: #141c26;
+    --hints-bg: #bba76f;
     --hints-match-fg: var(--comment);
 
     /* c.colors.keyhint.* */
-    --keyhint-fg: var(--purple);
+    --keyhint-fg: #907ab2;
     --keyhint-suffix-fg: var(--ui-fg);
     --keyhint-bg: var(--bg);
 
     /* c.colors.messages.* */
-    --messages-error-fg: var(--bg);
-    --messages-error-bg: var(--red);
-    --messages-error-border: var(--red);
-    --messages-warning-fg: var(--bg);
-    --messages-warning-bg: var(--orange);
-    --messages-warning-border: var(--orange);
+    --messages-error-fg: #ffffff;
+    --messages-error-bg: #a96072;
+    --messages-error-border: #a96072;
+    --messages-warning-fg: #141c26;
+    --messages-warning-bg: #c88e62;
+    --messages-warning-border: #c88e62;
     --messages-info-fg: var(--ui-fg);
     --messages-info-bg: var(--bg);
     --messages-info-border: var(--bg);
 
     /* c.colors.prompts.* */
-    --prompts-fg: var(--ui-fg);
+    --prompts-fg: #bcbdbd;
     --prompts-border: var(--bg);
     --prompts-bg: var(--bg-soft-light);
-    --prompts-selected-fg: var(--ui-fg);
+    --prompts-selected-fg: #bcbdbd;
     --prompts-selected-bg: var(--bg-light);
 
     /* c.colors.statusbar.* */
@@ -164,13 +164,25 @@
     --mode-jump-mark-bg: var(--cyan);
     --mode-record-macro-bg: var(--magenta);
     --mode-run-macro-bg: var(--teal);
+    /* The two prompt modes — bru is asking and the browser is waiting.
+       Every one of the palette's nine hues was already spent by the ten modes
+       above, and a tenth *palette* key cannot be added here: not every colours/
+       file defines the `*_dark` siblings, so a theme picked at random would get
+       an empty variable and an unpainted pill. So this one is derived, from the
+       colour whose job is closest — command purple, because a prompt is the
+       other half of "the bar is talking to you" — brightened until it is
+       plainly a different pill beside it rather than a shade of it.
+       Both modes share it, exactly as set_mark and jump_mark share cyan: they
+       are one situation with two shapes, and the word in the pill says which. */
+    --mode-prompt-bg: #c1a9e8;
+    --mode-yesno-bg: #c1a9e8;
     --statusbar-progress-bg: var(--cyan);
     --statusbar-url-fg: var(--ui-fg);
-    --statusbar-url-error-fg: var(--red);
-    --statusbar-url-hover-fg: var(--cyan);
-    --statusbar-url-success-http-fg: var(--yellow);
-    --statusbar-url-success-https-fg: var(--green);
-    --statusbar-url-warn-fg: var(--orange);
+    --statusbar-url-error-fg: #c26b81;
+    --statusbar-url-hover-fg: #69a3a4;
+    --statusbar-url-success-http-fg: #bba76f;
+    --statusbar-url-success-https-fg: #7b998a;
+    --statusbar-url-warn-fg: #c88e62;
 
     /* c.colors.tabs.* */
     --tabs-bar-bg: var(--bg);
@@ -178,19 +190,19 @@
     --tabs-indicator-stop: var(--green);
     --tabs-indicator-error: var(--red);
     --tabs-indicator-system: transparent;
-    --tabs-odd-fg: var(--ui-fg);
+    --tabs-odd-fg: #bcbdbd;
     --tabs-odd-bg: var(--bg-soft-light);
     --tabs-even-fg: var(--ui-fg);
     --tabs-even-bg: var(--bg);
-    --tabs-selected-odd-fg: var(--ui-fg);
+    --tabs-selected-odd-fg: #bcbdbd;
     --tabs-selected-odd-bg: var(--bg-light);
     --tabs-selected-even-fg: var(--ui-fg);
     --tabs-selected-even-bg: var(--bg-light);
-    --tabs-pinned-odd-fg: var(--ui-fg);
+    --tabs-pinned-odd-fg: #bcbdbd;
     --tabs-pinned-odd-bg: var(--bg-soft-light);
     --tabs-pinned-even-fg: var(--ui-fg);
     --tabs-pinned-even-bg: var(--bg);
-    --tabs-pinned-selected-odd-fg: var(--ui-fg);
+    --tabs-pinned-selected-odd-fg: #bcbdbd;
     --tabs-pinned-selected-odd-bg: var(--bg-light);
     --tabs-pinned-selected-even-fg: var(--ui-fg);
     --tabs-pinned-selected-even-bg: var(--bg-light);
@@ -206,7 +218,7 @@
     --tabs-bar-border: var(--bg-soft-dark);
     --statusbar-border: var(--bg-soft-dark);
     --completion-border: var(--bg-soft-dark);
-    --statusbar-keystring-fg: var(--purple);
+    --statusbar-keystring-fg: #907ab2;
     --statusbar-percentage-fg: var(--ui-fg-dim);
     --statusbar-tabindex-fg: var(--ui-fg-dim);
 }
