@@ -164,11 +164,26 @@ form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([r
 /* **The transparency above eats the hover, so the hover is said again here.** The
  * file already gives `[role="listbox"] [role="option"]:hover` the raised-light
  * step, but that is 0,2,0 and a trending row carries a class — the rule above
- * wins and the row stops answering the pointer. Naming the row and its state
- * inside the same scope puts this over it. `aria-selected` is the keyboard's half
- * of the same thing and travels with it. */
-form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"]:hover,
-form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"][aria-selected="true"] {
+ * wins and the row stops answering the pointer.
+ *
+ * **The `li`, and not the `[role="option"]` this rule first named.** Reported the
+ * same day against Google's own style, which paints the row edge to edge and top
+ * to bottom: ours was a thin band, inset on every side. The role is three
+ * elements inside the row, and their own stylesheet says exactly how far in —
+ * read out of the CSSOM 2026-08-08 rather than guessed from the picture:
+ *
+ *     li.sbct     padding: 0                    the row
+ *       .eIPGRd   margin: 0px 20px 0px 14px     -> 14 left, 20 right
+ *         .pcTkSc padding: 6px 0px              -> 6 top, 6 bottom
+ *           .lnnVSe[role="option"]              what the rule used to paint
+ *
+ * So the option can never be the row: it is 34px narrower and 12px shorter by
+ * construction. The `li` has no padding of its own and is the row.
+ *
+ * The keyboard's half goes on the same element for the same reason: `aria-selected`
+ * lands on the option, so the row is `li:has(…)` rather than the option itself. */
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) li:hover,
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) li:has([role="option"][aria-selected="true"]) {
     background-color: var(--bg-light) !important;
 }
 
