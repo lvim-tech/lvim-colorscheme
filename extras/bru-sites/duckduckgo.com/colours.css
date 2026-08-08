@@ -71,34 +71,254 @@
     --theme-col-bg-button-qna: var(--ddg-raised) !important;
     --theme-col-bg-button-qna-hover: var(--ddg-raised-more) !important;
 
+    /* DuckDuckGo's React button kit has separate values for every interaction
+     * state.  Leaving even one of these at its upstream value is why a hover,
+     * pressed button, or disabled control can suddenly turn DuckDuckGo orange or
+     * grey.  Keep the hierarchy deliberately small: page, raised, raised-more. */
+    --theme-col-bg-button-primary-hover: var(--completion-category-fg) !important;
+    --theme-col-bg-button-primary-active: var(--completion-category-fg) !important;
+    --theme-col-bg-button-primary-disabled: var(--bg-soft-light) !important;
+    --theme-col-txt-button-primary-disabled: var(--ui-fg-dim) !important;
+    --theme-col-bg-button-secondary: var(--ddg-raised) !important;
+    --theme-col-bg-button-secondary-hover: var(--ddg-raised-more) !important;
+    --theme-col-bg-button-secondary-active: var(--ddg-raised-more) !important;
+    --theme-col-bg-button-secondary-disabled: var(--bg-soft-light) !important;
+    --theme-col-txt-button-secondary-disabled: var(--ui-fg-dim) !important;
+    --theme-col-bg-button-tertiary: transparent !important;
+    --theme-col-bg-button-tertiary-hover: var(--ddg-raised) !important;
+    --theme-col-bg-button-tertiary-active: var(--ddg-raised-more) !important;
+    --theme-col-bg-button-tertiary-disabled: transparent !important;
+    --theme-col-border-button-tertiary: var(--bg-light) !important;
+    --theme-col-border-button-tertiary-hover: var(--bg-light) !important;
+    --theme-col-border-button-tertiary-active: var(--bg-light) !important;
+    --theme-col-border-button-tertiary-disabled: var(--bg-soft-light) !important;
+    --theme-col-txt-button-tertiary: var(--ui-fg) !important;
+    --theme-col-txt-button-tertiary-disabled: var(--ui-fg-dim) !important;
+    --theme-col-bg-button-ghost: transparent !important;
+    --theme-col-bg-button-ghost-hover: var(--ddg-raised) !important;
+    --theme-col-bg-button-ghost-active: var(--ddg-raised-more) !important;
+    --theme-col-bg-button-ghost-disabled: transparent !important;
+    --theme-col-txt-button-ghost: var(--ui-fg) !important;
+    --theme-col-txt-button-ghost-hover: var(--completion-category-fg) !important;
+    --theme-col-txt-button-ghost-active: var(--completion-category-fg) !important;
+    --theme-col-txt-button-ghost-disabled: var(--ui-fg-dim) !important;
+    --theme-col-bg-button-ghostsecondary: transparent !important;
+    --theme-col-bg-button-ghostsecondary-hover: var(--ddg-raised) !important;
+    --theme-col-bg-button-ghostsecondary-active: var(--ddg-raised-more) !important;
+    --theme-col-border-button-ghostsecondary: var(--bg-light) !important;
+    --theme-col-border-button-ghostsecondary-hover: var(--bg-light) !important;
+    --theme-col-border-button-ghostsecondary-active: var(--bg-light) !important;
+    --theme-col-txt-button-ghostsecondary: var(--ui-fg) !important;
+
+    /* Search, navigation and the non-card surfaces are emitted by a different
+     * bundle from result cards, so they do not inherit the card mappings above. */
+    --theme-col-bg-search: var(--ddg-raised) !important;
+    --theme-col-txt-search-input: var(--ui-fg) !important;
+    --theme-col-txt-search-button: var(--completion-category-fg) !important;
+    --theme-col-metabar-bg: var(--bg) !important;
+    --theme-col-metabar-transparent: transparent !important;
+    --theme-col-bg-card: var(--ddg-raised) !important;
+    --theme-col-bg-pill: var(--ddg-raised) !important;
+    --theme-col-bg-bar: var(--ddg-raised) !important;
+    --theme-col-bg-promo-bar: var(--ddg-raised) !important;
+    --theme-col-bg-promo-bar-hover: var(--ddg-raised-more) !important;
+    --theme-col-sitefilter-enabled-card-bg: var(--ddg-raised) !important;
+    --theme-col-sitefilter-disabled-reddit-circle: var(--bg-light) !important;
+    --theme-col-lightbox: var(--bg) !important;
+    --theme-col-image-preload: var(--ddg-raised) !important;
+    --theme-col-missing-asset: var(--bg-soft-light) !important;
+    --theme-col-newtab-globe: var(--completion-category-fg) !important;
+    --theme-col-bg-ui-transparent: transparent !important;
+    --theme-col-bg-header-modal: var(--ddg-raised) !important;
+    /* Misleading name: these are consumed as `color` by breadcrumb and
+     * metadata components, not as a background. */
+    --theme-col-bg-txt-1: var(--ui-fg) !important;
+    --theme-col-bg-txt-2: var(--ui-fg) !important;
+    --theme-col-bg-txt-3: var(--ui-fg-dim) !important;
+
+    /* These lines appear in results, vertical tabs, menus and extension
+     * prompts.  Mapping all of them prevents the remaining upstream grey seams. */
+    --theme-col-border-ui: var(--bg-light) !important;
+    --theme-col-border-input-alternate: var(--bg-light) !important;
+    --theme-col-separator: var(--bg-light) !important;
+    --theme-col-separator-active: var(--completion-category-fg) !important;
+    --theme-col-header-divider: var(--bg-light) !important;
+    --theme-col-bg-search-bar-separator: var(--bg-light) !important;
+    --theme-col-bg-result-item-divider: var(--bg-light) !important;
+    --theme-col-menu-promo-border: var(--bg-light) !important;
+    --theme-col-border-qna-list-sep: var(--bg-light) !important;
+    --theme-col-border-button-qna: var(--bg-light) !important;
+    --theme-col-border-button-qna-hover: var(--bg-light) !important;
+
+    /* Dialog overlays must still dim the result behind them, but without
+     * importing a foreign black.  color-mix keeps both the tint and alpha in
+     * the active lvim palette. */
+    --theme-col-bg-dialog-overlay: color-mix(in srgb, var(--bg) 78%, transparent) !important;
+    --theme-col-bg-dialog-install-overlay: color-mix(in srgb, var(--bg) 78%, transparent) !important;
+    --theme-col-bg-dialog-gradient: var(--bg) !important;
+
+    /* Search Assist is a separate application.  It deliberately bypasses the
+     * `--theme-col-*` vocabulary for its chat card, which left its real inner
+     * surface at DuckDuckGo grey while the surrounding result slot was themed.
+     * Map its two token families as well; these are colours only, not its layout
+     * or typography tokens. */
+    --theme-assist-bg-chat-system: var(--ddg-raised) !important;
+    --theme-assist-bg-loading-dot: var(--completion-category-fg) !important;
+    --theme-assist-bg-opt-in: var(--ddg-raised) !important;
+    --theme-assist-bg-opt-in-border: var(--bg-light) !important;
+    --theme-assist-border-glow: transparent !important;
+    --theme-assist-button-border-color: var(--bg-light) !important;
+    --theme-assist-error-bg: color-mix(in srgb, var(--bg) 82%, var(--red)) !important;
+    --theme-assist-error-border: var(--red) !important;
+    --theme-assist-gradient-stop: var(--ddg-raised) !important;
+    --theme-assist-txt-link: var(--completion-category-fg) !important;
+    --theme-assist-txt-link-hover: var(--completion-category-fg) !important;
+    --theme-assist-txt-link-active: var(--completion-category-fg) !important;
+
+    --sds-color-background-01: var(--ddg-raised) !important;
+    --sds-color-background-container-01: var(--ddg-raised) !important;
+    --sds-color-background-container-pre: var(--bg) !important;
+    --sds-color-background-utility: var(--ddg-raised-more) !important;
+    --sds-color-background-utility-state-01: var(--ddg-raised-more) !important;
+    --sds-color-background-utility-state-02: var(--bg-light) !important;
+    --sds-color-background-accent-01: var(--completion-category-fg) !important;
+    --sds-color-background-accent-01-state-01: var(--completion-category-fg) !important;
+    --sds-color-background-accent-01-transparency-01: color-mix(in srgb, var(--completion-category-fg) 18%, transparent) !important;
+    --sds-color-background-accent-01-transparency-02: color-mix(in srgb, var(--completion-category-fg) 30%, transparent) !important;
+    --sds-color-border-01: var(--bg-light) !important;
+    --sds-color-border-inner-divider: var(--bg-light) !important;
+    --sds-color-border-accent-01: var(--completion-category-fg) !important;
+    --sds-color-focus: var(--completion-category-fg) !important;
+    --sds-color-text-01: var(--ui-fg) !important;
+    --sds-color-text-02: var(--ui-fg) !important;
+    --sds-color-text-03: var(--ui-fg-dim) !important;
+    --sds-color-text-accent-01: var(--completion-category-fg) !important;
+    /* The `-state-01` sibling is a colour of its own, not a state of the one
+     * above: measured 2026-08-08 on the results page's Search Assist tab,
+     * whose sparkle icon reads `color: var(--sds-color-text-accent-01-state-01)`
+     * and sat there DuckDuckGo blue #8fabf9 after every other accent had been
+     * themed. Found by asking which rules match the icon, not by grepping for
+     * the hex — the token is defined out of reach of a stylesheet walk. */
+    --sds-color-text-accent-01-state-01: var(--completion-category-fg) !important;
+    --sds-color-text-link-02: var(--completion-category-fg) !important;
+    --sds-color-text-on-color: var(--pill-fg) !important;
+    --sds-color-text-on-dark-02: var(--ui-fg) !important;
+    --sds-color-text-disabled: var(--ui-fg-dim) !important;
+    --sds-color-text-destructive: var(--red) !important;
+    --sds-color-palette-white: var(--ui-fg) !important;
+    --sds-color-palette-gray-40: var(--ui-fg-dim) !important;
+    --sds-color-palette-gray-90: var(--bg) !important;
+    --sds-color-palette-shade-54: color-mix(in srgb, var(--bg) 54%, transparent) !important;
+    --sds-color-palette-shade-84: var(--bg) !important;
+    --sds-color-palette-tint-72: color-mix(in srgb, var(--ui-fg) 72%, transparent) !important;
+    --ds-surface-tertiary: var(--ddg-raised) !important;
+    --ds-surface-contrast: var(--ddg-raised-more) !important;
+    --ds-text-primary: var(--ui-fg) !important;
+    --ds-text-secondary: var(--ui-fg-dim) !important;
+    --ds-accent-primary: var(--completion-category-fg) !important;
+    --ds-accent-primary-content-color: var(--pill-fg) !important;
+    --ds-container-primary-border-color: var(--bg-light) !important;
+    --ds-control-secondary-background-color: var(--ddg-raised-more) !important;
+    --ds-control-tertiary-background-color: var(--bg-light) !important;
+    --duckai-color-layer3: var(--ddg-raised-more) !important;
+
+    /* **The rest of the `--ds-accent-*` family, which is where the blue came
+     * from.** Only `-primary` was mapped; the other twenty-two stayed
+     * DuckDuckGo blue, and the first one to surface was
+     * `--button-hover-background-color: var(--ds-accent-secondary)` — measured
+     * 2026-08-08, the search button flashing #4397E0 on hover, reported on
+     * sight. Same convention as the `--theme-col-bg-button-primary-*` block
+     * above: every accent state keeps the one accent, letters on it are
+     * `--pill-fg` (their own `-content-color` idea, and `-primary-content`
+     * was already `--pill-fg`), the light-blue `-text-color` tier is accent
+     * used AS text, and glows go the way of `--theme-col-glow`. The `alt`
+     * family is their dark-blue fills with light lettering; it takes the same
+     * mapping, because on this page an accent is the accent or it is a leak. */
+    --ds-accent-secondary: var(--completion-category-fg) !important;
+    --ds-accent-tertiary: var(--completion-category-fg) !important;
+    --ds-accent-quaternary: var(--completion-category-fg) !important;
+    --ds-accent-glow-primary: transparent !important;
+    --ds-accent-glow-secondary: transparent !important;
+    --ds-accent-primary-text-color: var(--completion-category-fg) !important;
+    --ds-accent-secondary-text-color: var(--completion-category-fg) !important;
+    --ds-accent-tertiary-text-color: var(--completion-category-fg) !important;
+    --ds-accent-secondary-content-color: var(--pill-fg) !important;
+    --ds-accent-tertiary-content-color: var(--pill-fg) !important;
+    --ds-accent-alt-primary: var(--completion-category-fg) !important;
+    --ds-accent-alt-secondary: var(--completion-category-fg) !important;
+    --ds-accent-alt-tertiary: var(--completion-category-fg) !important;
+    --ds-accent-alt-glow-primary: transparent !important;
+    --ds-accent-alt-glow-secondary: transparent !important;
+    --ds-accent-alt-primary-text-color: var(--completion-category-fg) !important;
+    --ds-accent-alt-secondary-text-color: var(--completion-category-fg) !important;
+    --ds-accent-alt-tertiary-text-color: var(--completion-category-fg) !important;
+    --ds-accent-alt-primary-content-color: var(--pill-fg) !important;
+    --ds-accent-alt-secondary-content-color: var(--pill-fg) !important;
+    --ds-accent-alt-tertiary-content-color: var(--pill-fg) !important;
+
     /* --- text ----------------------------------------------------------- */
     --theme-col-txt-snippet: var(--ui-fg) !important;
     --theme-col-txt-card-body: var(--ui-fg) !important;
     --theme-col-txt-card-title: var(--ui-fg) !important;
     --theme-col-txt-card-subtitle: var(--ui-fg) !important;
     --theme-col-txt-button-secondary: var(--ui-fg) !important;
-    /* **Their token for text on a primary button, and it ships `#222`.** That is a
-     * colour for a light button, and this file paints the button dark like the rest
-     * of the page — so the label came out near-black on `--bg`, measured 1.17:1 on
-     * `See More`. It was found by asking the page which of its 821 custom properties
-     * held a near-black, not by reading the element: the class is hashed whole and
-     * there is nothing else on it to name. Which is the file's own first rule,
-     * arrived at again — their tokens, not their classes. */
+    /* Their primary controls use the accent as a light surface, and `--pill-fg`
+     * is contrast-checked against the accent — but under this file the accent
+     * field never paints. Their `background: var(--theme-col-bg-button-primary)`
+     * carries no `!important` and loses to the flat rule's `--bg` on every
+     * element with a class, hover included, so a primary button here is always
+     * lettering on the page. Measured 2026-08-08: `See More` at **1:1**,
+     * `--pill-fg` letters on the very colour `--pill-fg` is. `--ui-fg`, like
+     * every other label on the page. */
     --theme-col-txt-button-primary: var(--ui-fg) !important;
 
     /* The quieter tier — a URL, an aside, a label. */
     --theme-col-txt-url: var(--ui-fg-dim) !important;
     --theme-col-txt-url-domain: var(--ui-fg-dim) !important;
+    --theme-col-txt-url-path: var(--ui-fg-dim) !important;
     --theme-col-txt-card-aside: var(--ui-fg-dim) !important;
     --theme-col-txt-large-tab: var(--ui-fg-dim) !important;
+    --theme-col-txt-tertiary: var(--ui-fg-dim) !important;
+    --theme-col-txt-textarea-placeholder: var(--ui-fg-dim) !important;
     --theme-col-label-annotation: var(--ui-fg-dim) !important;
+    --theme-col-label-dropdown-text: var(--ui-fg-dim) !important;
 
     /* A link is the thing you came to click, so it takes the colour bru's own
      * completion gives a category heading. */
     --theme-col-txt-title: var(--completion-category-fg) !important;
+    --theme-col-txt-title-visited: var(--completion-category-fg) !important;
+    --theme-col-text-link: var(--completion-category-fg) !important;
+    --theme-col-about-link: var(--completion-category-fg) !important;
+    --theme-col-module-link-new-ux: var(--completion-category-fg) !important;
+    --theme-col-sports-team-link: var(--completion-category-fg) !important;
     --theme-col-txt-header-link-hover: var(--completion-category-fg) !important;
     --theme-col-txt-button-ghost-hover: var(--completion-category-fg) !important;
     --theme-col-bg-button-primary: var(--completion-category-fg) !important;
+    --theme-col-txt-header-link: var(--ui-fg) !important;
+    --theme-col-txt-card: var(--ui-fg) !important;
+    --theme-col-txt-card-body-light: var(--ui-fg) !important;
+    --theme-col-txt-qna-answer: var(--ui-fg) !important;
+    --theme-col-txt-qna-details: var(--ui-fg-dim) !important;
+    --theme-col-txt-expandcollapse: var(--ui-fg) !important;
+    --theme-col-txt-button-tab: var(--ui-fg) !important;
+    --theme-col-txt-button-tab-active: var(--completion-category-fg) !important;
+    --theme-col-txt-textarea: var(--ui-fg) !important;
+    --theme-col-txt-msg: var(--ui-fg) !important;
+    --theme-col-txt-bar: var(--ui-fg) !important;
+    --theme-col-icon: var(--ui-fg) !important;
+    --theme-col-icon-qna: var(--ui-fg) !important;
+    --theme-col-icon-button-expandcollapse: var(--ui-fg) !important;
+
+    /* **A palette constant, not a theme token.** The video detail modal's
+     * `Watch Here` buttons read `color: var(--col-gray-90)` — #222, ink for the
+     * light button their stylesheet meant to draw — and on the flattened page it
+     * measured **1.03:1**. Found 2026-08-08 by perturbing every near-black
+     * custom property in turn and watching the button's computed colour: of the
+     * five holding #222, only this one moved it. On a page this file makes dark
+     * everywhere, "ink on a light surface" can only ever mean `--ui-fg`;
+     * anything that read it as a dark BACKGROUND is a classed element the flat
+     * rule already repaints. */
+    --col-gray-90: var(--ui-fg) !important;
 
     /* --- lines and edges ------------------------------------------------ */
     --theme-col-border-card-nested: var(--bg-light) !important;
@@ -107,6 +327,15 @@
     --theme-col-border-dashed: var(--bg-light) !important;
     --theme-col-modal-border: var(--bg-light) !important;
     --theme-col-modal-header-border: var(--bg-light) !important;
+
+    --theme-col-bg-button-tab: transparent !important;
+    --theme-col-bg-button-tab-hover: var(--ddg-raised) !important;
+    --theme-col-bg-button-tab-active: var(--ddg-raised-more) !important;
+    --theme-col-bg-expandcollapse: transparent !important;
+    --theme-col-bg-button-expandcollapse: transparent !important;
+    --theme-col-bg-button-expandcollapse-active: var(--ddg-raised-more) !important;
+    --theme-col-border-expandcollapse: var(--bg-light) !important;
+    --theme-col-border-button-expandcollapse: var(--bg-light) !important;
 
     /* Their two status colours, from the palette rather than from their guesses. */
     --theme-col-success: var(--green) !important;
@@ -138,6 +367,22 @@ body,
 .serp__results {
     background-color: var(--bg) !important;
     color: var(--ui-fg) !important;
+}
+
+/* **The classless tables of the static pages.** `/compare-privacy` draws its
+ * comparison grid on bare `tr`, `th` and `td` — measured 2026-08-08, twenty
+ * elements with no class attribute at all, rows at #111111 and cells at
+ * #242323 — and the flat rule starts at `[class]`, so it never reaches them.
+ * The site's own intent is two tiers, cells one step off the rows; this keeps
+ * the two tiers and swaps the colours: the row base is the page, a cell is the
+ * one raised step everything else on the site uses. Element selectors only, so
+ * anything classed keeps whatever the rules below say. */
+table, tr, th {
+    background-color: var(--bg) !important;
+}
+
+td {
+    background-color: var(--ddg-raised) !important;
 }
 
 /* Their link blue, which is a colour rather than a token: the dictionary card's
@@ -186,7 +431,29 @@ a:not([class]),
  *
  * html and body are named above with the same colour, so a class on either changes
  * nothing. */
-[class] {
+/* Search Assist owns a stable data attribute and has its own nested surface
+ * tokens.  Excluding that subtree is important: its outer React slot is not a
+ * card, while its inner chat component is.
+ *
+ * **The exclusions live inside `:where()`, or the flat rule stops being the
+ * floor.** Every `:not()` adds its argument's specificity, and this chain took
+ * the rule from the 0,1,0 every comment below assumes to 0,13,1 — above the
+ * raised list at 0,2,0, above the search wrapper at 0,1,0, above everything
+ * this file lifts. Measured 2026-08-08 on the results page: a probe carrying a
+ * raised-list class computed `--bg`, the search wrapper computed `--bg`, and
+ * `See More` sat at 1:1 — `--pill-fg` letters on a button flattened to the very
+ * colour `--pill-fg` is. `:where()` contributes zero, so the rule matches the
+ * same elements and weighs what it says it weighs.
+ *
+ * **`ai-searchbox_` and `search-input_`, with the underscore.** The bare
+ * substrings matched `<html>`'s own state flags — measured 2026-08-08,
+ * `ssg-ai-searchbox-mode-search ssg-ai-searchbox-show-toggle` on the start
+ * page's root — so `[class*="ai-searchbox"] [class]` was every classed element
+ * on the page, the flat rule matched nothing, and `main` kept DuckDuckGo's
+ * #111111 across 1942x1260. The component classes all carry the underscore
+ * (`ai-searchbox_combobox__LWmQ_`, `search-input_searchInput__Avyuh`); the
+ * state flags never do. Same lesson as the searchbox note below, same fix. */
+[class]:where(:not([data-sa-vr-variant]):not([data-sa-vr-variant] [class]):not([data-react-module-id="wikinlp"] [class]):not([class*="ai-searchbox_"]):not([class*="ai-searchbox_"] [class]):not([class*="search-input_"]):not([class*="search-input_"] [class]):not(a[href="https://duckduckgo.com/updates"])) {
     background-color: var(--bg) !important;
     border-color: var(--bg-light) !important;
 }
@@ -197,7 +464,6 @@ a:not([class]),
  * otherwise win on order, and because `input` alone is 0,0,1 and would lose to it
  * outright. That is what flattened the search field the first time this was
  * broadened. */
-[class][class*="ai-searchbox_combobox"],
 [class][class*="chip-select_"],
 [class][class*="button_button"],
 [class][class*="_card"],
@@ -350,6 +616,52 @@ textarea:focus,
     background-color: transparent !important;
 }
 
+/* **The suggestions dropdown is inside the wrapper, so the rule above erased
+ * it.** Reported 2026-08-08 — suggestions floating bare over the results, no
+ * surface behind the text. Measured: `[data-testid="search-autocomplete-menu"]`
+ * is 624x333, absolutely positioned flush under the 624x50 wrapper, and it and
+ * every row in it computed `rgba(0,0,0,0)` — the wrapper's `*` reaches the
+ * whole subtree, and the shadow their stylesheet floats the menu on is gone
+ * with every other shadow. Painted back by its `data-testid`, like the wrapper
+ * itself; same 0,1,0, later in the file, so it wins on order. The top corners
+ * stay square because the menu sits flush against the field's bottom edge —
+ * rounding them notches the seam. */
+[data-testid="search-autocomplete-menu"] {
+    background-color: var(--ddg-raised) !important;
+    border-radius: 0 0 8px 8px !important;
+}
+
+/* The row the keyboard is on. Their stylesheet marks it with
+ * `aria-selected` and paints it via `--theme-col-bg-ui-active`, which the
+ * wrapper's `*` also erased — so arrowing through the list moved nothing
+ * visible. One step above the menu, the same step every hover on the site
+ * takes. */
+[data-testid="search-autocomplete-menu"] [role="option"][aria-selected="true"],
+[data-testid="search-autocomplete-menu"] [role="option"]:hover {
+    background-color: var(--ddg-raised-more) !important;
+}
+
+/* **The magnifier goes dark the moment the field is focused, and the wrapper
+ * rule had taken away the circle that made dark right.** Their stylesheet
+ * says, on `:focus-within`: button colour `--sds-color-text-on-color`, button
+ * background `--sds-color-background-accent-01` — an accent circle with ink
+ * on it, exactly the start page's active search button. Both tokens are
+ * mapped, so the intent survives — but the wrapper's `*` erased the
+ * background and left the ink alone: measured 2026-08-08, glyph `--pill-fg`
+ * rgb(31,37,41) on the raised bar, the same 1.23:1 twice reported as
+ * invisible. Restored under the same trigger the site uses, scoped by
+ * `focus-within` on the wrapper; unfocused, the button keeps its quiet
+ * `--ui-fg` glyph and no circle. `button[type="submit"]` because the class is
+ * hashed whole and the wrapper holds exactly one submit. The radius is here
+ * for the same reason the background is: the class is hashed whole, so the
+ * button is in none of the radius lists and the square rule left a 32x32
+ * accent SQUARE — reported on sight 2026-08-08. A circle, like the start
+ * page's own. */
+[data-testid="search-form-input-wrapper"]:focus-within button[type="submit"] {
+    background-color: var(--completion-category-fg) !important;
+    border-radius: 999px !important;
+}
+
 /* The two boxes beside the results: the dictionary card and the panel in the
  * sidebar. Both are modules — a thing the page assembled rather than a result —
  * and they take the same one step up as the search bar, so the page has one
@@ -368,8 +680,11 @@ textarea:focus,
  * written onto it survived on 4% of its own area before a re-render took it back.
  * A rule that depends on being the first child loses the moment a wrapper appears.
  * `.react-module` is the one class in this application that is not hashed, so it
- * is the one that can be said out loud. */
-.react-module,
+ * is the one that can be said out loud — but it is the **wrapper**, not the card.
+ * Raising it drew our colour as a rim round the module's padding and left the
+ * card inside wearing DuckDuckGo's own, which is the hollow box this chased for
+ * an hour. The card is its only child, so `>` is the whole correction. */
+.react-module > *:not(:has([data-sa-vr-variant])),
 li[data-layout]:not([data-layout="organic"]):not([data-layout="about"]):not([data-layout="related_searches"]) > * > *:first-child,
 [data-testid="about"] {
     background-color: var(--ddg-raised) !important;
@@ -389,7 +704,7 @@ li[data-layout]:not([data-layout="organic"]):not([data-layout="about"]):not([dat
  * file, and the box came back `rgba(0,0,0,0)` with the raise measurably applied
  * and measurably lost. A selector meant for the children must not be able to name
  * the parent. */
-.react-module *,
+.react-module > * *:not([data-sa-vr-variant]):not([data-sa-vr-variant] *),
 li[data-layout]:not([data-layout="organic"]):not([data-layout="about"]):not([data-layout="related_searches"]) > * > *:first-child *,
 [data-testid="about"] * {
     background-color: transparent !important;
@@ -398,6 +713,26 @@ li[data-layout]:not([data-layout="organic"]):not([data-layout="about"]):not([dat
      * off the page each of those reads as a box inside a box — a grid where the
      * page meant a list. Measured on `related_searches`: one raised 652x314 box
      * with ten bordered children in it. */
+    border-color: transparent !important;
+}
+
+/* The Search Assist React slot itself must remain part of the page.  Its chat
+ * card lives below it and paints from the `--theme-assist-*` tokens above.  This
+ * comes after the generic module rule so it removes the wrapper, not the card. */
+.react-module:has([data-sa-vr-variant]) > * {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+/* The actual Search Assist module has no `data-sa-vr-variant` attribute.  Its
+ * stable module id gives us the real two layers: slot, then chat card. */
+.react-module[data-react-module-id="wikinlp"] > * {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.react-module.react-module[data-react-module-id="wikinlp"][data-react-module-id] > [class] > [class] {
+    background-color: var(--theme-assist-bg-chat-system) !important;
     border-color: transparent !important;
 }
 
@@ -478,12 +813,6 @@ li[data-layout="related_searches"] a * {
     background-color: transparent !important;
 }
 
-[class*="ai-searchbox_combobox"],
-[class*="search-input_searchbox"] {
-    background-color: var(--ddg-raised) !important;
-    border-radius: 24px !important;
-}
-
 [class*="chip-select_root"],
 [class*="chip-select_option"],
 [class*="chip-select_selectedIndicator"],
@@ -497,10 +826,53 @@ li[data-layout="related_searches"] a * {
     background-color: var(--ddg-raised-more) !important;
 }
 
-/* The field's own children, transparent, for the fifth and last time in this
- * file: the magnifier's button drew a dark square inside the pill. */
-[class*="ai-searchbox_combobox"] *,
-[class*="search-input_searchbox"] * {
+/* **The box the field sits in is the site's own pill, and the square rule took
+ * it.** Asked for 2026-08-08: `ai-searchbox_combobox` is the one painted box on
+ * this page — 616x48 at `--ddg-raised` — and its own stylesheet gives it
+ * `border-radius: var(--ai-searchbox-border-radius)`, which resolves here to
+ * 24px: a full pill at 48px tall. The square rule flattened it to 0. The
+ * component prefix with the underscore, for the reason the flat rule's note
+ * gives: `<html>` on this page carries state flags like
+ * `ssg-ai-searchbox-mode-search`, and the bare substring matched them once.
+ *
+ * The border the same request named is not a border: measured 2026-08-08,
+ * `border-top-width` 0px and `border-top-style` none, and a pixel column
+ * through both edges went straight from `--bg` to `--ddg-raised` with nothing
+ * between. The ring their stylesheet draws is
+ * `box-shadow: var(--ai-searchbox-box-shadow--rest)`, which the shadows rule
+ * already strips, and their `border` on the combobox is suppressed by the
+ * `[class*="_combobox"] { border: 0 }` rule above. Nothing to remove twice. */
+[class*="ai-searchbox_combobox"] {
+    border-radius: 24px !important;
+}
+
+/* With suggestions open the combobox grows to hold the list — measured
+ * 2026-08-08, 616x48 closed and 616x379 open, the panel flush inside its
+ * bottom — and the panel's own corners are what the pill's bottom corners
+ * become. Their stylesheet says exactly this,
+ * `border-radius: 0 0 var(--ai-searchbox-border-radius) ...` on
+ * `suggestions-list_suggestions`, and the square rule took it with the rest.
+ * Square top, because the seam against the field above must not notch. */
+[class*="suggestions-list_suggestions"] {
+    border-radius: 0 0 24px 24px !important;
+}
+
+/* **The active mode chip was invisible, and the options were the reason.**
+ * `Search` and `Duck.ai` are a chip-select: the root is the pill, and
+ * `chip-select_selectedIndicator` — `--ddg-raised-more`, the rule above — is
+ * the fill that slides under whichever option is chosen. Measured 2026-08-08:
+ * the indicator painted 104x36 at rgb(46,65,75) and both option labels painted
+ * 104x36 at rgb(40,53,60) exactly on top of it, because `option`,
+ * `optionContent` and `optionIcon` all match the raised list's
+ * `[class][class*="chip-select_"]` at 0,2,0 — which beats the child-transparency
+ * rule at 0,1,0 that was meant to stop them. Both chips came out identical,
+ * each with a faint 1px rim where the covered fill leaked through the
+ * antialiased edge — two borders and no answer, which is what was reported.
+ * The site's own stylesheet leaves the options transparent and lets the
+ * indicator speak; this restores that. Same 0,2,0, later in the file, so it
+ * wins on order; `chip-select_option` is a prefix of all three class names,
+ * and the indicator's name does not contain it. */
+[class][class*="chip-select_option"] {
     background-color: transparent !important;
 }
 
@@ -605,6 +977,165 @@ li[data-layout="related_searches"] a * {
     color: var(--ui-fg) !important;
 }
 
+/* **The one place the accent really paints, and the rule above lettered it in
+ * `--ui-fg`.** The start page's search button — the filled circle that appears
+ * when the field has text — lives inside the `ai-searchbox_` subtree the flat
+ * rule exempts, so its `primary-solid` variant keeps its accent background
+ * while everywhere else the flat rule strips it. Measured 2026-08-08: glyph
+ * `--ui-fg` #82907e on accent #af9e6b, **1.27:1** — the magnifier the report
+ * called invisible, and it was. `--pill-fg` is the palette's own
+ * letters-on-accent colour: **5.85:1** on the same circle. The variant class
+ * The glyph is `fill="currentColor"`, so colouring the button colours it.
+ * After the `--ui-fg` rule above, same 0,1,0, so it wins on order.
+ *
+ * **Not the `primary-solid` variant class, and that was measured too.** The
+ * button keeps `primary-solid` in its resting state, where its background is
+ * NOT the accent — measured 2026-08-08, the same button empty-field: glyph
+ * over the raised search bar at **1.23:1**, the exact invisibility this rule
+ * exists to fix, drawn by this rule. `searchButtonActive` is the class the
+ * site adds the moment the accent paints and removes when it goes, so the
+ * dark letters come and go with the surface they are dark for. */
+[class*="search-input_searchButtonActive"] {
+    color: var(--pill-fg) !important;
+}
+
+/* **A 16px filled logo cannot live at the text tier.** The Duck.ai mark — the
+ * header's `link-button`, the mode chips' icons — is a solid speech-bubble
+ * glyph drawn in `currentColor`, and the rules above give it `--ui-fg`:
+ * measured 2026-08-08 at 3.75:1 on the raised pill, which reads for letters
+ * and smears for a filled shape that small — reported grey and illegible.
+ * The theme has no brighter neutral (`--ui-fg` IS its top text tier), so the
+ * icons take the accent: 4.76:1, and a hue the grey-green field cannot
+ * swallow. Icons only — the labels beside them stay `--ui-fg`, which is what
+ * separates an icon-with-label from a block of accent. After the `--ui-fg`
+ * rules above, so it wins on order. */
+[class*="link-button_button"] svg,
+[class*="icon-button_iconButton"] svg,
+[class*="chip-select_optionIcon"] svg {
+    color: var(--completion-category-fg) !important;
+}
+
+/* Except on the accent circle itself, where accent-on-accent is the first
+ * invisibility this block ever fixed: the active search button's glyph stays
+ * ink. Same elements, later and heavier — 0,2,0 and 0,2,1 over 0,1,1.
+ *
+ * `icon-button_primary-solid` belongs in this list after all, and the reason
+ * it once seemed wrong was a disabled button: with the `--ds-accent-*` family
+ * mapped, every enabled state of the variant is the accent — rest included,
+ * `--button-rest-background-color` resolves to it — so the Duck.ai send arrow
+ * was accent-on-accent the moment a query was typed; measured 2026-08-08
+ * after the invisible-arrow report. What measured transparent before was
+ * `:disabled` — the chat component's own `bg: rgba(0,0,0,0)` — which is why
+ * the disabled glyph goes back to the quiet tier below instead of sitting as
+ * ink on nothing. */
+[class][class*="search-input_searchButtonActive"] svg,
+[class][class*="icon-button_primary-solid"] svg,
+[data-testid="search-form-input-wrapper"]:focus-within button[type="submit"] svg {
+    color: var(--pill-fg) !important;
+}
+
+/* The chat send button is the one `primary-solid` whose background the site
+ * itself removes — `chat-input_chatButton` overrides the kit with a
+ * `background` shorthand, which is why a rule-walk filtered on
+ * `backgroundColor` missed it. One submit control, one look: it takes the
+ * same accent circle as the search button, enabled only, so the ink arrow
+ * above lands on the surface it is ink for. */
+[class][class*="chat-input_chatButton"]:not(:disabled):not([class*="icon-button_disabled"]) {
+    background-color: var(--completion-category-fg) !important;
+}
+
+/* Disabled is both an attribute and a React class (`icon-button_disabled`),
+ * and either alone can outlive the other for a frame; match both. */
+[class][class*="icon-button_primary-solid"]:disabled svg,
+[class][class*="icon-button_primary-solid"][class*="icon-button_disabled"] svg {
+    color: var(--ui-fg-dim) !important;
+}
+
+/* Search Assist's answer chips — `Yes` / `No` / `Sometimes` — are painted
+ * accent by their stylesheet, with `color: var(--sds-color-text-on-color)` for
+ * letters on that accent. This file's card rule strips every background inside
+ * the chat card, accent included, so the chip is bare `--pill-fg` letters on
+ * the raised card: measured 2026-08-08 at **1.23:1**, and the token was found
+ * by perturbing the candidates in turn — only `--sds-color-text-on-color`
+ * moved it. The token itself stays `--pill-fg` for any surface that keeps its
+ * accent; these buttons, whose accent this file removed, get their letters
+ * back by scope. */
+.react-module button {
+    color: var(--ui-fg) !important;
+}
+
+/* The help pages are a third application — `/duckduckgo-help-pages/`, CSS
+ * modules with readable component prefixes like the start page's — and the
+ * whole of its ink is literal light-theme grey; it ships no dark theme at all.
+ * Measured 2026-08-08 on the index and one article: the article body and both
+ * heading levels at #222 (**1.03:1**), the current sidenav entry at #111
+ * (**1.22:1**), the footer at #444 (**1.59:1**), the sidenav links at #666
+ * (**2.7:1**). Two tiers, matching the rest of this file: the content reads at
+ * `--ui-fg`, the navigation and footer at the quieter `--ui-fg-dim`. Links in
+ * the article body are markdown output with no class, so `a:not([class])`
+ * above already gives them the accent — the `:where(:not(a))` is what keeps
+ * this rule's hands off them. */
+[class*="pageContent_"],
+[class*="pageContent_"] *:where(:not(a):not(a *)) {
+    color: var(--ui-fg) !important;
+}
+
+[class*="sidenav_"] a,
+[class*="footer_content"],
+[class*="footer_content"] *:where(:not(a)),
+a[class*="footer_footerLink"] {
+    color: var(--ui-fg-dim) !important;
+}
+
+/* The entry for the page being read: the one place the sidenav speaks at full
+ * volume. After the dim rule at the same 0,1,1, so it wins on order. */
+a[class*="sidenav_isCurrent"] {
+    color: var(--ui-fg) !important;
+}
+
+/* The footer's “See What's DuckDuckNew” promo is a link styled as a button.
+ * It has no token of its own and `[class]` makes it indistinguishable from the
+ * footer.  Restore the affordance as one contained raised control. */
+.badge-link__btn {
+    background-color: var(--ddg-raised) !important;
+    border: 1px solid var(--bg-light) !important;
+    border-radius: 8px !important;
+}
+
+.badge-link__btn:hover,
+.badge-link__btn:focus-visible {
+    background-color: var(--ddg-raised-more) !important;
+    outline: 2px solid var(--completion-category-fg) !important;
+    outline-offset: 2px !important;
+}
+
+.badge-link__btn * {
+    background-color: transparent !important;
+}
+
+/* The footer promo's action has a stable destination even though its CSS module
+ * classes change on every DuckDuckGo build. */
+html body a[href="https://duckduckgo.com/updates"][href][href][href] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 32px !important;
+    padding: 0 10px !important;
+    background-color: var(--ddg-raised-more) !important;
+    border: 1px solid var(--bg-light) !important;
+    border-radius: 4px !important;
+    color: var(--completion-category-fg) !important;
+    text-decoration: none !important;
+}
+
+html body a[href="https://duckduckgo.com/updates"][href][href][href]:hover,
+html body a[href="https://duckduckgo.com/updates"][href][href][href]:focus-visible {
+    background-color: var(--completion-category-fg) !important;
+    color: var(--pill-fg) !important;
+    outline: 2px solid var(--completion-category-fg) !important;
+    outline-offset: 2px !important;
+}
+
 /* --- a card separates by its step, not by an outline ----------------------
  *
  * The shadows note above gives the argument and this finishes it: separation is
@@ -621,6 +1152,45 @@ li[data-layout="related_searches"] a * {
 li[data-layout] > * > *:first-child,
 .related-searches,
 .related-searches__item,
-.react-module {
+.react-module,
+.react-module > *:not(:has([data-sa-vr-variant])) {
     border: 0 !important;
+}
+
+/* --- Search Assist: the card is the box, the footer is the page -----------
+ *
+ * Asked for outright 2026-08-08. The module is three layers and the middle one
+ * is the answer; the last one is a note about it:
+ *
+ *     .react-module            254px   the slot, with the module's padding
+ *       div                    254px   a wrapper
+ *         div                  226px   the card — the answer, the sources, More
+ *         footer                28px   "Auto-generated…"  ·  "Was this helpful?"
+ *
+ * Raising the slot put our step behind all three, so the footer sat inside the
+ * box and the box had no shape of its own. The card is what the eye is meant to
+ * read as a card, so it takes the surface and the radius; the slot and the footer
+ * belong to the page, exactly as the `Source: Wikipedia • Was this helpful?` row
+ * under `[data-testid="about"]` does — same sentence, same shape, one module over.
+ *
+ * `footer` is a tag, not a class: nothing about it can be renamed by a build. */
+/* **Specificity, not reach.** A plain `.react-module` at 0,1,0 and a doubled one
+ * at 0,2,0 both lost silently — the card took its radius from the rule below
+ * while the slot and the footer stayed raised. An inline `!important` moved the
+ * same element to `rgb(1,2,3)` on the first try, which is what proves it is the
+ * cascade and not something stranger. The file already carries rules for this
+ * module at 0,6,0 (`[data-react-module-id]` repeated), so these match them: the
+ * attribute is on the element anyway, and repeating it costs nothing but says
+ * plainly that the number is deliberate. */
+.react-module[data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id],
+.react-module[data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id] > *,
+.react-module[data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id] footer,
+.react-module[data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id] footer * {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+}
+
+.react-module[data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id] > * > *:first-child {
+    background-color: var(--ddg-raised) !important;
+    border-radius: 8px !important;
 }
