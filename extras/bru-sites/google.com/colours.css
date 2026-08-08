@@ -69,6 +69,29 @@ form[role="search"] div:has(> div > textarea[name="q"]) [class] {
     background-color: transparent !important;
 }
 
+/* The textarea carries a 7.76px bottom border their stylesheet leaves
+ * invisible and uses as spacing — measured 2026-08-08 as a `--bg-light`
+ * strip hanging under the pill, painted by this file's own flat rule, which
+ * colours every border it can see. Spacing is not a line; transparent gives
+ * the pixels back. */
+form[role="search"] textarea[name="q"],
+form[role="search"] div:has(> div > textarea[name="q"]),
+form[role="search"] div:has(> div > textarea[name="q"]) [class] {
+    border-color: transparent !important;
+}
+
+/* **The pill's own popups hang inside the pill**, and the transparency above
+ * erased them: the "+" upload menu is a `ul[role="menu"]` nested five levels
+ * under the pill div — measured 2026-08-08 computing transparent with the
+ * raised-more rule plainly written, because the child-transparency carries
+ * the pill anchor's weight and wins. Same anchor, same weight, floating
+ * roles named last, so they win on order instead. */
+form[role="search"] div:has(> div > textarea[name="q"]) [role="menu"],
+form[role="search"] div:has(> div > textarea[name="q"]) [role="listbox"] {
+    background-color: var(--ddg-raised-more) !important;
+    border-radius: 8px !important;
+}
+
 /* The suggestions list, the menus, the dialogs: floating surfaces, one step
  * above the pill, named by role because a role cannot rotate. */
 /* Radii are declared on every surface this file paints, not inherited from
