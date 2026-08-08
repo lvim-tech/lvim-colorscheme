@@ -529,16 +529,16 @@ div:has(> div > div[role="button"] > span) [class]:where(:not([role="button"]):n
 /* Plain child chains, no `:has`: the pill is the row's grandchild and the
  * walk up from `div[class]` is constant work, where the `:has` forms of
  * these three were part of the 115ms this group used to cost per restyle. */
-div[id^="_"] div[role="button"] > div > div[class] {
+div[id^="_"]:has(> div > div > #m-x-content) div[role="button"][aria-controls] > div > div[class] {
     background-color: var(--ddg-raised) !important;
     border: 1px solid var(--bg-light) !important;
 }
 
-div[id^="_"] div[role="button"] > div > div[class] > span {
+div[id^="_"]:has(> div > div > #m-x-content) div[role="button"][aria-controls] > div > div[class] > span {
     background-color: transparent !important;
 }
 
-div[id^="_"] div[role="button"]:hover > div > div[class] {
+div[id^="_"]:has(> div > div > #m-x-content) div[role="button"][aria-controls]:hover > div > div[class] {
     background-color: var(--ddg-raised-more) !important;
 }
 
