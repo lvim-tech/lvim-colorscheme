@@ -106,7 +106,9 @@ form[role="search"] div:has(> div > textarea[name="q"]) [role="listbox"] {
 /* `:focus-within` as well as `:has`, because the listbox stays in the DOM
  * hidden after the first open — measured: blurred, the wrapper still matched
  * and 88px of raised block hung under the pill. Focus is when the popup can
- * be on screen, so focus is when the box is one surface. */
+ * be on screen, so focus is when the box is one surface. `[role="heading"]` is the guard that keeps the slot's own
+ * full-viewport overlay layers out: 1344x1260 of tinted screen, measured
+ * before it was added. */
 form[role="search"] div:has(> div > div > div > textarea[name="q"]):focus-within:has([role="listbox"]) {
     background-color: var(--ddg-raised) !important;
     border-radius: 26px !important;
@@ -351,7 +353,7 @@ g-menu-item:hover,
  * All three together are the anchor, so a breadcrumb list elsewhere cannot
  * match. */
 body > div > div[id^="_"]:has([role="listitem"]),
-#sZmt3b > div[class] {
+#sZmt3b > div[class]:has([role="heading"]) {
     background-color: var(--ddg-raised-more) !important;
     border-radius: 8px !important;
 }
@@ -361,8 +363,10 @@ body > div > div[id^="_"]:has([role="listitem"]),
  * `[role="listitem"]` rows and the Tools popup has none (its roles are
  * button, dialog, heading, link) — measured live 2026-08-08 while the user
  * held it open: 240x205 of flat `--bg` beside a raised "Още". One container,
- * one surface. */
-#sZmt3b > div[class] [class]:where(:not([role="button"]):not([role="button"] [class])) {
+ * one surface. `[role="heading"]` is the guard that keeps the slot's own
+ * full-viewport overlay layers out: 1344x1260 of tinted screen, measured
+ * before it was added. */
+#sZmt3b > div[class]:has([role="heading"]) [class]:where(:not([role="button"]):not([role="button"] [class])) {
     background-color: transparent !important;
 }
 
