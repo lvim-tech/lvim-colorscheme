@@ -460,20 +460,20 @@ mark[class] {
  * their own grey, and then a darkening step that read as pressed. A wash of
  * the accent is the hover every one of these files uses when a control
  * cannot go a step lighter. `:has(> span)` keeps it to labelled pills. */
-div[role="button"]:has(> span),
 [class][role="dialog"] div[role="button"]:has(> span),
+div:has(> div > div[role="button"] > span):has(a[href]) div[role="button"]:has(> span),
 form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] div[role="button"]:has(> span) {
     background-color: var(--ddg-raised) !important;
 }
 
-div[role="button"]:has(> span) [class],
 [class][role="dialog"] div[role="button"]:has(> span) [class],
+div:has(> div > div[role="button"] > span):has(a[href]) div[role="button"]:has(> span) [class],
 form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] div[role="button"]:has(> span) [class] {
     background-color: transparent !important;
 }
 
-div[role="button"]:has(> span):hover,
 [class][role="dialog"] div[role="button"]:has(> span):hover,
+div:has(> div > div[role="button"] > span):has(a[href]) div[role="button"]:has(> span):hover,
 form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] div[role="button"]:has(> span):hover {
     background-color: var(--ddg-raised-more) !important;
 }
