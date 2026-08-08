@@ -288,3 +288,73 @@ tp-yt-app-drawer #contentContainer,
 #guide-content {
     background: var(--bg) !important;
 }
+
+/* Dialogs and the veil behind them. The consent dialog sits on
+ * `tp-yt-iron-overlay-backdrop`, literal black with `opacity: .6` — measured
+ * 2026-08-08, it was the "black background" reported over the watch page,
+ * `elementFromPoint` answering the backdrop at every sampled spot. The veil
+ * becomes the page's own colour and keeps their opacity for the dimming; the
+ * dialog takes the raised step every floating surface here takes. Both tags
+ * are old Polymer names. */
+tp-yt-iron-overlay-backdrop {
+    background-color: var(--bg) !important;
+}
+
+tp-yt-paper-dialog {
+    background-color: var(--ddg-raised) !important;
+    color: var(--ui-fg) !important;
+}
+
+/* The dialog's prose rides hashed copies of #f1f1f1 and the one link in it
+ * rides the hashed CTA blue. Both rules sit at 0,0,2 and 0,1,2 on purpose:
+ * every button rule above them carries more classes, so Reject/Accept keep
+ * their ink on accent and the outline buttons keep their accent letters. */
+tp-yt-paper-dialog * {
+    color: var(--ui-fg) !important;
+}
+
+tp-yt-paper-dialog a[href] {
+    color: var(--completion-category-fg) !important;
+}
+
+/* The description box under the player paints a colour sampled from the
+ * video itself — measured 2026-08-08, rgb(3,61,33) on one video, a different
+ * dark wash on the next, set per navigation — so no token mapping can ever
+ * hold it. Reported as the unstyled block above the comments, and it is the
+ * one surface on the page that changes hue per video. It takes the raised
+ * step every box here takes; the ids are ytd markup. */
+ytd-watch-metadata #description,
+ytd-watch-metadata #bottom-row {
+    background-color: var(--ddg-raised) !important;
+}
+
+/* And its letters, which are hashed white with a hashed-blue link: the info
+ * line is metadata so it speaks at the quiet tier, the prose at the full one,
+ * and a link is a link. */
+ytd-watch-metadata #description * {
+    color: var(--ui-fg) !important;
+}
+
+ytd-watch-metadata #description ytd-watch-info-text,
+ytd-watch-metadata #description ytd-watch-info-text * {
+    color: var(--ui-fg-dim) !important;
+}
+
+ytd-watch-metadata #description a,
+ytd-watch-metadata #description a * {
+    color: var(--completion-category-fg) !important;
+}
+
+/* The ambient-mode canvases. Two 1393x928 `<canvas>` layers hang behind the
+ * player and the whole metadata column, `pointer-events: none` — which is why
+ * no element stack ever named them while the pixels underneath measured
+ * #0f0f0f — and they draw the blurred video frame as a glow. Found 2026-08-08
+ * chasing a black wash the computed styles swore was not there. A wash in the
+ * video's own colours can no more match the theme than the description's
+ * sampled tint could; the page's separation is one step of background, so the
+ * glow goes and `ytd-app`'s themed surface shows instead. */
+#cinematics,
+#cinematics-container,
+#cinematics-full-bleed-container {
+    display: none !important;
+}
