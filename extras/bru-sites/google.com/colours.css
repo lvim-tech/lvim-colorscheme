@@ -153,6 +153,47 @@ form[role="search"] button [class] {
     background-color: transparent !important;
 }
 
+/* --- the AI follow-up composer's glow --------------------------------------
+ *
+ * The grey box with green fields and no text, reported 2026-08-08 off the
+ * open browser: under the AI overview sits an ask-a-follow-up composer, and
+ * inside it two 4802x1029 divs paint the AI brand ring as a
+ * `conic-gradient(rgb(49,134,255) …)` background-IMAGE — which the flat rule
+ * cannot touch, because it only speaks background-color. Masked into a wash,
+ * it grey-blued the whole box and drowned the composer's own lettering. The
+ * anchor is the one stable thing in there: the only textarea on the page
+ * that is not `name="q"`. Two depths, because the wrapper count moved once
+ * already while measuring. The glow goes; the fields keep the theme's own
+ * surfaces. */
+/* `background-color: transparent` as well, and that line is the whole
+ * right-hand column: the glow hosts are 4802px-wide pointer-events:none
+ * overlays, transparent in Google's own paint, and the flat rule had filled
+ * them `--bg` — an opaque sheet across everything to their right, drawn a
+ * beat after load, which is why the column "appeared for a moment and then
+ * vanished". Measured 2026-08-08 by toggling `:styles-toggle` in the running
+ * browser: same geometry both ways, a column of content one way, a field of
+ * `--bg` the other. */
+div:has(> div > div > div > textarea:not([name="q"])) [class],
+div:has(> div > div > div > div > textarea:not([name="q"])) [class] {
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
+/* The right rail has a glow family of its own: a 474x1098
+ * `pointer-events: none` overlay riding a per-load `__`-prefixed id straight
+ * under `#cnt`, transparent in their paint, filled `--bg` by the flat rule —
+ * an opaque sheet over the entire knowledge panel. Found 2026-08-08 as the
+ * last cover after the composer's hosts went transparent: the column stood
+ * at 582 in both modes with 122 text leaves in it, and rendered in neither.
+ * Everything mounted in those async containers is overlay decoration;
+ * transparent is what they were. */
+/* One underscore, not two: the very next load minted `_Wvh…` where the one
+ * before had minted `__Pd2…`. The prefix is the only stable letter. */
+#cnt > div[id^="_"] [class] {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
 form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"]:hover,
 form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"][aria-selected="true"] {
     background-color: var(--bg-light) !important;
@@ -322,6 +363,7 @@ mark[class] {
  * siblings. A floating box takes the raised step. */
 #slim_appbar div:not([class]) {
     background-color: var(--ddg-raised) !important;
+    border-color: var(--bg-light) !important;
 }
 
 /* One scrim stays foreign, knowingly: the collapsed AI overview fades out
