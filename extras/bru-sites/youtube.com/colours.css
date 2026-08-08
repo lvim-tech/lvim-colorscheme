@@ -1,0 +1,271 @@
+/* YouTube in whatever theme bru is wearing.
+ *
+ * Surveyed 2026-08-08 on the logged-out home page, dark attribute set. The
+ * desktop app of this year speaks `--yt-sys-color-baseline--*` — 172 colour
+ * tokens read off the running page, every solid surface and every piece of
+ * text among them — and the old `--yt-spec-*` names answered unset, so they
+ * are not written here. Classes are Polymer tags and hashes; nothing below
+ * names one. Same doctrine as the duck.ai file: tokens first, elements and
+ * attributes for what tokens do not reach, no flat `[class]` rule, and the
+ * site's own radii stay — asked for by name when duck.ai got the same
+ * treatment.
+ *
+ * What is deliberately NOT mapped: the translucent white/black layers
+ * (`additive`, `tonal`, `state-*`, `overlay-*`, scrims). They are
+ * tone-neutral — they lighten or darken whatever sits beneath, thumbnails
+ * included, and read correctly on any palette. Mapping them to solids would
+ * paint over video frames. The genai/vibrant gradient sets stay too: they are
+ * decoration on specific feed cards, not chrome.
+ *
+ * Their dark values, and what each becomes here:
+ *
+ *     #0f0f0f  the page                  -> --bg
+ *     #212121  a raised card             -> --ddg-raised   (theme.css computes it)
+ *     #282828  a floating menu           -> --ddg-raised-more
+ *     #f1f1f1  text, and the one filled  -> --ui-fg / accent: the filled chip
+ *              chip ("inverted")            takes the accent, its ink --pill-fg,
+ *                                           the convention every bru site wears
+ *     #aaa #717171  the quieter tier     -> --ui-fg-dim
+ *     #3ea6ff #065fd4 #65b8ff  CTA blue  -> --completion-category-fg
+ *     #263850  the blue-tinted chip      -> accent at 15%, the sibling form
+ *     #e1002d #f03 #f57  brand red       -> --red
+ *     #2ba640  their green               -> --green
+ *     rgba(255,255,255,.2) outlines      -> --bg-light
+ */
+
+:root {
+    /* The theme's two surface steps, with the same fallback the sibling file
+     * carries and for the same measured reason: an unresolved var() does not
+     * fall back, it kills the whole declaration. */
+    --ddg-raised: var(--raised, color-mix(in srgb, var(--bg-light) 91%, var(--ui-fg)));
+    --ddg-raised-more: var(--raised-more, color-mix(in srgb, var(--bg-light) 82%, var(--ui-fg)));
+
+    /* --- surfaces --------------------------------------------------------- */
+    --yt-sys-color-baseline--base-background: var(--bg) !important;
+    --yt-sys-color-baseline--raised-background: var(--ddg-raised) !important;
+    --yt-sys-color-baseline--menu-background: var(--ddg-raised-more) !important;
+    --yt-sys-color-baseline--general-background-a: var(--bg) !important;
+    --yt-sys-color-baseline--general-background-b: var(--bg) !important;
+    --yt-sys-color-baseline--snackbar-background: var(--ddg-raised-more) !important;
+    --yt-sys-color-baseline--frosted-glass-mobile: color-mix(in srgb, var(--bg) 70%, transparent) !important;
+    --yt-sys-color-baseline--frosted-glass-desktop: color-mix(in srgb, var(--bg) 80%, transparent) !important;
+    --yt-sys-color-baseline--scrim-background-gradient-1: color-mix(in srgb, var(--bg) 0%, transparent) !important;
+    --yt-sys-color-baseline--scrim-background-gradient-2: color-mix(in srgb, var(--bg) 30%, transparent) !important;
+    --yt-sys-color-baseline--scrim-background-gradient-3: color-mix(in srgb, var(--bg) 60%, transparent) !important;
+    --yt-sys-color-baseline--scrim-background-gradient-4: color-mix(in srgb, var(--bg) 90%, transparent) !important;
+    --yt-sys-color-baseline--scrim-background-gradient-5: var(--bg) !important;
+
+    /* The one filled control — their white "inverted" chip, Subscribe and its
+     * kin — becomes the accent with ink on it, as on every other site here. */
+    --yt-sys-color-baseline--inverted-background: var(--completion-category-fg) !important;
+    --yt-sys-color-baseline--inverted-background-hover: var(--completion-category-fg) !important;
+    --yt-sys-color-baseline--mono-filled-hover: var(--completion-category-fg) !important;
+    --yt-sys-color-baseline--solid-background: var(--completion-category-fg) !important;
+    --yt-sys-color-baseline--overlay-filled-hover: var(--completion-category-fg) !important;
+    --yt-sys-color-baseline--overlay-solid-background: var(--completion-category-fg) !important;
+    --yt-sys-color-baseline--text-primary-inverse: var(--pill-fg) !important;
+    --yt-sys-color-baseline--overlay-text-primary-inverse: var(--pill-fg) !important;
+    --yt-sys-color-baseline--text-secondary-inverse: var(--pill-fg) !important;
+
+    /* --- text ------------------------------------------------------------- */
+    --yt-sys-color-baseline--text-primary: var(--ui-fg) !important;
+    --yt-sys-color-baseline--text-secondary: var(--ui-fg-dim) !important;
+    --yt-sys-color-baseline--text-disabled: var(--ui-fg-dim) !important;
+    --yt-sys-color-baseline--wordmark-text: var(--ui-fg) !important;
+    --yt-sys-color-baseline--touch-response: var(--ui-fg) !important;
+
+    /* --- the blue that is not this theme's -------------------------------- */
+    --yt-sys-color-baseline--call-to-action: var(--completion-category-fg) !important;
+    --yt-sys-color-baseline--call-to-action-inverse: var(--completion-category-fg) !important;
+    --yt-sys-color-baseline--call-to-action-hover: var(--completion-category-fg) !important;
+    --yt-sys-color-baseline--overlay-call-to-action: var(--completion-category-fg) !important;
+    --yt-sys-color-baseline--overlay-call-to-action-hover: var(--completion-category-fg) !important;
+    --yt-sys-color-baseline--suggested-action: color-mix(in srgb, var(--completion-category-fg) 15%, transparent) !important;
+    --yt-sys-color-baseline--suggested-action-inverse: color-mix(in srgb, var(--completion-category-fg) 15%, transparent) !important;
+    --yt-sys-color-baseline--suggested-action-hover: color-mix(in srgb, var(--completion-category-fg) 25%, transparent) !important;
+
+    /* --- lines ------------------------------------------------------------ */
+    --yt-sys-color-baseline--outline: var(--bg-light) !important;
+    --yt-sys-color-baseline--outline-opaque: var(--bg-light) !important;
+    --yt-sys-color-baseline--outline-rim: var(--bg-light) !important;
+    --yt-sys-color-baseline--static-dark-grey: var(--bg-light) !important;
+
+    /* --- status, from the palette rather than from their guesses ----------- */
+    --yt-sys-color-baseline--red-indicator: var(--red) !important;
+    --yt-sys-color-baseline--error-indicator: var(--red) !important;
+    --yt-sys-color-baseline--error-background-red: color-mix(in srgb, var(--red) 20%, transparent) !important;
+    --yt-sys-color-baseline--themed-green: var(--green) !important;
+    --yt-sys-color-baseline--themed-green-inverse: var(--green) !important;
+    --yt-sys-color-baseline--overlay-green: var(--green) !important;
+    --yt-sys-color-baseline--icon-warning: var(--orange) !important;
+    --yt-sys-color-baseline--text-warning: var(--orange) !important;
+    --yt-sys-color-baseline--text-error: var(--red) !important;
+    --yt-sys-color-baseline--text-complete: var(--green) !important;
+    --yt-sys-color-baseline--background-warning: color-mix(in srgb, var(--orange) 25%, transparent) !important;
+    --yt-sys-color-baseline--background-complete: color-mix(in srgb, var(--green) 25%, transparent) !important;
+}
+
+/* --- the page itself -------------------------------------------------------
+ *
+ * The same first lesson every one of these files learned: the top surface is
+ * painted with a literal somewhere. */
+html,
+body {
+    background-color: var(--bg) !important;
+    color: var(--ui-fg) !important;
+}
+
+/* --- shadows off, as on every site bru dresses ------------------------------
+ *
+ * A drop shadow is a device for a light background; on a dark page it is a
+ * grey smear. Separation stays one step of background, which the menu and
+ * raised tokens above already give. */
+[class][class],
+[class][class]::before,
+[class][class]::after,
+*, *::before, *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+/* Focus stays visible without the shadows. */
+:focus-visible:not(input):not(textarea) {
+    outline: 2px solid var(--completion-category-fg) !important;
+    outline-offset: 2px !important;
+}
+
+/* --- the components that read compiled tokens ------------------------------
+ *
+ * Not everything reads the baseline names. A build step compiles some tokens
+ * into hashed custom properties — `--t3e41d7b17b187f69: #0f0f0f`, defined as
+ * literals in `:root` and `[dark]` — and those names rotate per build, so
+ * they cannot be mapped the way the baseline family is. After the token block
+ * above, exactly three visible surfaces still painted a literal (measured
+ * 2026-08-08, opacity and viewport checked), and each has a stabler name than
+ * the hash: the new components carry readable camel-case classes, the chip
+ * carries a `selected` attribute, and the ad button is its own tag. */
+
+/* The search box: #121212 on the input box, #212121 on the suggestions,
+ * literal white on the letters. The readable `ytSearchboxComponent` prefix is
+ * the component's own. */
+[class*="ytSearchboxComponentInputBox"] {
+    background-color: var(--ddg-raised) !important;
+}
+
+[class*="ytSearchboxComponentSuggestionsContainer"] {
+    background-color: var(--ddg-raised-more) !important;
+}
+
+[class*="ytSearchboxComponent"],
+[class*="ytSearchboxComponentInput"] {
+    color: var(--ui-fg) !important;
+}
+
+/* The selected filter chip — their white "inverted" fill again, this time
+ * through a hashed var. `selected` is the attribute Polymer keeps on the
+ * renderer; accent with ink, the same statement as everywhere else. */
+yt-chip-cloud-chip-renderer[selected] button,
+yt-chip-cloud-chip-renderer[selected] button * {
+    background-color: var(--completion-category-fg) !important;
+    color: var(--pill-fg) !important;
+}
+
+yt-chip-cloud-chip-renderer[selected] button * {
+    background-color: transparent !important;
+}
+
+/* An ad's call-to-action, white through the same hashed route. The tag is the
+ * component's own name. */
+ad-button-view-model a {
+    background-color: var(--completion-category-fg) !important;
+    color: var(--pill-fg) !important;
+}
+
+ad-button-view-model a * {
+    background-color: transparent !important;
+    color: var(--pill-fg) !important;
+}
+
+/* The app shell behind everything, which reads the hashed base rather than
+ * the baseline token. The tag has carried this name for a decade, and the
+ * masthead's `#background` layer is the same hashed base one element down. */
+ytd-app,
+ytd-masthead #background {
+    background: var(--bg) !important;
+}
+
+/* The chip bar's scroll arrows: a 32x32 circle of hashed base colour sitting
+ * on the page, one shade off it. They exist to fade the row's edge, so they
+ * take the page's own colour. */
+#left-arrow-button ytd-button-renderer,
+#right-arrow-button ytd-button-renderer {
+    background: var(--bg) !important;
+}
+
+/* --- text that rides the hashed vars ---------------------------------------
+ *
+ * The chips, the sidebar and the titles letter themselves in a hashed copy of
+ * #f1f1f1 rather than the baseline token — measured 2026-08-08, all of them
+ * literal white-grey on a themed page. The two tiers are the same two the
+ * sibling files keep: content at `--ui-fg`, metadata at `--ui-fg-dim`. The
+ * ids are ytd markup that predates the token system; the selected chip's own
+ * rule above outweighs the generic chip line by its attribute. */
+yt-chip-cloud-chip-renderer button,
+yt-chip-cloud-chip-renderer button *,
+ytd-guide-entry-renderer,
+ytd-guide-entry-renderer *,
+#video-title {
+    color: var(--ui-fg) !important;
+}
+
+#metadata-line span,
+ytd-channel-name,
+ytd-channel-name * {
+    color: var(--ui-fg-dim) !important;
+}
+
+/* The button kit's call-to-action, which is the last place the blue lives:
+ * `ytSpecButtonShapeNext` variants are readable classes on the new kit.
+ * Outline CTA letters itself accent; filled CTA is a filled control, so it
+ * takes the accent surface with ink, the same statement as every site here. */
+[class*="ytSpecButtonShapeNextCallToAction"],
+[class*="ytSpecButtonShapeNextCallToAction"] * {
+    color: var(--completion-category-fg) !important;
+}
+
+[class*="ytSpecButtonShapeNextFilled"][class*="ytSpecButtonShapeNextCallToAction"],
+[class*="ytSpecButtonShapeNextFilled"][class*="ytSpecButtonShapeNextCallToAction"] * {
+    background-color: var(--completion-category-fg) !important;
+    color: var(--pill-fg) !important;
+}
+
+[class*="ytSpecButtonShapeNextFilled"][class*="ytSpecButtonShapeNextCallToAction"] * {
+    background-color: transparent !important;
+}
+
+/* The mono-filled variant is the white one — Subscribe, measured 2026-08-08
+ * on a watch page at literal #f1f1f1 — and it is the same filled control the
+ * chip and the ad button are: accent surface, ink letters, children
+ * transparent. */
+[class*="ytSpecButtonShapeNextFilled"][class*="ytSpecButtonShapeNextMono"] {
+    background-color: var(--completion-category-fg) !important;
+    color: var(--pill-fg) !important;
+}
+
+[class*="ytSpecButtonShapeNextFilled"][class*="ytSpecButtonShapeNextMono"] * {
+    background-color: transparent !important;
+    color: var(--pill-fg) !important;
+}
+
+/* The player's own ad button, white through the player bundle. */
+[class*="ytp-ad-button"] {
+    background-color: var(--completion-category-fg) !important;
+    color: var(--pill-fg) !important;
+}
+
+/* The slide-out guide drawer on watch pages: two layers of hashed base. The
+ * tag and the id are the app's own old names. */
+tp-yt-app-drawer #contentContainer,
+#guide-content {
+    background: var(--bg) !important;
+}
