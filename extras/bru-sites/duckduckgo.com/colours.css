@@ -381,7 +381,20 @@ table, tr, th {
     background-color: var(--bg) !important;
 }
 
-td {
+/* **`table:has(th)`, because a layout is not a grid.** The bare `td` this used to
+ * be raised every cell of `lite.duckduckgo.com`, which is one table holding the
+ * whole page: measured 2026-08-08, 81 cells at `--ddg-raised`, each sized to its
+ * own content, reading as ragged light bars behind the results. A data grid has
+ * header cells and a layout table has none, so the guard is the positive test and
+ * not an exemption for one host — measured both ways on the same day, the
+ * comparison grid at 6 `th` and 196 `td`, lite's results table at 81 `td` and no
+ * `th` at all.
+ *
+ * Nothing about `/compare-privacy` changes: 165 of its 196 cells carry a class
+ * and take `--bg` from the flat rule at 0,1,0, which beat the old `td` at 0,0,1
+ * and beats this at 0,0,3 just the same. The raise was only ever the classless
+ * thirty-one, and it still is. */
+table:has(th) td {
     background-color: var(--ddg-raised) !important;
 }
 
@@ -476,12 +489,26 @@ a:not([class]),
  * match on any word that happens to contain those letters, state flags included.
  * The field is named exactly instead, by `data-testid` on the results page and by
  * `ai-searchbox_` here. */
+/* **`select[class]` is here for the same reason `input[class]` is**, and it was
+ * missing until 2026-08-08: a bare `select` is 0,0,1 and loses to the flat rule
+ * at 0,1,0, so a menu that carries a class stayed the page colour while its
+ * neighbours were raised. Found on `lite.duckduckgo.com`, whose time filter is
+ * `select.submit` — page-coloured with a `--bg-light` ring round it, beside two
+ * raised inputs. Its twin already had the fix. */
 [class][class*="nav-menu--slideout"],
 input[class],
 input,
 textarea,
+select[class],
 select {
     background-color: var(--ddg-raised) !important;
+}
+
+/* And a raised control does not also need a line round it — the step is the
+ * separation, which is this file's sentence about cards and about the results
+ * one page down. */
+select[class] {
+    border-color: transparent !important;
 }
 
 /* **An overlay click target must stay transparent, or it paints over the icon it
@@ -1193,4 +1220,140 @@ li[data-layout] > * > *:first-child,
 .react-module[data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id][data-react-module-id] > * > *:first-child {
     background-color: var(--ddg-raised) !important;
     border-radius: 8px !important;
+}
+
+/* --- the two pages that run without JavaScript ----------------------------
+ *
+ * `html.duckduckgo.com` and `lite.duckduckgo.com`, and until 2026-08-08 nothing
+ * in this file had ever been seen on either: they send `default-src 'none'`,
+ * which blocks `style-src-elem`, so bru's stylesheet sat in the document with
+ * `styleElem.sheet` null while the page rendered white. `content.csp.bypass`
+ * with `duckduckgo.com` in it is what made them reachable — bru's `src/csp.rs`
+ * carries that measurement — and this section is what the audit found once they
+ * were.
+ *
+ * **Their markup is the one part of DuckDuckGo with honest names.** No build
+ * hash anywhere: `result__title`, `result__snippet`, `result-link`, `timestamp`,
+ * `navbutton`. These are server templates that have not been renamed in years,
+ * so here, unlike everywhere above this line, the class IS the anchor and no
+ * substring match is needed to survive a build.
+ *
+ * **What was wrong was never the backgrounds.** The flat rule reaches every
+ * element on both pages and did; what it does not touch is ink, and all of the
+ * ink on these two pages is literal and was picked for white paper. Every number
+ * below was measured against this page 2026-08-08, and the tiers they become are
+ * `--ui-fg` 4.61:1, `--ui-fg-dim` 5.27:1 and the accent 5.85:1. */
+
+/* html.duckduckgo.com, the three tiers this file uses everywhere: a link is the
+ * accent, a URL and its trimmings are the quiet tier, body text is the ink.
+ * Their title was `#00278e`, a navy for white paper — **1.24:1** here, which is
+ * a result you cannot read — the URL `#20692b` at 2.30:1, the snippet `#494949`
+ * at 1.72:1 with every `b` inside it the same, and the favicon's wrapper
+ * `#666666` at 2.70:1. */
+.result__a {
+    color: var(--completion-category-fg) !important;
+}
+
+.result__url,
+.result__extras__url,
+.result__icon,
+.result__icon * {
+    color: var(--ui-fg-dim) !important;
+}
+
+.result__snippet,
+.result__snippet * {
+    color: var(--ui-fg) !important;
+}
+
+/* **A result is separated by its space, not by a line** — this file's own
+ * sentence about cards, said again one page down. `.result` carries a 0.97px
+ * border their stylesheet leaves invisible and uses for nothing, and the flat
+ * rule colours every border it can see, so all ten results came up in boxes. */
+.result {
+    border-color: transparent !important;
+}
+
+/* The form on that page. Each of these already sits on a surface this file
+ * painted; only the ink was left behind, and one of them was left behind on a
+ * surface that makes it worse: `search__input` letters at `#222222` on the
+ * raised field, **1.26:1**, so what you had typed was invisible. The two region
+ * and time menus are `#333333` at 1.23:1, the Next Page submit `#666666` at
+ * 2.20:1, and the magnifier's label `#999999` at 5.44:1 — that last one was
+ * legible already and is here for one reason, that a grey chosen for white paper
+ * is not a tier this file has.
+ *
+ * `select` is named again beside its wrapper because the two menus did not agree:
+ * measured on one page, one came back raised and the other at the page colour,
+ * both from the same `select` rule far above. Saying it once more where they are
+ * a pair is what makes them look like a pair. */
+.search__input,
+.search__button,
+.frm__select,
+.frm__select select,
+.btn,
+.btn--alt,
+.feedback-btn,
+.nav-link {
+    color: var(--ui-fg) !important;
+}
+
+.frm__select select {
+    background-color: var(--ddg-raised) !important;
+}
+
+/* lite.duckduckgo.com, the same three tiers. The link was `#1168cc` at
+ * **2.86:1**, the URL under it `#662200` — a brown, at **1.32:1** — and the
+ * timestamp `#555555` at 2.08:1. Its search field is the worst of either page:
+ * `#000000` on the raised box, **1.66:1**.
+ *
+ * The bars behind its results were not ink and are not fixed here: they were the
+ * comparison-grid rule raising every cell of what is really one layout table.
+ * `table:has(th)` above is where that went. */
+.result-link {
+    color: var(--completion-category-fg) !important;
+}
+
+.link-text,
+.timestamp {
+    color: var(--ui-fg-dim) !important;
+}
+
+/* `.header` is lite's wordmark, and it is the one place on either page where a
+ * brand colour is text rather than an image: `#dc5e47`, their orange, at 4.23:1.
+ * **It was readable; it is lettered anyway**, and that is a consistency
+ * judgement rather than a contrast fix — every other page bru dresses says the
+ * site's name in the theme's ink, and this is the only one that did not. The
+ * html page's logo is a `background-image` and stays exactly as it is, because
+ * artwork is not ink.
+ *
+ * `.header` is also a wrapper on the html page, where it has nothing of its own
+ * to say and this changes nothing. */
+.header,
+.query,
+.submit,
+.navbutton,
+.filters,
+.extra {
+    color: var(--ui-fg) !important;
+}
+
+/* **The field and its magnifier are one box**, the same sentence the google.com
+ * file makes about the search pill. `.search--header` measured 590x44 wrapping a
+ * 483x44 input and the button beside it, and it was drawing a 0.97px line in
+ * `--bg-light` round the pair while only the input was raised — a border doing
+ * the grouping that a surface should do, with half the group on the page. The
+ * wrapper takes the step, both children go glass, and the line goes.
+ *
+ * `.search--header .search__input` at 0,2,0 so it beats the `input` rule far
+ * above that raised the field in the first place; the button keeps its
+ * `background-image` loupe, which a `background-color` does not touch. */
+.search--header {
+    background-color: var(--ddg-raised) !important;
+    border-color: transparent !important;
+}
+
+.search--header .search__input,
+.search--header .search__button {
+    background-color: transparent !important;
 }
