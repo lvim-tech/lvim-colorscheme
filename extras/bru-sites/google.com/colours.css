@@ -494,7 +494,7 @@ div[id^="_"]:has(#m-x-content) {
     background-color: transparent !important;
 }
 
-div[id^="_"]:has(#m-x-content) [class]:where(:not([role="button"]):not([role="button"] [class]):not([role="dialog"]):not([role="dialog"] [class]):not(div:has(> div > div[role="button"] > span)):not(div:has(> div > div[role="button"] > span) [class])) {
+div[id^="_"]:has(#m-x-content) [class]:where(:not([role="button"]):not([role="button"] [class]):not([role="dialog"]):not([role="dialog"] [class]):not(div:has(> div > div[role="button"] > span)):not(div:has(> div > div[role="button"] > span) [class]):not(div:has(textarea:not([name="q"])))) {
     background-color: transparent !important;
     /* And no gradients: the collapsed overview fades its text out through a
      * scrim to THEIR #22242a, which was three units off the page and
