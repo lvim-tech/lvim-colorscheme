@@ -350,9 +350,20 @@ g-menu-item:hover,
  * generates with a leading underscore, and `role="listitem"` rows inside.
  * All three together are the anchor, so a breadcrumb list elsewhere cannot
  * match. */
-body > div > div[id^="_"]:has([role="listitem"]) {
+body > div > div[id^="_"]:has([role="listitem"]),
+#sZmt3b > div[class] {
     background-color: var(--ddg-raised-more) !important;
     border-radius: 8px !important;
+}
+
+/* `#sZmt3b` is the body-level slot both tab-bar dropdowns portal into — the
+ * "Още" list and the Tools filters. The first anchor required
+ * `[role="listitem"]` rows and the Tools popup has none (its roles are
+ * button, dialog, heading, link) — measured live 2026-08-08 while the user
+ * held it open: 240x205 of flat `--bg` beside a raised "Още". One container,
+ * one surface. */
+#sZmt3b > div[class] [class]:where(:not([role="button"]):not([role="button"] [class])) {
+    background-color: transparent !important;
 }
 
 body > div > div[id^="_"]:has([role="listitem"]) [class] {
