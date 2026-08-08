@@ -11,7 +11,7 @@
  * the socket is for. Their dark values, and what each becomes here:
  *
  *     #161616  page, header            -> --bg
- *     #222222  a result, a modal       -> --bg          (flat: see the shadows note)
+ *     #222222  a result                -> --bg          (flat: see the shadows note)
  *     #282828  inputs and chrome       -> --bg-soft-light
  *     #333333  a raised panel          -> --bg-soft-light
  *     #444 #3d3d3d  hover              -> --bg-light
@@ -21,7 +21,26 @@
  *     #adc2fc  a link                  -> --completion-category-fg
  *
  * Every colour is a var() from theme.css, which bru injects above this file, so
- * switching the theme moves this with it and nothing here names a hex. */
+ * switching the theme moves this with it and nothing here names a hex.
+ *
+ * ## Five names were removed 2026-08-08, and the removal was measured
+ *
+ * A rule that matches nothing is worse than no rule: it reads as a name the site
+ * still ships, and the next person to touch this file will believe it. So the
+ * whole selector list was put to the running page — eight surfaces, the start
+ * page, a results page, `/settings`, `/about`, `/newsletter`, the help index, a
+ * definition query and a weather query, plus `/compare-privacy` and the two no-JS
+ * hosts — and what matched nothing on any of them went: `#links_wrapper`,
+ * `.c-base__title`, `.modal__box`, `.badge-link__btn` and `#searchbox_input`.
+ * The last of those was also simply wrong; the field is `#search_form_input`, and
+ * the bare `input` beside it had been doing the work all along.
+ *
+ * **Three names that looked equally dead were kept, and the check is why.**
+ * `.zci` and `.about-info` are the direct-answer boxes, which only exist for the
+ * queries that have one, and no query tried here produced one — absent is not the
+ * same as gone. `.set-tab` was on the first list and came off it: it matches
+ * **four** elements on `/settings`, a page the first sweep had not opened. One
+ * surface was the whole difference between deleting a live rule and keeping it. */
 
 :root {
     /* **The theme's two surface steps, with a fallback that is not a hole.**
@@ -363,7 +382,6 @@
 html,
 body,
 .site-wrapper,
-#links_wrapper,
 .serp__results {
     background-color: var(--bg) !important;
     color: var(--ui-fg) !important;
@@ -402,8 +420,7 @@ table:has(th) td {
  * cross-references and the header links both use it directly. */
 a:not([class]),
 .about-info a,
-.zci a,
-.c-base__title a {
+.zci a {
     color: var(--completion-category-fg) !important;
 }
 
@@ -543,8 +560,7 @@ input,
 textarea,
 [class*="searchbox"],
 [class*="_combobox"],
-#search_form,
-#searchbox_input {
+#search_form {
     border: 0 !important;
     outline: none;
 }
@@ -787,26 +803,6 @@ li[data-layout="related_searches"] a * {
     background-color: transparent !important;
 }
 
-/* --- the settings popup ---------------------------------------------------
- *
- * `.modal__box` — the Search Settings panel behind the gear, and one of the old
- * dashed class names rather than a hashed one, so it is safe to say out loud.
- * It floats over the page, which is the one thing on this site that genuinely is
- * above the page rather than part of it, so it takes the raised step; flat, it
- * read as a hole punched in the results.
- *
- * The header of this file maps `#222222  a result, a modal -> --bg`, and that is
- * now half wrong: a result is the page, a modal is not. The token above moved
- * with it. */
-.modal__box {
-    background-color: var(--ddg-raised) !important;
-    border-radius: 8px !important;
-}
-
-.modal__box * {
-    background-color: transparent !important;
-}
-
 /* --- the side menu --------------------------------------------------------
  *
  * `.nav-menu--slideout` is already in the raised list above, and it was already
@@ -990,15 +986,13 @@ li[data-layout="related_searches"] a * {
  * shape of it: `See More` came from `--theme-col-txt-button-primary`, found by
  * asking the page which of its **821** custom properties held a near-black rather
  * than by reading the element — its class is hashed whole and there is nothing
- * else on it to name. `Add DuckDuckGo to Chrome` came a query later, at 1.07:1,
- * and that one does have a name: `.badge-link__btn`, old and dashed.
+ * else on it to name.
  *
  * The way to find the next one is not to read the page. It is to ask it:
  * walk every leaf with text, resolve the first non-transparent background above
  * it, and report anything under 3:1. That single query found this one and nothing
  * else on a full results page. */
 .set-tab,
-.badge-link__btn,
 [class*="link-button_button"],
 [class*="icon-button_iconButton"] {
     color: var(--ui-fg) !important;
@@ -1118,26 +1112,6 @@ a[class*="footer_footerLink"] {
  * volume. After the dim rule at the same 0,1,1, so it wins on order. */
 a[class*="sidenav_isCurrent"] {
     color: var(--ui-fg) !important;
-}
-
-/* The footer's “See What's DuckDuckNew” promo is a link styled as a button.
- * It has no token of its own and `[class]` makes it indistinguishable from the
- * footer.  Restore the affordance as one contained raised control. */
-.badge-link__btn {
-    background-color: var(--ddg-raised) !important;
-    border: 1px solid var(--bg-light) !important;
-    border-radius: 8px !important;
-}
-
-.badge-link__btn:hover,
-.badge-link__btn:focus-visible {
-    background-color: var(--ddg-raised-more) !important;
-    outline: 2px solid var(--completion-category-fg) !important;
-    outline-offset: 2px !important;
-}
-
-.badge-link__btn * {
-    background-color: transparent !important;
 }
 
 /* The footer promo's action has a stable destination even though its CSS module
