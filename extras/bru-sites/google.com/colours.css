@@ -135,6 +135,24 @@ form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([r
     border-radius: 0 0 26px 26px !important;
 }
 
+/* The magnifier's wrappers on the results bar: the button itself is
+ * transparent, but it sits in one div the flat rule painted `--bg` — a
+ * darker square on the raised bar, reported with the popup open 2026-08-08 —
+ * inside another that something painted raised on its own. Both go
+ * transparent and the bar shows through, which is what an icon on a bar is. */
+form[role="search"] div:has(> button),
+form[role="search"] div:has(> div > button) {
+    background-color: transparent !important;
+}
+
+/* And inside the button itself: the glyph's own 24x24 span wore the flat
+ * rule's `--bg` — the dark square was never the button, it was the icon's
+ * wrapper. The oldest sentence again, one level deeper than it had ever
+ * needed to go. */
+form[role="search"] button [class] {
+    background-color: transparent !important;
+}
+
 form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"]:hover,
 form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"][aria-selected="true"] {
     background-color: var(--bg-light) !important;
