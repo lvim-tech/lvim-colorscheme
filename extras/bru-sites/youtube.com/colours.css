@@ -115,6 +115,14 @@ body {
     color: var(--ui-fg) !important;
 }
 
+/* Their own `html[dark]` rule carries `!important` too, and at 0,1,1 it beat
+ * the bare `html` above — measured 2026-08-08, the root still #0f0f0f behind
+ * every transparent region while body wore the theme. The doubled attribute
+ * is only weight: 0,2,1, same element. */
+html[dark][dark] {
+    background-color: var(--bg) !important;
+}
+
 /* --- shadows off, as on every site bru dresses ------------------------------
  *
  * A drop shadow is a device for a light background; on a dark page it is a
@@ -257,10 +265,21 @@ ytd-channel-name * {
     color: var(--pill-fg) !important;
 }
 
-/* The player's own ad button, white through the player bundle. */
-[class*="ytp-ad-button"] {
+/* The player's own ad button, white through the player bundle. The `-vm`
+ * suffix is the actual call-to-action; the bare `ytp-ad-button` names are the
+ * quiet icon controls beside it ("My Ad Center", 13x28, radius 0), and the
+ * first version of this rule painted them as accent squares — measured
+ * 2026-08-08, reported as radiusless buttons the same day. The CTA carries
+ * 18px of its own; its children go transparent so the text span does not
+ * repaint the fill. */
+[class*="ytp-ad-button-vm"] {
     background-color: var(--completion-category-fg) !important;
     color: var(--pill-fg) !important;
+}
+
+[class*="ytp-ad-button-vm"] [class*="ytp-ad-button-vm"],
+[class*="ytp-ad-button-vm"] span {
+    background-color: transparent !important;
 }
 
 /* The slide-out guide drawer on watch pages: two layers of hashed base. The
