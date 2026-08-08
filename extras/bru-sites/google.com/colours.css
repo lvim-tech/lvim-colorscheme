@@ -531,6 +531,22 @@ div:has(> div > div[role="button"] > span) [class]:where(:not([role="button"]):n
 
 /* The pill itself, measured 650x48 at radius 9999 with its two spans: the
  * row's grandchild, not the row. Same dress as the approved panel pills. */
+/* The four icon actions above the composer — share, good, bad, ⋮ — came in
+ * four costumes: two wore a square `--bg` at rest, all hid their hover
+ * circles in the page's own colour, and the fourth wore a box where the
+ * others wore nothing. One dress for all of them: bare and round at rest,
+ * one raised-more circle under the pointer. `[aria-label]` finds them,
+ * `:not([aria-controls])` keeps the expander row out of it. */
+div[id^="_"]:has(> div > div > #m-x-content) div[role="button"][aria-label]:not([aria-controls]),
+div[id^="_"]:has(> div > div > #m-x-content) div[role="button"][aria-label]:not([aria-controls]) div {
+    background-color: transparent !important;
+    border-radius: 9999px !important;
+}
+
+div[id^="_"]:has(> div > div > #m-x-content) div[role="button"][aria-label]:not([aria-controls]):hover {
+    background-color: var(--ddg-raised-more) !important;
+}
+
 /* Plain child chains, no `:has`: the pill is the row's grandchild and the
  * walk up from `div[class]` is constant work, where the `:has` forms of
  * these three were part of the 115ms this group used to cost per restyle. */
