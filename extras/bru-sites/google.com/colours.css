@@ -421,6 +421,54 @@ mark[class] {
  * `--bg`, on a rotating class with no stable name. Invisible in practice;
  * recorded so the next reader does not chase it. */
 
+/* --- the knowledge panel is one surface ------------------------------------
+ *
+ * Reported 2026-08-08: the right panel wore the raised step to its middle and
+ * page below — because "the panel" is two things, the rich-cards dialog on a
+ * surface and the knowledge panel under it on the page. `.kp-wholepage` is
+ * one of Google's oldest unhashed names, one per page; it takes the module
+ * step and the dialog's radius, and inside it nothing paints, the sentence
+ * every one of these files says once per surface. */
+#rhs .kp-wholepage {
+    background-color: var(--ddg-raised) !important;
+    border-radius: 24px !important;
+}
+
+#rhs .kp-wholepage [class] {
+    background-color: transparent !important;
+}
+
+/* --- every scrollbar is bru's ----------------------------------------------
+ *
+ * The expanded right panel scrolls inside a `ul` that carries the site's own
+ * `::-webkit-scrollbar` styling — a dark rounded thumb, reported 2026-08-08
+ * as not being bru's. These five rules are `scrollbar.rs`'s, verbatim: same
+ * 12px, same square caps (declared, not left out — the radius lesson is
+ * written there), same two theme properties the completion's own scrollbar
+ * reads. One look for every scroller on the site, inner ones included. */
+::-webkit-scrollbar {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+::-webkit-scrollbar-button {
+    display: none !important;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--completion-scrollbar-bg) !important;
+    border-radius: 0 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--completion-scrollbar-fg) !important;
+    border-radius: 0 !important;
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--completion-scrollbar-bg) !important;
+}
+
 /* --- shadows off, as everywhere ---------------------------------------------- */
 [class][class],
 [class][class]::before,
