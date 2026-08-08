@@ -1,12 +1,31 @@
 /* Google in whatever theme bru is wearing.
  *
- * Surveyed 2026-08-08 on the dark home page: 717 custom properties, every
- * name obfuscated (`--xhUGwc`) and rotated per build — the compiled-token
- * situation YouTube has for a few surfaces, Google has for all of them. So
- * this file cannot speak tokens. It speaks the duckduckgo.com file's other
- * language instead: **everything classed is the page, and what should stand
- * off it is raised by a name that cannot rotate** — an id Google has kept for
- * years, a `role`, a tag, an `action`. Nothing here names a generated class.
+ * Surveyed 2026-08-08 on the dark home page: 717 custom properties, most names
+ * obfuscated (`--xhUGwc`) and rotated per build. So this file cannot speak
+ * tokens. It speaks the duckduckgo.com file's other language instead:
+ * **everything classed is the page, and what should stand off it is raised by
+ * a name that cannot rotate** — an id Google has kept for years, a `role`, a
+ * tag, an `action`. Nothing here names a generated class.
+ *
+ * **The readable tokens are a dead end, and it was measured rather than
+ * assumed** — because "override Google's design tokens" is the obvious idea and
+ * it will be proposed again. Re-counted on a results page: 2190 custom
+ * properties, of which 289 carry Material's public `--gm3-…` names and 1416
+ * `var(--gm3…)` uses reach 598 distinct ones, so the names look like the way in.
+ * They are not, for two reasons, both checked in the running browser:
+ *
+ *   1. **They are declared on rotating classes** (`.cVyE2c`, `.RmjGdc`), not on
+ *      `:root` — where every one of them reads UNSET. So `[style*="--gm3"]`,
+ *      the hook that suggests itself, matches **0 elements**; they are not
+ *      inline either.
+ *   2. **Winning them changes nothing.** `*{--gm3-…: … !important}` does beat a
+ *      class declaration, and the token verifiably flips (`#131314` -> `#ff0000`
+ *      on a live node). With bru's own sheet toggled OFF and thirteen surface
+ *      and colour tokens forced to magenta, the page moved **0 backgrounds of
+ *      3376 elements** — 3 colours and 3 borders, and nothing else. What paints
+ *      Google is literals and per-component rules; the tokens sit beside them.
+ *
+ * Anything proposing `--gm3` overrides is proposing those numbers again.
  *
  * Radii stay the site's own, as on duck.ai and YouTube: they ride longhand
  * declarations, not the rotating names, so they survive on their own.
