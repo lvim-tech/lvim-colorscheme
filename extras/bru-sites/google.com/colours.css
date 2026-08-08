@@ -112,6 +112,34 @@ form[role="search"] div:has(> div > div > div > textarea[name="q"]):focus-within
     border-radius: 26px !important;
 }
 
+/* **The results page hangs its dropdown OUTSIDE the box's paint.** The same
+ * depth-four wrapper there is only 52px tall — the bar — and the suggestions
+ * live in a zero-height direct child whose own absolute child is the real
+ * popup: measured 2026-08-08 in the running browser, 988x360 glued at the
+ * bar's bottom edge (77 против 78), spanning both suggestion columns, while
+ * the transparency meant for the home page's one-box left it a sheet of
+ * floating text. Reported twice before it was found. The popup paints the
+ * box's own colour with the box's own bottom corners — their stylesheet
+ * already squares the bar's bottom while it is open — and the flat-rule
+ * `--bg` inside it goes transparent, with the hover step said again at this
+ * weight because the transparency below would otherwise eat it. */
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [class] {
+    background-color: transparent !important;
+}
+
+/* `div[class]`, not `div`: the transparency above ends in `[class]` (0,1,0)
+ * and a bare `div` (0,0,1) loses to it whatever the order — measured twice,
+ * transparent both times, before the weights were read instead of assumed. */
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) > div[class] {
+    background-color: var(--ddg-raised) !important;
+    border-radius: 0 0 26px 26px !important;
+}
+
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"]:hover,
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"][aria-selected="true"] {
+    background-color: var(--bg-light) !important;
+}
+
 form[role="search"] div:has(> div > div > div > textarea[name="q"]):has([role="listbox"]) [role="listbox"],
 form[role="search"] div:has(> div > div > div > textarea[name="q"]):has([role="listbox"]) [role="presentation"],
 form[role="search"] div:has(> div > div > div > textarea[name="q"]):has([role="listbox"]) div:has(> div > textarea[name="q"]) {
