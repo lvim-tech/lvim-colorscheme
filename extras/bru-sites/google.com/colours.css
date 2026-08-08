@@ -179,6 +179,44 @@ div:has(> div > div > div > div > textarea:not([name="q"])) [class] {
     background-color: transparent !important;
 }
 
+/* And the composer's own box, asked for by name: with its glow gone and its
+ * children glass, the field itself takes the raised step and its own 24px —
+ * one surface with the "+" and the microphone resting on it, in place of the
+ * grey their layers used to show through the transparency. `div[class]`,
+ * because the transparency above ends in `[class]` and the results popup
+ * already taught this exact arithmetic once today. */
+div[class]:has(> div > div > div > textarea:not([name="q"])),
+div[class]:has(> div > div > div > div > textarea:not([name="q"])) {
+    background-color: var(--ddg-raised) !important;
+    border-radius: 24px !important;
+}
+
+/* The floating surfaces again, heavier, because the composer transparency
+ * above reaches into subtrees that portal their dialogs nearby: the Tools
+ * panel measured transparent with the plain `[role="dialog"]` rule plainly
+ * written — reported as "Инструменти has no background" 2026-08-08. Same
+ * answer as ever, said after the transparency and with a class in hand. */
+[class][role="menu"],
+[class][role="listbox"] {
+    background-color: var(--ddg-raised-more) !important;
+    border-radius: 8px !important;
+}
+
+/* Dialogs take 24px, not 8: the paint lands on the OUTER dialog box while
+ * the visible card inside rounds itself at 24, and an 8px surface under a
+ * 24px card pokes out at every corner — the greenish ears reported on the
+ * expanded right panel 2026-08-08, greenish because this palette's raised
+ * step is. Matching the inner radius is what removes them. */
+[class][role="dialog"] {
+    background-color: var(--ddg-raised-more) !important;
+    border-radius: 24px !important;
+}
+
+[class][role="dialog"] [class],
+[class][role="menu"] [class] {
+    background-color: transparent !important;
+}
+
 /* The right rail has a glow family of its own: a 474x1098
  * `pointer-events: none` overlay riding a per-load `__`-prefixed id straight
  * under `#cnt`, transparent in their paint, filled `--bg` by the flat rule —
@@ -192,6 +230,18 @@ div:has(> div > div > div > div > textarea:not([name="q"])) [class] {
 #cnt > div[id^="_"] [class] {
     background-color: transparent !important;
     background-image: none !important;
+}
+
+/* **A stretched click overlay must stay glass.** The rich cards top right
+ * put an absolutely positioned, childless `<a>` across their whole face for
+ * the click, and the flat rule filled nineteen of them `--bg` — a curtain
+ * over every card's own text and thumbnails, found 2026-08-08 after the
+ * column itself was uncovered. CSS `:empty` is exact here: the overlays hold
+ * nothing, not even a text node, and the skip-link that does hold text is
+ * left alone by the same token. The same lesson as DuckDuckGo's
+ * `dropdown__button`, six sites later. */
+a[class]:empty {
+    background-color: transparent !important;
 }
 
 form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"]:hover,
