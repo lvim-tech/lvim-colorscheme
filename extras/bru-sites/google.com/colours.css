@@ -92,6 +92,32 @@ form[role="search"] div:has(> div > textarea[name="q"]) [role="listbox"] {
     border-radius: 8px !important;
 }
 
+/* **The pill and its dropdown are one box.** Asked for outright 2026-08-08:
+ * the popup glued to the input, in the input's own colour. The measured
+ * shape made the old approach two-tone twice over — the trending list's
+ * "Набиращи популярност" header lives in CLASSLESS `role="presentation"`
+ * wrappers no flat rule can reach, beside a listbox the generic rule had
+ * raised one step higher, over a 2px seam of page between pill and popup.
+ * One element holds all of it: the wrapper three levels above the textarea,
+ * 140 tall closed and 502 tall the moment a listbox is in it. When it is,
+ * it takes the pill's own surface and radius, and everything inside — the
+ * pill's own layers, the headers, the listbox — goes transparent on top of
+ * it. */
+/* `:focus-within` as well as `:has`, because the listbox stays in the DOM
+ * hidden after the first open — measured: blurred, the wrapper still matched
+ * and 88px of raised block hung under the pill. Focus is when the popup can
+ * be on screen, so focus is when the box is one surface. */
+form[role="search"] div:has(> div > div > div > textarea[name="q"]):focus-within:has([role="listbox"]) {
+    background-color: var(--ddg-raised) !important;
+    border-radius: 26px !important;
+}
+
+form[role="search"] div:has(> div > div > div > textarea[name="q"]):has([role="listbox"]) [role="listbox"],
+form[role="search"] div:has(> div > div > div > textarea[name="q"]):has([role="listbox"]) [role="presentation"],
+form[role="search"] div:has(> div > div > div > textarea[name="q"]):has([role="listbox"]) div:has(> div > textarea[name="q"]) {
+    background-color: transparent !important;
+}
+
 /* The suggestions list, the menus, the dialogs: floating surfaces, one step
  * above the pill, named by role because a role cannot rotate. */
 /* Radii are declared on every surface this file paints, not inherited from
