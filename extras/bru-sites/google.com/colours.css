@@ -476,6 +476,38 @@ div:has(> div > div[role="button"] > span):has(a[href]) [class]:where(:not([role
     background-color: transparent !important;
 }
 
+/* **The AI overview is a card, and its expander sits on the card.** Asked
+ * for in those words 2026-08-08: the whole upper block takes the surface the
+ * button had been wearing alone, and the button steps off it instead.
+ * `#m-x-content` is the stable id of the overview's core; the `_`-prefixed
+ * per-load wrapper around it is what also holds the "Показване на още"
+ * strip, so the wrapper is the card — and every underscore ancestor that
+ * matches paints the same colour, which nests invisibly. The button is
+ * excluded from the glass and said explicitly: one step above the card,
+ * ringed, `--bg-light` under the pointer. */
+div[id^="_"]:has(#m-x-content) {
+    background-color: var(--ddg-raised) !important;
+    border-radius: 24px !important;
+}
+
+div[id^="_"]:has(#m-x-content) [class]:where(:not([role="button"]):not([role="button"] [class])) {
+    background-color: transparent !important;
+    /* And no gradients: the collapsed overview fades its text out through a
+     * scrim to THEIR #22242a, which was three units off the page and
+     * invisible — until the card under it turned green, and the fade became
+     * a grey smear over readable words. On a card, text ends where it ends. */
+    background-image: none !important;
+}
+
+div[id^="_"]:has(#m-x-content) div[role="button"] {
+    background-color: var(--ddg-raised-more) !important;
+    border: 1px solid var(--bg-light) !important;
+}
+
+div[id^="_"]:has(#m-x-content) div[role="button"]:hover {
+    background-color: var(--bg-light) !important;
+}
+
 /* --- the knowledge panel is one surface ------------------------------------
  *
  * Reported 2026-08-08: the right panel wore the raised step to its middle and
