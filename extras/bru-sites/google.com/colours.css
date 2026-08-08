@@ -332,11 +332,10 @@ form[role="search"] div:has(> div > div > div > textarea[name="q"]):has([role="l
 }
 
 /* Google's popups are also custom elements, and the tag names — unlike the
- * classes — are the component's own: `g-menu`, `g-popup`, `g-dialog`,
+ * classes — are the component's own: `g-menu`, `g-dialog`,
  * `g-snackbar`, all counted on the live results page 2026-08-08. Same step,
  * same transparent children, or the flat rule punches page-coloured holes in
  * a floating surface whose shadow this file has removed. */
-g-popup,
 g-menu,
 g-dropdown-menu,
 g-dialog,
@@ -346,7 +345,6 @@ g-bubble {
     border-radius: 8px !important;
 }
 
-g-popup [class],
 g-menu [class],
 g-dropdown-menu [class],
 g-dialog [class],
