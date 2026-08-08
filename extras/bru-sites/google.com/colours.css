@@ -180,18 +180,32 @@ form[role="search"] button [class] {
  * `:has` check on each — measured 2026-08-08 at ~46ms of every restyle,
  * inside a sheet that had slowed the pointer to seconds. Three levels is
  * all the composer has. */
-div[class]:has(> div > div > div > textarea:not([name="q"])) > div,
-div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div,
-div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div,
-div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div,
-div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div > div,
+/* **`div[data-xid] >` is here for speed, and it was measured.** The subject used
+ * to be `div[class]`, so every classed element on the page — 2324 of them —
+ * evaluated the `:has` descent below on every restyle, which is every hover.
+ * Timed 2026-08-08 with the rule alone in the page: **17.9ms**, the most
+ * expensive single rule in this file. `data-xid` is on ten elements here and the
+ * composer's wrapper is a child of one, so the same node is selected after 10
+ * checks instead of 2324 — verified identical (`a === b`, count 1).
+ *
+ * **`:where()` and not a bare `[data-xid]`**, because the bare form raised the
+ * specificity from 0,2,5 to 0,2,6 and that was enough to change the picture: the
+ * wrapper's background went from transparent to `--ddg-raised` on the first try,
+ * caught by diffing the whole subtree's computed styles before and after. A
+ * performance change that alters what is drawn is not a performance change.
+ * `:where()` contributes nothing, so the weight is exactly what it was. */
+:where(div[data-xid]) > div[class]:has(> div > div > div > textarea:not([name="q"])) > div,
+:where(div[data-xid]) > div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div,
+:where(div[data-xid]) > div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div,
+:where(div[data-xid]) > div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div,
+:where(div[data-xid]) > div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div > div,
 div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div,
 div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div,
 div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div,
 div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div > div,
 div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div > div > div,
-div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div > div > div,
-div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div > div > div > div,
+:where(div[data-xid]) > div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div > div > div,
+:where(div[data-xid]) > div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div > div > div > div,
 div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div > div > div > div,
 div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div > div > div > div > div,
 textarea:not([name="q"]) {
@@ -222,7 +236,7 @@ div[aria-hidden]::before {
  * grey their layers used to show through the transparency. `div[class]`,
  * because the transparency above ends in `[class]` and the results popup
  * already taught this exact arithmetic once today. */
-div[class]:has(> div > div > div > textarea:not([name="q"])),
+:where(div[data-xid]) > div[class]:has(> div > div > div > textarea:not([name="q"])),
 div[class]:has(> div > div > div > div > textarea:not([name="q"])) {
     background-color: var(--ddg-raised) !important;
     border-radius: 24px !important;
