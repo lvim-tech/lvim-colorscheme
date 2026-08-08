@@ -171,11 +171,18 @@ html[dark][dark] {
 
 /* The selected filter chip — their white "inverted" fill again, this time
  * through a hashed var. `selected` is the attribute Polymer keeps on the
- * renderer; accent with ink, the same statement as everywhere else. */
+ * renderer; accent with ink, the same statement as everywhere else.
+ *
+ * The radius is declared here as well as inherited, deliberately: which node
+ * carries it moves between builds — measured 8px on the button on one page
+ * and reported square on another the same day — and the node this file
+ * paints must round itself rather than trust a sibling to clip it. 8px is
+ * the chips' own measured value. */
 yt-chip-cloud-chip-renderer[selected] button,
 yt-chip-cloud-chip-renderer[selected] button * {
     background-color: var(--completion-category-fg) !important;
     color: var(--pill-fg) !important;
+    border-radius: 8px !important;
 }
 
 yt-chip-cloud-chip-renderer[selected] button * {
@@ -207,6 +214,15 @@ ytd-masthead #background {
  * take the page's own colour. */
 #left-arrow-button ytd-button-renderer,
 #right-arrow-button ytd-button-renderer {
+    background: var(--bg) !important;
+}
+
+/* The strip the chips sit on. The sticky bar and the masthead's
+ * `#frosted-glass` backdrop both paint the hashed base — reported black
+ * under the top row of buttons 2026-08-08 — and both stay opaque here
+ * because content scrolls beneath them. */
+#frosted-glass,
+ytd-feed-filter-chip-bar-renderer {
     background: var(--bg) !important;
 }
 
