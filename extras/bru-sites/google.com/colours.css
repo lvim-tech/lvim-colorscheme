@@ -123,14 +123,14 @@ form[role="search"] div:has(> div > div > div > textarea[name="q"]):focus-within
  * already squares the bar's bottom while it is open — and the flat-rule
  * `--bg` inside it goes transparent, with the hover step said again at this
  * weight because the transparency below would otherwise eat it. */
-form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [class] {
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] [class]:where(:not([role="dialog"]):not([role="dialog"] [class])) {
     background-color: transparent !important;
 }
 
 /* `div[class]`, not `div`: the transparency above ends in `[class]` (0,1,0)
  * and a bare `div` (0,0,1) loses to it whatever the order — measured twice,
  * transparent both times, before the weights were read instead of assumed. */
-form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) > div[class] {
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] {
     background-color: var(--ddg-raised) !important;
     border-radius: 0 0 26px 26px !important;
 }
@@ -217,6 +217,17 @@ div[class]:has(> div > div > div > div > textarea:not([name="q"])) {
     background-color: transparent !important;
 }
 
+/* And no gradients inside a dialog either: the list's bottom fade is a
+ * `linear-gradient(transparent, rgb(34,36,42) 14px)` — a scrim to THEIR
+ * page grey, 370x48 behind the "Показване на по-малко" row, painting a
+ * foreign band across our surface and invisible to every element stack,
+ * because a background-image ignores background-color rules entirely.
+ * Measured by pixel 2026-08-08: #22242a on a #2e414b card. Thumbnails and
+ * favicons in these dialogs are `<img>`, so nothing real is lost. */
+[class][role="dialog"] [class] {
+    background-image: none !important;
+}
+
 /* The right rail has a glow family of its own: a 474x1098
  * `pointer-events: none` overlay riding a per-load `__`-prefixed id straight
  * under `#cnt`, transparent in their paint, filled `--bg` by the flat rule —
@@ -244,8 +255,8 @@ a[class]:empty {
     background-color: transparent !important;
 }
 
-form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"]:hover,
-form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"][aria-selected="true"] {
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] [role="option"]:hover,
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] [role="option"][aria-selected="true"] {
     background-color: var(--bg-light) !important;
 }
 
@@ -420,6 +431,19 @@ mark[class] {
  * through a gradient to their #22242a, three channel-units off this theme's
  * `--bg`, on a rotating class with no stable name. Invisible in practice;
  * recorded so the next reader does not chase it. */
+
+/* A dialog's labelled action — "Показване на по-малко" — is a pill of bare
+ * text on the surface, and reads as nothing at all. It takes the outline a
+ * labelled control wears on DuckDuckGo, and its own 9999px stays. `:has(>
+ * span)` is what separates it from the ⋮ icon buttons beside it, which hold
+ * graphics and take no ring. */
+[class][role="dialog"] div[role="button"]:has(> span) {
+    border: 1px solid var(--bg-light) !important;
+}
+
+[class][role="dialog"] div[role="button"]:has(> span):hover {
+    background-color: var(--bg-light) !important;
+}
 
 /* --- the knowledge panel is one surface ------------------------------------
  *
