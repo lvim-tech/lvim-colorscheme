@@ -542,7 +542,10 @@ div[id^="_"]:has(> div > div > #m-x-content) div[role="button"][aria-label]:not(
 }
 
 div[id^="_"]:has(> div > div > #m-x-content) div[role="button"][aria-label]:not([aria-controls]):hover {
-    background-color: var(--ddg-raised-more) !important;
+    /* `--ddg-raised`, not raised-more: judged by eye on the screenshot — the
+     * two-step circle read too loud for a bare icon on the page. One step is
+     * the icon convention everywhere else in these files. */
+    background-color: var(--ddg-raised) !important;
 }
 
 /* Plain child chains, no `:has`: the pill is the row's grandchild and the
