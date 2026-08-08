@@ -126,6 +126,31 @@ g-menu-item:hover,
     background-color: var(--bg-light) !important;
 }
 
+/* The tab bar's "More" dropdown carries no role and no stable class — an
+ * absolutely positioned div with a per-load id, measured 81x112 flat on the
+ * page 2026-08-08, boundary-less because this file removed the shadows. What
+ * IS stable is its shape: a body-level overlay container, an id Google
+ * generates with a leading underscore, and `role="listitem"` rows inside.
+ * All three together are the anchor, so a breadcrumb list elsewhere cannot
+ * match. */
+body > div > div[id^="_"]:has([role="listitem"]) {
+    background-color: var(--ddg-raised-more) !important;
+    border-radius: 8px !important;
+}
+
+body > div > div[id^="_"]:has([role="listitem"]) [class] {
+    background-color: transparent !important;
+}
+
+/* **A boundary, not an omission.** The gear's settings panel is an
+ * `about:blank` iframe — measured 2026-08-08, 436x539, `role=presentation`,
+ * no reachable document from the page's isolated world — and bru injects
+ * per-site CSS by each frame's own URL, which for about:blank matches
+ * nothing. No rule in this file can cross that line. If the panel is to wear
+ * the theme, the decision lives in bru's userstyles: inject the parent
+ * frame's stylesheet into blank subframes. Recorded here so nobody hunts a
+ * selector for it. */
+
 /* A hovered or keyboard-selected suggestion, one step again. */
 [role="listbox"] [role="option"]:hover,
 [role="listbox"] [role="option"][aria-selected="true"],
