@@ -175,29 +175,39 @@ form[role="search"] button [class] {
  * vanished". Measured 2026-08-08 by toggling `:styles-toggle` in the running
  * browser: same geometry both ways, a column of content one way, a field of
  * `--bg` the other. */
-div:has(> div > div > div > textarea:not([name="q"])) [class],
-div:has(> div > div > div > div > textarea:not([name="q"])) [class] {
+/* Bounded child chains instead of `[class]` under a `:has` ancestor: the
+ * descendant form made every classed element walk its ancestors through a
+ * `:has` check on each — measured 2026-08-08 at ~46ms of every restyle,
+ * inside a sheet that had slowed the pointer to seconds. Three levels is
+ * all the composer has. */
+div[class]:has(> div > div > div > textarea:not([name="q"])) > div,
+div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div,
+div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div,
+div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div,
+div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div > div,
+div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div,
+div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div,
+div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div,
+div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div > div,
+div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div > div > div,
+textarea:not([name="q"]) {
     background-image: none !important;
     background-color: transparent !important;
 }
 
-/* **Their surfaces here are pseudo-elements.** The grey that kept coming
- * back — #363840, first seen behind the pill row this morning, then filling
- * the whole composer over our raised paint — is a `div::before`, with the
- * "+" circle's light layer a `button::before` beside it: painters no element
- * walk can list. Caught 2026-08-08 by asking every node in the box for its
- * `::before`/`::after` computed backgrounds. Inside the composer and the
- * overview block, pseudo-elements paint nothing; the surfaces are this
- * file's to draw. */
-div[class]:has(> div > div > div > textarea:not([name="q"])) *::before,
-div[class]:has(> div > div > div > textarea:not([name="q"])) *::after,
-div[class]:has(> div > div > div > div > textarea:not([name="q"])) *::before,
-div[class]:has(> div > div > div > div > textarea:not([name="q"])) *::after,
-div[id^="_"]:has(#m-x-content) [class]::before,
-div[id^="_"]:has(#m-x-content) [class]::after {
+/* The composer draws its interior with pseudo-elements on rare attributes —
+ * `button[data-xid]` circles, a `div[aria-hidden]::before` surface in their
+ * #363840 with a #444746 ring — and rare attributes are cheap anchors where
+ * `*::before` under a `:has` ancestor was another multiplier. The surface
+ * clears, the ring stays in the theme's line. */
+button[data-xid],
+button[data-xid]::before,
+button[data-xid]::after {
     background-color: transparent !important;
-    /* The composer's ring is drawn by the same box-sized `::before`, 1px of
-     * their grey #444746; it stays a ring, in the theme's border colour. */
+}
+
+div[aria-hidden]::before {
+    background-color: transparent !important;
     border-color: var(--bg-light) !important;
 }
 
@@ -476,19 +486,16 @@ mark[class] {
  * the accent is the hover every one of these files uses when a control
  * cannot go a step lighter. `:has(> span)` keeps it to labelled pills. */
 [class][role="dialog"] div[role="button"]:has(> span),
-div:has(> div > div[role="button"] > span):has(a[href]) div[role="button"]:has(> span),
 form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] div[role="button"]:has(> span) {
     background-color: var(--ddg-raised) !important;
 }
 
 [class][role="dialog"] div[role="button"]:has(> span) [class],
-div:has(> div > div[role="button"] > span):has(a[href]) div[role="button"]:has(> span) [class],
 form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] div[role="button"]:has(> span) [class] {
     background-color: transparent !important;
 }
 
 [class][role="dialog"] div[role="button"]:has(> span):hover,
-div:has(> div > div[role="button"] > span):has(a[href]) div[role="button"]:has(> span):hover,
 form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] div[role="button"]:has(> span):hover {
     background-color: var(--ddg-raised-more) !important;
 }
@@ -502,40 +509,13 @@ form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([c
  * card links. Same surface, same radius, same glass inside as the expanded
  * dialog — which is the whole request: one look in both states. The button
  * is excluded from the glass so it keeps its fill. */
-div:has(> div > div[role="button"] > span):has(a[href]) {
+div:has(> div > div[role="button"] > span) {
     background-color: var(--ddg-raised-more) !important;
     border-radius: 24px !important;
 }
 
-div:has(> div > div[role="button"] > span):has(a[href]) [class]:where(:not([role="button"]):not([role="button"] [class])) {
+div:has(> div > div[role="button"] > span) [class]:where(:not([role="button"]):not([role="button"] [class])) {
     background-color: transparent !important;
-}
-
-/* **The AI overview is a card, and its expander sits on the card.** Asked
- * for in those words 2026-08-08: the whole upper block takes the surface the
- * button had been wearing alone, and the button steps off it instead.
- * `#m-x-content` is the stable id of the overview's core; the `_`-prefixed
- * per-load wrapper around it is what also holds the "Показване на още"
- * strip, so the wrapper is the card — and every underscore ancestor that
- * matches paints the same colour, which nests invisibly. The button is
- * excluded from the glass and said explicitly: one step above the card,
- * ringed, `--bg-light` under the pointer. */
-div[id^="_"]:has(#m-x-content) {
-    /* The card experiment lasted twenty minutes: raised, the block read as
-     * one enormous slab across both columns, and the request that followed
-     * was "махни по-светлия цвят на целия блок". The overview is the page
-     * again; what remains of the episode is below — crisp text with no fade
-     * smear, and an expander that reads as a control. */
-    background-color: transparent !important;
-}
-
-div[id^="_"]:has(#m-x-content) [class]:where(:not([role="button"]):not([role="button"] [class]):not([role="dialog"]):not([role="dialog"] [class]):not(div:has(> div > div[role="button"] > span)):not(div:has(> div > div[role="button"] > span) [class]):not(div:has(textarea:not([name="q"])))) {
-    background-color: transparent !important;
-    /* And no gradients: the collapsed overview fades its text out through a
-     * scrim to THEIR #22242a, which was three units off the page and
-     * invisible — until the card under it turned green, and the fade became
-     * a grey smear over readable words. On a card, text ends where it ends. */
-    background-image: none !important;
 }
 
 /* No button rule of its own here: the expander ROW is itself a full-width
@@ -546,16 +526,19 @@ div[id^="_"]:has(#m-x-content) [class]:where(:not([role="button"]):not([role="bu
 
 /* The pill itself, measured 650x48 at radius 9999 with its two spans: the
  * row's grandchild, not the row. Same dress as the approved panel pills. */
-div[id^="_"]:has(#m-x-content) div[role="button"] div:has(> span) {
+/* Plain child chains, no `:has`: the pill is the row's grandchild and the
+ * walk up from `div[class]` is constant work, where the `:has` forms of
+ * these three were part of the 115ms this group used to cost per restyle. */
+div[id^="_"] div[role="button"] > div > div[class] {
     background-color: var(--ddg-raised) !important;
     border: 1px solid var(--bg-light) !important;
 }
 
-div[id^="_"]:has(#m-x-content) div[role="button"] div:has(> span) > span {
+div[id^="_"] div[role="button"] > div > div[class] > span {
     background-color: transparent !important;
 }
 
-div[id^="_"]:has(#m-x-content) div[role="button"]:hover div:has(> span) {
+div[id^="_"] div[role="button"]:hover > div > div[class] {
     background-color: var(--ddg-raised-more) !important;
 }
 
