@@ -458,6 +458,24 @@ form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([c
     background-color: var(--ddg-raised-more) !important;
 }
 
+/* **The collapsed rich-cards box renders WITHOUT the dialog wrapper**, and
+ * everything scoped to `[role="dialog"]` walks past it: measured live
+ * 2026-08-08 after the state finally appeared on screen — box 372x311 and
+ * the button's own row both wearing the flat rule's `--bg`, `closest(
+ * '[class][role="dialog"]')` answering null. The box is anchored by its own
+ * shape instead: the wrapper whose grandchild is the labelled pill, holding
+ * card links. Same surface, same radius, same glass inside as the expanded
+ * dialog — which is the whole request: one look in both states. The button
+ * is excluded from the glass so it keeps its fill. */
+div:has(> div > div[role="button"] > span):has(a[href]) {
+    background-color: var(--ddg-raised-more) !important;
+    border-radius: 24px !important;
+}
+
+div:has(> div > div[role="button"] > span):has(a[href]) [class]:where(:not([role="button"]):not([role="button"] [class])) {
+    background-color: transparent !important;
+}
+
 /* --- the knowledge panel is one surface ------------------------------------
  *
  * Reported 2026-08-08: the right panel wore the raised step to its middle and
