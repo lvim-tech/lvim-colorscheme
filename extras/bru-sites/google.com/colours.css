@@ -179,6 +179,26 @@ div:has(> div > div > div > div > textarea:not([name="q"])) [class] {
     background-color: transparent !important;
 }
 
+/* **Their surfaces here are pseudo-elements.** The grey that kept coming
+ * back — #363840, first seen behind the pill row this morning, then filling
+ * the whole composer over our raised paint — is a `div::before`, with the
+ * "+" circle's light layer a `button::before` beside it: painters no element
+ * walk can list. Caught 2026-08-08 by asking every node in the box for its
+ * `::before`/`::after` computed backgrounds. Inside the composer and the
+ * overview block, pseudo-elements paint nothing; the surfaces are this
+ * file's to draw. */
+div[class]:has(> div > div > div > textarea:not([name="q"])) *::before,
+div[class]:has(> div > div > div > textarea:not([name="q"])) *::after,
+div[class]:has(> div > div > div > div > textarea:not([name="q"])) *::before,
+div[class]:has(> div > div > div > div > textarea:not([name="q"])) *::after,
+div[id^="_"]:has(#m-x-content) [class]::before,
+div[id^="_"]:has(#m-x-content) [class]::after {
+    background-color: transparent !important;
+    /* The composer's ring is drawn by the same box-sized `::before`, 1px of
+     * their grey #444746; it stays a ring, in the theme's border colour. */
+    border-color: var(--bg-light) !important;
+}
+
 /* And the composer's own box, asked for by name: with its glow gone and its
  * children glass, the field itself takes the raised step and its own 24px —
  * one surface with the "+" and the microphone resting on it, in place of the
