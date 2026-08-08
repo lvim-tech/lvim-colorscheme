@@ -1,0 +1,225 @@
+/* Google in whatever theme bru is wearing.
+ *
+ * Surveyed 2026-08-08 on the dark home page: 717 custom properties, every
+ * name obfuscated (`--xhUGwc`) and rotated per build — the compiled-token
+ * situation YouTube has for a few surfaces, Google has for all of them. So
+ * this file cannot speak tokens. It speaks the duckduckgo.com file's other
+ * language instead: **everything classed is the page, and what should stand
+ * off it is raised by a name that cannot rotate** — an id Google has kept for
+ * years, a `role`, a tag, an `action`. Nothing here names a generated class.
+ *
+ * Radii stay the site's own, as on duck.ai and YouTube: they ride longhand
+ * declarations, not the rotating names, so they survive on their own.
+ *
+ * Their dark values, and what each becomes:
+ *
+ *     #202124 #22242a  the page          -> --bg
+ *     #303134 #4d5156  the search pill,
+ *                      chips, buttons    -> --ddg-raised (by anchor, below)
+ *     #5f6368          borders, hover    -> --bg-light
+ *     #c2e7ff          the Sign-in pill  -> accent, ink on it
+ *     #8ab4f8 #99c3ff  their link blue   -> --completion-category-fg
+ *     #bdc1c6 #e8e8e8  text              -> --ui-fg
+ *     #9aa0a6          the quieter tier  -> --ui-fg-dim
+ */
+
+:root {
+    /* The theme's two surface steps, with the fallback every sibling file
+     * carries and for the same measured reason: an unresolved var() kills the
+     * whole declaration, it does not fall back. */
+    --ddg-raised: var(--raised, color-mix(in srgb, var(--bg-light) 91%, var(--ui-fg)));
+    --ddg-raised-more: var(--raised-more, color-mix(in srgb, var(--bg-light) 82%, var(--ui-fg)));
+}
+
+/* --- the page --------------------------------------------------------------- */
+html,
+body {
+    background-color: var(--bg) !important;
+    color: var(--ui-fg) !important;
+}
+
+/* --- the flat rule ----------------------------------------------------------
+ *
+ * The duckduckgo.com file's doctrine, for the same reason it was invented
+ * there: the class names have no meaning to hold on to, so everything classed
+ * is the page and the exceptions below raise what a pointer lands on. Colour
+ * rides along because Google letters itself in literals too. */
+[class] {
+    background-color: var(--bg) !important;
+    border-color: var(--bg-light) !important;
+    color: var(--ui-fg) !important;
+}
+
+/* --- raised on purpose -------------------------------------------------------
+ *
+ * The search pill is two nested divs above the textarea — measured 686x50 and
+ * 688x52 at #4d5156, radius 26px their own — and `:has()` reaches them from
+ * the one stable thing inside: `textarea[name="q"]`, the same `name` Google
+ * has shipped since it was an `<input>`. `form[role="search"]` scopes it so
+ * no other textarea on any Google property can match. */
+form[role="search"] div:has(> div > textarea[name="q"]),
+form[role="search"] div:has(> div > div > textarea[name="q"]) {
+    background-color: var(--ddg-raised) !important;
+}
+
+/* And inside the pill nothing paints — the oldest sentence in these files:
+ * the container paints, a child punches a hole in it. The flat rule gives
+ * every classed child `--bg`, and on a raised pill `--bg` is a hole. */
+form[role="search"] div:has(> div > textarea[name="q"]) [class] {
+    background-color: transparent !important;
+}
+
+/* The suggestions list, the menus, the dialogs: floating surfaces, one step
+ * above the pill, named by role because a role cannot rotate. */
+/* Radii are declared on every surface this file paints, not inherited from
+ * the site: Google's own radii ride the rotating class names — the open
+ * suggestions measured radius 0 on the very node that painted — and the
+ * YouTube chip taught the lesson once already: the node this file paints
+ * must round itself. The pill keeps the 26px their longhand still gives it;
+ * floating surfaces take 8px, the file standard for a card. */
+[role="listbox"] {
+    border-radius: 0 0 24px 24px !important;
+}
+
+[role="listbox"],
+[role="menu"],
+[role="dialog"] {
+    background-color: var(--ddg-raised-more) !important;
+}
+
+[role="menu"],
+[role="dialog"] {
+    border-radius: 8px !important;
+}
+
+[role="listbox"] [class],
+[role="menu"] [class] {
+    background-color: transparent !important;
+}
+
+/* Google's popups are also custom elements, and the tag names — unlike the
+ * classes — are the component's own: `g-menu`, `g-popup`, `g-dialog`,
+ * `g-snackbar`, all counted on the live results page 2026-08-08. Same step,
+ * same transparent children, or the flat rule punches page-coloured holes in
+ * a floating surface whose shadow this file has removed. */
+g-popup,
+g-menu,
+g-dropdown-menu,
+g-dialog,
+g-snackbar,
+g-bubble {
+    background-color: var(--ddg-raised-more) !important;
+    border-radius: 8px !important;
+}
+
+g-popup [class],
+g-menu [class],
+g-dropdown-menu [class],
+g-dialog [class],
+g-snackbar [class],
+g-bubble [class] {
+    background-color: transparent !important;
+}
+
+g-menu-item:hover,
+[role="menuitem"]:hover {
+    background-color: var(--bg-light) !important;
+}
+
+/* A hovered or keyboard-selected suggestion, one step again. */
+[role="listbox"] [role="option"]:hover,
+[role="listbox"] [role="option"][aria-selected="true"],
+[role="listbox"] li:hover {
+    background-color: var(--bg-light) !important;
+}
+
+/* Bare form controls, as on every site here. */
+input[class],
+input,
+textarea,
+select,
+button[class] {
+    background-color: transparent !important;
+}
+
+input[type="submit"] {
+    background-color: var(--ddg-raised) !important;
+    color: var(--ui-fg) !important;
+    border-radius: 8px !important;
+}
+
+/* --- the one filled control --------------------------------------------------
+ *
+ * The Sign-in pill, #c2e7ff in their dark theme — a light-blue fill with ink.
+ * The `href` is the stable name. Accent with ink, the convention every bru
+ * site wears. */
+#gb a[href*="accounts.google.com"] {
+    background-color: var(--completion-category-fg) !important;
+    color: var(--pill-fg) !important;
+    border-radius: 999px !important;
+}
+
+#gb a[href*="accounts.google.com"] * {
+    background-color: transparent !important;
+    color: var(--pill-fg) !important;
+}
+
+/* --- text --------------------------------------------------------------------
+ *
+ * The flat rule already letters everything `--ui-fg`. Links take the accent —
+ * a result's title is an `<a><h3>`, and `<cite>` is the URL line, both tags
+ * theirs and stable. */
+a,
+a [class],
+a h3,
+h3 a {
+    color: var(--completion-category-fg) !important;
+}
+
+cite,
+cite [class] {
+    color: var(--ui-fg-dim) !important;
+}
+
+/* The AI overview highlights its citations with a blue linear-gradient — a
+ * background-IMAGE, which slides straight past a background-color rule:
+ * measured 2026-08-08, `mark` computing the theme's colour while the pixels
+ * showed rgb(33,61,160). The gradient goes; a highlight still highlights,
+ * as a wash of the accent. `mark` is the tag whose whole meaning is
+ * "highlighted", so it is the one safe place to kill a background image. */
+mark,
+mark[class] {
+    background-image: none !important;
+    background-color: color-mix(in srgb, var(--completion-category-fg) 25%, transparent) !important;
+    color: var(--ui-fg) !important;
+}
+
+/* The "Looking for results in English?" promo: a classless div with an
+ * inline background, #1f1000, floating over the appbar — the one element the
+ * flat rule cannot reach, because the flat rule starts at `[class]`.
+ * Measured 2026-08-08; `#slim_appbar` is the years-old id above it, and
+ * classlessness is exactly what distinguishes the promo from its themed
+ * siblings. A floating box takes the raised step. */
+#slim_appbar div:not([class]) {
+    background-color: var(--ddg-raised) !important;
+}
+
+/* One scrim stays foreign, knowingly: the collapsed AI overview fades out
+ * through a gradient to their #22242a, three channel-units off this theme's
+ * `--bg`, on a rotating class with no stable name. Invisible in practice;
+ * recorded so the next reader does not chase it. */
+
+/* --- shadows off, as everywhere ---------------------------------------------- */
+[class][class],
+[class][class]::before,
+[class][class]::after,
+*, *::before, *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+/* Focus stays visible without them. */
+:focus-visible:not(input):not(textarea) {
+    outline: 2px solid var(--completion-category-fg) !important;
+    outline-offset: 2px !important;
+}
