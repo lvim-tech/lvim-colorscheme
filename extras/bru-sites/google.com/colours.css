@@ -112,25 +112,64 @@ form[role="search"] div:has(> div > textarea[name="q"]) [role="listbox"] {
 }
 
 /* **The pill and its dropdown are one box.** Asked for outright 2026-08-08:
- * the popup glued to the input, in the input's own colour. The measured
- * shape made the old approach two-tone twice over — the trending list's
- * "Набиращи популярност" header lives in CLASSLESS `role="presentation"`
- * wrappers no flat rule can reach, beside a listbox the generic rule had
- * raised one step higher, over a 2px seam of page between pill and popup.
- * One element holds all of it: the wrapper three levels above the textarea,
- * 140 tall closed and 502 tall the moment a listbox is in it. When it is,
- * it takes the pill's own surface and radius, and everything inside — the
- * pill's own layers, the headers, the listbox — goes transparent on top of
- * it. */
-/* `:focus-within` as well as `:has`, because the listbox stays in the DOM
- * hidden after the first open — measured: blurred, the wrapper still matched
- * and 88px of raised block hung under the pill. Focus is when the popup can
- * be on screen, so focus is when the box is one surface. `[role="heading"]` is the guard that keeps the slot's own
- * full-viewport overlay layers out: 1344x1260 of tinted screen, measured
- * before it was added. */
-form[role="search"] div:has(> div > div > div > textarea[name="q"]):focus-within:has([role="listbox"]) {
+ * the popup glued to the input, in the input's own colour.
+ *
+ * **The element painted here used to be the wrong one, and the wrong one could
+ * never have worked.** It was the wrapper three levels above the textarea — the
+ * one holding the pill, the dropdown AND the two submit buttons under it — with
+ * `:focus-within` to say the popup was open. Two things were wrong with that at
+ * once. It is too big: painting it raises the ground behind `Google Търсене` and
+ * `Чувствам се късметлия`, which are not in the popup and are not on it. And it
+ * was invisible anyway, which is why the report came back with the popup still
+ * page-coloured: **every one of its 138 descendants that carries a class is
+ * painted `--bg` by the flat rule**, so whatever the wrapper was given, its own
+ * children covered. Counted 2026-08-08 in the running browser, 48 opaque
+ * descendants over that surface.
+ *
+ * So the popup itself is painted instead. It is one element, and its shape says
+ * so: `display: none` and `position: absolute` while shut, and when shown
+ * **584x88 at the pill's own left edge and one pixel above its bottom** — the
+ * same width as the 584-wide pill, flush with it. That is not a box near the
+ * input; it is the input's box continued.
+ *
+ * **No `:focus-within`**, and that is the second half of the fix rather than a
+ * simplification. The old rule needed focus because the wrapper is on screen
+ * whether the popup is open or not, so painting it unconditionally hung 88px of
+ * raised block under a blurred pill. The popup is `display: none` until it opens,
+ * so it cannot be seen when it should not be — and a rule that needs no focus is
+ * a rule that can be measured without one, which this one was: forced visible
+ * from the console, since Google will not open it for a window the compositor
+ * has not focused (CEF-NOTES trap 22).
+ *
+ * `> div:has([role="listbox"])` names it without naming a class: the direct child
+ * of the box that contains the suggestion list. `div.aajZCb` two levels down also
+ * contains it and is deliberately not matched — the child combinator is what
+ * keeps this to the outermost of the three. */
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) {
     background-color: var(--ddg-raised) !important;
-    border-radius: 26px !important;
+    /* The bottom corners only. The pill above keeps its own 26px all round, and
+     * where the two meet the pill's rounded bottom shows this surface through the
+     * cut — the same colour, so the seam reads as one continuous shape. */
+    border-radius: 0 0 26px 26px !important;
+}
+
+/* And inside it nothing paints, the oldest sentence in these files: the container
+ * paints, a child punches a hole in it. Without this the popup's own layers keep
+ * the `--bg` the flat rule gave them and the new surface is covered exactly as
+ * the old one was. */
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [class] {
+    background-color: transparent !important;
+}
+
+/* **The transparency above eats the hover, so the hover is said again here.** The
+ * file already gives `[role="listbox"] [role="option"]:hover` the raised-light
+ * step, but that is 0,2,0 and a trending row carries a class — the rule above
+ * wins and the row stops answering the pointer. Naming the row and its state
+ * inside the same scope puts this over it. `aria-selected` is the keyboard's half
+ * of the same thing and travels with it. */
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"]:hover,
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:has([role="listbox"]) [role="option"][aria-selected="true"] {
+    background-color: var(--bg-light) !important;
 }
 
 /* **The results page hangs its dropdown OUTSIDE the box's paint.** The same
