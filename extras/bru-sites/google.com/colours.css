@@ -509,6 +509,21 @@ div[id^="_"]:has(#m-x-content) [class]:where(:not([role="button"]):not([role="bu
  * labelled pill inside is dressed by the global `div[role="button"]:has(>
  * span)` rules like every other pill on the site; the row stays the page. */
 
+/* The pill itself, measured 650x48 at radius 9999 with its two spans: the
+ * row's grandchild, not the row. Same dress as the approved panel pills. */
+div[id^="_"]:has(#m-x-content) div[role="button"] div:has(> span) {
+    background-color: var(--ddg-raised) !important;
+    border: 1px solid var(--bg-light) !important;
+}
+
+div[id^="_"]:has(#m-x-content) div[role="button"] div:has(> span) > span {
+    background-color: transparent !important;
+}
+
+div[id^="_"]:has(#m-x-content) div[role="button"]:hover div:has(> span) {
+    background-color: var(--ddg-raised-more) !important;
+}
+
 /* --- the knowledge panel is one surface ------------------------------------
  *
  * Reported 2026-08-08: the right panel wore the raised step to its middle and
