@@ -642,3 +642,63 @@ div[id^="_"]:has(> div > div > #m-x-content) div[role="button"][aria-controls]:h
     outline: 2px solid var(--completion-category-fg) !important;
     outline-offset: 2px !important;
 }
+
+/* --- the consent screen ---------------------------------------------------
+ *
+ * "Преди да продължите към Google" — and it is **not** an iframe, which is worth
+ * saying because it was assumed to be one for most of a day. Measured 2026-08-08
+ * while it was on screen: `document.querySelectorAll("iframe")` is empty, the
+ * consent text is in the main document, and bru's own stylesheet is already in
+ * the page. So it was always reachable from here; nothing was blocking it but a
+ * missing rule.
+ *
+ * What it lacked was a surface: the outer container measured 800x920 fully
+ * transparent, so the sheet's text sat straight on the page with nothing behind
+ * it. `#CXQnmb` is the anchor — an id, the same kind of long-lived name as `#rhs`
+ * and `#sZmt3b` elsewhere in this file, and unlike a class it is one per page.
+ *
+ * Contents transparent, as everywhere: the container paints, the children do not
+ * punch holes in it. */
+#CXQnmb {
+    background-color: var(--ddg-raised) !important;
+    border-radius: 8px !important;
+}
+
+#CXQnmb [class] {
+    background-color: transparent !important;
+}
+
+/* The consent sheet's actions. `#L2AGLb` (accept) and `#W0wltc` (reject) are the
+ * two ids Google has kept on this screen for years — the same pair every filter
+ * list on the web addresses it by — so here, unusually for this site, the stable
+ * name IS the id. Measured before: both fully transparent with body-coloured
+ * text, which on a sheet with no other affordance read as two more sentences.
+ *
+ * They take the file's labelled-pill dress, not the accent: they are a pair of
+ * equal choices, and painting one of them the accent would answer for the reader.
+ * `#gksS1d` is the sign-in, and that one is a single call to action, so it takes
+ * the accent the file gives sign-in everywhere else. */
+/* **Written under `#CXQnmb`, and that is not decoration.** The sheet's own
+ * "children transparent" rule above is `#CXQnmb [class]` — an id and a class,
+ * 1,1,0 — while a bare `#L2AGLb` is 1,0,0, so the first attempt gave the buttons
+ * their radius and lost their fill in the same breath. Measured: `r=999px` with
+ * `rgba(0,0,0,0)`. Two ids put these at 2,0,0 and the sheet stops erasing them.
+ * The container paints, its children do not — except the ones that are controls. */
+#CXQnmb #L2AGLb,
+#CXQnmb #W0wltc {
+    background-color: var(--ddg-raised-more) !important;
+    border: 1px solid var(--bg-light) !important;
+    border-radius: 999px !important;
+    color: var(--ui-fg) !important;
+}
+
+#CXQnmb #L2AGLb:hover,
+#CXQnmb #W0wltc:hover {
+    background-color: var(--bg-light) !important;
+}
+
+#CXQnmb #gksS1d {
+    background-color: var(--completion-category-fg) !important;
+    border-radius: 999px !important;
+    color: var(--pill-fg) !important;
+}
