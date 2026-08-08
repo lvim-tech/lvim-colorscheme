@@ -455,8 +455,10 @@ input[type="submit"] {
  * theirs and stable. */
 a,
 a [class],
-a h3,
-h3 a {
+/* Not `h3 a` as well: a result's title is an `<a><h3>`, so the reverse nesting
+ * cannot occur — measured on a results page, `a h3` matches eight and `h3 a`
+ * none. It sat here as belt-and-braces and was neither. */
+a h3 {
     color: var(--completion-category-fg) !important;
 }
 
