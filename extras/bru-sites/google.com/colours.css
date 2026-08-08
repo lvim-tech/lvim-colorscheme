@@ -190,6 +190,10 @@ div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div,
 div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div,
 div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div > div,
 div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div > div > div,
+div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div > div > div,
+div[class]:has(> div > div > div > textarea:not([name="q"])) > div > div > div > div > div > div > div,
+div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div > div > div > div,
+div[class]:has(> div > div > div > div > textarea:not([name="q"])) > div > div > div > div > div > div > div,
 textarea:not([name="q"]) {
     background-image: none !important;
     background-color: transparent !important;
@@ -201,6 +205,7 @@ textarea:not([name="q"]) {
  * `*::before` under a `:has` ancestor was another multiplier. The surface
  * clears, the ring stays in the theme's line. */
 button[data-xid],
+button[data-xid] *,
 button[data-xid]::before,
 button[data-xid]::after {
     background-color: transparent !important;
