@@ -432,17 +432,30 @@ mark[class] {
  * `--bg`, on a rotating class with no stable name. Invisible in practice;
  * recorded so the next reader does not chase it. */
 
-/* A dialog's labelled action — "Показване на по-малко" — is a pill of bare
- * text on the surface, and reads as nothing at all. It takes the outline a
- * labelled control wears on DuckDuckGo, and its own 9999px stays. `:has(>
- * span)` is what separates it from the ⋮ icon buttons beside it, which hold
- * graphics and take no ring. */
-[class][role="dialog"] div[role="button"]:has(> span) {
-    border: 1px solid var(--bg-light) !important;
+/* A labelled pill button's hover. The pill's resting look — outline in
+ * `--bg-light` on the surface — turned out to be the flat rule's
+ * border-colour doing the whole job by itself, and was approved as-is; two
+ * scoped restylings before it matched nothing, because the rich-cards box
+ * carries no role and portals outside `#rhs`. Only the hover was ever wrong:
+ * their own grey, and then a darkening step that read as pressed. A wash of
+ * the accent is the hover every one of these files uses when a control
+ * cannot go a step lighter. `:has(> span)` keeps it to labelled pills. */
+div[role="button"]:has(> span),
+[class][role="dialog"] div[role="button"]:has(> span),
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] div[role="button"]:has(> span) {
+    background-color: var(--ddg-raised) !important;
 }
 
-[class][role="dialog"] div[role="button"]:has(> span):hover {
-    background-color: var(--bg-light) !important;
+div[role="button"]:has(> span) [class],
+[class][role="dialog"] div[role="button"]:has(> span) [class],
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] div[role="button"]:has(> span) [class] {
+    background-color: transparent !important;
+}
+
+div[role="button"]:has(> span):hover,
+[class][role="dialog"] div[role="button"]:has(> span):hover,
+form[role="search"] div:has(> div > div > div > textarea[name="q"]) > div:not([class]) > div[class] div[role="button"]:has(> span):hover {
+    background-color: var(--ddg-raised-more) !important;
 }
 
 /* --- the knowledge panel is one surface ------------------------------------
