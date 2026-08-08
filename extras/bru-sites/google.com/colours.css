@@ -687,7 +687,10 @@ div[id^="_"]:has(> div > div > #m-x-content) div[role="button"][aria-controls]:h
 #CXQnmb #L2AGLb,
 #CXQnmb #W0wltc {
     background-color: var(--ddg-raised-more) !important;
-    border: 1px solid var(--bg-light) !important;
+    /* No ring. The step is the separation — the same sentence the shadows note
+     * and the card-border rule above already make, and adding an outline here
+     * broke it for one commit. */
+    border: 0 !important;
     border-radius: 999px !important;
     color: var(--ui-fg) !important;
 }
