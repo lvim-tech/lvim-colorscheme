@@ -22,32 +22,41 @@ end
 
 local readable_on = util.readable_on
 
---- The palette's yellow, made **loud enough to be a hint label**.
+
+--- The lightest **neutral** that still clears `min` on a chip: the typed part of a hint label.
 ---
---- Every other accent in this file is used at the palette's own strength, and that is right for a
---- message strip: an error is red because the theme says red, and it sits in the chrome where the
---- theme's voice is the point. **A hint label is not chrome.** It is drawn over somebody else's
---- page, for the two seconds between `f` and the letter, and it has to be found by eye against
---- whatever the page happens to be — white, photographic, dark, anything. A label that blends in has
---- failed at the one job it has.
+--- The typed characters have to read as spent, and the two obvious ways to say so both failed on
+--- this chip. `--comment` floored against it landed at `#333631` beside a `#1f2529` ink — 1.26:1,
+--- two dark neutrals nobody could tell apart. Seeding from `red` instead put a hue between them and
+--- measured no better, 1.27:1, because the geometry is what caps it: the chip reaches 6.85:1 with
+--- the theme's own background as ink, and the typed part must itself stay at 4.5 to be legible, so
+--- 6.85/4.5 is every bit of lightness there is to divide.
 ---
---- Measured 2026-08-09, everforest darker: `colors.yellow` is `#af9e6b`, **hsluv S54 L65** — the
---- muted khaki an editor wants behind a comment, and against a light page it reads as beige rather
---- than as a marker. The palette is not wrong; it is answering a different question. So the hue is
---- kept — everforest's yellow stays everforest's, dracula's stays the green-yellow dracula means by
---- it — and only chroma and lightness are pushed to where a marker lives: `#f7d200`.
----
---- **Not a fixed `#ffd21e`**, which is what bru falls back to with no theme at all. A constant would
---- make all 48 styles' labels the identical yellow and throw away the one thing the theme still has
---- to say here. hsluv holds the hue while S and L move, which is the same rule `ensure_contrast`
---- follows everywhere else in this file — the palette key itself is untouched.
----@param hex string  the palette's yellow
+--- So it is lightness alone, spent to the last unit, and **no hue at all** — saturation to 0 and
+--- then a walk toward the chip while the floor still holds. `#404040` on everforest: a grey that is
+--- visibly not the ink, on a chip that is visibly yellow. A colour there competes with the chip; a
+--- grey withdraws, which is what a character already typed should do.
+---@param ink string  the label's own foreground, whose lightness is the starting point
+---@param chip string  the label's background
+---@param min number  the contrast the result must keep against `chip`
 ---@return string
-local function vivid(hex)
+local function faded(ink, chip, min)
     local hsluv = require("lvim-colorscheme.hsluv")
-    local hsl = hsluv.hex_to_hsluv(hex)
-    -- L 85 is the floor, not the value: a palette whose yellow is already brighter keeps its own.
-    return hsluv.hsluv_to_hex({ hsl[1], 100, math.max(hsl[3], 85) })
+    local hsl = hsluv.hex_to_hsluv(ink)
+    local towards = hsluv.hex_to_hsluv(chip)[3] > hsl[3] and 1 or -1
+    local best = hsluv.hsluv_to_hex({ hsl[1], 0, hsl[3] })
+    for _ = 1, 100 do
+        hsl[3] = hsl[3] + towards
+        if hsl[3] < 0 or hsl[3] > 100 then
+            break
+        end
+        local try = hsluv.hsluv_to_hex({ hsl[1], 0, hsl[3] })
+        if util.contrast(try, chip) < min then
+            break
+        end
+        best = try
+    end
+    return best
 end
 
 --- The two **visible** surface steps a page needs, off `bg`, as `{raised, raised_more}`.
@@ -481,54 +490,41 @@ function M.generate(colors, _, _)
             -- The hint label. **These three are hint-only** — no other rule in this file reads
             -- them — which is why they are named for the label rather than for the accent, unlike
             -- the `on_`/`strip_` pairs above that each serve a strip and a download row.
-            bru_hint_bg = vivid(colors.yellow),
-
-            -- The letters on the chip, and **10:1, not 4.5**. The usual floor is for text you read;
-            -- a hint label is text you *find*, at 12px, over an unknown page, in the moment between
-            -- pressing `f` and pressing the letter. The number is not a round one picked for
-            -- comfort: it is what the dark styles already reached on their own, with the theme's own
-            -- background as the ink — everforest darker measured **10.46:1**. Flooring at 10 asks
-            -- the other 36 styles for what those 12 were getting for free.
             --
-            -- **`readable_on` cannot answer here, and the light styles are why.** Its two candidates
-            -- are white and the theme's background; on a light style both are light, and against a
-            -- chip this bright the better of the two still measured **1.48:1** — white letters on
-            -- yellow, invisible. So the candidate is the darker of `bg` and `fg` (the background on
-            -- a dark style, the foreground on a light one, no branch on which is which), walked
-            -- down until it clears. hsluv keeps the hue, so a teal-ish light-theme ink stays teal.
-            bru_hint_fg = util.ensure_contrast_either_way(
-                util.luminance(colors.bg) <= util.luminance(colors.fg) and colors.bg or colors.fg,
-                vivid(colors.yellow),
-                10
+            -- **`terminal.yellow_bright`, not `yellow`.** Both are the theme's; the difference is
+            -- which question each was answering. `--yellow` is tuned to sit behind code in an
+            -- editor for hours, and on everforest that is `#af9e6b`, hsluv S54 — a khaki, and it
+            -- reads as dirt on a chip four characters wide. The ANSI bright is the same hue at
+            -- S73: `#c3ab58`, still the theme's yellow and no longer muddy. The relation holds on
+            -- all 48 styles, because every palette derives its bright from its own.
+            --
+            -- **Not a yellow of this file's own.** hsluv S100 was tried — `#f7d200`, a marker — on
+            -- the argument that a label is drawn over somebody else's page and has to be found by
+            -- eye. Rejected on sight: over a dark theme a pure yellow chip is a lamp, and the point
+            -- of reading the theme at all is that bru looks like the rest of the desktop.
+            bru_hint_bg = util.ensure_contrast(
+                colors.terminal.yellow_bright,
+                readable_on(colors.terminal.yellow_bright, colors.bg),
+                4.5
             ),
+            bru_hint_fg = readable_on(colors.terminal.yellow_bright, colors.bg),
 
-            -- The already-typed part of a label, drawn **on the chip** and not on `--bg`.
+            -- The already-typed part of a label — see `faded` for why it is a grey and not a colour,
+            -- and for the two derivations that were measured and thrown away first.
             --
-            -- **Its job is to differ from `bru_hint_fg`**, and that is the test the old derivation
-            -- failed: `--comment` floored against the chip landed at `#343633` next to a `#1f2529`
-            -- ink — **1.27:1 between them**, measured on everforest darker, and on gruvbox 1.31 and
-            -- nightfox 1.46. Both dark, both neutral: typing `f` of `fd` changed nothing anyone
-            -- could see, which is the whole reason this was reopened.
-            --
-            -- Seeded from `red` rather than `comment` so the difference is a **hue** and not only a
-            -- lightness — dark red against near-black ink on yellow, which is what "spent" looks
-            -- like. It is also bru's own no-theme fallback (`#c02020`), so a themed bru and a bare
-            -- one now say the same thing.
-            --
-            -- **The lightness gap is capped by geometry and 2.2:1 is the ceiling**, not a shortfall:
-            -- the ink sits at 10:1 on the chip and this must stay ≥4.5 to be legible at all, so
-            -- 10/4.5 is all the separation there is. Sweep across all 48 styles: worst **2.16:1**,
-            -- against 1.27 before. The rest of the signal is bru's, not the theme's — `hints.js`
-            -- also strikes the typed characters through and drops them to 0.55 opacity, which is
-            -- what makes this legible on the palettes where the colour alone would be marginal.
-            --
-            -- `ensure_contrast_either_way`, not `ensure_contrast`: the floor picks its direction
-            -- once from `luminance(bg) < 0.5`, and a saturated accent used as a *surface* sits
-            -- between 0.18 and 0.49 on every palette here — so the walk climbs toward white when
-            -- down was the way out, and returns its best effort rather than raising. Measured on
-            -- qutebrowser's identical pair: 1.96:1 climbing against 10.61:1 descending, wrong that
-            -- way on 38 of 48 styles.
-            bru_hint_match = util.ensure_contrast_either_way(colors.red, vivid(colors.yellow), 4.5),
+            -- **The rest of the signal is bru's, not the theme's.** `chrome/hints.js` also strikes
+            -- the typed characters through and drops them to 0.55 opacity. On a chip with this
+            -- little lightness to spare that is what carries the difference; the grey is the part
+            -- that survives a screenshot.
+            bru_hint_match = faded(
+                readable_on(colors.terminal.yellow_bright, colors.bg),
+                util.ensure_contrast(
+                    colors.terminal.yellow_bright,
+                    readable_on(colors.terminal.yellow_bright, colors.bg),
+                    4.5
+                ),
+                4.5
+            ),
             bru_strip_cyan = util.ensure_contrast(
                 colors.cyan, readable_on(colors.cyan, colors.bg), 4.5
             ),

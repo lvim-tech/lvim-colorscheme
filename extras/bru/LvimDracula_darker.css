@@ -92,8 +92,8 @@
 
     /* c.colors.hints.* */
     --hints-fg: #1d1f27;
-    --hints-bg: #d2de00;
-    --hints-match-fg: #834c4c;
+    --hints-bg: #bac26c;
+    --hints-match-fg: #4b4b4b;
 
     /* c.colors.keyhint.* */
     --keyhint-fg: #937db1;
