@@ -196,26 +196,39 @@
 
     /* c.colors.tabs.* */
     --tabs-bar-bg: var(--bg);
-    --tabs-indicator-start: var(--cyan);
-    --tabs-indicator-stop: var(--green);
-    --tabs-indicator-error: var(--red);
+    /* The stripe down a tab's leading edge, which is the only thing on the strip
+       that reports a state rather than a name: the theme's yellow while the page
+       fetches, its green once it is done, its red if it failed. The ANSI brights,
+       not the plain keys — a 2px line has no room to be a muted accent, and
+       everforest's `--green` at that width is indistinguishable from its own
+       `--yellow`. See `nearest_hue` for which of the theme's colours counts as
+       green on a palette whose green is an olive. */
+    --tabs-indicator-start: #c3ab58;
+    --tabs-indicator-stop: #488b52;
+    --tabs-indicator-error: #eb4d4d;
     --tabs-indicator-system: transparent;
     --tabs-odd-fg: #899984;
     --tabs-odd-bg: var(--bg-soft-light);
     --tabs-even-fg: var(--ui-fg);
     --tabs-even-bg: var(--bg);
-    --tabs-selected-odd-fg: #899984;
-    --tabs-selected-odd-bg: var(--bg-light);
-    --tabs-selected-even-fg: var(--ui-fg);
-    --tabs-selected-even-bg: var(--bg-light);
+    /* **The active tab, and the two rules that make it one.** `--bg-light` was
+       every one of these, and measured against the rows either side it is 1.14:1
+       on `--bg` and 1.07:1 on `--bg-soft-light` — a difference a screenshot can
+       find and an eye cannot, which is what was reported. The surface is a
+       measured step now, and the text on it is floored higher than the text on a
+       tab that is merely open, so the active tab is brighter in both. */
+    --tabs-selected-odd-fg: #c1e1b8;
+    --tabs-selected-odd-bg: #354545;
+    --tabs-selected-even-fg: #c1e1b8;
+    --tabs-selected-even-bg: #354545;
     --tabs-pinned-odd-fg: #899984;
     --tabs-pinned-odd-bg: var(--bg-soft-light);
     --tabs-pinned-even-fg: var(--ui-fg);
     --tabs-pinned-even-bg: var(--bg);
-    --tabs-pinned-selected-odd-fg: #899984;
-    --tabs-pinned-selected-odd-bg: var(--bg-light);
-    --tabs-pinned-selected-even-fg: var(--ui-fg);
-    --tabs-pinned-selected-even-bg: var(--bg-light);
+    --tabs-pinned-selected-odd-fg: #c1e1b8;
+    --tabs-pinned-selected-odd-bg: #354545;
+    --tabs-pinned-selected-even-fg: #c1e1b8;
+    --tabs-pinned-selected-even-bg: #354545;
 
     /* c.colors.tooltip.* */
     --tooltip-bg: var(--bg-soft-light);

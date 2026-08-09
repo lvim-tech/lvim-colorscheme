@@ -59,6 +59,34 @@ local function faded(ink, chip, min)
     return best
 end
 
+--- Of a theme's own accents, the one whose hue is **nearest** a target — used where a colour has to
+--- mean something rather than merely belong to the palette.
+---
+--- A tab's loading stripe is the case that needed it. bru draws it in the theme's `--green` when a
+--- page is done and the theme's yellow while it fetches, and on everforest and gruvbox those two
+--- are 19° apart in hsluv: `green_bright` is `#82861f`, hue 89, an olive, beside a yellow at hue 70.
+--- Two states, one colour, and the stripe stops saying anything. Those palettes do have a green —
+--- `cyan_bright` is `#488b52`, hue 132, which is green by any eye — and on kanagawa, nord,
+--- tokyonight and solarized `green` is already the nearer of the two and stays chosen.
+---
+--- Hue distance the short way round the circle, so 350 and 10 are 20 apart and not 340.
+---@param target number  the hue being looked for, hsluv degrees
+---@param ... string  the candidates, all of them the theme's own
+---@return string
+local function nearest_hue(target, ...)
+    local hsluv = require("lvim-colorscheme.hsluv")
+    local best, gap = nil, math.huge
+    for _, candidate in ipairs({ ... }) do
+        local hue = hsluv.hex_to_hsluv(candidate)[1]
+        local away = math.abs(hue - target) % 360
+        away = math.min(away, 360 - away)
+        if away < gap then
+            best, gap = candidate, away
+        end
+    end
+    return best
+end
+
 --- The two **visible** surface steps a page needs, off `bg`, as `{raised, raised_more}`.
 ---
 --- **The palette's surfaces are too close together to read as a step on a page.** Measured on
@@ -338,26 +366,39 @@ function M.generate(colors, _, _)
 
     /* c.colors.tabs.* */
     --tabs-bar-bg: var(--bg);
-    --tabs-indicator-start: var(--cyan);
-    --tabs-indicator-stop: var(--green);
-    --tabs-indicator-error: var(--red);
+    /* The stripe down a tab's leading edge, which is the only thing on the strip
+       that reports a state rather than a name: the theme's yellow while the page
+       fetches, its green once it is done, its red if it failed. The ANSI brights,
+       not the plain keys — a 2px line has no room to be a muted accent, and
+       everforest's `--green` at that width is indistinguishable from its own
+       `--yellow`. See `nearest_hue` for which of the theme's colours counts as
+       green on a palette whose green is an olive. */
+    --tabs-indicator-start: ${bru_tab_loading};
+    --tabs-indicator-stop: ${bru_tab_loaded};
+    --tabs-indicator-error: ${bru_tab_failed};
     --tabs-indicator-system: transparent;
     --tabs-odd-fg: ${bru_sel_fg};
     --tabs-odd-bg: var(--bg-soft-light);
     --tabs-even-fg: var(--ui-fg);
     --tabs-even-bg: var(--bg);
-    --tabs-selected-odd-fg: ${bru_sel_fg};
-    --tabs-selected-odd-bg: var(--bg-light);
-    --tabs-selected-even-fg: var(--ui-fg);
-    --tabs-selected-even-bg: var(--bg-light);
+    /* **The active tab, and the two rules that make it one.** `--bg-light` was
+       every one of these, and measured against the rows either side it is 1.14:1
+       on `--bg` and 1.07:1 on `--bg-soft-light` — a difference a screenshot can
+       find and an eye cannot, which is what was reported. The surface is a
+       measured step now, and the text on it is floored higher than the text on a
+       tab that is merely open, so the active tab is brighter in both. */
+    --tabs-selected-odd-fg: ${bru_tab_active_fg};
+    --tabs-selected-odd-bg: ${bru_tab_active_bg};
+    --tabs-selected-even-fg: ${bru_tab_active_fg};
+    --tabs-selected-even-bg: ${bru_tab_active_bg};
     --tabs-pinned-odd-fg: ${bru_sel_fg};
     --tabs-pinned-odd-bg: var(--bg-soft-light);
     --tabs-pinned-even-fg: var(--ui-fg);
     --tabs-pinned-even-bg: var(--bg);
-    --tabs-pinned-selected-odd-fg: ${bru_sel_fg};
-    --tabs-pinned-selected-odd-bg: var(--bg-light);
-    --tabs-pinned-selected-even-fg: var(--ui-fg);
-    --tabs-pinned-selected-even-bg: var(--bg-light);
+    --tabs-pinned-selected-odd-fg: ${bru_tab_active_fg};
+    --tabs-pinned-selected-odd-bg: ${bru_tab_active_bg};
+    --tabs-pinned-selected-even-fg: ${bru_tab_active_fg};
+    --tabs-pinned-selected-even-bg: ${bru_tab_active_bg};
 
     /* c.colors.tooltip.* */
     --tooltip-bg: var(--bg-soft-light);
@@ -525,6 +566,32 @@ function M.generate(colors, _, _)
                 ),
                 4.5
             ),
+            -- --- the tab strip's active row and its loading stripe ------------------------
+            -- **A measured step, not the palette's next tier.** `--bg-light` is what the strip used
+            -- for its active tab and it is 1.14:1 above `--bg`: right for an editor, where the
+            -- current line must not shout over the code, and not a mark on a row of tabs. 1.45 is
+            -- the second of the two steps `surfaces` measured as *visible on a page*, and the tab
+            -- strip is a page — it is drawn in `bru://chrome/top.html` like everything else here.
+            bru_tab_active_bg = select(2, surfaces(colors.bg, colors.bg_light, 1.22, 1.45)),
+
+            -- **7:1 where an open tab's title gets 4.5.** Both floors are against the surface each
+            -- title is actually drawn on, so the difference between them is the whole signal: the
+            -- active tab is the brighter text as well as the lighter row, and neither alone had to
+            -- carry it.
+            bru_tab_active_fg = util.ensure_contrast(
+                colors.fg,
+                select(2, surfaces(colors.bg, colors.bg_light, 1.22, 1.45)),
+                7
+            ),
+
+            -- The stripe: fetching, done, failed. The ANSI brights, because a 2px line is too
+            -- narrow to read a muted accent, and `nearest_hue` for the one that has to mean *green*
+            -- rather than merely be the key called green — see its comment for the two palettes
+            -- whose green is an olive 19° from their own yellow.
+            bru_tab_loading = colors.terminal.yellow_bright,
+            bru_tab_loaded = nearest_hue(130, colors.terminal.green_bright, colors.terminal.cyan_bright),
+            bru_tab_failed = colors.terminal.red_bright,
+
             bru_strip_cyan = util.ensure_contrast(
                 colors.cyan, readable_on(colors.cyan, colors.bg), 4.5
             ),
