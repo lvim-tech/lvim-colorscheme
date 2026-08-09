@@ -47,17 +47,17 @@
     --cyan: #496b64;
     --green: #466d4e;
     --magenta: #905274;
-    --orange: #a38165;
+    --orange: #7e634d;
     --purple: #8b79a6;
     --red: #af5959;
     --teal: #4d7066;
-    --yellow: #777b56;
+    --yellow: #54573c;
 
     /* c.colors.completion.* */
     --completion-fg: var(--ui-fg);
     --completion-odd-bg: var(--bg-soft-light);
     --completion-even-bg: var(--bg);
-    --completion-category-fg: #63664c;
+    --completion-category-fg: #54573c;
     --completion-category-bg: var(--bg);
     --completion-category-border-top: var(--bg);
     --completion-category-border-bottom: var(--bg);
@@ -66,7 +66,7 @@
     --completion-item-selected-border-top: var(--bg-light);
     --completion-item-selected-border-bottom: var(--bg-light);
     --completion-item-selected-match-fg: #466d4e;
-    --completion-match-fg: #756151;
+    --completion-match-fg: #7b614c;
     --completion-scrollbar-fg: var(--ui-fg);
     --completion-scrollbar-bg: var(--bg);
 
@@ -92,8 +92,8 @@
 
     /* c.colors.hints.* */
     --hints-fg: #ffffff;
-    --hints-bg: #757855;
-    --hints-match-fg: #fdfdfe;
+    --hints-bg: #54573c;
+    --hints-match-fg: #c5cade;
 
     /* c.colors.keyhint.* */
     --keyhint-fg: #6e5f85;
@@ -105,8 +105,8 @@
     --messages-error-bg: #af5959;
     --messages-error-border: #af5959;
     --messages-warning-fg: #ffffff;
-    --messages-warning-bg: #8b715b;
-    --messages-warning-border: #8b715b;
+    --messages-warning-bg: #7e634d;
+    --messages-warning-border: #7e634d;
     --messages-info-fg: var(--ui-fg);
     --messages-info-bg: var(--bg);
     --messages-info-border: var(--bg);
@@ -190,9 +190,9 @@
     --statusbar-url-fg: var(--ui-fg);
     --statusbar-url-error-fg: #985252;
     --statusbar-url-hover-fg: #496b64;
-    --statusbar-url-success-http-fg: #63664c;
+    --statusbar-url-success-http-fg: #54573c;
     --statusbar-url-success-https-fg: #466d4e;
-    --statusbar-url-warn-fg: #756151;
+    --statusbar-url-warn-fg: #7b614c;
 
     /* c.colors.tabs.* */
     --tabs-bar-bg: var(--bg);

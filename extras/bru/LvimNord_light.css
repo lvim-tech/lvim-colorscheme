@@ -44,20 +44,20 @@
     --comment: #737d95;
 
     --blue: #596a7c;
-    --cyan: #6c919d;
-    --green: #7e8f70;
+    --cyan: #53727b;
+    --green: #616f56;
     --magenta: #6e5a6b;
     --orange: #7a564b;
     --purple: #71687d;
     --red: #976065;
-    --teal: #739190;
-    --yellow: #8b774e;
+    --teal: #597170;
+    --yellow: #645537;
 
     /* c.colors.completion.* */
     --completion-fg: var(--ui-fg);
     --completion-odd-bg: var(--bg-soft-light);
     --completion-even-bg: var(--bg);
-    --completion-category-fg: #726447;
+    --completion-category-fg: #645537;
     --completion-category-bg: var(--bg);
     --completion-category-border-top: var(--bg);
     --completion-category-border-bottom: var(--bg);
@@ -65,7 +65,7 @@
     --completion-item-selected-bg: var(--bg-light);
     --completion-item-selected-border-top: var(--bg-light);
     --completion-item-selected-border-bottom: var(--bg-light);
-    --completion-item-selected-match-fg: #5d6756;
+    --completion-item-selected-match-fg: #5d6a53;
     --completion-match-fg: #7a564b;
     --completion-scrollbar-fg: var(--ui-fg);
     --completion-scrollbar-bg: var(--bg);
@@ -81,9 +81,9 @@
     /* c.colors.downloads.* */
     --downloads-bar-bg: var(--bg);
     --downloads-start-fg: #ffffff;
-    --downloads-start-bg: #607b84;
+    --downloads-start-bg: #53727b;
     --downloads-stop-fg: #ffffff;
-    --downloads-stop-bg: #6d7962;
+    --downloads-stop-bg: #616f56;
     /* qutebrowser's "none" means "take the system colour"; in CSS the honest
        equivalent is to paint nothing and let what is behind show through. */
     --downloads-system-bg: transparent;
@@ -92,8 +92,8 @@
 
     /* c.colors.hints.* */
     --hints-fg: #ffffff;
-    --hints-bg: #85724d;
-    --hints-match-fg: #fdfdfe;
+    --hints-bg: #645537;
+    --hints-match-fg: #c6cddf;
 
     /* c.colors.keyhint.* */
     --keyhint-fg: #696174;
@@ -189,9 +189,9 @@
     --statusbar-progress-bg: var(--cyan);
     --statusbar-url-fg: var(--ui-fg);
     --statusbar-url-error-fg: #87595d;
-    --statusbar-url-hover-fg: #55696f;
-    --statusbar-url-success-http-fg: #726447;
-    --statusbar-url-success-https-fg: #5d6756;
+    --statusbar-url-hover-fg: #4f6a72;
+    --statusbar-url-success-http-fg: #645537;
+    --statusbar-url-success-https-fg: #5d6a53;
     --statusbar-url-warn-fg: #7a564b;
 
     /* c.colors.tabs.* */

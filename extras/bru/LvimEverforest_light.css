@@ -51,13 +51,13 @@
     --purple: #918c9d;
     --red: #c74d4d;
     --teal: #3d8b7c;
-    --yellow: #8f8156;
+    --yellow: #6b6040;
 
     /* c.colors.completion.* */
     --completion-fg: var(--ui-fg);
     --completion-odd-bg: var(--bg-soft-light);
     --completion-even-bg: var(--bg);
-    --completion-category-fg: #6c634a;
+    --completion-category-fg: #6b6040;
     --completion-category-bg: var(--bg);
     --completion-category-border-top: var(--bg);
     --completion-category-border-bottom: var(--bg);
@@ -92,8 +92,8 @@
 
     /* c.colors.hints.* */
     --hints-fg: #ffffff;
-    --hints-bg: #807452;
-    --hints-match-fg: #f9fdf7;
+    --hints-bg: #6b6040;
+    --hints-match-fg: #c7e5b6;
 
     /* c.colors.keyhint.* */
     --keyhint-fg: #686473;
@@ -190,7 +190,7 @@
     --statusbar-url-fg: var(--ui-fg);
     --statusbar-url-error-fg: #a44747;
     --statusbar-url-hover-fg: #4f6c52;
-    --statusbar-url-success-http-fg: #6c634a;
+    --statusbar-url-success-http-fg: #6b6040;
     --statusbar-url-success-https-fg: #67693d;
     --statusbar-url-warn-fg: #8d522b;
 
