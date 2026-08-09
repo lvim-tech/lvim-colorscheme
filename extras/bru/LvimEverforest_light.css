@@ -91,9 +91,9 @@
     --downloads-error-bg: #c74d4d;
 
     /* c.colors.hints.* */
-    --hints-fg: #ffffff;
-    --hints-bg: #6b6040;
-    --hints-match-fg: #c7e5b6;
+    --hints-fg: #242828;
+    --hints-bg: #f8d200;
+    --hints-match-fg: #914343;
 
     /* c.colors.keyhint.* */
     --keyhint-fg: #686473;
