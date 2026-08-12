@@ -69,12 +69,19 @@ end
 --- tokyonight and solarized `green` is already the nearer of the two and stays chosen.
 ---
 --- Hue distance the short way round the circle, so 350 and 10 are 20 apart and not 340.
+--- The first candidate is named rather than variadic, so the annotation's `string` is true on
+--- every path: an all-vararg version returns nil when called with no candidates.
 ---@param target number  the hue being looked for, hsluv degrees
----@param ... string  the candidates, all of them the theme's own
+---@param first string  the first candidate, the theme's own
+---@param ... string  any further candidates
 ---@return string
-local function nearest_hue(target, ...)
+local function nearest_hue(target, first, ...)
     local hsluv = require("lvim-colorscheme.hsluv")
-    local best, gap = nil, math.huge
+    local best, gap =
+        first, (function()
+            local away = math.abs(require("lvim-colorscheme.hsluv").hex_to_hsluv(first)[1] - target) % 360
+            return math.min(away, 360 - away)
+        end)()
     for _, candidate in ipairs({ ... }) do
         local hue = hsluv.hex_to_hsluv(candidate)[1]
         local away = math.abs(hue - target) % 360

@@ -254,12 +254,17 @@ end
 --- lived in `extra/desktop/bru.lua`: those three are *bru's* surfaces. A statusline is drawn on
 --- `bg_statusline`, a float on `bg_float`, a number column on `bg` or on the focused window's
 --- `bg_active` — every caller has its own set, and the only thing they share is the question.
+--- The first surface is a NAMED parameter rather than one more vararg, because "at least one" is
+--- a promise the signature can keep and a comment cannot: with everything variadic the function
+--- returns nil on an empty call while its annotation says string, and the caller gets a nil where
+--- it is about to write a colour.
 ---@param text string  the colour that has to stay readable
----@param ... string  the surfaces it may be painted on; at least one
+---@param first string  the first surface it may be painted on
+---@param ... string  any further surfaces
 ---@return string
-function M.hardest(text, ...)
+function M.hardest(text, first, ...)
     local lum = M.luminance(text)
-    local worst, gap = nil, math.huge
+    local worst, gap = first, math.abs(M.luminance(first) - lum)
     for _, surface in ipairs({ ... }) do
         local d = math.abs(M.luminance(surface) - lum)
         if d < gap then
