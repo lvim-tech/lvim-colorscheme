@@ -16,10 +16,13 @@ function M.generate(colors)
     -- toward `fg` moves in the direction that has somewhere to go, and it moves the right way on
     -- both ends: on a light style `fg` is dark, so the same 8% darkens the row instead.
     --
-    -- 8% and not more because the row carries TEXT, and the text is the terminal's own foreground
-    -- on it. Worst case across the styles goes 5.70:1 → 5.41:1 (base_darker), still clear of
-    -- WCAG AA's 4.5 — which is the number that decides how far this can be taken.
-    colors.bg_line = util.blend_bg(colors.fg, 0.08)
+    -- 16% because two limits meet here and 16 is where they cross. The row has to DIFFER from the
+    -- terminal background enough to find at a glance — at 8% the smallest step across the styles
+    -- was four values per channel, measured off a real screen and still easy to miss. It also has
+    -- to keep the text on it legible, and the text is the terminal's own foreground. Worst case
+    -- across all 48 styles: 8% → 5.18:1, 16% → 4.54:1, 20% → 4.21:1. 16 is the last step above
+    -- WCAG AA's 4.5, and it doubles the visible step to eight values per channel.
+    colors.bg_line = util.blend_bg(colors.fg, 0.16)
 
     -- `default` is neomutt's word for the TERMINAL's own colour, and every line below writes its
     -- foreground on `default` — so the surface is the terminal background, which this project
