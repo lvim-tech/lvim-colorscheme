@@ -8,7 +8,18 @@ local M = {}
 
 --- @param colors ColorScheme
 function M.generate(colors)
-    colors.bg_line = util.blend_bg(colors.bg_highlight, 0.2)
+    -- The cursor row, lifted 8% toward the FOREGROUND rather than blended toward `bg_highlight`.
+    --
+    -- Measured 2026-08-12, and the measurement is why the lever changed: `bg_highlight` is itself
+    -- a hair off `bg`, so the old blend produced #232a2a against a #232929 background on
+    -- everforest_dark — one bit per channel, a row that is painted and cannot be seen. Blending
+    -- toward `fg` moves in the direction that has somewhere to go, and it moves the right way on
+    -- both ends: on a light style `fg` is dark, so the same 8% darkens the row instead.
+    --
+    -- 8% and not more because the row carries TEXT, and the text is the terminal's own foreground
+    -- on it. Worst case across the styles goes 5.70:1 → 5.41:1 (base_darker), still clear of
+    -- WCAG AA's 4.5 — which is the number that decides how far this can be taken.
+    colors.bg_line = util.blend_bg(colors.fg, 0.08)
 
     -- `default` is neomutt's word for the TERMINAL's own colour, and every line below writes its
     -- foreground on `default` — so the surface is the terminal background, which this project
@@ -19,9 +30,10 @@ function M.generate(colors)
     -- The palette's own `terminal.*` entries are NOT touched: ANSI 0-15 is a measured hierarchy of
     -- its own in `colors/init.lua`, and a second floor on top of it would undo that.
     --
-    -- The selected row is the one place neomutt paints a background here, and it needs no help:
-    -- `bg_line` against the terminal's foreground measured 5.70:1 at its worst (everforest_soft),
-    -- so it is left exactly as it was.
+    -- The selected row is the one place neomutt paints a background here, and it is the one place
+    -- this file raises rather than floors: at the old blend the row was a bit or two off the
+    -- terminal background and the cursor was hard to find. See the lift at the top for the
+    -- measurement that set 8%.
     local function text(hex)
         return util.ensure_contrast(hex, colors.terminal.background, 4.5)
     end
