@@ -42,10 +42,14 @@ function M.generate(colors)
         return util.ensure_contrast(accent, on(accent), 4.5)
     end
     local t = vim.tbl_extend("force", colors, {
-        g_on_blue = on(colors.blue), g_blue = strip(colors.blue),
-        g_on_orange = on(colors.orange), g_orange = strip(colors.orange),
-        g_on_green = on(colors.green), g_green = strip(colors.green),
-        g_on_purple = on(colors.purple), g_purple = strip(colors.purple),
+        g_on_blue = on(colors.blue),
+        g_blue = strip(colors.blue),
+        g_on_orange = on(colors.orange),
+        g_orange = strip(colors.orange),
+        g_on_green = on(colors.green),
+        g_green = strip(colors.green),
+        g_on_purple = on(colors.purple),
+        g_purple = strip(colors.purple),
         g_number = util.ensure_contrast(colors.yellow, term, 4.5),
         g_directory = util.ensure_contrast(colors.blue, term, 4.5),
         g_modal_text = util.ensure_contrast(colors.fg, term, 4.5),

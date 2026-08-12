@@ -35,9 +35,12 @@ function M.generate(colors)
         gu_command = text(colors.fg, colors.bg_dark),
         gu_selection = text(colors.fg_light, colors.bg_highlight),
         gu_disabled = text(colors.comment),
-        gu_green = text(colors.green), gu_red = text(colors.red),
-        gu_purple = text(colors.purple), gu_orange = text(colors.orange),
-        gu_yellow = text(colors.yellow), gu_teal = text(colors.teal),
+        gu_green = text(colors.green),
+        gu_red = text(colors.red),
+        gu_purple = text(colors.purple),
+        gu_orange = text(colors.orange),
+        gu_yellow = text(colors.yellow),
+        gu_teal = text(colors.teal),
         gu_magenta = text(colors.magenta),
     })
     return util.template(

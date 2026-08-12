@@ -34,10 +34,16 @@ function M.generate(colors)
     end
     local h1_fg = util.readable_on(colors.purple, colors.bg_dark)
     local t = vim.tbl_extend("force", colors, {
-        gl_fg = text(colors.fg), gl_yellow = text(colors.yellow), gl_purple = text(colors.purple),
-        gl_blue = text(colors.blue), gl_cyan = text(colors.cyan), gl_teal = text(colors.teal),
-        gl_green = text(colors.green), gl_comment = text(colors.comment),
-        gl_orange = text(colors.orange), gl_magenta = text(colors.magenta),
+        gl_fg = text(colors.fg),
+        gl_yellow = text(colors.yellow),
+        gl_purple = text(colors.purple),
+        gl_blue = text(colors.blue),
+        gl_cyan = text(colors.cyan),
+        gl_teal = text(colors.teal),
+        gl_green = text(colors.green),
+        gl_comment = text(colors.comment),
+        gl_orange = text(colors.orange),
+        gl_magenta = text(colors.magenta),
         gl_h1_fg = h1_fg,
         gl_h1_bg = util.ensure_contrast(colors.purple, h1_fg, 4.5),
     })

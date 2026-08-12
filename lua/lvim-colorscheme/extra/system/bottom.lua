@@ -34,12 +34,21 @@ function M.generate(colors)
     -- still cannot reach the floor.
     local sel_fg = util.readable_on(colors.blue, colors.bg_dark)
     local t = vim.tbl_extend("force", colors, {
-        b_fg = text(colors.fg), b_magenta = text(colors.magenta), b_blue = text(colors.blue),
-        b_green = text(colors.green), b_yellow = text(colors.yellow), b_orange = text(colors.orange),
-        b_purple = text(colors.purple), b_teal = text(colors.teal), b_cyan = text(colors.cyan),
-        b_red = text(colors.red), b_green_dark = text(colors.green_dark),
-        b_magenta_dark = text(colors.magenta_dark), b_fg_dark = text(colors.fg_dark),
-        b_fg_light = text(colors.fg_light), b_comment = text(colors.comment),
+        b_fg = text(colors.fg),
+        b_magenta = text(colors.magenta),
+        b_blue = text(colors.blue),
+        b_green = text(colors.green),
+        b_yellow = text(colors.yellow),
+        b_orange = text(colors.orange),
+        b_purple = text(colors.purple),
+        b_teal = text(colors.teal),
+        b_cyan = text(colors.cyan),
+        b_red = text(colors.red),
+        b_green_dark = text(colors.green_dark),
+        b_magenta_dark = text(colors.magenta_dark),
+        b_fg_dark = text(colors.fg_dark),
+        b_fg_light = text(colors.fg_light),
+        b_comment = text(colors.comment),
         b_sel_fg = sel_fg,
         b_sel_bg = util.ensure_contrast(colors.blue, sel_fg, 4.5),
     })

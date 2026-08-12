@@ -49,8 +49,19 @@ function M.generate(colors)
     local function ui(hex)
         local v = hex
         for _ = 1, 4 do
-            v = util.ensure_contrast(v, util.hardest(v, colors.bg_soft_dark, colors.bg, colors.bg_dark,
-                colors.bg_float, colors.bg_highlight, colors.bg_visual), 4.5)
+            v = util.ensure_contrast(
+                v,
+                util.hardest(
+                    v,
+                    colors.bg_soft_dark,
+                    colors.bg,
+                    colors.bg_dark,
+                    colors.bg_float,
+                    colors.bg_highlight,
+                    colors.bg_visual
+                ),
+                4.5
+            )
         end
         return v
     end

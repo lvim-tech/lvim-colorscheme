@@ -37,14 +37,18 @@ function M.generate(colors)
         -- at **2.68:1** on solarized_soft while the other pole was available all along.
         tm_mode = util.readable_on(colors.orange_dark, colors.bg_soft_dark),
         tm_mode_bg = util.ensure_contrast(
-            colors.orange_dark, util.readable_on(colors.orange_dark, colors.bg_soft_dark), 4.5
+            colors.orange_dark,
+            util.readable_on(colors.orange_dark, colors.bg_soft_dark),
+            4.5
         ),
         tm_message = text(colors.teal_dark, colors.bg_dark),
         tm_status = text(colors.blue_dark, colors.bg_dark),
         tm_window = text(colors.green, colors.bg_dark),
         tm_window_current = util.readable_on(colors.green, colors.bg_soft_dark),
         tm_window_current_bg = util.ensure_contrast(
-            colors.green, util.readable_on(colors.green, colors.bg_soft_dark), 4.5
+            colors.green,
+            util.readable_on(colors.green, colors.bg_soft_dark),
+            4.5
         ),
         tm_prefix = text(colors.red, colors.bg_soft_dark),
         tm_prefix_copy = text(colors.red, colors.bg_dark),

@@ -34,14 +34,16 @@ function M.generate(colors)
     local function text(hex)
         return util.ensure_contrast(hex, colors.terminal.background, 4.5)
     end
-    local t = setmetatable({}, { __index = function(_, k)
-        local v = colors[k]
-        -- `tree-edge` is the only key this file writes that is not read as text.
-        if type(v) == "string" and v:match("^#%x%x%x%x%x%x$") and k ~= "bg_light" then
-            return text(v)
-        end
-        return v
-    end })
+    local t = setmetatable({}, {
+        __index = function(_, k)
+            local v = colors[k]
+            -- `tree-edge` is the only key this file writes that is not read as text.
+            if type(v) == "string" and v:match("^#%x%x%x%x%x%x$") and k ~= "bg_light" then
+                return text(v)
+            end
+            return v
+        end,
+    })
     return util.template(
         [[
 ---

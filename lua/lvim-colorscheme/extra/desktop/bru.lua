@@ -22,7 +22,6 @@ end
 
 local readable_on = util.readable_on
 
-
 --- The lightest **neutral** that still clears `min` on a chip: the typed part of a hint label.
 ---
 --- The typed characters have to read as spent, and the two obvious ways to say so both failed on
@@ -426,8 +425,15 @@ function M.generate(colors, _, _)
             bru_pill_fg = (function()
                 local brightest, best = colors.bg, -1
                 for _, pill in ipairs({
-                    colors.green, colors.red, colors.orange, colors.purple,
-                    colors.blue, colors.yellow, colors.cyan, colors.magenta, colors.teal,
+                    colors.green,
+                    colors.red,
+                    colors.orange,
+                    colors.purple,
+                    colors.blue,
+                    colors.yellow,
+                    colors.cyan,
+                    colors.magenta,
+                    colors.teal,
                 }) do
                     local lum = util.luminance(pill)
                     if lum > best then
@@ -444,11 +450,7 @@ function M.generate(colors, _, _)
             -- colours/ file. Brightened from purple far enough to read as its own pill next to
             -- command's, and floored against the same `--bg` every pill sits on so a light
             -- palette does not produce one that disappears.
-            bru_prompt_pill = util.ensure_contrast(
-                util.brighten(colors.purple, 0.22, 0.35),
-                colors.bg,
-                3.0
-            ),
+            bru_prompt_pill = util.ensure_contrast(util.brighten(colors.purple, 0.22, 0.35), colors.bg, 3.0),
             -- The quieter tier — a scroll percentage, a tab index, a timestamp. **Floored at 4.5,
             -- not at 3.0.** It sat at 3.0 so that it would still read as secondary, and 3:1 is
             -- WCAG AA for *large* text; bru's chrome is 13px monospace, which is not large, so the
@@ -525,9 +527,7 @@ function M.generate(colors, _, _)
             -- palette's colour, one or two steps of L away from it, and `--red` itself is untouched
             -- for everything that paints with it.
             bru_strip_red = util.ensure_contrast(colors.red, readable_on(colors.red, colors.bg), 4.5),
-            bru_strip_orange = util.ensure_contrast(
-                colors.orange, readable_on(colors.orange, colors.bg), 4.5
-            ),
+            bru_strip_orange = util.ensure_contrast(colors.orange, readable_on(colors.orange, colors.bg), 4.5),
             -- The hint label. **These three are hint-only** — no other rule in this file reads
             -- them — which is why they are named for the label rather than for the accent, unlike
             -- the `on_`/`strip_` pairs above that each serve a strip and a download row.
@@ -592,12 +592,8 @@ function M.generate(colors, _, _)
             bru_tab_loaded = nearest_hue(130, colors.terminal.green_bright, colors.terminal.cyan_bright),
             bru_tab_failed = colors.terminal.red_bright,
 
-            bru_strip_cyan = util.ensure_contrast(
-                colors.cyan, readable_on(colors.cyan, colors.bg), 4.5
-            ),
-            bru_strip_green = util.ensure_contrast(
-                colors.green, readable_on(colors.green, colors.bg), 4.5
-            ),
+            bru_strip_cyan = util.ensure_contrast(colors.cyan, readable_on(colors.cyan, colors.bg), 4.5),
+            bru_strip_green = util.ensure_contrast(colors.green, readable_on(colors.green, colors.bg), 4.5),
             -- --- end accents used as TEXT --------------------------------------------------
 
             -- The two surface steps a page needs — see `surfaces` for the two measurements the
