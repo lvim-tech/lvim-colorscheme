@@ -44,20 +44,20 @@
     --comment: #798991;
 
     --blue: #4d6cae;
-    --cyan: #426b7e;
-    --green: #516339;
+    --cyan: #578ca5;
+    --green: #6f864f;
     --magenta: #b04556;
-    --orange: #9e5a46;
+    --orange: #c9745b;
     --purple: #806594;
     --red: #b14b51;
-    --teal: #336255;
-    --yellow: #655130;
+    --teal: #498776;
+    --yellow: #8e7347;
 
     /* c.colors.completion.* */
     --completion-fg: var(--ui-fg);
     --completion-odd-bg: var(--bg-soft-light);
     --completion-even-bg: var(--bg);
-    --completion-category-fg: #655130;
+    --completion-category-fg: #776343;
     --completion-category-bg: var(--bg);
     --completion-category-border-top: var(--bg);
     --completion-category-border-bottom: var(--bg);
@@ -65,8 +65,8 @@
     --completion-item-selected-bg: var(--bg-light);
     --completion-item-selected-border-top: var(--bg-light);
     --completion-item-selected-border-bottom: var(--bg-light);
-    --completion-item-selected-match-fg: #516339;
-    --completion-match-fg: #915544;
+    --completion-item-selected-match-fg: #5b6b47;
+    --completion-match-fg: #8a584c;
     --completion-scrollbar-fg: var(--ui-fg);
     --completion-scrollbar-bg: var(--bg);
 
@@ -81,9 +81,9 @@
     /* c.colors.downloads.* */
     --downloads-bar-bg: var(--bg);
     --downloads-start-fg: #ffffff;
-    --downloads-start-bg: #426b7e;
+    --downloads-start-bg: #537b8f;
     --downloads-stop-fg: #ffffff;
-    --downloads-stop-bg: #516339;
+    --downloads-stop-bg: #677b4c;
     /* qutebrowser's "none" means "take the system colour"; in CSS the honest
        equivalent is to paint nothing and let what is behind show through. */
     --downloads-system-bg: transparent;
@@ -92,8 +92,8 @@
 
     /* c.colors.hints.* */
     --hints-fg: #ffffff;
-    --hints-bg: #785c24;
-    --hints-match-fg: #dddddd;
+    --hints-bg: #8e703a;
+    --hints-match-fg: #fcfcfc;
 
     /* c.colors.keyhint.* */
     --keyhint-fg: #735d84;
@@ -105,8 +105,8 @@
     --messages-error-bg: #b14b51;
     --messages-error-border: #b14b51;
     --messages-warning-fg: #ffffff;
-    --messages-warning-bg: #9e5a46;
-    --messages-warning-border: #9e5a46;
+    --messages-warning-bg: #a66554;
+    --messages-warning-border: #a66554;
     --messages-info-fg: var(--ui-fg);
     --messages-info-bg: var(--bg);
     --messages-info-border: var(--bg);
@@ -189,10 +189,10 @@
     --statusbar-progress-bg: var(--cyan);
     --statusbar-url-fg: var(--ui-fg);
     --statusbar-url-error-fg: #a2484d;
-    --statusbar-url-hover-fg: #426b7e;
-    --statusbar-url-success-http-fg: #655130;
-    --statusbar-url-success-https-fg: #516339;
-    --statusbar-url-warn-fg: #915544;
+    --statusbar-url-hover-fg: #4b6978;
+    --statusbar-url-success-http-fg: #776343;
+    --statusbar-url-success-https-fg: #5b6b47;
+    --statusbar-url-warn-fg: #8a584c;
 
     /* c.colors.tabs.* */
     --tabs-bar-bg: var(--bg);
@@ -203,8 +203,8 @@
        everforest's `--green` at that width is indistinguishable from its own
        `--yellow`. See `nearest_hue` for which of the theme's colours counts as
        green on a palette whose green is an olive. */
-    --tabs-indicator-start: #785c24;
-    --tabs-indicator-stop: #57722d;
+    --tabs-indicator-start: #a37e35;
+    --tabs-indicator-stop: #75963e;
     --tabs-indicator-error: #d9404c;
     --tabs-indicator-system: transparent;
     --tabs-odd-fg: #506a6a;

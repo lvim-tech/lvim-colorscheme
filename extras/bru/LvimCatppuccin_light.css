@@ -47,17 +47,17 @@
     --cyan: #557278;
     --green: #557153;
     --magenta: #845377;
-    --orange: #866350;
+    --orange: #ac8068;
     --purple: #9078ad;
     --red: #a45a6d;
     --teal: #55736e;
-    --yellow: #655a43;
+    --yellow: #8a7b5e;
 
     /* c.colors.completion.* */
     --completion-fg: var(--ui-fg);
     --completion-odd-bg: var(--bg-soft-light);
     --completion-even-bg: var(--bg);
-    --completion-category-fg: #655a43;
+    --completion-category-fg: #706551;
     --completion-category-bg: var(--bg);
     --completion-category-border-top: var(--bg);
     --completion-category-border-bottom: var(--bg);
@@ -66,7 +66,7 @@
     --completion-item-selected-border-top: var(--bg-light);
     --completion-item-selected-border-bottom: var(--bg-light);
     --completion-item-selected-match-fg: #526c50;
-    --completion-match-fg: #7f5f4d;
+    --completion-match-fg: #785e52;
     --completion-scrollbar-fg: var(--ui-fg);
     --completion-scrollbar-bg: var(--bg);
 
@@ -92,8 +92,8 @@
 
     /* c.colors.hints.* */
     --hints-fg: #ffffff;
-    --hints-bg: #77653d;
-    --hints-match-fg: #e8e8e8;
+    --hints-bg: #85734f;
+    --hints-match-fg: #ffffff;
 
     /* c.colors.keyhint.* */
     --keyhint-fg: #6f5c86;
@@ -105,8 +105,8 @@
     --messages-error-bg: #a45a6d;
     --messages-error-border: #a45a6d;
     --messages-warning-fg: #ffffff;
-    --messages-warning-bg: #866350;
-    --messages-warning-border: #866350;
+    --messages-warning-bg: #8f6e5d;
+    --messages-warning-border: #8f6e5d;
     --messages-info-fg: var(--ui-fg);
     --messages-info-bg: var(--bg);
     --messages-info-border: var(--bg);
@@ -190,9 +190,9 @@
     --statusbar-url-fg: var(--ui-fg);
     --statusbar-url-error-fg: #8f5261;
     --statusbar-url-hover-fg: #516a6f;
-    --statusbar-url-success-http-fg: #655a43;
+    --statusbar-url-success-http-fg: #706551;
     --statusbar-url-success-https-fg: #526c50;
-    --statusbar-url-warn-fg: #7f5f4d;
+    --statusbar-url-warn-fg: #785e52;
 
     /* c.colors.tabs.* */
     --tabs-bar-bg: var(--bg);
@@ -203,7 +203,7 @@
        everforest's `--green` at that width is indistinguishable from its own
        `--yellow`. See `nearest_hue` for which of the theme's colours counts as
        green on a palette whose green is an olive. */
-    --tabs-indicator-start: #77653d;
+    --tabs-indicator-start: #9e8754;
     --tabs-indicator-stop: #50824c;
     --tabs-indicator-error: #cc5377;
     --tabs-indicator-system: transparent;

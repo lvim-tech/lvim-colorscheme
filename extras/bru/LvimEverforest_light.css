@@ -51,13 +51,13 @@
     --purple: #918c9d;
     --red: #c74d4d;
     --teal: #3d8b7c;
-    --yellow: #6b6040;
+    --yellow: #8f8156;
 
     /* c.colors.completion.* */
     --completion-fg: var(--ui-fg);
     --completion-odd-bg: var(--bg-soft-light);
     --completion-even-bg: var(--bg);
-    --completion-category-fg: #6b6040;
+    --completion-category-fg: #6c634a;
     --completion-category-bg: var(--bg);
     --completion-category-border-top: var(--bg);
     --completion-category-border-bottom: var(--bg);
@@ -92,8 +92,8 @@
 
     /* c.colors.hints.* */
     --hints-fg: #ffffff;
-    --hints-bg: #7c6c36;
-    --hints-match-fg: #f1f1f1;
+    --hints-bg: #827546;
+    --hints-match-fg: #ffffff;
 
     /* c.colors.keyhint.* */
     --keyhint-fg: #686473;
@@ -190,7 +190,7 @@
     --statusbar-url-fg: var(--ui-fg);
     --statusbar-url-error-fg: #a44747;
     --statusbar-url-hover-fg: #4f6c52;
-    --statusbar-url-success-http-fg: #6b6040;
+    --statusbar-url-success-http-fg: #6c634a;
     --statusbar-url-success-https-fg: #67693d;
     --statusbar-url-warn-fg: #8d522b;
 
@@ -203,7 +203,7 @@
        everforest's `--green` at that width is indistinguishable from its own
        `--yellow`. See `nearest_hue` for which of the theme's colours counts as
        green on a palette whose green is an olive. */
-    --tabs-indicator-start: #7c6c36;
+    --tabs-indicator-start: #a18e47;
     --tabs-indicator-stop: #519a5b;
     --tabs-indicator-error: #eb4646;
     --tabs-indicator-system: transparent;
