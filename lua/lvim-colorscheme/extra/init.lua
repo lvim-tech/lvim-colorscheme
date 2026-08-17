@@ -86,6 +86,7 @@ M.extras = {
   hyprland        = { ext = "conf", url = "https://hypr.land", label = "Hyprland", group = "desktop" },
   niri            = { ext = "kdl", url = "https://github.com/YaLTeR/niri", label = "Niri", group = "desktop" },
   qutebrowser     = { ext = "py", url = "https://github.com/qutebrowser/qutebrowser", label = "Qutebrowser", group = "desktop" },
+  firefox         = { ext = "json", url = "https://www.mozilla.org/firefox", label = "Firefox", group = "desktop" },
   rofi            = { ext = "rasi", url = "https://github.com/davatorium/rofi", label = "Rofi", group = "desktop" },
   starship        = { ext = "toml", url = "https://starship.rs", label = "Starship", group = "shell" },
   tmux            = { ext = "conf", url = "https://github.com/tmux/tmux/wiki", label = "Tmux", group = "shell" },

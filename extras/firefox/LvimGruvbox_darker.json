@@ -1,0 +1,52 @@
+{
+  "manifest_version": 2,
+  "name": "Lvim Colorscheme GruvboxDarker",
+  "version": "1.0.0",
+  "author": "lvim-tech",
+  "browser_specific_settings": { "gecko": { "id": "lvim-gruvbox-darker@lvim-tech" } },
+  "theme": {
+    "colors": {
+      "frame": "#1a1918",
+      "frame_inactive": "#1c1b1a",
+      "tab_background_text": "#736457",
+      "tab_selected": "#222120",
+      "tab_text": "#908577",
+      "tab_background_separator": "#1c1b1a",
+      "tab_line": "#497188",
+      "tab_loading": "#497188",
+      "toolbar": "#1e1d1c",
+      "toolbar_text": "#908577",
+      "bookmark_text": "#908577",
+      "toolbar_field": "#1a1918",
+      "toolbar_field_text": "#8b8073",
+      "toolbar_field_border": "#1c1b1a",
+      "toolbar_field_focus": "#1c1b1a",
+      "toolbar_field_text_focus": "#908577",
+      "toolbar_field_border_focus": "#497188",
+      "toolbar_field_highlight": "#497188",
+      "toolbar_top_separator": "#1a1918",
+      "toolbar_bottom_separator": "#1c1b1a",
+      "toolbar_vertical_separator": "#1c1b1a",
+      "button_background_hover": "#201f1e",
+      "button_background_active": "#222120",
+      "popup": "#1a1918",
+      "popup_text": "#908577",
+      "popup_border": "#1c1b1a",
+      "popup_highlight": "#222120",
+      "popup_highlight_text": "#908577",
+      "ntp_background": "#1e1d1c",
+      "ntp_text": "#908577",
+      "sidebar": "#1a1918",
+      "sidebar_text": "#908577",
+      "sidebar_border": "#1c1b1a",
+      "sidebar_highlight": "#497188",
+      "sidebar_highlight_text": "#1a1918",
+      "icons": "#908577",
+      "icons_attention": "#757845"
+    },
+    "properties": {
+      "color_scheme": "dark",
+      "content_color_scheme": "dark"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "manifest_version": 2,
+  "name": "Lvim Colorscheme TokyonightSoft",
+  "version": "1.0.0",
+  "author": "lvim-tech",
+  "browser_specific_settings": { "gecko": { "id": "lvim-tokyonight-soft@lvim-tech" } },
+  "theme": {
+    "colors": {
+      "frame": "#1e212a",
+      "frame_inactive": "#20232c",
+      "tab_background_text": "#656c8b",
+      "tab_selected": "#262932",
+      "tab_text": "#b5b9ca",
+      "tab_background_separator": "#20232c",
+      "tab_line": "#6073a4",
+      "tab_loading": "#6073a4",
+      "toolbar": "#22252e",
+      "toolbar_text": "#b5b9ca",
+      "bookmark_text": "#b5b9ca",
+      "toolbar_field": "#1e212a",
+      "toolbar_field_text": "#b5b9ca",
+      "toolbar_field_border": "#20232c",
+      "toolbar_field_focus": "#20232c",
+      "toolbar_field_text_focus": "#b5b9ca",
+      "toolbar_field_border_focus": "#6073a4",
+      "toolbar_field_highlight": "#6073a4",
+      "toolbar_top_separator": "#1e212a",
+      "toolbar_bottom_separator": "#20232c",
+      "toolbar_vertical_separator": "#20232c",
+      "button_background_hover": "#242730",
+      "button_background_active": "#262932",
+      "popup": "#1e212a",
+      "popup_text": "#b5b9ca",
+      "popup_border": "#20232c",
+      "popup_highlight": "#262932",
+      "popup_highlight_text": "#b5b9ca",
+      "ntp_background": "#22252e",
+      "ntp_text": "#b5b9ca",
+      "sidebar": "#1e212a",
+      "sidebar_text": "#b5b9ca",
+      "sidebar_border": "#20232c",
+      "sidebar_highlight": "#6073a4",
+      "sidebar_highlight_text": "#1e212a",
+      "icons": "#b5b9ca",
+      "icons_attention": "#788a67"
+    },
+    "properties": {
+      "color_scheme": "dark",
+      "content_color_scheme": "dark"
+    }
+  }
+}

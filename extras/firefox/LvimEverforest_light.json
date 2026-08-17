@@ -1,0 +1,52 @@
+{
+  "manifest_version": 2,
+  "name": "Lvim Colorscheme EverforestLight",
+  "version": "1.0.0",
+  "author": "lvim-tech",
+  "browser_specific_settings": { "gecko": { "id": "lvim-everforest-light@lvim-tech" } },
+  "theme": {
+    "colors": {
+      "frame": "#dadada",
+      "frame_inactive": "#dfdfdf",
+      "tab_background_text": "#727c6d",
+      "tab_selected": "#eeeeee",
+      "tab_text": "#496a6c",
+      "tab_background_separator": "#dfdfdf",
+      "tab_line": "#5089a6",
+      "tab_loading": "#5089a6",
+      "toolbar": "#E4E4E4",
+      "toolbar_text": "#496a6c",
+      "bookmark_text": "#496a6c",
+      "toolbar_field": "#dadada",
+      "toolbar_field_text": "#476567",
+      "toolbar_field_border": "#dfdfdf",
+      "toolbar_field_focus": "#dfdfdf",
+      "toolbar_field_text_focus": "#496a6c",
+      "toolbar_field_border_focus": "#5089a6",
+      "toolbar_field_highlight": "#5089a6",
+      "toolbar_top_separator": "#dadada",
+      "toolbar_bottom_separator": "#dfdfdf",
+      "toolbar_vertical_separator": "#dfdfdf",
+      "button_background_hover": "#e9e9e9",
+      "button_background_active": "#eeeeee",
+      "popup": "#dadada",
+      "popup_text": "#496a6c",
+      "popup_border": "#dfdfdf",
+      "popup_highlight": "#eeeeee",
+      "popup_highlight_text": "#496a6c",
+      "ntp_background": "#E4E4E4",
+      "ntp_text": "#496a6c",
+      "sidebar": "#dadada",
+      "sidebar_text": "#496a6c",
+      "sidebar_border": "#dfdfdf",
+      "sidebar_highlight": "#5089a6",
+      "sidebar_highlight_text": "#dadada",
+      "icons": "#496a6c",
+      "icons_attention": "#7b7e3d"
+    },
+    "properties": {
+      "color_scheme": "light",
+      "content_color_scheme": "light"
+    }
+  }
+}
