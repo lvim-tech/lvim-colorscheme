@@ -28,12 +28,11 @@ function M.generate(colors, _, opts)
     local warning = util.ensure_contrast(colors.red, term_bg, 3)
     local error_color = util.ensure_contrast(colors.red, term_bg, 3)
 
-    local title_dark = util.ensure_contrast(colors.bg, accent, 3)
-    local title_light = "#ffffff"
-    local title_fg = title_light
-    if util.contrast(title_dark, accent) > util.contrast(title_light, accent) then
-        title_fg = title_dark
-    end
+    -- The title ink: badge text on `accent`, the active tab label on `accent_alt`. The rule lives
+    -- in `util.title_fg` and is judged once per theme on EVERY surface the badge-painting family
+    -- paints (these floored accents and keyforge/mailforge's raw hues alike), so all seven apps
+    -- put byte-identical ink on their chips.
+    local title_fg = util.title_fg(colors)
 
     local subtle = util.ensure_contrast(colors.bg_light, term_bg, 1.6)
 

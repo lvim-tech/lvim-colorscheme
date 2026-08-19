@@ -63,23 +63,11 @@ function M.generate(colors, _, opts)
     local warning = util.ensure_contrast(colors.red, term_bg, 3)
     local error_color = util.ensure_contrast(colors.red, term_bg, 3)
 
-    -- The title badge is the one place clipack paints a background: its text sits ON `accent`,
-    -- so it is checked against the accent rather than against the terminal.
-    --
-    -- WHICHEVER end of the scale the accent can actually carry, not the editor background lifted
-    -- until it clears a floor. Lifting is what the accent change exposed: against a salmon accent
-    -- the dark background passed at 3.76 and stayed dark, but against the blue one it measured 2.88
-    -- and was walked up — hue intact — to a pale blue #93d8fc that scraped 3.02 and read as a
-    -- washed-out badge. White on the same accent measures 4.71, black 4.46.
-    --
-    -- So both ends are tried and the better one wins, which also keeps the badge legible on the
-    -- light styles, where the dark end is the right answer.
-    local title_dark = util.ensure_contrast(colors.bg, accent, 3)
-    local title_light = "#ffffff"
-    local title_fg = title_light
-    if util.contrast(title_dark, accent) > util.contrast(title_light, accent) then
-        title_fg = title_dark
-    end
+    -- The title ink: badge text on `accent`, the active tab label on `accent_alt`. The rule lives
+    -- in `util.title_fg` and is judged once per theme on EVERY surface the badge-painting family
+    -- paints (these floored accents and keyforge/mailforge's raw hues alike), so all seven apps
+    -- put byte-identical ink on their chips.
+    local title_fg = util.title_fg(colors)
 
     -- Unfocused pane borders. `bg_light` is the palette's own "one step off the background"
     -- value, which is what a quiet border wants — but it is a step off the EDITOR background,

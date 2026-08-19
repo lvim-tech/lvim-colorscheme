@@ -240,6 +240,72 @@ function M.readable_on(accent, dark)
     return dark
 end
 
+--- The ONE title ink of the whole badge-painting family (clipack, configer, themer, ql, secmon,
+--- keyforge, mailforge): the colour that writes chip names and the active tab label on the
+--- theme's accent surfaces.
+---
+--- Judged on EVERY surface the family actually paints it on — the raw `blue` and `orange`
+--- (keyforge and mailforge write the palette hues) AND the same two floored against the terminal
+--- background (how the five terminal apps derive `accent` / `accent_alt`). One judged set, one
+--- value: every app gets byte-identical ink per theme BY CONSTRUCTION. Judging each app on its
+--- own pair instead let the two derivations disagree in DIRECTION — measured on dracula, material
+--- and nightfox light, the floored accents came out dark enough for white to win while the raw
+--- ones picked near-black — and a chip that is white in one app and black in the next is exactly
+--- the mismatch a shared ink exists to prevent.
+---
+--- The rule: both ends of the scale are tried and the better one wins, judged on the WORSE
+--- surface, since that is the one the reader meets. The light end is plain white; the dark end
+--- starts from the palette background and walks hsluv lightness DOWN (saturation held to the L:S
+--- ratio — `ensure_contrast`'s own stepping, hue intact) until it clears 4.5 everywhere or
+--- bottoms out, keeping the best point reached.
+---
+--- 4.5 is not always reachable: an accent caps what any text on it can attain (kanagawa's blue
+--- caps at 3.80:1 with pure black, and no colour does better on the blue/orange pair), and the
+--- accents are the theme's own hues, which must not move for the badge's sake. So the best end is
+--- kept — the same rule for every style, no per-style exceptions — which stays above the 3.084
+--- reference floor and above the 3.0 the title badge was originally held to.
+---@param colors ColorScheme  the resolved palette (bg, blue, orange, terminal.background)
+---@return string
+function M.title_fg(colors)
+    local bg = colors.bg
+    local term_bg = colors.terminal.background
+    local surfaces = {
+        colors.blue,
+        colors.orange,
+        M.ensure_contrast(colors.blue, term_bg, 3),
+        M.ensure_contrast(colors.orange, term_bg, 3),
+    }
+    local function worst(c)
+        local v = math.huge
+        for _, s in ipairs(surfaces) do
+            v = math.min(v, M.contrast(c, s))
+        end
+        return v
+    end
+    local hsluv = require("lvim-colorscheme.hsluv")
+    local hsl = hsluv.hex_to_hsluv(bg)
+    local l0, s0 = hsl[3], hsl[2]
+    local dark, dark_v = bg, worst(bg)
+    for _ = 1, 100 do
+        hsl[3] = hsl[3] - 1
+        if hsl[3] < 0 then
+            break
+        end
+        if l0 > 0 then
+            hsl[2] = math.min(s0 * (hsl[3] / l0), 100)
+        end
+        local c = hsluv.hsluv_to_hex(hsl)
+        local v = worst(c)
+        if v > dark_v then
+            dark, dark_v = c, v
+        end
+        if v >= 4.5 then
+            break
+        end
+    end
+    return worst("#ffffff") >= dark_v and "#ffffff" or dark
+end
+
 --- Of the surfaces a colour may be painted on, the one it has the hardest time on: the nearest in
 --- luminance. A colour floored against that one clears all of them.
 ---

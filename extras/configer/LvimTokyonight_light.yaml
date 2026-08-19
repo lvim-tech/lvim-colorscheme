@@ -30,4 +30,4 @@ colors:
     # Failures.
     error: "#ab5867"
     # Text of the title badge, drawn on `accent`.
-    title_fg: "#ffffff"
+    title_fg: "#0d0d0d"

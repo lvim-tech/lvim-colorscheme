@@ -17,4 +17,4 @@ subtle     = "#354256"      # unfocused borders and dividers
 success    = "#879978"     # freeze on, healthy state
 warning    = "#ac6e74"     # a warning (same hue as error, not bold)
 error      = "#ac6e74"       # an error / destructive action (bold)
-title_fg   = "#1d2128"    # foreground drawn on the accent badge
+title_fg   = "#1b1f25"    # foreground drawn on the accent badge
