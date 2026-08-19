@@ -1,13 +1,13 @@
 // Lvim Colorscheme EverforestSoft
 (
     selected_tab: Some("#379ac3"),
-    command_fg: Some("#82907e"),
+    command_fg: Some("#82907d"),
     selection_bg: Some("#2e3439"),
     selection_fg: Some("#8f9f8b"),
     use_selection_fg: Some(true),
     cmdbar_bg: Some("#202527"),
     cmdbar_extra_lines_bg: Some("#202527"),
-    disabled_fg: Some("#809873"),
+    disabled_fg: Some("#85977b"),
     diff_line_add: Some("#92962d"),
     diff_line_delete: Some("#e36a6a"),
     diff_file_added: Some("#92962d"),

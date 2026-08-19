@@ -25,9 +25,9 @@ colors:
     # Section headings, the active tab and step markers.
     accent_alt: "#cc7942"
     # Default foreground.
-    text: "#9baf95"
+    text: "#9bae94"
     # Descriptions, field labels, hints, streamed build output.
-    muted: "#687760"
+    muted: "#717e6a"
     # Unfocused pane borders.
     subtle: "#404c56"
     # Installed packages and completed operations.

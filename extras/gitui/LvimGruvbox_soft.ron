@@ -1,13 +1,13 @@
 // Lvim Colorscheme GruvboxSoft
 (
     selected_tab: Some("#4b95ba"),
-    command_fg: Some("#988877"),
+    command_fg: Some("#988876"),
     selection_bg: Some("#2a2928"),
     selection_fg: Some("#9c8f80"),
     use_selection_fg: Some(true),
     cmdbar_bg: Some("#242322"),
     cmdbar_extra_lines_bg: Some("#242322"),
-    disabled_fg: Some("#a18770"),
+    disabled_fg: Some("#9f8873"),
     diff_line_add: Some("#8c9045"),
     diff_line_delete: Some("#e16666"),
     diff_file_added: Some("#8c9045"),

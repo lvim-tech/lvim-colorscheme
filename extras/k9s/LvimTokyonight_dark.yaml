@@ -7,9 +7,9 @@ k9s:
   prompt:
     fgColor: "#b5b9ca"
     bgColor: "#1d2028"
-    suggestColor: "#616784"
+    suggestColor: "#6a7190"
   info:
-    fgColor: "#8088ac"
+    fgColor: "#8088a9"
     sectionColor: "#b2b6c7"
   dialog:
     fgColor: "#b2b6c7"
@@ -38,8 +38,8 @@ k9s:
       addColor: "#7c906a"
       errorColor: "#ca6e7e"
       highlightColor: "#bb866d"
-      killColor: "#8088ac"
-      completedColor: "#8088ac"
+      killColor: "#8088a9"
+      completedColor: "#8088a9"
     title:
       fgColor: "#b2b6c7"
       bgColor: "#1d2028"
@@ -66,7 +66,7 @@ k9s:
         sorterColor: "#6a8da7"
     yaml:
       keyColor: "#728ac6"
-      colonColor: "#8088ac"
+      colonColor: "#8088a9"
       valueColor: "#b2b6c7"
     logs:
       fgColor: "#b2b6c7"

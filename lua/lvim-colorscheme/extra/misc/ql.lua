@@ -21,7 +21,7 @@ function M.generate(colors, _, opts)
     local term_bg = colors.terminal.background
 
     local text = util.ensure_contrast(colors.terminal.foreground, term_bg, 4.5)
-    local muted = util.ensure_contrast(colors.comment, term_bg, 3)
+    local muted = util.ensure_contrast(colors.comment, term_bg, 3.2)
     local accent = util.ensure_contrast(colors.blue, term_bg, 3)
     local accent_alt = util.ensure_contrast(colors.orange, term_bg, 3)
     local success = util.ensure_contrast(colors.green, term_bg, 3)

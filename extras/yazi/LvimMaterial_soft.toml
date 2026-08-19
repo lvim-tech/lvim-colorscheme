@@ -111,7 +111,7 @@ cand            = { fg = "#65a1bd" }
 rest            = { fg = "#7294e1" }
 desc            = { fg = "#e07383" }
 separator       = " ➜ "
-separator_style = { fg = "#6a7981" }
+separator_style = { fg = "#6e7f87" }
 
 [confirm]
 border  = { fg = "#5179d1" }

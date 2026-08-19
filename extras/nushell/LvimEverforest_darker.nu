@@ -8,20 +8,20 @@ export def main [] {
         bool: "#5b9463"
         int: "#8c849d"
         filesize: "#5b9463"
-        duration: "#7d8b7a"
+        duration: "#7e8a79"
         date: "#bb755e"
-        range: "#7d8b7a"
-        float: "#7d8b7a"
-        string: "#7d8b7a"
+        range: "#7e8a79"
+        float: "#7e8a79"
+        string: "#7e8a79"
         nothing: "#de5e5e"
         binary: "#8c849d"
-        cell-path: "#7d8b7a"
+        cell-path: "#7e8a79"
         row_index: { fg: "#878b35" attr: "b" }
-        record: "#7d8b7a"
-        list: "#7d8b7a"
-        block: "#7d8b7a"
-        hints: "#535d4e"
-        search_result: { fg: "#fdcdcd" bg: "#5a6158" }
+        record: "#7e8a79"
+        list: "#7e8a79"
+        block: "#7e8a79"
+        hints: "#717e6a"
+        search_result: { fg: "#1e1717" bg: "#798575" }
 
         shape_and: { fg: "#8c849d" attr: "b" }
         shape_binary: { fg: "#8c849d" attr: "b" }

@@ -14,7 +14,7 @@ name = "LvimGruvbox_soft"
 
 [colors]
 # Default foreground.
-Base = "#b49f88"
+Base = "#b49f87"
 # Failures.
 AlertError = "#ca4f4f"
 # Non-fatal problems.
@@ -24,7 +24,7 @@ AlertInfo = "#757845"
 # Secondary text.
 Muted = "#87786a"
 # Tertiary text: timestamps, durations, exit codes.
-Annotation = "#64584e"
+Annotation = "#63584f"
 # The selected entry.
 Important = "#bb755e"
 # Section headings.
@@ -36,5 +36,5 @@ SyntaxCommand = "#757845"
 SyntaxFlag = "#527a57"
 SyntaxString = "#c47d54"
 SyntaxVariable = "#bb755e"
-SyntaxOperator = "#b49f88"
-SyntaxComment = "#64584e"
+SyntaxOperator = "#b49f87"
+SyntaxComment = "#63584f"

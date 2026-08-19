@@ -24,7 +24,7 @@ AlertInfo = "#727c3e"
 # Secondary text.
 Muted = "#79878c"
 # Tertiary text: timestamps, durations, exit codes.
-Annotation = "#576267"
+Annotation = "#596366"
 # The selected entry.
 Important = "#c0578a"
 # Section headings.
@@ -37,4 +37,4 @@ SyntaxFlag = "#4b8580"
 SyntaxString = "#b46548"
 SyntaxVariable = "#c0578a"
 SyntaxOperator = "#a7afaf"
-SyntaxComment = "#576267"
+SyntaxComment = "#596366"

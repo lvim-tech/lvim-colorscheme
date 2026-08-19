@@ -26,7 +26,7 @@ low_battery_color = "#bc858a"
 headers = { color = "#7c95af", bold = true }
 
 [styles.graphs]
-graph_color = "#677185"
+graph_color = "#6e798e"
 legend_text = "#8b93a1"
 
 [styles.widgets]
@@ -35,4 +35,4 @@ selected_border_color = "#73889e"
 widget_title = { color = "#b4bac6", bold = true }
 text = "#b3bac6"
 selected_text = { color = "#242934", bg_color = "#7a93ac" }
-disabled_text = "#8292b2"
+disabled_text = "#8393b1"

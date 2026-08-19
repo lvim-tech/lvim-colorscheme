@@ -8,7 +8,7 @@
     file-style = omit "#e86b50"
     commit-decoration-style = "#b65745" ol
     commit-style = raw
-    blame-separator-style = "#68999b"
+    blame-separator-style = "#67999b"
     hunk-header-decoration-style = "#e19556" ul
     hunk-header-file-style = "#80995b"
     hunk-header-line-number-style = "#7f9a53"

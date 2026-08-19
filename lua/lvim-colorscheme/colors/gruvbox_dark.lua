@@ -7,11 +7,11 @@ return {
 
     fg_light = "#746c63",
     fg_soft_light = "#6c645c",
-    fg = "#645c54",
+    fg = "#86796b",
     fg_soft_dark = "#5c544d",
     fg_dark = "#544c45",
 
-    comment = "#63584f",
+    comment = "#837263",
 
     blue = "#497188",
     blue_dark = "#3f6376",

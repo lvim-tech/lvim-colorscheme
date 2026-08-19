@@ -12,7 +12,7 @@
 accent     = "#447ca2"      # selection / active highlight, title & border accent
 accent_alt = "#e19556"  # headings, suspects, staged edits, new peers
 text       = "#6aaeae"        # default foreground
-muted      = "#577576"       # hints and secondary labels
+muted      = "#5b7d7e"       # hints and secondary labels
 subtle     = "#344751"      # unfocused borders and dividers
 success    = "#7e965a"     # freeze on, healthy state
 warning    = "#d75e52"     # a warning (same hue as error, not bold)

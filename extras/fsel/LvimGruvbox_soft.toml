@@ -23,9 +23,9 @@ apps_border_color = "#484543"
 input_border_color = "#484543"
 
 # Panel text.
-main_text_color = "#b49f88"
-apps_text_color = "#b49f88"
-input_text_color = "#b49f88"
+main_text_color = "#b49f87"
+apps_text_color = "#b49f87"
+input_text_color = "#b49f87"
 
 # --- dmenu mode ------------------------------------------------------------
 
@@ -35,9 +35,9 @@ header_title_color = "#4a748c"
 main_border_color = "#484543"
 items_border_color = "#484543"
 input_border_color = "#484543"
-main_text_color = "#b49f88"
-items_text_color = "#b49f88"
-input_text_color = "#b49f88"
+main_text_color = "#b49f87"
+items_text_color = "#b49f87"
+input_text_color = "#b49f87"
 
 # --- cclip mode ------------------------------------------------------------
 
@@ -47,6 +47,6 @@ header_title_color = "#4a748c"
 main_border_color = "#484543"
 items_border_color = "#484543"
 input_border_color = "#484543"
-main_text_color = "#b49f88"
-items_text_color = "#b49f88"
-input_text_color = "#b49f88"
+main_text_color = "#b49f87"
+items_text_color = "#b49f87"
+input_text_color = "#b49f87"

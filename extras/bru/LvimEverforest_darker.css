@@ -27,21 +27,21 @@
        makes for exactly this reason. Every interface text colour below points
        here rather than at --fg; --fg itself stays verbatim, because a page or a
        hand-written override still wants the palette's own answer. */
-    --ui-fg: #82907e;
+    --ui-fg: #82907d;
     /* The text on a mode pill: whichever of the theme's own dark and a plain
        white reads better on the pills themselves. `lvim-hud`'s `pill_on`
        (chrome/init.lua:73) makes exactly this choice for the statusline, and
        the two must not disagree — they are the same word on the same screen. */
     --pill-fg: #1f2529;
-    --ui-fg-dim: #849e77;
+    --ui-fg-dim: #899c7f;
 
     --fg-light: #646c62;
     --fg-soft-light: #5f675d;
-    --fg: #5a6158;
+    --fg: #798575;
     --fg-soft-dark: #555c53;
     --fg-dark: #50574e;
 
-    --comment: #535d4e;
+    --comment: #717e6a;
 
     --blue: #42728b;
     --cyan: #527a57;
@@ -217,17 +217,17 @@
        find and an eye cannot, which is what was reported. The surface is a
        measured step now, and the text on it is floored higher than the text on a
        tab that is merely open, so the active tab is brighter in both. */
-    --tabs-selected-odd-fg: #bddbb4;
+    --tabs-selected-odd-fg: #bddab3;
     --tabs-selected-odd-bg: #2e414b;
-    --tabs-selected-even-fg: #bddbb4;
+    --tabs-selected-even-fg: #bddab3;
     --tabs-selected-even-bg: #2e414b;
     --tabs-pinned-odd-fg: #8b9b86;
     --tabs-pinned-odd-bg: var(--bg-soft-light);
     --tabs-pinned-even-fg: var(--ui-fg);
     --tabs-pinned-even-bg: var(--bg);
-    --tabs-pinned-selected-odd-fg: #bddbb4;
+    --tabs-pinned-selected-odd-fg: #bddab3;
     --tabs-pinned-selected-odd-bg: #2e414b;
-    --tabs-pinned-selected-even-fg: #bddbb4;
+    --tabs-pinned-selected-even-fg: #bddab3;
     --tabs-pinned-selected-even-bg: #2e414b;
 
     /* c.colors.tooltip.* */

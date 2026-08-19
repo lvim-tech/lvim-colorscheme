@@ -26,7 +26,7 @@ low_battery_color = "#dc7b7f"
 headers = { color = "#7596e3", bold = true }
 
 [styles.graphs]
-graph_color = "#5e6a70"
+graph_color = "#6e7f87"
 legend_text = "#819aa5"
 
 [styles.widgets]

@@ -7,7 +7,7 @@ text = "#18191f"
 cursor = "#6c7f54"
 
 [colors.selection]
-text = "#54546d"
+text = "#7b7b9a"
 background = "#1e1f25"
 
 [colors.normal]

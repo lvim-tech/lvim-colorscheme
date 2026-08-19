@@ -7,7 +7,7 @@
     use_selection_fg: Some(true),
     cmdbar_bg: Some("#002732"),
     cmdbar_extra_lines_bg: Some("#002732"),
-    disabled_fg: Some("#788f97"),
+    disabled_fg: Some("#7b8f95"),
     diff_line_add: Some("#859239"),
     diff_line_delete: Some("#e26361"),
     diff_file_added: Some("#859239"),

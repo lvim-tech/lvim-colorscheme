@@ -8,7 +8,7 @@ palette = {
     "foreground": "#9da4a4",
     "foreground-alt": "#969e9e",
     "foreground-attention": "#889091",
-    "comment": "#5d6a6f",
+    "comment": "#6f7f84",
     "cyan": "#4b8580",
     "green": "#727c3e",
     "orange": "#b46548",
@@ -32,7 +32,7 @@ palette = {
     # only the text lines read. `extra/desktop/bru.lua` makes the identical split for the identical
     # reason, and the two files are deliberately the same 96 settings in the same order.
     "ui-foreground": "#9da4a4",
-    "ui-comment": "#748a91",
+    "ui-comment": "#778a8f",
     "text-red": "#dd5755",
     "text-green": "#7e8a3c",
     "text-yellow": "#9f8549",
@@ -62,7 +62,7 @@ palette = {
     "strip-cyan": "#4a7f7b",
     "strip-purple": "#727494",
     "strip-pink": "#b65584",
-    "hint-match": "#202222",
+    "hint-match": "#212222",
 }
 
 # Every key below exists in qutebrowser's own configdata.yml — checked against

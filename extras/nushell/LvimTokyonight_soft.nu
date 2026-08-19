@@ -20,7 +20,7 @@ export def main [] {
         record: "#b2b6c7"
         list: "#b2b6c7"
         block: "#b2b6c7"
-        hints: "#616784"
+        hints: "#6a7190"
         search_result: { fg: "#603e43" bg: "#b2b6c7" }
 
         shape_and: { fg: "#9484b1" attr: "b" }

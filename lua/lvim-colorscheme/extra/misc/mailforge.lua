@@ -7,9 +7,16 @@
 --     cp extras/mailforge/*.yaml ~/.config/mailforge/themes/
 --
 -- It uses the same ten hue roles keyforge does (its UI tells apart red/yellow/green/blue/purple/
--- orange), so its file carries those rather than clipack's nine semantic roles. The values are the
--- palette's own hues, with bg_alt and dim blended off bg and fg; mailforge lifts anything below its
--- readability floor on load.
+-- orange), so its file carries those rather than clipack's nine semantic roles. The hues are the
+-- palette's own; the surfaces (`bg`, `bg_alt`) are blended the way the shared loader blends them.
+--
+-- The two TEXT roles are NOT handed over raw. They used to be — `fg` straight off the palette and
+-- `dim` blended off it — on the strength of the loader lifting anything below its floor on load.
+-- Measured 2026-08-19 against the reference rendering (3.084:1), that lift is not what reaches the
+-- screen: `dim` came out at 1.46:1 on kanagawa_soft and 1.57:1 on everforest_dark, and `fg` itself
+-- failed in the nine muted-foreground styles. So both text roles clear their floor here, against
+-- BOTH surfaces — the same treatment clipack's generator already applies, and identical to
+-- keyforge's, which shares this file's shape role for role.
 --
 ---@module "lvim-colorscheme.extra.mailforge"
 
@@ -35,11 +42,33 @@ end
 --- @param _ table  highlight groups, unused: mailforge maps from the palette
 --- @param opts table
 function M.generate(colors, _, opts)
+    -- The surfaces first: they are what the text has to clear, and they do not move. `bg_alt` is
+    -- the palette background nudged a step toward the palette foreground — the raw one, so the
+    -- selected-row surface stays exactly the shade it has always been.
+    local bg = colors.bg
+    local bg_alt = blend(colors.bg, colors.fg, 0.06)
+
+    -- Text is drawn on BOTH surfaces, so both have to be cleared. `ensure_contrast` is a floor and
+    -- walks hsluv lightness away from the background, so applying it twice is monotone: the second
+    -- call can only push further out, never back across the first. Body text at 4.5 (WCAG AA),
+    -- secondary text at 3.2 — the same tier clipack's `muted` uses, which is what the reference
+    -- rendering was measured on.
+    local fg = util.ensure_contrast(colors.fg, bg, 4.5)
+    fg = util.ensure_contrast(fg, bg_alt, 4.5)
+    -- `dim` is derived from the LIFTED foreground, not the palette one: blended off a foreground
+    -- that is itself unreadable it started below the floor and had to be dragged back up, which
+    -- cost the tier its relation to the body text. Pulled most of the way back to the background
+    -- from a foreground that reads, it lands under `fg` and stays there — the floor below only
+    -- catches the styles whose foreground and background sit too close to leave room.
+    local dim = blend(fg, bg, 0.45)
+    dim = util.ensure_contrast(dim, bg, 3.2)
+    dim = util.ensure_contrast(dim, bg_alt, 3.2)
+
     colors.mailforge_theme_name = "Lvim" .. (opts.style:gsub("^%l", string.upper))
-    colors.mailforge_bg = colors.bg
-    colors.mailforge_bg_alt = blend(colors.bg, colors.fg, 0.06)
-    colors.mailforge_fg = colors.fg
-    colors.mailforge_dim = blend(colors.fg, colors.bg, 0.45)
+    colors.mailforge_bg = bg
+    colors.mailforge_bg_alt = bg_alt
+    colors.mailforge_fg = fg
+    colors.mailforge_dim = dim
     colors.mailforge_red = colors.red
     colors.mailforge_yellow = colors.yellow
     colors.mailforge_green = colors.green
@@ -58,8 +87,9 @@ function M.generate(colors, _, opts)
 #
 # Use, in mailforge's config: theme: ${mailforge_theme_name}
 #
-# mailforge lifts any role below its readability floor on load; a missing role
-# falls back to the built-in Everforest.
+# fg and dim already clear their contrast floor against BOTH bg and bg_alt
+# (4.5 and 3.2), so mailforge's own load-time lift has nothing left to do here;
+# a missing role still falls back to the built-in Everforest.
 
 name: ${mailforge_theme_name}
 

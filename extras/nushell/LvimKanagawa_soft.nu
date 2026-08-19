@@ -20,8 +20,8 @@ export def main [] {
         record: "#8a8aa9"
         list: "#8a8aa9"
         block: "#8a8aa9"
-        hints: "#4e4e73"
-        search_result: { fg: "#f5bebe" bg: "#54546d" }
+        hints: "#717193"
+        search_result: { fg: "#161212" bg: "#7b7b9a" }
 
         shape_and: { fg: "#9186ae" attr: "b" }
         shape_binary: { fg: "#9186ae" attr: "b" }

@@ -11,7 +11,7 @@ return {
     fg_soft_dark = "#6c777b",
     fg_dark = "#5f6a6e",
 
-    comment = "#5f6a6e",
+    comment = "#6f7f84",
 
     blue = "#4f7ea3",
     blue_dark = "#477193",

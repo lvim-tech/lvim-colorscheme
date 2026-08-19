@@ -1,31 +1,31 @@
 # Lvim Colorscheme GruvboxDarker
 k9s:
   body:
-    fgColor: "#958575"
+    fgColor: "#958574"
     bgColor: "#1a1918"
     logoColor: "#635d71"
   prompt:
     fgColor: "#908577"
     bgColor: "#1e1d1c"
-    suggestColor: "#64584e"
+    suggestColor: "#837263"
   info:
-    fgColor: "#9b836d"
-    sectionColor: "#958575"
+    fgColor: "#99836f"
+    sectionColor: "#958574"
   dialog:
-    fgColor: "#958575"
+    fgColor: "#958574"
     bgColor: "#1e1d1c"
     buttonFgColor: "#908577"
     buttonBgColor: "#201f1e"
     buttonFocusFgColor: "#ffffff"
     buttonFocusBgColor: "#497188"
     labelFgColor: "#c47d54"
-    fieldFgColor: "#958575"
+    fieldFgColor: "#958574"
   frame:
     border:
       fgColor: "#222120"
       focusColor: "#497188"
     menu:
-      fgColor: "#958575"
+      fgColor: "#958574"
       keyColor: "#bb755e"
       numKeyColor: "#c47d54"
     crumbs:
@@ -38,10 +38,10 @@ k9s:
       addColor: "#878b46"
       errorColor: "#de5e5e"
       highlightColor: "#c47d54"
-      killColor: "#9b836d"
-      completedColor: "#9b836d"
+      killColor: "#99836f"
+      completedColor: "#99836f"
     title:
-      fgColor: "#958575"
+      fgColor: "#958574"
       bgColor: "#1e1d1c"
       highlightColor: "#c47d54"
       counterColor: "#8c849d"
@@ -56,7 +56,7 @@ k9s:
         - "#757845"
         - "#ca4f4f"
     table:
-      fgColor: "#958575"
+      fgColor: "#958574"
       bgColor: "#1a1918"
       cursorFgColor: "#9b856a"
       cursorBgColor: "#201f1e"
@@ -66,10 +66,10 @@ k9s:
         sorterColor: "#5b9463"
     yaml:
       keyColor: "#4c90b2"
-      colonColor: "#9b836d"
-      valueColor: "#958575"
+      colonColor: "#99836f"
+      valueColor: "#958574"
     logs:
-      fgColor: "#958575"
+      fgColor: "#958574"
       bgColor: "#1a1918"
       indicator:
         fgColor: "#8c849d"

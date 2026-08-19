@@ -2,7 +2,7 @@
 themes {
     lvim {
         text_unselected {
-            base "#899984"
+            base "#899884"
             background "#1f2424"
             emphasis_0 "#d57d40"
             emphasis_1 "#5fa468"
@@ -26,7 +26,7 @@ themes {
             emphasis_3 "#635d71"
         }
         ribbon_unselected {
-            base "#899984"
+            base "#899884"
             background "#272e2e"
             emphasis_0 "#d57d40"
             emphasis_1 "#8a9986"
@@ -50,7 +50,7 @@ themes {
             emphasis_3 "#d07f63"
         }
         table_cell_unselected {
-            base "#899984"
+            base "#899884"
             background "#1f2424"
             emphasis_0 "#d57d40"
             emphasis_1 "#5fa468"
@@ -66,7 +66,7 @@ themes {
             emphasis_3 "#d07f63"
         }
         list_unselected {
-            base "#899984"
+            base "#899884"
             background "#1f2424"
             emphasis_0 "#d57d40"
             emphasis_1 "#5fa468"
@@ -115,7 +115,7 @@ themes {
             player_7 "#527a57"
             player_8 "#af9e6b"
             player_9 "#cb4f4f"
-            player_10 "#535d4e"
+            player_10 "#717e6a"
         }
     }
 }

@@ -7,19 +7,19 @@ function M.setup()
 
     c.prompt.style.fg = { Rgb = { 195, 121, 96 } }
     c.cursor.style.fg = { Rgb = { 58, 151, 191 } }
-    c.default_ui.style.fg = { Rgb = { 130, 144, 126 } }
+    c.default_ui.style.fg = { Rgb = { 130, 144, 125 } }
     c.focus_ui.style = { fg = { Rgb = { 255, 255, 255 } }, bg = { Rgb = { 66, 114, 139 } }, add_modifiers = { "Bold" } }
     c.selection_ui.style = { fg = { Rgb = { 143, 147, 48 } }, add_modifiers = { "Bold" } }
     c.focus_selection_ui.style = { fg = { Rgb = { 255, 255, 255 } }, bg = { Rgb = { 117, 120, 58 } } , add_modifiers = { "Bold" } }
-    c.table.header.style = { fg = { Rgb = { 124, 147, 112 } }, add_modifiers = { "Bold" } }
-    c.table.row.style.fg = { Rgb = { 130, 144, 126 } }
+    c.table.header.style = { fg = { Rgb = { 128, 145, 119 } }, add_modifiers = { "Bold" } }
+    c.table.row.style.fg = { Rgb = { 130, 144, 125 } }
     c.table.tree[1].style.fg = { Rgb = { 39, 46, 46 } }
     c.table.tree[2].style.fg = { Rgb = { 39, 46, 46 } }
     c.table.tree[3].style.fg = { Rgb = { 39, 46, 46 } }
-    c.panel_ui.default.style.fg = { Rgb = { 130, 144, 126 } }
-    c.panel_ui.table.style.fg = { Rgb = { 130, 144, 126 } }
-    c.panel_ui.help_menu.style.fg = { Rgb = { 130, 144, 126 } }
-    c.panel_ui.input_and_logs.style.fg = { Rgb = { 130, 144, 126 } }
+    c.panel_ui.default.style.fg = { Rgb = { 130, 144, 125 } }
+    c.panel_ui.table.style.fg = { Rgb = { 130, 144, 125 } }
+    c.panel_ui.help_menu.style.fg = { Rgb = { 130, 144, 125 } }
+    c.panel_ui.input_and_logs.style.fg = { Rgb = { 130, 144, 125 } }
     c.panel_ui.selection.style.fg = { Rgb = { 143, 147, 48 } }
     c.panel_ui.sort_and_filter.style.fg = { Rgb = { 175, 158, 107 } }
     c.logs.info.style.fg = { Rgb = { 58, 151, 191 } }
@@ -29,7 +29,7 @@ function M.setup()
 
     local n = xplr.config.node_types
     n.directory.style = { fg = { Rgb = { 58, 151, 191 } }, add_modifiers = { "Bold" } }
-    n.file.style = { fg = { Rgb = { 130, 144, 126 } } }
+    n.file.style = { fg = { Rgb = { 130, 144, 125 } } }
     n.symlink.style = { fg = { Rgb = { 93, 154, 101 } }, add_modifiers = { "Italic" } }
 end
 

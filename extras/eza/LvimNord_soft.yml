@@ -44,7 +44,7 @@ file_type:
   source:
     foreground: "#879978"
   temp:
-    foreground: "#5f6778"
+    foreground: "#5f6777"
   video:
     foreground: "#b88473"
     is_bold: true
@@ -76,7 +76,7 @@ filekinds:
   symlink:
     foreground: "#7097a3"
 flags:
-  foreground: "#5f6778"
+  foreground: "#5f6777"
 git:
   conflicted:
     foreground: "#ac6e74"
@@ -84,7 +84,7 @@ git:
   deleted:
     foreground: "#ac6e74"
   ignored:
-    foreground: "#5f6778"
+    foreground: "#5f6777"
   modified:
     foreground: "#c3a870"
   new:
@@ -108,7 +108,7 @@ header:
   is_bold: true
   is_underline: true
 inode:
-  foreground: "#5f6778"
+  foreground: "#5f6777"
 links:
   multi_link_file:
     foreground: "#b88473"
@@ -119,7 +119,7 @@ octal:
   foreground: "#879978"
 perms:
   attribute:
-    foreground: "#5f6778"
+    foreground: "#5f6777"
   group_execute:
     foreground: "#879978"
   group_read:
@@ -133,7 +133,7 @@ perms:
   other_write:
     foreground: "#8a8e96"
   special_other:
-    foreground: "#5f6778"
+    foreground: "#5f6777"
   special_user_file:
     foreground: "#a2869d"
   user_execute_file:
@@ -149,13 +149,13 @@ perms:
     foreground: "#ac6e74"
     is_bold: true
 punctuation:
-  foreground: "#5f6778"
+  foreground: "#5f6777"
 security_context:
   none:
-    foreground: "#5f6778"
+    foreground: "#5f6777"
   selinux:
     colon:
-      foreground: "#5f6778"
+      foreground: "#5f6777"
     range:
       foreground: "#7097a3"
     role:
@@ -182,7 +182,7 @@ size:
   number_mega:
     foreground: "#c3a870"
   unit_byte:
-    foreground: "#5f6778"
+    foreground: "#5f6777"
   unit_giga:
     foreground: "#af7461"
   unit_huge:
@@ -195,13 +195,13 @@ symlink_path:
   foreground: "#7097a3"
 users:
   group_other:
-    foreground: "#5f6778"
+    foreground: "#5f6777"
   group_root:
     foreground: "#ac6e74"
   group_yours:
     foreground: "#c3a870"
   user_other:
-    foreground: "#5f6778"
+    foreground: "#5f6777"
   user_root:
     foreground: "#ac6e74"
     is_bold: true

@@ -4,10 +4,10 @@ colors:
   author: lvim-colorscheme
   primary:
     background: "#1c1d23"
-    foreground: "#54546d"
+    foreground: "#7b7b9a"
   cursor:
     text: "#1c1d23"
-    cursor: "#54546d"
+    cursor: "#7b7b9a"
   normal:
     black: "#1a1a1f"
     red: "#ba5454"

@@ -18,7 +18,7 @@ colors:
     # Default foreground.
     text: "#9da4a4"
     # Descriptions, hints.
-    muted: "#5d6a6f"
+    muted: "#6f7f84"
     # Unfocused borders.
     subtle: "#004452"
     # Completed operations.

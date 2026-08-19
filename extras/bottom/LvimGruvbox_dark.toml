@@ -1,7 +1,7 @@
 # Lvim Colorscheme GruvboxDark
 
 [styles.cpu]
-all_entry_color = "#958575"
+all_entry_color = "#958574"
 avg_entry_color = "#bb755e"
 cpu_core_colors = ["#4c90b2", "#878b46", "#af9e6b", "#c47d54", "#8c849d", "#429483", "#5b9463", "#de5e5e"]
 
@@ -26,13 +26,13 @@ low_battery_color = "#de5e5e"
 headers = { color = "#4c90b2", bold = true }
 
 [styles.graphs]
-graph_color = "#64584e"
+graph_color = "#837263"
 legend_text = "#9b8570"
 
 [styles.widgets]
 border_color = "#262524"
 selected_border_color = "#497188"
 widget_title = { color = "#908577", bold = true }
-text = "#958575"
+text = "#958574"
 selected_text = { color = "#ffffff", bg_color = "#497188" }
-disabled_text = "#9b836d"
+disabled_text = "#99836f"

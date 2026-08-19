@@ -8,7 +8,7 @@
     "colors": {
       "frame": "#dadada",
       "frame_inactive": "#dfdfdf",
-      "tab_background_text": "#687d7f",
+      "tab_background_text": "#5b7d7e",
       "tab_selected": "#eeeeee",
       "tab_text": "#496a6c",
       "tab_background_separator": "#dfdfdf",

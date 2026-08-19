@@ -33,15 +33,15 @@
        (chrome/init.lua:73) makes exactly this choice for the statusline, and
        the two must not disagree — they are the same word on the same screen. */
     --pill-fg: #292f33;
-    --ui-fg-dim: #8da97d;
+    --ui-fg-dim: #92a786;
 
     --fg-light: #646c62;
     --fg-soft-light: #5f675d;
-    --fg: #5a6158;
+    --fg: #798575;
     --fg-soft-dark: #555c53;
     --fg-dark: #50574e;
 
-    --comment: #535d4e;
+    --comment: #717e6a;
 
     --blue: #42728b;
     --cyan: #527a57;
@@ -217,17 +217,17 @@
        find and an eye cannot, which is what was reported. The surface is a
        measured step now, and the text on it is floored higher than the text on a
        tab that is merely open, so the active tab is brighter in both. */
-    --tabs-selected-odd-fg: #c8eabe;
+    --tabs-selected-odd-fg: #c9e9bd;
     --tabs-selected-odd-bg: #3b4951;
-    --tabs-selected-even-fg: #c8eabe;
+    --tabs-selected-even-fg: #c9e9bd;
     --tabs-selected-even-bg: #3b4951;
     --tabs-pinned-odd-fg: #94a68e;
     --tabs-pinned-odd-bg: var(--bg-soft-light);
     --tabs-pinned-even-fg: var(--ui-fg);
     --tabs-pinned-even-bg: var(--bg);
-    --tabs-pinned-selected-odd-fg: #c8eabe;
+    --tabs-pinned-selected-odd-fg: #c9e9bd;
     --tabs-pinned-selected-odd-bg: #3b4951;
-    --tabs-pinned-selected-even-fg: #c8eabe;
+    --tabs-pinned-selected-even-fg: #c9e9bd;
     --tabs-pinned-selected-even-bg: #3b4951;
 
     /* c.colors.tooltip.* */

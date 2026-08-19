@@ -7,7 +7,7 @@ k9s:
   prompt:
     fgColor: "#b8bec2"
     bgColor: "#222d32"
-    suggestColor: "#5e6a70"
+    suggestColor: "#6e7f87"
   info:
     fgColor: "#819aa5"
     sectionColor: "#b2c7c7"

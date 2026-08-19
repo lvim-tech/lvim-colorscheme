@@ -18,7 +18,7 @@ colors:
     # Default foreground.
     text: "#6bb4b4"
     # Descriptions, field labels, hints.
-    muted: "#5a7a7b"
+    muted: "#5b7d7e"
     # Unfocused pane borders.
     subtle: "#3c4d56"
     # Completed operations.

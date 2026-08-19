@@ -33,7 +33,7 @@
        (chrome/init.lua:73) makes exactly this choice for the statusline, and
        the two must not disagree — they are the same word on the same screen. */
     --pill-fg: #ffffff;
-    --ui-fg-dim: #596869;
+    --ui-fg-dim: #516a6b;
 
     --fg-light: #55a6ab;
     --fg-soft-light: #4c969a;
@@ -41,7 +41,7 @@
     --fg-soft-dark: #3c7478;
     --fg-dark: #93b6b6;
 
-    --comment: #789698;
+    --comment: #5b7d7e;
 
     --blue: #457da3;
     --cyan: #3e7a89;

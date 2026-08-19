@@ -8,8 +8,9 @@
 #
 # Use, in mailforge's config: theme: LvimRosepine_darker
 #
-# mailforge lifts any role below its readability floor on load; a missing role
-# falls back to the built-in Everforest.
+# fg and dim already clear their contrast floor against BOTH bg and bg_alt
+# (4.5 and 3.2), so mailforge's own load-time lift has nothing left to do here;
+# a missing role still falls back to the built-in Everforest.
 
 name: LvimRosepine_darker
 
@@ -19,7 +20,7 @@ colors:
     bg_alt: "#201e22"
     # Default foreground and the dimmed secondary text.
     fg: "#b3afb2"
-    dim: "#6d6a6d"
+    dim: "#706c70"
     # Semantic hues: red open-now, yellow caution, green verified, blue key,
     # purple prior/context, orange note.
     red: "#a0727c"

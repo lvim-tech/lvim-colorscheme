@@ -8,8 +8,9 @@
 #
 # Use, in keyforge's config: theme: LvimSolarized_soft
 #
-# keyforge lifts any role below its readability floor on load; a missing role
-# falls back to the built-in Everforest.
+# fg and dim already clear their contrast floor against BOTH bg and bg_alt
+# (4.5 and 3.2), so keyforge's own load-time lift has nothing left to do here;
+# a missing role still falls back to the built-in Everforest.
 
 name: LvimSolarized_soft
 
@@ -19,7 +20,7 @@ colors:
     bg_alt: "#093b47"
     # Default foreground and the dimmed secondary text.
     fg: "#9da4a4"
-    dim: "#567277"
+    dim: "#628a92"
     # Semantic hues: red danger, yellow caution, green ok, blue key,
     # purple prior/context, orange note.
     red: "#c24f4d"

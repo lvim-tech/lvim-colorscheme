@@ -11,7 +11,7 @@ function M.setup()
     c.focus_ui.style = { fg = { Rgb = { 255, 255, 255 } }, bg = { Rgb = { 96, 115, 164 } }, add_modifiers = { "Bold" } }
     c.selection_ui.style = { fg = { Rgb = { 122, 141, 104 } }, add_modifiers = { "Bold" } }
     c.focus_selection_ui.style = { fg = { Rgb = { 25, 28, 36 } }, bg = { Rgb = { 120, 138, 103 } } , add_modifiers = { "Bold" } }
-    c.table.header.style = { fg = { Rgb = { 125, 133, 169 } }, add_modifiers = { "Bold" } }
+    c.table.header.style = { fg = { Rgb = { 126, 133, 167 } }, add_modifiers = { "Bold" } }
     c.table.row.style.fg = { Rgb = { 178, 182, 199 } }
     c.table.tree[1].style.fg = { Rgb = { 33, 36, 44 } }
     c.table.tree[2].style.fg = { Rgb = { 33, 36, 44 } }

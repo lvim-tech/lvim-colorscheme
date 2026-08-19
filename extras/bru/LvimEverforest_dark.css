@@ -27,21 +27,21 @@
        makes for exactly this reason. Every interface text colour below points
        here rather than at --fg; --fg itself stays verbatim, because a page or a
        hand-written override still wants the palette's own answer. */
-    --ui-fg: #849380;
+    --ui-fg: #84937f;
     /* The text on a mode pill: whichever of the theme's own dark and a plain
        white reads better on the pills themselves. `lvim-hud`'s `pill_on`
        (chrome/init.lua:73) makes exactly this choice for the statusline, and
        the two must not disagree — they are the same word on the same screen. */
     --pill-fg: #232929;
-    --ui-fg-dim: #829b75;
+    --ui-fg-dim: #87997d;
 
     --fg-light: #646c62;
     --fg-soft-light: #5f675d;
-    --fg: #5a6158;
+    --fg: #798575;
     --fg-soft-dark: #555c53;
     --fg-dark: #50574e;
 
-    --comment: #535d4e;
+    --comment: #717e6a;
 
     --blue: #42728b;
     --cyan: #527a57;
@@ -61,7 +61,7 @@
     --completion-category-bg: var(--bg);
     --completion-category-border-top: var(--bg);
     --completion-category-border-bottom: var(--bg);
-    --completion-item-selected-fg: #899984;
+    --completion-item-selected-fg: #899884;
     --completion-item-selected-bg: var(--bg-light);
     --completion-item-selected-border-top: var(--bg-light);
     --completion-item-selected-border-bottom: var(--bg-light);
@@ -76,7 +76,7 @@
     --contextmenu-menu-bg: var(--bg);
     --contextmenu-menu-fg: var(--ui-fg);
     --contextmenu-selected-bg: var(--bg-light);
-    --contextmenu-selected-fg: #899984;
+    --contextmenu-selected-fg: #899884;
 
     /* c.colors.downloads.* */
     --downloads-bar-bg: var(--bg);
@@ -112,10 +112,10 @@
     --messages-info-border: var(--bg);
 
     /* c.colors.prompts.* */
-    --prompts-fg: #899984;
+    --prompts-fg: #899884;
     --prompts-border: var(--bg);
     --prompts-bg: var(--bg-soft-light);
-    --prompts-selected-fg: #899984;
+    --prompts-selected-fg: #899884;
     --prompts-selected-bg: var(--bg-light);
 
     /* c.colors.statusbar.* */
@@ -207,7 +207,7 @@
     --tabs-indicator-stop: #488b52;
     --tabs-indicator-error: #eb4d4d;
     --tabs-indicator-system: transparent;
-    --tabs-odd-fg: #899984;
+    --tabs-odd-fg: #899884;
     --tabs-odd-bg: var(--bg-soft-light);
     --tabs-even-fg: var(--ui-fg);
     --tabs-even-bg: var(--bg);
@@ -217,17 +217,17 @@
        find and an eye cannot, which is what was reported. The surface is a
        measured step now, and the text on it is floored higher than the text on a
        tab that is merely open, so the active tab is brighter in both. */
-    --tabs-selected-odd-fg: #c1e1b8;
+    --tabs-selected-odd-fg: #c2e0b7;
     --tabs-selected-odd-bg: #354545;
-    --tabs-selected-even-fg: #c1e1b8;
+    --tabs-selected-even-fg: #c2e0b7;
     --tabs-selected-even-bg: #354545;
-    --tabs-pinned-odd-fg: #899984;
+    --tabs-pinned-odd-fg: #899884;
     --tabs-pinned-odd-bg: var(--bg-soft-light);
     --tabs-pinned-even-fg: var(--ui-fg);
     --tabs-pinned-even-bg: var(--bg);
-    --tabs-pinned-selected-odd-fg: #c1e1b8;
+    --tabs-pinned-selected-odd-fg: #c2e0b7;
     --tabs-pinned-selected-odd-bg: #354545;
-    --tabs-pinned-selected-even-fg: #c1e1b8;
+    --tabs-pinned-selected-even-fg: #c2e0b7;
     --tabs-pinned-selected-even-bg: #354545;
 
     /* c.colors.tooltip.* */

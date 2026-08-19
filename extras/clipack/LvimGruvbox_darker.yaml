@@ -27,7 +27,7 @@ colors:
     # Default foreground.
     text: "#aa9782"
     # Descriptions, field labels, hints, streamed build output.
-    muted: "#736457"
+    muted: "#837263"
     # Unfocused pane borders.
     subtle: "#423f3b"
     # Installed packages and completed operations.

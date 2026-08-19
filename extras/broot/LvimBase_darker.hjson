@@ -46,7 +46,7 @@
         purpose_bold: "#de684e #1c2225 bold"
         purpose_ellipsis: "#639696 #1c2225"
         scrollbar_track: "#202629 none / #1c2225 none"
-        scrollbar_thumb: "#447ca2 none / #4d6263 none"
+        scrollbar_thumb: "#447ca2 none / #5b7d7e none"
         help_paragraph: "#639696 none"
         help_bold: "#e19556 none bold"
         help_italic: "#de684e none italic"

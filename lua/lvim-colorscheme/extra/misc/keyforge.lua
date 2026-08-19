@@ -8,9 +8,17 @@
 --
 -- keyforge uses more hues than clipack (it tells apart six meanings by colour — red/yellow/green/
 -- blue/purple/orange — where clipack rules two of them out), so its file carries the ten roles its
--- UI needs rather than clipack's nine semantic ones. The values are exactly what keyforge used to
--- read from the shared themes.txt swatch index: the palette's own hues, with bg_alt and dim blended
--- off bg and fg the same way. keyforge still lifts anything below its readability floor on load.
+-- UI needs rather than clipack's nine semantic ones. The hues are the palette's own; the surfaces
+-- (`bg`, `bg_alt`) are the palette's too, blended the way keyforge's own loader blends them.
+--
+-- The two TEXT roles are NOT handed over raw. They used to be — `fg` straight off the palette and
+-- `dim` blended off it — on the strength of the loader lifting anything below its floor on load.
+-- Measured 2026-08-19 against the reference rendering (3.084:1), that lift is not what reaches the
+-- screen: `dim` came out at 1.46:1 on kanagawa_soft and 1.57:1 on everforest_dark, and `fg` itself
+-- failed in the nine muted-foreground styles. Which is the same lesson clipack already carries —
+-- an EDITOR foreground is tuned against one background under syntax highlighting, and a TUI that
+-- paints it as plain text on two surfaces needs a floor applied where the file is WRITTEN, not
+-- trusted to an app-side clamp. So both text roles clear their floor here, against BOTH surfaces.
 --
 ---@module "lvim-colorscheme.extra.keyforge"
 
@@ -37,11 +45,33 @@ end
 --- @param _ table  highlight groups, unused: keyforge maps from the palette
 --- @param opts table
 function M.generate(colors, _, opts)
+    -- The surfaces first: they are what the text has to clear, and they do not move. `bg_alt` is
+    -- the palette background nudged a step toward the palette foreground — the raw one, so the
+    -- selected-row surface stays exactly the shade it has always been.
+    local bg = colors.bg
+    local bg_alt = blend(colors.bg, colors.fg, 0.06)
+
+    -- Text is drawn on BOTH surfaces, so both have to be cleared. `ensure_contrast` is a floor and
+    -- walks hsluv lightness away from the background, so applying it twice is monotone: the second
+    -- call can only push further out, never back across the first. Body text at 4.5 (WCAG AA),
+    -- secondary text at 3.2 — the same tier clipack's `muted` uses, which is what the reference
+    -- rendering was measured on.
+    local fg = util.ensure_contrast(colors.fg, bg, 4.5)
+    fg = util.ensure_contrast(fg, bg_alt, 4.5)
+    -- `dim` is derived from the LIFTED foreground, not the palette one: blended off a foreground
+    -- that is itself unreadable it started below the floor and had to be dragged back up, which
+    -- cost the tier its relation to the body text. Pulled most of the way back to the background
+    -- from a foreground that reads, it lands under `fg` and stays there — the floor below only
+    -- catches the styles whose foreground and background sit too close to leave room.
+    local dim = blend(fg, bg, 0.45)
+    dim = util.ensure_contrast(dim, bg, 3.2)
+    dim = util.ensure_contrast(dim, bg_alt, 3.2)
+
     colors.keyforge_theme_name = "Lvim" .. (opts.style:gsub("^%l", string.upper))
-    colors.keyforge_bg = colors.bg
-    colors.keyforge_bg_alt = blend(colors.bg, colors.fg, 0.06)
-    colors.keyforge_fg = colors.fg
-    colors.keyforge_dim = blend(colors.fg, colors.bg, 0.45)
+    colors.keyforge_bg = bg
+    colors.keyforge_bg_alt = bg_alt
+    colors.keyforge_fg = fg
+    colors.keyforge_dim = dim
     colors.keyforge_red = colors.red
     colors.keyforge_yellow = colors.yellow
     colors.keyforge_green = colors.green
@@ -60,8 +90,9 @@ function M.generate(colors, _, opts)
 #
 # Use, in keyforge's config: theme: ${keyforge_theme_name}
 #
-# keyforge lifts any role below its readability floor on load; a missing role
-# falls back to the built-in Everforest.
+# fg and dim already clear their contrast floor against BOTH bg and bg_alt
+# (4.5 and 3.2), so keyforge's own load-time lift has nothing left to do here;
+# a missing role still falls back to the built-in Everforest.
 
 name: ${keyforge_theme_name}
 

@@ -1,7 +1,7 @@
 # Lvim Colorscheme EverforestDarker
 
 [styles.cpu]
-all_entry_color = "#7d8b7a"
+all_entry_color = "#7e8a79"
 avg_entry_color = "#bb755e"
 cpu_core_colors = ["#3d91b6", "#878b35", "#af9e6b", "#cc7942", "#8c849d", "#259683", "#5b9463", "#de5e5e"]
 
@@ -26,13 +26,13 @@ low_battery_color = "#de5e5e"
 headers = { color = "#3d91b6", bold = true }
 
 [styles.graphs]
-graph_color = "#535d4e"
+graph_color = "#717e6a"
 legend_text = "#7b8b76"
 
 [styles.widgets]
 border_color = "#282f35"
 selected_border_color = "#42728b"
 widget_title = { color = "#7f8c7c", bold = true }
-text = "#7d8b7a"
+text = "#7e8a79"
 selected_text = { color = "#ffffff", bg_color = "#42728b" }
-disabled_text = "#788d6d"
+disabled_text = "#7c8c73"

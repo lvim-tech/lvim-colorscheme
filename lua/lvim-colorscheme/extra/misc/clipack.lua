@@ -19,7 +19,7 @@
 --     all 48 styles.
 --   * Foregrounds go through `ensure_contrast` against the TERMINAL background, not the editor
 --     one. Several palettes carry a deliberately muted `fg` that is tuned for syntax
---     highlighting — gruvbox_dark's `fg` (#645c54) and `comment` (#63584f) are nearly the same
+--     highlighting — gruvbox_dark's `fg` (#86796b) and `comment` (#837263) are nearly the same
 --     colour — and a TUI that paints them as plain text on the terminal background needs a
 --     readability floor the editor never asked for.
 --
@@ -38,8 +38,14 @@ function M.generate(colors, _, opts)
     -- clipack draws these directly on the terminal background, so each one has to clear a
     -- legibility floor there. The floors mirror the ones the terminal palette itself uses:
     -- ordinary text well clear of the background, secondary text a step below it.
+    --
+    -- The secondary floor is 3.2, not 3.0. Measured against the reference rendering the palettes
+    -- are held to (clipack's own `muted` on the terminal background, 3.084:1), a floor of 3.0 let
+    -- 20 of the 48 styles land in 3.00-3.08 — under the reference by up to 0.08. 3.2 clears all of
+    -- them and moves the colour by at most one step of hsluv lightness, which is not a visible
+    -- design change.
     local text = util.ensure_contrast(colors.terminal.foreground, term_bg, 4.5)
-    local muted = util.ensure_contrast(colors.comment, term_bg, 3)
+    local muted = util.ensure_contrast(colors.comment, term_bg, 3.2)
     -- No magenta and no yellow anywhere: neither hue belongs to this desktop, and the two of them
     -- were the whole of what read as foreign in the interface — a salmon title badge and an olive
     -- update badge under a green theme.

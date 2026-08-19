@@ -10,7 +10,7 @@ find_keyword  = { fg = "#dddddd", bg = "#875537", bold = true }
 find_position = { fg = "#476567", bg = "#d7dcdf", bold = true }
 
 # Symlink
-symlink_target = { fg = "#8d7e73", italic = true }
+symlink_target = { fg = "#877666", italic = true }
 
 # Marker — a solid bar, so foreground and background match on purpose
 marker_copied   = { fg = "#988857", bg = "#988857" }
@@ -77,7 +77,7 @@ perm_type  = { fg = "#4d6879" }
 perm_read  = { fg = "#6c634a" }
 perm_write = { fg = "#a44848" }
 perm_exec  = { fg = "#666843" }
-perm_sep   = { fg = "#8d7e73" }
+perm_sep   = { fg = "#877666" }
 
 [pick]
 border   = { fg = "#5d869d" }
@@ -111,7 +111,7 @@ cand            = { fg = "#4c664f" }
 rest            = { fg = "#4a6372" }
 desc            = { fg = "#815343" }
 separator       = " ➜ "
-separator_style = { fg = "#87796f" }
+separator_style = { fg = "#877666" }
 
 [confirm]
 border  = { fg = "#5d869d" }
@@ -159,7 +159,7 @@ rules = [
 	{ mime = "application/{pdf,doc,rtf}", fg = "#4f6c52" },
 
 	# Virtual file system — 26 reports unreachable remote entries through this
-	{ mime = "vfs/{absent,stale}", fg = "#8d7e73" },
+	{ mime = "vfs/{absent,stale}", fg = "#877666" },
 
 	# Special files. `url` here was `name` before 26.
 	{ url = "*", is = "orphan", bg = "#c74e4e" },

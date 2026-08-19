@@ -1,13 +1,13 @@
 [colors.primary]
 background = "#201f1e"
-foreground = "#ad9984"
+foreground = "#ad9a83"
 
 [colors.cursor]
 text = "#1e1d1c"
 cursor = "#757845"
 
 [colors.selection]
-text = "#645c54"
+text = "#86796b"
 background = "#242322"
 
 [colors.normal]
@@ -18,7 +18,7 @@ yellow = "#af9e6b"
 blue = "#3f6376"
 magenta = "#bb755e"
 cyan = "#527a57"
-white = "#665e56"
+white = "#675e55"
 
 [colors.bright]
 black = "#2e2b28"
@@ -28,4 +28,4 @@ yellow = "#c3ab58"
 blue = "#33728d"
 magenta = "#dd7950"
 cyan = "#488b52"
-white = "#71675e"
+white = "#72685d"

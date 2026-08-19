@@ -44,7 +44,7 @@ file_type:
   source:
     foreground: "#75783a"
   temp:
-    foreground: "#4f584a"
+    foreground: "#51574d"
   video:
     foreground: "#cc7942"
     is_bold: true
@@ -65,7 +65,7 @@ filekinds:
     foreground: "#357b6d"
     is_bold: true
   normal:
-    foreground: "#92a48c"
+    foreground: "#92a38c"
   pipe:
     foreground: "#af9e6b"
   socket:
@@ -76,7 +76,7 @@ filekinds:
   symlink:
     foreground: "#527a57"
 flags:
-  foreground: "#4f584a"
+  foreground: "#51574d"
 git:
   conflicted:
     foreground: "#cb4f4f"
@@ -84,7 +84,7 @@ git:
   deleted:
     foreground: "#cb4f4f"
   ignored:
-    foreground: "#4f584a"
+    foreground: "#51574d"
   modified:
     foreground: "#af9e6b"
   new:
@@ -104,11 +104,11 @@ git_repo:
     foreground: "#cb4f4f"
     is_bold: true
 header:
-  foreground: "#92a48c"
+  foreground: "#92a38c"
   is_bold: true
   is_underline: true
 inode:
-  foreground: "#4f584a"
+  foreground: "#51574d"
 links:
   multi_link_file:
     foreground: "#cc7942"
@@ -119,7 +119,7 @@ octal:
   foreground: "#75783a"
 perms:
   attribute:
-    foreground: "#4f584a"
+    foreground: "#51574d"
   group_execute:
     foreground: "#75783a"
   group_read:
@@ -133,7 +133,7 @@ perms:
   other_write:
     foreground: "#6f7b6c"
   special_other:
-    foreground: "#4f584a"
+    foreground: "#51574d"
   special_user_file:
     foreground: "#bb755e"
   user_execute_file:
@@ -149,13 +149,13 @@ perms:
     foreground: "#cb4f4f"
     is_bold: true
 punctuation:
-  foreground: "#4f584a"
+  foreground: "#51574d"
 security_context:
   none:
-    foreground: "#4f584a"
+    foreground: "#51574d"
   selinux:
     colon:
-      foreground: "#4f584a"
+      foreground: "#51574d"
     range:
       foreground: "#527a57"
     role:
@@ -182,7 +182,7 @@ size:
   number_mega:
     foreground: "#af9e6b"
   unit_byte:
-    foreground: "#4f584a"
+    foreground: "#51574d"
   unit_giga:
     foreground: "#b86d3c"
   unit_huge:
@@ -195,13 +195,13 @@ symlink_path:
   foreground: "#527a57"
 users:
   group_other:
-    foreground: "#4f584a"
+    foreground: "#51574d"
   group_root:
     foreground: "#cb4f4f"
   group_yours:
     foreground: "#af9e6b"
   user_other:
-    foreground: "#4f584a"
+    foreground: "#51574d"
   user_root:
     foreground: "#cb4f4f"
     is_bold: true
