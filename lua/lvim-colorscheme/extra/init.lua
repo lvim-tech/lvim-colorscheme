@@ -73,6 +73,8 @@ M.extras = {
   bat             = { ext = "tmTheme", url = "https://github.com/sharkdp/bat", label = "Bat", group = "text" },
   clipack         = { ext = "yaml", url = "https://github.com/lvim-tech/clipack", label = "Clipack", group = "misc" },
   configer        = { ext = "yaml", url = "https://github.com/lvim-tech/configer", label = "Configer", group = "misc" },
+  keyforge        = { ext = "yaml", url = "https://github.com/lvim-tech/keyforge", label = "Keyforge", group = "misc" },
+  mailforge       = { ext = "yaml", url = "https://github.com/lvim-tech/mailforge", label = "Mailforge", group = "misc" },
   ql              = { ext = "yaml", url = "https://github.com/lvim-tech/ql", label = "Ql", group = "misc" },
   secmon          = { ext = "toml", url = "https://github.com/lvim-tech/secmon", label = "Secmon", group = "misc" },
   themer          = { ext = "yaml", url = "https://github.com/lvim-tech/themer", label = "Themer", group = "misc" },
