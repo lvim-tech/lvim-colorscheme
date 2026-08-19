@@ -7,7 +7,7 @@
 
 * {
     bg:           #E4E4E4ff;
-    fg:           #506a6aff;
+    fg:           #506969ff;
     selected-bg:  #55673cff;
     selected-fg:  #ffffffff;
 }

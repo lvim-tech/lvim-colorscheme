@@ -16,7 +16,7 @@ colors:
     # Section headings and step markers.
     accent_alt: "#8d522b"
     # Default foreground.
-    text: "#425353"
+    text: "#425252"
     # Descriptions, hints.
     muted: "#6b7865"
     # Unfocused borders.

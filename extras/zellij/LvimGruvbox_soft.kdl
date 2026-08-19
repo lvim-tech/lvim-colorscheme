@@ -10,7 +10,7 @@ themes {
             emphasis_3 "#d07f63"
         }
         text_selected {
-            base "#9f9182"
+            base "#9f9282"
             background "#2a2928"
             emphasis_0 "#cc8155"
             emphasis_1 "#5ea067"
@@ -29,7 +29,7 @@ themes {
             base "#a18f7c"
             background "#2c2b2a"
             emphasis_0 "#cc8155"
-            emphasis_1 "#9f9182"
+            emphasis_1 "#9f9282"
             emphasis_2 "#d07f63"
             emphasis_3 "#968fa7"
         }
@@ -42,7 +42,7 @@ themes {
             emphasis_3 "#d07f63"
         }
         table_cell_selected {
-            base "#9f9182"
+            base "#9f9282"
             background "#2a2928"
             emphasis_0 "#cc8155"
             emphasis_1 "#5ea067"
@@ -58,7 +58,7 @@ themes {
             emphasis_3 "#d07f63"
         }
         list_selected {
-            base "#9f9182"
+            base "#9f9282"
             background "#2a2928"
             emphasis_0 "#cc8155"
             emphasis_1 "#5ea067"

@@ -5,8 +5,8 @@ return {
     bg_soft_dark = "#201f1e",
     bg_dark = "#1e1d1c",
 
-    fg_light = "#746c63",
-    fg_soft_light = "#6c645c",
+    fg_light = "#968a7c",
+    fg_soft_light = "#8e8174",
     fg = "#86796b",
     fg_soft_dark = "#5c544d",
     fg_dark = "#544c45",

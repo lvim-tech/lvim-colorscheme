@@ -27,7 +27,7 @@
        makes for exactly this reason. Every interface text colour below points
        here rather than at --fg; --fg itself stays verbatim, because a page or a
        hand-written override still wants the palette's own answer. */
-    --ui-fg: #506a6a;
+    --ui-fg: #506969;
     /* The text on a mode pill: whichever of the theme's own dark and a plain
        white reads better on the pills themselves. `lvim-hud`'s `pill_on`
        (chrome/init.lua:73) makes exactly this choice for the statusline, and
@@ -37,8 +37,8 @@
 
     --fg-light: #55a6ab;
     --fg-soft-light: #4c969a;
-    --fg: #5e8888;
-    --fg-soft-dark: #3c7478;
+    --fg: #516c6c;
+    --fg-soft-dark: #38585b;
     --fg-dark: #696e75;
 
     --comment: #646f7d;
@@ -61,7 +61,7 @@
     --completion-category-bg: var(--bg);
     --completion-category-border-top: var(--bg);
     --completion-category-border-bottom: var(--bg);
-    --completion-item-selected-fg: #506a6a;
+    --completion-item-selected-fg: #506969;
     --completion-item-selected-bg: var(--bg-light);
     --completion-item-selected-border-top: var(--bg-light);
     --completion-item-selected-border-bottom: var(--bg-light);
@@ -76,7 +76,7 @@
     --contextmenu-menu-bg: var(--bg);
     --contextmenu-menu-fg: var(--ui-fg);
     --contextmenu-selected-bg: var(--bg-light);
-    --contextmenu-selected-fg: #506a6a;
+    --contextmenu-selected-fg: #506969;
 
     /* c.colors.downloads.* */
     --downloads-bar-bg: var(--bg);
@@ -112,10 +112,10 @@
     --messages-info-border: var(--bg);
 
     /* c.colors.prompts.* */
-    --prompts-fg: #506a6a;
+    --prompts-fg: #506969;
     --prompts-border: var(--bg);
     --prompts-bg: var(--bg-soft-light);
-    --prompts-selected-fg: #506a6a;
+    --prompts-selected-fg: #506969;
     --prompts-selected-bg: var(--bg-light);
 
     /* c.colors.statusbar.* */
@@ -207,7 +207,7 @@
     --tabs-indicator-stop: #6ca388;
     --tabs-indicator-error: #d0567a;
     --tabs-indicator-system: transparent;
-    --tabs-odd-fg: #506a6a;
+    --tabs-odd-fg: #506969;
     --tabs-odd-bg: var(--bg-soft-light);
     --tabs-even-fg: var(--ui-fg);
     --tabs-even-bg: var(--bg);
@@ -221,7 +221,7 @@
     --tabs-selected-odd-bg: #bdbdbd;
     --tabs-selected-even-fg: #2b3131;
     --tabs-selected-even-bg: #bdbdbd;
-    --tabs-pinned-odd-fg: #506a6a;
+    --tabs-pinned-odd-fg: #506969;
     --tabs-pinned-odd-bg: var(--bg-soft-light);
     --tabs-pinned-even-fg: var(--ui-fg);
     --tabs-pinned-even-bg: var(--bg);

@@ -1,6 +1,6 @@
 LvimTokyonight_light = [
     ["#E4E4E4", "#E4E4E4"],
-    ["#5e8888", "#5e8888"],
+    ["#516c6c", "#516c6c"],
     ["#dfdfdf", "#dfdfdf"],
     ["#8b604e", "#8b604e"],
     ["#6c7e5b", "#6c7e5b"],

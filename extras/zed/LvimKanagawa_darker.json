@@ -136,7 +136,7 @@
         "unreachable.background": "#1e1f25",
         "unreachable.border": "#717193",
         "terminal.ansi.background": "#1a1b21",
-        "terminal.bright_foreground": "#5d5d79",
+        "terminal.bright_foreground": "#8585a5",
         "terminal.dim_foreground": "#717193",
         "terminal.ansi.dim_black": "#1a1b21",
         "terminal.ansi.dim_red": "#b34b4b",

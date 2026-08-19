@@ -17,10 +17,10 @@ name: LvimMaterial_light
 colors:
     # Base background and the one-step-off surface (selected rows).
     bg: "#E4E4E4"
-    bg_alt: "#dcdede"
+    bg_alt: "#dbdddd"
     # Default foreground and the dimmed secondary text.
-    fg: "#4d6565"
-    dim: "#737b7b"
+    fg: "#4d6464"
+    dim: "#707979"
     # Semantic hues: red danger, yellow caution, green ok, blue key,
     # purple prior/context, orange note.
     red: "#b14b51"

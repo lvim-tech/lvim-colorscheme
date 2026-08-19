@@ -11,7 +11,7 @@
 
 accent     = "#517079"      # selection / active highlight, title & border accent
 accent_alt = "#957860"  # headings, suspects, staged edits, new peers
-text       = "#425353"        # default foreground
+text       = "#425252"        # default foreground
 muted      = "#6b728f"       # hints and secondary labels
 subtle     = "#b1b1b1"      # unfocused borders and dividers
 success    = "#466d4e"     # freeze on, healthy state

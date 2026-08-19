@@ -3,7 +3,7 @@
     selected_tab: Some("#3a97bf"),
     command_fg: Some("#808d7b"),
     selection_bg: Some("#252c2c"),
-    selection_fg: Some("#889784"),
+    selection_fg: Some("#889684"),
     use_selection_fg: Some(true),
     cmdbar_bg: Some("#1f2424"),
     cmdbar_extra_lines_bg: Some("#1f2424"),

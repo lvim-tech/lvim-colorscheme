@@ -1,5 +1,5 @@
 *background: #dfdfdf
-*foreground: #425353
+*foreground: #425252
 
 # normal
 *color0: #b6b6b6
@@ -9,7 +9,7 @@
 *color4: #6c8dcc
 *color5: #94544f
 *color6: #5e827b
-*color7: #619494
+*color7: #629292
 
 # bright
 *color8:  #cfd1d1
@@ -19,4 +19,4 @@
 *color12: #709ae6
 *color13: #b85349
 *color14: #549388
-*color15: #5d8989
+*color15: #5e8787

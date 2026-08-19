@@ -1,10 +1,10 @@
 # Lvim Colorscheme EverforestSoft
 theme[main_bg]="#202527"
 theme[main_fg]="#82907d"
-theme[title]="#818e7e"
+theme[title]="#839180"
 theme[hi_fg]="#3b94bb"
 theme[selected_bg]="#2e3439"
-theme[selected_fg]="#8f9f8b"
+theme[selected_fg]="#91a28d"
 theme[inactive_fg]="#809177"
 theme[graph_text]="#7f917a"
 theme[meter_bg]="#32393f"

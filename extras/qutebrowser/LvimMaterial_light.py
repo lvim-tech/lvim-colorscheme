@@ -5,7 +5,7 @@ palette = {
     "border": "#dfdfdf",
     "current-line": "#e9e9e9",
     "selection": "#eeeeee",
-    "foreground": "#5e8888",
+    "foreground": "#516c6c",
     "foreground-alt": "#55a6ab",
     "foreground-attention": "#4c969a",
     "comment": "#64747c",
@@ -31,7 +31,7 @@ palette = {
     # every line that paints a background with it is untouched — and these are separate names that
     # only the text lines read. `extra/desktop/bru.lua` makes the identical split for the identical
     # reason, and the two files are deliberately the same 96 settings in the same order.
-    "ui-foreground": "#4c6262",
+    "ui-foreground": "#4d6464",
     "ui-comment": "#556065",
     "text-red": "#a2484d",
     "text-green": "#5b6b47",

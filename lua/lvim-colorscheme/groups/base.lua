@@ -17,16 +17,17 @@ local M = {}
 --- `Whitespace` and `Conceal` mark characters that are not really there and are meant to be noticed
 --- only when looked for. Flooring any of those puts tildes and split lines back on the screen.
 ---
---- What is floored is the chrome that is read as *words*: line numbers, the status line, tab
---- labels, messages, prompts, float and popup body text, diagnostics. Measured before this existed,
---- `LineNr` sat at **1.98:1** on everforest_dark and at **1.42:1** on base_soft — a line number is
---- read, and 1.42:1 is not a design choice.
+--- What is floored is the chrome that is read as *words*: the status line, tab labels, messages,
+--- prompts, float and popup body text, diagnostics. The gutter is the deliberate exception on the
+--- other side: `LineNr` and an empty `SignColumn` take the cursor-line wash colour and are NOT
+--- floored — the gutter recedes by design, `CursorLineNr` (which stays floored) carries the number
+--- that is actually read, and git/diagnostic signs bring their own colours.
 ---
 --- Two details cost measurements. `opts.transparent` collapses `bg_statusline` and friends to
 --- `c.none` (the string "NONE"), which is not a colour and cannot be measured, so non-hex surfaces
 --- are dropped and the opaque value is what gets floored — a transparent statusline shows the
 --- terminal's background, which this file cannot know. And a group usually has more than one
---- surface: `LineNr` is drawn on `bg` in an unfocused window and on `bg_active` in the focused one,
+--- surface: `Directory` is drawn on `bg` in an unfocused window and on `bg_active` in the focused one,
 --- `Pmenu`'s foreground is drawn on `bg_popup` and again on `PmenuSel`'s wash. `util.hardest` picks
 --- the nearest in luminance, which is the one that has to be cleared, and clearing it clears the
 --- rest — naming a surface instead of choosing one is the bug that gave 4.47:1 on everforest_light.
@@ -87,8 +88,8 @@ function M.get(c, opts)
             fg = c.bg,
         }, -- like Cursor, but used when in IME mode |CursorIM|
         CursorColumn = {
-            bg = c.bg_highlight,
-        }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+            bg = c.bg_cursorline,
+        }, -- Screen-column at the cursor, when 'cursorcolumn' is set. Same wash as CursorLine: the crosshair is ONE colour — which is also the fg of a quiet LineNr/SignColumn.
         CursorLine = {
             bg = c.bg_cursorline,
         }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
@@ -131,8 +132,8 @@ function M.get(c, opts)
         }, -- 'foldcolumn'
         SignColumn = {
             bg = opts.transparent and c.none or c.bg,
-            fg = ui(c.fg_dark, unpack(page)),
-        }, -- column where |signs| are displayed
+            fg = c.bg_cursorline,
+        }, -- column where |signs| are displayed; without a sign it shows the cursor-line wash colour: quiet by design (signs bring their own colours)
         SignColumnSB = {
             bg = c.bg_sidebar,
             fg = ui(c.fg_dark, c.bg_sidebar),
@@ -142,20 +143,20 @@ function M.get(c, opts)
             fg = c.black,
         }, -- |:substitute| replacement text highlighting
         LineNr = {
-            fg = ui(c.fg_dark, unpack(page)),
-        }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+            fg = c.bg_cursorline,
+        }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set. The cursor-line wash colour: quiet by design, deliberately NOT floored — the current line's number (CursorLineNr) is the one that is read.
         CursorLineNr = {
             fg = ui(c.yellow_dark, c.bg_cursorline, unpack(page)),
             bold = true,
         }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
         LineNrAbove = {
-            fg = ui(c.fg_dark, unpack(page)),
+            fg = c.bg_cursorline,
         },
         SCVLine = {
             fg = util.blend_bg(c.fg_dark, 0.2),
         },
         LineNrBelow = {
-            fg = ui(c.fg_dark, unpack(page)),
+            fg = c.bg_cursorline,
         },
         MatchParen = {
             bg = blend.blueHigh,

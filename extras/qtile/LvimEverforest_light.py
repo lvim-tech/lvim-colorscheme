@@ -1,6 +1,6 @@
 LvimEverforest_light = [
     ["#E4E4E4", "#E4E4E4"],
-    ["#5e8888", "#5e8888"],
+    ["#516c6c", "#516c6c"],
     ["#dfdfdf", "#dfdfdf"],
     ["#a05e33", "#a05e33"],
     ["#8a8e46", "#8a8e46"],

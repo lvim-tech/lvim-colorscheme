@@ -34,15 +34,15 @@
                 <key>blueDark</key>
                 <string>#3a6479</string>
                 <key>bracketContentsForeground</key>
-                <string>#646c62</string>
+                <string>#839180</string>
                 <key>bracketContentsOptions</key>
                 <string>underline</string>
                 <key>bracketsForeground</key>
-                <string>#646c62</string>
+                <string>#839180</string>
                 <key>bracketsOptions</key>
                 <string>underline</string>
                 <key>caret</key>
-                <string>#646c62</string>
+                <string>#839180</string>
                 <key>comment</key>
                 <string>#717e6a</string>
                 <key>cyan</key>
@@ -58,11 +58,11 @@
                 <key>foregroundDark</key>
                 <string>#50574e</string>
                 <key>foregroundLight</key>
-                <string>#646c62</string>
+                <string>#839180</string>
                 <key>foregroundSoftDark</key>
                 <string>#555c53</string>
                 <key>foregroundSoftLight</key>
-                <string>#5f675d</string>
+                <string>#7e8b7a</string>
                 <key>gitAdded</key>
                 <string>#75783a</string>
                 <key>gitDeleted</key>

@@ -22,7 +22,7 @@ return function(opts)
 
     colors.fg_light = "#55a6ab"
     colors.fg_soft_light = "#4c969a"
-    colors.fg = "#5e8888"
-    colors.fg_soft_dark = "#3c7478"
+    colors.fg = "#516c6c"
+    colors.fg_soft_dark = "#38585b"
     return colors
 end

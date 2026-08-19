@@ -14,7 +14,7 @@ name = "LvimTokyonight_light"
 
 [colors]
 # Default foreground.
-Base = "#425353"
+Base = "#425252"
 # Failures.
 AlertError = "#ab5867"
 # Non-fatal problems.
@@ -22,7 +22,7 @@ AlertWarn = "#8f7b60"
 # Informational notices.
 AlertInfo = "#606f52"
 # Secondary text.
-Muted = "#3c7a7e"
+Muted = "#3b797e"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#8e95b3"
 # The selected entry.
@@ -36,5 +36,5 @@ SyntaxCommand = "#606f52"
 SyntaxFlag = "#587387"
 SyntaxString = "#9e7460"
 SyntaxVariable = "#765ba6"
-SyntaxOperator = "#425353"
+SyntaxOperator = "#425252"
 SyntaxComment = "#8e95b3"

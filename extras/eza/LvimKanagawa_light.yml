@@ -10,7 +10,7 @@
 # overwrite whatever you had set.
 
 blocks:
-  foreground: "#3c7a7e"
+  foreground: "#3b797e"
 broken_path_overlay:
   foreground: "#c35959"
   is_underline: true
@@ -65,7 +65,7 @@ filekinds:
     foreground: "#4b7889"
     is_bold: true
   normal:
-    foreground: "#425353"
+    foreground: "#425252"
   pipe:
     foreground: "#816f4a"
   socket:
@@ -104,7 +104,7 @@ git_repo:
     foreground: "#c35959"
     is_bold: true
 header:
-  foreground: "#425353"
+  foreground: "#425252"
   is_bold: true
   is_underline: true
 inode:
@@ -127,11 +127,11 @@ perms:
   group_write:
     foreground: "#c35959"
   other_execute:
-    foreground: "#3c7a7e"
+    foreground: "#3b797e"
   other_read:
-    foreground: "#3c7a7e"
+    foreground: "#3b797e"
   other_write:
-    foreground: "#3c7a7e"
+    foreground: "#3b797e"
   special_other:
     foreground: "#9393b4"
   special_user_file:
@@ -171,7 +171,7 @@ size:
   minor:
     foreground: "#9d7754"
   number_byte:
-    foreground: "#3c7a7e"
+    foreground: "#3b797e"
   number_giga:
     foreground: "#9d7754"
   number_huge:

@@ -1,10 +1,10 @@
 # Lvim Colorscheme GruvboxDark
 theme[main_bg]="#1e1d1c"
 theme[main_fg]="#928373"
-theme[title]="#908577"
+theme[title]="#968a7c"
 theme[hi_fg]="#4c8dae"
 theme[selected_bg]="#242322"
-theme[selected_fg]="#968a7b"
+theme[selected_fg]="#968a7c"
 theme[inactive_fg]="#96816e"
 theme[graph_text]="#97826e"
 theme[meter_bg]="#262524"

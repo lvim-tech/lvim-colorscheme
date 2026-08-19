@@ -16,7 +16,7 @@ colors:
     # Section headings, the active tab and step markers.
     accent_alt: "#987675"
     # Default foreground.
-    text: "#425353"
+    text: "#425252"
     # Descriptions, field labels, hints.
     muted: "#926f8a"
     # Unfocused pane borders.

@@ -7,7 +7,7 @@ cwd = { fg = "#958574", italic = true }
 
 # Find
 find_keyword  = { fg = "#1e1d1c", bg = "#c47d54", bold = true }
-find_position = { fg = "#998c7e", bg = "#252829", bold = true }
+find_position = { fg = "#998d7e", bg = "#252829", bold = true }
 
 # Symlink
 symlink_target = { fg = "#837263", italic = true }
@@ -53,7 +53,7 @@ preview = { bg = "#343230" }
 padding = { open = " ", close = " " }
 
 [tabs]
-active   = { fg = "#968a7b", bg = "#242322", bold = true }
+active   = { fg = "#968a7c", bg = "#242322", bold = true }
 inactive = { fg = "#817366", bg = "#222120" }
 
 [mode]
@@ -69,7 +69,7 @@ unset_alt   = { fg = "#a69fb5", bg = "#3a3836" }
 [status]
 # Progress
 progress_label  = { fg = "#958574", bold = true }
-progress_normal = { fg = "#908577", bg = "#1e1d1c" }
+progress_normal = { fg = "#968a7c", bg = "#1e1d1c" }
 progress_error  = { fg = "#fffefe", bg = "#ca4f4f" }
 
 # Permissions
@@ -81,18 +81,18 @@ perm_sep   = { fg = "#837263" }
 
 [pick]
 border   = { fg = "#41738c" }
-active   = { fg = "#968a7b", bg = "#242322" }
+active   = { fg = "#968a7c", bg = "#242322" }
 inactive = { fg = "#958574" }
 
 [input]
 border   = { fg = "#41738c" }
 title    = { fg = "#41738c" }
 value    = { fg = "#8c849d" }
-selected = { fg = "#968a7b", bg = "#242322" }
+selected = { fg = "#968a7c", bg = "#242322" }
 
 [cmp]
 border   = { fg = "#41738c" }
-active   = { fg = "#968a7b", bg = "#242322" }
+active   = { fg = "#968a7c", bg = "#242322" }
 inactive = { fg = "#958574" }
 
 icon_file    = ""
@@ -102,7 +102,7 @@ icon_command = ""
 [tasks]
 border  = { fg = "#585a36" }
 title   = { fg = "#958574" }
-hovered = { fg = "#968a7b", bg = "#242322" }
+hovered = { fg = "#968a7c", bg = "#242322" }
 
 [which]
 cols            = 3
@@ -118,7 +118,7 @@ border  = { fg = "#41738c" }
 title   = { fg = "#41738c" }
 body    = {}
 list    = {}
-btn_yes = { fg = "#968a7b", bg = "#242322" }
+btn_yes = { fg = "#968a7c", bg = "#242322" }
 btn_no  = {}
 btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 
@@ -141,8 +141,8 @@ icon_error = ""
 on      = { fg = "#8a8d46" }
 run     = { fg = "#bf775f" }
 desc    = { fg = "#817366" }
-hovered = { fg = "#968a7b", bg = "#242322", bold = true }
-footer  = { fg = "#968a7b", bg = "#242322" }
+hovered = { fg = "#968a7c", bg = "#242322", bold = true }
+footer  = { fg = "#968a7c", bg = "#242322" }
 
 [filetype]
 rules = [

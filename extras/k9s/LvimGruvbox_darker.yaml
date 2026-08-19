@@ -5,7 +5,7 @@ k9s:
     bgColor: "#1a1918"
     logoColor: "#635d71"
   prompt:
-    fgColor: "#908577"
+    fgColor: "#968a7c"
     bgColor: "#1e1d1c"
     suggestColor: "#837263"
   info:
@@ -14,7 +14,7 @@ k9s:
   dialog:
     fgColor: "#958574"
     bgColor: "#1e1d1c"
-    buttonFgColor: "#908577"
+    buttonFgColor: "#968a7c"
     buttonBgColor: "#201f1e"
     buttonFocusFgColor: "#ffffff"
     buttonFocusBgColor: "#497188"
@@ -61,7 +61,7 @@ k9s:
       cursorFgColor: "#9b856a"
       cursorBgColor: "#201f1e"
       header:
-        fgColor: "#908577"
+        fgColor: "#968a7c"
         bgColor: "#1a1918"
         sorterColor: "#5b9463"
     yaml:

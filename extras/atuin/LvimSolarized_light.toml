@@ -14,7 +14,7 @@ name = "LvimSolarized_light"
 
 [colors]
 # Default foreground.
-Base = "#425353"
+Base = "#425252"
 # Failures.
 AlertError = "#ca5350"
 # Non-fatal problems.
@@ -22,7 +22,7 @@ AlertWarn = "#786435"
 # Informational notices.
 AlertInfo = "#727c3e"
 # Secondary text.
-Muted = "#3c7a7e"
+Muted = "#3b797e"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#829ca5"
 # The selected entry.
@@ -36,5 +36,5 @@ SyntaxCommand = "#727c3e"
 SyntaxFlag = "#467c77"
 SyntaxString = "#ab6044"
 SyntaxVariable = "#b35181"
-SyntaxOperator = "#425353"
+SyntaxOperator = "#425252"
 SyntaxComment = "#829ca5"

@@ -2,7 +2,7 @@
 themes {
     lvim {
         text_unselected {
-            base "#4c6262"
+            base "#4d6464"
             background "#dadada"
             emphasis_0 "#6d5959"
             emphasis_1 "#566060"
@@ -26,7 +26,7 @@ themes {
             emphasis_3 "#7f7c88"
         }
         ribbon_unselected {
-            base "#4c6262"
+            base "#4d6464"
             background "#eeeeee"
             emphasis_0 "#6d5959"
             emphasis_1 "#476567"
@@ -50,7 +50,7 @@ themes {
             emphasis_3 "#655976"
         }
         table_cell_unselected {
-            base "#4c6262"
+            base "#4d6464"
             background "#dadada"
             emphasis_0 "#6d5959"
             emphasis_1 "#566060"
@@ -66,7 +66,7 @@ themes {
             emphasis_3 "#655976"
         }
         list_unselected {
-            base "#4c6262"
+            base "#4d6464"
             background "#dadada"
             emphasis_0 "#6d5959"
             emphasis_1 "#566060"

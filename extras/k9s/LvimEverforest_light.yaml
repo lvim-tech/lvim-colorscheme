@@ -1,7 +1,7 @@
 # Lvim Colorscheme EverforestLight
 k9s:
   body:
-    fgColor: "#4c6262"
+    fgColor: "#4d6464"
     bgColor: "#dadada"
     logoColor: "#918c9d"
   prompt:
@@ -10,22 +10,22 @@ k9s:
     suggestColor: "#6b7865"
   info:
     fgColor: "#586154"
-    sectionColor: "#4c6262"
+    sectionColor: "#4d6464"
   dialog:
-    fgColor: "#4c6262"
+    fgColor: "#4d6464"
     bgColor: "#E4E4E4"
     buttonFgColor: "#476567"
     buttonBgColor: "#e9e9e9"
     buttonFocusFgColor: "#ffffff"
     buttonFocusBgColor: "#4e7b93"
     labelFgColor: "#89502c"
-    fieldFgColor: "#4c6262"
+    fieldFgColor: "#4d6464"
   frame:
     border:
       fgColor: "#eeeeee"
       focusColor: "#5089a6"
     menu:
-      fgColor: "#4c6262"
+      fgColor: "#4d6464"
       keyColor: "#815343"
       numKeyColor: "#89502c"
     crumbs:
@@ -41,7 +41,7 @@ k9s:
       killColor: "#586154"
       completedColor: "#586154"
     title:
-      fgColor: "#4c6262"
+      fgColor: "#4d6464"
       bgColor: "#E4E4E4"
       highlightColor: "#89502c"
       counterColor: "#615d6a"
@@ -56,7 +56,7 @@ k9s:
         - "#7b7e3d"
         - "#c74d4d"
     table:
-      fgColor: "#4c6262"
+      fgColor: "#4d6464"
       bgColor: "#dadada"
       cursorFgColor: "#686868"
       cursorBgColor: "#e9e9e9"
@@ -67,9 +67,9 @@ k9s:
     yaml:
       keyColor: "#466374"
       colonColor: "#586154"
-      valueColor: "#4c6262"
+      valueColor: "#4d6464"
     logs:
-      fgColor: "#4c6262"
+      fgColor: "#4d6464"
       bgColor: "#dadada"
       indicator:
         fgColor: "#615d6a"

@@ -14,7 +14,7 @@ name = "LvimNightfox_light"
 
 [colors]
 # Default foreground.
-Base = "#425353"
+Base = "#425252"
 # Failures.
 AlertError = "#a75d70"
 # Non-fatal problems.
@@ -22,7 +22,7 @@ AlertWarn = "#897a50"
 # Informational notices.
 AlertInfo = "#6b8377"
 # Secondary text.
-Muted = "#3c7a7e"
+Muted = "#3b797e"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#8499b2"
 # The selected entry.
@@ -36,5 +36,5 @@ SyntaxCommand = "#6b8377"
 SyntaxFlag = "#588586"
 SyntaxString = "#a17351"
 SyntaxVariable = "#755a88"
-SyntaxOperator = "#425353"
+SyntaxOperator = "#425252"
 SyntaxComment = "#8499b2"

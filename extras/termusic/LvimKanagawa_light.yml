@@ -4,10 +4,10 @@ colors:
   author: lvim-colorscheme
   primary:
     background: "#dadada"
-    foreground: "#5e8888"
+    foreground: "#516c6c"
   cursor:
     text: "#dadada"
-    cursor: "#5e8888"
+    cursor: "#516c6c"
   normal:
     black: "#b6b6b6"
     red: "#c35959"
@@ -16,7 +16,7 @@ colors:
     blue: "#6c8dcc"
     magenta: "#94544f"
     cyan: "#5e827b"
-    white: "#619494"
+    white: "#629292"
   bright:
     black: "#cfd1d1"
     red: "#e25a5a"
@@ -25,4 +25,4 @@ colors:
     blue: "#709ae6"
     magenta: "#b85349"
     cyan: "#549388"
-    white: "#5d8989"
+    white: "#5e8787"

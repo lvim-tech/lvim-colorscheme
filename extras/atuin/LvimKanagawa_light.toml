@@ -14,7 +14,7 @@ name = "LvimKanagawa_light"
 
 [colors]
 # Default foreground.
-Base = "#425353"
+Base = "#425252"
 # Failures.
 AlertError = "#c35959"
 # Non-fatal problems.
@@ -22,7 +22,7 @@ AlertWarn = "#816f4a"
 # Informational notices.
 AlertInfo = "#697b51"
 # Secondary text.
-Muted = "#3c7a7e"
+Muted = "#3b797e"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#9393b4"
 # The selected entry.
@@ -36,5 +36,5 @@ SyntaxCommand = "#697b51"
 SyntaxFlag = "#5e827b"
 SyntaxString = "#9d7754"
 SyntaxVariable = "#94544f"
-SyntaxOperator = "#425353"
+SyntaxOperator = "#425252"
 SyntaxComment = "#9393b4"

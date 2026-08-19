@@ -1,7 +1,7 @@
 # Lvim Colorscheme GruvboxSoft
 theme[main_bg]="#242322"
 theme[main_fg]="#988876"
-theme[title]="#968a7b"
+theme[title]="#968a7c"
 theme[hi_fg]="#4c92b6"
 theme[selected_bg]="#2a2928"
 theme[selected_fg]="#9c8f80"

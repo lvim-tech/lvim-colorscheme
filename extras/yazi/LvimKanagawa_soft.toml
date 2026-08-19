@@ -69,7 +69,7 @@ unset_alt   = { fg = "#ada4c7", bg = "#3a3c48" }
 [status]
 # Progress
 progress_label  = { fg = "#8d8dac", bold = true }
-progress_normal = { fg = "#8787a7", bg = "#222329" }
+progress_normal = { fg = "#8888a8", bg = "#222329" }
 progress_error  = { fg = "#fbfcfe", bg = "#ba5454" }
 
 # Permissions

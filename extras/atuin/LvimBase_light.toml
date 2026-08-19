@@ -14,7 +14,7 @@ name = "LvimBase_light"
 
 [colors]
 # Default foreground.
-Base = "#425353"
+Base = "#425252"
 # Failures.
 AlertError = "#ae4b41"
 # Non-fatal problems.
@@ -22,7 +22,7 @@ AlertWarn = "#856e42"
 # Informational notices.
 AlertInfo = "#55673c"
 # Secondary text.
-Muted = "#3c7a7e"
+Muted = "#3b797e"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#699fa1"
 # The selected entry.
@@ -36,5 +36,5 @@ SyntaxCommand = "#55673c"
 SyntaxFlag = "#3e7a89"
 SyntaxString = "#aa703f"
 SyntaxVariable = "#af5543"
-SyntaxOperator = "#425353"
+SyntaxOperator = "#425252"
 SyntaxComment = "#699fa1"

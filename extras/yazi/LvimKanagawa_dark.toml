@@ -53,7 +53,7 @@ preview = { bg = "#30323d" }
 padding = { open = " ", close = " " }
 
 [tabs]
-active   = { fg = "#8787a7", bg = "#222329", bold = true }
+active   = { fg = "#8888a8", bg = "#222329", bold = true }
 inactive = { fg = "#747492", bg = "#202127" }
 
 [mode]
@@ -69,7 +69,7 @@ unset_alt   = { fg = "#a89ec3", bg = "#363845" }
 [status]
 # Progress
 progress_label  = { fg = "#8585a4", bold = true }
-progress_normal = { fg = "#8282a2", bg = "#1c1d23" }
+progress_normal = { fg = "#8585a5", bg = "#1c1d23" }
 progress_error  = { fg = "#fbfcff", bg = "#ba5454" }
 
 # Permissions
@@ -81,18 +81,18 @@ perm_sep   = { fg = "#717193" }
 
 [pick]
 border   = { fg = "#4d6ca4" }
-active   = { fg = "#8787a7", bg = "#222329" }
+active   = { fg = "#8888a8", bg = "#222329" }
 inactive = { fg = "#8585a4" }
 
 [input]
 border   = { fg = "#4d6ca4" }
 title    = { fg = "#4d6ca4" }
 value    = { fg = "#8f83ab" }
-selected = { fg = "#8787a7", bg = "#222329" }
+selected = { fg = "#8888a8", bg = "#222329" }
 
 [cmp]
 border   = { fg = "#4d6ca4" }
-active   = { fg = "#8787a7", bg = "#222329" }
+active   = { fg = "#8888a8", bg = "#222329" }
 inactive = { fg = "#8585a4" }
 
 icon_file    = ""
@@ -102,7 +102,7 @@ icon_command = ""
 [tasks]
 border  = { fg = "#566446" }
 title   = { fg = "#8585a4" }
-hovered = { fg = "#8787a7", bg = "#222329" }
+hovered = { fg = "#8888a8", bg = "#222329" }
 
 [which]
 cols            = 3
@@ -118,7 +118,7 @@ border  = { fg = "#4d6ca4" }
 title   = { fg = "#4d6ca4" }
 body    = {}
 list    = {}
-btn_yes = { fg = "#8787a7", bg = "#222329" }
+btn_yes = { fg = "#8888a8", bg = "#222329" }
 btn_no  = {}
 btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 
@@ -141,8 +141,8 @@ icon_error = ""
 on      = { fg = "#789059" }
 run     = { fg = "#c4726c" }
 desc    = { fg = "#747492" }
-hovered = { fg = "#8787a7", bg = "#222329", bold = true }
-footer  = { fg = "#8787a7", bg = "#222329" }
+hovered = { fg = "#8888a8", bg = "#222329", bold = true }
+footer  = { fg = "#8888a8", bg = "#222329" }
 
 [filetype]
 rules = [

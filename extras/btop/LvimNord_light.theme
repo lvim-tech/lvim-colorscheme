@@ -1,6 +1,6 @@
 # Lvim Colorscheme NordLight
 theme[main_bg]="#dadada"
-theme[main_fg]="#4c6262"
+theme[main_fg]="#4d6464"
 theme[title]="#476567"
 theme[hi_fg]="#52606f"
 theme[selected_bg]="#e9e9e9"

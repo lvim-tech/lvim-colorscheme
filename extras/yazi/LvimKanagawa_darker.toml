@@ -7,7 +7,7 @@ cwd = { fg = "#8383a2", italic = true }
 
 # Find
 find_keyword  = { fg = "#18191f", bg = "#bf8f62", bold = true }
-find_position = { fg = "#8a8aaa", bg = "#21242e", bold = true }
+find_position = { fg = "#8888a8", bg = "#21242e", bold = true }
 
 # Symlink
 symlink_target = { fg = "#717193", italic = true }
@@ -69,7 +69,7 @@ unset_alt   = { fg = "#a399bf", bg = "#313442" }
 [status]
 # Progress
 progress_label  = { fg = "#8383a2", bold = true }
-progress_normal = { fg = "#8080a0", bg = "#18191f" }
+progress_normal = { fg = "#8585a5", bg = "#18191f" }
 progress_error  = { fg = "#fbfcff", bg = "#ba5454" }
 
 # Permissions

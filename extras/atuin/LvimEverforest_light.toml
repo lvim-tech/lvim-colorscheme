@@ -14,7 +14,7 @@ name = "LvimEverforest_light"
 
 [colors]
 # Default foreground.
-Base = "#425353"
+Base = "#425252"
 # Failures.
 AlertError = "#c74d4d"
 # Non-fatal problems.
@@ -22,7 +22,7 @@ AlertWarn = "#8c7e55"
 # Informational notices.
 AlertInfo = "#7b7e3d"
 # Secondary text.
-Muted = "#3c7a7e"
+Muted = "#3b797e"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#879c7d"
 # The selected entry.
@@ -36,5 +36,5 @@ SyntaxCommand = "#7b7e3d"
 SyntaxFlag = "#5c8861"
 SyntaxString = "#8d522b"
 SyntaxVariable = "#915a47"
-SyntaxOperator = "#425353"
+SyntaxOperator = "#425252"
 SyntaxComment = "#879c7d"

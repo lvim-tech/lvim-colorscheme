@@ -21,7 +21,7 @@ export def main [] {
         list: "#4e6767"
         block: "#4e6767"
         hints: "#64747c"
-        search_result: { fg: "#1b1515" bg: "#5e8888" }
+        search_result: { fg: "#ffe0e1" bg: "#516c6c" }
 
         shape_and: { fg: "#6d597d" attr: "b" }
         shape_binary: { fg: "#6d597d" attr: "b" }

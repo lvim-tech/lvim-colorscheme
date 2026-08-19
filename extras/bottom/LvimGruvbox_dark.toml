@@ -32,7 +32,7 @@ legend_text = "#9b8570"
 [styles.widgets]
 border_color = "#262524"
 selected_border_color = "#497188"
-widget_title = { color = "#908577", bold = true }
+widget_title = { color = "#968a7c", bold = true }
 text = "#958574"
 selected_text = { color = "#ffffff", bg_color = "#497188" }
 disabled_text = "#99836f"

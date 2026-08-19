@@ -14,7 +14,7 @@ name = "LvimCatppuccin_light"
 
 [colors]
 # Default foreground.
-Base = "#425353"
+Base = "#425252"
 # Failures.
 AlertError = "#a45a6d"
 # Non-fatal problems.
@@ -22,7 +22,7 @@ AlertWarn = "#8a7b5e"
 # Informational notices.
 AlertInfo = "#557153"
 # Secondary text.
-Muted = "#3c7a7e"
+Muted = "#3b797e"
 # Tertiary text: timestamps, durations, exit codes.
 Annotation = "#8f94b3"
 # The selected entry.
@@ -36,5 +36,5 @@ SyntaxCommand = "#557153"
 SyntaxFlag = "#557278"
 SyntaxString = "#9a7561"
 SyntaxVariable = "#845377"
-SyntaxOperator = "#425353"
+SyntaxOperator = "#425252"
 SyntaxComment = "#8f94b3"
