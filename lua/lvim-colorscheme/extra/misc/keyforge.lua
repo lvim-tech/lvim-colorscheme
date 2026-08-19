@@ -67,6 +67,48 @@ function M.generate(colors, _, opts)
     dim = util.ensure_contrast(dim, bg, 3.2)
     dim = util.ensure_contrast(dim, bg_alt, 3.2)
 
+    -- The title text: chip names sit ON `blue` and the active tab label ON `orange`, so ONE
+    -- colour has to read on BOTH accents. Mirror of clipack's title badge: both ends of the
+    -- scale are tried and the better one wins — judged here on the WORSE of the two surfaces,
+    -- since that is the one the reader meets. The dark end starts from the palette background
+    -- and walks hsluv lightness DOWN (saturation held to the L:S ratio — `ensure_contrast`'s
+    -- own stepping, hue intact) until it clears 4.5 on both accents or bottoms out.
+    --
+    -- 4.5 on both is not always reachable: an accent caps what any text on it can attain
+    -- (kanagawa's blue caps at 3.80:1 with pure black, and no colour does better on the pair),
+    -- and the accents are shared semantic hues this file must not move. So the best end is
+    -- kept — the same rule for all 48 styles, no per-style exceptions — which always lands
+    -- above the 3.084 reference floor and above the 3.0 clipack holds its own badge text to.
+    local function on_accents(c)
+        return math.min(util.contrast(c, colors.blue), util.contrast(c, colors.orange))
+    end
+    local title_dark = bg
+    do
+        local hsluv = require("lvim-colorscheme.hsluv")
+        local hsl = hsluv.hex_to_hsluv(bg)
+        local l0, s0 = hsl[3], hsl[2]
+        local best, best_v = title_dark, on_accents(title_dark)
+        for _ = 1, 100 do
+            hsl[3] = hsl[3] - 1
+            if hsl[3] < 0 then
+                break
+            end
+            if l0 > 0 then
+                hsl[2] = math.min(s0 * (hsl[3] / l0), 100)
+            end
+            local c = hsluv.hsluv_to_hex(hsl)
+            local v = on_accents(c)
+            if v > best_v then
+                best, best_v = c, v
+            end
+            if v >= 4.5 then
+                break
+            end
+        end
+        title_dark = best
+    end
+    local title_fg = on_accents("#ffffff") >= on_accents(title_dark) and "#ffffff" or title_dark
+
     colors.keyforge_theme_name = "Lvim" .. (opts.style:gsub("^%l", string.upper))
     colors.keyforge_bg = bg
     colors.keyforge_bg_alt = bg_alt
@@ -78,6 +120,7 @@ function M.generate(colors, _, opts)
     colors.keyforge_blue = colors.blue
     colors.keyforge_purple = colors.purple
     colors.keyforge_orange = colors.orange
+    colors.keyforge_title_fg = title_fg
 
     return util.template(
         [[---
@@ -111,6 +154,8 @@ colors:
     blue: "${keyforge_blue}"
     purple: "${keyforge_purple}"
     orange: "${keyforge_orange}"
+    # Text on the accent surfaces: chip names on `blue`, the active tab on `orange`.
+    title_fg: "${keyforge_title_fg}"
 ]],
         colors
     )

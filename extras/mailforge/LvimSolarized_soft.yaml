@@ -29,3 +29,5 @@ colors:
     blue: "#4f7ea3"
     purple: "#757797"
     orange: "#b46548"
+    # Text on the accent surfaces: chip names on `blue`, the active tab on `orange`.
+    title_fg: "#08090a"
