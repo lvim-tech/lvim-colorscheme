@@ -11,9 +11,9 @@ LvimDracula_darker #1d1f27 #c7c7b3 #bc6060 #b58f70 #adb27e #62966d #638e82 #6693
 LvimDracula_light #E4E4E4 #516c6c #af5959 #a38165 #777b56 #466d4e #4d7066 #496b64 #517079 #8b79a6 #905274
 LvimDracula_soft #292b36 #c7c7b3 #bc6060 #b58f70 #adb27e #62966d #638e82 #66938a #638993 #796496 #bf6f9a
 LvimEverforest_dark #232929 #798575 #cb4f4f #cc7942 #af9e6b #75783a #357b6d #527a57 #42728b #635d71 #bb755e
-LvimEverforest_darker #1f2529 #798575 #cb4f4f #cc7942 #af9e6b #75783a #357b6d #527a57 #42728b #635d71 #bb755e
+LvimEverforest_darker #1b2121 #798575 #cb4f4f #cc7942 #af9e6b #75783a #357b6d #527a57 #42728b #635d71 #bb755e
 LvimEverforest_light #E4E4E4 #516c6c #c74d4d #8d522b #8f8156 #7b7e3d #3d8b7c #5c8861 #5089a6 #918c9d #915a47
-LvimEverforest_soft #292f33 #798575 #cb4f4f #cc7942 #af9e6b #75783a #357b6d #527a57 #42728b #635d71 #bb755e
+LvimEverforest_soft #2b3131 #798575 #cb4f4f #cc7942 #af9e6b #75783a #357b6d #527a57 #42728b #635d71 #bb755e
 LvimGruvbox_dark #222120 #86796b #ca4f4f #c47d54 #af9e6b #757845 #43796d #527a57 #497188 #635d71 #bb755e
 LvimGruvbox_darker #1e1d1c #86796b #ca4f4f #c47d54 #af9e6b #757845 #43796d #527a57 #497188 #635d71 #bb755e
 LvimGruvbox_light #E4E4E4 #516c6c #c74e4e #875537 #8f8156 #7a7d48 #4d8a7c #5c8861 #5988a3 #918c9d #915a47
