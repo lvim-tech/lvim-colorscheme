@@ -18,8 +18,8 @@ themes {
             emphasis_3 "#e08768"
         }
         ribbon_selected {
-            base "#ffffff"
-            background "#75783a"
+            base "#272c2c"
+            background "#94992b"
             emphasis_0 "#cb4f4f"
             emphasis_1 "#cc7942"
             emphasis_2 "#bb755e"

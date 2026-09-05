@@ -39,8 +39,16 @@ function M.generate(colors)
     -- The thirteenth is `ribbon_selected`, whose background is the palette's **green** — an accent
     -- used as a surface. Its own label is floored the way every strip in this repo is: the green
     -- must stay green (a selected tab that is no longer the accent has stopped being the selected
-    -- tab), so the text is chosen from the two the theme has and the green gives a step of hsluv
-    -- lightness only where that is not enough.
+    -- tab), and the green gives a step of hsluv lightness where that is not enough.
+    --
+    -- Its `base` has NO freedom, and the reason is a zellij bug rather than a colour judgement.
+    -- zellij paints the closing separator of the status bar's mode badge as a `` in the badge's
+    -- colour ON `ribbon_selected.base` — the ribbon's TEXT colour used as a BACKGROUND. A base
+    -- that is not the bar's own background therefore shows up as a slab of that colour at the
+    -- left edge of the bar. Every theme zellij ships sets this base to (essentially) its
+    -- background, so the bug never surfaces upstream; measured here, 24 of the 48 styles picked
+    -- white by contrast and wore a white block. So base IS the background, and the ribbon's label
+    -- is floored the only way left: by moving the green.
     --
     -- Its four `emphasis_*` are DELIBERATELY left at the palette's accents, and the reason is
     -- arithmetic rather than taste. The ribbon lands between 0.12 and 0.30 relative luminance on
@@ -53,7 +61,7 @@ function M.generate(colors)
     -- WHICH of four things this is; floored on this background it can no longer say anything, and
     -- 1.02:1 reported honestly is worth more than 4.5:1 that has destroyed the distinction.
     -- Clearing the floor here would need the ribbon itself to stop being the accent.
-    local ribbon_fg = util.readable_on(colors.green, colors.bg_dark)
+    local ribbon_fg = colors.bg_dark
     local ribbon_bg = util.ensure_contrast(colors.green, ribbon_fg, 4.5)
 
     local t = setmetatable({
