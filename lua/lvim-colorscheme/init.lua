@@ -19,6 +19,9 @@ local M = {}
 ---@type {light?: string, dark?: string}
 M.styles = {}
 
+---@type uv.uv_fs_event_t?  the live watcher on the theme mirror's directory (`remember`)
+local theme_watcher = nil
+
 --- Load and apply a colorscheme, honouring `vim.o.background`. Overlays `opts` on the live
 --- config for this apply only (the picker's `_preview` path uses the same seam).
 ---@param opts? lvim-colorscheme.Config
@@ -120,9 +123,20 @@ function M.setup(opts)
         -- itself: save_theme above writes this same file on every committed
         -- change, so a switch made HERE would wake the watcher, which would
         -- re-apply, which would save again.
+        --
+        -- ONE watcher per session: a repeated setup() replaces the previous one instead of
+        -- leaving it running beside the new (only the newest was stopped on exit before).
         local uv = vim.uv or vim.loop
+        if theme_watcher then
+            pcall(function()
+                theme_watcher:stop()
+                theme_watcher:close()
+            end)
+            theme_watcher = nil
+        end
         local watcher = uv.new_fs_event()
         if watcher then
+            theme_watcher = watcher
             watcher:start(vim.fn.fnamemodify(store.theme_file(), ":h"), {}, function()
                 -- fs_event runs off the main loop; :colorscheme must not.
                 vim.schedule(function()
