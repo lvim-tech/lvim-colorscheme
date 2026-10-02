@@ -7,69 +7,78 @@
 #
 # Then pick it in the Theme menu, or set LODE_THEME=LvimBase_dark.
 #
-# The surfaces are DERIVED, not copied: the palette's own tiers sit about 1.06:1 apart, which an
-# editor wants and a windowed application cannot use — a side panel, the grid and a selected row
-# have to look like three different places. Every foreground below is floored for contrast against
-# the surface it is actually drawn on. The [palette] block at the end is the raw palette, carried
-# for reference only — nothing draws text with it.
+# EVERY VALUE BELOW IS A COLOUR THE EDITOR IS ALREADY DRAWING, taken from the resolved highlight
+# groups of the `base_dark` style and copied unchanged. Nothing here is contrast-corrected,
+# including the pairs that measure below 4.5:1 — notably `text.primary` on `surface.base`, which is
+# `Normal` and is meant to read exactly as it does in the editor. A client that sits beside the
+# editor all day has to be the same colour as the editor; a "more readable" version of a theme is a
+# different theme. `extras/lode/check.py` measures and reports these pairs; it does not fail on them.
+#
+# Where a role has no analogue in an editor, the nearest group was used and said so in
+# extra/misc/lode.lua. `surface.border` is `WinSeparator`, which on every lvim style equals its own
+# background — the editor draws no line between windows — so the client's structure is carried by
+# the surfaces rather than by outlines, exactly as it is in the editor.
 
 name = "LvimBase_dark"
 style = "base_dark"
 dark = true
 
-# The places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
-# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
-# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
-# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
+# Normal.bg / NormalSB.bg / Pmenu.bg / NormalFloat.bg / StatusLine.bg / CursorLine.bg /
+# PmenuSel.bg / WinSeparator.fg
 [surface]
-base    = "#20272b"
-panel   = "#171a1c"
-raised  = "#29373e"
-overlay = "#2e434d"
-status  = "#070808"
-hover   = "#253036"
-border  = "#5b7d7e"
+base     = "#20272b"
+panel    = "#1c2327"
+raised   = "#1e2529"
+overlay  = "#1c2327"
+status   = "#1e2529"
+hover    = "#2a373d"
+selected = "#243037"
+border   = "#1e2529"
 
-# Interface text, grounded on the hardest of panel / base / raised / overlay / header.
-# `inverted` is the ink drawn ON an accent — the shared badge ink of the whole lvim tool family.
+# Normal.fg / Comment.fg / Title.fg / TabLineSel.fg
 [text]
-primary  = "#6cbaba"
-muted    = "#67999b"
-inverted = "#040404"
+primary  = "#5e8888"
+muted    = "#5b7d7e"
+title    = "#7d9753"
+inverted = "#1a1f22"
 
-# Floored to 3.0, not 4.5: these are chips, borders and state dots — UI components, never body text.
+# TabLineSel.bg / DiagnosticHint.fg / MoreMsg.fg / WarningMsg.fg / ErrorMsg.fg / DiagnosticInfo.fg
 [accent]
-primary   = "#4384af"
-secondary = "#3e8d7c"
-success   = "#7e965a"
-warning   = "#d8b36f"
-error     = "#d75e52"
-info      = "#448898"
+primary   = "#778e52"
+secondary = "#129f87"
+success   = "#7d9753"
+warning   = "#da8950"
+error     = "#eb6157"
+info      = "#1b97cf"
 
-# The query editor. Grounded on `base` alone, which is the only surface it is drawn on.
+# Search.bg / Search.fg — carried for the grid search that is next, like [syntax] below.
+[match]
+bg = "#22292d"
+fg = "#e19556"
+
+# Keyword / String / Constant / Comment / Function / Operator / Identifier
 [syntax]
-keyword    = "#3095d7"
+keyword    = "#448595"
 string     = "#7e965a"
 number     = "#e19556"
 comment    = "#5b7d7e"
-function   = "#3d95c9"
-operator   = "#639696"
-identifier = "#6cbaba"
+function   = "#3b6d8d"
+operator   = "#3a7280"
+identifier = "#c6614d"
 
-# The result grid. `row_alt` is the alternating stripe and is deliberately a SMALL step off `base`:
-# it exists to track one row across the width, and a stripe loud enough to "read" would be a second
-# background. `null_fg` is a SQL NULL — quieter than a value and a different colour from the body
-# ink, because a NULL and a string reading "NULL" are different values.
+# TabLine.bg / TabLine.fg / ColorColumn.bg / Visual.bg / Normal.fg (Visual sets no fg) / NonText.fg
+# `line_nr` is LineNr.fg and is used ONLY for the row-number column, which is literally a line
+# number and is as quiet here as the editor's gutter is. Everything else small uses text.muted.
 [grid]
-header_bg    = "#29373e"
-header_fg    = "#6aaeae"
-row_alt      = "#242e33"
-selection_bg = "#2d4a5d"
-selection_fg = "#ffffff"
+header_bg    = "#1e2529"
+header_fg    = "#539595"
+row_alt      = "#1a1f22"
+selection_bg = "#22292d"
+selection_fg = "#5e8888"
 null_fg      = "#5b7d7e"
+line_nr      = "#2a373d"
 
-# The raw palette, verbatim and NOT contrast-corrected. Reference only.
+# The raw palette, verbatim. Reference only — nothing draws text with it.
 [palette]
 bg            = "#20272b"
 bg_light      = "#242b2f"
