@@ -17,13 +17,18 @@ name = "LvimRosepine_light"
 style = "rosepine_light"
 dark = false
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#E4E4E4"
 panel   = "#d6d6d6"
 raised  = "#cecece"
 overlay = "#c0c0c0"
+status  = "#c8c8c8"
+hover   = "#f2f2f2"
 border  = "#95718d"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.
@@ -35,11 +40,11 @@ inverted = "#151515"
 
 # Floored to 3.0, not 4.5: these are chips, borders and state dots — UI components, never body text.
 [accent]
-primary   = "#65747b"
-secondary = "#647770"
+primary   = "#616f75"
+secondary = "#60716b"
 success   = "#5d6c60"
-warning   = "#7d6f61"
-error     = "#8e656e"
+warning   = "#7a6c5f"
+error     = "#8a636c"
 info      = "#606d6d"
 
 # The query editor. Grounded on `base` alone, which is the only surface it is drawn on.
@@ -60,7 +65,7 @@ identifier = "#425252"
 header_bg    = "#cecece"
 header_fg    = "#425252"
 row_alt      = "#ededed"
-selection_bg = "#b4b9bc"
+selection_bg = "#b2b8ba"
 selection_fg = "#151515"
 null_fg      = "#95718d"
 

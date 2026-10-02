@@ -17,13 +17,18 @@ name = "LvimTokyonight_soft"
 style = "tokyonight_soft"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#22252e"
 panel   = "#18191d"
 raised  = "#2e3445"
 overlay = "#363f57"
+status  = "#060607"
+hover   = "#2a303e"
 border  = "#6a7190"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.
@@ -62,7 +67,7 @@ header_fg    = "#b2b6c7"
 row_alt      = "#272b37"
 selection_bg = "#3c4662"
 selection_fg = "#ffffff"
-null_fg      = "#6c7394"
+null_fg      = "#71789a"
 
 # The raw palette, verbatim and NOT contrast-corrected. Reference only.
 [palette]

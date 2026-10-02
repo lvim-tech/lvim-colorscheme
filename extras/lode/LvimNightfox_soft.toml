@@ -17,13 +17,18 @@ name = "LvimNightfox_soft"
 style = "nightfox_soft"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#1d2837"
 panel   = "#171b23"
 raised  = "#203853"
 overlay = "#1c446a"
+status  = "#0c0d0f"
+hover   = "#1f3146"
 border  = "#758292"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.

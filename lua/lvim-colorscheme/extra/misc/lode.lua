@@ -30,14 +30,15 @@
 -- nearest in luminance of the candidates — which surface is the hard one depends on the palette,
 -- and assuming it costs a measurement). The sets differ because the surfaces differ:
 --
---   * interface text (primary, muted)  → panel, base, raised, overlay, header_bg  (it appears on
---     all five: a label in the side panel, a cell in the grid, a column name in the header strip,
---     a field in a dialog)
---   * accents                          → panel, base, raised  (chips, borders, state dots)
+--   * interface text (primary, muted)  → panel, base, raised, overlay, header_bg, status, hover
+--     (all seven: a label in the side panel, a cell in the grid, a column name in the header strip,
+--     a field in a dialog, the message in the status strip, a row under the pointer)
+--   * accents                          → panel, base, raised, status  (chips, borders, state dots,
+--     and the warning / error line the status strip prints)
 --   * syntax                           → base only  (the editor body is the one surface it has)
 --   * header_fg                        → header_bg
 --   * selection_fg                     → selection_bg
---   * null_fg                          → base and row_alt  (the two the grid stripes between)
+--   * null_fg                          → base, row_alt and hover  (every background a cell gets)
 --
 -- ── WHAT IS DELIBERATELY LEFT UNCORRECTED ───────────────────────────────────────────────────────
 --
@@ -116,6 +117,14 @@ function M.generate(colors, _, opts)
     -- recessed, a card as raised, and putting both on the same side of the page makes the window
     -- look like one surface with two accidents on it.
     local panel = step(bg, colors.bg_dark, 1.14, 1.14)
+    -- The status strip goes DEEPER than the panel: it is the window's bottom
+    -- edge, and an edge that sits at the same depth as a panel reads as one more
+    -- panel. 1.30 is the first step where it stops being ambiguous.
+    local status = step(bg, colors.bg_dark, 1.30, 1.30)
+    -- The row under the pointer. It has to land BETWEEN the stripe (1.07) and a
+    -- card (1.22): below the stripe it is invisible against an odd row, at a card's
+    -- depth every pass of the mouse looks like something opening.
+    local hover = step(bg, colors.bg_light, 1.12, 1.12)
     local header_bg = raised
     -- The stripe: see note 3 — deliberately small, and NOT grounded as an ink.
     local row_alt = step(bg, colors.bg_light, 1.07, 1.07)
@@ -124,12 +133,12 @@ function M.generate(colors, _, opts)
     local border = util.ensure_contrast(colors.comment, bg, 2.0)
 
     -- Interface text, grounded on every surface it actually lands on.
-    local ink_surfaces = { panel, base, raised, overlay, header_bg }
     local function ground(color, min, surfaces)
         return util.ensure_contrast(color, util.hardest(color, surfaces[1], select(2, unpack(surfaces))), min)
     end
-    local text_primary = ground(colors.terminal.foreground, 4.5, { panel, bg, raised, overlay, header_bg })
-    local text_muted = ground(colors.comment, 3.2, { panel, bg, raised, overlay, header_bg })
+    local ink_surfaces = { panel, bg, raised, overlay, header_bg, status, hover }
+    local text_primary = ground(colors.terminal.foreground, 4.5, ink_surfaces)
+    local text_muted = ground(colors.comment, 3.2, ink_surfaces)
     -- The ink drawn ON an accent. `util.title_fg` is the ONE value the whole badge-painting family
     -- shares (clipack, configer, themer, ql, secmon, keyforge, mailforge), judged once per theme on
     -- every surface that family paints a chip on. lode's primary accent is the same floored blue, so
@@ -137,8 +146,9 @@ function M.generate(colors, _, opts)
     -- byte-identical text — which is the entire point of the shared value.
     local text_inverted = util.title_fg(colors)
 
-    -- Accents: 3.0, not 4.5 — see note 2.
-    local accent_surfaces = { panel, bg, raised }
+    -- Accents: 3.0, not 4.5 — see note 2. `status` is in the set because the
+    -- status strip is where a warning or an error line is actually printed.
+    local accent_surfaces = { panel, bg, raised, status }
     local function accent(color)
         return ground(color, 3.0, accent_surfaces)
     end
@@ -177,7 +187,7 @@ function M.generate(colors, _, opts)
     -- A NULL must read as present-but-absent. 3.0 against both surfaces the grid stripes between:
     -- quieter than a value, never a blank cell. It is a different COLOUR from the body ink, because
     -- a NULL and a string reading "NULL" are different values and must not look alike.
-    local null_fg = ground(colors.comment, 3.0, { bg, row_alt })
+    local null_fg = ground(colors.comment, 3.0, { bg, row_alt, hover })
 
     colors.lode_name = "Lvim" .. (opts.style:gsub("^%l", string.upper))
     colors.lode_style = opts.style
@@ -186,6 +196,8 @@ function M.generate(colors, _, opts)
     colors.lode_panel = panel
     colors.lode_raised = raised
     colors.lode_overlay = overlay
+    colors.lode_status = status
+    colors.lode_hover = hover
     colors.lode_border = border
     colors.lode_text = text_primary
     colors.lode_muted = text_muted
@@ -230,13 +242,18 @@ name = "${lode_name}"
 style = "${lode_style}"
 dark = ${lode_dark}
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "${lode_base}"
 panel   = "${lode_panel}"
 raised  = "${lode_raised}"
 overlay = "${lode_overlay}"
+status  = "${lode_status}"
+hover   = "${lode_hover}"
 border  = "${lode_border}"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.

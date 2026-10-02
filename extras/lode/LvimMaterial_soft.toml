@@ -17,13 +17,18 @@ name = "LvimMaterial_soft"
 style = "material_soft"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#273339"
 panel   = "#20282b"
 raised  = "#2e444e"
 overlay = "#314e5a"
+status  = "#191d1f"
+hover   = "#2c3c45"
 border  = "#6e7f87"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.
@@ -62,7 +67,7 @@ header_fg    = "#b2c7c7"
 row_alt      = "#2a3a42"
 selection_bg = "#405576"
 selection_fg = "#ffffff"
-null_fg      = "#72848d"
+null_fg      = "#748790"
 
 # The raw palette, verbatim and NOT contrast-corrected. Reference only.
 [palette]

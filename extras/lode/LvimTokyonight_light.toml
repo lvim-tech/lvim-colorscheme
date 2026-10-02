@@ -17,13 +17,18 @@ name = "LvimTokyonight_light"
 style = "tokyonight_light"
 dark = false
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#E4E4E4"
 panel   = "#d6d6d6"
 raised  = "#cecece"
 overlay = "#c0c0c0"
+status  = "#c8c8c8"
+hover   = "#f2f2f2"
 border  = "#747b9a"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.
@@ -35,12 +40,12 @@ inverted = "#0d0d0d"
 
 # Floored to 3.0, not 4.5: these are chips, borders and state dots — UI components, never body text.
 [accent]
-primary   = "#60729f"
-secondary = "#587a73"
+primary   = "#5d6d97"
+secondary = "#55756e"
 success   = "#606f52"
-warning   = "#7f6e59"
-error     = "#ab5867"
-info      = "#587387"
+warning   = "#7c6c57"
+error     = "#a65765"
+info      = "#577084"
 
 # The query editor. Grounded on `base` alone, which is the only surface it is drawn on.
 [syntax]
@@ -60,7 +65,7 @@ identifier = "#425252"
 header_bg    = "#cecece"
 header_fg    = "#425252"
 row_alt      = "#ededed"
-selection_bg = "#b2b9ca"
+selection_bg = "#b1b7c7"
 selection_fg = "#0d0d0d"
 null_fg      = "#747b9a"
 

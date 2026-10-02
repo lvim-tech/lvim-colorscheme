@@ -17,13 +17,18 @@ name = "LvimCatppuccin_soft"
 style = "catppuccin_soft"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#22232d"
 panel   = "#17171c"
 raised  = "#2f3144"
 overlay = "#393c57"
+status  = "#040404"
+hover   = "#2b2d3d"
 border  = "#6c7393"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.
@@ -62,7 +67,7 @@ header_fg    = "#b2b7c7"
 row_alt      = "#282937"
 selection_bg = "#3b465e"
 selection_fg = "#ffffff"
-null_fg      = "#6c7393"
+null_fg      = "#6e7596"
 
 # The raw palette, verbatim and NOT contrast-corrected. Reference only.
 [palette]

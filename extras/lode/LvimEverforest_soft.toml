@@ -17,13 +17,18 @@ name = "LvimEverforest_soft"
 style = "everforest_soft"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#2b3131"
 panel   = "#222626"
 raised  = "#374141"
 overlay = "#3e4b4b"
+status  = "#191b1b"
+hover   = "#323a3a"
 border  = "#717e6a"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.

@@ -17,13 +17,18 @@ name = "LvimSolarized_darker"
 style = "solarized_darker"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#001f27"
 panel   = "#080c0d"
 raised  = "#00313c"
 overlay = "#003d4a"
+status  = "#003642"
+hover   = "#002a34"
 border  = "#6f7f84"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.
@@ -37,9 +42,9 @@ inverted = "#080c0d"
 [accent]
 primary   = "#4f7ea3"
 secondary = "#49866e"
-success   = "#727c3e"
+success   = "#747f3e"
 warning   = "#9f8549"
-error     = "#c24f4d"
+error     = "#cc514e"
 info      = "#4b8580"
 
 # The query editor. Grounded on `base` alone, which is the only surface it is drawn on.

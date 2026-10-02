@@ -17,13 +17,18 @@ name = "LvimKanagawa_dark"
 style = "kanagawa_dark"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#202127"
 panel   = "#131315"
 raised  = "#2f323f"
 overlay = "#373a4c"
+status  = "#333645"
+hover   = "#2a2b35"
 border  = "#717193"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.
@@ -35,12 +40,12 @@ inverted = "#030303"
 
 # Floored to 3.0, not 4.5: these are chips, borders and state dots — UI components, never body text.
 [accent]
-primary   = "#547cbe"
-secondary = "#538396"
-success   = "#6e8255"
+primary   = "#5581c8"
+secondary = "#54899d"
+success   = "#728757"
 warning   = "#d1b57c"
-error     = "#c95757"
-info      = "#5d857e"
+error     = "#d15b5b"
+info      = "#5e8881"
 
 # The query editor. Grounded on `base` alone, which is the only surface it is drawn on.
 [syntax]
@@ -60,9 +65,9 @@ identifier = "#a2a2bf"
 header_bg    = "#2f323f"
 header_fg    = "#9a9ab8"
 row_alt      = "#26272f"
-selection_bg = "#344460"
+selection_bg = "#344564"
 selection_fg = "#ffffff"
-null_fg      = "#717193"
+null_fg      = "#737396"
 
 # The raw palette, verbatim and NOT contrast-corrected. Reference only.
 [palette]

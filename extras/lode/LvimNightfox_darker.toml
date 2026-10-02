@@ -17,13 +17,18 @@ name = "LvimNightfox_darker"
 style = "nightfox_darker"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#141c26"
 panel   = "#0a0b0d"
 raised  = "#132e46"
 overlay = "#003a5e"
+status  = "#0b3554"
+hover   = "#152739"
 border  = "#758292"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.
@@ -39,7 +44,7 @@ primary   = "#6885ad"
 secondary = "#66a492"
 success   = "#7b998a"
 warning   = "#bba76f"
-error     = "#b26377"
+error     = "#b66579"
 info      = "#69a3a4"
 
 # The query editor. Grounded on `base` alone, which is the only surface it is drawn on.

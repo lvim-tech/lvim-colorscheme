@@ -17,13 +17,18 @@ name = "LvimSolarized_soft"
 style = "solarized_soft"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#003441"
 panel   = "#102730"
 raised  = "#004555"
 overlay = "#004f61"
+status  = "#111a1d"
+hover   = "#003d4c"
 border  = "#6f7f84"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.
@@ -62,7 +67,7 @@ header_fg    = "#a7afaf"
 row_alt      = "#003b49"
 selection_bg = "#1e5770"
 selection_fg = "#ffffff"
-null_fg      = "#718287"
+null_fg      = "#73848a"
 
 # The raw palette, verbatim and NOT contrast-corrected. Reference only.
 [palette]

@@ -17,13 +17,18 @@ name = "LvimRosepine_dark"
 style = "rosepine_dark"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#1d1b1f"
 panel   = "#0c0b0c"
 raised  = "#2f2a34"
 overlay = "#3c3443"
+status  = "#342e3a"
+hover   = "#28252c"
 border  = "#896882"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.
@@ -35,8 +40,8 @@ inverted = "#010101"
 
 # Floored to 3.0, not 4.5: these are chips, borders and state dots — UI components, never body text.
 [accent]
-primary   = "#667a83"
-secondary = "#647c74"
+primary   = "#687d86"
+secondary = "#667e76"
 success   = "#788b7c"
 warning   = "#b6a18b"
 error     = "#a0727c"
@@ -60,7 +65,7 @@ identifier = "#b3afb2"
 header_bg    = "#2f2a34"
 header_fg    = "#b3afb2"
 row_alt      = "#242127"
-selection_bg = "#393f45"
+selection_bg = "#3a4046"
 selection_fg = "#ffffff"
 null_fg      = "#896882"
 

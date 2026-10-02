@@ -17,13 +17,18 @@ name = "LvimDracula_soft"
 style = "dracula_soft"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#292b36"
 panel   = "#202127"
 raised  = "#363a4d"
 overlay = "#3e435c"
+status  = "#121315"
+hover   = "#313343"
 border  = "#727a98"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.
@@ -62,7 +67,7 @@ header_fg    = "#c7c7b3"
 row_alt      = "#2f3140"
 selection_bg = "#3f505a"
 selection_fg = "#ffffff"
-null_fg      = "#727a98"
+null_fg      = "#747d9b"
 
 # The raw palette, verbatim and NOT contrast-corrected. Reference only.
 [palette]

@@ -17,13 +17,18 @@ name = "LvimNord_darker"
 style = "nord_darker"
 dark = true
 
-# The four places the application paints. `base` is the grid and the editor, `panel` the side panel
-# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything.
+# The places the application paints. `base` is the grid and the editor, `panel` the side panel
+# (recessed), `raised` a card / the grid header (raised), `overlay` a dialog above everything,
+# `status` the strip along the bottom edge (deeper than a panel, so it reads as an edge and not as
+# one more panel), `hover` the row under the pointer (between the grid's stripe and a card: shallower
+# and it vanishes against an odd row, deeper and every pass of the mouse looks like something opening).
 [surface]
 base    = "#1d2128"
 panel   = "#111215"
 raised  = "#293241"
 overlay = "#2d3b50"
+status  = "#2b3748"
+hover   = "#242c37"
 border  = "#6e798e"
 
 # Interface text, grounded on the hardest of panel / base / raised / overlay / header.

@@ -8,16 +8,18 @@ be made twice to go unnoticed.
 
 The floors are the generator's own, and the reasons are in its header:
 
-  text.primary      4.5  on the hardest of panel / base / raised / overlay / header_bg
-  text.muted        3.2  on the same five
+  text.primary      4.5  on the hardest of panel / base / raised / overlay / header_bg /
+                         status / hover
+  text.muted        3.2  on the same seven
   text.inverted     3.0  on accent.primary                         (badge ink; the shared
                          family value, which an accent can cap — see util.title_fg)
-  accent.*          3.0  on the hardest of panel / base / raised   (UI components, not body text)
+  accent.*          3.0  on the hardest of panel / base / raised / status  (UI components, not
+                         body text; `status` because that strip prints the warning and error lines)
   syntax.*          4.5  on base                                   (the editor's one surface)
   syntax.comment    3.2  on base
   grid.header_fg    4.5  on grid.header_bg
   grid.selection_fg 4.5  on grid.selection_bg
-  grid.null_fg      3.0  on base and on grid.row_alt
+  grid.null_fg      3.0  on base, on grid.row_alt and on surface.hover
 
 Surfaces are checked for being DISTINGUISHABLE rather than readable: panel, raised
 and overlay must each be at least 1.10 from base, and row_alt deliberately is NOT
@@ -90,7 +92,10 @@ def check(path: pathlib.Path) -> list[str]:
         if got + 1e-9 < floor:
             fails.append(f"{label}: {got:.2f} < {floor} ({fg} on {bg})")
 
-    ink_surfaces = [s["panel"], s["base"], s["raised"], s["overlay"], grid["header_bg"]]
+    ink_surfaces = [
+        s["panel"], s["base"], s["raised"], s["overlay"],
+        grid["header_bg"], s["status"], s["hover"],
+    ]
     need("text.primary", text["primary"], hardest(text["primary"], ink_surfaces), 4.5)
     need("text.muted", text["muted"], hardest(text["muted"], ink_surfaces), 3.2)
 
@@ -106,7 +111,7 @@ def check(path: pathlib.Path) -> list[str]:
     # and the client had no business writing inverted ink there.
     need("text.inverted on accent", text["inverted"], accent["primary"], 3.0)
 
-    acc_surfaces = [s["panel"], s["base"], s["raised"]]
+    acc_surfaces = [s["panel"], s["base"], s["raised"], s["status"]]
     for k in ("primary", "secondary", "success", "warning", "error", "info"):
         need(f"accent.{k}", accent[k], hardest(accent[k], acc_surfaces), 3.0)
 
@@ -126,12 +131,22 @@ def check(path: pathlib.Path) -> list[str]:
     need("grid.selection_fg", grid["selection_fg"], grid["selection_bg"], 4.5)
     need("grid.null_fg on base", grid["null_fg"], s["base"], 3.0)
     need("grid.null_fg on row_alt", grid["null_fg"], grid["row_alt"], 3.0)
+    need("grid.null_fg on hover", grid["null_fg"], s["hover"], 3.0)
 
-    # Surfaces: three places have to look like three places.
-    for k in ("panel", "raised", "overlay"):
+    # Surfaces: separate places have to look like separate places.
+    for k in ("panel", "raised", "overlay", "status"):
         got = contrast(s[k], s["base"])
         if got < 1.10:
             fails.append(f"surface.{k} is not a place: {got:.3f} from base")
+    # The status strip is the window's EDGE and must be deeper than the panel,
+    # or it reads as one more panel.
+    if contrast(s["status"], s["base"]) <= contrast(s["panel"], s["base"]):
+        fails.append("surface.status is no deeper than surface.panel")
+    # Hover sits between the grid's stripe and a card: visible against an odd
+    # row, and not so deep that passing the mouse looks like something opening.
+    hov = contrast(s["hover"], s["base"])
+    if not 1.08 <= hov <= 1.20:
+        fails.append(f"surface.hover is out of range: {hov:.3f} from base")
     # …and the stripe deliberately is NOT a place.
     stripe = contrast(grid["row_alt"], s["base"])
     if stripe < 1.01:
