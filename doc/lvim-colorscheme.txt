@@ -289,8 +289,8 @@ Two hooks let you adjust the result without forking a palette.
 
 Generated configuration files for external tools live under `extras/`, one
 file per style (48 styles total). Tools include bat, delta, fzf, kitty,
-lazygit, lazydocker, neomutt, qtile, qutebrowser, starship, tmux, vivid,
-waybar, xresources, yazi, wezterm, alacritty, ghostty, zed, helix.
+lazygit, lazydocker, lode, neomutt, qtile, qutebrowser, starship, tmux,
+vivid, waybar, xresources, yazi, wezterm, alacritty, ghostty, zed, helix.
 
 Regenerate them with the |:LvimColorscheme| `extras` command (all tools, or a
 single named tool). Point the target tool at the matching `extras/<tool>/`

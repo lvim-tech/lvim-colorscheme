@@ -432,6 +432,7 @@ Each tool has one file per style (48 styles total).
 | Yazi        | `.toml`       |
 | Zed         | `.json`       |
 | Helix       | `.toml`       |
+| Lode        | `.toml`       |
 
 Regenerate the extras after modifying a palette:
 

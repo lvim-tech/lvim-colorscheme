@@ -74,6 +74,7 @@ M.extras = {
   clipack         = { ext = "yaml", url = "https://github.com/lvim-tech/clipack", label = "Clipack", group = "misc" },
   configer        = { ext = "yaml", url = "https://github.com/lvim-tech/configer", label = "Configer", group = "misc" },
   keyforge        = { ext = "yaml", url = "https://github.com/lvim-tech/keyforge", label = "Keyforge", group = "misc" },
+  lode            = { ext = "toml", url = "https://github.com/lvim-tech/lode", label = "Lode", group = "misc" },
   mailforge       = { ext = "yaml", url = "https://github.com/lvim-tech/mailforge", label = "Mailforge", group = "misc" },
   ql              = { ext = "yaml", url = "https://github.com/lvim-tech/ql", label = "Ql", group = "misc" },
   secmon          = { ext = "toml", url = "https://github.com/lvim-tech/secmon", label = "Secmon", group = "misc" },
