@@ -15,16 +15,17 @@
 # different theme. `extras/lode/check.py` measures and reports these pairs; it does not fail on them.
 #
 # Where a role has no analogue in an editor, the nearest group was used and said so in
-# extra/misc/lode.lua. `surface.border` is `WinSeparator`, which on every lvim style equals its own
-# background — the editor draws no line between windows — so the client's structure is carried by
-# the surfaces rather than by outlines, exactly as it is in the editor.
+# extra/misc/lode.lua. `surface.border` is the one deliberate departure: the literal source,
+# `WinSeparator.fg`, equals its own background on every lvim style, which leaves a window packing
+# four panels into one frame with nothing to separate them. It takes `LineNr.fg` instead — the
+# quietest ink the editor paints, so the outline is felt rather than seen.
 
 name = "LvimRosepine_soft"
 style = "rosepine_soft"
 dark = true
 
 # Normal.bg / NormalSB.bg / Pmenu.bg / NormalFloat.bg / StatusLine.bg / CursorLine.bg /
-# PmenuSel.bg / WinSeparator.fg
+# PmenuSel.bg / LineNr.fg
 [surface]
 base     = "#232126"
 panel    = "#1f1d22"
@@ -33,7 +34,7 @@ overlay  = "#1f1d22"
 status   = "#211f24"
 hover    = "#332f38"
 selected = "#29292e"
-border   = "#211f24"
+border   = "#332f38"
 
 # Normal.fg / Comment.fg / Title.fg / TabLineSel.fg
 [text]

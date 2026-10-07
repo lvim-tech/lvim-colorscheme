@@ -40,7 +40,7 @@
 --   surface.status    StatusLine.bg      the status strip
 --   surface.hover     CursorLine.bg      the line under the cursor → the row under the pointer
 --   surface.selected  PmenuSel.bg        the selected entry of a popup list → a selected list row
---   surface.border    WinSeparator.fg    see the note below
+--   surface.border    LineNr.fg          the one departure from literal — see the note below
 --   text.primary      Normal.fg          the body text, at whatever contrast the editor has it
 --   text.muted        Comment.fg         second-level text — NOT LineNr, see the note at its use
 --   text.title        Title.fg           section headings
@@ -65,11 +65,14 @@
 --
 --   * `grid.row_alt` — an editor has no alternating rows. `ColorColumn` is the nearest: a quiet
 --     band laid over the buffer's background without being a second surface.
---   * `surface.border` — on EVERY lvim style `WinSeparator.fg` equals its own background (measured
---     across all 48: the editor draws no visible line between windows). Taken literally, as the
---     rule requires, which means the client's frames are invisible and its structure is carried by
---     the SURFACES instead — which is exactly how the editor separates one window from the next.
---     This is reported by check.py, not corrected here.
+--   * `surface.border` — `LineNr.fg`, and this is the ONE deliberate departure from the literal
+--     rule, named here so nobody has to rediscover it. The literal source is `WinSeparator.fg`,
+--     which on every one of the 48 styles equals its own background: the editor draws no line
+--     between windows because it does not need one — a window there is a full screen region, while
+--     the client packs a connection tree, a result, a console and a task list into the same frame.
+--     With no outline at all those read as one surface. `LineNr` is the quietest ink the editor
+--     actually paints (1.2:1 against the buffer on base dark), so the line is felt rather than
+--     seen, and it still comes from the style — nothing is computed, lifted or invented here.
 --   * `match.*` and `syntax.*` are carried even though the client does not paint with them yet. The
 --     file is the contract; a role dropped because today's client has no use for it is a role the
 --     next version has to re-derive from somewhere else.
@@ -139,9 +142,10 @@ function M.generate(colors, groups, opts)
     local status = g({ { "StatusLine", "bg" }, { "Pmenu", "bg" } }, colors.bg_soft_dark)
     local hover = g({ { "CursorLine", "bg" }, { "PmenuSel", "bg" } }, colors.bg_light)
     local selected = g({ { "PmenuSel", "bg" }, { "Visual", "bg" } }, colors.bg_light)
-    -- See the header: this is the editor's separator colour, and on every lvim style it is the
-    -- separator's own background — the editor draws no line.
-    local border = g({ { "WinSeparator", "fg" }, { "VertSplit", "fg" }, { "FloatBorder", "fg" } }, colors.bg_dark)
+    -- See the header: the editor's own separator is invisible (it equals its background on every
+    -- style), and the client needs its panels told apart, so the outline takes the quietest ink the
+    -- editor paints instead. Still the style's colour, not a computed one.
+    local border = g({ { "LineNr", "fg" }, { "NonText", "fg" } }, colors.comment)
 
     -- Inks, at the editor's own contrast. `Normal.fg` on base dark is 3.86:1 and stays 3.86:1.
     local text = g({ { "Normal", "fg" } }, colors.fg)
@@ -248,16 +252,17 @@ function M.generate(colors, groups, opts)
 # different theme. `extras/lode/check.py` measures and reports these pairs; it does not fail on them.
 #
 # Where a role has no analogue in an editor, the nearest group was used and said so in
-# extra/misc/lode.lua. `surface.border` is `WinSeparator`, which on every lvim style equals its own
-# background — the editor draws no line between windows — so the client's structure is carried by
-# the surfaces rather than by outlines, exactly as it is in the editor.
+# extra/misc/lode.lua. `surface.border` is the one deliberate departure: the literal source,
+# `WinSeparator.fg`, equals its own background on every lvim style, which leaves a window packing
+# four panels into one frame with nothing to separate them. It takes `LineNr.fg` instead — the
+# quietest ink the editor paints, so the outline is felt rather than seen.
 
 name = "${lode_name}"
 style = "${lode_style}"
 dark = ${lode_dark}
 
 # Normal.bg / NormalSB.bg / Pmenu.bg / NormalFloat.bg / StatusLine.bg / CursorLine.bg /
-# PmenuSel.bg / WinSeparator.fg
+# PmenuSel.bg / LineNr.fg
 [surface]
 base     = "${lode_base}"
 panel    = "${lode_panel}"
