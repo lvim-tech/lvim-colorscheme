@@ -7,7 +7,10 @@
 -- 3. the health check runs to completion against a bare environment.
 
 local PLUGIN = "lvim-colorscheme"
-local root = PLUGIN_ROOT .. "/lua/" .. PLUGIN
+-- The plugin's own root, derived from THIS file rather than from a harness global, so the spec
+-- drops into any of the suites in the set.
+local here = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":p:h:h")
+local root = here .. "/lua/" .. PLUGIN
 
 ---@return string[]
 local function modules()
