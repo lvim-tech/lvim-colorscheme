@@ -49,6 +49,8 @@ if vim.uv.fs_stat(plugins) then
 end
 
 local passed, failed, skipped = 0, 0, 0
+---@type boolean  raised by skip() so the it() it was called from is not ALSO counted as a pass
+local skipped_current = false
 local current = "?"
 
 --- Name the group the next tests belong to.
@@ -62,7 +64,13 @@ end
 ---@param name string
 ---@param fn fun()
 function _G.it(name, fn)
+    skipped_current = false
     local ok, err = pcall(fn)
+    if skipped_current then
+        -- skip() has already reported this one, and a skip must never read as a pass: counting
+        -- both left every total overstating what is known to work by the number of skips.
+        return
+    end
     if ok then
         passed = passed + 1
         io.write("  ok   ", name, "\n")
@@ -77,6 +85,7 @@ end
 ---@param why string
 function _G.skip(name, why)
     skipped = skipped + 1
+    skipped_current = true
     io.write("  skip ", name, " — ", why, "\n")
 end
 
