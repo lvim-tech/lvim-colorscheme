@@ -64,7 +64,18 @@ function M.generate(colors)
     local ribbon_fg = colors.bg_dark
     local ribbon_bg = util.ensure_contrast(colors.green, ribbon_fg, 4.5)
 
+    -- `text_selected` is the selected row of every list zellij and its plugins draw (the session
+    -- manager, strider, lvim-zclaude, lvim-zsession). On `bg_highlight` alone it sat one step
+    -- above the pane's own `bg_dark` — on MaterialDark #242f34 against #1e292e, a selection you
+    -- had to look for. It is pulled 12% towards the text instead: lighter on a dark palette,
+    -- darker on a light one, the same visible step on both. The label on it is then floored
+    -- against THIS surface, which is none of the three `ui()` measures against.
+    local selected_bg = util.blend(colors.fg, 0.12, colors.bg_highlight)
+    local selected_fg = util.ensure_contrast(colors.fg_light, selected_bg, 4.5)
+
     local t = setmetatable({
+        z_selected_bg = selected_bg,
+        z_selected_fg = selected_fg,
         z_ribbon_fg = ribbon_fg,
         z_ribbon_bg = ribbon_bg,
         z_ribbon_e0 = colors.red,
@@ -110,8 +121,8 @@ themes {
             emphasis_3 "${magenta}"
         }
         text_selected {
-            base "${fg_light}"
-            background "${bg_highlight}"
+            base "${z_selected_fg}"
+            background "${z_selected_bg}"
             emphasis_0 "${orange}"
             emphasis_1 "${cyan}"
             emphasis_2 "${green}"

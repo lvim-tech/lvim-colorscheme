@@ -10,8 +10,8 @@ themes {
             emphasis_3 "#d07f63"
         }
         text_selected {
-            base "#9f9282"
-            background "#2a2928"
+            base "#a89988"
+            background "#353330"
             emphasis_0 "#cc8155"
             emphasis_1 "#5ea067"
             emphasis_2 "#949844"

@@ -11,7 +11,7 @@ themes {
         }
         text_selected {
             base "#b4bac6"
-            background "#1f232a"
+            background "#31353d"
             emphasis_0 "#b88473"
             emphasis_1 "#7097a3"
             emphasis_2 "#879978"
