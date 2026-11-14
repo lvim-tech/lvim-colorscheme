@@ -1,11 +1,11 @@
 -- lvim-colorscheme.extra.lvim_fuzzy: generate a lvim-fuzzy theme from the lvim-colorscheme palette.
 --
 -- lvim-fuzzy (github.com/lvim-tech/lvim-fuzzy-cli) is the terminal fuzzy finder that draws
--- lvim-picker's look WITHOUT Neovim. It reads a theme from
--- `~/.config/lvim-fuzzy/themes/<name>.toml` (`--theme <name>` or `theme = "<name>"` in its config):
---
---     mkdir -p ~/.config/lvim-fuzzy/themes
---     cp extras/lvim_fuzzy/*.toml ~/.config/lvim-fuzzy/themes/
+-- lvim-picker's look WITHOUT Neovim. Pick a theme with `--theme <name>` or `theme = "<name>"` in its
+-- config. It finds these files on its own — no copying: it reads `extras/lvim_fuzzy/` of every
+-- lvim-colorscheme installed for Neovim, plus the dirs in its config's `themes_dirs` (e.g. a development
+-- checkout) and `~/.config/lvim-fuzzy/themes/`. So after `scripts/build lvim_fuzzy` the new colours are
+-- used on the next start. Without a theme it draws in the terminal's own colours.
 --
 -- Every role is resolved HERE through lvim-utils' own highlight factory
 -- (`lvim-utils.config.highlight`) — the same code that colours lvim-picker inside Neovim — so the
