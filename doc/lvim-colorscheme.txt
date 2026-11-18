@@ -108,7 +108,7 @@ passing `style` and calling |lvim-colorscheme-api| `load()`.
 <
 Opens a floating panel organised by family, with live preview — the theme
 applies as you move between variants and is restored if you cancel. The active
-theme is marked with `➤`. The family tab bar scrolls horizontally when the
+theme is marked with `󰅂`. The family tab bar scrolls horizontally when the
 families do not all fit. Without lvim-utils it falls back to |vim.ui.select|,
 so there is no hard dependency.
 

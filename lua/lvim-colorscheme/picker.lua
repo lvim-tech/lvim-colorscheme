@@ -1,6 +1,6 @@
 -- lvim-colorscheme.picker: the :LvimColorscheme theme picker.
 -- Uses the canonical lvim-ui floating tabs UI (one tab per family, live preview as the cursor
--- moves, ➤ on the active style). lvim-ui is required — there is no non-canonical fallback; when
+-- moves, 󰅂 on the active style). lvim-ui is required — there is no non-canonical fallback; when
 -- it is missing the picker reports the missing dependency and does nothing.
 --
 ---@module "lvim-colorscheme.picker"
@@ -200,7 +200,7 @@ function M.open()
     end
 
     -- Build tabs, keeping a reference to the currently-active item so lvim-utils can mark
-    -- it with the current_item indicator (➤) — comparison is by reference, so the exact
+    -- it with the current_item indicator (󰅂) — comparison is by reference, so the exact
     -- table object stored in tabs[n].items must be passed. The family tab glyph is read LIVE
     -- from config here, so a runtime `tab_icon` change is honoured on the next open.
     local tab_icon = config.picker.tab_icon

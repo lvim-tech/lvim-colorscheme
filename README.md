@@ -264,7 +264,7 @@ require("lvim-colorscheme").setup({
 
 Opens a floating panel organised by family (via [lvim-utils](https://github.com/lvim-tech/lvim-utils)),
 with **live preview** — the theme applies as you move between variants and is restored if
-you cancel. The currently active theme is marked with `➤`. When lvim-utils is not installed
+you cancel. The currently active theme is marked with `󰅂`. When lvim-utils is not installed
 it falls back to `vim.ui.select`, so there is no hard dependency.
 
 | Key           | Action                            |
